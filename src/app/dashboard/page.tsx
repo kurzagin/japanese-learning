@@ -1,0 +1,255 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { FishIcon } from "@/components/FishIcon";
+import { STAGES, Stage } from "@/data/stages";
+import { useLanguage, LanguageSelector } from "@/context/LanguageContext";
+import { Play, BookOpen } from "lucide-react";
+
+export default function DashboardPage() {
+  const { t, locale } = useLanguage();
+  const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
+  const [progress, setProgress] = useState<Record<string, { completed: boolean; bestSec?: number; stars: number }>>({});
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakana.net";
+    setUserEmail(savedEmail);
+
+    // 1. Initial instant load from localStorage
+    const savedProgress = localStorage.getItem("sakana_progress");
+    if (savedProgress) {
+      try {
+        setProgress(JSON.parse(savedProgress));
+      } catch {}
+    }
+
+    // 2. Fetch live progress from Neon Postgres
+    fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data)) {
+          const remoteProgress: Record<string, { completed: boolean; stars: number }> = {};
+          json.data.forEach((row: any) => {
+            remoteProgress[row.stageId] = {
+              completed: row.completed,
+              stars: row.stars,
+            };
+          });
+          setProgress((prev) => ({ ...prev, ...remoteProgress }));
+        }
+      })
+      .catch((err) => console.error("Error fetching Neon progress:", err));
+  }, []);
+
+  const completedCount = Object.values(progress).filter((p) => p.completed).length;
+  const totalStages = STAGES.length;
+
+  const categories: Array<{
+    title: string;
+    sub: string;
+    color: string;
+    stages: Stage[];
+  }> = [
+    {
+      title: t.dashboard.sec1Title,
+      sub: t.dashboard.sec1Sub,
+      color: "#000080",
+      stages: STAGES.filter((s) => s.category === "hiragana"),
+    },
+    {
+      title: t.dashboard.sec2Title,
+      sub: t.dashboard.sec2Sub,
+      color: "#006600",
+      stages: STAGES.filter((s) => s.category === "katakana"),
+    },
+    {
+      title: t.dashboard.sec3Title,
+      sub: t.dashboard.sec3Sub,
+      color: "#800000",
+      stages: STAGES.filter((s) => s.category === "words"),
+    },
+  ];
+
+  return (
+    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center">
+      {/* Outer Retro Container */}
+      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+        
+        {/* Title Bar */}
+        <div className="bg-[#000080] text-white px-2 py-1 flex items-center justify-between select-none font-bold text-xs">
+          <div className="flex items-center gap-1.5">
+            <FishIcon className="w-3.5 h-3.5 text-[#ffff00]" />
+            <span>{t.dashboard.windowTitle}</span>
+          </div>
+          <Link
+            href="/login"
+            title={t.nav.logout}
+            className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none font-bold"
+          >
+            ×
+          </Link>
+        </div>
+
+        {/* User Info Bar & Language switcher */}
+        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-[#000080]">{t.dashboard.operator}</span>
+            <span className="bg-white px-1.5 border border-[#808080] text-[10px]">
+              {userEmail}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <LanguageSelector />
+          </div>
+        </div>
+
+        {/* Content Body */}
+        <div className="p-3 sm:p-4 bg-white text-black space-y-4">
+          
+          {/* Status Matrix Board */}
+          <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
+            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between">
+              <span>◆ {t.dashboard.statsTitle}</span>
+              <span className="text-[#cc0000]">{t.dashboard.standard}</span>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 text-center pt-2 text-xs">
+              <div className="bg-white border border-[#c0c0c0] p-1.5">
+                <span className="block text-[10px] text-[#666]">{t.dashboard.cleared}</span>
+                <strong className="text-[#000080] text-sm">
+                  {completedCount} / {totalStages}
+                </strong>
+              </div>
+              <div className="bg-white border border-[#c0c0c0] p-1.5">
+                <span className="block text-[10px] text-[#666]">{t.dashboard.speed}</span>
+                <strong className="text-[#cc0000] text-sm">
+                  {completedCount > 0 ? "14.2s" : "--"}
+                </strong>
+              </div>
+              <div className="bg-white border border-[#c0c0c0] p-1.5">
+                <span className="block text-[10px] text-[#666]">{t.dashboard.mastery}</span>
+                <strong className="text-[#006600] text-sm">
+                  {Math.round((completedCount / totalStages) * 100)}%
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          {/* Stages by Category */}
+          <div className="space-y-4">
+            {categories.map((cat, catIdx) => (
+              <div key={catIdx} className="border border-[#808080]">
+                {/* Sector Header */}
+                <div
+                  style={{ backgroundColor: cat.color }}
+                  className="text-white px-2 py-1 text-xs font-bold flex items-center justify-between"
+                >
+                  <span>{cat.title}</span>
+                  <span className="text-[10px] text-[#ffff00] font-mono">{cat.sub}</span>
+                </div>
+
+                {/* Stages List */}
+                <div className="divide-y divide-[#d0d0d0] text-xs">
+                  {cat.stages.map((stage, stageIdx) => {
+                    const stageProgress = progress[stage.id];
+                    const isUnlocked = stage.unlockedByDefault || stageIdx === 0 || stageProgress?.completed;
+                    const isCompleted = !!stageProgress?.completed;
+
+                    return (
+                      <div
+                        key={stage.id}
+                        className={`p-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
+                          isCompleted
+                            ? "bg-[#f0fff0]"
+                            : isUnlocked
+                            ? "bg-white hover:bg-[#fffae6]"
+                            : "bg-[#f5f5f5] text-[#888]"
+                        }`}
+                      >
+                        <div className="flex items-start gap-2">
+                          <span className="font-bold font-mono text-[11px] mt-0.5">
+                            {isCompleted ? (
+                              <span className="text-[#008000]">{t.dashboard.statusDone}</span>
+                            ) : isUnlocked ? (
+                              <span className="text-[#000080]">{t.dashboard.statusReady}</span>
+                            ) : (
+                              <span className="text-[#888]">{t.dashboard.statusLocked}</span>
+                            )}
+                          </span>
+
+                          <div>
+                            <div className={`font-bold ${isUnlocked ? "text-black" : "text-[#777]"}`}>
+                              {stage.name[locale]}
+                            </div>
+                            <div className="text-[11px] text-[#555] mt-0.5">
+                              {stage.description[locale]}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons: [LEARN / BELAJAR] + [CHALLENGE / TEST] */}
+                        <div className="flex items-center gap-1.5 self-end sm:self-auto">
+                          {isUnlocked ? (
+                            <>
+                              {/* Learn Mode Button (Anki repetition, no timer) */}
+                              <Link
+                                href={`/study/${stage.id}`}
+                                className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center gap-1 shadow"
+                              >
+                                <BookOpen className="w-3 h-3 text-[#000080]" />
+                                <span>{t.dashboard.studyBtn}</span>
+                              </Link>
+
+                              {/* Timed Challenge Button */}
+                              <button
+                                type="button"
+                                onClick={() => alert(`${stage.name[locale]} - ${t.dashboard.timeLimit} ${stage.targetDurationSeconds} ${t.dashboard.sec}`)}
+                                className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center gap-1 shadow"
+                              >
+                                <Play className="w-3 h-3 fill-[#cc0000]" />
+                                <span>{t.dashboard.sprintBtn}</span>
+                              </button>
+                            </>
+                          ) : (
+                            <span className="text-[10px] text-[#999] font-mono">
+                              {t.dashboard.statusLocked}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        {/* Bottom Windows Control Bar */}
+        <div className="border-t border-[#808080] bg-[#ece9d8] p-2 flex items-center justify-between text-xs">
+          <Link
+            href="/"
+            className="px-3 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] text-black font-bold text-xs hover:bg-[#c0bca8]"
+          >
+            &lt;&lt; {t.nav.back}
+          </Link>
+
+          <Link
+            href="/study/hiragana-vowels"
+            className="px-4 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] text-[#000080] font-black text-xs hover:bg-[#c0bca8] flex items-center gap-1"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-[#000080]" />
+            <span>{t.dashboard.studyBtn}: {t.dashboard.sec1Title}</span>
+          </Link>
+        </div>
+
+      </div>
+
+      <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
+        SAKANA DOJO // SYSTEM ONLINE // MULTILINGUAL
+      </footer>
+    </div>
+  );
+}
