@@ -40,8 +40,8 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
       </div>
 
       {/* Real Retro Navigation Bar */}
-      <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex flex-wrap items-center justify-between gap-2 text-black">
-        <nav className="flex items-center gap-1 sm:gap-2" aria-label="Main Navigation">
+      <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1.5 sm:py-1 text-[11px] flex items-center justify-between gap-1.5 sm:gap-2 text-black">
+        <nav className="flex items-center gap-1 sm:gap-2 shrink-0" aria-label="Main Navigation">
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"
@@ -52,7 +52,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-2 py-0.5 border text-xs font-semibold transition-colors ${
+                className={`px-2 py-1 sm:py-0.5 border text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-colors ${
                   isActive
                     ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
                     : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
@@ -63,7 +63,9 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
             );
           })}
         </nav>
-        <LanguageSelector />
+        <div className="shrink-0">
+          <LanguageSelector />
+        </div>
       </div>
     </div>
   );

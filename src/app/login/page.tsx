@@ -160,12 +160,12 @@ export default function LoginPage() {
 
         {/* Dialog Status */}
         <div className="border-t border-[#808080] bg-[#d4d0c8] px-2 py-0.5 text-[9px] text-[#555] flex justify-between">
-          <span>NEON MANAGED AUTH</span>
+          <span>SAKANA AUTH</span>
           <span>SSL // SECURED</span>
         </div>
       </div>
       <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
-        SAKANA AUTH // NEON MANAGED AUTHENTICATION
+        SAKANA AUTH // SECURE SYSTEM
       </footer>
     </div>
   );
