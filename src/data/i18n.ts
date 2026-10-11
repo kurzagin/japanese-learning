@@ -6,11 +6,11 @@ export interface TranslationSchema {
     sub: string;
   };
   nav: {
+    brand: string;
+    home: string;
+    dashboard: string;
+    study: string;
     windowTitle: string;
-    file: string;
-    edit: string;
-    view: string;
-    help: string;
     login: string;
     enter: string;
     top: string;
@@ -91,15 +91,15 @@ export interface TranslationSchema {
 export const translations: Record<Locale, TranslationSchema> = {
   en: {
     meta: {
-      title: "SaKana - Japanese Kana Reflex Practice",
-      sub: "Japanese speed drill for anime & manga fans",
+      title: "SaKana",
+      sub: "Japanese learning drill for anime & manga fans",
     },
     nav: {
-      windowTitle: "SaKana_v1.0 - [KANA REFLEX TRAINING]",
-      file: "File(F)",
-      edit: "Edit(E)",
-      view: "View(V)",
-      help: "Help(H)",
+      brand: "SaKana",
+      home: "HOME",
+      dashboard: "DASHBOARD",
+      study: "STUDY",
+      windowTitle: "SaKana",
       login: "LOGIN",
       enter: "ENTER",
       top: "RETURN TO TOP",
@@ -123,8 +123,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule3Desc: "Once you master Hiragana & Katakana, jump directly into real anime words and loanwords before touching complex Kanji.",
     },
     login: {
-      windowTitle: "LOGIN.EXE - [AUTHENTICATION]",
-      appTitle: "SAKANA REFLEX NETWORK",
+      windowTitle: "Authentication",
+      appTitle: "SaKana Authentication",
       instruction: "Enter your email address to save your study records and stage progress.",
       emailLabel: "E-MAIL ADDRESS:",
       submit: "AUTHENTICATE",
@@ -134,7 +134,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       returnLink: "<< Back to Home",
     },
     dashboard: {
-      windowTitle: "SaKana_Dojo.exe - [STUDY DASHBOARD]",
+      windowTitle: "Study Dashboard",
       operator: "STUDENT:",
       streak: "1-DAY STREAK",
       statsTitle: "CURRENT PERFORMANCE",
@@ -160,7 +160,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec: "sec",
     },
     study: {
-      windowTitle: "STUDY_MODE.EXE - [REPETITION DRILL]",
+      windowTitle: "Study Mode",
       studyBadge: "UNTIMED STUDY MODE (ANKI METHOD)",
       flipPrompt: "[ Click or Tap to Flip Card ]",
       againBtn: "Again",
@@ -179,15 +179,15 @@ export const translations: Record<Locale, TranslationSchema> = {
 
   id: {
     meta: {
-      title: "SaKana - Latihan Refleks Membaca Kana Jepang",
-      sub: "Latihan cepat membaca kana untuk pecinta anime & manga",
+      title: "SaKana",
+      sub: "Latihan membaca kana untuk pecinta anime & manga",
     },
     nav: {
-      windowTitle: "SaKana_v1.0 - [LATIHAN REFLEKS KANA]",
-      file: "Berkas(B)",
-      edit: "Ubah(U)",
-      view: "Tampilan(T)",
-      help: "Bantuan(H)",
+      brand: "SaKana",
+      home: "BERANDA",
+      dashboard: "DASHBOARD",
+      study: "BELAJAR",
+      windowTitle: "SaKana",
       login: "MASUK",
       enter: "MASUK KE DASHBOARD",
       top: "KEMBALI KE BERANDA",
@@ -211,8 +211,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule3Desc: "Setelah paham Hiragana & Katakana, langsung coba membaca kosakata anime dan kata serapan sehari-hari sebelum belajar Kanji.",
     },
     login: {
-      windowTitle: "LOGIN.EXE - [AUTENTIKASI]",
-      appTitle: "SAKANA REFLEX NETWORK",
+      windowTitle: "Autentikasi",
+      appTitle: "SaKana Autentikasi",
       instruction: "Masukkan email kamu untuk menyimpan rekor waktu dan progress stage.",
       emailLabel: "ALAMAT EMAIL:",
       submit: "MASUK DENGAN EMAIL",
@@ -222,7 +222,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       returnLink: "<< Kembali ke Beranda",
     },
     dashboard: {
-      windowTitle: "SaKana_Dojo.exe - [DASHBOARD LATIHAN]",
+      windowTitle: "Dashboard Latihan",
       operator: "PENGGUNA:",
       streak: "STREAK 1 HARI",
       statsTitle: "STATISTIK BELAJAR",
@@ -248,7 +248,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec: "dtk",
     },
     study: {
-      windowTitle: "STUDY_MODE.EXE - [PENGULANGAN KANA]",
+      windowTitle: "Mode Belajar",
       studyBadge: "MODE BELAJAR SANTAI (METODE ANKI)",
       flipPrompt: "[ Klik untuk Membuka Kartu ]",
       againBtn: "Ulangi",
@@ -267,15 +267,15 @@ export const translations: Record<Locale, TranslationSchema> = {
 
   ja: {
     meta: {
-      title: "SaKana - かな反射神経トレーニング",
+      title: "SaKana",
       sub: "アニメ・マンガファンのための速読ドリル",
     },
     nav: {
-      windowTitle: "SaKana_v1.0 - 【かな反射神経トレーニング】",
-      file: "ファイル(F)",
-      edit: "編集(E)",
-      view: "表示(V)",
-      help: "ヘルプ(H)",
+      brand: "SaKana",
+      home: "ホーム",
+      dashboard: "道場",
+      study: "修練",
+      windowTitle: "SaKana",
       login: "ログイン",
       enter: "道場へ入る",
       top: "トップへ戻る",
@@ -299,8 +299,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule3Desc: "ひらがな・カタカナを覚えたら、すぐにアニメやゲームで使われる実戦単語を読み進めます。",
     },
     login: {
-      windowTitle: "LOGIN.EXE - 【ユーザー認証】",
-      appTitle: "SAKANA REFLEX NETWORK",
+      windowTitle: "ユーザー認証",
+      appTitle: "SaKana 認証",
       instruction: "メールアドレスを入力してログインしてください。記録が保存されます。",
       emailLabel: "メールアドレス:",
       submit: "認証する",
@@ -310,7 +310,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       returnLink: "<< トップページに戻る",
     },
     dashboard: {
-      windowTitle: "SaKana_Dojo.exe - 【道場メインメニュー】",
+      windowTitle: "道場メインメニュー",
       operator: "門下生:",
       streak: "1日連続練習",
       statsTitle: "現在の修行成績",
@@ -336,7 +336,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec: "秒",
     },
     study: {
-      windowTitle: "STUDY_MODE.EXE - 【反復学習カード】",
+      windowTitle: "反復学習カード",
       studyBadge: "時間制限なし学習モード (Anki方式)",
       flipPrompt: "【 タップまたはクリックでカードを裏返す 】",
       againBtn: "もう一度",

@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FishIcon } from "@/components/FishIcon";
-import { useLanguage, LanguageSelector } from "@/context/LanguageContext";
-import { KeyRound, UserCheck } from "lucide-react";
+import { RetroNavbar } from "@/components/RetroNavbar";
+import { useLanguage } from "@/context/LanguageContext";
+import { UserCheck } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
@@ -57,24 +58,8 @@ export default function LoginPage() {
       {/* Windows 98/2000 Dialog Box */}
       <div className="w-full max-w-sm bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl">
         
-        {/* Title Bar */}
-        <div className="bg-[#000080] text-white px-2 py-1 flex items-center justify-between select-none font-bold text-xs">
-          <div className="flex items-center gap-1.5">
-            <KeyRound className="w-3.5 h-3.5 text-[#ffff00]" />
-            <span>{t.login.windowTitle}</span>
-          </div>
-          <Link
-            href="/"
-            className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none font-bold"
-          >
-            ×
-          </Link>
-        </div>
-
-        {/* Dialog Header / Lang bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 flex items-center justify-end">
-          <LanguageSelector />
-        </div>
+        {/* Retro Navbar & SaKana Branding */}
+        <RetroNavbar currentSubtitle={t.login.appTitle} />
 
         {/* Dialog Content */}
         <div className="p-4 bg-[#ece9d8] text-black space-y-4">

@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { STAGES, Stage, StudyCard } from "@/data/stages";
-import { useLanguage, LanguageSelector } from "@/context/LanguageContext";
-import { FishIcon } from "@/components/FishIcon";
+import { RetroNavbar } from "@/components/RetroNavbar";
+import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, RotateCw, Check, Play, BookOpen } from "lucide-react";
 
 export default function StudyClient({ stageId }: { stageId: string }) {
@@ -120,31 +120,20 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       {/* Outer Windows 98/2000 Container */}
       <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         
-        {/* Title Bar */}
-        <div className="bg-[#000080] text-white px-2 py-1 flex items-center justify-between select-none font-bold text-xs">
-          <div className="flex items-center gap-1.5">
-            <FishIcon className="w-3.5 h-3.5 text-[#ffff00]" />
-            <span>{t.study.windowTitle} - {stageDisplayName}</span>
-          </div>
-          <Link
-            href="/dashboard"
-            className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none font-bold"
-          >
-            ×
-          </Link>
-        </div>
+        {/* Retro Navbar & SaKana Branding */}
+        <RetroNavbar currentSubtitle={`${t.study.windowTitle} - ${stageDisplayName}`} />
 
         {/* Top Info Bar */}
         <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
-          <div className="flex items-center gap-2">
-            <Link
-              href="/dashboard"
-              className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
-            >
-              <ArrowLeft className="w-3 h-3" /> {t.study.backDashboard}
-            </Link>
-          </div>
-          <LanguageSelector />
+          <Link
+            href="/dashboard"
+            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
+          >
+            <ArrowLeft className="w-3 h-3" /> {t.study.backDashboard}
+          </Link>
+          <span className="font-mono text-[10px] text-[#555] uppercase">
+            {stageDisplayName}
+          </span>
         </div>
 
         {/* Mode Notice Banner */}

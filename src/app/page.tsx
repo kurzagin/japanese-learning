@@ -1,41 +1,41 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FishIcon } from "@/components/FishIcon";
-import { useLanguage, LanguageSelector } from "@/context/LanguageContext";
+import { RetroNavbar } from "@/components/RetroNavbar";
+import { useLanguage } from "@/context/LanguageContext";
 import { Play } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useLanguage();
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Atomically increment and get updated count from DB on page load / refresh
+    fetch("/api/visitors", { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && typeof data.count === "number") {
+          setVisitorCount(data.count);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to update visitor counter:", err);
+      });
+  }, []);
+
+  const formattedCount =
+    visitorCount !== null
+      ? String(visitorCount).padStart(6, "0")
+      : "------";
 
   return (
     <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
       {/* Outer Retro Container Box with Windows 98/2000 3D border */}
       <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         
-        {/* Title Bar */}
-        <div className="bg-[#000080] text-white px-2 py-1 flex items-center justify-between select-none font-bold text-xs">
-          <div className="flex items-center gap-1.5">
-            <FishIcon className="w-3.5 h-3.5 text-[#ffff00]" />
-            <span className="tracking-wider">{t.nav.windowTitle}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <span className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none">_</span>
-            <span className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none">□</span>
-            <span className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none font-bold">×</span>
-          </div>
-        </div>
-
-        {/* Top Nav Menubar & Language Selector */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
-          <div className="flex items-center gap-3">
-            <span className="underline cursor-pointer">{t.nav.file}</span>
-            <span className="underline cursor-pointer">{t.nav.edit}</span>
-            <span className="underline cursor-pointer">{t.nav.view}</span>
-            <span className="underline cursor-pointer">{t.nav.help}</span>
-          </div>
-          <LanguageSelector />
-        </div>
+        {/* Real Retro Navbar & SaKana Branding */}
+        <RetroNavbar />
 
         {/* Content Body */}
         <div className="p-3 sm:p-4 bg-white text-black space-y-4">
@@ -56,12 +56,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Visitor Counter */}
+          {/* Real Visitor Counter Stored in DB */}
           <div className="border border-[#808080] bg-[#f0f0f0] px-2 py-1 flex items-center justify-between text-[11px]">
             <div className="flex items-center gap-1.5">
               <span className="font-bold text-[#000080]">{t.home.counterLabel}</span>
               <span className="bg-black text-[#00ff00] font-mono px-1.5 py-0.5 border border-[#808080] text-xs font-bold tracking-widest">
-                004289
+                {formattedCount}
               </span>
             </div>
             <div className="text-[10px] text-[#555] font-mono">

@@ -33,7 +33,13 @@ export const kana = pgTable("kana", {
   row: text("row").notNull(), // "vowel", "k", "s", etc.
   hintEn: text("hint_en"),
   hintId: text("hint_id"),
-  hintJa: text("hint_ja"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+// Site stats table for persistent counters (such as page visitors)
+export const siteStats = pgTable("site_stats", {
+  id: text("id").primaryKey(), // e.g. "visitor_counter"
+  counter: integer("counter").default(0).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
 

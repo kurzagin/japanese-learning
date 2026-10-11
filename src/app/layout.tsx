@@ -3,8 +3,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SaKana - Japanese Kana Reflex Practice",
-  description: "Speed kana reflex training homepage. Support EN, ID, JA.",
+  title: "SaKana",
+  description: "SaKana Japanese learning application. Support EN, ID, JA.",
 };
 
 export default function RootLayout({

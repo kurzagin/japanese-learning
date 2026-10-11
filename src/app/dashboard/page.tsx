@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { FishIcon } from "@/components/FishIcon";
+import { RetroNavbar } from "@/components/RetroNavbar";
 import { STAGES, Stage } from "@/data/stages";
-import { useLanguage, LanguageSelector } from "@/context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Play, BookOpen } from "lucide-react";
 
 export default function DashboardPage() {
@@ -76,22 +76,10 @@ export default function DashboardPage() {
       {/* Outer Retro Container */}
       <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         
-        {/* Title Bar */}
-        <div className="bg-[#000080] text-white px-2 py-1 flex items-center justify-between select-none font-bold text-xs">
-          <div className="flex items-center gap-1.5">
-            <FishIcon className="w-3.5 h-3.5 text-[#ffff00]" />
-            <span>{t.dashboard.windowTitle}</span>
-          </div>
-          <Link
-            href="/login"
-            title={t.nav.logout}
-            className="w-3.5 h-3.5 bg-[#d4d0c8] text-black border border-white border-b-black border-r-black text-[9px] flex items-center justify-center font-mono leading-none font-bold"
-          >
-            ×
-          </Link>
-        </div>
+        {/* Retro Navbar & SaKana Branding */}
+        <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
 
-        {/* User Info Bar & Language switcher */}
+        {/* User Info Bar */}
         <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
           <div className="flex items-center gap-2">
             <span className="font-bold text-[#000080]">{t.dashboard.operator}</span>
@@ -99,9 +87,12 @@ export default function DashboardPage() {
               {userEmail}
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <LanguageSelector />
-          </div>
+          <Link
+            href="/login"
+            className="text-[10px] text-[#000080] hover:text-[#cc0000] underline"
+          >
+            [{t.nav.logout}]
+          </Link>
         </div>
 
         {/* Content Body */}
