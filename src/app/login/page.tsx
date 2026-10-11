@@ -54,15 +54,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen py-6 px-2 sm:px-6 flex flex-col items-center justify-center">
-      {/* Windows 98/2000 Dialog Box */}
-      <div className="w-full max-w-sm bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl">
+    <div className="min-h-screen py-2 sm:py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+      {/* Windows 98/2000 Full-Screen Box */}
+      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl flex flex-col flex-1 my-auto">
         
         {/* Retro Navbar & SaKana Branding */}
         <RetroNavbar currentSubtitle={t.login.appTitle} />
 
         {/* Dialog Content */}
-        <div className="p-4 bg-[#ece9d8] text-black space-y-4">
+        <div className="p-4 sm:p-6 bg-[#ece9d8] text-black space-y-4 flex-1 flex flex-col justify-center">
           
           <div className="flex items-start gap-3 border-b border-[#808080] pb-3">
             <div className="w-10 h-10 border border-[#808080] bg-[#fff] flex items-center justify-center text-[#000080]">
@@ -164,6 +164,9 @@ export default function LoginPage() {
           <span>SSL // SECURED</span>
         </div>
       </div>
+      <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
+        SAKANA AUTH // NEON MANAGED AUTHENTICATION
+      </footer>
     </div>
   );
 }

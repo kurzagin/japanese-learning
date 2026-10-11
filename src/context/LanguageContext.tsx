@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { Globe } from "lucide-react";
 import { Locale, TranslationSchema, translations } from "@/data/i18n";
 
 interface LanguageContextType {
@@ -42,27 +43,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   return useContext(LanguageContext);
 }
-
 export function LanguageSelector() {
   const { locale, setLocale } = useLanguage();
 
   return (
-    <div className="flex items-center gap-1 text-[10px] font-mono select-none">
-      <span className="text-[#555] hidden sm:inline">LANG:</span>
-      {(["en", "id", "ja"] as Locale[]).map((lang) => (
-        <button
-          key={lang}
-          type="button"
-          onClick={() => setLocale(lang)}
-          className={`px-1.5 py-0.5 border uppercase ${
-            locale === lang
-              ? "bg-[#000080] text-white border-[#000080] font-bold"
-              : "bg-[#d4d0c8] text-black border-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8]"
-          }`}
+    <div className="flex items-center gap-1.5 text-[11px] font-mono select-none">
+      <Globe className="w-3.5 h-3.5 text-[#000080]" />
+      <div className="relative inline-block">
+        <select
+          value={locale}
+          aria-label="Select language"
+          onChange={(e) => setLocale(e.target.value as Locale)}
+          className="appearance-none bg-[#d4d0c8] text-black text-xs font-bold py-0.5 pl-1.5 pr-5 border-t border-l border-white border-b-[#404040] border-r-[#404040] outline-none cursor-pointer hover:bg-[#e4e0d8] focus:bg-white"
         >
-          {lang}
-        </button>
-      ))}
+          <option value="en">English (EN)</option>
+          <option value="id">Bahasa ID (ID)</option>
+          <option value="ja">日本語 (JA)</option>
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-[8px] text-black font-bold">
+          ▼
+        </div>
+      </div>
     </div>
   );
 }
