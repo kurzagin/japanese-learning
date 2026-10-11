@@ -248,6 +248,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
   const currentQ = questions[currentIndex];
   const stageDisplayName = stage.name[locale];
+  const isBoss = !!stage.isBossStage;
   const timeBarPercent = Math.max(0, Math.min(100, (timeLeft / timeLimit) * 100));
 
   // Determine next stage
@@ -257,29 +258,33 @@ export default function TestClient({ stageId }: { stageId: string }) {
   return (
     <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
       {/* Outer Windows Container */}
-      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+      <div className={`w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col ${
+        isBoss ? "ring-2 ring-[#cc0000]" : ""
+      }`}>
         {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle={`${t.test.windowTitle} - ${stageDisplayName}`} />
+        <RetroNavbar currentSubtitle={`${isBoss ? "⚔️ BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
 
         {/* Top Info Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
+        <div className={`border-b border-[#808080] px-2 py-1 text-[11px] flex items-center justify-between text-black ${
+          isBoss ? "bg-[#ffe4e1]" : "bg-[#ece9d8]"
+        }`}>
           <Link
             href="/dashboard"
             className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
           >
             <ArrowLeft className="w-3 h-3" /> {t.test.backToDashboard}
           </Link>
-          <span className="font-mono text-[10px] text-[#555] uppercase">
-            {stageDisplayName}
+          <span className={`font-mono text-[10px] uppercase font-bold ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
+            {isBoss ? "⚡ BOSS CHECKPOINT" : stageDisplayName}
           </span>
         </div>
 
         {/* Test Header with Countdown Meter */}
-        <div className="bg-[#fff8e7] border-b border-[#808080] px-3 py-2">
+        <div className={`${isBoss ? "bg-[#fff0f0]" : "bg-[#fff8e7]"} border-b border-[#808080] px-3 py-2`}>
           <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-[#cc0000] flex items-center gap-1 font-mono">
-              <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
-              {t.test.testBadge}
+            <span className={`font-bold flex items-center gap-1 font-mono ${isBoss ? "text-[#800000]" : "text-[#cc0000]"}`}>
+              <Zap className="w-3.5 h-3.5 fill-current" />
+              {isBoss ? "BOSS CHALLENGE REFLEX TEST" : t.test.testBadge}
             </span>
             <div className="font-mono text-xs font-bold flex items-center gap-2">
               <span className="text-[#555]">{t.test.timeRemaining}:</span>

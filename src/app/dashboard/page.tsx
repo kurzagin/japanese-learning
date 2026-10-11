@@ -169,16 +169,33 @@ export default function DashboardPage() {
                 <div className="divide-y divide-[#d0d0d0] text-xs">
                   {cat.stages.map((stage, stageIdx) => {
                     const stageProgress = progress[stage.id];
-                    const prevStage = stageIdx > 0 ? cat.stages[stageIdx - 1] : null;
-                    const prevCompleted = prevStage ? !!progress[prevStage.id]?.completed : false;
-                    const isUnlocked = stage.unlockedByDefault || stageIdx === 0 || !!stageProgress?.completed || prevCompleted;
                     const isCompleted = !!stageProgress?.completed;
+
+                    let isUnlocked = false;
+                    if (stage.unlockedByDefault || stageIdx === 0 || isCompleted) {
+                      isUnlocked = true;
+                    } else if (stage.isBossStage && stage.requiredStageIds) {
+                      // Boss stage requires all preceding stages in its block to be completed
+                      isUnlocked = stage.requiredStageIds.every((reqId) => !!progress[reqId]?.completed);
+                    } else {
+                      // Normal stage requires the previous stage to be completed
+                      const prevStage = stageIdx > 0 ? cat.stages[stageIdx - 1] : null;
+                      isUnlocked = prevStage ? !!progress[prevStage.id]?.completed : false;
+                    }
+
+                    const isBoss = !!stage.isBossStage;
 
                     return (
                       <div
                         key={stage.id}
                         className={`p-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
-                          isCompleted
+                          isBoss
+                            ? isCompleted
+                              ? "bg-[#fff0f5] border-l-4 border-l-[#800080]"
+                              : isUnlocked
+                              ? "bg-[#fff8dc] border-l-4 border-l-[#cc0000] animate-pulse-slow"
+                              : "bg-[#f2f2f2] border-l-4 border-l-[#888] text-[#888]"
+                            : isCompleted
                             ? "bg-[#f0fff0]"
                             : isUnlocked
                             ? "bg-white hover:bg-[#fffae6]"
@@ -188,17 +205,26 @@ export default function DashboardPage() {
                         <div className="flex items-start gap-2">
                           <span className="font-bold font-mono text-[11px] mt-0.5">
                             {isCompleted ? (
-                              <span className="text-[#008000]">{t.dashboard.statusDone}</span>
+                              <span className={isBoss ? "text-[#800080]" : "text-[#008000]"}>
+                                {isBoss ? "★ DEFEATED" : t.dashboard.statusDone}
+                              </span>
                             ) : isUnlocked ? (
-                              <span className="text-[#000080]">{t.dashboard.statusReady}</span>
+                              <span className={isBoss ? "text-[#cc0000] font-black" : "text-[#000080]"}>
+                                {isBoss ? "⚡ CHALLENGE" : t.dashboard.statusReady}
+                              </span>
                             ) : (
                               <span className="text-[#888]">{t.dashboard.statusLocked}</span>
                             )}
                           </span>
 
                           <div>
-                            <div className={`font-bold ${isUnlocked ? "text-black" : "text-[#777]"}`}>
-                              {stage.name[locale]}
+                            <div className={`font-bold flex items-center gap-1.5 ${isUnlocked ? (isBoss ? "text-[#990000]" : "text-black") : "text-[#777]"}`}>
+                              <span>{stage.name[locale]}</span>
+                              {isBoss && (
+                                <span className="bg-[#cc0000] text-white text-[9px] px-1 py-0.2 font-mono uppercase rounded-xs">
+                                  BOSS GATE
+                                </span>
+                              )}
                             </div>
                             <div className="text-[11px] text-[#555] mt-0.5">
                               {stage.description[locale]}
@@ -222,15 +248,17 @@ export default function DashboardPage() {
                               {/* Timed Challenge Button */}
                               <Link
                                 href={`/test/${stage.id}`}
-                                className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center gap-1 shadow"
+                                className={`px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs flex items-center gap-1 shadow ${
+                                  isBoss ? "text-[#800000] bg-[#ffe4e1] border-[#800000]" : "text-[#cc0000]"
+                                }`}
                               >
-                                <Play className="w-3 h-3 fill-[#cc0000]" />
-                                <span>{t.dashboard.sprintBtn}</span>
+                                <Play className={`w-3 h-3 ${isBoss ? "fill-[#800000]" : "fill-[#cc0000]"}`} />
+                                <span>{isBoss ? "BOSS FIGHT" : t.dashboard.sprintBtn}</span>
                               </Link>
                             </>
                           ) : (
                             <span className="text-[10px] text-[#999] font-mono">
-                              {t.dashboard.statusLocked}
+                              {isBoss ? "🔒 BEAT 2 STAGES FIRST" : t.dashboard.statusLocked}
                             </span>
                           )}
                         </div>

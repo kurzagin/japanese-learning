@@ -22,6 +22,8 @@ export interface Stage {
   targetDurationSeconds: number;
   itemCount: number;
   unlockedByDefault?: boolean;
+  isBossStage?: boolean;
+  requiredStageIds?: string[];
   cards: StudyCard[];
 }
 
@@ -628,69 +630,93 @@ export const WORD_STAGES: Stage[] = [
 function buildStages(): Stage[] {
   const result: Stage[] = [];
 
-  // 1. HIRAGANA STAGES
-  HIRAGANA_ROW_DEFS.forEach((def, idx) => {
-    const rawCards = HIRAGANA_PRIMITIVES.filter(def.filter);
-    const chars = rawCards.map((c) => `${c.character} (${c.romaji})`).join(", ");
-    const isBasic = idx < 10;
-    const stageId = `hiragana-${def.key}`;
+  // Helper to build rows with boss stages every 2 rows
+  function addAlphabetStages(category: "hiragana" | "katakana", defs: RowDef[], primitives: KanaCharacter[]) {
+    const isHiragana = category === "hiragana";
+    const depthBasic = isHiragana
+      ? { en: "The Shallows", id: "The Shallows", ja: "第一海域：浅瀬" }
+      : { en: "The River", id: "The River", ja: "第二海域：激流" };
+    const depthAdv = isHiragana
+      ? { en: "The Trench (Advanced)", id: "The Trench (Lanjutan)", ja: "深海：海溝 (発展)" }
+      : { en: "The Abyss (Advanced)", id: "The Abyss (Lanjutan)", ja: "深海：深淵 (発展)" };
 
-    result.push({
-      id: stageId,
-      name: {
-        en: `Hiragana: ${def.nameEn}`,
-        id: `Hiragana: ${def.nameId}`,
-        ja: `平仮名：${def.nameJa}`,
-      },
-      category: "hiragana",
-      depthName: {
-        en: isBasic ? "The Shallows" : "The Trench (Advanced)",
-        id: isBasic ? "The Shallows" : "The Trench (Lanjutan)",
-        ja: isBasic ? "第一海域：浅瀬" : "深海：海溝 (発展)",
-      },
-      description: {
-        en: chars,
-        id: chars,
-        ja: chars,
-      },
-      targetDurationSeconds: Math.max(15, rawCards.length * 3),
-      itemCount: rawCards.length,
-      unlockedByDefault: idx === 0,
-      cards: rawCards.map(createCard),
+    let currentGroupCards: StudyCard[] = [];
+    let currentGroupStageIds: string[] = [];
+    let bossCounter = 1;
+
+    defs.forEach((def, idx) => {
+      const rawCards = primitives.filter(def.filter);
+      const chars = rawCards.map((c) => `${c.character} (${c.romaji})`).join(", ");
+      const isBasic = idx < 10;
+      const stageId = `${category}-${def.key}`;
+      const cards = rawCards.map(createCard);
+
+      result.push({
+        id: stageId,
+        name: {
+          en: `${isHiragana ? "Hiragana" : "Katakana"}: ${def.nameEn}`,
+          id: `${isHiragana ? "Hiragana" : "Katakana"}: ${def.nameId}`,
+          ja: `${isHiragana ? "平仮名" : "片仮名"}：${def.nameJa}`,
+        },
+        category,
+        depthName: isBasic ? depthBasic : depthAdv,
+        description: {
+          en: chars,
+          id: chars,
+          ja: chars,
+        },
+        targetDurationSeconds: Math.max(15, rawCards.length * 3),
+        itemCount: rawCards.length,
+        unlockedByDefault: idx === 0,
+        cards,
+      });
+
+      currentGroupCards.push(...cards);
+      currentGroupStageIds.push(stageId);
+
+      // Every 2 stages, inject a Boss Checkpoint Stage!
+      if (currentGroupStageIds.length === 2 || idx === defs.length - 1) {
+        const bossId = `${category}-boss-${bossCounter}`;
+        const bossTitlePrefix = isHiragana ? "Hiragana" : "Katakana";
+        const bossDescChars = currentGroupCards.map((c) => c.character).join(" ");
+
+        result.push({
+          id: bossId,
+          name: {
+            en: `⚔️ BOSS: ${bossTitlePrefix} Checkpoint ${bossCounter}`,
+            id: `⚔️ BOSS: Checkpoint ${bossTitlePrefix} ${bossCounter}`,
+            ja: `⚔️ ボス関門：${isHiragana ? "平仮名" : "片仮名"} 突破戦 ${bossCounter}`,
+          },
+          category,
+          depthName: {
+            en: `Boss Gate #${bossCounter}`,
+            id: `Gerbang Bos #${bossCounter}`,
+            ja: `第${bossCounter}ボス突破門`,
+          },
+          description: {
+            en: `Cumulative reflex test (${currentGroupCards.length} kana): ${bossDescChars}`,
+            id: `Ujian refleks kumulatif (${currentGroupCards.length} kana): ${bossDescChars}`,
+            ja: `累積反射テスト (${currentGroupCards.length}文字)：${bossDescChars}`,
+          },
+          targetDurationSeconds: Math.max(20, Math.round(currentGroupCards.length * 2.5)),
+          itemCount: currentGroupCards.length,
+          isBossStage: true,
+          requiredStageIds: [...currentGroupStageIds],
+          cards: [...currentGroupCards],
+        });
+
+        bossCounter++;
+        currentGroupCards = [];
+        currentGroupStageIds = [];
+      }
     });
-  });
+  }
 
-  // 2. KATAKANA STAGES
-  KATAKANA_ROW_DEFS.forEach((def, idx) => {
-    const rawCards = KATAKANA_PRIMITIVES.filter(def.filter);
-    const chars = rawCards.map((c) => `${c.character} (${c.romaji})`).join(", ");
-    const isBasic = idx < 10;
-    const stageId = `katakana-${def.key}`;
+  // 1. HIRAGANA
+  addAlphabetStages("hiragana", HIRAGANA_ROW_DEFS, HIRAGANA_PRIMITIVES);
 
-    result.push({
-      id: stageId,
-      name: {
-        en: `Katakana: ${def.nameEn}`,
-        id: `Katakana: ${def.nameId}`,
-        ja: `片仮名：${def.nameJa}`,
-      },
-      category: "katakana",
-      depthName: {
-        en: isBasic ? "The River" : "The Abyss (Advanced)",
-        id: isBasic ? "The River" : "The Abyss (Lanjutan)",
-        ja: isBasic ? "第二海域：激流" : "深海：深淵 (発展)",
-      },
-      description: {
-        en: chars,
-        id: chars,
-        ja: chars,
-      },
-      targetDurationSeconds: Math.max(15, rawCards.length * 3),
-      itemCount: rawCards.length,
-      unlockedByDefault: idx === 0,
-      cards: rawCards.map(createCard),
-    });
-  });
+  // 2. KATAKANA
+  addAlphabetStages("katakana", KATAKANA_ROW_DEFS, KATAKANA_PRIMITIVES);
 
   // 3. WORD STAGES
   result.push(...WORD_STAGES);
