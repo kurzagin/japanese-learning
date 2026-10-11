@@ -16,6 +16,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [againCount, setAgainCount] = useState(0);
+  const [startTime, setStartTime] = useState<number>(Date.now());
 
   // Initialize card queue from stage cards
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       setIsFlipped(false);
       setCompleted(false);
       setAgainCount(0);
+      setStartTime(Date.now());
     }
   }, [stage]);
 
@@ -66,6 +68,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       setCurrentIndex((prev) => prev + 1);
     } else {
       setCompleted(true);
+      const sessionDurationMs = Math.max(1000, Date.now() - startTime);
+
       // Sync progress to Neon database
       const userEmail = typeof window !== "undefined"
         ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
@@ -74,7 +78,11 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       // Also persist to localStorage for fast offline rendering
       try {
         const stored = JSON.parse(localStorage.getItem("sakana_progress") || "{}");
-        stored[stageId] = { completed: true, stars: 3 };
+        stored[stageId] = {
+          completed: true,
+          stars: 3,
+          bestDurationMs: sessionDurationMs,
+        };
         localStorage.setItem("sakana_progress", JSON.stringify(stored));
       } catch {}
 
@@ -86,6 +94,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
           stageId,
           completed: true,
           stars: 3,
+          durationMs: sessionDurationMs,
           accuracyPercentage: 100,
         }),
       }).catch((err) => console.error("Neon progress sync error:", err));
@@ -99,6 +108,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       setIsFlipped(false);
       setCompleted(false);
       setAgainCount(0);
+      setStartTime(Date.now());
     }
   };
 

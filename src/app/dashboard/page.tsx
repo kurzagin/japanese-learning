@@ -29,11 +29,12 @@ export default function DashboardPage() {
       .then((res) => res.json())
       .then((json) => {
         if (json.success && Array.isArray(json.data)) {
-          const remoteProgress: Record<string, { completed: boolean; stars: number }> = {};
+          const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
           json.data.forEach((row: any) => {
             remoteProgress[row.stageId] = {
               completed: row.completed,
               stars: row.stars,
+              bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
             };
           });
           setProgress((prev) => ({ ...prev, ...remoteProgress }));
@@ -42,7 +43,13 @@ export default function DashboardPage() {
       .catch((err) => console.error("Error fetching Neon progress:", err));
   }, []);
 
-  const completedCount = Object.values(progress).filter((p) => p.completed).length;
+  const completedList = Object.values(progress).filter((p) => p.completed);
+  const completedCount = completedList.length;
+  const stagesWithSpeed = completedList.filter((p) => typeof p.bestSec === "number" && (p.bestSec as number) > 0);
+  const avgSpeedSec =
+    stagesWithSpeed.length > 0
+      ? (stagesWithSpeed.reduce((acc, curr) => acc + (curr.bestSec || 0), 0) / stagesWithSpeed.length).toFixed(1)
+      : null;
   const totalStages = STAGES.length;
 
   const categories: Array<{
@@ -115,7 +122,7 @@ export default function DashboardPage() {
               <div className="bg-white border border-[#c0c0c0] p-1.5">
                 <span className="block text-[10px] text-[#666]">{t.dashboard.speed}</span>
                 <strong className="text-[#cc0000] text-sm">
-                  {completedCount > 0 ? "14.2s" : "--"}
+                  {avgSpeedSec ? `${avgSpeedSec}s` : "--"}
                 </strong>
               </div>
               <div className="bg-white border border-[#c0c0c0] p-1.5">
@@ -144,7 +151,9 @@ export default function DashboardPage() {
                 <div className="divide-y divide-[#d0d0d0] text-xs">
                   {cat.stages.map((stage, stageIdx) => {
                     const stageProgress = progress[stage.id];
-                    const isUnlocked = stage.unlockedByDefault || stageIdx === 0 || stageProgress?.completed;
+                    const prevStage = stageIdx > 0 ? cat.stages[stageIdx - 1] : null;
+                    const prevCompleted = prevStage ? !!progress[prevStage.id]?.completed : false;
+                    const isUnlocked = stage.unlockedByDefault || stageIdx === 0 || !!stageProgress?.completed || prevCompleted;
                     const isCompleted = !!stageProgress?.completed;
 
                     return (

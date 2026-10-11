@@ -26,7 +26,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { userId, stageId, completed, stars, accuracyPercentage } = body;
+    const { userId, stageId, completed, stars, accuracyPercentage, durationMs } = body;
 
     const effectiveUserId = userId || "guest@sakana.net";
 
@@ -42,6 +42,20 @@ export async function POST(request: Request) {
 
     const progressId = `${effectiveUserId}_${stageId}`;
 
+    // Look for existing record to compute best duration and attempt count
+    const existing = await db
+      .select()
+      .from(userStageProgress)
+      .where(eq(userStageProgress.id, progressId))
+      .limit(1);
+
+    const prevBest = existing[0]?.bestDurationMs;
+    const prevAttempts = existing[0]?.attemptsCount || 0;
+    const newBest =
+      durationMs && typeof durationMs === "number"
+        ? prevBest ? Math.min(prevBest, durationMs) : durationMs
+        : prevBest ?? null;
+
     await db
       .insert(userStageProgress)
       .values({
@@ -49,16 +63,19 @@ export async function POST(request: Request) {
         userId: effectiveUserId,
         stageId,
         completed: completed ?? true,
+        bestDurationMs: newBest,
         stars: stars ?? 3,
         accuracyPercentage: accuracyPercentage ?? 100,
-        attemptsCount: 1,
+        attemptsCount: prevAttempts + 1,
       })
       .onConflictDoUpdate({
         target: userStageProgress.id,
         set: {
           completed: completed ?? true,
+          bestDurationMs: newBest,
           stars: stars ?? 3,
           accuracyPercentage: accuracyPercentage ?? 100,
+          attemptsCount: prevAttempts + 1,
           updatedAt: new Date(),
         },
       });
