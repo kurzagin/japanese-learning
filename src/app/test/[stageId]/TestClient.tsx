@@ -96,6 +96,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const [timeLeft, setTimeLeft] = useState<number>(timeLimit);
   const [elapsedMs, setElapsedMs] = useState<number>(0);
   const [status, setStatus] = useState<"playing" | "passed" | "failed">("playing");
+  const [failureReason, setFailureReason] = useState<"timeout" | "accuracy">("timeout");
 
   const startTimeRef = useRef<number>(Date.now());
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -111,6 +112,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
     setTimeLeft(timeLimit);
     setElapsedMs(0);
     setStatus("playing");
+    setFailureReason("timeout");
     startTimeRef.current = Date.now();
   }, [timeLimit]);
 
@@ -134,6 +136,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
       setTimeLeft(remaining);
 
       if (remaining <= 0) {
+        setFailureReason("timeout");
         setStatus("failed");
         clearInterval(timerRef.current!);
       }
@@ -215,7 +218,13 @@ export default function TestClient({ stageId }: { stageId: string }) {
         } else {
           // Finished all questions
           const totalElapsed = Date.now() - startTimeRef.current;
-          const passed = totalElapsed / 1000 <= timeLimit && (newCorrectCount / questions.length) >= 0.8;
+          const isTimeOk = totalElapsed / 1000 <= timeLimit;
+          const isAccuracyOk = (newCorrectCount / questions.length) >= 0.8;
+          const passed = isTimeOk && isAccuracyOk;
+
+          if (!passed) {
+            setFailureReason(!isTimeOk ? "timeout" : "accuracy");
+          }
           setStatus(passed ? "passed" : "failed");
           finalizeResult(passed, totalElapsed, newCorrectCount);
         }
@@ -421,11 +430,27 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
               <div>
                 <h2 className="text-lg font-bold text-[#cc0000]">
-                  {t.test.failTitle}
+                  {failureReason === "accuracy" ? t.test.failWrongTitle : t.test.failTitle}
                 </h2>
                 <p className="text-xs text-[#555] mt-1 max-w-sm">
-                  {t.test.failDesc}
+                  {failureReason === "accuracy" ? t.test.failWrongDesc : t.test.failDesc}
                 </p>
+              </div>
+
+              {/* Stats Box on Failure */}
+              <div className="grid grid-cols-2 gap-2 w-full max-w-xs bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono">
+                <div className="p-1 text-center">
+                  <div className="text-[10px] text-[#777]">{t.test.yourTime}</div>
+                  <div className={`text-base font-bold ${elapsedMs / 1000 <= timeLimit ? "text-[#008000]" : "text-[#cc0000]"}`}>
+                    {(elapsedMs / 1000).toFixed(1)}s
+                  </div>
+                </div>
+                <div className="p-1 text-center">
+                  <div className="text-[10px] text-[#777]">{t.test.accuracy}</div>
+                  <div className={`text-base font-bold ${Math.round((correctCount / questions.length) * 100) >= 80 ? "text-[#008000]" : "text-[#cc0000]"}`}>
+                    {Math.round((correctCount / questions.length) * 100)}%
+                  </div>
+                </div>
               </div>
 
               {/* Action Buttons */}

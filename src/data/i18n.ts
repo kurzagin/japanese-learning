@@ -95,8 +95,10 @@ export interface TranslationSchema {
     choosePrompt: string;
     passTitle: string;
     failTitle: string;
+    failWrongTitle: string;
     passDesc: string;
     failDesc: string;
+    failWrongDesc: string;
     yourTime: string;
     accuracy: string;
     tryAgainBtn: string;
@@ -202,8 +204,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Press 1-4 or Click to Answer ]",
       passTitle: "STAGE CLEARED!",
       failTitle: "TIME EXPIRED!",
+      failWrongTitle: "TEST FAILED!",
       passDesc: "Splendid recognition speed. The next sector is now unlocked.",
       failDesc: "You exceeded the time limit. Review the characters in study mode and try again.",
+      failWrongDesc: "Too many incorrect answers. Aim for at least 80% accuracy.",
       yourTime: "YOUR TIME",
       accuracy: "ACCURACY",
       tryAgainBtn: "RETRY TEST ⚡",
@@ -308,8 +312,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Tekan 1-4 atau Klik Jawaban ]",
       passTitle: "STAGE BERHASIL DITEMPUH!",
       failTitle: "WAKTU HABIS!",
+      failWrongTitle: "BELUM BERHASIL!",
       passDesc: "Kecepatan refleks membaca sangat bagus. Sektor selanjutnya telah terbuka.",
       failDesc: "Waktu terlewati. Ulangi materi di mode belajar dan coba uji kecepatan kembali.",
+      failWrongDesc: "Jawaban salah melebihi batas. Butuh akurasi minimal 80% untuk lulus.",
       yourTime: "WAKTU KAMU",
       accuracy: "AKURASI",
       tryAgainBtn: "COBA LAGI ⚡",
@@ -414,8 +420,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "【 1〜4キー またはクリックで解答 】",
       passTitle: "海域突破！",
       failTitle: "時間切れ！",
+      failWrongTitle: "試練不合格",
       passDesc: "素晴らしい反射速度です。次の海域への航路が開かれました。",
       failDesc: "制限時間を超過しました。修練モードで復習してから再度挑戦してください。",
+      failWrongDesc: "誤答が多すぎます。正解率80%以上を目指してください。",
       yourTime: "所要時間",
       accuracy: "正解率",
       tryAgainBtn: "再挑戦 ⚡",
