@@ -43,52 +43,75 @@ export default function StudyClient({ stageId }: { stageId: string }) {
     setUserEmail(email);
 
     // Initial load from localStorage
+    let localMap: Record<string, SrsCardRecord> = {};
     const localSrs = localStorage.getItem("sakana_srs_records");
     if (localSrs) {
       try {
-        setSrsRecords(JSON.parse(localSrs));
+        localMap = JSON.parse(localSrs);
+        setSrsRecords(localMap);
       } catch {}
     }
 
-    // Load from DB
-    const endpoint = isDueReviewMode
-      ? `/api/srs?userId=${encodeURIComponent(email)}&due=true`
-      : `/api/srs?userId=${encodeURIComponent(email)}&stageId=${encodeURIComponent(stageId)}`;
+    if (email && email !== "guest@sakana.net") {
+      // Load from DB for logged in accounts
+      const endpoint = isDueReviewMode
+        ? `/api/srs?userId=${encodeURIComponent(email)}&due=true`
+        : `/api/srs?userId=${encodeURIComponent(email)}&stageId=${encodeURIComponent(stageId)}`;
 
-    fetch(endpoint)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success && Array.isArray(json.data)) {
-          const map: Record<string, SrsCardRecord> = {};
-          json.data.forEach((r: SrsCardRecord) => {
-            map[r.cardId] = r;
-          });
-          setSrsRecords((prev) => ({ ...prev, ...map }));
-
-          if (isDueReviewMode) {
-            // Find all matching cards from all stages
-            const allCardsMap = new Map<string, StudyCard>();
-            STAGES.forEach((s) => {
-              s.cards.forEach((c) => allCardsMap.set(c.id, c));
-            });
-
-            const dueCards: StudyCard[] = [];
+      fetch(endpoint)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            const map: Record<string, SrsCardRecord> = {};
             json.data.forEach((r: SrsCardRecord) => {
-              const card = allCardsMap.get(r.cardId);
-              if (card) dueCards.push(card);
+              map[r.cardId] = r;
             });
+            setSrsRecords((prev) => ({ ...prev, ...map }));
 
-            setQueue(dueCards);
+            if (isDueReviewMode) {
+              const allCardsMap = new Map<string, StudyCard>();
+              STAGES.forEach((s) => {
+                s.cards.forEach((c) => allCardsMap.set(c.id, c));
+              });
+
+              const dueCards: StudyCard[] = [];
+              json.data.forEach((r: SrsCardRecord) => {
+                const card = allCardsMap.get(r.cardId);
+                if (card) dueCards.push(card);
+              });
+
+              setQueue(dueCards);
+              setIsLoadingDue(false);
+            }
+          } else if (isDueReviewMode) {
             setIsLoadingDue(false);
           }
-        } else if (isDueReviewMode) {
-          setIsLoadingDue(false);
-        }
-      })
-      .catch((err) => {
-        console.error("SRS fetch error:", err);
-        if (isDueReviewMode) setIsLoadingDue(false);
-      });
+        })
+        .catch((err) => {
+          console.error("SRS fetch error:", err);
+          if (isDueReviewMode) setIsLoadingDue(false);
+        });
+    } else {
+      // For guest mode: resolve due cards completely from local storage
+      if (isDueReviewMode) {
+        const allCardsMap = new Map<string, StudyCard>();
+        STAGES.forEach((s) => {
+          s.cards.forEach((c) => allCardsMap.set(c.id, c));
+        });
+
+        const now = new Date();
+        const dueCards: StudyCard[] = [];
+        Object.values(localMap).forEach((r) => {
+          if (r.nextReviewAt && new Date(r.nextReviewAt) <= now) {
+            const card = allCardsMap.get(r.cardId);
+            if (card) dueCards.push(card);
+          }
+        });
+
+        setQueue(dueCards);
+        setIsLoadingDue(false);
+      }
+    }
   }, [stageId, isDueReviewMode]);
 
   // If normal stage, initialize queue from stage cards
@@ -147,17 +170,19 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         return next;
       });
 
-      // 2. Persist to Neon DB
-      fetch("/api/srs", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: userEmail,
-          cardId: currentCard.id,
-          stageId: cardStageId,
-          rating,
-        }),
-      }).catch((err) => console.error("SRS review persist error:", err));
+      // 2. Persist to Neon DB (only for logged-in accounts)
+      if (userEmail && userEmail !== "guest@sakana.net") {
+        fetch("/api/srs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: userEmail,
+            cardId: currentCard.id,
+            stageId: cardStageId,
+            rating,
+          }),
+        }).catch((err) => console.error("SRS review persist error:", err));
+      }
 
       setSessionReviewedCount((prev) => prev + 1);
 

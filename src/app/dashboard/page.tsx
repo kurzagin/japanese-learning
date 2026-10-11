@@ -44,34 +44,57 @@ export default function DashboardPage() {
       } catch {}
     }
 
-    // 2. Fetch live progress from Neon Postgres
-    const fetchEmail = savedEmail || "guest@sakana.net";
-    fetch(`/api/progress?userId=${encodeURIComponent(fetchEmail)}`)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success && Array.isArray(json.data)) {
-          const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
-          json.data.forEach((row: any) => {
-            remoteProgress[row.stageId] = {
-              completed: row.completed,
-              stars: row.stars,
-              bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
-            };
-          });
-          setProgress((prev) => ({ ...prev, ...remoteProgress }));
-        }
-      })
-      .catch((err) => console.error("Error fetching Neon progress:", err));
+    // 2. Fetch live progress & SRS from Neon Postgres ONLY for logged-in accounts
+    if (savedEmail && savedEmail !== "guest@sakana.net") {
+      fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
+            json.data.forEach((row: any) => {
+              remoteProgress[row.stageId] = {
+                completed: row.completed,
+                stars: row.stars,
+                bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
+              };
+            });
+            setProgress((prev) => ({ ...prev, ...remoteProgress }));
+          }
+        })
+        .catch((err) => console.error("Error fetching Neon progress:", err));
 
-    // 3. Fetch SRS due summary from Neon Postgres
-    fetch(`/api/srs?userId=${encodeURIComponent(fetchEmail)}`)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success && json.summary) {
-          setSrsSummary(json.summary);
+      fetch(`/api/srs?userId=${encodeURIComponent(savedEmail)}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && json.summary) {
+            setSrsSummary(json.summary);
+          }
+        })
+        .catch((err) => console.error("Error fetching SRS summary:", err));
+    } else {
+      // For guests: calculate SRS due summary purely from local browser storage
+      try {
+        const localSrs = localStorage.getItem("sakana_srs_records");
+        if (localSrs) {
+          const records: Record<string, any> = JSON.parse(localSrs);
+          const now = new Date();
+          let dueCount = 0;
+          let masteredCount = 0;
+          const totalStudied = Object.keys(records).length;
+
+          Object.values(records).forEach((r) => {
+            if (r.nextReviewAt && new Date(r.nextReviewAt) <= now) {
+              dueCount++;
+            }
+            if (r.state === "mastered" || (r.intervalDays && r.intervalDays >= 21)) {
+              masteredCount++;
+            }
+          });
+
+          setSrsSummary({ dueCount, masteredCount, totalStudied });
         }
-      })
-      .catch((err) => console.error("Error fetching SRS summary:", err));
+      } catch {}
+    }
   }, []);
 
   const completedList = Object.values(progress).filter((p) => p.completed);
