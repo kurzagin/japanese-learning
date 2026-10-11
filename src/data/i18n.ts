@@ -151,6 +151,20 @@ export interface TranslationSchema {
       eduPostTitle: string;
       eduPostDesc: string;
     };
+    currentFeaturesTitle: string;
+    currentFeaturesDesc: string;
+    futureFeaturesTitle: string;
+    futureFeaturesDesc: string;
+    currentList: {
+      srsTitle: string;
+      srsDesc: string;
+      sprintTitle: string;
+      sprintDesc: string;
+      stagesTitle: string;
+      stagesDesc: string;
+      bilingualTitle: string;
+      bilingualDesc: string;
+    };
     roadmapTitle: string;
     roadmapDesc: string;
     backBtn: string;
@@ -223,6 +237,20 @@ export const translations: Record<Locale, TranslationSchema> = {
         vtuberAsmrDesc: "Soft, gentle listening practice paired with synchronized timestamps so you never lose track of what is being spoken.",
         eduPostTitle: "Helpful Real Tips & Trivia from Japanese X",
         eduPostDesc: "Everyday tidbits, language nuances, and thoughtful cultural notes shared generously by native Japanese creators.",
+      },
+      currentFeaturesTitle: "Current Features (Available Now)",
+      currentFeaturesDesc: "Everything you can currently practice and use in SaKana right now:",
+      futureFeaturesTitle: "Future Features & In-Progress Vision",
+      futureFeaturesDesc: "Interactive media experiences currently in development to take you beyond static flashcards:",
+      currentList: {
+        srsTitle: "Spaced Repetition (SRS Flashcards)",
+        srsDesc: "SM-2 scientific retention scheduling cards with visual mnemonics, audio hints, and real Japanese sample vocabulary.",
+        sprintTitle: "Rapid Reflex Speed Challenge",
+        sprintDesc: "Under-15-second timed tests designed to rewire neural recognition speed for instantaneous Kana reading.",
+        stagesTitle: "Progressive Sectors & The Shallows to The Reef",
+        stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
+        bilingualTitle: "Trilingual Interface & Accessible Mnemonics",
+        bilingualDesc: "Seamless switching between English, Indonesian, and Japanese, designed for distraction-free retro comfort.",
       },
       roadmapTitle: "Our Simple Philosophy",
       roadmapDesc: "Learning should never feel like a chore or an exam. By setting handwriting aside for now and gently immersing yourself in the sounds and media you truly care about, understanding comes naturally, one step at a time.",
@@ -381,6 +409,20 @@ export const translations: Record<Locale, TranslationSchema> = {
         eduPostTitle: "Tips Bermanfaat & Serba-serbi dari X Jepang",
         eduPostDesc: "Catatan kecil penuh manfaat dan nuansa budaya nyata yang dibagikan oleh penutur asli Jepang di X.",
       },
+      currentFeaturesTitle: "Fitur Saat Ini (Sudah Dapat Digunakan)",
+      currentFeaturesDesc: "Semua modul dan sarana latihan yang sudah aktif dan bisa kamu gunakan di SaKana saat ini:",
+      futureFeaturesTitle: "Rencana Fitur Masa Depan (Sedang Dikembangkan)",
+      futureFeaturesDesc: "Eksplorasi interaktif media nyata yang sedang kami siapkan untuk melengkapi latihan flashcard:",
+      currentList: {
+        srsTitle: "Flashcard Interval Memori (SRS SM-2)",
+        srsDesc: "Metode repetisi terjadwal secara ilmiah dilengkapi visual mnemonik, pelafalan audio, dan kosakata nyata bahasa Jepang.",
+        sprintTitle: "Uji Refleks Cepat (Speed Challenge)",
+        sprintDesc: "Tantangan berbatas waktu di bawah 15 detik untuk melatih refleks mata mengenali karakter secara instan tanpa mengeja.",
+        stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
+        stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
+        bilingualTitle: "Dukungan Tiga Bahasa (EN / ID / JA)",
+        bilingualDesc: "Kemudahan beralih bahasa antar Inggris, Indonesia, dan Jepang dalam tampilan antarmuka retro klasik yang nyaman.",
+      },
       roadmapTitle: "Filosofi Sederhana Kami",
       roadmapDesc: "Belajar semestinya tidak terasa seperti ujian yang menegangkan. Dengan mengesampingkan beban menulis terlebih dahulu dan menikmati media yang kamu sukai, kemampuan membaca akan terbentuk perlahan tapi pasti.",
       backBtn: "<< Kembali ke Dashboard",
@@ -537,6 +579,20 @@ export const translations: Record<Locale, TranslationSchema> = {
         vtuberAsmrDesc: "バイノーラルの囁き声と、秒単位で連動したテキスト。どこを読んでいるか迷わず安心して聴けます。",
         eduPostTitle: "ネイティブが教えてくれる日本語の小さな豆知識",
         eduPostDesc: "X上で発信されている、言葉の微妙なニュアンスや文化のちょっとした知恵を教材としてお届けします。",
+      },
+      currentFeaturesTitle: "現在の実装機能（今すぐ遊べる機能）",
+      currentFeaturesDesc: "現在SaKanaで実際に体験・ご利用いただける修行機能一覧：",
+      futureFeaturesTitle: "今後の実装予定機能（開発中の構想）",
+      futureFeaturesDesc: "単語カードの枠を越え、生きた日本語メディアに直接触れられる体験を準備中です：",
+      currentList: {
+        srsTitle: "間隔反復記憶（SRS単語カード）",
+        srsDesc: "SM-2アルゴリズムに基づく復習スケジュール。視覚的記憶ヒント、音声再生、実戦日本語単語を搭載。",
+        sprintTitle: "反射神経タイムアタック試練",
+        sprintDesc: "15秒以内の制限時間内に素早く判別し、文字を瞬時に読む脳の反射回路を鍛えるスピードテスト。",
+        stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
+        stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
+        bilingualTitle: "3言語対応インターフェース（日・英・インドネシア語）",
+        bilingualDesc: "快適に切り替え可能なマルチ言語UIと、集中を妨げないレトロOS風デザイン。",
       },
       roadmapTitle: "SaKanaのささやかな想い",
       roadmapDesc: "学ぶことは、決して義務や苦行である必要はありません。手書きのプレッシャーをいったん手放して、好きなコンテンツの音と文字にふれるうちに、いつの間にか自然と読めるようになる――そんな歩みを応援します。",

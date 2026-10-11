@@ -12,7 +12,12 @@ import {
   BookOpenCheck, 
   Sparkles,
   ArrowRight,
-  ShieldAlert
+  ShieldAlert,
+  CheckCircle2,
+  Zap,
+  Layers,
+  Globe,
+  Hourglass
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -191,14 +196,111 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Progressive Interactive Stages Overview */}
+          {/* SECTION: Current Features (Available Now) */}
+          <div className="border border-[#808080]">
+            <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#00ff00]" />
+                <span>{t.about.currentFeaturesTitle}</span>
+              </span>
+              <span className="text-[10px] text-[#00ff00] font-mono">[ACTIVE v1.0]</span>
+            </div>
+            <div className="p-2.5 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs">
+              <p className="text-[11px] text-[#444] leading-relaxed">
+                {t.about.currentFeaturesDesc}
+              </p>
+            </div>
+
+            <div className="divide-y divide-[#d0d0d0] bg-white">
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#eef4ff] border border-[#7ba4e8] shrink-0 mt-0.5">
+                  <Layers className="w-5 h-5 text-[#000080]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.srsTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e6f4ea] border border-[#57ab5a] text-[#137333] font-bold">
+                      ACTIVE // SM-2 ALGORITHM
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.srsDesc}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#fff8e7] border border-[#e0c060] shrink-0 mt-0.5">
+                  <Zap className="w-5 h-5 text-[#cc6600]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.sprintTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
+                      ACTIVE // SPEED REFLEX
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.sprintDesc}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#f2f8f2] border border-[#80b880] shrink-0 mt-0.5">
+                  <BookOpenCheck className="w-5 h-5 text-[#006600]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.stagesTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e6f4ea] border border-[#57ab5a] text-[#137333] font-bold">
+                      ACTIVE // 24+ STAGES
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.stagesDesc}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#f5f0fa] border border-[#b898d8] shrink-0 mt-0.5">
+                  <Globe className="w-5 h-5 text-[#660099]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.bilingualTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#ece9d8] border border-[#808080] text-[#404040] font-bold">
+                      ACTIVE // EN • ID • JA
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.bilingualDesc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION: Future Features (In Development) */}
           <div className="border border-[#808080]">
             <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#ffff00]" />
-                {t.about.interactiveTitle}
+                <span>{t.about.futureFeaturesTitle}</span>
               </span>
-              <span className="text-[10px] text-[#ffff00] font-mono">BEYOND CARDS</span>
+              <span className="text-[10px] text-[#ffff00] font-mono flex items-center gap-1">
+                <Hourglass className="w-3 h-3 text-[#ffff00]" />
+                ROADMAP // IN PROGRESS
+              </span>
             </div>
             <div className="p-3 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs space-y-1">
               <h2 className="font-bold text-sm text-[#000080]">
@@ -208,11 +310,11 @@ export default function AboutPage() {
                 {t.about.heroSubtitle}
               </p>
               <p className="text-[11px] text-[#444] pt-1 leading-relaxed">
-                {t.about.interactiveDesc}
+                {t.about.futureFeaturesDesc}
               </p>
             </div>
 
-            {/* List of 6 Interactive Features */}
+            {/* List of Interactive Media Features in Development */}
             <div className="divide-y divide-[#d0d0d0]">
               {interactiveFeatures.map((item) => (
                 <div key={item.id} className="p-3 bg-white space-y-2 hover:bg-[#fafafc]">
