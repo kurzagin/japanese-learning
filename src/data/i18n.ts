@@ -10,6 +10,7 @@ export interface TranslationSchema {
     home: string;
     dashboard: string;
     study: string;
+    about: string;
     windowTitle: string;
     login: string;
     enter: string;
@@ -106,6 +107,33 @@ export interface TranslationSchema {
     backToDashboard: string;
     studyFirstBtn: string;
   };
+  about: {
+    windowTitle: string;
+    badge: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    writingDisclaimerBadge: string;
+    writingDisclaimerText: string;
+    interactiveTitle: string;
+    interactiveDesc: string;
+    features: {
+      voicevoxTitle: string;
+      voicevoxDesc: string;
+      animeTitle: string;
+      animeDesc: string;
+      vtuberXTitle: string;
+      vtuberXDesc: string;
+      vtuberVoiceTitle: string;
+      vtuberVoiceDesc: string;
+      vtuberAsmrTitle: string;
+      vtuberAsmrDesc: string;
+      eduPostTitle: string;
+      eduPostDesc: string;
+    };
+    roadmapTitle: string;
+    roadmapDesc: string;
+    backBtn: string;
+  };
 }
 
 export const translations: Record<Locale, TranslationSchema> = {
@@ -119,6 +147,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "HOME",
       dashboard: "DASHBOARD",
       study: "STUDY",
+      about: "ABOUT",
       windowTitle: "SaKana",
       login: "LOGIN",
       enter: "ENTER",
@@ -141,6 +170,33 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule2Desc: "Use untimed flashcard repetitions (Anki style) to get comfortable with the characters before taking any speed challenge.",
       rule3Title: "Kana Words First (No Kanji Yet)",
       rule3Desc: "Once you master Hiragana & Katakana, jump directly into real anime words and loanwords before touching complex Kanji.",
+    },
+    about: {
+      windowTitle: "About SaKana",
+      badge: "PLATFORM ARCHITECTURE & ROADMAP",
+      heroTitle: "BEYOND BASIC FLASHCARDS",
+      heroSubtitle: "Stages gradually evolve from simple cards into rich, immersive interactive Japanese media experiences.",
+      writingDisclaimerBadge: "IMPORTANT NOTICE",
+      writingDisclaimerText: "we will not yet provide writing",
+      interactiveTitle: "Interactive Stages Evolution",
+      interactiveDesc: "While initial stages begin with flashcard memory training, higher sectors are engineered to immerse you in authentic modern Japanese culture and multimedia interactions:",
+      features: {
+        voicevoxTitle: "VOICEVOX Neural Audio (Robo Type T)",
+        voicevoxDesc: "Crisp robotic pronunciation drills powered by VOICEVOX engine Robo Type T voice for razor-sharp pitch and auditory distinction.",
+        animeTitle: "Iconic Anime Scene Breakdowns",
+        animeDesc: "Sentence fragments, subtitles, and iconic catchphrases pulled straight from favorite anime scenes for context-grounded recognition.",
+        vtuberXTitle: "VTuber Real X (Twitter) Posts",
+        vtuberXDesc: "Real-world social media feeds, emojis, casual slang, abbreviations, and informal Japanese as tweeted by popular VTubers.",
+        vtuberVoiceTitle: "VTuber Voice Call Simulator",
+        vtuberVoiceDesc: "Recorded voice call experience designed to train your active listening and reaction reflexes in simulated one-on-one calls.",
+        vtuberAsmrTitle: "VTuber ASMR + Timestamped Transcripts",
+        vtuberAsmrDesc: "Binaural whispering sessions with synchronized timestamped Japanese transcripts to hone fine-grained auditory comprehension.",
+        eduPostTitle: "Japanese Educational & Informational X Posts",
+        eduPostDesc: "Authentic informational posts, news snippets, trivia, and native Japanese tips shared by educators across Japanese X.",
+      },
+      roadmapTitle: "Pedagogical Philosophy",
+      roadmapDesc: "Real-life fluency is 90% instant comprehension and 10% production. By eliminating tedious handwriting drills and flooding your brain with captivating native media, SaKana builds genuine instant recognition.",
+      backBtn: "<< Back to Dashboard",
     },
     login: {
       windowTitle: "Authentication",
@@ -227,6 +283,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "BERANDA",
       dashboard: "DASHBOARD",
       study: "BELAJAR",
+      about: "TENTANG",
       windowTitle: "SaKana",
       login: "MASUK",
       enter: "MASUK KE DASHBOARD",
@@ -249,6 +306,33 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule2Desc: "Gunakan mode kartu pengulangan (metode Anki) santai tanpa timer sebelum menguji kecepatan refleksmu.",
       rule3Title: "Langsung ke Kosakata (Tanpa Kanji Dulu)",
       rule3Desc: "Setelah paham Hiragana & Katakana, langsung coba membaca kosakata anime dan kata serapan sehari-hari sebelum belajar Kanji.",
+    },
+    about: {
+      windowTitle: "Tentang SaKana",
+      badge: "ARSITEKTUR & PENGEMBANGAN",
+      heroTitle: "LEBIH INTERAKTIF DARI SEKADAR KARTU",
+      heroSubtitle: "Stage belajar bertahap berevolusi dari sekadar flashcard menjadi media interaktif kaya pengalaman bahasa Jepang.",
+      writingDisclaimerBadge: "PEMBERITAHUAN PENTING",
+      writingDisclaimerText: "we will not yet provide writing",
+      interactiveTitle: "Evolusi Stage Interaktif",
+      interactiveDesc: "Meskipun stage awal dimulai dengan latihan kartu hafalan, level-level selanjutnya dirancang makin imersif dengan media nyata pop-culture Jepang:",
+      features: {
+        voicevoxTitle: "Audio Neural VOICEVOX (Robo Type T)",
+        voicevoxDesc: "Latihan pelafalan dengan engine VOICEVOX bersuara Robo Type T yang presisi untuk membedakan nada dan intonasi vokal.",
+        animeTitle: "Potongan Adegan Anime Populer",
+        animeDesc: "Kutipan kalimat, teks subtitle asli, dan dialog khas anime untuk melatih pemahaman dalam konteks cerita nyata.",
+        vtuberXTitle: "Postingan Asli X (Twitter) dari VTuber",
+        vtuberXDesc: "Gaya bahasa gaul, singkatan, emoji, dan percakapan kasual santai dari cuitan para VTuber favorit di X.",
+        vtuberVoiceTitle: "Simulasi Panggilan Suara VTuber",
+        vtuberVoiceDesc: "Pengalaman rekaman audio interaktif layaknya voice call untuk melatih refleks mendengar dan merespons secara real-time.",
+        vtuberAsmrTitle: "VTuber ASMR + Timestamp Interaktif",
+        vtuberAsmrDesc: "Sesi audio bisikan binaural dilengkapi teks transkrip bertanda waktu (timestamp) untuk mengasah ketajaman pendengaran.",
+        eduPostTitle: "Postingan Edukatif & Berita Nyata di X Jepang",
+        eduPostDesc: "Tangkapan informasi, tips bahasa, dan wawasan budaya asli yang dibagikan oleh penutur asli di linimasa X Jepang.",
+      },
+      roadmapTitle: "Filosofi Pembelajaran",
+      roadmapDesc: "Kefasihan dunia nyata adalah 90% pemahaman cepat dan 10% produksi. Dengan tidak membebani latihan menulis tangan yang membosankan dan langsung membanjiri indra dengan konten asli, SaKana membentuk refleks baca sejati.",
+      backBtn: "<< Kembali ke Dashboard",
     },
     login: {
       windowTitle: "Autentikasi",
@@ -335,6 +419,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "ホーム",
       dashboard: "道場",
       study: "修練",
+      about: "概要",
       windowTitle: "SaKana",
       login: "ログイン",
       enter: "道場へ入る",
@@ -357,6 +442,33 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule2Desc: "タイマー無しの単語カード（Anki方式）でしっかり馴染んでから、タイムアタックに挑戦します。",
       rule3Title: "漢字は後回し！生きた単語から",
       rule3Desc: "ひらがな・カタカナを覚えたら、すぐにアニメやゲームで使われる実戦単語を読み進めます。",
+    },
+    about: {
+      windowTitle: "SaKanaについて",
+      badge: "システム設計方針・ロードマップ",
+      heroTitle: "単なる単語カードを超える体験へ",
+      heroSubtitle: "ステージが進むにつれ、単なる暗記カードからよりインタラクティブな実戦メディア体験へと段階的に進化します。",
+      writingDisclaimerBadge: "重要なお知らせ",
+      writingDisclaimerText: "we will not yet provide writing",
+      interactiveTitle: "段階的なインタラクティブ・ステージ進化",
+      interactiveDesc: "最初の海域はカードによる基本反射訓練から始まりますが、上位ステージでは現代の生きた日本語コンテンツとマルチメディア体験が待ち構えています：",
+      features: {
+        voicevoxTitle: "VOICEVOX 音声合成（ロボット Type T）",
+        voicevoxDesc: "VOICEVOXエンジンの「ロボ Type T」による正確で機械的な発音ドリル。音の高低やリズムを明瞭に聞き取ります。",
+        animeTitle: "名作アニメの劇中シーン解析",
+        animeDesc: "名作アニメのセリフ、字幕、決め台詞などを実際の文脈とともに瞬時に認識する実戦訓練。",
+        vtuberXTitle: "VTuber実ポスト（旧Twitter）",
+        vtuberXDesc: "人気VTuberのリアルなX投稿から、日常のくだけた口語表現、略語、顔文字、スラングを習得。",
+        vtuberVoiceTitle: "VTuber通話体験（ボイスコール録音）",
+        vtuberVoiceDesc: "まるで1対1で通話しているかのような音声体験。リアルタイムでのリスニングと反応力を育成。",
+        vtuberAsmrTitle: "VTuber ASMR ＋ タイムスタンプ付き原稿",
+        vtuberAsmrDesc: "バイノーラル囁き声と秒単位で同期したタイムスタンプ付きスクリプトで、繊細な聴解力を研ぎ澄まします。",
+        eduPostTitle: "日本語教育・役立つ実在Xポスト",
+        eduPostDesc: "ネイティブ発信者による実践的な日本語の豆知識、文化、解説ポストを教材として直読。",
+      },
+      roadmapTitle: "学習の設計思想",
+      roadmapDesc: "真の読解力は「見て0秒で頭に入ること」です。負担になりやすい手書き練習を省き、大好きなコンテンツの生の日本語に触れ続けることで、本物の読解反射神経を育てます。",
+      backBtn: "<< 道場メニューへ戻る",
     },
     login: {
       windowTitle: "ユーザー認証",
