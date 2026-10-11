@@ -44,6 +44,9 @@ export interface TranslationSchema {
     guestTitle: string;
     guestBtn: string;
     returnLink: string;
+    inviteNoticeTitle: string;
+    inviteNoticeText: string;
+    inviteNoticeLinkText: string;
   };
   dashboard: {
     windowTitle: string;
@@ -235,6 +238,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       guestTitle: "FAST ACCESS WITHOUT ACCOUNT",
       guestBtn: "CONTINUE AS GUEST",
       returnLink: "<< Back to Home",
+      inviteNoticeTitle: "INVITE ONLY ACCESS",
+      inviteNoticeText: "Account creation is currently invite-only. To request access, please contact the webmaster at kurzagin.com via comment, guestbook, or other contact channels provided on the site.",
+      inviteNoticeLinkText: "kurzagin.com/guestbook",
     },
     dashboard: {
       windowTitle: "Study Dashboard",
@@ -389,6 +395,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       guestTitle: "COBA CEPAT TANPA AKUN",
       guestBtn: "MASUK SEBAGAI TAMU",
       returnLink: "<< Kembali ke Beranda",
+      inviteNoticeTitle: "AKSES KHUSUS UNDANGAN",
+      inviteNoticeText: "Pembuatan akun saat ini hanya melalui undangan. Untuk meminta akses, silakan hubungi webmaster di kurzagin.com melalui komentar, buku tamu, atau kontak lainnya yang tersedia di situs tersebut.",
+      inviteNoticeLinkText: "kurzagin.com/guestbook",
     },
     dashboard: {
       windowTitle: "Dashboard Latihan",
@@ -543,6 +552,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       guestTitle: "アカウントなしで即時体験",
       guestBtn: "ゲストとして入室",
       returnLink: "<< トップページに戻る",
+      inviteNoticeTitle: "完全招待制のお知らせ",
+      inviteNoticeText: "現在、新規アカウント作成は招待制となっております。アカウントの作成をご希望の方は、kurzagin.com のコメント欄、ゲストブック、またはサイト内の各連絡先から管理者までお問い合わせください。",
+      inviteNoticeLinkText: "kurzagin.com/guestbook",
     },
     dashboard: {
       windowTitle: "道場メインメニュー",

@@ -145,6 +145,27 @@ export default function LoginPage() {
             </button>
           </div>
 
+          {/* Invite Only Notice Box */}
+          <div className="border border-[#b0a88e] bg-[#fffde6] p-2.5 text-[11px] leading-relaxed text-[#4a4228] space-y-1">
+            <div className="font-bold text-[10px] text-[#705800] uppercase tracking-wider flex items-center gap-1">
+              <span>⚠</span>
+              <span>{t.login.inviteNoticeTitle}</span>
+            </div>
+            <p>
+              {t.login.inviteNoticeText}
+            </p>
+            <div className="pt-0.5">
+              <a
+                href="https://kurzagin.com/guestbook"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#000080] font-mono underline hover:text-[#cc0000] break-all inline-block"
+              >
+                https://{t.login.inviteNoticeLinkText}
+              </a>
+            </div>
+          </div>
+
           <div className="text-center">
             <Link
               href="/"
