@@ -29,11 +29,9 @@ export default function LoginPage() {
     if (res.error) {
       // If sign-in failed (e.g. user doesn't exist yet), attempt sign-up
       const signupRes = await authClient.signUp(email, password || "Guest123456!");
-      if (signupRes.error && signupRes.error.code !== "USER_ALREADY_EXISTS") {
-        setAuthMsg({ text: signupRes.error.message, isError: true });
-        // Still allow entry with offline local storage mode
-        localStorage.setItem("sakana_user_email", email);
-        setTimeout(() => router.push("/dashboard"), 500);
+      if (signupRes.error) {
+        setAuthMsg({ text: signupRes.error.message || res.error.message, isError: true });
+        setLoading(false);
         return;
       }
     }
