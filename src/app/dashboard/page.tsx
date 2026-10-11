@@ -39,23 +39,25 @@ export default function DashboardPage() {
       } catch {}
     }
 
-    // 2. Fetch live progress from Neon Postgres
-    fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success && Array.isArray(json.data)) {
-          const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
-          json.data.forEach((row: any) => {
-            remoteProgress[row.stageId] = {
-              completed: row.completed,
-              stars: row.stars,
-              bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
-            };
-          });
-          setProgress((prev) => ({ ...prev, ...remoteProgress }));
-        }
-      })
-      .catch((err) => console.error("Error fetching Neon progress:", err));
+    // 2. Fetch live progress from Neon Postgres (only for logged-in accounts)
+    if (savedEmail && savedEmail !== "guest@sakana.net") {
+      fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
+            json.data.forEach((row: any) => {
+              remoteProgress[row.stageId] = {
+                completed: row.completed,
+                stars: row.stars,
+                bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
+              };
+            });
+            setProgress((prev) => ({ ...prev, ...remoteProgress }));
+          }
+        })
+        .catch((err) => console.error("Error fetching Neon progress:", err));
+    }
   }, []);
 
   const completedList = Object.values(progress).filter((p) => p.completed);

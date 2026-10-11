@@ -134,24 +134,21 @@ export default function TestClient({ stageId }: { stageId: string }) {
         localStorage.setItem("sakana_progress", JSON.stringify(stored));
       } catch {}
 
-      // Neon Database Sync
-      const userEmail =
-        typeof window !== "undefined"
-          ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
-          : "guest@sakana.net";
-
-      fetch("/api/progress", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: userEmail,
-          stageId,
-          completed: passed,
-          stars,
-          durationMs: finalElapsedMs,
-          accuracyPercentage: accuracy,
-        }),
-      }).catch((err) => console.error("Neon progress sync error:", err));
+      // Neon Database Sync (only for logged-in accounts)
+      if (userEmail && userEmail !== "guest@sakana.net") {
+        fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: userEmail,
+            stageId,
+            completed: passed,
+            stars,
+            durationMs: finalElapsedMs,
+            accuracyPercentage: accuracy,
+          }),
+        }).catch((err) => console.error("Neon progress sync error:", err));
+      }
     },
     [stageId, timeLimit, questions.length]
   );

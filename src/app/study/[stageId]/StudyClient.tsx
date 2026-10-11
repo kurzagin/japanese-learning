@@ -86,18 +86,21 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         localStorage.setItem("sakana_progress", JSON.stringify(stored));
       } catch {}
 
-      fetch("/api/progress", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: userEmail,
-          stageId,
-          completed: true,
-          stars: 3,
-          durationMs: sessionDurationMs,
-          accuracyPercentage: 100,
-        }),
-      }).catch((err) => console.error("Neon progress sync error:", err));
+      // Sync progress to Neon database (only for logged-in accounts)
+      if (userEmail && userEmail !== "guest@sakana.net") {
+        fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: userEmail,
+            stageId,
+            completed: true,
+            stars: 3,
+            durationMs: sessionDurationMs,
+            accuracyPercentage: 100,
+          }),
+        }).catch((err) => console.error("Neon progress sync error:", err));
+      }
     }
   };
 
