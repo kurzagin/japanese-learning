@@ -114,34 +114,50 @@ export default function AboutPage() {
 
         {/* Content Body */}
         <div className="p-3 sm:p-5 bg-white text-black space-y-4">
-          {/* Top Banner */}
-          <div className="border-2 border-[#000080] bg-[#eef3f8] p-3 text-center space-y-1">
+          {/* Top Banner with Slogan */}
+          <div className="border-2 border-[#000080] bg-[#eef3f8] p-3 text-center space-y-2">
             <div className="text-[10px] text-[#000080] font-bold tracking-widest uppercase">
               ★★★ {t.about.badge} ★★★
             </div>
-            <h1 className="text-xl sm:text-2xl font-black text-[#000080] tracking-wide">
+            
+            {/* The Slogan: "さ、仮名を始めよう。" with highlighted "さ" and "仮名 (かな)" */}
+            <div className="py-1">
+              <div className="inline-block bg-[#fff8e7] border-2 border-[#000080] px-4 py-1.5 shadow-sm">
+                <span className="text-lg sm:text-xl font-black tracking-widest text-[#222]">
+                  “<span className="text-[#cc0000] underline decoration-2 underline-offset-4 font-black">さ</span>、
+                  <span className="text-[#000080] bg-[#ffff99] px-1 py-0.5 rounded-xs font-black">仮名</span>
+                  を始めよう。”
+                </span>
+                <div className="text-[10px] text-[#666] font-mono mt-0.5 tracking-tight">
+                  [ <span className="text-[#cc0000] font-bold">sa</span>, <span className="text-[#000080] font-bold">kana</span> wo hajimeyou • Let&apos;s begin Kana ]
+                </div>
+              </div>
+            </div>
+
+            <h1 className="text-base sm:text-lg font-bold text-[#000080]">
               {t.about.heroTitle}
             </h1>
-            <p className="text-xs text-[#333] font-semibold max-w-lg mx-auto">
+            <p className="text-xs text-[#555] max-w-lg mx-auto leading-relaxed">
               {t.about.heroSubtitle}
+            </p>
+            <p className="text-[11px] text-[#777] italic">
+              {t.about.sloganNote}
             </p>
           </div>
 
-          {/* CRITICAL NOTICE: we will not yet provide writing */}
-          <div className="border-2 border-[#cc0000] bg-[#fff5f5] p-3 shadow-xs">
-            <div className="flex items-center gap-2 text-[#cc0000] font-bold text-xs">
+          {/* CRITICAL HUMBLE NOTICE: we will not yet provide writing */}
+          <div className="border border-[#cc0000] bg-[#fffbfb] p-3 shadow-xs">
+            <div className="flex items-center gap-1.5 text-[#cc0000] font-bold text-xs">
               <ShieldAlert className="w-4 h-4 shrink-0 text-[#cc0000]" />
               <span className="uppercase tracking-wide font-mono text-[11px]">
                 {t.about.writingDisclaimerBadge}
               </span>
             </div>
-            <div className="mt-1.5 p-2 bg-white border border-[#cc0000] text-center font-mono font-bold text-sm sm:text-base text-[#cc0000] tracking-wider select-all">
+            <div className="mt-1.5 p-2 bg-white border border-[#e0a0a0] text-center font-mono font-bold text-sm sm:text-base text-[#cc0000] tracking-wider select-all">
               &quot;{t.about.writingDisclaimerText}&quot;
             </div>
             <p className="text-[11px] text-[#555] mt-1.5 leading-relaxed">
-              SaKana is strictly optimized for instantaneous visual recognition and listening speed. 
-              We deliberately cut out tedious stroke-order tracing and handwriting memorization, 
-              focusing 100% of your cognitive bandwidth on rapid kana fluency and modern media comprehension.
+              {t.about.writingDisclaimerSub}
             </p>
           </div>
 
