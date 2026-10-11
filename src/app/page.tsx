@@ -41,12 +41,18 @@ export default function HomePage() {
         <div className="p-3 sm:p-4 bg-white text-black space-y-4">
           
           {/* Header Banner */}
-          <div className="border-2 border-[#800000] bg-[#fff8e7] p-3 text-center">
-            <div className="text-[10px] text-[#800000] font-bold tracking-widest">
-              ★★★ {t.home.welcomeBadge} ★★★
+          <div className="border-2 border-[#800000] bg-[#fff8e7] p-3 text-center relative overflow-hidden">
+            <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5">
+              <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
+              <span className="animate-star-twinkle-delay text-[#ff9900]">★</span>
+              <span>{t.home.welcomeBadge}</span>
+              <span className="animate-star-twinkle-delay text-[#ff9900]">★</span>
+              <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-wider">
-              魚 SAKANA 魚
+            <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-wider flex items-center justify-center gap-2">
+              <span className="animate-star-twinkle text-sm text-[#008800]">★</span>
+              <span>魚 SAKANA 魚</span>
+              <span className="animate-star-twinkle-delay text-sm text-[#008800]">★</span>
             </h1>
             <p className="text-xs text-[#cc0000] font-bold mt-0.5">
               〜 {t.home.tagline} 〜
@@ -56,16 +62,34 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Real Visitor Counter Stored in DB */}
+          {/* Real Visitor Counter Stored in DB with Retro Flash */}
           <div className="border border-[#808080] bg-[#f0f0f0] px-2 py-1 flex items-center justify-between text-[11px]">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-[#000080]">{t.home.counterLabel}</span>
-              <span className="bg-black text-[#00ff00] font-mono px-1.5 py-0.5 border border-[#808080] text-xs font-bold tracking-widest">
+              <span className="font-bold text-[#000080] flex items-center gap-1">
+                <span className="text-[#ff0055] animate-retro-blink font-black">●</span>
+                {t.home.counterLabel}
+              </span>
+              <span className="bg-black text-[#00ff66] font-mono px-1.5 py-0.5 border border-[#808080] text-xs font-bold tracking-widest shadow-inner">
                 {formattedCount}
               </span>
+              <span className="animate-retro-blink-fast text-[9px] font-bold px-1 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
+                [LIVE!]
+              </span>
             </div>
-            <div className="text-[10px] text-[#555] font-mono">
-              ONLINE // SAKANA-NET
+            <div className="text-[10px] text-[#555] font-mono flex items-center gap-1">
+              <span className="text-[#008800]">ONLINE</span> // SAKANA-NET
+            </div>
+          </div>
+
+          {/* Authentic Retro Marquee Ticker */}
+          <div className="border border-[#808080] bg-[#000040] text-[#ffff00] text-[10px] font-mono py-0.5 px-2 overflow-hidden flex items-center shadow-inner">
+            <span className="shrink-0 bg-[#ff0000] text-white px-1 font-bold text-[9px] mr-2 animate-retro-blink">
+              NEWS
+            </span>
+            <div className="w-full overflow-hidden whitespace-nowrap">
+              <div className="animate-retro-ticker">
+                ★ SAKANA-NET FLASH DRILL SYSTEM ACTIVE ★ SM-2 SPACED RETENTION ENABLED ★ PRESS SPACEBAR TO FLIP CARDS ★ 800x600 READY ★
+              </div>
             </div>
           </div>
 

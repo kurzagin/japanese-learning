@@ -364,22 +364,40 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         <div className="p-4 bg-white text-black min-h-[380px] flex flex-col justify-between">
           {!completed && currentCard ? (
             <>
-              {/* Card Header Status */}
-              <div className="flex items-center justify-between text-xs font-mono border-b border-[#d0d0d0] pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#000080] font-bold">
-                    {t.study.progress}: {currentIndex + 1} / {queue.length}
-                  </span>
-                  {/* SRS Status Pill */}
-                  <span className="text-[10px] px-1.5 py-0.2 border border-[#808080] bg-[#f0f0f0] text-[#333]">
-                    {currentSrsRecord?.repetitionCount === 0
-                      ? "NEW"
-                      : `${currentSrsRecord?.state.toUpperCase()} (int: ${currentSrsRecord?.intervalDays}d)`}
+              {/* Card Header Status with Windows 98 Segmented Progress Bar */}
+              <div className="space-y-1.5 border-b border-[#d0d0d0] pb-2">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#000080] font-bold">
+                      {t.study.progress}: {currentIndex + 1} / {queue.length}
+                    </span>
+                    {/* SRS Status Pill */}
+                    <span className="text-[10px] px-1.5 py-0.2 border border-[#808080] bg-[#f0f0f0] text-[#333]">
+                      {currentSrsRecord?.repetitionCount === 0 ? (
+                        <span className="text-[#cc0000] font-bold animate-retro-blink">[NEW]</span>
+                      ) : (
+                        `${currentSrsRecord?.state.toUpperCase()} (int: ${currentSrsRecord?.intervalDays}d)`
+                      )}
+                    </span>
+                  </div>
+                  <span className="text-[#888] text-[10px] hidden sm:inline">
+                    [ SPACE: FLIP // 1-4: RATE ]
                   </span>
                 </div>
-                <span className="text-[#888] text-[10px] hidden sm:inline">
-                  [ SPACE: FLIP // 1-4: RATE ]
-                </span>
+
+                {/* Windows 98 Segmented Chunky Progress Meter */}
+                <div className="w-full bg-[#c0c0c0] p-[2px] border-t border-l border-[#808080] border-b border-r border-white flex gap-[2px] h-3.5 overflow-hidden">
+                  {Array.from({ length: queue.length }).map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex-1 transition-none ${
+                        idx <= currentIndex
+                          ? "bg-[#000080]"
+                          : "bg-[#e0e0e0]"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* Flashcard Box */}
@@ -502,18 +520,27 @@ export default function StudyClient({ stageId }: { stageId: string }) {
           ) : (
             /* Completed Screen */
             <div className="p-4 flex flex-col items-center justify-center text-center my-auto space-y-4">
-              <div className="w-12 h-12 border-2 border-[#006600] bg-[#eef8ee] flex items-center justify-center text-[#006600]">
-                <Check className="w-7 h-7 stroke-[3]" />
+              <div className="relative">
+                <span className="absolute -top-2 -left-3 animate-star-twinkle text-[#ff00ff] text-base">✦</span>
+                <span className="absolute -bottom-1 -right-3 animate-star-twinkle-delay text-[#ffff00] text-base">★</span>
+                <div className="w-14 h-14 border-2 border-[#006600] bg-[#eef8ee] flex items-center justify-center text-[#006600] shadow">
+                  <Check className="w-8 h-8 stroke-[3]" />
+                </div>
               </div>
 
               <div>
-                <h2 className="text-base font-bold text-[#000080]">
+                <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-[#800000]">
+                  <span className="animate-star-twinkle">★</span>
+                  <span>STAGE COMPLETE</span>
+                  <span className="animate-star-twinkle-delay">★</span>
+                </div>
+                <h2 className="text-lg font-black text-[#000080] mt-0.5">
                   {t.study.completeTitle}
                 </h2>
                 <p className="text-xs text-[#555] mt-1 max-w-sm">
                   {t.study.completeDesc}
                 </p>
-                <p className="text-[11px] text-[#006600] mt-1 font-mono">
+                <p className="text-[11px] text-[#006600] mt-1.5 font-mono bg-[#f0fff0] border border-[#a0e0a0] py-0.5 px-2 inline-block">
                   {t.study.srsScheduledNote}
                 </p>
               </div>

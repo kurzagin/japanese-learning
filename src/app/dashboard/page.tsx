@@ -162,28 +162,36 @@ export default function DashboardPage() {
           
           {/* Status Matrix Board */}
           <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
-            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between">
-              <span>◆ {t.dashboard.statsTitle}</span>
-              <span className="text-[#cc0000]">{t.dashboard.standard}</span>
+            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
+              <span className="flex items-center gap-1">
+                <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
+                <span>◆ {t.dashboard.statsTitle}</span>
+              </span>
+              <span className="text-[#cc0000] font-mono text-[9px] bg-[#fff0f0] border border-[#ffcccc] px-1">
+                {t.dashboard.standard}
+              </span>
             </div>
 
             <div className="grid grid-cols-3 gap-2 text-center pt-2 text-xs">
-              <div className="bg-white border border-[#c0c0c0] p-1.5">
-                <span className="block text-[10px] text-[#666]">{t.dashboard.cleared}</span>
-                <strong className="text-[#000080] text-sm">
+              <div className="bg-black text-[#00ff66] border border-[#808080] p-1.5 font-mono shadow-inner">
+                <span className="block text-[9px] text-[#888]">{t.dashboard.cleared}</span>
+                <strong className="text-sm">
                   {completedCount} / {totalStages}
                 </strong>
               </div>
-              <div className="bg-white border border-[#c0c0c0] p-1.5">
-                <span className="block text-[10px] text-[#666]">{t.dashboard.speed}</span>
-                <strong className="text-[#cc0000] text-sm">
+              <div className="bg-black text-[#ffcc00] border border-[#808080] p-1.5 font-mono shadow-inner">
+                <span className="block text-[9px] text-[#888]">{t.dashboard.speed}</span>
+                <strong className="text-sm">
                   {avgSpeedSec ? `${avgSpeedSec}s` : "--"}
                 </strong>
               </div>
-              <div className="bg-white border border-[#c0c0c0] p-1.5">
-                <span className="block text-[10px] text-[#666]">{t.dashboard.mastery}</span>
-                <strong className="text-[#006600] text-sm">
-                  {Math.round((completedCount / totalStages) * 100)}%
+              <div className="bg-black text-[#00ffff] border border-[#808080] p-1.5 font-mono shadow-inner">
+                <span className="block text-[9px] text-[#888]">{t.dashboard.mastery}</span>
+                <strong className="text-sm flex items-center justify-center gap-1">
+                  <span>{Math.round((completedCount / totalStages) * 100)}%</span>
+                  {completedCount === totalStages && (
+                    <span className="animate-star-twinkle text-[#ffff00]">★</span>
+                  )}
                 </strong>
               </div>
             </div>
@@ -192,7 +200,14 @@ export default function DashboardPage() {
           {/* SRS Due Review Center */}
           <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
             <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
-              <span>◆ {t.dashboard.srsDueTitle}</span>
+              <span className="flex items-center gap-1">
+                {srsSummary.dueCount > 0 ? (
+                  <span className="animate-retro-blink-fast text-[#ff0000] font-black">●</span>
+                ) : (
+                  <span className="text-[#008000]">●</span>
+                )}
+                <span>◆ {t.dashboard.srsDueTitle}</span>
+              </span>
               <span className="font-mono text-[9px] text-[#555]">
                 {t.dashboard.srsMastered}: {srsSummary.masteredCount}
               </span>
@@ -202,17 +217,21 @@ export default function DashboardPage() {
               <div className="text-xs">
                 {srsSummary.dueCount > 0 ? (
                   <div>
-                    <span className="font-bold text-[#cc0000]">
-                      ⚡ {srsSummary.dueCount} {t.dashboard.srsDueDesc}
+                    <span className="font-bold text-[#cc0000] flex items-center gap-1.5">
+                      <span className="animate-retro-blink bg-[#ff0000] text-white px-1 py-0.2 text-[9px] font-mono">
+                        [DUE NOW!]
+                      </span>
+                      <span>⚡ {srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
                     </span>
-                    <span className="text-[11px] text-[#555] block">
+                    <span className="text-[11px] text-[#555] block mt-0.5">
                       SM-2 memory intervals require retention reinforcement.
                     </span>
                   </div>
                 ) : (
                   <div>
-                    <span className="font-bold text-[#006600]">
-                      ✓ {t.dashboard.allCaughtUp}
+                    <span className="font-bold text-[#006600] flex items-center gap-1">
+                      <span className="animate-star-twinkle text-[#00aa00]">✦</span>
+                      <span>✓ {t.dashboard.allCaughtUp}</span>
                     </span>
                     <span className="text-[11px] text-[#555] block">
                       {srsSummary.totalStudied > 0
@@ -226,9 +245,9 @@ export default function DashboardPage() {
               {srsSummary.dueCount > 0 && (
                 <Link
                   href="/study/srs-due"
-                  className="px-3 py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#800000] flex items-center justify-center gap-1 shadow whitespace-nowrap"
+                  className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1 shadow whitespace-nowrap animate-pulse"
                 >
-                  <RotateCw className="w-3.5 h-3.5" />
+                  <RotateCw className="w-3.5 h-3.5 animate-spin" />
                   <span>{t.dashboard.startSrsReview} ({srsSummary.dueCount})</span>
                 </Link>
               )}

@@ -24,3 +24,72 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Authentic Web 1.0 <blink> animation */
+@keyframes retro-blink {
+  0%, 49% {
+    opacity: 1;
+    visibility: visible;
+  }
+  50%, 100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animate-retro-blink {
+  animation: retro-blink 1s steps(1, start) infinite;
+}
+
+.animate-retro-blink-fast {
+  animation: retro-blink 0.5s steps(1, start) infinite;
+}
+
+/* Flashy pixel star twinkle animation */
+@keyframes retro-star-twinkle {
+  0% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px #ff00ff);
+  }
+  50% {
+    transform: scale(1.3) rotate(45deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #ffff00);
+  }
+  100% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px #ff00ff);
+  }
+}
+
+.animate-star-twinkle {
+  display: inline-block;
+  animation: retro-star-twinkle 1.2s ease-in-out infinite;
+}
+
+.animate-star-twinkle-delay {
+  display: inline-block;
+  animation: retro-star-twinkle 1.2s ease-in-out infinite 0.6s;
+}
+
+/* Retro marquee ticker */
+@keyframes retro-ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-retro-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: retro-ticker 18s linear infinite;
+}
+
+.animate-retro-ticker:hover {
+  animation-play-state: paused;
+}
