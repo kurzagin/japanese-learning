@@ -111,6 +111,13 @@ export interface TranslationSchema {
     windowTitle: string;
     badge: string;
     sloganNote: string;
+    whatIsTitle: string;
+    whatIsLead: string;
+    whatIsPoints: {
+      saKanaWordplay: string;
+      speedFocus: string;
+      mediaHeart: string;
+    };
     heroTitle: string;
     heroSubtitle: string;
     writingDisclaimerBadge: string;
@@ -177,6 +184,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       windowTitle: "About SaKana",
       badge: "OUR HUMBLE JOURNEY & DIRECTION",
       sloganNote: "A tiny beginning for everyone wanting to enjoy Japanese media freely.",
+      whatIsTitle: "What is SaKana (魚)?",
+      whatIsLead: "SaKana is a light, distraction-free Japanese speed recognition drill built specifically for anime, manga, and pop-culture enthusiasts.",
+      whatIsPoints: {
+        saKanaWordplay: "A Playful Double Meaning: “魚 (sakana)” means fish — gliding effortlessly through waters without resistance. It is also a warm pun on “さ、仮名を始めよう” (Well then, let's begin Kana!).",
+        speedFocus: "Reading Reflexes over Stroke Order: Rather than writing kanji strokes on paper for hours, SaKana trains your eyes and ears to recognize Hiragana and Katakana characters in fractions of a second.",
+        mediaHeart: "Grounded in Real Japanese Media: We introduce words you actually hear and read in anime titles, voice streams, and games, rather than artificial dry textbook sentences.",
+      },
       heroTitle: "Growing Step by Step, Beyond Just Flashcards",
       heroSubtitle: "We start small with simple cards, and step by step, we hope to build a more interactive space with real Japanese media.",
       writingDisclaimerBadge: "HONEST NOTE FOR LEARNERS",
@@ -315,6 +329,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       windowTitle: "Tentang SaKana",
       badge: "CATATAN SEDERHANA & ARAH PENGEMBANGAN",
       sloganNote: "Langkah kecil yang ramah bagi siapa saja yang ingin menikmati pop culture Jepang secara alami.",
+      whatIsTitle: "Apa Sebenarnya SaKana (魚)?",
+      whatIsLead: "SaKana adalah latihan refleks membaca bahasa Jepang yang ringan, bebas distraksi, dan dirancang khusus untuk penggemar anime, manga, serta kultur pop Jepang.",
+      whatIsPoints: {
+        saKanaWordplay: "Makna Ganda Penuh Filosofi: “魚 (sakana)” berarti ikan — berenang lincah tanpa hambatan. Nama ini juga plesetan hangat dari “さ、仮名を始めよう” (Ayo, mari kita mulai belajar Kana!).",
+        speedFocus: "Latihan Refleks Cepat Tanpa Menulis: Dibandingkan berjam-jam menulis urutan goresan di atas kertas, SaKana melatih mata dan telingamu mengenali Hiragana dan Katakana dalam hitungan sepersekian detik.",
+        mediaHeart: "Berakar pada Media Jepang Nyata: Kami menyajikan kata-kata yang benar-benar kamu temui di judul anime, streaming Vtuber, dan game — bukan kalimat kaku buku teks kuno.",
+      },
       heroTitle: "Tumbuh Perlahan, Lebih Dari Sekadar Flashcard",
       heroSubtitle: "Kami mulai dengan kartu sederhana, dan perlahan ingin membangun ruang interaktif yang akrab dengan media Jepang nyata.",
       writingDisclaimerBadge: "CATATAN JUJUR UNTUK PEMBELAJAR",
@@ -453,6 +474,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       windowTitle: "SaKanaについて",
       badge: "小さな一歩とこれからの歩み",
       sloganNote: "大好きな日本のポップカルチャーを、気負わず自然に楽しみたいすべての人へ。",
+      whatIsTitle: "そもそも「SaKana（魚）」とは？",
+      whatIsLead: "SaKanaは、アニメやマンガ、ゲームが好きな人のために設計された、雑音のない「かな文字反射速読ドリル」です。",
+      whatIsPoints: {
+        saKanaWordplay: "名前に込めた言葉遊び：「魚（さかな）」のように抵抗なく水の中をスイスイ泳ぐ姿。そして「さ、仮名を始めよう。」という前向きな掛け声に由来しています。",
+        speedFocus: "手書きよりも「瞬時の認識反射」：ノートに何時間も文字を書くのではなく、0.5秒以内に文字を瞬時に見て聴いて判別する「認識スピード」を鍛えます。",
+        mediaHeart: "生の日本語カルチャーに直結：退屈な例文ではなく、アニメのタイトルやセリフ、日常で目にする言葉をそのまま使って楽しく学びます。",
+      },
       heroTitle: "単語カードから、一歩ずつ広がる体験へ",
       heroSubtitle: "最初はシンプルなカードから始まりますが、少しずつ生の日本語メディアと触れ合える温かい空間を目指しています。",
       writingDisclaimerBadge: "学習者の皆さまへ大切なお知らせ",

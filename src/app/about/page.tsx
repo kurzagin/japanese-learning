@@ -134,15 +134,45 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <h1 className="text-base sm:text-lg font-bold text-[#000080]">
-              {t.about.heroTitle}
-            </h1>
-            <p className="text-xs text-[#555] max-w-lg mx-auto leading-relaxed">
-              {t.about.heroSubtitle}
-            </p>
-            <p className="text-[11px] text-[#777] italic">
+            <p className="text-[11px] text-[#555] italic">
               {t.about.sloganNote}
             </p>
+          </div>
+
+          {/* FIRST SECTION: What is even SaKana? */}
+          <div className="border border-[#808080] bg-[#fafafa]">
+            <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <span className="text-sm">🐟</span>
+                <span>{t.about.whatIsTitle}</span>
+              </span>
+              <span className="text-[10px] text-[#ffff00] font-mono">ABOUT SAKANA</span>
+            </div>
+            <div className="p-3 text-xs space-y-2.5 bg-white">
+              <p className="text-xs sm:text-[13px] text-[#222] font-semibold leading-relaxed border-l-2 border-[#000080] pl-2 bg-[#f0f4f8] py-1">
+                {t.about.whatIsLead}
+              </p>
+              <div className="space-y-2 pt-1 text-[11px] sm:text-xs">
+                <div className="flex items-start gap-2 bg-[#fffdf0] p-2 border border-[#e8dcb8]">
+                  <span className="text-[#cc0000] font-bold shrink-0">①</span>
+                  <span className="text-[#333] leading-relaxed">
+                    {t.about.whatIsPoints.saKanaWordplay}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2 bg-[#f4f8f4] p-2 border border-[#c4dcc4]">
+                  <span className="text-[#006600] font-bold shrink-0">②</span>
+                  <span className="text-[#333] leading-relaxed">
+                    {t.about.whatIsPoints.speedFocus}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2 bg-[#f8f5fc] p-2 border border-[#ded0f0]">
+                  <span className="text-[#800080] font-bold shrink-0">③</span>
+                  <span className="text-[#333] leading-relaxed">
+                    {t.about.whatIsPoints.mediaHeart}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* CRITICAL HUMBLE NOTICE: we will not yet provide writing */}
@@ -170,8 +200,16 @@ export default function AboutPage() {
               </span>
               <span className="text-[10px] text-[#ffff00] font-mono">BEYOND CARDS</span>
             </div>
-            <div className="p-2.5 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs text-[#444] leading-relaxed">
-              {t.about.interactiveDesc}
+            <div className="p-3 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs space-y-1">
+              <h2 className="font-bold text-sm text-[#000080]">
+                {t.about.heroTitle}
+              </h2>
+              <p className="text-xs text-[#555] leading-relaxed">
+                {t.about.heroSubtitle}
+              </p>
+              <p className="text-[11px] text-[#444] pt-1 leading-relaxed">
+                {t.about.interactiveDesc}
+              </p>
             </div>
 
             {/* List of 6 Interactive Features */}
