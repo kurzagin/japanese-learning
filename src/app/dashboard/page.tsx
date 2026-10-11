@@ -2,15 +2,30 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { STAGES, Stage } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, BookOpen } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
 export default function DashboardPage() {
+  const router = useRouter();
   const { t, locale } = useLanguage();
   const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
   const [progress, setProgress] = useState<Record<string, { completed: boolean; bestSec?: number; stars: number }>>({});
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await authClient.signOut();
+    } catch (e) {
+      console.error("Sign out error:", e);
+    } finally {
+      router.push("/login");
+    }
+  };
 
   useEffect(() => {
     const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakana.net";
@@ -94,12 +109,13 @@ export default function DashboardPage() {
               {userEmail}
             </span>
           </div>
-          <Link
-            href="/login"
-            className="text-[10px] text-[#000080] hover:text-[#cc0000] underline"
+          <button
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+            className="text-[10px] text-[#000080] hover:text-[#cc0000] underline cursor-pointer disabled:opacity-50"
           >
             [{t.nav.logout}]
-          </Link>
+          </button>
         </div>
 
         {/* Content Body */}
