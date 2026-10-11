@@ -202,14 +202,13 @@ export default function DashboardPage() {
                               </Link>
 
                               {/* Timed Challenge Button */}
-                              <button
-                                type="button"
-                                onClick={() => alert(`${stage.name[locale]} - ${t.dashboard.timeLimit} ${stage.targetDurationSeconds} ${t.dashboard.sec}`)}
+                              <Link
+                                href={`/test/${stage.id}`}
                                 className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center gap-1 shadow"
                               >
                                 <Play className="w-3 h-3 fill-[#cc0000]" />
                                 <span>{t.dashboard.sprintBtn}</span>
-                              </button>
+                              </Link>
                             </>
                           ) : (
                             <span className="text-[10px] text-[#999] font-mono">

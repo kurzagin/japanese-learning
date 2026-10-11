@@ -86,6 +86,24 @@ export interface TranslationSchema {
     repeatStudyBtn: string;
     backDashboard: string;
   };
+  test: {
+    windowTitle: string;
+    testBadge: string;
+    timeRemaining: string;
+    questionProgress: string;
+    targetSpeed: string;
+    choosePrompt: string;
+    passTitle: string;
+    failTitle: string;
+    passDesc: string;
+    failDesc: string;
+    yourTime: string;
+    accuracy: string;
+    tryAgainBtn: string;
+    nextStageBtn: string;
+    backToDashboard: string;
+    studyFirstBtn: string;
+  };
 }
 
 export const translations: Record<Locale, TranslationSchema> = {
@@ -175,6 +193,24 @@ export const translations: Record<Locale, TranslationSchema> = {
       repeatStudyBtn: "REVIEW AGAIN",
       backDashboard: "<< Return to Dashboard",
     },
+    test: {
+      windowTitle: "Speed Test",
+      testBadge: "TIMED REFLEX TEST",
+      timeRemaining: "TIME REMAINING",
+      questionProgress: "QUESTION",
+      targetSpeed: "TARGET TIME",
+      choosePrompt: "[ Press 1-4 or Click to Answer ]",
+      passTitle: "STAGE CLEARED!",
+      failTitle: "TIME EXPIRED!",
+      passDesc: "Splendid recognition speed. The next sector is now unlocked.",
+      failDesc: "You exceeded the time limit. Review the characters in study mode and try again.",
+      yourTime: "YOUR TIME",
+      accuracy: "ACCURACY",
+      tryAgainBtn: "RETRY TEST ⚡",
+      nextStageBtn: "NEXT SECTOR >>",
+      backToDashboard: "<< Return to Dashboard",
+      studyFirstBtn: "REVIEW CARDS",
+    },
   },
 
   id: {
@@ -263,6 +299,24 @@ export const translations: Record<Locale, TranslationSchema> = {
       repeatStudyBtn: "ULANGI BELAJAR",
       backDashboard: "<< Kembali ke Dashboard",
     },
+    test: {
+      windowTitle: "Uji Kecepatan",
+      testBadge: "UJI REFLEKS CEPAT DENGAN TIMER",
+      timeRemaining: "SISA WAKTU",
+      questionProgress: "SOAL",
+      targetSpeed: "TARGET WAKTU",
+      choosePrompt: "[ Tekan 1-4 atau Klik Jawaban ]",
+      passTitle: "STAGE BERHASIL DITEMPUH!",
+      failTitle: "WAKTU HABIS!",
+      passDesc: "Kecepatan refleks membaca sangat bagus. Sektor selanjutnya telah terbuka.",
+      failDesc: "Waktu terlewati. Ulangi materi di mode belajar dan coba uji kecepatan kembali.",
+      yourTime: "WAKTU KAMU",
+      accuracy: "AKURASI",
+      tryAgainBtn: "COBA LAGI ⚡",
+      nextStageBtn: "SEKTOR SELANJUTNYA >>",
+      backToDashboard: "<< Kembali ke Dashboard",
+      studyFirstBtn: "PELAJARI KEMBALI",
+    },
   },
 
   ja: {
@@ -350,6 +404,24 @@ export const translations: Record<Locale, TranslationSchema> = {
       readyChallengeBtn: "タイムアタック試練へ挑戦 ⚡",
       repeatStudyBtn: "もう一度復習する",
       backDashboard: "<< 道場メニューへ戻る",
+    },
+    test: {
+      windowTitle: "速度試練",
+      testBadge: "制限時間付き反射速度試練",
+      timeRemaining: "残り時間",
+      questionProgress: "出題",
+      targetSpeed: "目標基準時間",
+      choosePrompt: "【 1〜4キー またはクリックで解答 】",
+      passTitle: "海域突破！",
+      failTitle: "時間切れ！",
+      passDesc: "素晴らしい反射速度です。次の海域への航路が開かれました。",
+      failDesc: "制限時間を超過しました。修練モードで復習してから再度挑戦してください。",
+      yourTime: "所要時間",
+      accuracy: "正解率",
+      tryAgainBtn: "再挑戦 ⚡",
+      nextStageBtn: "次の海域へ >>",
+      backToDashboard: "<< 道場メニューへ戻る",
+      studyFirstBtn: "復習する",
     },
   },
 };

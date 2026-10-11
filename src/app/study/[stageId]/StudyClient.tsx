@@ -267,14 +267,13 @@ export default function StudyClient({ stageId }: { stageId: string }) {
               </div>
 
               <div className="w-full space-y-2 pt-2">
-                <button
-                  type="button"
-                  onClick={() => alert(`Ready for Challenge! Stage: ${stageDisplayName}`)}
+                <Link
+                  href={`/test/${stage.id}`}
                   className="w-full py-2.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-black text-xs text-[#cc0000] flex items-center justify-center gap-2 shadow"
                 >
                   <Play className="w-3.5 h-3.5 fill-[#cc0000]" />
                   <span>{t.study.readyChallengeBtn}</span>
-                </button>
+                </Link>
 
                 <div className="grid grid-cols-2 gap-2">
                   <button
