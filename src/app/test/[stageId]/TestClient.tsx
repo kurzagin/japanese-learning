@@ -19,29 +19,59 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const stage = useMemo(() => STAGES.find((s) => s.id === stageId) || STAGES[0], [stageId]);
   const timeLimit = stage?.targetDurationSeconds || 15;
 
+  const [testSession, setTestSession] = useState(0);
+
   // Generate randomized questions and 4 options for each card
   const questions: TestQuestion[] = useMemo(() => {
     if (!stage?.cards || stage.cards.length === 0) return [];
 
-    // All available distractor answers from the current stage or across stages
+    // All available distractor answers from the same category and global fallback
+    const sameCategoryCards = STAGES.filter((s) => s.category === stage.category).flatMap((s) => s.cards);
     const allStageCards = STAGES.flatMap((s) => s.cards);
 
-    return stage.cards.map((card) => {
+    // Shuffle cards so question order is random rather than fixed (a -> i -> u -> e -> o)
+    const shuffledCards = [...stage.cards].sort(() => 0.5 - Math.random());
+
+    return shuffledCards.map((card) => {
       // Pick answer representation: romaji
       const correctAnswer = card.romaji;
 
-      // Distractor candidates with different answers
-      const otherAnswers = Array.from(
+      // 1. Distractors from the CURRENT stage first (e.g. for 'a', choose other vowels 'i', 'u', 'e', 'o')
+      const stageDistractors = Array.from(
         new Set(
-          allStageCards
+          stage.cards
             .map((c) => c.romaji)
             .filter((ans) => ans !== correctAnswer)
         )
       );
 
-      // Shuffle other answers and pick 3
-      const shuffledOthers = [...otherAnswers].sort(() => 0.5 - Math.random());
-      const selectedOthers = shuffledOthers.slice(0, 3);
+      // 2. Fallback distractors from the same category if current stage has fewer than 3 other cards
+      const categoryDistractors = Array.from(
+        new Set(
+          sameCategoryCards
+            .map((c) => c.romaji)
+            .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans))
+        )
+      );
+
+      // 3. Fallback from any cards across all stages if still needed
+      const globalDistractors = Array.from(
+        new Set(
+          allStageCards
+            .map((c) => c.romaji)
+            .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans) && !categoryDistractors.includes(ans))
+        )
+      );
+
+      const shuffledStageDistractors = [...stageDistractors].sort(() => 0.5 - Math.random());
+      const shuffledCategoryDistractors = [...categoryDistractors].sort(() => 0.5 - Math.random());
+      const shuffledGlobalDistractors = [...globalDistractors].sort(() => 0.5 - Math.random());
+
+      const selectedOthers = [
+        ...shuffledStageDistractors,
+        ...shuffledCategoryDistractors,
+        ...shuffledGlobalDistractors,
+      ].slice(0, 3);
 
       // Create 4 choices and shuffle
       const rawChoices = [correctAnswer, ...selectedOthers];
@@ -54,7 +84,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
         correctIndex,
       };
     });
-  }, [stage]);
+  }, [stage, testSession]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -72,6 +102,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
   // Start countdown on mount or reset
   const resetTest = useCallback(() => {
+    setTestSession((prev) => prev + 1);
     setCurrentIndex(0);
     setSelectedOption(null);
     setIsAnswered(false);
@@ -135,6 +166,10 @@ export default function TestClient({ stageId }: { stageId: string }) {
       } catch {}
 
       // Neon Database Sync (only for logged-in accounts)
+      const userEmail = typeof window !== "undefined"
+        ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
+        : "guest@sakana.net";
+
       if (userEmail && userEmail !== "guest@sakana.net") {
         fetch("/api/progress", {
           method: "POST",
