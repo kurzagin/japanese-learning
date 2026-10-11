@@ -24,7 +24,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   return (
     <div>
       {/* Title Bar with Fish Icon & SaKana Branding (Clean, no fake -, X, []) */}
-      <div className="bg-[#000080] text-white px-2.5 py-1.5 flex items-center justify-between select-none">
+      <div className="bg-[#000080] text-white px-2.5 py-1.5 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-2 hover:opacity-90 transition-opacity"
