@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { STAGES, Stage } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen } from "lucide-react";
+import { Play, BookOpen, RotateCw } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardPage() {
@@ -14,6 +14,11 @@ export default function DashboardPage() {
   const { t, locale } = useLanguage();
   const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
   const [progress, setProgress] = useState<Record<string, { completed: boolean; bestSec?: number; stars: number }>>({});
+  const [srsSummary, setSrsSummary] = useState<{ dueCount: number; masteredCount: number; totalStudied: number }>({
+    dueCount: 0,
+    masteredCount: 0,
+    totalStudied: 0,
+  });
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleLogout = async () => {
@@ -39,25 +44,34 @@ export default function DashboardPage() {
       } catch {}
     }
 
-    // 2. Fetch live progress from Neon Postgres (only for logged-in accounts)
-    if (savedEmail && savedEmail !== "guest@sakana.net") {
-      fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
-        .then((res) => res.json())
-        .then((json) => {
-          if (json.success && Array.isArray(json.data)) {
-            const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
-            json.data.forEach((row: any) => {
-              remoteProgress[row.stageId] = {
-                completed: row.completed,
-                stars: row.stars,
-                bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
-              };
-            });
-            setProgress((prev) => ({ ...prev, ...remoteProgress }));
-          }
-        })
-        .catch((err) => console.error("Error fetching Neon progress:", err));
-    }
+    // 2. Fetch live progress from Neon Postgres
+    const fetchEmail = savedEmail || "guest@sakana.net";
+    fetch(`/api/progress?userId=${encodeURIComponent(fetchEmail)}`)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data)) {
+          const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
+          json.data.forEach((row: any) => {
+            remoteProgress[row.stageId] = {
+              completed: row.completed,
+              stars: row.stars,
+              bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
+            };
+          });
+          setProgress((prev) => ({ ...prev, ...remoteProgress }));
+        }
+      })
+      .catch((err) => console.error("Error fetching Neon progress:", err));
+
+    // 3. Fetch SRS due summary from Neon Postgres
+    fetch(`/api/srs?userId=${encodeURIComponent(fetchEmail)}`)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && json.summary) {
+          setSrsSummary(json.summary);
+        }
+      })
+      .catch((err) => console.error("Error fetching SRS summary:", err));
   }, []);
 
   const completedList = Object.values(progress).filter((p) => p.completed);
@@ -152,6 +166,52 @@ export default function DashboardPage() {
             </div>
           </div>
 
+          {/* SRS Due Review Center */}
+          <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
+            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
+              <span>◆ {t.dashboard.srsDueTitle}</span>
+              <span className="font-mono text-[9px] text-[#555]">
+                {t.dashboard.srsMastered}: {srsSummary.masteredCount}
+              </span>
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="text-xs">
+                {srsSummary.dueCount > 0 ? (
+                  <div>
+                    <span className="font-bold text-[#cc0000]">
+                      ⚡ {srsSummary.dueCount} {t.dashboard.srsDueDesc}
+                    </span>
+                    <span className="text-[11px] text-[#555] block">
+                      SM-2 memory intervals require retention reinforcement.
+                    </span>
+                  </div>
+                ) : (
+                  <div>
+                    <span className="font-bold text-[#006600]">
+                      ✓ {t.dashboard.allCaughtUp}
+                    </span>
+                    <span className="text-[11px] text-[#555] block">
+                      {srsSummary.totalStudied > 0
+                        ? `${srsSummary.totalStudied} characters tracked in SRS active retention.`
+                        : "Start learning characters in the stages below to populate your retention schedule."}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {srsSummary.dueCount > 0 && (
+                <Link
+                  href="/study/srs-due"
+                  className="px-3 py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#800000] flex items-center justify-center gap-1 shadow whitespace-nowrap"
+                >
+                  <RotateCw className="w-3.5 h-3.5" />
+                  <span>{t.dashboard.startSrsReview} ({srsSummary.dueCount})</span>
+                </Link>
+              )}
+            </div>
+          </div>
+
           {/* Stages by Category */}
           <div className="space-y-4">
             {categories.map((cat, catIdx) => (
@@ -236,7 +296,7 @@ export default function DashboardPage() {
                         <div className="flex items-center gap-1.5 self-end sm:self-auto">
                           {isUnlocked ? (
                             <>
-                              {/* Learn Mode Button (Anki repetition, no timer) */}
+                              {/* Learn Mode Button (SRS repetition, untimed) */}
                               <Link
                                 href={`/study/${stage.id}`}
                                 className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center gap-1 shadow"

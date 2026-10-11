@@ -3,9 +3,12 @@ import StudyClient from "./StudyClient";
 import { STAGES } from "@/data/stages";
 
 export function generateStaticParams() {
-  return STAGES.map((s) => ({
-    stageId: s.id,
-  }));
+  return [
+    ...STAGES.map((s) => ({
+      stageId: s.id,
+    })),
+    { stageId: "srs-due" },
+  ];
 }
 
 async function StudyContent({

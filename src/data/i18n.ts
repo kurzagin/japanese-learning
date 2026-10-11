@@ -70,12 +70,20 @@ export interface TranslationSchema {
     quickLaunch: string;
     timeLimit: string;
     sec: string;
+    srsDueTitle: string;
+    srsDueDesc: string;
+    startSrsReview: string;
+    allCaughtUp: string;
+    srsMastered: string;
   };
   study: {
     windowTitle: string;
     studyBadge: string;
     flipPrompt: string;
     againBtn: string;
+    hardBtn: string;
+    goodBtn: string;
+    easyBtn: string;
     gotItBtn: string;
     progress: string;
     mnemonic: string;
@@ -86,6 +94,7 @@ export interface TranslationSchema {
     readyChallengeBtn: string;
     repeatStudyBtn: string;
     backDashboard: string;
+    srsScheduledNote: string;
   };
   test: {
     windowTitle: string;
@@ -176,7 +185,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule1Title: "Break the Calligraphy Trap",
       rule1Desc: "Writing perfect strokes by hand often causes burnout. Here, we prioritize instant visual recognition over handwriting.",
       rule2Title: "Learn First, Test Later",
-      rule2Desc: "Use untimed flashcard repetitions (Anki style) to get comfortable with the characters before taking any speed challenge.",
+      rule2Desc: "Use spaced repetition flashcards (SRS method) to get comfortable with the characters before taking any speed challenge.",
       rule3Title: "Kana Words First (No Kanji Yet)",
       rule3Desc: "Once you master Hiragana & Katakana, jump directly into real anime words and loanwords before touching complex Kanji.",
     },
@@ -252,22 +261,31 @@ export const translations: Record<Locale, TranslationSchema> = {
       quickLaunch: "QUICK START",
       timeLimit: "Time limit:",
       sec: "sec",
+      srsDueTitle: "SPACED REPETITION (SRS) REVIEWS",
+      srsDueDesc: "characters scheduled for memory retention today",
+      startSrsReview: "START DUE SRS REVIEW",
+      allCaughtUp: "All caught up! No SRS reviews due right now.",
+      srsMastered: "MASTERED IN SRS",
     },
     study: {
       windowTitle: "Study Mode",
-      studyBadge: "UNTIMED STUDY MODE (ANKI METHOD)",
+      studyBadge: "SPACED REPETITION STUDY (SRS METHOD)",
       flipPrompt: "[ Click or Tap to Flip Card ]",
       againBtn: "Again",
+      hardBtn: "Hard",
+      goodBtn: "Good",
+      easyBtn: "Easy",
       gotItBtn: "Good",
       progress: "CARD",
       mnemonic: "Visual Hint / Mnemonic:",
       sampleWord: "Real Japanese Word:",
       romajiLabel: "Pronunciation (Romaji):",
       completeTitle: "STAGE STUDY COMPLETED!",
-      completeDesc: "You have reviewed all characters in this sector. Ready to test your reflexes with the timer?",
+      completeDesc: "You have reviewed all characters in this sector. Their SRS intervals have been scheduled.",
       readyChallengeBtn: "TAKE TIMED CHALLENGE ⚡",
       repeatStudyBtn: "REVIEW AGAIN",
       backDashboard: "<< Return to Dashboard",
+      srsScheduledNote: "Memory intervals scheduled via SM-2 spaced repetition.",
     },
     test: {
       windowTitle: "Speed Test",
@@ -321,7 +339,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule1Title: "Lepaskan Jebakan Menulis Rapi",
       rule1Desc: "Menulis goresan berulang kali bikin cepat bosan. Di sini kita fokus pada pengenalan instan saat melihat karakter.",
       rule2Title: "Pahami Dulu, Uji Kemudian",
-      rule2Desc: "Gunakan mode kartu pengulangan (metode Anki) santai tanpa timer sebelum menguji kecepatan refleksmu.",
+      rule2Desc: "Gunakan mode kartu pengulangan berkala (metode SRS) santai tanpa timer sebelum menguji kecepatan refleksmu.",
       rule3Title: "Langsung ke Kosakata (Tanpa Kanji Dulu)",
       rule3Desc: "Setelah paham Hiragana & Katakana, langsung coba membaca kosakata anime dan kata serapan sehari-hari sebelum belajar Kanji.",
     },
@@ -397,22 +415,31 @@ export const translations: Record<Locale, TranslationSchema> = {
       quickLaunch: "MULAI SEKARANG",
       timeLimit: "Batas waktu:",
       sec: "dtk",
+      srsDueTitle: "REVIEW REPETISI BERKALA (SRS)",
+      srsDueDesc: "karakter yang terjadwal untuk diulang hari ini agar tidak lupa",
+      startSrsReview: "MULAI REVIEW SRS HARI INI",
+      allCaughtUp: "Semua beres! Belum ada review SRS yang jatuh tempo saat ini.",
+      srsMastered: "DIKUASAI DALAM SRS",
     },
     study: {
       windowTitle: "Mode Belajar",
-      studyBadge: "MODE BELAJAR SANTAI (METODE ANKI)",
+      studyBadge: "MODE BELAJAR INTERVAL (METODE SRS)",
       flipPrompt: "[ Klik untuk Membuka Kartu ]",
       againBtn: "Ulangi",
+      hardBtn: "Sulit",
+      goodBtn: "Paham",
+      easyBtn: "Mudah",
       gotItBtn: "Paham",
       progress: "KARTU",
       mnemonic: "Petunjuk Bentuk / Mnemonic:",
       sampleWord: "Contoh Kata Asli Jepang:",
       romajiLabel: "Pelafalan (Romaji):",
       completeTitle: "MATERI STAGE INI SELESAI!",
-      completeDesc: "Kamu sudah mengulang semua karakter di bagian ini. Sudah siap menguji refleks dengan tantangan waktu?",
+      completeDesc: "Kamu sudah mengulang semua karakter di bagian ini. Jadwal repetisi ingatan (SRS) telah disimpan.",
       readyChallengeBtn: "IKUTI TANTANGAN WAKTU ⚡",
       repeatStudyBtn: "ULANGI BELAJAR",
       backDashboard: "<< Kembali ke Dashboard",
+      srsScheduledNote: "Interval memori dijadwalkan secara otomatis dengan algoritma SM-2.",
     },
     test: {
       windowTitle: "Uji Kecepatan",
@@ -466,7 +493,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       rule1Title: "手書き完璧主義からの脱却",
       rule1Desc: "文字を綺麗に書く練習で挫折していませんか？ここでは「見て0.5秒で読める」認識力を鍛えます。",
       rule2Title: "まずは反復学習、テストは後から",
-      rule2Desc: "タイマー無しの単語カード（Anki方式）でしっかり馴染んでから、タイムアタックに挑戦します。",
+      rule2Desc: "間隔反復単語カード（SRS方式）でしっかり馴染んでから、タイムアタックに挑戦します。",
       rule3Title: "漢字は後回し！生きた単語から",
       rule3Desc: "ひらがな・カタカナを覚えたら、すぐにアニメやゲームで使われる実戦単語を読み進めます。",
     },
@@ -542,22 +569,31 @@ export const translations: Record<Locale, TranslationSchema> = {
       quickLaunch: "即座に出陣",
       timeLimit: "制限時間:",
       sec: "秒",
+      srsDueTitle: "間隔反復 (SRS) 復習",
+      srsDueDesc: "記憶定着のために本日復習すべき文字",
+      startSrsReview: "本日のSRS復習を開始",
+      allCaughtUp: "すべての復習が完了しています！今すぐ復習すべき文字はありません。",
+      srsMastered: "SRS完全修得済み",
     },
     study: {
       windowTitle: "反復学習カード",
-      studyBadge: "時間制限なし学習モード (Anki方式)",
+      studyBadge: "間隔反復学習モード (SRS方式)",
       flipPrompt: "【 タップまたはクリックでカードを裏返す 】",
       againBtn: "もう一度",
+      hardBtn: "難しい",
+      goodBtn: "覚えた",
+      easyBtn: "簡単",
       gotItBtn: "覚えた",
       progress: "札",
       mnemonic: "字形の由来 / ヒント:",
       sampleWord: "実戦日本語単語・用例:",
       romajiLabel: "発音表記 (ローマ字):",
       completeTitle: "この海域の修練が完了しました！",
-      completeDesc: "すべての文字の反復を完了しました。タイムアタックで反射速度を試す準備はできましたか？",
+      completeDesc: "すべての文字の反復を完了しました。SM-2方式で次の復習時期が設定されました。",
       readyChallengeBtn: "タイムアタック試練へ挑戦 ⚡",
       repeatStudyBtn: "もう一度復習する",
       backDashboard: "<< 道場メニューへ戻る",
+      srsScheduledNote: "SM-2アルゴリズムにより最適な記憶保持インターバルが更新されました。",
     },
     test: {
       windowTitle: "速度試練",

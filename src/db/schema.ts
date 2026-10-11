@@ -43,3 +43,19 @@ export const siteStats = pgTable("site_stats", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
+// Real Spaced Repetition System (SRS / SM-2) Card Reviews
+export const userCardReviews = pgTable("user_card_reviews", {
+  id: text("id").primaryKey(), // e.g. `${userId}_${cardId}`
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  cardId: text("card_id").notNull(),
+  stageId: text("stage_id").notNull(),
+  repetitionCount: integer("repetition_count").default(0).notNull(),
+  intervalDays: integer("interval_days").default(0).notNull(),
+  easeFactorX100: integer("ease_factor_x100").default(250).notNull(), // 250 = 2.50
+  lapses: integer("lapses").default(0).notNull(),
+  state: text("state").default("learning").notNull(), // 'learning' | 'review' | 'mastered'
+  lastReviewedAt: timestamp("last_reviewed_at", { withTimezone: true }),
+  nextReviewAt: timestamp("next_review_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
