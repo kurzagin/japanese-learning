@@ -426,12 +426,35 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
               {/* Action Buttons */}
               <div className="w-full max-w-xs space-y-2 pt-2">
+                {/* 2-Boss Milestone Bonus Arcade Banner */}
+                {isBoss && stage.id.match(/-boss-([0-9]+)/) && parseInt(stage.id.match(/-boss-([0-9]+)/)![1], 10) % 2 === 0 && (
+                  <div className="bg-[#fff9e6] border-2 border-[#ff9900] p-2.5 mb-2 shadow text-left">
+                    <div className="text-[11px] font-black text-[#b35900] flex items-center gap-1">
+                      <span className="animate-star-twinkle text-[#ff6600]">✦</span>
+                      <span>{t.test.bonusUnlockedTitle}</span>
+                    </div>
+                    <p className="text-[10px] text-[#666] mt-0.5 leading-snug">
+                      {t.test.bonusUnlockedDesc}
+                    </p>
+                    <Link
+                      href={`/minigame?from=${stage.id}&next=${nextStage ? nextStage.id : ""}`}
+                      className="mt-2 w-full py-2 px-3 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow"
+                    >
+                      <span>{t.test.playMinigameBtn}</span>
+                    </Link>
+                  </div>
+                )}
+
                 {nextStage && (
                   <Link
                     href={`/study/${nextStage.id}`}
                     className="w-full py-2 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-2 shadow"
                   >
-                    <span>{t.test.nextStageBtn}</span>
+                    <span>
+                      {isBoss && stage.id.match(/-boss-([0-9]+)/) && parseInt(stage.id.match(/-boss-([0-9]+)/)![1], 10) % 2 === 0
+                        ? t.test.skipMinigameBtn
+                        : t.test.nextStageBtn}
+                    </span>
                   </Link>
                 )}
 

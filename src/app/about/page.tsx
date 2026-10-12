@@ -18,7 +18,8 @@ import {
   Layers,
   Globe,
   Hourglass,
-  Shuffle
+  Shuffle,
+  Gamepad2
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -285,6 +286,25 @@ export default function AboutPage() {
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
                     {t.about.currentList.stagesDesc}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#fff8e0] border border-[#f5b300] shrink-0 mt-0.5">
+                  <Gamepad2 className="w-5 h-5 text-[#cc6600]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.minigameTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
+                      ACTIVE // ADAPTIVE ARCADE LOOP
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.minigameDesc}
                   </p>
                 </div>
               </div>

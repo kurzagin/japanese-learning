@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { STAGES, Stage } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen, RotateCw } from "lucide-react";
+import { Play, BookOpen, RotateCw, Gamepad2, Sparkles } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardPage() {
@@ -251,6 +251,35 @@ export default function DashboardPage() {
                   <span>{t.dashboard.startSrsReview} ({srsSummary.dueCount})</span>
                 </Link>
               )}
+            </div>
+          </div>
+
+          {/* Optional Intermission Arcade Section */}
+          <div className="border-2 border-[#ff9900] bg-[#fffdf0] p-2.5 shadow-sm">
+            <div className="text-[10px] font-bold text-[#b35900] uppercase border-b border-[#e6b800] pb-1 flex justify-between items-center">
+              <span className="flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5 text-[#ff6600]" />
+                <span>{t.minigame.optionalBannerTitle}</span>
+              </span>
+              <span className="bg-[#fff0e0] border border-[#ffcc80] text-[#cc6600] text-[9px] px-1 font-mono uppercase">
+                OPTIONAL DRILL
+              </span>
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div className="text-xs text-[#555]">
+                <p className="text-[11px] leading-snug">
+                  {t.minigame.optionalBannerDesc}
+                </p>
+              </div>
+
+              <Link
+                href="/minigame"
+                className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow whitespace-nowrap shrink-0"
+              >
+                <Gamepad2 className="w-3.5 h-3.5 text-[#800000]" />
+                <span>{t.minigame.startArcadeBtn}</span>
+              </Link>
             </div>
           </div>
 

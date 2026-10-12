@@ -118,6 +118,35 @@ export interface TranslationSchema {
     nextStageBtn: string;
     backToDashboard: string;
     studyFirstBtn: string;
+    bonusUnlockedTitle: string;
+    bonusUnlockedDesc: string;
+    playMinigameBtn: string;
+    skipMinigameBtn: string;
+  };
+  minigame: {
+    windowTitle: string;
+    badge: string;
+    title: string;
+    subtitle: string;
+    lives: string;
+    combo: string;
+    bestCombo: string;
+    score: string;
+    targetProgress: string;
+    pressToAnswer: string;
+    troubleWarning: string;
+    victoryTitle: string;
+    victoryDesc: string;
+    defeatTitle: string;
+    defeatDesc: string;
+    accuracy: string;
+    masteredBonus: string;
+    playAgainBtn: string;
+    nextStageBtn: string;
+    backDashboard: string;
+    optionalBannerTitle: string;
+    optionalBannerDesc: string;
+    startArcadeBtn: string;
   };
   about: {
     windowTitle: string;
@@ -164,6 +193,8 @@ export interface TranslationSchema {
       bidirectionalDesc: string;
       stagesTitle: string;
       stagesDesc: string;
+      minigameTitle: string;
+      minigameDesc: string;
       bilingualTitle: string;
       bilingualDesc: string;
     };
@@ -253,6 +284,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Randomized test questions challenging both recognition (Kana ➔ Romaji) and active recall (Romaji ➔ Kana) with zero repetitive predictability.",
         stagesTitle: "Progressive Sectors & The Shallows to The Reef",
         stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
+        minigameTitle: "Adaptive 30-Kana Intermission Arcade (Bonus Stage)",
+        minigameDesc: "An adaptive rapid-reaction arcade triggered every 2 Bosses (and optional from Dashboard). Pools all previously unlocked characters, heavily prioritizing past mistakes and resting mastered kana.",
         bilingualTitle: "Trilingual Interface & Accessible Mnemonics",
         bilingualDesc: "Seamless switching between English, Indonesian, and Japanese, designed for distraction-free retro comfort.",
       },
@@ -344,6 +377,35 @@ export const translations: Record<Locale, TranslationSchema> = {
       nextStageBtn: "NEXT SECTOR >>",
       backToDashboard: "<< Return to Dashboard",
       studyFirstBtn: "REVIEW CARDS",
+      bonusUnlockedTitle: "★ BONUS ARCADE UNLOCKED! ★",
+      bonusUnlockedDesc: "You conquered 2 Boss Checkpoints! A 30-letter cumulative loop is available to reinforce troubled kana before entering deeper waters.",
+      playMinigameBtn: "PLAY 30-KANA BONUS CHALLENGE (RECOMMENDED) 🎮",
+      skipMinigameBtn: "SKIP TO NEXT SECTOR >>",
+    },
+    minigame: {
+      windowTitle: "Arcade Bonus",
+      badge: "INTERMISSION: 30-LETTER CUMULATIVE REACTION LOOP",
+      title: "KANA SURVIVAL ARCADE",
+      subtitle: "30-letter rapid reaction loop. Troubled and weak kana appear more often; 100% mastered kana are rested.",
+      lives: "SHIELD LIVES",
+      combo: "COMBO",
+      bestCombo: "MAX STREAK",
+      score: "SCORE",
+      targetProgress: "LETTERS CLEARED",
+      pressToAnswer: "[ Press 1-4 or Click matching Romaji ]",
+      troubleWarning: "WEAK SPOT ALERT! Re-looping missed character...",
+      victoryTitle: "★ ARCADE LOOP CLEARED! ★",
+      victoryDesc: "Outstanding reflex memory! All troubled letters survived the cumulative loop.",
+      defeatTitle: "SHIELDS DEPLETED!",
+      defeatDesc: "The rapid stream caught you off guard. Take a breath and retry the loop, or skip ahead.",
+      accuracy: "ACCURACY",
+      masteredBonus: "MASTERY BONUS",
+      playAgainBtn: "REPLAY ARCADE (30 KANA) 🔄",
+      nextStageBtn: "PROCEED TO NEXT STAGE >>",
+      backDashboard: "<< Return to Dashboard",
+      optionalBannerTitle: "◆ INTERMISSION ARCADE (OPTIONAL PRACTICE)",
+      optionalBannerDesc: "Test your reflex memory with an adaptive 30-letter loop pooling all previously cleared kana. Weak spots loop more often!",
+      startArcadeBtn: "PLAY BONUS ARCADE (30 KANA)",
     },
   },
 
@@ -426,6 +488,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Pertanyaan tes diacak bebas antara pengenalan (Kana ➔ Romaji) dan ingatan aktif (Romaji ➔ Kana) agar hafalan tidak kaku.",
         stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
         stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
+        minigameTitle: "Arkade Intermezzo 30-Kana Adaptif (Bonus Stage)",
+        minigameDesc: "Mode refleks cepat kumulatif yang terbuka setiap 2 Bos (dan bisa dimainkan bebas dari Dashboard). Mengumpulkan seluruh huruf yang sudah dibuka, memprioritaskan huruf yang sering salah, dan mengistirahatkan huruf yang sudah 100% dikuasai.",
         bilingualTitle: "Dukungan Tiga Bahasa (EN / ID / JA)",
         bilingualDesc: "Kemudahan beralih bahasa antar Inggris, Indonesia, dan Jepang dalam tampilan antarmuka retro klasik yang nyaman.",
       },
@@ -517,6 +581,35 @@ export const translations: Record<Locale, TranslationSchema> = {
       nextStageBtn: "SEKTOR SELANJUTNYA >>",
       backToDashboard: "<< Kembali ke Dashboard",
       studyFirstBtn: "PELAJARI KEMBALI",
+      bonusUnlockedTitle: "★ MINI GAME BONUS TERBUKA! ★",
+      bonusUnlockedDesc: "Kamu telah menaklukkan 2 Checkpoint Bos! Mode loop 30 huruf kini tersedia untuk melatih huruf yang sering salah sebelum lanjut ke sektor berikutnya.",
+      playMinigameBtn: "MAIN TANTANGAN BONUS 30 KANA (DISARANKAN) 🎮",
+      skipMinigameBtn: "LEWATI KE SEKTOR BERIKUTNYA >>",
+    },
+    minigame: {
+      windowTitle: "Bonus Arkade",
+      badge: "INTERMEZZO: LOOP REFLEKS KUMULATIF 30 HURUF",
+      title: "KANA SURVIVAL ARCADE",
+      subtitle: "Tantangan reaksi kilat 30 huruf. Huruf yang sering salah muncul lebih sering; huruf yang 100% dikuasai disimpan sementara.",
+      lives: "NYAWA PERISAI",
+      combo: "KOMBO",
+      bestCombo: "KOMBO TERBAIK",
+      score: "SKOR",
+      targetProgress: "HURUF TERSISA",
+      pressToAnswer: "[ Tekan 1-4 atau Klik Romaji yang Cocok ]",
+      troubleWarning: "TITIK LEMAH! Memasukkan kembali huruf yang salah ke antrean...",
+      victoryTitle: "★ LOOP ARKADE BERHASIL DITEMPUH! ★",
+      victoryDesc: "Refleks luar biasa! Semua huruf lemah berhasil kamu kuasai dalam loop kumulatif ini.",
+      defeatTitle: "PERISAI HABIS!",
+      defeatDesc: "Aliran cepat huruf mengejutkanmu. Tarik napas sejenak dan coba lagi, atau langsung lewati ke stage berikutnya.",
+      accuracy: "AKURASI",
+      masteredBonus: "BONUS PENGUASAAN",
+      playAgainBtn: "MAIN ULANG ARKADE (30 KANA) 🔄",
+      nextStageBtn: "LANJUT KE SEKTOR BERIKUTNYA >>",
+      backDashboard: "<< Kembali ke Dashboard",
+      optionalBannerTitle: "◆ MINI GAME ARKADE INTERMEZZO (OPSIONAL)",
+      optionalBannerDesc: "Uji ingatan refleksmu dengan 30 huruf loop dari semua stage yang sudah kamu tamatkan. Huruf yang sering salah akan muncul lebih sering!",
+      startArcadeBtn: "MAIN BONUS ARKADE (30 KANA)",
     },
   },
 
@@ -599,6 +692,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "「仮名 ➔ ローマ字」の読解認識と「ローマ字 ➔ 仮名」の能動想起がランダムに混ざり合い、予測に頼らない本質的な即答力を鍛えます。",
         stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
         stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
+        minigameTitle: "適応型30文字幕間アーケード（ボーナス試練）",
+        minigameDesc: "2ボス突破ごと（または道場から自由挑戦）に出現する高速反射ミニゲーム。過去に誤答した苦手札を優先抽出し、100%修得札を適度に休止させながら累積30文字ループで脳に定着させます。",
         bilingualTitle: "3言語対応インターフェース（日・英・インドネシア語）",
         bilingualDesc: "快適に切り替え可能なマルチ言語UIと、集中を妨げないレトロOS風デザイン。",
       },
@@ -690,6 +785,35 @@ export const translations: Record<Locale, TranslationSchema> = {
       nextStageBtn: "次の海域へ >>",
       backToDashboard: "<< 道場メニューへ戻る",
       studyFirstBtn: "復習する",
+      bonusUnlockedTitle: "★ ボーナスミニゲーム解禁！ ★",
+      bonusUnlockedDesc: "ボス関門を2箇所突破しました！深海へ進む前に、全解放文字から苦手な仮名を重点出題する30文字ループ修練が利用可能です。",
+      playMinigameBtn: "30文字ボーナス試練に挑戦 (推奨) 🎮",
+      skipMinigameBtn: "次の海域へ進む >>",
+    },
+    minigame: {
+      windowTitle: "幕間ミニゲーム",
+      badge: "幕間：30文字累積反射ループゲーム",
+      title: "仮名サバイバル・アーケード",
+      subtitle: "30文字の連続反射ドリル。誤答・苦手な仮名が重点的にループ出題され、完全修得文字は一時休止します。",
+      lives: "シールド残機",
+      combo: "連続コンボ",
+      bestCombo: "最大連鎖",
+      score: "スコア",
+      targetProgress: "残り文字数",
+      pressToAnswer: "【 1〜4キー またはクリックで解答 】",
+      troubleWarning: "苦手札警戒！ 誤答文字がキューへ再投入されます...",
+      victoryTitle: "★ アーケードループ制覇！ ★",
+      victoryDesc: "見事な反射記憶です！累積30文字ループを完走し、弱点を克服しました。",
+      defeatTitle: "シールド消失！",
+      defeatDesc: "高速の波に呑まれました。一息ついて再挑戦するか、そのまま次の海域へ進むことも可能です。",
+      accuracy: "正解率",
+      masteredBonus: "完全修得ボーナス",
+      playAgainBtn: "もう一度挑戦 (30文字) 🔄",
+      nextStageBtn: "次の海域へ進む >>",
+      backDashboard: "<< 道場メニューへ戻る",
+      optionalBannerTitle: "◆ 幕間ボーナスアーケード (自由挑戦)",
+      optionalBannerDesc: "これまで突破した全海域の仮名から苦手文字を優先抽出した30文字ループに挑戦できます。",
+      startArcadeBtn: "ボーナスアーケードを開始 (30文字)",
     },
   },
 };
