@@ -17,7 +17,8 @@ import {
   Zap,
   Layers,
   Globe,
-  Hourglass
+  Hourglass,
+  Shuffle
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -246,6 +247,25 @@ export default function AboutPage() {
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
                     {t.about.currentList.sprintDesc}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#f0f4ff] border border-[#90b0e0] shrink-0 mt-0.5">
+                  <Shuffle className="w-5 h-5 text-[#000080]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                      {t.about.currentList.bidirectionalTitle}
+                    </h2>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e8f0fe] border border-[#4285f4] text-[#1967d2] font-bold">
+                      ACTIVE // BIDIRECTIONAL DRILL
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.bidirectionalDesc}
                   </p>
                 </div>
               </div>

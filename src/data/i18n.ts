@@ -160,6 +160,8 @@ export interface TranslationSchema {
       srsDesc: string;
       sprintTitle: string;
       sprintDesc: string;
+      bidirectionalTitle: string;
+      bidirectionalDesc: string;
       stagesTitle: string;
       stagesDesc: string;
       bilingualTitle: string;
@@ -247,6 +249,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         srsDesc: "SM-2 scientific retention scheduling cards with visual mnemonics, audio hints, and real Japanese sample vocabulary.",
         sprintTitle: "Rapid Reflex Speed Challenge",
         sprintDesc: "Under-15-second timed tests designed to rewire neural recognition speed for instantaneous Kana reading.",
+        bidirectionalTitle: "Bidirectional Mixed Test (Kana ⇄ Romaji)",
+        bidirectionalDesc: "Randomized test questions challenging both recognition (Kana ➔ Romaji) and active recall (Romaji ➔ Kana) with zero repetitive predictability.",
         stagesTitle: "Progressive Sectors & The Shallows to The Reef",
         stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
         bilingualTitle: "Trilingual Interface & Accessible Mnemonics",
@@ -418,6 +422,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         srsDesc: "Metode repetisi terjadwal secara ilmiah dilengkapi visual mnemonik, pelafalan audio, dan kosakata nyata bahasa Jepang.",
         sprintTitle: "Uji Refleks Cepat (Speed Challenge)",
         sprintDesc: "Tantangan berbatas waktu di bawah 15 detik untuk melatih refleks mata mengenali karakter secara instan tanpa mengeja.",
+        bidirectionalTitle: "Ujian Campuran Dua Arah (Kana ⇄ Romaji)",
+        bidirectionalDesc: "Pertanyaan tes diacak bebas antara pengenalan (Kana ➔ Romaji) dan ingatan aktif (Romaji ➔ Kana) agar hafalan tidak kaku.",
         stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
         stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
         bilingualTitle: "Dukungan Tiga Bahasa (EN / ID / JA)",
@@ -589,6 +595,8 @@ export const translations: Record<Locale, TranslationSchema> = {
         srsDesc: "SM-2アルゴリズムに基づく復習スケジュール。視覚的記憶ヒント、音声再生、実戦日本語単語を搭載。",
         sprintTitle: "反射神経タイムアタック試練",
         sprintDesc: "15秒以内の制限時間内に素早く判別し、文字を瞬時に読む脳の反射回路を鍛えるスピードテスト。",
+        bidirectionalTitle: "双方向ランダム出題（仮名 ⇄ ローマ字）",
+        bidirectionalDesc: "「仮名 ➔ ローマ字」の読解認識と「ローマ字 ➔ 仮名」の能動想起がランダムに混ざり合い、予測に頼らない本質的な即答力を鍛えます。",
         stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
         stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
         bilingualTitle: "3言語対応インターフェース（日・英・インドネシア語）",

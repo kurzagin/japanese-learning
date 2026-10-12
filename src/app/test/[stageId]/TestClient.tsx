@@ -7,9 +7,14 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award } from "lucide-react";
 
+export type QuestionType = "kana_to_romaji" | "romaji_to_kana";
+
 interface TestQuestion {
   card: StudyCard;
-  options: string[]; // 4 choices (romaji or kanaReading depending on card)
+  type: QuestionType;
+  prompt: string;
+  subPrompt?: string;
+  options: string[]; // 4 choices (romaji or kana depending on question type)
   correctIndex: number;
 }
 
@@ -21,7 +26,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
   const [testSession, setTestSession] = useState(0);
 
-  // Generate randomized questions and 4 options for each card
+  // Generate randomized questions and 4 options for each card (random mix of Kana->Romaji and Romaji->Kana)
   const questions: TestQuestion[] = useMemo(() => {
     if (!stage?.cards || stage.cards.length === 0) return [];
 
@@ -33,14 +38,18 @@ export default function TestClient({ stageId }: { stageId: string }) {
     const shuffledCards = [...stage.cards].sort(() => 0.5 - Math.random());
 
     return shuffledCards.map((card) => {
-      // Pick answer representation: romaji
-      const correctAnswer = card.romaji;
+      // Randomly pick question type: 50% chance Kana -> Romaji, 50% chance Romaji -> Kana
+      const type: QuestionType = Math.random() < 0.5 ? "kana_to_romaji" : "romaji_to_kana";
 
-      // 1. Distractors from the CURRENT stage first (e.g. for 'a', choose other vowels 'i', 'u', 'e', 'o')
+      const isKanaToRomaji = type === "kana_to_romaji";
+      const prompt = isKanaToRomaji ? card.character : card.romaji;
+      const correctAnswer = isKanaToRomaji ? card.romaji : card.character;
+
+      // 1. Distractors from the CURRENT stage first
       const stageDistractors = Array.from(
         new Set(
           stage.cards
-            .map((c) => c.romaji)
+            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
             .filter((ans) => ans !== correctAnswer)
         )
       );
@@ -49,7 +58,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
       const categoryDistractors = Array.from(
         new Set(
           sameCategoryCards
-            .map((c) => c.romaji)
+            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
             .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans))
         )
       );
@@ -58,7 +67,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
       const globalDistractors = Array.from(
         new Set(
           allStageCards
-            .map((c) => c.romaji)
+            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
             .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans) && !categoryDistractors.includes(ans))
         )
       );
@@ -80,6 +89,8 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
       return {
         card,
+        type,
+        prompt,
         options: choices,
         correctIndex,
       };
@@ -325,10 +336,19 @@ export default function TestClient({ stageId }: { stageId: string }) {
                 </span>
               </div>
 
-              {/* Character Prompt Card */}
-              <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner">
-                <div className="text-7xl sm:text-8xl font-bold font-serif text-[#000080] select-none tracking-tight">
-                  {currentQ.card.character}
+              {/* Character / Romaji Prompt Card */}
+              <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner relative">
+                <span className="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 border border-[#808080] bg-[#ece9d8] text-[#333] uppercase">
+                  {currentQ.type === "kana_to_romaji" ? "Kana ➔ Romaji" : "Romaji ➔ Kana"}
+                </span>
+                <div
+                  className={`font-bold select-none tracking-tight ${
+                    currentQ.type === "kana_to_romaji"
+                      ? "text-7xl sm:text-8xl font-serif text-[#000080]"
+                      : "text-6xl sm:text-7xl font-mono text-[#cc0000] lowercase"
+                  }`}
+                >
+                  {currentQ.prompt}
                 </div>
               </div>
 
@@ -344,6 +364,8 @@ export default function TestClient({ stageId }: { stageId: string }) {
                     }
                   }
 
+                  const isKanaChoice = currentQ.type === "romaji_to_kana";
+
                   return (
                     <button
                       key={idx}
@@ -355,7 +377,13 @@ export default function TestClient({ stageId }: { stageId: string }) {
                       <span className="font-mono text-xs px-1.5 py-0.5 bg-black/10 rounded">
                         {idx + 1}
                       </span>
-                      <span className="font-mono text-base uppercase">
+                      <span
+                        className={
+                          isKanaChoice
+                            ? "text-2xl font-serif text-center flex-1"
+                            : "font-mono text-base uppercase text-center flex-1"
+                        }
+                      >
                         {option}
                       </span>
                       <span className="w-4" />
