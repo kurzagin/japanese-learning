@@ -11,6 +11,7 @@ export interface TranslationSchema {
     dashboard: string;
     study: string;
     about: string;
+    docs: string;
     windowTitle: string;
     login: string;
     enter: string;
@@ -216,6 +217,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "DASHBOARD",
       study: "STUDY",
       about: "ABOUT",
+      docs: "API DOCS",
       windowTitle: "SaKana",
       login: "LOGIN",
       enter: "ENTER",
@@ -420,6 +422,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "DASHBOARD",
       study: "BELAJAR",
       about: "TENTANG",
+      docs: "DOKUMEN API",
       windowTitle: "SaKana",
       login: "MASUK",
       enter: "MASUK KE DASHBOARD",
@@ -624,6 +627,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "道場",
       study: "修練",
       about: "概要",
+      docs: "API仕様",
       windowTitle: "SaKana",
       login: "ログイン",
       enter: "道場へ入る",

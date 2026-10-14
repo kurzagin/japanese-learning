@@ -19,6 +19,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
     { href: "/dashboard", label: t.nav.dashboard },
     { href: "/study/hiragana-vowels", label: t.nav.study },
     { href: "/about", label: t.nav.about },
+    { href: "/docs", label: t.nav.docs },
   ];
 
   return (
