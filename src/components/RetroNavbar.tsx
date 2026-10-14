@@ -25,7 +25,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   return (
     <div>
       {/* Title Bar with Fish Icon & SaKana Branding (Clean, no fake -, X, []) */}
-      <div className="bg-[#000080] text-white px-2.5 py-1.5 flex items-center justify-between">
+      <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between select-none">
         <Link
           href="/"
           className="flex items-center gap-2 hover:opacity-90 transition-opacity"
@@ -37,13 +37,13 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
           </span>
         </Link>
         <div className="text-[10px] text-[#e0e0ff] hidden sm:block font-mono">
-          魚 SAKANA
+          魚 SAKANA // RETRO SPEED DRILL
         </div>
       </div>
 
       {/* Real Retro Navigation Bar */}
-      <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1.5 sm:py-1 text-[11px] flex items-center justify-between gap-1.5 sm:gap-2 text-black">
-        <nav className="flex items-center gap-1 sm:gap-2 shrink-0" aria-label="Main Navigation">
+      <div className="border-b border-[#808080] bg-[#ece9d8] px-2.5 py-1.5 sm:py-1 text-[11px] flex items-center justify-between gap-2 text-black">
+        <nav className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-none" aria-label="Main Navigation">
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"

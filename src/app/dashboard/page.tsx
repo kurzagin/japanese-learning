@@ -133,18 +133,18 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Outer Retro Container */}
-      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         
         {/* Retro Navbar & SaKana Branding */}
         <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
 
         {/* User Info Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
+        <div className="border-b border-[#808080] bg-[#ece9d8] px-3 py-1.5 text-[11px] flex items-center justify-between text-black">
           <div className="flex items-center gap-2">
             <span className="font-bold text-[#000080]">{t.dashboard.operator}</span>
-            <span className="bg-white px-1.5 border border-[#808080] text-[10px]">
+            <span className="bg-white px-2 py-0.5 border border-[#808080] text-[10px] font-mono">
               {userEmail}
             </span>
           </div>
@@ -158,7 +158,13 @@ export default function DashboardPage() {
         </div>
 
         {/* Content Body */}
-        <div className="p-3 sm:p-4 bg-white text-black space-y-4">
+        <div className="p-3 sm:p-5 bg-white text-black space-y-4">
+          {/* Desktop 2-Column Workstation Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            
+            {/* Left Column: Stats, SRS Retention & Arcade */}
+            <div className="lg:col-span-4 space-y-4">
+
           
           {/* Status Matrix Board */}
           <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
@@ -281,23 +287,24 @@ export default function DashboardPage() {
                 <span>{t.minigame.startArcadeBtn}</span>
               </Link>
             </div>
+            </div>
           </div>
 
-          {/* Stages by Category */}
-          <div className="space-y-4">
+          {/* Right Column: Stages by Category */}
+          <div className="lg:col-span-8 space-y-4">
             {categories.map((cat, catIdx) => (
-              <div key={catIdx} className="border border-[#808080]">
+              <div key={catIdx} className="border border-[#808080] bg-[#ece9d8]">
                 {/* Sector Header */}
                 <div
                   style={{ backgroundColor: cat.color }}
-                  className="text-white px-2 py-1 text-xs font-bold flex items-center justify-between"
+                  className="text-white px-2.5 py-1.5 text-xs font-bold flex items-center justify-between"
                 >
-                  <span>{cat.title}</span>
+                  <span className="tracking-wide uppercase font-mono">{cat.title}</span>
                   <span className="text-[10px] text-[#ffff00] font-mono">{cat.sub}</span>
                 </div>
 
-                {/* Stages List */}
-                <div className="divide-y divide-[#d0d0d0] text-xs">
+                {/* Stages Responsive Grid */}
+                <div className="p-2 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                   {cat.stages.map((stage, stageIdx) => {
                     const stageProgress = progress[stage.id];
                     const isCompleted = !!stageProgress?.completed;
@@ -319,12 +326,12 @@ export default function DashboardPage() {
                     return (
                       <div
                         key={stage.id}
-                        className={`p-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
+                        className={`p-2.5 border border-t-white border-l-white border-b-[#808080] border-r-[#808080] flex flex-col justify-between gap-2 transition-colors ${
                           isBoss
                             ? isCompleted
                               ? "bg-[#fff0f5] border-l-4 border-l-[#800080]"
                               : isUnlocked
-                              ? "bg-[#fff8dc] border-l-4 border-l-[#cc0000] animate-pulse-slow"
+                              ? "bg-[#fff8dc] border-l-4 border-l-[#cc0000]"
                               : "bg-[#f2f2f2] border-l-4 border-l-[#888] text-[#888]"
                             : isCompleted
                             ? "bg-[#f0fff0]"
@@ -334,61 +341,64 @@ export default function DashboardPage() {
                         }`}
                       >
                         <div className="flex items-start gap-2">
-                          <span className="font-bold font-mono text-[11px] mt-0.5">
+                          <span className="font-bold font-mono text-[10px] mt-0.5 shrink-0">
                             {isCompleted ? (
                               <span className={isBoss ? "text-[#800080]" : "text-[#008000]"}>
-                                {isBoss ? "★ DEFEATED" : t.dashboard.statusDone}
+                                {isBoss ? "★ WON" : t.dashboard.statusDone}
                               </span>
                             ) : isUnlocked ? (
                               <span className={isBoss ? "text-[#cc0000] font-black" : "text-[#000080]"}>
-                                {isBoss ? "⚡ CHALLENGE" : t.dashboard.statusReady}
+                                {isBoss ? "⚡ BOSS" : t.dashboard.statusReady}
                               </span>
                             ) : (
                               <span className="text-[#888]">{t.dashboard.statusLocked}</span>
                             )}
                           </span>
 
-                          <div>
-                            <div className={`font-bold flex items-center gap-1.5 ${isUnlocked ? (isBoss ? "text-[#990000]" : "text-black") : "text-[#777]"}`}>
-                              <span>{stage.name[locale]}</span>
+                          <div className="min-w-0 flex-1">
+                            <div className={`font-bold text-xs truncate flex items-center gap-1.5 ${isUnlocked ? (isBoss ? "text-[#990000]" : "text-black") : "text-[#777]"}`}>
+                              <span className="truncate">{stage.name[locale]}</span>
                               {isBoss && (
-                                <span className="bg-[#cc0000] text-white text-[9px] px-1 py-0.2 font-mono uppercase rounded-xs">
-                                  BOSS GATE
+                                <span className="bg-[#cc0000] text-white text-[8px] px-1 py-0.2 font-mono uppercase shrink-0">
+                                  BOSS
                                 </span>
                               )}
                             </div>
-                            <div className="text-[11px] text-[#555] mt-0.5">
+                            <div className="text-[11px] text-[#555] mt-0.5 line-clamp-1">
                               {stage.description[locale]}
                             </div>
+                            {stageProgress?.bestSec && (
+                              <div className="text-[10px] text-[#006600] font-mono mt-0.5">
+                                Best: {stageProgress.bestSec}s
+                              </div>
+                            )}
                           </div>
                         </div>
 
-                        {/* Action Buttons: [LEARN / BELAJAR] + [CHALLENGE / TEST] */}
-                        <div className="flex items-center gap-1.5 self-end sm:self-auto">
+                        {/* Action Buttons: [LEARN] + [CHALLENGE] */}
+                        <div className="flex items-center gap-1.5 pt-1 border-t border-[#e8e8e8] justify-end">
                           {isUnlocked ? (
                             <>
-                              {/* Learn Mode Button (SRS repetition, untimed) */}
                               <Link
                                 href={`/study/${stage.id}`}
-                                className="px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center gap-1 shadow"
+                                className="px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] text-[#000080] flex items-center gap-1 shadow-xs cursor-pointer"
                               >
                                 <BookOpen className="w-3 h-3 text-[#000080]" />
                                 <span>{t.dashboard.studyBtn}</span>
                               </Link>
 
-                              {/* Timed Challenge Button */}
                               <Link
                                 href={`/test/${stage.id}`}
-                                className={`px-2.5 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs flex items-center gap-1 shadow ${
+                                className={`px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] flex items-center gap-1 shadow-xs cursor-pointer ${
                                   isBoss ? "text-[#800000] bg-[#ffe4e1] border-[#800000]" : "text-[#cc0000]"
                                 }`}
                               >
                                 <Play className={`w-3 h-3 ${isBoss ? "fill-[#800000]" : "fill-[#cc0000]"}`} />
-                                <span>{isBoss ? "BOSS FIGHT" : t.dashboard.sprintBtn}</span>
+                                <span>{isBoss ? "BOSS" : t.dashboard.sprintBtn}</span>
                               </Link>
                             </>
                           ) : (
-                            <span className="text-[10px] text-[#999] font-mono">
+                            <span className="text-[10px] text-[#999] font-mono py-0.5">
                               {isBoss ? "🔒 BEAT 2 STAGES FIRST" : t.dashboard.statusLocked}
                             </span>
                           )}
@@ -401,6 +411,7 @@ export default function DashboardPage() {
             ))}
           </div>
 
+        </div>
         </div>
 
         {/* Bottom Windows Control Bar */}

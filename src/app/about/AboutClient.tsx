@@ -113,9 +113,9 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Outer Retro Container Box */}
-      <div className="w-full max-w-2xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         {/* Retro Navbar */}
         <RetroNavbar currentSubtitle={t.about.windowTitle} />
 
@@ -355,9 +355,9 @@ export default function AboutPage() {
             </div>
 
             {/* List of Interactive Media Features in Development */}
-            <div className="divide-y divide-[#d0d0d0]">
+            <div className="p-3 grid grid-cols-1 md:grid-cols-2 gap-3 bg-[#ece9d8]">
               {interactiveFeatures.map((item) => (
-                <div key={item.id} className="p-3 bg-white space-y-2 hover:bg-[#fafafc]">
+                <div key={item.id} className="p-3 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] space-y-2 hover:bg-[#fafafc] flex flex-col justify-between">
                   <div className="flex items-start gap-2.5">
                     <div className="p-1.5 bg-[#e8e8e8] border border-[#a0a0a0] shrink-0 mt-0.5">
                       {item.icon}

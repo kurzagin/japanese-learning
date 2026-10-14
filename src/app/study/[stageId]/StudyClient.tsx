@@ -333,14 +333,14 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   const stageDepthName = isDueReviewMode ? "Daily Retention Queue" : stage!.depthName[locale];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Outer Windows 98/2000 Container */}
-      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+      <div className="w-full max-w-xl lg:max-w-5xl xl:max-w-6xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         {/* Retro Navbar */}
         <RetroNavbar currentSubtitle={`${t.study.windowTitle} - ${stageDisplayName}`} />
 
         {/* Top Info Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-2 py-1 text-[11px] flex items-center justify-between text-black">
+        <div className="border-b border-[#808080] bg-[#ece9d8] px-3 py-1.5 text-[11px] flex items-center justify-between text-black">
           <Link
             href="/dashboard"
             className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
@@ -361,9 +361,12 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         </div>
 
         {/* Card Screen Body */}
-        <div className="p-4 bg-white text-black min-h-[380px] flex flex-col justify-between">
+        <div className="p-3 sm:p-5 bg-white text-black min-h-[380px] flex flex-col justify-between">
           {!completed && currentCard ? (
-            <>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+              {/* Main Study Deck Column */}
+              <div className="lg:col-span-8 flex flex-col justify-between space-y-2">
+
               {/* Card Header Status with Windows 98 Segmented Progress Bar */}
               <div className="space-y-1.5 border-b border-[#d0d0d0] pb-2">
                 <div className="flex items-center justify-between text-xs font-mono">
@@ -516,7 +519,76 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                   </div>
                 )}
               </div>
-            </>
+              </div>
+
+              {/* Desktop Flight Deck / Workstation Panel */}
+              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
+                <div className="space-y-3">
+                  <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
+                    <span>◆ WORKSTATION COMMANDS</span>
+                    <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
+                      HOTKEYS
+                    </span>
+                  </div>
+
+                  {/* Hotkeys Legend */}
+                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#555]">FLIP CARD:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">SPACE</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#800000]">AGAIN:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#b85d00]">HARD:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#006600]">GOOD:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#000080]">EASY:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5">
+                      <span className="text-[#555]">REPLAY AUDIO:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">R</kbd>
+                    </div>
+                  </div>
+
+                  {/* Session Metrics */}
+                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
+                    <div className="font-bold text-[#000080] text-[10px] uppercase mb-1">
+                      Session Telemetry:
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">Remaining:</span>
+                      <span className="font-bold">{queue.length - currentIndex} cards</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">Lapses (Again):</span>
+                      <span className="font-bold text-[#cc0000]">{againCount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">SM-2 Interval:</span>
+                      <span className="font-bold">{currentSrsRecord?.intervalDays ?? 0} days</span>
+                    </div>
+                  </div>
+                </div>
+
+                {stage && (
+                  <Link
+                    href={`/test/${stage.id}`}
+                    className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  >
+                    <span>Jump to Speed Sprint ⚡</span>
+                  </Link>
+                )}
+              </div>
+            </div>
           ) : (
             /* Completed Screen */
             <div className="p-4 flex flex-col items-center justify-center text-center my-auto space-y-4">

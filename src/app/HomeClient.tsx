@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play } from "lucide-react";
+import { Play, Sparkles, BookOpen, Gamepad2, Code, ShieldCheck, ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -30,15 +30,15 @@ export default function HomePage() {
       : "------";
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Outer Retro Container Box with Windows 98/2000 3D border */}
-      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
         
         {/* Real Retro Navbar & SaKana Branding */}
         <RetroNavbar />
 
         {/* Content Body */}
-        <div className="p-3 sm:p-4 bg-white text-black space-y-4">
+        <div className="p-3 sm:p-5 bg-white text-black space-y-4">
           
           {/* Header Banner */}
           <div className="border-2 border-[#800000] bg-[#fff8e7] p-3 text-center relative overflow-hidden">
@@ -63,107 +63,213 @@ export default function HomePage() {
           </div>
 
           {/* Real Visitor Counter Stored in DB with Retro Flash */}
-          <div className="border border-[#808080] bg-[#f0f0f0] px-2 py-1 flex items-center justify-between text-[11px]">
-            <div className="flex items-center gap-1.5">
+          <div className="border border-[#808080] bg-[#f0f0f0] px-3 py-1.5 flex items-center justify-between text-[11px]">
+            <div className="flex items-center gap-2">
               <span className="font-bold text-[#000080] flex items-center gap-1">
                 <span className="text-[#ff0055] animate-retro-blink font-black">●</span>
                 {t.home.counterLabel}
               </span>
-              <span className="bg-black text-[#00ff66] font-mono px-1.5 py-0.5 border border-[#808080] text-xs font-bold tracking-widest shadow-inner">
+              <span className="bg-black text-[#00ff66] font-mono px-2 py-0.5 border border-[#808080] text-xs font-bold tracking-widest shadow-inner">
                 {formattedCount}
               </span>
-              <span className="animate-retro-blink-fast text-[9px] font-bold px-1 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
+              <span className="animate-retro-blink-fast text-[9px] font-bold px-1.5 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
                 [LIVE!]
               </span>
             </div>
             <div className="text-[10px] text-[#555] font-mono flex items-center gap-1">
-              <span className="text-[#008800]">ONLINE</span> // SAKANA-NET
+              <span className="text-[#008000]">ONLINE</span> // SAKANA-NET
             </div>
           </div>
 
           {/* Authentic Retro Marquee Ticker */}
-          <div className="border border-[#808080] bg-[#000040] text-[#ffff00] text-[10px] font-mono py-0.5 px-2 overflow-hidden flex items-center shadow-inner">
-            <span className="shrink-0 bg-[#ff0000] text-white px-1 font-bold text-[9px] mr-2 animate-retro-blink">
+          <div className="border border-[#808080] bg-[#000040] text-[#ffff00] text-[10px] font-mono py-1 px-2.5 overflow-hidden flex items-center shadow-inner">
+            <span className="shrink-0 bg-[#ff0000] text-white px-1.5 font-bold text-[9px] mr-2 animate-retro-blink">
               NEWS
             </span>
             <div className="w-full overflow-hidden whitespace-nowrap">
               <div className="animate-retro-ticker">
-                ★ SAKANA-NET FLASH DRILL SYSTEM ACTIVE ★ SM-2 SPACED RETENTION ENABLED ★ PRESS SPACEBAR TO FLIP CARDS ★ 800x600 READY ★
+                ★ SAKANA-NET FLASH DRILL SYSTEM ACTIVE ★ SM-2 SPACED RETENTION ENABLED ★ PRESS SPACEBAR TO FLIP CARDS ★ FULL DESKTOP WORKSTATION READY ★
               </div>
             </div>
           </div>
 
-          {/* Quick Enter Action Banner */}
-          <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-3 text-center space-y-2">
-            <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
-              <Link
-                href="/dashboard"
-                className="w-full sm:w-auto px-6 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow"
-              >
-                <Play className="w-3.5 h-3.5 fill-[#000080] text-[#000080]" />
-                <span>{t.home.ctaEnter}</span>
-              </Link>
-              <Link
-                href="/login"
-                className="w-full sm:w-auto px-4 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-[#333]"
-              >
-                {t.home.ctaLogin}
-              </Link>
-            </div>
-          </div>
-
-          {/* Guidelines / Method Table */}
-          <div className="border border-[#808080]">
-            <div className="bg-[#000080] text-white px-2 py-1 text-xs font-bold flex items-center justify-between">
-              <span>◆ {t.home.ruleTitle}</span>
-              <span className="text-[10px] text-[#ffff00]">{t.home.ruleTag}</span>
-            </div>
+          {/* Responsive Desktop 2-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             
-            <div className="divide-y divide-[#d0d0d0] text-xs">
-              <div className="p-2.5 flex items-start gap-2 bg-[#fafafa]">
-                <span className="text-[#cc0000] font-bold">【1】</span>
-                <div>
-                  <strong className="text-[#000080]">{t.home.rule1Title}:</strong>
-                  <p className="text-[11px] text-[#444] mt-0.5">
-                    {t.home.rule1Desc}
-                  </p>
+            {/* Left Column: Quick Actions & Rules */}
+            <div className="lg:col-span-7 space-y-4">
+              {/* Quick Enter Action Banner */}
+              <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-4 text-center space-y-3">
+                <div className="text-xs font-bold text-[#000080] flex items-center justify-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#ff9900]" />
+                  <span>START YOUR JAPANESE SPEED SESSION</span>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2.5 justify-center items-center">
+                  <Link
+                    href="/dashboard"
+                    className="w-full sm:w-auto px-6 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-[#000080] text-[#000080]" />
+                    <span>{t.home.ctaEnter}</span>
+                  </Link>
+                  <Link
+                    href="/login"
+                    className="w-full sm:w-auto px-4 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-xs font-bold text-[#333] cursor-pointer"
+                  >
+                    {t.home.ctaLogin}
+                  </Link>
                 </div>
               </div>
 
-              <div className="p-2.5 flex items-start gap-2 bg-white">
-                <span className="text-[#cc0000] font-bold">【2】</span>
-                <div>
-                  <strong className="text-[#000080]">{t.home.rule2Title}:</strong>
-                  <p className="text-[11px] text-[#444] mt-0.5">
-                    {t.home.rule2Desc}
-                  </p>
+              {/* Guidelines / Method Table */}
+              <div className="border border-[#808080]">
+                <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+                  <span>◆ {t.home.ruleTitle}</span>
+                  <span className="text-[10px] text-[#ffff00] font-mono">{t.home.ruleTag}</span>
                 </div>
-              </div>
+                
+                <div className="divide-y divide-[#d0d0d0] text-xs">
+                  <div className="p-2.5 flex items-start gap-2 bg-[#fafafa]">
+                    <span className="text-[#cc0000] font-bold font-mono">【1】</span>
+                    <div>
+                      <strong className="text-[#000080]">{t.home.rule1Title}:</strong>
+                      <p className="text-[11px] text-[#444] mt-0.5">
+                        {t.home.rule1Desc}
+                      </p>
+                    </div>
+                  </div>
 
-              <div className="p-2.5 flex items-start gap-2 bg-[#fafafa]">
-                <span className="text-[#cc0000] font-bold">【3】</span>
-                <div>
-                  <strong className="text-[#000080]">{t.home.rule3Title}:</strong>
-                  <p className="text-[11px] text-[#444] mt-0.5">
-                    {t.home.rule3Desc}
-                  </p>
+                  <div className="p-2.5 flex items-start gap-2 bg-white">
+                    <span className="text-[#cc0000] font-bold font-mono">【2】</span>
+                    <div>
+                      <strong className="text-[#000080]">{t.home.rule2Title}:</strong>
+                      <p className="text-[11px] text-[#444] mt-0.5">
+                        {t.home.rule2Desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-2.5 flex items-start gap-2 bg-[#fafafa]">
+                    <span className="text-[#cc0000] font-bold font-mono">【3】</span>
+                    <div>
+                      <strong className="text-[#000080]">{t.home.rule3Title}:</strong>
+                      <p className="text-[11px] text-[#444] mt-0.5">
+                        {t.home.rule3Desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Right Column: Portal Shortcuts & System Specifications */}
+            <div className="lg:col-span-5 space-y-4">
+              {/* Quick Launchpad */}
+              <div className="border border-[#808080] bg-[#ece9d8] p-3 space-y-2.5">
+                <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1 flex items-center justify-between">
+                  <span>★ DIRECT STATION LAUNCHPAD</span>
+                  <span className="text-[10px] text-[#555] font-mono">QUICK-SELECT</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <Link
+                    href="/study/hiragana-vowels"
+                    className="p-2 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] flex items-center gap-2"
+                  >
+                    <span className="text-lg font-bold text-[#000080] font-mono">あ</span>
+                    <div>
+                      <div className="font-bold text-[11px]">Hiragana Drill</div>
+                      <div className="text-[10px] text-[#666]">46 Core Characters</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/study/katakana-vowels"
+                    className="p-2 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] flex items-center gap-2"
+                  >
+                    <span className="text-lg font-bold text-[#006600] font-mono">ア</span>
+                    <div>
+                      <div className="font-bold text-[11px]">Katakana Drill</div>
+                      <div className="text-[10px] text-[#666]">Loanwords & Names</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/minigame"
+                    className="p-2 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] flex items-center gap-2"
+                  >
+                    <Gamepad2 className="w-5 h-5 text-[#cc0000]" />
+                    <div>
+                      <div className="font-bold text-[11px]">Arcade Minigame</div>
+                      <div className="text-[10px] text-[#666]">Rapid Speed Trials</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/docs"
+                    className="p-2 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] flex items-center gap-2"
+                  >
+                    <Code className="w-5 h-5 text-[#800080]" />
+                    <div>
+                      <div className="font-bold text-[11px]">Kana API Docs</div>
+                      <div className="text-[10px] text-[#666]">REST Primitives v1</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* System Architecture Box */}
+              <div className="border border-[#808080] bg-[#f5f5f0] p-3 text-xs space-y-2">
+                <div className="font-bold text-[#000080] border-b border-[#808080] pb-1 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#008800]" />
+                    <span>SYSTEM SPECIFICATIONS</span>
+                  </div>
+                  <span className="text-[9px] bg-[#e0ffe0] border border-[#00aa00] text-[#006600] px-1 font-mono">
+                    PASS
+                  </span>
+                </div>
+
+                <div className="space-y-1.5 text-[11px] font-mono">
+                  <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
+                    <span className="text-[#555]">SPEECH SYNTHESIS:</span>
+                    <span className="text-[#000080] font-bold">VOICEVOX NEURAL</span>
+                  </div>
+                  <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
+                    <span className="text-[#555]">RETENTION ALGO:</span>
+                    <span className="text-[#000080] font-bold">SM-2 SPACED REPETITION</span>
+                  </div>
+                  <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
+                    <span className="text-[#555]">DATA PERSISTENCE:</span>
+                    <span className="text-[#000080] font-bold">NEON POSTGRESQL</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#555]">WORKSTATION UI:</span>
+                    <span className="text-[#008800] font-bold">RESPONSIVE DESKTOP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
         {/* Windows Status Bar */}
-        <div className="border-t border-[#808080] bg-[#ece9d8] px-2 py-0.5 text-[10px] text-[#404040] flex items-center justify-between">
-          <span>Ready.</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">UTF-8 // MULTILINGUAL</span>
+        <div className="border-t border-[#808080] bg-[#ece9d8] px-3 py-1 text-[11px] text-[#404040] flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
+            <span>SYSTEM READY</span>
+          </div>
+          <span className="border-l border-[#808080] pl-2 font-mono text-[10px]">
+            UTF-8 // MULTILINGUAL // SAKANA-OS
+          </span>
         </div>
 
       </div>
 
       <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
-        SAKANA PROJECT // JAPANESE READING SPEED DRILL
+        SAKANA PROJECT // JAPANESE READING SPEED DRILL // V1.0
       </footer>
     </div>
   );

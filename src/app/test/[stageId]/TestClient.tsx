@@ -267,16 +267,16 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const nextStage = currentStageIndex >= 0 && currentStageIndex + 1 < STAGES.length ? STAGES[currentStageIndex + 1] : null;
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Outer Windows Container */}
-      <div className={`w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col ${
+      <div className={`w-full max-w-xl lg:max-w-5xl xl:max-w-6xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col ${
         isBoss ? "ring-2 ring-[#cc0000]" : ""
       }`}>
         {/* Retro Navbar */}
         <RetroNavbar currentSubtitle={`${isBoss ? "⚔️ BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
 
         {/* Top Info Bar */}
-        <div className={`border-b border-[#808080] px-2 py-1 text-[11px] flex items-center justify-between text-black ${
+        <div className={`border-b border-[#808080] px-3 py-1.5 text-[11px] flex items-center justify-between text-black ${
           isBoss ? "bg-[#ffe4e1]" : "bg-[#ece9d8]"
         }`}>
           <Link
@@ -323,9 +323,12 @@ export default function TestClient({ stageId }: { stageId: string }) {
         </div>
 
         {/* Play Area */}
-        <div className="p-4 bg-white text-black min-h-[380px] flex flex-col justify-between">
+        <div className="p-3 sm:p-5 bg-white text-black min-h-[380px] flex flex-col justify-between">
           {status === "playing" && currentQ ? (
-            <>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+              {/* Main Test Column */}
+              <div className="lg:col-span-8 flex flex-col justify-between space-y-3">
+
               {/* Question progress */}
               <div className="flex items-center justify-between text-xs font-mono border-b border-[#d0d0d0] pb-2">
                 <span className="text-[#000080] font-bold">
@@ -391,7 +394,67 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   );
                 })}
               </div>
-            </>
+              </div>
+
+              {/* Desktop Test Workstation Telemetry */}
+              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
+                <div className="space-y-3">
+                  <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
+                    <span>⚡ ARCADE SPRINT CONTROLS</span>
+                    <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
+                      HOTKEYS
+                    </span>
+                  </div>
+
+                  {/* Hotkeys */}
+                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#000080]">OPTION 1:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#000080]">OPTION 2:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
+                      <span className="text-[#000080]">OPTION 3:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5">
+                      <span className="text-[#000080]">OPTION 4:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                    </div>
+                  </div>
+
+                  {/* Benchmark */}
+                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
+                    <div className="font-bold text-[#cc0000] text-[10px] uppercase mb-1">
+                      Sprint Benchmark:
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">Remaining:</span>
+                      <span className="font-bold">{questions.length - currentIndex}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">Correct Count:</span>
+                      <span className="font-bold text-[#008000]">{correctCount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#666]">Target Speed:</span>
+                      <span className="font-bold">&lt; 1.5s / kana</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  href={`/study/${stage.id}`}
+                  className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Review Study Deck</span>
+                </Link>
+              </div>
+            </div>
           ) : status === "passed" ? (
             /* Passed Screen */
             <div className="p-4 flex flex-col items-center justify-center text-center my-auto space-y-4">

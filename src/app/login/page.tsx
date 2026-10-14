@@ -52,9 +52,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen py-2 sm:py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
+    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
       {/* Windows 98/2000 Full-Screen Box */}
-      <div className="w-full max-w-xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl flex flex-col flex-1 my-auto">
+      <div className="w-full max-w-xl lg:max-w-2xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl flex flex-col flex-1 my-auto">
         
         {/* Retro Navbar & SaKana Branding */}
         <RetroNavbar currentSubtitle={t.login.appTitle} />
