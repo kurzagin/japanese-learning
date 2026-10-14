@@ -23,27 +23,28 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   ];
 
   return (
-    <div>
-      {/* Title Bar with Fish Icon & SaKana Branding (Clean, no fake -, X, []) */}
-      <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between select-none">
+    <header className="w-full shrink-0 sticky top-0 z-50 shadow-xs border-b border-[#808080]">
+      {/* Title Bar with Fish Icon & SaKana Branding */}
+      <div className="bg-[#000080] text-white px-3 sm:px-6 py-2 flex items-center justify-between select-none">
         <Link
           href="/"
           className="flex items-center gap-2 hover:opacity-90 transition-opacity"
         >
           <FishIcon className="w-4 h-4 text-[#ffff00]" />
-          <span className="font-bold text-xs tracking-wider">
+          <span className="font-bold text-xs sm:text-sm tracking-wider">
             {t.nav.brand}
             {currentSubtitle ? ` - ${currentSubtitle}` : ""}
           </span>
         </Link>
-        <div className="text-[10px] text-[#e0e0ff] hidden sm:block font-mono">
-          魚 SAKANA // RETRO SPEED DRILL
+        <div className="text-[11px] text-[#e0e0ff] hidden sm:flex items-center gap-3 font-mono">
+          <span>魚 SAKANA // RETRO SPEED DRILL</span>
+          <span className="text-[#00ff66]">● ONLINE</span>
         </div>
       </div>
 
       {/* Real Retro Navigation Bar */}
-      <div className="border-b border-[#808080] bg-[#ece9d8] px-2.5 py-1.5 sm:py-1 text-[11px] flex items-center justify-between gap-2 text-black">
-        <nav className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-none" aria-label="Main Navigation">
+      <div className="bg-[#ece9d8] px-3 sm:px-6 py-1.5 text-[11px] sm:text-xs flex items-center justify-between gap-2 text-black">
+        <nav className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto scrollbar-none" aria-label="Main Navigation">
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"
@@ -69,6 +70,6 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
           <LanguageSelector />
         </div>
       </div>
-    </div>
+    </header>
   );
 }

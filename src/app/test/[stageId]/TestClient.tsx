@@ -267,31 +267,29 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const nextStage = currentStageIndex >= 0 && currentStageIndex + 1 < STAGES.length ? STAGES[currentStageIndex + 1] : null;
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Outer Windows Container */}
-      <div className={`w-full max-w-xl lg:max-w-5xl xl:max-w-6xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col ${
-        isBoss ? "ring-2 ring-[#cc0000]" : ""
-      }`}>
-        {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle={`${isBoss ? "⚔️ BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={`${isBoss ? "⚔️ BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
 
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Info Bar */}
-        <div className={`border-b border-[#808080] px-3 py-1.5 text-[11px] flex items-center justify-between text-black ${
-          isBoss ? "bg-[#ffe4e1]" : "bg-[#ece9d8]"
+        <div className={`border border-[#808080] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs ${
+          isBoss ? "bg-[#ffe4e1]" : "bg-[#d4d0c8]"
         }`}>
           <Link
             href="/dashboard"
-            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
+            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
           >
-            <ArrowLeft className="w-3 h-3" /> {t.test.backToDashboard}
+            <ArrowLeft className="w-3.5 h-3.5" /> {t.test.backToDashboard}
           </Link>
-          <span className={`font-mono text-[10px] uppercase font-bold ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
+          <span className={`font-mono text-xs uppercase font-bold ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
             {isBoss ? "⚡ BOSS CHECKPOINT" : stageDisplayName}
           </span>
         </div>
 
         {/* Test Header with Countdown Meter */}
-        <div className={`${isBoss ? "bg-[#fff0f0]" : "bg-[#fff8e7]"} border-b border-[#808080] px-3 py-2`}>
+        <div className={`${isBoss ? "bg-[#fff0f0] border-2 border-[#cc0000]" : "bg-[#fff8e7] border border-[#808080]"} p-3 shadow-xs`}>
           <div className="flex items-center justify-between text-xs">
             <span className={`font-bold flex items-center gap-1 font-mono ${isBoss ? "text-[#800000]" : "text-[#cc0000]"}`}>
               <Zap className="w-3.5 h-3.5 fill-current" />
@@ -603,20 +601,19 @@ export default function TestClient({ stageId }: { stageId: string }) {
             </div>
           )}
         </div>
+      </main>
 
-        {/* Windows Control Bar */}
-        <div className="border-t border-[#808080] bg-[#ece9d8] p-2 flex items-center justify-between text-xs">
-          <Link
-            href="/dashboard"
-            className="px-3 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] text-black font-bold text-xs hover:bg-[#c0bca8]"
-          >
-            &lt;&lt; {t.nav.back}
-          </Link>
-          <span className="text-[10px] text-[#555] font-mono">
-            {t.test.targetSpeed}: &lt; {timeLimit}s
-          </span>
+      {/* Docked Retro Footer */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
+          <span>{isBoss ? "⚔️ BOSS BATTLE REFLEX TEST" : "ARCADE SPEED CHALLENGE"}</span>
         </div>
-      </div>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span>TARGET SPEED: &lt; {timeLimit}s</span>
+          <span className="border-l border-[#808080] pl-2">{stageDisplayName}</span>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -333,37 +333,37 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   const stageDepthName = isDueReviewMode ? "Daily Retention Queue" : stage!.depthName[locale];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Outer Windows 98/2000 Container */}
-      <div className="w-full max-w-xl lg:max-w-5xl xl:max-w-6xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
-        {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle={`${t.study.windowTitle} - ${stageDisplayName}`} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={`${t.study.windowTitle} - ${stageDisplayName}`} />
 
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Info Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-3 py-1.5 text-[11px] flex items-center justify-between text-black">
+        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <Link
             href="/dashboard"
-            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
+            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
           >
-            <ArrowLeft className="w-3 h-3" /> {t.study.backDashboard}
+            <ArrowLeft className="w-3.5 h-3.5" /> {t.study.backDashboard}
           </Link>
-          <span className="font-mono text-[10px] text-[#555] uppercase">
+          <span className="font-mono text-xs text-[#555] uppercase font-bold">
             {stageDisplayName}
           </span>
         </div>
 
         {/* Mode Notice Banner */}
-        <div className="bg-[#fff8e7] border-b border-[#808080] px-3 py-1.5 text-center text-xs">
-          <span className="font-bold text-[#800000]">{t.study.studyBadge}</span>
-          <span className="text-[11px] text-[#555] block">
+        <div className="bg-[#fff8e7] border border-[#808080] p-3 text-center text-xs shadow-xs">
+          <span className="font-bold text-[#800000] text-xs sm:text-sm">{t.study.studyBadge}</span>
+          <span className="text-[11px] sm:text-xs text-[#555] block mt-0.5">
             {stageDepthName} {stage ? `// ${stage.description[locale]}` : ""}
           </span>
         </div>
 
         {/* Card Screen Body */}
-        <div className="p-3 sm:p-5 bg-white text-black min-h-[380px] flex flex-col justify-between">
+        <div className="p-4 sm:p-6 bg-white text-black min-h-[380px] flex flex-col justify-between border border-[#808080] shadow-xs">
           {!completed && currentCard ? (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
               {/* Main Study Deck Column */}
               <div className="lg:col-span-8 flex flex-col justify-between space-y-2">
 
@@ -652,15 +652,19 @@ export default function StudyClient({ stageId }: { stageId: string }) {
             </div>
           )}
         </div>
+      </main>
 
-        {/* Windows Status Footer */}
-        <div className="border-t border-[#808080] bg-[#ece9d8] px-2 py-0.5 text-[10px] text-[#404040] flex items-center justify-between">
+      {/* Docked Retro Footer */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>{stageDisplayName}</span>
-          <span className="font-mono">
-            SRS REVIEWS: {sessionReviewedCount} // LAPSES: {againCount}
-          </span>
         </div>
-      </div>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span>SRS REVIEWS: {sessionReviewedCount}</span>
+          <span className="border-l border-[#808080] pl-2">LAPSES: {againCount}</span>
+        </div>
+      </footer>
     </div>
   );
 }

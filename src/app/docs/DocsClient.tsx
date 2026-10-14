@@ -62,39 +62,39 @@ data.forEach((k) => {
 });`;
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-between">
-      {/* Outer Retro Container Box matching standard pages */}
-      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
-        {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle="API DOCUMENTATION" />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle="API DOCUMENTATION" />
 
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Info & Breadcrumb Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-3 py-1.5 text-[11px] flex items-center justify-between text-black">
+        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <div className="flex items-center gap-2">
             <Link
               href="/dashboard"
-              className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-[10px]"
+              className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-xs font-bold"
             >
-              <ArrowLeft className="w-3 h-3" /> Dashboard
+              <ArrowLeft className="w-3.5 h-3.5" /> Dashboard
             </Link>
             <span className="text-[#808080]">|</span>
             <div className="flex items-center gap-1.5 font-bold text-[#000080]">
-              <Code className="w-3.5 h-3.5" />
+              <Code className="w-4 h-4" />
               <span>SAKANA KANA PRIMITIVES API // v1.0</span>
             </div>
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-mono">
-            <span className="bg-white px-1.5 border border-[#808080] font-bold">
+            <span className="bg-white px-2 py-0.5 border border-[#808080] font-bold">
               REST
             </span>
-            <span className="bg-[#00aa00] text-white px-1.5 font-bold">
+            <span className="bg-[#00aa00] text-white px-2 py-0.5 font-bold">
               ONLINE
             </span>
           </div>
         </div>
 
         {/* Content Body */}
-        <div className="p-3 sm:p-5 bg-white text-black space-y-4">
+        <div className="p-4 sm:p-6 bg-white text-black space-y-4 border border-[#808080] shadow-xs">
           {/* Header Banner */}
           <div className="border border-[#808080] bg-[#ffffd0] p-3 text-xs leading-relaxed text-[#402000]">
             <div className="flex items-center gap-2 font-bold mb-1">
@@ -422,16 +422,19 @@ data.forEach((k) => {
             </span>
           </div>
         </div>
+      </main>
 
-        {/* Windows 98 Status Bar */}
-        <div className="border-t border-[#808080] bg-[#d4d0c8] px-3 py-1 text-[11px] text-[#404040] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-            <span>API SERVER READY</span>
-          </div>
-          <span className="font-mono text-[10px]">HTTP 200 OK</span>
+      {/* Docked Retro Footer & Status Bar */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
+          <span>API SERVER READY</span>
         </div>
-      </div>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span className="hidden sm:inline">SAKANA PUBLIC REST API V1.0</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">HTTP 200 OK</span>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -52,15 +52,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Windows 98/2000 Full-Screen Box */}
-      <div className="w-full max-w-xl lg:max-w-2xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-xl flex flex-col flex-1 my-auto">
-        
-        {/* Retro Navbar & SaKana Branding */}
-        <RetroNavbar currentSubtitle={t.login.appTitle} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={t.login.appTitle} />
 
-        {/* Dialog Content */}
-        <div className="p-4 sm:p-6 bg-[#ece9d8] text-black space-y-4 flex-1 flex flex-col justify-center">
+      {/* Centered Login Container */}
+      <main className="flex-1 w-full max-w-xl mx-auto px-4 py-8 flex flex-col justify-center">
+        <div className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+          {/* Dialog Header Bar */}
+          <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between text-xs font-bold">
+            <span>{t.login.appTitle}</span>
+            <span className="font-mono text-[10px] text-[#00ff66]">SECURE</span>
+          </div>
+
+          {/* Dialog Content */}
+          <div className="p-4 sm:p-6 bg-[#ece9d8] text-black space-y-4">
           
           <div className="flex items-start gap-3 border-b border-[#808080] pb-3">
             <div className="w-10 h-10 border border-[#808080] bg-[#fff] flex items-center justify-center text-[#000080]">
@@ -178,14 +184,24 @@ export default function LoginPage() {
         </div>
 
         {/* Dialog Status */}
-        <div className="border-t border-[#808080] bg-[#d4d0c8] px-2 py-0.5 text-[9px] text-[#555] flex justify-between">
+        <div className="border-t border-[#808080] bg-[#d4d0c8] px-3 py-1 text-[10px] text-[#555] flex justify-between">
           <span>SAKANA AUTH</span>
-          <span>SSL // SECURED</span>
+          <span className="font-mono text-[#008800]">SSL 256-BIT // SECURED</span>
         </div>
       </div>
-      <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
-        SAKANA AUTH // SECURE SYSTEM
-      </footer>
-    </div>
-  );
+    </main>
+
+    {/* Docked Retro Footer */}
+    <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
+        <span>SAKANA AUTHENTICATION</span>
+      </div>
+      <div className="flex items-center gap-4 text-[10px]">
+        <span>NEON POSTGRESQL // DRIZZLE ORM</span>
+        <span className="border-l border-[#808080] pl-2 font-mono">ENCRYPTED</span>
+      </div>
+    </footer>
+  </div>
+);
 }

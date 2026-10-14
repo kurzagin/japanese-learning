@@ -232,25 +232,25 @@ export default function MinigamePage() {
     totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Outer Retro Container */}
-      <div className="w-full max-w-xl lg:max-w-5xl xl:max-w-6xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
-        {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle={t.minigame.windowTitle} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={t.minigame.windowTitle} />
 
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Retro Banner */}
-        <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between text-xs font-bold border-b border-[#808080]">
+        <div className="bg-[#000080] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold border border-[#808080] shadow-xs">
           <span className="flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-[#ffff00] animate-pulse" />
+            <Sparkles className="w-4 h-4 text-[#ffff00] animate-pulse" />
             <span>{t.minigame.badge}</span>
           </span>
-          <span className="text-[#ffff00] font-mono text-[11px]">
+          <span className="text-[#ffff00] font-mono text-xs">
             {currentIndex + 1} / {queue.length || 30}
           </span>
         </div>
 
         {/* Main Content Area */}
-        <div className="p-3 sm:p-5 bg-white flex flex-col min-h-[460px]">
+        <div className="p-4 sm:p-6 bg-white flex flex-col min-h-[460px] border border-[#808080] shadow-xs">
           {isLoading ? (
             <div className="flex-1 flex items-center justify-center font-mono text-xs text-[#555]">
               INITIALIZING ADAPTIVE 30-KANA ARCADE POOL...
@@ -546,7 +546,19 @@ export default function MinigamePage() {
             </div>
           )}
         </div>
-      </div>
+      </main>
+
+      {/* Docked Retro Footer */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
+          <span>ARCADE SURVIVAL MODE</span>
+        </div>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span>ADAPTIVE RETENTION POOL</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">LIVES: {lives} / 3</span>
+        </div>
+      </footer>
     </div>
   );
 }

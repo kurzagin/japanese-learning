@@ -113,16 +113,14 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Outer Retro Container Box */}
-      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
-        {/* Retro Navbar */}
-        <RetroNavbar currentSubtitle={t.about.windowTitle} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={t.about.windowTitle} />
 
-        {/* Content Body */}
-        <div className="p-3 sm:p-5 bg-white text-black space-y-4">
-          {/* Top Banner with Slogan */}
-          <div className="border-2 border-[#000080] bg-[#eef3f8] p-3 text-center space-y-2">
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
+        {/* Top Banner with Slogan */}
+        <div className="border-2 border-[#000080] bg-[#eef3f8] p-4 text-center space-y-2 shadow-xs">
             <div className="text-[10px] text-[#000080] font-bold tracking-widest uppercase">
               ★★★ {t.about.badge} ★★★
             </div>
@@ -430,19 +428,18 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </main>
 
-        {/* Windows Status Bar */}
-        <div className="border-t border-[#808080] bg-[#ece9d8] px-2 py-0.5 text-[10px] text-[#404040] flex items-center justify-between">
-          <span>Ready.</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">
-            INTERACTIVE SYSTEM // NO-WRITING MANIFESTO
-          </span>
+      {/* Docked Retro Footer & Status Bar */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
+          <span>SAKANA ARCHITECTURE // READY</span>
         </div>
-      </div>
-
-      <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
-        SAKANA PROJECT // JAPANESE READING SPEED DRILL
+        <div className="flex items-center gap-4 text-[10px]">
+          <span className="hidden sm:inline">VOICEVOX NEURAL AUDIO & SM-2 SRS</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">INTERACTIVE SYSTEM</span>
+        </div>
       </footer>
     </div>
   );

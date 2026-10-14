@@ -133,37 +133,33 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen py-4 px-2 sm:px-4 md:px-6 flex flex-col items-center justify-between">
-      {/* Outer Retro Container */}
-      <div className="w-full max-w-xl lg:max-w-6xl xl:max-w-7xl bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
-        
-        {/* Retro Navbar & SaKana Branding */}
-        <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      {/* Full-width Sticky Retro Navbar */}
+      <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
 
+      {/* Edge-to-Edge Responsive Content Area */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* User Info Bar */}
-        <div className="border-b border-[#808080] bg-[#ece9d8] px-3 py-1.5 text-[11px] flex items-center justify-between text-black">
+        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-[#000080]">{t.dashboard.operator}</span>
-            <span className="bg-white px-2 py-0.5 border border-[#808080] text-[10px] font-mono">
+            <span className="font-bold text-[#000080]">{t.dashboard.operator}:</span>
+            <span className="bg-white px-2 py-0.5 border border-[#808080] text-xs font-mono font-bold">
               {userEmail}
             </span>
           </div>
           <button
             onClick={handleLogout}
             disabled={isLoggingOut}
-            className="text-[10px] text-[#000080] hover:text-[#cc0000] underline cursor-pointer disabled:opacity-50"
+            className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
           >
             [{t.nav.logout}]
           </button>
         </div>
 
-        {/* Content Body */}
-        <div className="p-3 sm:p-5 bg-white text-black space-y-4">
-          {/* Desktop 2-Column Workstation Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            
-            {/* Left Column: Stats, SRS Retention & Arcade */}
-            <div className="lg:col-span-4 space-y-4">
+        {/* Desktop 2-Column Workstation Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {/* Left Column: Stats, SRS Retention & Arcade */}
+          <div className="lg:col-span-4 space-y-4">
 
           
           {/* Status Matrix Board */}
@@ -410,32 +406,19 @@ export default function DashboardPage() {
               </div>
             ))}
           </div>
-
         </div>
+      </main>
+
+      {/* Docked Retro Footer & Status Bar */}
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
+          <span>SAKANA DOJO // SYSTEM ONLINE</span>
         </div>
-
-        {/* Bottom Windows Control Bar */}
-        <div className="border-t border-[#808080] bg-[#ece9d8] p-2 flex items-center justify-between text-xs">
-          <Link
-            href="/"
-            className="px-3 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] text-black font-bold text-xs hover:bg-[#c0bca8]"
-          >
-            &lt;&lt; {t.nav.back}
-          </Link>
-
-          <Link
-            href="/study/hiragana-vowels"
-            className="px-4 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] text-[#000080] font-black text-xs hover:bg-[#c0bca8] flex items-center gap-1"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-[#000080]" />
-            <span>{t.dashboard.studyBtn}: {t.dashboard.sec1Title}</span>
-          </Link>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span className="hidden sm:inline">MULTILINGUAL SRS MEMORY SPEED DRILL</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">UTF-8 // READY</span>
         </div>
-
-      </div>
-
-      <footer className="mt-3 text-[10px] text-[#666] text-center font-mono">
-        SAKANA DOJO // SYSTEM ONLINE // MULTILINGUAL
       </footer>
     </div>
   );
