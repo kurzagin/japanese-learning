@@ -1,5 +1,20 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import MinigameClient from "./MinigameClient";
+
+export const metadata: Metadata = {
+  title: "30-Kana Arcade Loop — Quick Speed Challenge",
+  description:
+    "Test your Japanese Kana recognition speed under pressure in the 30-Kana retro arcade challenge.",
+  alternates: {
+    canonical: "/minigame",
+  },
+  openGraph: {
+    title: "30-Kana Arcade Loop — Japanese Speed Challenge | SaKana",
+    description: "Speed-test your Hiragana and Katakana reading with real-time feedback.",
+    url: "/minigame",
+  },
+};
 
 export default function MinigamePage() {
   return (
