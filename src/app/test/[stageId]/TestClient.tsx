@@ -325,7 +325,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
       {/* Full-width Sticky Retro Navbar */}
-      <RetroNavbar currentSubtitle={`${isBoss ? "BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
+      <RetroNavbar currentSubtitle={`${isBoss ? t.common.bossBattleTest : t.test.windowTitle} - ${stageDisplayName}`} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
@@ -341,7 +341,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
           </Link>
           <span className={`font-mono text-xs uppercase font-bold flex items-center gap-1 ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
             {isBoss && <Swords className="w-3.5 h-3.5 inline" />}
-            <span>{isBoss ? "BOSS CHECKPOINT" : stageDisplayName}</span>
+            <span>{isBoss ? t.common.bossCheckpoint : stageDisplayName}</span>
           </span>
         </div>
 
@@ -350,7 +350,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
           <div className="flex items-center justify-between text-xs">
             <span className={`font-bold flex items-center gap-1 font-mono ${isBoss ? "text-[#800000]" : "text-[#cc0000]"}`}>
               <Zap className="w-3.5 h-3.5 fill-current" />
-              {isBoss ? "BOSS CHALLENGE REFLEX TEST" : t.test.testBadge}
+              {isBoss ? t.common.bossBattleTest : t.test.testBadge}
             </span>
             <div className="font-mono text-xs font-bold flex items-center gap-2">
               <span className="text-[#555]">{t.test.timeRemaining}:</span>
@@ -457,29 +457,29 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1">
                       <Zap className="w-3.5 h-3.5 fill-[#000080]" />
-                      <span>ARCADE SPRINT CONTROLS</span>
+                      <span>{t.common.arcadeControls}</span>
                     </span>
                     <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
-                      HOTKEYS
+                      {t.common.hotkeys}
                     </span>
                   </div>
 
                   {/* Hotkeys */}
                   <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">OPTION 1:</span>
+                      <span className="text-[#000080]">1:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">OPTION 2:</span>
+                      <span className="text-[#000080]">2:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">OPTION 3:</span>
+                      <span className="text-[#000080]">3:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5">
-                      <span className="text-[#000080]">OPTION 4:</span>
+                      <span className="text-[#000080]">4:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
                     </div>
                   </div>
@@ -487,18 +487,18 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   {/* Benchmark */}
                   <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
                     <div className="font-bold text-[#cc0000] text-[10px] uppercase mb-1">
-                      Sprint Benchmark:
+                      {t.common.telemetry}
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Remaining:</span>
+                      <span className="text-[#666]">{t.common.remaining}:</span>
                       <span className="font-bold">{questions.length - currentIndex}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Correct Count:</span>
+                      <span className="text-[#666]">{t.common.correctCount}</span>
                       <span className="font-bold text-[#008000]">{correctCount}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Target Speed:</span>
+                      <span className="text-[#666]">{t.common.accuracyTarget}</span>
                       <span className="font-bold">&lt; 1.5s / kana</span>
                     </div>
                   </div>
@@ -509,7 +509,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Review Study Deck</span>
+                  <span>{t.common.reviewStudyDeck}</span>
                 </Link>
               </div>
             </div>
@@ -669,11 +669,11 @@ export default function TestClient({ stageId }: { stageId: string }) {
           <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
           <span className="flex items-center gap-1">
             {isBoss && <Swords className="w-3 h-3 text-[#cc0000] inline" />}
-            <span>{isBoss ? "BOSS BATTLE REFLEX TEST" : "ARCADE SPEED CHALLENGE"}</span>
+            <span>{isBoss ? t.common.bossBattleTest : t.common.arcadeSpeedChallenge}</span>
           </span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span>TARGET SPEED: &lt; {timeLimit}s</span>
+          <span>{t.common.targetSpeed}: &lt; {timeLimit}s</span>
           <span className="border-l border-[#808080] pl-2">{stageDisplayName}</span>
         </div>
       </footer>

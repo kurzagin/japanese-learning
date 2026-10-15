@@ -25,6 +25,8 @@ export interface TranslationSchema {
     tagline: string;
     subTagline: string;
     counterLabel: string;
+    startSessionBanner: string;
+    ticker: string;
     ctaEnter: string;
     ctaLogin: string;
     ruleTitle: string;
@@ -220,6 +222,145 @@ export interface TranslationSchema {
     roadmapDesc: string;
     backBtn: string;
   };
+  common: {
+    systemOnline: string;
+    targetSpeed: string;
+    remaining: string;
+    best: string;
+    reviewStudyDeck: string;
+    jumpToSpeedSprint: string;
+    stageComplete: string;
+    stageNotFound: string;
+    loadingDueSrs: string;
+    dueNow: string;
+    dueReinforcementNote: string;
+    srsTrackingNote: (count: number) => string;
+    srsEmptyNote: string;
+    bossCheckpoint: string;
+    bossBattleTest: string;
+    arcadeSpeedChallenge: string;
+    workstationCommands: string;
+    hotkeys: string;
+    telemetry: string;
+    lapses: string;
+    intervalDays: string;
+    replayAudio: string;
+    flipCard: string;
+    correctCount: string;
+    accuracyTarget: string;
+    arcadeControls: string;
+    coinOp: string;
+    arcadeRules: string;
+    comboBoost: string;
+    requeuedCards: string;
+    exitArcade: string;
+    weakSpotTarget: string;
+    initializingPool: string;
+    arcadeSurvivalMode: string;
+    adaptivePool: string;
+    livesRemaining: string;
+    audioNotSupported: string;
+    listenPronunciation: string;
+    beatTwoStagesFirst: string;
+  };
+  kanaHub: {
+    subtitle: string;
+    badge: string;
+    title: string;
+    description: string;
+    hiraganaTab: string;
+    katakanaTab: string;
+    allTypes: string;
+    gojuon: string;
+    dakuon: string;
+    handakuon: string;
+    yoon: string;
+    searchPlaceholder: string;
+    showingCount: (shown: number, total: number) => string;
+    scriptLabel: string;
+    noResults: (query: string) => string;
+    eduTitle: string;
+    hiraganaEduTitle: string;
+    hiraganaEduText: string;
+    katakanaEduTitle: string;
+    katakanaEduText: string;
+    viewDetails: string;
+  };
+  kanaDetail: {
+    returnToMatrix: string;
+    badge: string;
+    listen: string;
+    scriptLabel: string;
+    classLabel: string;
+    rowLabel: string;
+    strokes: (count: number) => string;
+    mnemonicTitle: string;
+    mnemonicTip: string;
+    vocabTitle: string;
+    vocabDefault: string;
+    vocabMeaning: string;
+    standardSyllabusBadge: string;
+    confusedTitle: string;
+    confusedSubtitle: (char: string) => string;
+    compareBtn: string;
+    ctaTitle: (char: string) => string;
+    ctaSubtitle: string;
+    startDrillBtn: string;
+    browseAllBtn: string;
+  };
+  docs: {
+    subtitle: string;
+    breadcrumbApi: string;
+    apiOverviewBadge: string;
+    apiOverviewDesc: string;
+    baseEndpoint: string;
+    authLabel: string;
+    authValue: string;
+    audioDeliveryLabel: string;
+    audioDeliveryValue: string;
+    endpointHeader: string;
+    queryParamsTitle: string;
+    paramCol: string;
+    typeCol: string;
+    valuesCol: string;
+    descCol: string;
+    scriptDesc: string;
+    typeDesc: string;
+    minimalDesc: string;
+    snippetsTitle: string;
+    curlTitle: string;
+    jsTitle: string;
+    copied: string;
+    copy: string;
+    copyJson: string;
+    testBenchBadge: string;
+    interactiveTitle: string;
+    scriptField: string;
+    typeField: string;
+    minimalField: string;
+    allScriptsOption: string;
+    allTypesOption: string;
+    fullModeOption: string;
+    minimalModeOption: string;
+    executeBtn: string;
+    executingBtn: string;
+    outputLabel: string;
+    outputPlaceholder: string;
+    schemaTitle: string;
+    returnDashboard: string;
+    footerMeta: string;
+    serverReady: string;
+  };
+  webring: {
+    title: string;
+    nodesCount: string;
+    hoverPrompt: string;
+    prev: string;
+    random: string;
+    next: string;
+    join: string;
+    guestbookTag: string;
+  };
 }
 
 export const translations: Record<Locale, TranslationSchema> = {
@@ -248,6 +389,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "Speed Kana Reading Reflexes",
       subTagline: "Stop obsessing over stroke orders. Learn to read Kana and anime words in fractions of a second.",
       counterLabel: "VISITOR COUNT:",
+      startSessionBanner: "START YOUR JAPANESE SPEED SESSION",
+      ticker: "SAKANA FLASH DRILL SYSTEM ACTIVE // SM-2 SPACED RETENTION ENABLED // PRESS SPACEBAR TO FLIP CARDS // TRUE FULL SCREEN WORKSTATION READY",
       ctaEnter: "ENTER STUDY REEF",
       ctaLogin: "SIGN IN / SYNC",
       ruleTitle: "METHOD & RULES",
@@ -443,6 +586,145 @@ export const translations: Record<Locale, TranslationSchema> = {
       goToRequiredBtn: "GO TO REQUIRED STAGE >>",
       backDashboardBtn: "<< RETURN TO DASHBOARD",
     },
+    common: {
+      systemOnline: "SYSTEM ONLINE",
+      targetSpeed: "TARGET TIME",
+      remaining: "REMAINING",
+      best: "Best",
+      reviewStudyDeck: "Review Study Deck",
+      jumpToSpeedSprint: "Jump to Speed Sprint",
+      stageComplete: "STAGE COMPLETE",
+      stageNotFound: "STAGE NOT FOUND.",
+      loadingDueSrs: "LOADING DUE SRS CARDS...",
+      dueNow: "[DUE NOW]",
+      dueReinforcementNote: "SM-2 memory intervals require retention reinforcement.",
+      srsTrackingNote: (count: number) => `${count} characters tracked in SRS active retention.`,
+      srsEmptyNote: "Start learning characters in the stages below to populate your retention schedule.",
+      bossCheckpoint: "BOSS CHECKPOINT",
+      bossBattleTest: "BOSS BATTLE REFLEX TEST",
+      arcadeSpeedChallenge: "ARCADE SPEED CHALLENGE",
+      workstationCommands: "◆ WORKSTATION COMMANDS",
+      hotkeys: "HOTKEYS",
+      telemetry: "Session Telemetry:",
+      lapses: "Lapses (Again):",
+      intervalDays: "SM-2 Interval:",
+      replayAudio: "REPLAY AUDIO:",
+      flipCard: "FLIP CARD:",
+      correctCount: "Correct Count:",
+      accuracyTarget: "Target Speed:",
+      arcadeControls: "◆ ARCADE CABINET CONTROLS",
+      coinOp: "COIN OP",
+      arcadeRules: "Arcade Rules:",
+      comboBoost: "Combo Multiplier:",
+      requeuedCards: "Requeued Cards:",
+      exitArcade: "Exit Arcade",
+      weakSpotTarget: "TARGET: WEAK SPOT",
+      initializingPool: "INITIALIZING ADAPTIVE 30-KANA ARCADE POOL...",
+      arcadeSurvivalMode: "ARCADE SURVIVAL MODE",
+      adaptivePool: "ADAPTIVE RETENTION POOL",
+      livesRemaining: "SHIELD LIVES",
+      audioNotSupported: "Text-to-speech audio is not supported in this browser.",
+      listenPronunciation: "Listen to pronunciation",
+      beatTwoStagesFirst: "BEAT 2 STAGES FIRST",
+    },
+    kanaHub: {
+      subtitle: "KANA DIRECTORY",
+      badge: "Complete Japanese Kana Reference Hub",
+      title: "JAPANESE KANA MATRIX (五十音図)",
+      description: "Browse through 200+ authentic Hiragana and Katakana characters. Click any card to view detailed stroke counts, clear pronunciation audio, example words, and mnemonics.",
+      hiraganaTab: "HIRAGANA (ひらがな)",
+      katakanaTab: "KATAKANA (カタカナ)",
+      allTypes: "All Types",
+      gojuon: "Gojūon (Basic 46)",
+      dakuon: "Dakuon (Voiced)",
+      handakuon: "Handakuon (P-row)",
+      yoon: "Yōon (Combinations)",
+      searchPlaceholder: "Search romaji, kana, hint...",
+      showingCount: (shown: number, total: number) => `Showing ${shown} of ${total} characters`,
+      scriptLabel: "Script:",
+      noResults: (query: string) => `No characters found matching "${query}". Try searching with romaji like "ka" or "shi".`,
+      eduTitle: "Understanding Japanese Kana (Hiragana & Katakana)",
+      hiraganaEduTitle: "Hiragana (ひらがな)",
+      hiraganaEduText: "Hiragana is the foundational Japanese phonetic script consisting of 46 primary Gojūon sounds, plus voiced (Dakuon) and combination (Yōon) characters. It is used for native Japanese words, grammar particles (は, が, を), and verb and adjective inflections (okurigana).",
+      katakanaEduTitle: "Katakana (カタカナ)",
+      katakanaEduText: "Katakana features sharper, more angular strokes and represents the exact same 46 sound units as Hiragana. It is primarily used for foreign loanwords (gairaigo), scientific terminology, onomatopoeia, and company or product branding in anime and tech.",
+      viewDetails: "View details",
+    },
+    kanaDetail: {
+      returnToMatrix: "RETURN TO KANA MATRIX",
+      badge: "Official Standard Japanese Character Profile",
+      listen: "LISTEN",
+      scriptLabel: "Script",
+      classLabel: "Class",
+      rowLabel: "Row",
+      strokes: (count: number) => `${count} Stroke${count > 1 ? "s" : ""}`,
+      mnemonicTitle: "Visual Mnemonic & Memory Aid",
+      mnemonicTip: "Tip: Associate the shape with this visual image in your mind to recall it in less than 0.5s during drills.",
+      vocabTitle: "Vocabulary Example",
+      vocabDefault: "Standard elemental sound used in hundreds of essential everyday Japanese words.",
+      vocabMeaning: "Meaning:",
+      standardSyllabusBadge: "Standard Ministry of Education phonetic syllabus",
+      confusedTitle: "Frequently Confused Lookalikes",
+      confusedSubtitle: (char: string) => `Learners often confuse ${char} with the following characters. Compare their nuances:`,
+      compareBtn: "Compare →",
+      ctaTitle: (char: string) => `READY TO DRILL '${char}' AT ARCADE SPEED?`,
+      ctaSubtitle: "Reading Japanese isn't just about memorization — it's about fast visual reflexes. Test your speed in the SaKana Dojo.",
+      startDrillBtn: "START PRACTICE DRILL",
+      browseAllBtn: "BROWSE ALL CHARACTERS",
+    },
+    docs: {
+      subtitle: "API DOCUMENTATION",
+      breadcrumbApi: "SAKANA KANA PRIMITIVES API // v1.0",
+      apiOverviewBadge: "Kana Primitives API Overview",
+      apiOverviewDesc: "The SaKana Public REST API exposes structured Japanese Hiragana and Katakana phonetic datasets. Developers can query characters, romaji transliterations, phonetic classifications (gojūon, dakuon, handakuon, yōon), mnemonic hints, and native audio pronunciation files.",
+      baseEndpoint: "Base Endpoint",
+      authLabel: "Authentication",
+      authValue: "None (Public GET)",
+      audioDeliveryLabel: "Audio Delivery",
+      audioDeliveryValue: "Pre-rendered Voicevox (.wav)",
+      endpointHeader: "Retrieve Kana Primitives",
+      queryParamsTitle: "Query Parameters",
+      paramCol: "Param",
+      typeCol: "Type",
+      valuesCol: "Values",
+      descCol: "Description",
+      scriptDesc: "Filter by script family.",
+      typeDesc: "Phonetic category filter.",
+      minimalDesc: "When true, omits hints & audio for lightweight payloads.",
+      snippetsTitle: "Integration Code Snippets",
+      curlTitle: "cURL Request",
+      jsTitle: "JavaScript / TypeScript Fetch",
+      copied: "Copied",
+      copy: "Copy",
+      copyJson: "Copy JSON",
+      testBenchBadge: "TEST BENCH",
+      interactiveTitle: "Live Interactive API Explorer",
+      scriptField: "Script",
+      typeField: "Type",
+      minimalField: "Minimal Mode",
+      allScriptsOption: "(All Scripts)",
+      allTypesOption: "(All Types)",
+      fullModeOption: "false (Full)",
+      minimalModeOption: "true (Minimal)",
+      executeBtn: "Execute Request [GET]",
+      executingBtn: "Executing API Query...",
+      outputLabel: "Live Response Output:",
+      outputPlaceholder: "// Click 'Execute Request' above to test the live API endpoint in real-time.",
+      schemaTitle: "Standard Response Schema",
+      returnDashboard: "Return to Dashboard",
+      footerMeta: "SaKana Public REST API v1.0 • JSON output • Voicevox Audio",
+      serverReady: "API SERVER READY",
+    },
+    webring: {
+      title: "WEBRING // FEDERATED NETWORK",
+      nodesCount: "[4 NODES]",
+      hoverPrompt: "HOVER BADGE FOR DETAILS // CLICK TO NAVIGATE",
+      prev: "« PREV",
+      random: "RANDOM",
+      next: "NEXT »",
+      join: "+ JOIN RING",
+      guestbookTag: "(GUESTBOOK)",
+    },
   },
 
   id: {
@@ -470,6 +752,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "Latih Refleks Membaca Kana",
       subTagline: "Jangan terjebak keharusan menulis tulisan rapi. Latih mata membaca Hiragana, Katakana, dan kosakata anime dalam sekejap.",
       counterLabel: "PENGUNJUNG:",
+      startSessionBanner: "MULAI SESI LATIHAN REFLEKS JEPANG",
+      ticker: "SISTEM SAKANA SPEED DRILL AKTIF // INTERVAL MEMORI SM-2 SIAP // TEKAN SPASI UNTUK BUKA KARTU // MODE WORKSTATION SIAP",
       ctaEnter: "MULAI LATIHAN",
       ctaLogin: "MASUK / SINKRONISASI",
       ruleTitle: "METODE & PANDUAN",
@@ -665,6 +949,145 @@ export const translations: Record<Locale, TranslationSchema> = {
       goToRequiredBtn: "KE STAGE PRASYARAT >>",
       backDashboardBtn: "<< KEMBALI KE DASHBOARD",
     },
+    common: {
+      systemOnline: "SISTEM AKTIF",
+      targetSpeed: "TARGET WAKTU",
+      remaining: "TERSISA",
+      best: "Terbaik",
+      reviewStudyDeck: "Ulangi Kartu Belajar",
+      jumpToSpeedSprint: "Langsung ke Uji Kecepatan",
+      stageComplete: "STAGE SELESAI",
+      stageNotFound: "STAGE TIDAK DITEMUKAN.",
+      loadingDueSrs: "MEMUAT KARTU SRS JATUH TEMPO...",
+      dueNow: "[JATUH TEMPO]",
+      dueReinforcementNote: "Interval memori SM-2 memerlukan penguatan ingatan hari ini.",
+      srsTrackingNote: (count: number) => `${count} karakter sedang dipantau dalam retensi aktif SRS.`,
+      srsEmptyNote: "Mulai belajar karakter di stage bawah untuk menjadwalkan retensi ingatanmu.",
+      bossCheckpoint: "CHECKPOINT BOS",
+      bossBattleTest: "UJI REFLEKS PERTARUNGAN BOS",
+      arcadeSpeedChallenge: "TANTANGAN KECEPATAN ARKADE",
+      workstationCommands: "◆ PINTASAN TOMBOL KERJA",
+      hotkeys: "PINTASAN",
+      telemetry: "Telemetri Sesi:",
+      lapses: "Salah (Ulangi):",
+      intervalDays: "Interval SM-2:",
+      replayAudio: "PUTAR AUDIO:",
+      flipCard: "BUKA KARTU:",
+      correctCount: "Jawaban Benar:",
+      accuracyTarget: "Target Kecepatan:",
+      arcadeControls: "◆ KONTROL MESIN ARKADE",
+      coinOp: "KOIN MASUK",
+      arcadeRules: "Aturan Arkade:",
+      comboBoost: "Pengali Kombo:",
+      requeuedCards: "Kartu Diulang:",
+      exitArcade: "Keluar Arkade",
+      weakSpotTarget: "TARGET: TITIK LEMAH",
+      initializingPool: "MEMPERSIAPKAN POOL 30-KANA ADAPTIF...",
+      arcadeSurvivalMode: "MODE SURVIVAL ARKADE",
+      adaptivePool: "POOL RETENSI ADAPTIF",
+      livesRemaining: "NYAWA PERISAI",
+      audioNotSupported: "Audio text-to-speech tidak didukung di browser ini.",
+      listenPronunciation: "Dengarkan pelafalan",
+      beatTwoStagesFirst: "SELESAIKAN 2 STAGE DULU",
+    },
+    kanaHub: {
+      subtitle: "DIREKTORI KANA",
+      badge: "Pusat Referensi Kana Jepang Lengkap",
+      title: "MATRIKS KANA JEPANG (五十音図)",
+      description: "Jelajahi lebih dari 200 karakter Hiragana dan Katakana otentik. Klik kartu mana saja untuk melihat jumlah goresan, audio pelafalan jernih, contoh kata, dan mnemonik.",
+      hiraganaTab: "HIRAGANA (ひらがな)",
+      katakanaTab: "KATAKANA (カタカナ)",
+      allTypes: "Semua Jenis",
+      gojuon: "Gojūon (46 Dasar)",
+      dakuon: "Dakuon (Bersuara)",
+      handakuon: "Handakuon (Deret P)",
+      yoon: "Yōon (Kombinasi)",
+      searchPlaceholder: "Cari romaji, kana, petunjuk...",
+      showingCount: (shown: number, total: number) => `Menampilkan ${shown} dari ${total} karakter`,
+      scriptLabel: "Aksara:",
+      noResults: (query: string) => `Tidak ada karakter yang cocok dengan "${query}". Coba cari dengan romaji seperti "ka" atau "shi".`,
+      eduTitle: "Memahami Kana Jepang (Hiragana & Katakana)",
+      hiraganaEduTitle: "Hiragana (ひらがな)",
+      hiraganaEduText: "Hiragana adalah aksara fonetik dasar bahasa Jepang yang terdiri dari 46 bunyi Gojūon utama, ditambah karakter bersuara (Dakuon) dan kombinasi (Yōon). Digunakan untuk kata asli bahasa Jepang, partikel tata bahasa (は, が, を), serta infleksi kata kerja dan kata sifat (okurigana).",
+      katakanaEduTitle: "Katakana (カタカナ)",
+      katakanaEduText: "Katakana memiliki goresan yang lebih tegas dan bersudut tajam, melambangkan 46 unit bunyi yang sama persis dengan Hiragana. Utamanya digunakan untuk kata serapan asing (gairaigo), istilah ilmiah, onomatope, serta nama merek/produk dalam anime dan teknologi.",
+      viewDetails: "Lihat detail",
+    },
+    kanaDetail: {
+      returnToMatrix: "KEMBALI KE MATRIKS KANA",
+      badge: "Profil Karakter Standar Resmi Jepang",
+      listen: "DENGARKAN",
+      scriptLabel: "Aksara",
+      classLabel: "Kategori",
+      rowLabel: "Baris",
+      strokes: (count: number) => `${count} Goresan`,
+      mnemonicTitle: "Petunjuk Visual & Pengingat Bentuk",
+      mnemonicTip: "Tips: Hubungkan bentuk huruf dengan imajinasi visual ini di kepalamu agar bisa mengingatnya dalam waktu kurang dari 0.5 detik saat latihan refleks.",
+      vocabTitle: "Contoh Kosakata",
+      vocabDefault: "Bunyi dasar standar yang digunakan dalam ratusan kosakata penting sehari-hari bahasa Jepang.",
+      vocabMeaning: "Arti:",
+      standardSyllabusBadge: "Silabus fonetik standar Kementerian Pendidikan Jepang",
+      confusedTitle: "Karakter Serupa yang Sering Tertukar",
+      confusedSubtitle: (char: string) => `Pembelajar sering keliru membedakan ${char} dengan karakter-karakter berikut. Perhatikan perbedaannya:`,
+      compareBtn: "Bandingkan →",
+      ctaTitle: (char: string) => `SIAP LATIHAN REFLEKS CEPAT '${char}' DI DOJO?`,
+      ctaSubtitle: "Membaca bahasa Jepang bukan sekadar menghafal lambat — ini tentang refleks visual secepat kilat. Uji kecepatanmu sekarang di SaKana Dojo.",
+      startDrillBtn: "MULAI SESI LATIHAN",
+      browseAllBtn: "LIHAT SEMUA KARAKTER",
+    },
+    docs: {
+      subtitle: "DOKUMENTASI API",
+      breadcrumbApi: "API PRIMITIF KANA SAKANA // v1.0",
+      apiOverviewBadge: "Ringkasan API Primitif Kana",
+      apiOverviewDesc: "Public REST API SaKana menyediakan dataset fonetik terstruktur untuk Hiragana dan Katakana Jepang. Pengembang dapat mengambil karakter, alih aksara romaji, klasifikasi fonetik (gojūon, dakuon, handakuon, yōon), petunjuk mnemonik, dan berkas audio pelafalan asli.",
+      baseEndpoint: "Endpoint Dasar",
+      authLabel: "Autentikasi",
+      authValue: "Tidak Perlu (Public GET)",
+      audioDeliveryLabel: "Penyajian Audio",
+      audioDeliveryValue: "Voicevox Siap Pakai (.wav)",
+      endpointHeader: "Ambil Primitif Kana",
+      queryParamsTitle: "Parameter Query",
+      paramCol: "Parameter",
+      typeCol: "Tipe",
+      valuesCol: "Nilai",
+      descCol: "Deskripsi",
+      scriptDesc: "Filter berdasarkan keluarga aksara.",
+      typeDesc: "Filter kategori fonetik.",
+      minimalDesc: "Jika bernilai true, mengabaikan petunjuk & audio agar ukuran respon lebih ringan.",
+      snippetsTitle: "Contoh Kode Integrasi",
+      curlTitle: "Permintaan cURL",
+      jsTitle: "JavaScript / TypeScript Fetch",
+      copied: "Tersalin",
+      copy: "Salin",
+      copyJson: "Salin JSON",
+      testBenchBadge: "MEJA UJI",
+      interactiveTitle: "Penjelajah API Interaktif",
+      scriptField: "Aksara",
+      typeField: "Jenis",
+      minimalField: "Mode Minimal",
+      allScriptsOption: "(Semua Aksara)",
+      allTypesOption: "(Semua Jenis)",
+      fullModeOption: "false (Lengkap)",
+      minimalModeOption: "true (Minimal)",
+      executeBtn: "Jalankan Permintaan [GET]",
+      executingBtn: "Menjalankan Kueri API...",
+      outputLabel: "Hasil Respon Langsung:",
+      outputPlaceholder: "// Klik 'Jalankan Permintaan' di atas untuk menguji endpoint API secara langsung.",
+      schemaTitle: "Skema Respon Standar",
+      returnDashboard: "Kembali ke Dashboard",
+      footerMeta: "API Publik REST SaKana v1.0 • Output JSON • Audio Voicevox",
+      serverReady: "SERVER API SIAP",
+    },
+    webring: {
+      title: "WEBRING // JARINGAN FEDERASI",
+      nodesCount: "[4 SIMPUL]",
+      hoverPrompt: "ARAHKAN KURSOR KE BADGE UNTUK DETAIL // KLIK UNTUK MENGUNJUNGI",
+      prev: "« SEBELUMNYA",
+      random: "ACAK",
+      next: "BERIKUTNYA »",
+      join: "+ GABUNG RING",
+      guestbookTag: "(BUKU TAMU)",
+    },
   },
 
   ja: {
@@ -692,6 +1115,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "かな文字の反射神経を鍛える",
       subTagline: "筆順の完璧さに縛られるのは終わり。ひらがな・カタカナ・アニメ単語を瞬時に読む訓練。",
       counterLabel: "訪問者数:",
+      startSessionBanner: "日本語速読セッションを開始",
+      ticker: "SAKANA高速反射修練システム稼働中 // SM-2間隔反復記憶有効 // スペースキーでカード反転 // 全画面集中道場",
       ctaEnter: "道場に入る",
       ctaLogin: "ログイン / 同期",
       ruleTitle: "心得とルール",
@@ -886,6 +1311,145 @@ export const translations: Record<Locale, TranslationSchema> = {
       requiredStageLabel: "前提ステージ：",
       goToRequiredBtn: "前提ステージへ挑む >>",
       backDashboardBtn: "<< 道場メニューへ戻る",
+    },
+    common: {
+      systemOnline: "稼働中",
+      targetSpeed: "目標基準時間",
+      remaining: "残り",
+      best: "最高記録",
+      reviewStudyDeck: "修練札を復習する",
+      jumpToSpeedSprint: "速度試練へ出陣",
+      stageComplete: "海域制覇",
+      stageNotFound: "海域が見つかりません。",
+      loadingDueSrs: "本日のSRS復習札を抽出中...",
+      dueNow: "【要復習】",
+      dueReinforcementNote: "SM-2記憶インターバルに基づき、本日復習が必要です。",
+      srsTrackingNote: (count: number) => `現在${count}文字がSRS定着管理されています。`,
+      srsEmptyNote: "下の海域で文字を修練すると、記憶定着スケジュールが自動作成されます。",
+      bossCheckpoint: "ボス関門",
+      bossBattleTest: "ボス関門反射試練",
+      arcadeSpeedChallenge: "アーケード速度試練",
+      workstationCommands: "◆ 道場操作コマンド",
+      hotkeys: "短縮キー",
+      telemetry: "修行計測データ:",
+      lapses: "やり直し回数:",
+      intervalDays: "SM-2間隔:",
+      replayAudio: "音声再聴取:",
+      flipCard: "札を裏返す:",
+      correctCount: "正解数:",
+      accuracyTarget: "目標反射速度:",
+      arcadeControls: "◆ 筐体操作盤",
+      coinOp: "連続修練",
+      arcadeRules: "アーケード心得:",
+      comboBoost: "連鎖倍率:",
+      requeuedCards: "再出題札:",
+      exitArcade: "道場へ帰還",
+      weakSpotTarget: "重点標的：苦手札",
+      initializingPool: "適応型30文字アーケード札を生成中...",
+      arcadeSurvivalMode: "仮名サバイバル試練",
+      adaptivePool: "適応型記憶保持プール",
+      livesRemaining: "シールド残機",
+      audioNotSupported: "お使いのブラウザは音声合成に対応していません。",
+      listenPronunciation: "発音を聴く",
+      beatTwoStagesFirst: "先に2ステージ突破が必要",
+    },
+    kanaHub: {
+      subtitle: "五十音図一覧",
+      badge: "かな文字・五十音図 総合リファレンス",
+      title: "五十音図かな文字マトリクス",
+      description: "平仮名・片仮名200字以上の詳細データを網羅。各札をクリックすると画数、クリアな音声発音、用例単語、字形の由来ヒントを確認できます。",
+      hiraganaTab: "平仮名 (ひらがな)",
+      katakanaTab: "片仮名 (カタカナ)",
+      allTypes: "全種類",
+      gojuon: "五十音 (基本46字)",
+      dakuon: "濁音 (濁点)",
+      handakuon: "半濁音 (半濁点)",
+      yoon: "拗音 (促音・小文字結合)",
+      searchPlaceholder: "ローマ字、かな、ヒントで検索...",
+      showingCount: (shown: number, total: number) => `${total}文字中 ${shown}文字を表示`,
+      scriptLabel: "書体:",
+      noResults: (query: string) => `「${query}」に一致する文字は見つかりませんでした。「ka」「shi」などのローマ字でも検索できます。`,
+      eduTitle: "日本語のかな文字（平仮名と片仮名）について",
+      hiraganaEduTitle: "平仮名 (ひらがな)",
+      hiraganaEduText: "平仮名は、46の基本音（五十音）と濁音・拗音から構成される日本語の基礎文字です。和語、助詞（は、が、を）、動詞や形容詞の送り仮名などに広く用いられます。",
+      katakanaEduTitle: "片仮名 (カタカナ)",
+      katakanaEduText: "片仮名は、直線的で角張った筆致が特徴で、平仮名とまったく同じ46音を表します。主に外来語、学術用語、擬音語・擬態語、アニメやゲーム、ブランド表記に用いられます。",
+      viewDetails: "詳細を見る",
+    },
+    kanaDetail: {
+      returnToMatrix: "五十音図一覧へ戻る",
+      badge: "日本語標準かな文字カルテ",
+      listen: "音声を聴く",
+      scriptLabel: "書体",
+      classLabel: "種別",
+      rowLabel: "行",
+      strokes: (count: number) => `${count}画`,
+      mnemonicTitle: "字形の由来と記憶ヒント",
+      mnemonicTip: "心得：頭の中で視覚的なイメージと文字の形を結びつけることで、試練中に0.5秒未満で即座に想起できるようになります。",
+      vocabTitle: "実戦単語・用例",
+      vocabDefault: "日常の基礎単語に数多く登場する標準的な仮名文字です。",
+      vocabMeaning: "意味:",
+      standardSyllabusBadge: "文部科学省 学習指導要領 準拠音響体系",
+      confusedTitle: "見分けがつきにくい類似文字",
+      confusedSubtitle: (char: string) => `「${char}」は以下の文字と混同しやすいため、微妙な線の違いを意識して見比べましょう：`,
+      compareBtn: "見比べる →",
+      ctaTitle: (char: string) => `「${char}」の反射認識を道場で鍛えますか？`,
+      ctaSubtitle: "文字を覚えるだけでなく、見て瞬時に脳が反応する反射速度を身につけましょう。SaKana道場の速度試練に挑戦！",
+      startDrillBtn: "修練を始める",
+      browseAllBtn: "全文字一覧を見る",
+    },
+    docs: {
+      subtitle: "API仕様書",
+      breadcrumbApi: "SAKANA かな文字REST API // v1.0",
+      apiOverviewBadge: "かな文字データAPI 概要",
+      apiOverviewDesc: "SaKanaパブリックREST APIは、構造化された平仮名・片仮名の音声文字データセットを提供します。文字、ローマ字表記、音韻分類（五十音、濁音、半濁音、拗音）、字形ヒント、VOICEVOX音声ファイルを参照可能です。",
+      baseEndpoint: "基底エンドポイント",
+      authLabel: "認証",
+      authValue: "不要 (公開GET)",
+      audioDeliveryLabel: "音声配信",
+      audioDeliveryValue: "VOICEVOX収録済 (.wav)",
+      endpointHeader: "かな文字一覧の取得",
+      queryParamsTitle: "クエリパラメータ",
+      paramCol: "パラメータ",
+      typeCol: "型",
+      valuesCol: "指定値",
+      descCol: "説明",
+      scriptDesc: "書体（hiragana / katakana）で絞り込みます。",
+      typeDesc: "音韻種別（gojuon / dakuon / handakuon / yoon）で絞り込みます。",
+      minimalDesc: "trueにすると、軽量化のためヒントと音声を省略した最小形式で返却します。",
+      snippetsTitle: "実装コード例",
+      curlTitle: "cURLリクエスト",
+      jsTitle: "JavaScript / TypeScript Fetch",
+      copied: "コピー完了",
+      copy: "コピー",
+      copyJson: "JSONをコピー",
+      testBenchBadge: "テスト環境",
+      interactiveTitle: "API動作検証コンソール",
+      scriptField: "書体",
+      typeField: "種別",
+      minimalField: "軽量モード",
+      allScriptsOption: "(すべての書体)",
+      allTypesOption: "(すべての種別)",
+      fullModeOption: "false (全データ)",
+      minimalModeOption: "true (最小データ)",
+      executeBtn: "リクエスト実行 [GET]",
+      executingBtn: "通信中...",
+      outputLabel: "レスポンス出力:",
+      outputPlaceholder: "上の「リクエスト実行」をクリックすると、リアルタイムでAPIレスポンスが表示されます。",
+      schemaTitle: "標準レスポンススキーマ",
+      returnDashboard: "道場メニューへ戻る",
+      footerMeta: "SaKana パブリックREST API v1.0 • JSON出力 • VOICEVOX音声",
+      serverReady: "APIサーバー正常稼働中",
+    },
+    webring: {
+      title: "ウェブリング // 連合ネットワーク",
+      nodesCount: "【4サイト】",
+      hoverPrompt: "バナーにカーソルを合わせると詳細表示 // クリックで移動",
+      prev: "« 前へ",
+      random: "ランダム",
+      next: "次へ »",
+      join: "+ 参加希望",
+      guestbookTag: "【ゲストブック】",
     },
   },
 };

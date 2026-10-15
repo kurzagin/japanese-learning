@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PronounceButtonProps {
   text: string;
@@ -16,6 +17,7 @@ export function PronounceButton({
   size = "md",
   label,
 }: PronounceButtonProps) {
+  const { t } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = (e: React.MouseEvent) => {
@@ -23,7 +25,7 @@ export function PronounceButton({
     e.stopPropagation();
 
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      alert("Text-to-speech audio is not supported in this browser.");
+      alert(t.common.audioNotSupported);
       return;
     }
 
@@ -62,7 +64,7 @@ export function PronounceButton({
     <button
       type="button"
       onClick={handlePlay}
-      aria-label={`Listen to pronunciation of ${text}`}
+      aria-label={`${t.common.listenPronunciation}: ${text}`}
       className={`inline-flex items-center justify-center font-mono cursor-pointer transition-transform active:translate-y-0.5 border-t border-l border-white border-b-[#404040] border-r-[#404040] bg-[#d4d0c8] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] shadow-xs ${sizeClasses[size]} ${className}`}
     >
       {isPlaying ? (

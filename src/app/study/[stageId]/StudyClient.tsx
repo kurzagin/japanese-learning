@@ -285,7 +285,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   if (isLoadingDue) {
     return (
       <div className="min-h-screen p-4 flex items-center justify-center font-mono text-xs">
-        LOADING DUE SRS CARDS...
+        {t.common.loadingDueSrs}
       </div>
     );
   }
@@ -324,7 +324,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   if (!stage && !isDueReviewMode) {
     return (
       <div className="min-h-screen p-4 flex items-center justify-center font-mono text-xs">
-        STAGE NOT FOUND.
+        {t.common.stageNotFound}
       </div>
     );
   }
@@ -544,36 +544,36 @@ export default function StudyClient({ stageId }: { stageId: string }) {
               <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
                   <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
-                    <span>◆ WORKSTATION COMMANDS</span>
+                    <span>{t.common.workstationCommands}</span>
                     <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
-                      HOTKEYS
+                      {t.common.hotkeys}
                     </span>
                   </div>
 
                   {/* Hotkeys Legend */}
                   <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#555]">FLIP CARD:</span>
+                      <span className="text-[#555]">{t.common.flipCard}</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">SPACE</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#800000]">AGAIN:</span>
+                      <span className="text-[#800000]">{t.study.againBtn.toUpperCase()}:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#b85d00]">HARD:</span>
+                      <span className="text-[#b85d00]">{t.study.hardBtn.toUpperCase()}:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#006600]">GOOD:</span>
+                      <span className="text-[#006600]">{t.study.goodBtn.toUpperCase()}:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">EASY:</span>
+                      <span className="text-[#000080]">{t.study.easyBtn.toUpperCase()}:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5">
-                      <span className="text-[#555]">REPLAY AUDIO:</span>
+                      <span className="text-[#555]">{t.common.replayAudio}</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">R</kbd>
                     </div>
                   </div>
@@ -581,19 +581,19 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                   {/* Session Metrics */}
                   <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
                     <div className="font-bold text-[#000080] text-[10px] uppercase mb-1">
-                      Session Telemetry:
+                      {t.common.telemetry}
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Remaining:</span>
-                      <span className="font-bold">{queue.length - currentIndex} cards</span>
+                      <span className="text-[#666]">{t.common.remaining}:</span>
+                      <span className="font-bold">{queue.length - currentIndex}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Lapses (Again):</span>
+                      <span className="text-[#666]">{t.common.lapses}</span>
                       <span className="font-bold text-[#cc0000]">{againCount}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">SM-2 Interval:</span>
-                      <span className="font-bold">{currentSrsRecord?.intervalDays ?? 0} days</span>
+                      <span className="text-[#666]">{t.common.intervalDays}</span>
+                      <span className="font-bold">{currentSrsRecord?.intervalDays ?? 0} d</span>
                     </div>
                   </div>
                 </div>
@@ -604,7 +604,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                     className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
-                    <span>Jump to Speed Sprint</span>
+                    <span>{t.common.jumpToSpeedSprint}</span>
                   </Link>
                 )}
               </div>
@@ -623,7 +623,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
               <div>
                 <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-[#800000]">
                   <Star className="w-3 h-3 fill-[#800000]" />
-                  <span>STAGE COMPLETE</span>
+                  <span>{t.common.stageComplete}</span>
                   <Star className="w-3 h-3 fill-[#800000]" />
                 </div>
                 <h2 className="text-lg font-black text-[#000080] mt-0.5">

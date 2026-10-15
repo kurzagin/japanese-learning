@@ -272,7 +272,7 @@ export default function MinigamePage() {
         <div className="p-4 sm:p-6 bg-white flex flex-col min-h-[460px] border border-[#808080] shadow-xs">
           {isLoading ? (
             <div className="flex-1 flex items-center justify-center font-mono text-xs text-[#555]">
-              INITIALIZING ADAPTIVE 30-KANA ARCADE POOL...
+              {t.common.initializingPool}
             </div>
           ) : status === "playing" && currentCard ? (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 flex-1">
@@ -326,7 +326,7 @@ export default function MinigamePage() {
                 {/* Indicator badge if this is a troubled kana */}
                 {currentCard.lapseCount > 0 && (
                   <span className="absolute top-2 right-2 bg-[#cc0000] text-white text-[9px] px-1.5 py-0.5 font-mono uppercase font-bold tracking-wider">
-                    TARGET: WEAK SPOT
+                    {t.common.weakSpotTarget}
                   </span>
                 )}
 
@@ -390,28 +390,28 @@ export default function MinigamePage() {
               <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
                   <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
-                    <span>◆ ARCADE CABINET CONTROLS</span>
+                    <span>{t.common.arcadeControls}</span>
                     <span className="text-[10px] bg-[#ffff00] text-[#800000] border border-[#800000] px-1 font-bold">
-                      COIN OP
+                      {t.common.coinOp}
                     </span>
                   </div>
 
                   {/* Hotkeys */}
                   <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">TOP-LEFT:</span>
+                      <span className="text-[#000080]">1:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">TOP-RIGHT:</span>
+                      <span className="text-[#000080]">2:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">BOTTOM-LEFT:</span>
+                      <span className="text-[#000080]">3:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5">
-                      <span className="text-[#000080]">BOTTOM-RIGHT:</span>
+                      <span className="text-[#000080]">4:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
                     </div>
                   </div>
@@ -419,18 +419,18 @@ export default function MinigamePage() {
                   {/* Rules & Telemetry */}
                   <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
                     <div className="font-bold text-[#b35900] text-[10px] uppercase mb-1">
-                      Arcade Rules:
+                      {t.common.arcadeRules}
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Remaining:</span>
-                      <span className="font-bold">{queue.length - currentIndex} kana</span>
+                      <span className="text-[#666]">{t.common.remaining}:</span>
+                      <span className="font-bold">{queue.length - currentIndex}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Combo Multiplier:</span>
-                      <span className="font-bold text-[#e67300]">{combo > 1 ? `${combo}x BOOST` : "1.0x"}</span>
+                      <span className="text-[#666]">{t.common.comboBoost}</span>
+                      <span className="font-bold text-[#e67300]">{combo > 1 ? `${combo}x` : "1.0x"}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#666]">Requeued Cards:</span>
+                      <span className="text-[#666]">{t.common.requeuedCards}</span>
                       <span className="font-bold text-[#cc0000]">{Math.max(0, totalAnswered - correctAnswered)}</span>
                     </div>
                   </div>
@@ -441,7 +441,7 @@ export default function MinigamePage() {
                   className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Exit Arcade</span>
+                  <span>{t.common.exitArcade}</span>
                 </Link>
               </div>
             </div>
@@ -579,11 +579,11 @@ export default function MinigamePage() {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
-          <span>ARCADE SURVIVAL MODE</span>
+          <span>{t.common.arcadeSurvivalMode}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span>ADAPTIVE RETENTION POOL</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">LIVES: {lives} / 3</span>
+          <span>{t.common.adaptivePool}</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">{t.common.livesRemaining}: {lives} / 3</span>
         </div>
       </footer>
     </div>

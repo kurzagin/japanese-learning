@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface WebringNode {
   id: string;
@@ -49,6 +50,7 @@ const WEBRING_NODES: WebringNode[] = [
 ];
 
 export function RetroWebring() {
+  const { t } = useLanguage();
   const [activeNode, setActiveNode] = useState<WebringNode | null>(null);
 
   const realSites = WEBRING_NODES.filter((n) => n.id !== "join");
@@ -64,9 +66,9 @@ export function RetroWebring() {
       <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
         <span className="flex items-center gap-1.5">
           <span className="text-[#ffff00]">❖</span>
-          <span>WEBRING // FEDERATED NETWORK</span>
+          <span>{t.webring.title}</span>
         </span>
-        <span className="text-[10px] text-[#00ff66] font-mono">[4 NODES]</span>
+        <span className="text-[10px] text-[#00ff66] font-mono">{t.webring.nodesCount}</span>
       </div>
 
       <div className="mt-2.5 p-2 bg-[#f4f2e8] border border-[#a09e90] space-y-2.5">
@@ -114,7 +116,7 @@ export function RetroWebring() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[#ffff99]">
               <span>{">"} INDIE WEBRING FEDERATION</span>
               <span className="text-[10px] text-[#00ff66]">
-                HOVER BADGE FOR DETAILS // CLICK TO NAVIGATE
+                {t.webring.hoverPrompt}
               </span>
             </div>
           )}
@@ -129,14 +131,14 @@ export function RetroWebring() {
               rel="noopener noreferrer"
               className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
             >
-              « PREV
+              {t.webring.prev}
             </a>
             <button
               type="button"
               onClick={handleRandom}
               className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-black font-bold text-[10px] cursor-pointer"
             >
-              RANDOM
+              {t.webring.random}
             </button>
             <a
               href={realSites[1].url}
@@ -144,7 +146,7 @@ export function RetroWebring() {
               rel="noopener noreferrer"
               className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
             >
-              NEXT »
+              {t.webring.next}
             </a>
           </div>
 
@@ -154,8 +156,8 @@ export function RetroWebring() {
             rel="noopener noreferrer"
             className="text-[10px] text-[#800000] hover:underline font-bold flex items-center gap-1"
           >
-            <span>+ JOIN RING</span>
-            <span className="text-[9px] font-mono text-[#555]">(GUESTBOOK)</span>
+            <span>{t.webring.join}</span>
+            <span className="text-[9px] font-mono text-[#555]">{t.webring.guestbookTag}</span>
           </a>
         </div>
       </div>

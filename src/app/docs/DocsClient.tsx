@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Code,
   Terminal,
@@ -19,6 +20,7 @@ import {
 } from "lucide-react";
 
 export default function DocsClient() {
+  const { t } = useLanguage();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [testScript, setTestScript] = useState<string>("hiragana");
   const [testType, setTestType] = useState<string>("gojuon");
@@ -64,7 +66,7 @@ data.forEach((k) => {
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
       {/* Full-width Sticky Retro Navbar */}
-      <RetroNavbar currentSubtitle="API DOCUMENTATION" />
+      <RetroNavbar currentSubtitle={t.docs.subtitle} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
@@ -75,12 +77,12 @@ data.forEach((k) => {
               href="/dashboard"
               className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-xs font-bold"
             >
-              <ArrowLeft className="w-3.5 h-3.5" /> Dashboard
+              <ArrowLeft className="w-3.5 h-3.5" /> {t.nav.dashboard}
             </Link>
             <span className="text-[#808080]">|</span>
             <div className="flex items-center gap-1.5 font-bold text-[#000080]">
               <Code className="w-4 h-4" />
-              <span>SAKANA KANA PRIMITIVES API // v1.0</span>
+              <span>{t.docs.breadcrumbApi}</span>
             </div>
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-mono">
@@ -99,13 +101,10 @@ data.forEach((k) => {
           <div className="border border-[#808080] bg-[#ffffd0] p-3 text-xs leading-relaxed text-[#402000]">
             <div className="flex items-center gap-2 font-bold mb-1">
               <Sparkles className="w-4 h-4 text-[#800000]" />
-              <span>Kana Primitives API Overview</span>
+              <span>{t.docs.apiOverviewBadge}</span>
             </div>
             <p>
-              The SaKana Public REST API exposes structured Japanese Hiragana and
-              Katakana phonetic datasets. Developers can query characters,
-              romaji transliterations, phonetic classifications (gojūon, dakuon,
-              handakuon, yōon), mnemonic hints, and native audio pronunciation files.
+              {t.docs.apiOverviewDesc}
             </p>
           </div>
 
@@ -114,7 +113,7 @@ data.forEach((k) => {
             <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
               <div className="flex items-center gap-1.5 font-bold text-[#000080] mb-1">
                 <Database className="w-4 h-4" />
-                <span>Base Endpoint</span>
+                <span>{t.docs.baseEndpoint}</span>
               </div>
               <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px] truncate">
                 /api/v1/kana
@@ -124,20 +123,20 @@ data.forEach((k) => {
             <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
               <div className="flex items-center gap-1.5 font-bold text-[#006000] mb-1">
                 <Sliders className="w-4 h-4" />
-                <span>Authentication</span>
+                <span>{t.docs.authLabel}</span>
               </div>
               <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px]">
-                None (Public GET)
+                {t.docs.authValue}
               </div>
             </div>
 
             <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
               <div className="flex items-center gap-1.5 font-bold text-[#800080] mb-1">
                 <Volume2 className="w-4 h-4" />
-                <span>Audio Delivery</span>
+                <span>{t.docs.audioDeliveryLabel}</span>
               </div>
               <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px]">
-                Pre-rendered Voicevox (.wav)
+                {t.docs.audioDeliveryValue}
               </div>
             </div>
           </div>
@@ -158,21 +157,21 @@ data.forEach((k) => {
                     </span>
                   </div>
                   <span className="text-[11px] text-[#404040]">
-                    Retrieve Kana Primitives
+                    {t.docs.endpointHeader}
                   </span>
                 </div>
 
                 {/* Query Parameters Table */}
                 <div className="text-xs">
-                  <div className="font-bold mb-1.5 text-[#000080]">Query Parameters</div>
+                  <div className="font-bold mb-1.5 text-[#000080]">{t.docs.queryParamsTitle}</div>
                   <div className="overflow-x-auto border border-[#808080] bg-white">
                     <table className="w-full text-left border-collapse text-[11px]">
                       <thead className="bg-[#d4d0c8] border-b border-[#808080]">
                         <tr>
-                          <th className="p-1.5 border-r border-[#808080]">Param</th>
-                          <th className="p-1.5 border-r border-[#808080]">Type</th>
-                          <th className="p-1.5 border-r border-[#808080]">Values</th>
-                          <th className="p-1.5">Description</th>
+                          <th className="p-1.5 border-r border-[#808080]">{t.docs.paramCol}</th>
+                          <th className="p-1.5 border-r border-[#808080]">{t.docs.typeCol}</th>
+                          <th className="p-1.5 border-r border-[#808080]">{t.docs.valuesCol}</th>
+                          <th className="p-1.5">{t.docs.descCol}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -180,20 +179,20 @@ data.forEach((k) => {
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">script</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">string</td>
                           <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">hiragana | katakana</td>
-                          <td className="p-1.5 text-[#404040]">Filter by script family.</td>
+                          <td className="p-1.5 text-[#404040]">{t.docs.scriptDesc}</td>
                         </tr>
                         <tr className="border-b border-[#e0e0e0]">
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">type</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">string</td>
                           <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">gojuon | dakuon | handakuon | yoon</td>
-                          <td className="p-1.5 text-[#404040]">Phonetic category filter.</td>
+                          <td className="p-1.5 text-[#404040]">{t.docs.typeDesc}</td>
                         </tr>
                         <tr>
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">minimal</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">boolean</td>
                           <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">true | false</td>
                           <td className="p-1.5 text-[#404040]">
-                            When <code>true</code>, omits hints & audio for lightweight payloads.
+                            {t.docs.minimalDesc}
                           </td>
                         </tr>
                       </tbody>
@@ -206,24 +205,24 @@ data.forEach((k) => {
               <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-3">
                 <div className="flex items-center gap-2 font-bold text-xs text-[#000080]">
                   <BookOpen className="w-4 h-4" />
-                  <span>Integration Code Snippets</span>
+                  <span>{t.docs.snippetsTitle}</span>
                 </div>
 
                 {/* cURL */}
                 <div>
                   <div className="flex items-center justify-between font-bold text-[11px] text-[#000080] mb-1">
-                    <span>cURL Request</span>
+                    <span>{t.docs.curlTitle}</span>
                     <button
                       onClick={() => copyToClipboard(curlExample, "curl")}
                       className="text-[10px] font-mono flex items-center gap-1 hover:underline"
                     >
                       {copiedKey === "curl" ? (
                         <>
-                          <Check className="w-3 h-3 text-green-700" /> Copied
+                          <Check className="w-3 h-3 text-green-700" /> {t.docs.copied}
                         </>
                       ) : (
                         <>
-                          <Copy className="w-3 h-3" /> Copy
+                          <Copy className="w-3 h-3" /> {t.docs.copy}
                         </>
                       )}
                     </button>
@@ -236,18 +235,18 @@ data.forEach((k) => {
                 {/* JavaScript Fetch */}
                 <div>
                   <div className="flex items-center justify-between font-bold text-[11px] text-[#006000] mb-1">
-                    <span>JavaScript / TypeScript Fetch</span>
+                    <span>{t.docs.jsTitle}</span>
                     <button
                       onClick={() => copyToClipboard(fetchJsExample, "js")}
                       className="text-[10px] font-mono flex items-center gap-1 hover:underline"
                     >
                       {copiedKey === "js" ? (
                         <>
-                          <Check className="w-3 h-3 text-green-700" /> Copied
+                          <Check className="w-3 h-3 text-green-700" /> {t.docs.copied}
                         </>
                       ) : (
                         <>
-                          <Copy className="w-3 h-3" /> Copy
+                          <Copy className="w-3 h-3" /> {t.docs.copy}
                         </>
                       )}
                     </button>
@@ -266,24 +265,24 @@ data.forEach((k) => {
                 <div className="flex items-center justify-between border-b border-[#808080] pb-2">
                   <div className="flex items-center gap-2 font-bold text-xs text-[#000080]">
                     <Terminal className="w-4 h-4" />
-                    <span>Live Interactive API Explorer</span>
+                    <span>{t.docs.interactiveTitle}</span>
                   </div>
                   <span className="text-[10px] bg-[#ffff99] text-[#800000] px-1.5 py-0.5 border border-[#808080] font-bold">
-                    TEST BENCH
+                    {t.docs.testBenchBadge}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                   <div>
                     <label className="block text-[11px] font-semibold text-[#404040] mb-1">
-                      Script
+                      {t.docs.scriptField}
                     </label>
                     <select
                       value={testScript}
                       onChange={(e) => setTestScript(e.target.value)}
                       className="w-full bg-white border border-[#808080] p-1 text-xs"
                     >
-                      <option value="">(All Scripts)</option>
+                      <option value="">{t.docs.allScriptsOption}</option>
                       <option value="hiragana">hiragana</option>
                       <option value="katakana">katakana</option>
                     </select>
@@ -291,14 +290,14 @@ data.forEach((k) => {
 
                   <div>
                     <label className="block text-[11px] font-semibold text-[#404040] mb-1">
-                      Type
+                      {t.docs.typeField}
                     </label>
                     <select
                       value={testType}
                       onChange={(e) => setTestType(e.target.value)}
                       className="w-full bg-white border border-[#808080] p-1 text-xs"
                     >
-                      <option value="">(All Types)</option>
+                      <option value="">{t.docs.allTypesOption}</option>
                       <option value="gojuon">gojuon</option>
                       <option value="dakuon">dakuon</option>
                       <option value="handakuon">handakuon</option>
@@ -308,15 +307,15 @@ data.forEach((k) => {
 
                   <div>
                     <label className="block text-[11px] font-semibold text-[#404040] mb-1">
-                      Minimal Mode
+                      {t.docs.minimalField}
                     </label>
                     <select
                       value={testMinimal ? "true" : "false"}
                       onChange={(e) => setTestMinimal(e.target.value === "true")}
                       className="w-full bg-white border border-[#808080] p-1 text-xs"
                     >
-                      <option value="false">false (Full)</option>
-                      <option value="true">true (Minimal)</option>
+                      <option value="false">{t.docs.fullModeOption}</option>
+                      <option value="true">{t.docs.minimalModeOption}</option>
                     </select>
                   </div>
                 </div>
@@ -328,14 +327,14 @@ data.forEach((k) => {
                     className="w-full bg-[#000080] text-white py-1.5 px-3 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#101090] active:translate-y-0.5 disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    {isLoading ? "Executing API Query..." : "Execute Request [GET]"}
+                    {isLoading ? t.docs.executingBtn : t.docs.executeBtn}
                   </button>
                 </div>
 
                 {/* API Response Display */}
                 <div>
                   <div className="flex items-center justify-between text-[11px] font-bold text-[#404040] mb-1">
-                    <span>Live Response Output:</span>
+                    <span>{t.docs.outputLabel}</span>
                     {apiResponse && (
                       <button
                         onClick={() => copyToClipboard(apiResponse, "live-res")}
@@ -343,19 +342,18 @@ data.forEach((k) => {
                       >
                         {copiedKey === "live-res" ? (
                           <>
-                            <Check className="w-3 h-3 text-green-700" /> Copied
+                            <Check className="w-3 h-3 text-green-700" /> {t.docs.copied}
                           </>
                         ) : (
                           <>
-                            <Copy className="w-3 h-3" /> Copy JSON
+                            <Copy className="w-3 h-3" /> {t.docs.copyJson}
                           </>
                         )}
                       </button>
                     )}
                   </div>
                   <pre className="bg-[#1e1e1e] text-[#4ec9b0] p-2.5 font-mono text-[11px] overflow-x-auto border border-[#808080] max-h-64 sm:max-h-72">
-                    {apiResponse ||
-                      "// Click 'Execute Request' above to test the live API endpoint in real-time."}
+                    {apiResponse || t.docs.outputPlaceholder}
                   </pre>
                 </div>
               </div>
@@ -363,7 +361,7 @@ data.forEach((k) => {
               {/* Sample Response Payloads */}
               <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-2.5">
                 <div className="flex items-center justify-between font-bold text-xs text-[#000080] border-b border-[#808080] pb-1.5">
-                  <span>Standard Response Schema</span>
+                  <span>{t.docs.schemaTitle}</span>
                   <button
                     onClick={() =>
                       copyToClipboard(
@@ -375,11 +373,11 @@ data.forEach((k) => {
                   >
                     {copiedKey === "schema-json" ? (
                       <>
-                        <Check className="w-3 h-3 text-green-700" /> Copied
+                        <Check className="w-3 h-3 text-green-700" /> {t.docs.copied}
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3 h-3" /> Copy
+                        <Copy className="w-3 h-3" /> {t.docs.copy}
                       </>
                     )}
                   </button>
@@ -414,11 +412,11 @@ data.forEach((k) => {
               className="bg-[#d4d0c8] text-black px-3 py-1 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#e0dcd4] active:border-t-black active:border-l-black active:border-b-white active:border-r-white flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Return to Dashboard
+              {t.docs.returnDashboard}
             </Link>
 
             <span className="text-[11px] text-[#555555]">
-              SaKana Public REST API v1.0 • JSON output • Voicevox Audio
+              {t.docs.footerMeta}
             </span>
           </div>
         </div>
@@ -428,7 +426,7 @@ data.forEach((k) => {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>API SERVER READY</span>
+          <span>{t.docs.serverReady}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span className="hidden sm:inline">SAKANA PUBLIC REST API V1.0</span>

@@ -81,7 +81,7 @@ export default function HomePage() {
           </span>
           <div className="w-full overflow-hidden whitespace-nowrap">
             <div className="animate-retro-ticker">
-              SAKANA FLASH DRILL SYSTEM ACTIVE // SM-2 SPACED RETENTION ENABLED // PRESS SPACEBAR TO FLIP CARDS // TRUE FULL SCREEN WORKSTATION READY
+              {t.home.ticker}
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-4 sm:p-5 text-center space-y-3.5 shadow-xs">
               <div className="text-xs sm:text-sm font-bold text-[#000080] flex items-center justify-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#ff9900]" />
-                <span>START YOUR JAPANESE SPEED SESSION</span>
+                <span>{t.home.startSessionBanner}</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <Link

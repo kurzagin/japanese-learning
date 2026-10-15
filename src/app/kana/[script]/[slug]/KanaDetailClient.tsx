@@ -34,7 +34,7 @@ export default function KanaDetailClient({
   sampleWord,
   confusedKana,
 }: KanaDetailClientProps) {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
   const scriptName = kana.script === "hiragana" ? "Hiragana" : "Katakana";
   const localizedHint = kana.hint[locale] || kana.hint.en;
 
@@ -54,7 +54,7 @@ export default function KanaDetailClient({
             className="inline-flex items-center gap-1.5 text-[#000080] font-bold hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>RETURN TO KANA MATRIX</span>
+            <span>{t.kanaDetail.returnToMatrix}</span>
           </Link>
           <span className="text-[#666] uppercase">
             {kana.script} &gt; {kana.type} &gt; {kana.romaji}
@@ -65,7 +65,7 @@ export default function KanaDetailClient({
         <div className="border-2 border-[#800000] bg-[#fff8e7] p-5 sm:p-8 text-center relative shadow-xs">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5 uppercase mb-2">
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
-            <span>Official Standard Japanese Character Profile</span>
+            <span>{t.kanaDetail.badge}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
 
@@ -84,7 +84,7 @@ export default function KanaDetailClient({
               </div>
               <PronounceButton
                 text={kana.character}
-                label="LISTEN"
+                label={t.kanaDetail.listen}
                 size="md"
               />
             </div>
@@ -93,17 +93,17 @@ export default function KanaDetailClient({
           {/* Meta Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-[11px] font-mono">
             <span className="bg-[#000080] text-white px-3 py-1 font-bold">
-              Script: {scriptName}
+              {t.kanaDetail.scriptLabel}: {scriptName}
             </span>
             <span className="bg-[#202020] text-white px-3 py-1">
-              Class: {kana.type.toUpperCase()}
+              {t.kanaDetail.classLabel}: {kana.type.toUpperCase()}
             </span>
             <span className="bg-[#d4d0c8] text-black border border-[#808080] px-3 py-1">
-              Row: {kana.row.toUpperCase()}
+              {t.kanaDetail.rowLabel}: {kana.row.toUpperCase()}
             </span>
             {strokeCount !== null && (
               <span className="bg-[#006600] text-white px-3 py-1 font-bold">
-                {strokeCount} Stroke{strokeCount > 1 ? "s" : ""}
+                {t.kanaDetail.strokes(strokeCount)}
               </span>
             )}
           </div>
@@ -116,14 +116,14 @@ export default function KanaDetailClient({
             <div>
               <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
                 <HelpCircle className="w-4 h-4 text-[#ff9900]" />
-                <span>Visual Mnemonic & Memory Aid</span>
+                <span>{t.kanaDetail.mnemonicTitle}</span>
               </div>
               <p className="mt-3 text-xs sm:text-sm text-[#333] leading-relaxed italic">
                 &ldquo;{localizedHint}&rdquo;
               </p>
             </div>
             <div className="mt-4 text-[11px] font-mono text-[#777] bg-[#f8f8f8] p-2 border border-[#eee]">
-              Tip: Associate the shape with this visual image in your mind to recall it in less than 0.5s during drills.
+              {t.kanaDetail.mnemonicTip}
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function KanaDetailClient({
             <div>
               <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
                 <BookOpen className="w-4 h-4 text-[#006600]" />
-                <span>Vocabulary Example</span>
+                <span>{t.kanaDetail.vocabTitle}</span>
               </div>
 
               {sampleWord ? (
@@ -147,19 +147,19 @@ export default function KanaDetailClient({
                     />
                   </div>
                   <div className="text-xs text-[#555] font-mono">
-                    Meaning: <strong>{sampleMeaning}</strong>
+                    {t.kanaDetail.vocabMeaning} <strong>{sampleMeaning}</strong>
                   </div>
                 </div>
               ) : (
                 <div className="mt-3 text-xs text-[#666]">
-                  Standard elemental sound used in hundreds of essential everyday Japanese words.
+                  {t.kanaDetail.vocabDefault}
                 </div>
               )}
             </div>
 
             <div className="mt-4 text-[11px] font-mono text-[#006600] bg-[#f0fff0] p-2 border border-[#c0e0c0] flex items-center gap-1.5">
               <CheckCircle className="w-3.5 h-3.5 shrink-0" />
-              <span>Standard Ministry of Education phonetic syllabus</span>
+              <span>{t.kanaDetail.standardSyllabusBadge}</span>
             </div>
           </div>
         </div>
@@ -169,10 +169,10 @@ export default function KanaDetailClient({
           <div className="border border-[#808080] bg-[#fff] p-4 shadow-xs">
             <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#800000] font-bold text-xs uppercase">
               <Layers className="w-4 h-4 text-[#cc0000]" />
-              <span>Frequently Confused Lookalikes</span>
+              <span>{t.kanaDetail.confusedTitle}</span>
             </div>
             <p className="text-xs text-[#555] mt-2 mb-3">
-              Learners often confuse <strong>{kana.character}</strong> with the following characters. Compare their nuances:
+              {t.kanaDetail.confusedSubtitle(kana.character)}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {confusedKana.map((ck) => {
@@ -192,7 +192,7 @@ export default function KanaDetailClient({
                       </div>
                     </div>
                     <span className="text-[10px] text-[#000080] font-mono font-bold underline">
-                      Compare &rarr;
+                      {t.kanaDetail.compareBtn}
                     </span>
                   </Link>
                 );
@@ -204,10 +204,10 @@ export default function KanaDetailClient({
         {/* Interactive CTA to existing Study Engine */}
         <div className="border-2 border-[#000080] bg-[#e8f0fe] p-4 sm:p-6 text-center space-y-3 shadow-xs">
           <h3 className="text-base sm:text-lg font-black text-[#000080] tracking-wide">
-            READY TO DRILL &apos;{kana.character}&apos; AT ARCADE SPEED?
+            {t.kanaDetail.ctaTitle(kana.character)}
           </h3>
           <p className="text-xs text-[#333] max-w-xl mx-auto">
-            Reading Japanese isn&apos;t just about memorization — it&apos;s about fast visual reflexes. Test your speed in the SaKana Dojo.
+            {t.kanaDetail.ctaSubtitle}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link
@@ -215,13 +215,13 @@ export default function KanaDetailClient({
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
-              <span>START PRACTICE DRILL</span>
+              <span>{t.kanaDetail.startDrillBtn}</span>
             </Link>
             <Link
               href="/kana"
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#d4d0c8] text-black text-xs font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] transition-colors"
             >
-              <span>BROWSE ALL CHARACTERS</span>
+              <span>{t.kanaDetail.browseAllBtn}</span>
             </Link>
           </div>
         </div>

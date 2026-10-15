@@ -232,13 +232,13 @@ export default function DashboardPage() {
                   <div>
                     <span className="font-bold text-[#cc0000] flex items-center gap-1.5">
                       <span className="animate-retro-blink bg-[#ff0000] text-white px-1 py-0.2 text-[9px] font-mono">
-                        [DUE NOW]
+                        {t.common.dueNow}
                       </span>
                       <Zap className="w-3.5 h-3.5 fill-[#cc0000] text-[#cc0000]" />
                       <span>{srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
                     </span>
                     <span className="text-[11px] text-[#555] block mt-0.5">
-                      SM-2 memory intervals require retention reinforcement.
+                      {t.common.dueReinforcementNote}
                     </span>
                   </div>
                 ) : (
@@ -249,8 +249,8 @@ export default function DashboardPage() {
                     </span>
                     <span className="text-[11px] text-[#555] block">
                       {srsSummary.totalStudied > 0
-                        ? `${srsSummary.totalStudied} characters tracked in SRS active retention.`
-                        : "Start learning characters in the stages below to populate your retention schedule."}
+                        ? t.common.srsTrackingNote(srsSummary.totalStudied)
+                        : t.common.srsEmptyNote}
                     </span>
                   </div>
                 )}
@@ -418,7 +418,7 @@ export default function DashboardPage() {
                             </div>
                             {stageProgress?.bestSec && (
                               <div className="text-[10px] text-[#006600] font-mono mt-0.5">
-                                Best: {stageProgress.bestSec}s
+                                {t.common.best}: {stageProgress.bestSec}s
                               </div>
                             )}
                           </div>
@@ -449,7 +449,7 @@ export default function DashboardPage() {
                           ) : (
                             <span className="text-[10px] text-[#999] font-mono py-0.5 flex items-center gap-1">
                               <Lock className="w-3 h-3 text-[#999] inline" />
-                              <span>{isBoss ? "BEAT 2 STAGES FIRST" : t.dashboard.statusLocked}</span>
+                              <span>{isBoss ? t.common.beatTwoStagesFirst : t.dashboard.statusLocked}</span>
                             </span>
                           )}
                         </div>
@@ -467,7 +467,7 @@ export default function DashboardPage() {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>SAKANA DOJO // SYSTEM ONLINE</span>
+          <span>SAKANA DOJO // {t.common.systemOnline}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span className="hidden sm:inline">MULTILINGUAL SRS MEMORY SPEED DRILL</span>
