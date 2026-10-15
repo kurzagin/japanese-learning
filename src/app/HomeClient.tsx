@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, Sparkles, Gamepad2, Code } from "lucide-react";
+import { Play, Sparkles } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -89,10 +89,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Responsive Desktop 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          {/* Left Column: Quick Actions & Rules */}
-          <div className="lg:col-span-7 space-y-4">
+        {/* Main Content Area: Quick Actions & Rules */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {/* Quick Actions & Rules */}
+          <div className="space-y-4">
             {/* Quick Enter Action Banner */}
             <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-4 sm:p-5 text-center space-y-3.5 shadow-xs">
               <div className="text-xs sm:text-sm font-bold text-[#000080] flex items-center justify-center gap-2">
@@ -155,64 +155,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Portal Shortcuts & System Specifications */}
-          <div className="lg:col-span-5 space-y-4">
-            {/* Quick Launchpad */}
-            <div className="border border-[#808080] bg-[#d4d0c8] p-3.5 space-y-3 shadow-xs">
-              <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
-                <span>★ DIRECT STATION LAUNCHPAD</span>
-                <span className="text-[10px] text-[#555] font-mono">QUICK-SELECT</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <Link
-                  href="/study/hiragana-vowels"
-                  className="p-2.5 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] active:translate-y-0.5 flex items-center gap-2.5 shadow-xs transition-colors"
-                >
-                  <span className="text-xl font-bold text-[#000080] font-mono">あ</span>
-                  <div>
-                    <div className="font-bold text-xs">Hiragana Drill</div>
-                    <div className="text-[10px] text-[#666]">46 Core Characters</div>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/study/katakana-vowels"
-                  className="p-2.5 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] active:translate-y-0.5 flex items-center gap-2.5 shadow-xs transition-colors"
-                >
-                  <span className="text-xl font-bold text-[#006600] font-mono">ア</span>
-                  <div>
-                    <div className="font-bold text-xs">Katakana Drill</div>
-                    <div className="text-[10px] text-[#666]">Loanwords & Names</div>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/minigame"
-                  className="p-2.5 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] active:translate-y-0.5 flex items-center gap-2.5 shadow-xs transition-colors"
-                >
-                  <Gamepad2 className="w-5 h-5 text-[#cc0000]" />
-                  <div>
-                    <div className="font-bold text-xs">Arcade Minigame</div>
-                    <div className="text-[10px] text-[#666]">Rapid Speed Trials</div>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/docs"
-                  className="p-2.5 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#fff9e6] active:translate-y-0.5 flex items-center gap-2.5 shadow-xs transition-colors"
-                >
-                  <Code className="w-5 h-5 text-[#800080]" />
-                  <div>
-                    <div className="font-bold text-xs">Kana API Docs</div>
-                    <div className="text-[10px] text-[#666]">REST Primitives v1</div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
           </div>
         </div>
       </main>
