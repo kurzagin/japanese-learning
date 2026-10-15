@@ -155,6 +155,107 @@ export default function HomePage() {
 
             {/* Federated Webring Panel */}
             <RetroWebring />
+
+            {/* Programmatic SEO Link Hub & Learning Pathways */}
+            <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-4">
+              <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
+                <span>◆ LEARNING MATRIX & DIRECTORIES</span>
+                <span className="text-[10px] text-[#00ff66] font-mono">EXPLORE</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                {/* Kana Hub Links */}
+                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
+                      <span className="text-[#800000]">あ</span>
+                      <span>KANA ALPHABETS</span>
+                    </div>
+                    <p className="text-[11px] text-[#555] leading-snug">
+                      Complete 46 Gojūon primitives, Dakuon &amp; Yōon combination charts with audio.
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
+                    <Link href="/kana" className="text-[#000080] hover:underline font-bold">
+                      &rarr; Full Kana Matrix Hub
+                    </Link>
+                    <Link href="/kana/hiragana/category/gojuon" className="text-[#555] hover:underline">
+                      &bull; Hiragana Basic (46)
+                    </Link>
+                    <Link href="/kana/katakana/category/gojuon" className="text-[#555] hover:underline">
+                      &bull; Katakana Basic (46)
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Vocabulary Directory Links */}
+                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
+                      <span className="text-[#800000]">語</span>
+                      <span>CORE VOCABULARY</span>
+                    </div>
+                    <p className="text-[11px] text-[#555] leading-snug">
+                      160 high-frequency Japanese words with constituent character breakdowns and audio.
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
+                    <Link href="/words" className="text-[#000080] hover:underline font-bold">
+                      &rarr; 160-Word Directory
+                    </Link>
+                    <Link href="/words/sakana" className="text-[#555] hover:underline">
+                      &bull; さかな (Fish / SaKana)
+                    </Link>
+                    <Link href="/words/neko" className="text-[#555] hover:underline">
+                      &bull; ねこ (Cat)
+                    </Link>
+                    <Link href="/words/arigatou" className="text-[#555] hover:underline">
+                      &bull; ありがとう (Thank you)
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Confused Pairs / Lookalikes */}
+                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
+                      <span className="text-[#800000]">対</span>
+                      <span>LOOKALIKE GUIDES</span>
+                    </div>
+                    <p className="text-[11px] text-[#555] leading-snug">
+                      Side-by-side visual difference guides for the most confusing Japanese characters.
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
+                    <Link href="/compare" className="text-[#000080] hover:underline font-bold">
+                      &rarr; 18 Lookalike Pairs
+                    </Link>
+                    <Link href="/compare/shi-vs-tsu" className="text-[#555] hover:underline">
+                      &bull; シ vs ツ (Shi vs Tsu)
+                    </Link>
+                    <Link href="/compare/so-vs-n" className="text-[#555] hover:underline">
+                      &bull; ソ vs ン (So vs N)
+                    </Link>
+                    <Link href="/compare/sa-vs-ki" className="text-[#555] hover:underline">
+                      &bull; さ vs き (Sa vs Ki)
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Utility Tools Link */}
+              <div className="bg-[#f0f4f8] p-2.5 border border-[#d0d8e8] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+                <span className="text-[#000080] font-bold">
+                  Free Japanese Romanization Tool:
+                </span>
+                <Link
+                  href="/tools/romaji-to-kana"
+                  className="px-3 py-1 bg-[#000080] text-white font-bold text-[11px] hover:bg-[#0000a0]"
+                >
+                  Romaji ⇄ Hiragana &amp; Katakana Converter &rarr;
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </main>

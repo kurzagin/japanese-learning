@@ -1,0 +1,178 @@
+"use client";
+
+import React, { useState, useMemo } from "react";
+import Link from "next/link";
+import { RetroNavbar } from "@/components/RetroNavbar";
+import { VOCABULARY_LIST, VocabWord } from "@/lib/vocab-seo";
+import { useLanguage } from "@/context/LanguageContext";
+import { PronounceButton } from "@/components/PronounceButton";
+import { Search, Sparkles, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
+
+export default function WordsHubClient() {
+  const { locale } = useLanguage();
+  const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredWords = useMemo(() => {
+    return VOCABULARY_LIST.filter((w) => {
+      if (activeScript !== "all" && w.script !== activeScript) return false;
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim();
+        const matchRomaji = w.romaji.toLowerCase().includes(query);
+        const matchChar = w.character.includes(query);
+        const meaning = w.meaning[locale] || w.meaning.en;
+        const matchMeaning = meaning.toLowerCase().includes(query);
+        return matchRomaji || matchChar || matchMeaning;
+      }
+      return true;
+    });
+  }, [activeScript, searchQuery, locale]);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      <RetroNavbar currentSubtitle="VOCABULARY DIRECTORY" />
+
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
+        {/* Breadcrumb Navigation */}
+        <div className="flex items-center gap-2 text-xs font-mono">
+          <Link
+            href="/"
+            className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>HOME</span>
+          </Link>
+          <span className="text-[#888]">/</span>
+          <span className="text-[#800000] font-bold uppercase">WORDS DIRECTORY</span>
+        </div>
+
+        {/* Hero Header Banner */}
+        <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 sm:p-6 text-center relative overflow-hidden shadow-xs space-y-2">
+          <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5 uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
+            <span>Japanese Core Vocabulary Dictionary</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
+            JAPANESE CORE VOCABULARY DIRECTORY ({VOCABULARY_LIST.length} WORDS)
+          </h1>
+          <p className="text-xs sm:text-sm text-[#404040] font-medium max-w-2xl mx-auto">
+            Browse elementary Hiragana and Katakana vocabulary words with full pronunciation audio, spelling breakdowns, English &amp; Indonesian definitions, and practice flashcards.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
+            <Link
+              href="/kana"
+              className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
+            >
+              <span>KANA ALPHABET MATRIX (あ, い, う...)</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+            <Link
+              href="/compare"
+              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+            >
+              <span>LOOKALIKE COMPARISONS</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Search & Filter Bar */}
+        <div className="border border-[#808080] bg-white p-3 shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          {/* Script Tabs */}
+          <div className="flex items-center gap-1 font-mono text-xs">
+            <button
+              type="button"
+              onClick={() => setActiveScript("all")}
+              className={`px-3 py-1 border font-bold ${
+                activeScript === "all"
+                  ? "bg-[#000080] text-white border-[#000040]"
+                  : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
+              }`}
+            >
+              ALL ({VOCABULARY_LIST.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveScript("hiragana")}
+              className={`px-3 py-1 border font-bold ${
+                activeScript === "hiragana"
+                  ? "bg-[#000080] text-white border-[#000040]"
+                  : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
+              }`}
+            >
+              HIRAGANA
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveScript("katakana")}
+              className={`px-3 py-1 border font-bold ${
+                activeScript === "katakana"
+                  ? "bg-[#000080] text-white border-[#000040]"
+                  : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
+              }`}
+            >
+              KATAKANA
+            </button>
+          </div>
+
+          {/* Search Input */}
+          <div className="relative flex-1 max-w-sm">
+            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#666]" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search word, romaji, or meaning..."
+              className="w-full pl-8 pr-3 py-1 text-xs bg-[#fdfdfd] border-t border-l border-[#808080] border-b border-r border-[#d4d0c8] font-mono outline-none focus:bg-white"
+            />
+          </div>
+        </div>
+
+        {/* Word Card Grid */}
+        <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">
+          {filteredWords.map((word) => {
+            const wordMeaning = word.meaning[locale] || word.meaning.en;
+
+            return (
+              <div
+                key={word.slug}
+                className="bg-white border-2 border-[#808080] p-2.5 hover:border-[#000080] transition-colors flex flex-col justify-between shadow-xs group"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[#800000] uppercase mb-1">
+                    <span className="font-bold">{word.script.slice(0, 4)}</span>
+                    <PronounceButton text={word.character} size="sm" />
+                  </div>
+
+                  <Link href={`/words/${word.slug}`} className="block text-center py-1">
+                    <div className="text-2xl sm:text-3xl font-black text-[#000080] group-hover:scale-105 transition-transform font-sans">
+                      {word.character}
+                    </div>
+                    <div className="text-xs font-mono font-bold text-[#cc0000] mt-0.5">
+                      {word.romaji}
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="mt-2 pt-1.5 border-t border-[#eee] text-center">
+                  <div className="text-[11px] text-[#444] font-medium truncate" title={wordMeaning}>
+                    {wordMeaning}
+                  </div>
+                  <Link
+                    href={`/words/${word.slug}`}
+                    className="inline-flex items-center gap-0.5 text-[10px] text-[#000080] font-bold group-hover:underline mt-1"
+                  >
+                    <span>Breakdown</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </main>
+    </div>
+  );
+}

@@ -74,18 +74,45 @@ export default async function KanaDetailPage({ params }: Props) {
 
   const strokeCount = KANA_STROKE_COUNTS[kana.id] || null;
 
-  // Schema.org structured data (DefinedTerm & LearningResource)
+  // Schema.org structured data (DefinedTerm & BreadcrumbList)
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    name: `${kana.character} (${kana.romaji})`,
-    termCode: kana.character,
-    description: kana.hint.en || `Japanese ${kana.script} character for ${kana.romaji}.`,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: `Japanese ${kana.script === "hiragana" ? "Hiragana" : "Katakana"} Alphabet`,
-      url: `https://sakanajp.site/kana`,
-    },
+    "@graph": [
+      {
+        "@type": "DefinedTerm",
+        name: `${kana.character} (${kana.romaji})`,
+        termCode: kana.character,
+        description: kana.hint.en || `Japanese ${kana.script} character for ${kana.romaji}.`,
+        inDefinedTermSet: {
+          "@type": "DefinedTermSet",
+          name: `Japanese ${kana.script === "hiragana" ? "Hiragana" : "Katakana"} Alphabet`,
+          url: "https://sakanajp.site/kana",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://sakanajp.site",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Kana Hub",
+            item: "https://sakanajp.site/kana",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `${kana.script.charAt(0).toUpperCase() + kana.script.slice(1)} ${kana.character} (${kana.romaji})`,
+            item: `https://sakanajp.site/kana/${kana.script}/${slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (

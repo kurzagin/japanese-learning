@@ -32,6 +32,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
     { href: "/", label: t.nav.home, icon: Home },
     { href: "/dashboard", label: t.nav.dashboard, icon: LayoutDashboard },
     { href: "/kana", label: t.nav.kana, icon: Grid },
+    { href: "/words", label: t.nav.words, icon: BookOpen },
     { href: "/minigame", label: t.nav.arcade, icon: Gamepad2 },
     { href: "/compare", label: t.nav.compare, icon: GitCompare },
     { href: "/tools/romaji-to-kana", label: t.nav.converter, icon: ArrowLeftRight },

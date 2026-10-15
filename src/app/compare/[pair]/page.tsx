@@ -80,10 +80,50 @@ export default async function KanaComparePage({ params }: Props) {
 
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `Difference Between ${k1.character} and ${k2.character} (${k1.romaji} vs ${k2.romaji})`,
-    description: `A visual guide to distinguishing Japanese ${comparison.script} characters ${k1.character} and ${k2.character}.`,
-    mainEntityOfPage: `https://sakanajp.site/compare/${pair}`,
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: `Difference Between ${k1.character} and ${k2.character} (${k1.romaji} vs ${k2.romaji})`,
+        description: `A visual guide to distinguishing Japanese ${comparison.script} characters ${k1.character} and ${k2.character}.`,
+        mainEntityOfPage: `https://sakanajp.site/compare/${pair}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://sakanajp.site",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Kana Comparisons",
+            item: "https://sakanajp.site/compare",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `${k1.character} vs ${k2.character}`,
+            item: `https://sakanajp.site/compare/${pair}`,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: `How can I tell Japanese ${k1.character} and ${k2.character} apart?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: comparison.visualTip.en,
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (

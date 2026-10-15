@@ -69,18 +69,45 @@ export default async function WordDetailPage({ params }: Props) {
   const constituentKana = getConstituentKana(word);
   const relatedWords = getRelatedWords(word, 6);
 
-  // Schema.org DefinedTerm for Dictionary Entries
+  // Schema.org DefinedTerm & BreadcrumbList for Dictionary Entries
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    name: `${word.character} (${word.romaji})`,
-    termCode: word.character,
-    description: word.meaning.en,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "SaKana Japanese Core Vocabulary",
-      url: "https://sakanajp.site/words",
-    },
+    "@graph": [
+      {
+        "@type": "DefinedTerm",
+        name: `${word.character} (${word.romaji})`,
+        termCode: word.character,
+        description: word.meaning.en,
+        inDefinedTermSet: {
+          "@type": "DefinedTermSet",
+          name: "SaKana Japanese Core Vocabulary",
+          url: "https://sakanajp.site/words",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://sakanajp.site",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Vocabulary Directory",
+            item: "https://sakanajp.site/words",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `${word.character} (${word.romaji})`,
+            item: `https://sakanajp.site/words/${word.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (

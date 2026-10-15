@@ -72,8 +72,8 @@ export function RetroWebring() {
       </div>
 
       <div className="mt-2.5 p-2 bg-[#f4f2e8] border border-[#a09e90] space-y-2.5">
-        {/* Buttons Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        {/* Buttons Grid - Optimized for mobile wrapping and touch friendly */}
+        <div className="grid grid-cols-2 xs:grid-cols-4 sm:flex sm:flex-wrap items-center justify-center gap-2">
           {WEBRING_NODES.map((node) => {
             return (
               <a
@@ -81,11 +81,12 @@ export function RetroWebring() {
                 href={node.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block transition-transform duration-100 hover:-translate-y-0.5 shadow-xs"
+                className="flex items-center justify-center transition-transform duration-100 hover:-translate-y-0.5 active:translate-y-0 shadow-xs mx-auto"
                 style={{ width: "80px", height: "33px" }}
                 title={`${node.name} — ${node.desc}`}
                 onMouseEnter={() => setActiveNode(node)}
                 onMouseLeave={() => setActiveNode(null)}
+                onTouchStart={() => setActiveNode(node)}
               >
                 <Image
                   src={node.badge}
@@ -102,19 +103,19 @@ export function RetroWebring() {
         </div>
 
         {/* Ticker / Hover Status */}
-        <div className="bg-[#000040] text-[#00ff66] border border-[#808080] px-2.5 py-1 text-[11px] min-h-[36px] flex flex-col justify-center shadow-inner">
+        <div className="bg-[#000040] text-[#00ff66] border border-[#808080] px-2.5 py-1.5 text-[11px] min-h-[36px] flex flex-col justify-center shadow-inner">
           {activeNode ? (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span className="font-bold text-[#ffff00]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+              <span className="font-bold text-[#ffff00] truncate">
                 {">"} {activeNode.name}
               </span>
-              <span className="text-[10px] text-[#a0ffb0] truncate">
+              <span className="text-[10px] text-[#a0ffb0] line-clamp-1 sm:truncate">
                 {activeNode.desc}
               </span>
             </div>
           ) : (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[#ffff99]">
-              <span>{">"} INDIE WEBRING FEDERATION</span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 text-[#ffff99]">
+              <span className="truncate">{">"} INDIE WEBRING FEDERATION</span>
               <span className="text-[10px] text-[#00ff66]">
                 {t.webring.hoverPrompt}
               </span>
@@ -122,21 +123,21 @@ export function RetroWebring() {
           )}
         </div>
 
-        {/* Retro Nav Controls */}
-        <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] pt-1 border-t border-[#d0cebf]">
-          <div className="flex items-center gap-1.5">
+        {/* Retro Nav Controls - Mobile friendly flex wrap */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] pt-1.5 border-t border-[#d0cebf]">
+          <div className="flex items-center justify-center gap-1.5 w-full sm:w-auto">
             <a
               href={realSites[0].url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
             >
               {t.webring.prev}
             </a>
             <button
               type="button"
               onClick={handleRandom}
-              className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-black font-bold text-[10px] cursor-pointer"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-black font-bold text-[10px] cursor-pointer"
             >
               {t.webring.random}
             </button>
@@ -144,7 +145,7 @@ export function RetroWebring() {
               href={realSites[1].url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2 py-0.5 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
             >
               {t.webring.next}
             </a>
@@ -154,7 +155,7 @@ export function RetroWebring() {
             href="https://kurzagin.com/guestbook"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] text-[#800000] hover:underline font-bold flex items-center gap-1"
+            className="text-[10px] text-[#800000] hover:underline font-bold flex items-center justify-center gap-1 py-0.5"
           >
             <span>{t.webring.join}</span>
             <span className="text-[9px] font-mono text-[#555]">{t.webring.guestbookTag}</span>

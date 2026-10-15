@@ -11,6 +11,7 @@ export interface TranslationSchema {
     dashboard: string;
     study: string;
     kana: string;
+    words: string;
     about: string;
     docs: string;
     arcade: string;
@@ -394,6 +395,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "DASHBOARD",
       study: "STUDY",
       kana: "KANA CHART",
+      words: "WORDS",
       about: "ABOUT",
       docs: "API DOCS",
       arcade: "ARCADE",
@@ -776,6 +778,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "DASHBOARD",
       study: "BELAJAR",
       kana: "TABEL KANA",
+      words: "KOSAKATA",
       about: "TENTANG",
       docs: "DOKUMEN API",
       arcade: "ARKADE",
@@ -1158,6 +1161,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       dashboard: "道場",
       study: "修練",
       kana: "五十音図",
+      words: "単語集",
       about: "概要",
       docs: "API仕様",
       arcade: "アーケード",
