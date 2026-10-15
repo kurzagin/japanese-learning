@@ -727,8 +727,33 @@ function buildStages(): Stage[] {
 export const STAGES: Stage[] = buildStages();
 export const STAGES_BY_ID = new Map(STAGES.map((s) => [s.id, s]));
 
-// The prerequisite stages required to unlock the Arcade mode (Stage 1 of Hiragana and Katakana)
-export const ARCADE_PREREQUISITE_STAGE_IDS = ["hiragana-vowels", "katakana-vowels"];
+// Arcade prerequisites: Defeat Boss Checkpoint 1 and Checkpoint 2 of either Hiragana OR Katakana
+export const ARCADE_HIRAGANA_PREREQUISITES = ["hiragana-boss-1", "hiragana-boss-2"];
+export const ARCADE_KATAKANA_PREREQUISITES = ["katakana-boss-1", "katakana-boss-2"];
+
+/**
+ * Returns the list of prerequisite stage IDs needed for Arcade mode display.
+ * If user has more progress in Hiragana, show Hiragana prerequisites; otherwise Katakana.
+ */
+export function getArcadePrerequisiteStageIds(
+  progress: Record<string, { completed?: boolean }>
+): string[] {
+  const hiraganaCleared = ARCADE_HIRAGANA_PREREQUISITES.filter((id) => !!progress[id]?.completed).length;
+  const katakanaCleared = ARCADE_KATAKANA_PREREQUISITES.filter((id) => !!progress[id]?.completed).length;
+
+  if (katakanaCleared > hiraganaCleared) {
+    return ARCADE_KATAKANA_PREREQUISITES;
+  }
+  return ARCADE_HIRAGANA_PREREQUISITES;
+}
+
+/**
+ * Legacy list of all possible prerequisite stage IDs for fallback filtering.
+ */
+export const ARCADE_PREREQUISITE_STAGE_IDS = [
+  ...ARCADE_HIRAGANA_PREREQUISITES,
+  ...ARCADE_KATAKANA_PREREQUISITES,
+];
 
 /**
  * Determines whether a stage is unlocked given the user's progress map.
@@ -776,10 +801,12 @@ export function getStageUnlockStatus(
 }
 
 /**
- * Checks whether Arcade mode is unlocked (requires stage 1 of Hiragana and Katakana).
+ * Checks whether Arcade mode is unlocked (requires defeating Boss Checkpoint 1 & 2 of either Hiragana or Katakana).
  */
 export function isArcadeUnlocked(
   progress: Record<string, { completed?: boolean }>
 ): boolean {
-  return ARCADE_PREREQUISITE_STAGE_IDS.every((reqId) => !!progress[reqId]?.completed);
+  const hiraganaUnlocked = ARCADE_HIRAGANA_PREREQUISITES.every((reqId) => !!progress[reqId]?.completed);
+  const katakanaUnlocked = ARCADE_KATAKANA_PREREQUISITES.every((reqId) => !!progress[reqId]?.completed);
+  return hiraganaUnlocked || katakanaUnlocked;
 }

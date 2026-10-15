@@ -5,7 +5,14 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { STAGES, StudyCard, isArcadeUnlocked, ARCADE_PREREQUISITE_STAGE_IDS, STAGES_BY_ID } from "@/data/stages";
+import {
+  STAGES,
+  StudyCard,
+  isArcadeUnlocked,
+  getArcadePrerequisiteStageIds,
+  ARCADE_PREREQUISITE_STAGE_IDS,
+  STAGES_BY_ID,
+} from "@/data/stages";
 import { SrsCardRecord } from "@/lib/srs";
 import { StageLockedView } from "@/components/StageLockedView";
 import {
@@ -236,9 +243,10 @@ export default function MinigamePage() {
     totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
 
   if (!isLoading && !isUnlocked) {
-    const requiredStages = ARCADE_PREREQUISITE_STAGE_IDS.map((id) => STAGES_BY_ID.get(id)).filter(
-      Boolean
-    ) as typeof STAGES;
+    const reqIds = getArcadePrerequisiteStageIds(progress);
+    const requiredStages = reqIds
+      .map((id) => STAGES_BY_ID.get(id))
+      .filter(Boolean) as typeof STAGES;
     return <StageLockedView isArcade={true} requiredStages={requiredStages} />;
   }
 
