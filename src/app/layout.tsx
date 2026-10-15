@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakana.kurzagin.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
 
 export const viewport: Viewport = {
   themeColor: "#000080",

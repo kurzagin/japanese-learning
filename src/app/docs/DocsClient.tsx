@@ -51,7 +51,7 @@ export default function DocsClient() {
   };
 
   const curlExample = `# Fetch Hiragana gojuon characters with default audio URLs
-curl -X GET "https://sakana.kurzagin.com/api/v1/kana?script=hiragana&type=gojuon"`;
+curl -X GET "https://sakanajp.site/api/v1/kana?script=hiragana&type=gojuon"`;
 
   const fetchJsExample = `// Fetch kana primitives in JavaScript / TypeScript
 const res = await fetch("/api/v1/kana?script=hiragana&type=gojuon");
