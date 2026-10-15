@@ -21,7 +21,10 @@ import {
   Globe,
   Hourglass,
   Shuffle,
-  Gamepad2
+  Gamepad2,
+  Search,
+  Split,
+  Binary
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -288,6 +291,78 @@ export default function AboutPage() {
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
                     {t.about.currentList.stagesDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* NEW FEATURE 1: Kana Directory */}
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#eef4ff] border border-[#7ba4e8] shrink-0 mt-0.5">
+                  <Search className="w-5 h-5 text-[#000080]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <Link
+                      href="/kana"
+                      className="text-xs sm:text-sm font-bold text-[#000080] hover:underline flex items-center gap-1"
+                    >
+                      <span>{t.about.currentList.kanaDirectoryTitle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e8f0fe] border border-[#4285f4] text-[#1967d2] font-bold">
+                      ACTIVE // 218+ PROFILES
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.kanaDirectoryDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* NEW FEATURE 2: Kana Comparisons */}
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#fff8e7] border border-[#e0c060] shrink-0 mt-0.5">
+                  <Split className="w-5 h-5 text-[#800000]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <Link
+                      href="/compare"
+                      className="text-xs sm:text-sm font-bold text-[#800000] hover:underline flex items-center gap-1"
+                    >
+                      <span>{t.about.currentList.kanaCompareTitle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
+                      ACTIVE // LOOKALIKE ENGINE
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.kanaCompareDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* NEW FEATURE 3: Romaji Converter */}
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#f0fdf4] border border-[#86efac] shrink-0 mt-0.5">
+                  <Binary className="w-5 h-5 text-[#15803d]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <Link
+                      href="/tools/romaji-to-kana"
+                      className="text-xs sm:text-sm font-bold text-[#15803d] hover:underline flex items-center gap-1"
+                    >
+                      <span>{t.about.currentList.romajiConverterTitle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#dcfce7] border border-[#22c55e] text-[#15803d] font-bold">
+                      ACTIVE // TRANSLITERATOR
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.romajiConverterDesc}
                   </p>
                 </div>
               </div>

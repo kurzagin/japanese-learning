@@ -217,6 +217,12 @@ export interface TranslationSchema {
       bidirectionalDesc: string;
       stagesTitle: string;
       stagesDesc: string;
+      kanaDirectoryTitle: string;
+      kanaDirectoryDesc: string;
+      kanaCompareTitle: string;
+      kanaCompareDesc: string;
+      romajiConverterTitle: string;
+      romajiConverterDesc: string;
       minigameTitle: string;
       minigameDesc: string;
       bilingualTitle: string;
@@ -452,6 +458,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Randomized test questions challenging both recognition (Kana ➔ Romaji) and active recall (Romaji ➔ Kana) with zero repetitive predictability.",
         stagesTitle: "Progressive Sectors & The Shallows to The Reef",
         stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
+        kanaDirectoryTitle: "Interactive Kana Matrix & 218+ Detail Profiles",
+        kanaDirectoryDesc: "Complete phonetic directory covering Gojūon, Dakuon, and Yōon with stroke counts, mnemonics, audio pronunciation, and elementary vocabulary examples.",
+        kanaCompareTitle: "Lookalike Comparison Guides (シ vs ツ, さ vs き)",
+        kanaCompareDesc: "Anatomical breakdowns, stroke trajectory indicators, and memory tricks to resolve commonly confused character pairs.",
+        romajiConverterTitle: "Real-time Romaji ⇄ Kana Converter Tool",
+        romajiConverterDesc: "Instant phonetic transliterator converting Latin input to both Hiragana and Katakana with automatic double consonant (sokuon) and contracted sound handling.",
         minigameTitle: "Adaptive 30-Kana Intermission Arcade (Bonus Stage)",
         minigameDesc: "An adaptive rapid-reaction arcade triggered every 2 Bosses (and optional from Dashboard). Pools all previously unlocked characters, heavily prioritizing past mistakes and resting mastered kana.",
         bilingualTitle: "Trilingual Interface & Accessible Mnemonics",
@@ -819,6 +831,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Pertanyaan tes diacak bebas antara pengenalan (Kana ➔ Romaji) dan ingatan aktif (Romaji ➔ Kana) agar hafalan tidak kaku.",
         stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
         stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
+        kanaDirectoryTitle: "Matriks Lengkap Kana & 218+ Profil Karakter",
+        kanaDirectoryDesc: "Direktori fonetik menyeluruh (Gojūon, Dakuon, Yōon) dilengkapi jumlah goresan, mnemonik visual, pelafalan audio, dan contoh kosakata dasar.",
+        kanaCompareTitle: "Panduan Perbandingan Huruf Mirip (シ vs ツ, さ vs き)",
+        kanaCompareDesc: "Analisis arah goresan, sudut kelengkungan, dan trik memori visual untuk membedakan huruf Jepang yang sering tertukar.",
+        romajiConverterTitle: "Alat Konversi Real-Time Romaji ⇄ Kana",
+        romajiConverterDesc: "Transliterasi instan teks alfabet Latin ke huruf Hiragana dan Katakana dengan penanganan otomatis konsonan ganda (sokuon) dan bunyi kombinasi.",
         minigameTitle: "Arkade Intermezzo 30-Kana Adaptif (Bonus Stage)",
         minigameDesc: "Mode refleks cepat kumulatif yang terbuka setiap 2 Bos (dan bisa dimainkan bebas dari Dashboard). Mengumpulkan seluruh huruf yang sudah dibuka, memprioritaskan huruf yang sering salah, dan mengistirahatkan huruf yang sudah 100% dikuasai.",
         bilingualTitle: "Dukungan Tiga Bahasa (EN / ID / JA)",
@@ -1186,6 +1204,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "「仮名 ➔ ローマ字」の読解認識と「ローマ字 ➔ 仮名」の能動想起がランダムに混ざり合い、予測に頼らない本質的な即答力を鍛えます。",
         stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
         stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
+        kanaDirectoryTitle: "五十音図インタラクティブ図鑑（218文字詳細）",
+        kanaDirectoryDesc: "清音・濁音・半濁音・拗音を網羅。筆順画数、視覚的記憶ヒント、ネイティブ音声、基礎単語の完全リファレンス。",
+        kanaCompareTitle: "似ている文字の比較徹底解説（シ vs ツ、さ vs き 等）",
+        kanaCompareDesc: "書き出し方向、角度の違い、混乱しやすい文字を一瞬で見分ける記憶の秘訣を視覚的に解説。",
+        romajiConverterTitle: "リアルタイム ローマ字 ⇄ かな変換ツール",
+        romajiConverterDesc: "ローマ字入力から即座にひらがな・カタカナを生成。促音（っ）や拗音（きゃ等）も自動解析・変換。",
         minigameTitle: "適応型30文字幕間アーケード（ボーナス試練）",
         minigameDesc: "2ボス突破ごと（または道場から自由挑戦）に出現する高速反射ミニゲーム。過去に誤答した苦手札を優先抽出し、100%修得札を適度に休止させながら累積30文字ループで脳に定着させます。",
         bilingualTitle: "3言語対応インターフェース（日・英・インドネシア語）",
