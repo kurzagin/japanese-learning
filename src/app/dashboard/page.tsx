@@ -156,13 +156,15 @@ export default function DashboardPage() {
               {userEmail}
             </span>
           </div>
-          <button
-            onClick={handleLogout}
-            disabled={isLoggingOut}
-            className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
-          >
-            [{t.nav.logout}]
-          </button>
+          {userEmail !== "guest@sakanajp.site" && (
+            <button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
+            >
+              [{t.nav.logout}]
+            </button>
+          )}
         </div>
 
         {/* Desktop 2-Column Workstation Layout */}
