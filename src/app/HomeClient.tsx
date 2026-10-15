@@ -69,7 +69,7 @@ export default function HomePage() {
             </span>
           </div>
           <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5">
-            <span className="text-[#008800] font-bold">ONLINE</span> // SAKANA-NET
+            <span className="text-[#008800] font-bold">ONLINE</span> // SAKANA
           </div>
         </div>
 
@@ -80,7 +80,7 @@ export default function HomePage() {
           </span>
           <div className="w-full overflow-hidden whitespace-nowrap">
             <div className="animate-retro-ticker">
-              SAKANA-NET FLASH DRILL SYSTEM ACTIVE // SM-2 SPACED RETENTION ENABLED // PRESS SPACEBAR TO FLIP CARDS // TRUE FULL SCREEN WORKSTATION READY
+              SAKANA FLASH DRILL SYSTEM ACTIVE // SM-2 SPACED RETENTION ENABLED // PRESS SPACEBAR TO FLIP CARDS // TRUE FULL SCREEN WORKSTATION READY
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>SAKANA-NET READY</span>
+          <span>SAKANA READY</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span className="hidden sm:inline">SAKANA PROJECT // JAPANESE READING SPEED DRILL</span>
