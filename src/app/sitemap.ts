@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { STAGES } from "@/data/stages";
+import { ALL_KANA_PRIMITIVES } from "@/data/kana";
+import { getKanaSlug } from "@/lib/kana-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
@@ -21,16 +23,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/kana`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/minigame`,
+      url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/docs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/minigame`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
     },
   ];
 
@@ -42,5 +56,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...stageRoutes];
+  // Dynamic programmatic Kana character pages (~218 core routes)
+  const kanaRoutes: MetadataRoute.Sitemap = ALL_KANA_PRIMITIVES.map((kana) => ({
+    url: `${baseUrl}/kana/${kana.script}/${getKanaSlug(kana)}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...stageRoutes, ...kanaRoutes];
 }

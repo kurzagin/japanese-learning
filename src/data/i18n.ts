@@ -10,6 +10,7 @@ export interface TranslationSchema {
     home: string;
     dashboard: string;
     study: string;
+    kana: string;
     about: string;
     docs: string;
     windowTitle: string;
@@ -232,6 +233,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "HOME",
       dashboard: "DASHBOARD",
       study: "STUDY",
+      kana: "KANA CHART",
       about: "ABOUT",
       docs: "API DOCS",
       windowTitle: "SaKana",
@@ -453,6 +455,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "BERANDA",
       dashboard: "DASHBOARD",
       study: "BELAJAR",
+      kana: "TABEL KANA",
       about: "TENTANG",
       docs: "DOKUMEN API",
       windowTitle: "SaKana",
@@ -674,6 +677,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       home: "ホーム",
       dashboard: "道場",
       study: "修練",
+      kana: "五十音図",
       about: "概要",
       docs: "API仕様",
       windowTitle: "SaKana",

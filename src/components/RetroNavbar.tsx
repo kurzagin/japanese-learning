@@ -16,6 +16,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
 
   const navLinks = [
     { href: "/", label: t.nav.home },
+    { href: "/kana", label: t.nav.kana },
     { href: "/dashboard", label: t.nav.dashboard },
     { href: "/about", label: t.nav.about },
     { href: "/docs", label: t.nav.docs },

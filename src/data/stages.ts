@@ -28,7 +28,7 @@ export interface Stage {
 }
 
 // Map of real Japanese sample words for kana characters
-const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; ja: string }> = {
+export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; ja: string }> = {
   // Hiragana Vowels
   "h-a": { jp: "あめ (ame)", en: "Rain / Candy", id: "Hujan / Permen", ja: "あめ" },
   "h-i": { jp: "いぬ (inu)", en: "Dog", id: "Anjing", ja: "いぬ" },
