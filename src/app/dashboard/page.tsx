@@ -40,7 +40,16 @@ export default function DashboardPage() {
     const savedProgress = localStorage.getItem("sakana_progress");
     if (savedProgress) {
       try {
-        setProgress(JSON.parse(savedProgress));
+        const parsed = JSON.parse(savedProgress);
+        const normalized: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
+        Object.entries(parsed).forEach(([k, v]: [string, any]) => {
+          normalized[k] = {
+            completed: Boolean(v?.completed),
+            stars: v?.stars || 0,
+            bestSec: v?.bestSec ?? (v?.bestDurationMs ? Math.round((v.bestDurationMs / 1000) * 10) / 10 : undefined),
+          };
+        });
+        setProgress(normalized);
       } catch {}
     }
 
