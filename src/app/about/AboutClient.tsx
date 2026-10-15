@@ -184,18 +184,18 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* CRITICAL HUMBLE NOTICE: we will not yet provide writing */}
-          <div className="border border-[#cc0000] bg-[#fffbfb] p-3 shadow-xs">
-            <div className="flex items-center gap-1.5 text-[#cc0000] font-bold text-xs">
-              <ShieldAlert className="w-4 h-4 shrink-0 text-[#cc0000]" />
+          {/* LEARNING PHILOSOPHY: Recognition First */}
+          <div className="border border-[#000080] bg-[#f4f7fb] p-3 shadow-xs">
+            <div className="flex items-center gap-1.5 text-[#000080] font-bold text-xs">
+              <Zap className="w-4 h-4 shrink-0 text-[#000080]" />
               <span className="uppercase tracking-wide font-mono text-[11px]">
                 {t.about.writingDisclaimerBadge}
               </span>
             </div>
-            <div className="mt-1.5 p-2 bg-white border border-[#e0a0a0] text-center font-mono font-bold text-sm sm:text-base text-[#cc0000] tracking-wider select-all">
+            <div className="mt-1.5 p-2 bg-white border border-[#a0b0d0] text-center font-mono font-bold text-sm sm:text-base text-[#000080] tracking-wider select-all">
               &quot;{t.about.writingDisclaimerText}&quot;
             </div>
-            <p className="text-[11px] text-[#555] mt-1.5 leading-relaxed">
+            <p className="text-[11px] text-[#444] mt-1.5 leading-relaxed">
               {t.about.writingDisclaimerSub}
             </p>
           </div>
