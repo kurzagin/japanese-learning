@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, Sparkles, Gamepad2, Code, ShieldCheck } from "lucide-react";
+import { Play, Sparkles, Gamepad2, Code } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -213,37 +213,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* System Architecture Box */}
-            <div className="border border-[#808080] bg-[#f5f5f0] p-3.5 text-xs space-y-2.5 shadow-xs">
-              <div className="font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#008800]" />
-                  <span>SYSTEM SPECIFICATIONS</span>
-                </div>
-                <span className="text-[9px] bg-[#e0ffe0] border border-[#00aa00] text-[#006600] px-1 font-mono font-bold">
-                  PASS
-                </span>
-              </div>
-
-              <div className="space-y-2 text-[11px] font-mono">
-                <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
-                  <span className="text-[#555]">SPEECH SYNTHESIS:</span>
-                  <span className="text-[#000080] font-bold">VOICEVOX NEURAL</span>
-                </div>
-                <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
-                  <span className="text-[#555]">RETENTION ALGO:</span>
-                  <span className="text-[#000080] font-bold">SM-2 SPACED REPETITION</span>
-                </div>
-                <div className="flex justify-between border-b border-[#e0e0e0] pb-1">
-                  <span className="text-[#555]">DATA PERSISTENCE:</span>
-                  <span className="text-[#000080] font-bold">NEON POSTGRESQL</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#555]">WORKSTATION UI:</span>
-                  <span className="text-[#008800] font-bold">TRUE FULL SCREEN</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>
