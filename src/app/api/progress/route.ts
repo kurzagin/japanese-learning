@@ -56,25 +56,28 @@ export async function POST(request: Request) {
         ? prevBest ? Math.min(prevBest, durationMs) : durationMs
         : prevBest ?? null;
 
+    const prevCompleted = existing[0]?.completed ?? false;
+    const isCompleted = typeof completed === "boolean" ? (completed || prevCompleted) : prevCompleted;
+
     await db
       .insert(userStageProgress)
       .values({
         id: progressId,
         userId: effectiveUserId,
         stageId,
-        completed: completed ?? true,
+        completed: isCompleted,
         bestDurationMs: newBest,
-        stars: stars ?? 3,
-        accuracyPercentage: accuracyPercentage ?? 100,
+        stars: stars ?? (isCompleted ? 1 : 0),
+        accuracyPercentage: accuracyPercentage ?? 0,
         attemptsCount: prevAttempts + 1,
       })
       .onConflictDoUpdate({
         target: userStageProgress.id,
         set: {
-          completed: completed ?? true,
+          completed: isCompleted,
           bestDurationMs: newBest,
-          stars: stars ?? 3,
-          accuracyPercentage: accuracyPercentage ?? 100,
+          stars: stars ?? (isCompleted ? 1 : 0),
+          accuracyPercentage: accuracyPercentage ?? 0,
           attemptsCount: prevAttempts + 1,
           updatedAt: new Date(),
         },

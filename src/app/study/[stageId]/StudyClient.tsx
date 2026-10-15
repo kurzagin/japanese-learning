@@ -227,35 +227,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         setCurrentIndex((prev) => prev + 1);
       } else {
         setCompleted(true);
-        const sessionDurationMs = Math.max(1000, Date.now() - startTime);
-
-        // If in standard stage, mark stage progress
-        if (!isDueReviewMode && stage) {
-          try {
-            const stored = JSON.parse(localStorage.getItem("sakana_progress") || "{}");
-            stored[stage.id] = {
-              completed: true,
-              stars: 3,
-              bestDurationMs: sessionDurationMs,
-            };
-            localStorage.setItem("sakana_progress", JSON.stringify(stored));
-          } catch {}
-
-          if (userEmail && userEmail !== "guest@sakanajp.site") {
-            fetch("/api/progress", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                userId: userEmail,
-                stageId: stage.id,
-                completed: true,
-                stars: 3,
-                durationMs: sessionDurationMs,
-                accuracyPercentage: 100,
-              }),
-            }).catch((err) => console.error("Neon progress sync error:", err));
-          }
-        }
+        // Note: Completing the study deck schedules SRS intervals, but does NOT mark the stage as completed or unlock the next stage.
+        // Stage completion and unlocking requires passing the Speed Sprint Challenge (/test/[stageId]) with required accuracy & speed.
       }
     },
     [
