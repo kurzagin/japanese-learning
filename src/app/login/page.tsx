@@ -56,27 +56,18 @@ export default function LoginPage() {
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={t.login.appTitle} />
 
-      {/* Centered Login Container */}
-      <main className="flex-1 w-full max-w-xl mx-auto px-4 py-8 flex flex-col justify-center">
-        <div className="bg-[#ece9d8] border border-[#808080] flex flex-col">
-          {/* Dialog Header Bar */}
-          <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between text-xs font-bold">
-            <span>{t.login.appTitle}</span>
-            <span className="font-mono text-[10px] text-[#00ff66]">SECURE</span>
-          </div>
-
-          {/* Dialog Content */}
-          <div className="p-4 sm:p-6 bg-[#ece9d8] text-black space-y-4">
-          
-          <div className="flex items-start gap-3 border-b border-[#808080] pb-3">
-            <div className="w-10 h-10 border border-[#808080] bg-[#fff] flex items-center justify-center text-[#000080]">
-              <FishIcon className="w-6 h-6" />
+      {/* Login Page Content */}
+      <main className="flex-1 w-full max-w-lg mx-auto px-4 py-10 sm:py-16 flex flex-col justify-center">
+        <div className="space-y-6">
+          <div className="flex items-center gap-3.5 border-b border-[#808080] pb-4">
+            <div className="w-12 h-12 border border-[#808080] bg-white flex items-center justify-center text-[#000080] shrink-0">
+              <FishIcon className="w-7 h-7" />
             </div>
             <div>
-              <h1 className="text-xs font-bold text-[#000080]">
+              <h1 className="text-base sm:text-lg font-bold text-[#000080]">
                 {t.login.appTitle}
               </h1>
-              <p className="text-[11px] text-[#555] mt-0.5">
+              <p className="text-xs text-[#555] mt-0.5">
                 {t.login.instruction}
               </p>
             </div>
@@ -182,8 +173,7 @@ export default function LoginPage() {
           </div>
 
         </div>
-      </div>
-    </main>
-  </div>
-);
+      </main>
+    </div>
+  );
 }
