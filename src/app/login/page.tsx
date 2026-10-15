@@ -58,7 +58,7 @@ export default function LoginPage() {
 
       {/* Centered Login Container */}
       <main className="flex-1 w-full max-w-xl mx-auto px-4 py-8 flex flex-col justify-center">
-        <div className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md flex flex-col">
+        <div className="bg-[#ece9d8] border border-[#808080] flex flex-col">
           {/* Dialog Header Bar */}
           <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between text-xs font-bold">
             <span>{t.login.appTitle}</span>
@@ -182,26 +182,8 @@ export default function LoginPage() {
           </div>
 
         </div>
-
-        {/* Dialog Status */}
-        <div className="border-t border-[#808080] bg-[#d4d0c8] px-3 py-1 text-[10px] text-[#555] flex justify-between">
-          <span>SAKANA AUTH</span>
-          <span className="font-mono text-[#008800]">SSL 256-BIT // SECURED</span>
-        </div>
       </div>
     </main>
-
-    {/* Docked Retro Footer */}
-    <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
-      <div className="flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-        <span>SAKANA AUTHENTICATION</span>
-      </div>
-      <div className="flex items-center gap-4 text-[10px]">
-        <span>NEON POSTGRESQL // DRIZZLE ORM</span>
-        <span className="border-l border-[#808080] pl-2 font-mono">ENCRYPTED</span>
-      </div>
-    </footer>
   </div>
 );
 }
