@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="33" viewBox="0 0 80 33" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .join-text { font-family: monospace, "Courier New", sans-serif; font-size: 7.5px; font-weight: bold; letter-spacing: 0.8px; }
+      .join-sub { font-family: monospace, "Courier New", sans-serif; font-size: 6px; letter-spacing: 0.5px; }
+      @keyframes dashAnim {
+        to { stroke-dashoffset: -12; }
+      }
+      .dashed-border {
+        stroke: #666666;
+        stroke-dasharray: 4 2;
+        animation: dashAnim 1.4s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="79" height="32" fill="#0f0f11" />
+  <rect x="0.5" y="0.5" width="79" height="32" fill="none" class="dashed-border" stroke-width="1" />
+
+  <!-- Plus Icon in Left Box -->
+  <rect x="3" y="3" width="20" height="27" fill="#18181b" />
+  <rect x="11" y="9" width="4" height="15" fill="#a1a1aa" />
+  <rect x="6" y="14" width="14" height="4" fill="#a1a1aa" />
+
+  <!-- Right text -->
+  <text x="28" y="14" fill="#fafafa" class="join-text">+ JOIN</text>
+  <text x="28" y="24" fill="#a1a1aa" class="join-sub">GUESTBOOK</text>
+</svg>

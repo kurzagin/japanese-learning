@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { RetroWebring } from "@/components/RetroWebring";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
 
@@ -151,6 +152,9 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Federated Webring Panel */}
+            <RetroWebring />
           </div>
         </div>
       </main>
