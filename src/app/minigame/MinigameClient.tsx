@@ -65,9 +65,9 @@ export default function MinigamePage() {
       } catch {}
     }
 
-    const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakana.net";
+    const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakanajp.site";
 
-    if (savedEmail && savedEmail !== "guest@sakana.net") {
+    if (savedEmail && savedEmail !== "guest@sakanajp.site") {
       fetch(`/api/srs?userId=${encodeURIComponent(savedEmail)}`)
         .then((res) => res.json())
         .then((json) => {

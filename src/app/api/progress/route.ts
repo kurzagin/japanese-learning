@@ -6,7 +6,7 @@ import { eq, and } from "drizzle-orm";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const userId = searchParams.get("userId") || "guest@sakana.net";
+    const userId = searchParams.get("userId") || "guest@sakanajp.site";
 
     const rows = await db
       .select()
@@ -28,14 +28,14 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { userId, stageId, completed, stars, accuracyPercentage, durationMs } = body;
 
-    const effectiveUserId = userId || "guest@sakana.net";
+    const effectiveUserId = userId || "guest@sakanajp.site";
 
     // Ensure the user exists in `users` table so foreign key won't fail
     await db
       .insert(users)
       .values({
         id: effectiveUserId,
-        email: effectiveUserId.includes("@") ? effectiveUserId : `${effectiveUserId}@sakana.net`,
+        email: effectiveUserId.includes("@") ? effectiveUserId : `${effectiveUserId}@sakanajp.site`,
         displayName: effectiveUserId.split("@")[0],
       })
       .onConflictDoNothing();

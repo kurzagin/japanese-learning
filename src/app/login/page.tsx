@@ -45,7 +45,7 @@ export default function LoginPage() {
 
   const handleGuestEntry = () => {
     setGuestLoading(true);
-    localStorage.setItem("sakana_user_email", "guest@sakana.net");
+    localStorage.setItem("sakana_user_email", "guest@sakanajp.site");
     setTimeout(() => {
       router.push("/dashboard");
     }, 300);
@@ -81,7 +81,7 @@ export default function LoginPage() {
               <input
                 id="email"
                 type="email"
-                placeholder="pilot@sakana.net"
+                placeholder="pilot@sakanajp.site"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

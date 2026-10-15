@@ -120,10 +120,10 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
     const email =
       typeof window !== "undefined"
-        ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
-        : "guest@sakana.net";
+        ? localStorage.getItem("sakana_user_email") || "guest@sakanajp.site"
+        : "guest@sakanajp.site";
 
-    if (email && email !== "guest@sakana.net") {
+    if (email && email !== "guest@sakanajp.site") {
       fetch(`/api/progress?userId=${encodeURIComponent(email)}`)
         .then((res) => res.json())
         .then((json) => {
@@ -220,10 +220,10 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
       // Neon Database Sync (only for logged-in accounts)
       const userEmail = typeof window !== "undefined"
-        ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
-        : "guest@sakana.net";
+        ? localStorage.getItem("sakana_user_email") || "guest@sakanajp.site"
+        : "guest@sakanajp.site";
 
-      if (userEmail && userEmail !== "guest@sakana.net") {
+      if (userEmail && userEmail !== "guest@sakanajp.site") {
         fetch("/api/progress", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -33,7 +33,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   const [startTime, setStartTime] = useState<number>(Date.now());
   const [srsRecords, setSrsRecords] = useState<Record<string, SrsCardRecord>>({});
   const [isLoadingDue, setIsLoadingDue] = useState(isDueReviewMode);
-  const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
+  const [userEmail, setUserEmail] = useState<string>("guest@sakanajp.site");
 
   const [progress, setProgress] = useState<Record<string, { completed?: boolean }>>({});
   const [isCheckingUnlock, setIsCheckingUnlock] = useState(!isDueReviewMode);
@@ -42,8 +42,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   useEffect(() => {
     const email =
       typeof window !== "undefined"
-        ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
-        : "guest@sakana.net";
+        ? localStorage.getItem("sakana_user_email") || "guest@sakanajp.site"
+        : "guest@sakanajp.site";
     setUserEmail(email);
 
     // Initial load from localStorage
@@ -65,7 +65,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       } catch {}
     }
 
-    if (email && email !== "guest@sakana.net") {
+    if (email && email !== "guest@sakanajp.site") {
       // Load remote progress for accurate unlock state
       fetch(`/api/progress?userId=${encodeURIComponent(email)}`)
         .then((res) => res.json())
@@ -200,7 +200,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       });
 
       // 2. Persist to Neon DB (only for logged-in accounts)
-      if (userEmail && userEmail !== "guest@sakana.net") {
+      if (userEmail && userEmail !== "guest@sakanajp.site") {
         fetch("/api/srs", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -241,7 +241,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
             localStorage.setItem("sakana_progress", JSON.stringify(stored));
           } catch {}
 
-          if (userEmail && userEmail !== "guest@sakana.net") {
+          if (userEmail && userEmail !== "guest@sakanajp.site") {
             fetch("/api/progress", {
               method: "POST",
               headers: { "Content-Type": "application/json" },

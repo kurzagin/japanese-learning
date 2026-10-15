@@ -12,7 +12,7 @@ import { authClient } from "@/lib/auth-client";
 export default function DashboardPage() {
   const router = useRouter();
   const { t, locale } = useLanguage();
-  const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
+  const [userEmail, setUserEmail] = useState<string>("guest@sakanajp.site");
   const [progress, setProgress] = useState<Record<string, { completed: boolean; bestSec?: number; stars: number }>>({});
   const [srsSummary, setSrsSummary] = useState<{ dueCount: number; masteredCount: number; totalStudied: number }>({
     dueCount: 0,
@@ -33,7 +33,7 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakana.net";
+    const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakanajp.site";
     setUserEmail(savedEmail);
 
     // 1. Initial instant load from localStorage
@@ -54,7 +54,7 @@ export default function DashboardPage() {
     }
 
     // 2. Fetch live progress & SRS from Neon Postgres ONLY for logged-in accounts
-    if (savedEmail && savedEmail !== "guest@sakana.net") {
+    if (savedEmail && savedEmail !== "guest@sakanajp.site") {
       fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
         .then((res) => res.json())
         .then((json) => {

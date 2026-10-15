@@ -149,7 +149,7 @@ export function calculateSrsReview(
 /**
  * Get default clean record for a card that hasn't been reviewed yet
  */
-export function createDefaultSrsCard(cardId: string, stageId: string, userId = "guest@sakana.net"): SrsCardRecord {
+export function createDefaultSrsCard(cardId: string, stageId: string, userId = "guest@sakanajp.site"): SrsCardRecord {
   return {
     id: `${userId}_${cardId}`,
     userId,

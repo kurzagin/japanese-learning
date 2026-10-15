@@ -9,7 +9,7 @@ const DATABASE_URL = process.env.DATABASE_URL;
 
 async function createAccount() {
   const args = process.argv.slice(2);
-  const email = args[0] || "pilot@sakana.net";
+  const email = args[0] || "pilot@sakanajp.site";
   const password = args[1] || "SakanaPassword123!";
   const name = args[2] || email.split("@")[0];
 

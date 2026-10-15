@@ -7,7 +7,7 @@ import { calculateSrsReview, SrsCardRecord, SrsRating, createDefaultSrsCard } fr
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const userId = searchParams.get("userId") || "guest@sakana.net";
+    const userId = searchParams.get("userId") || "guest@sakanajp.site";
     const stageId = searchParams.get("stageId");
     const dueOnly = searchParams.get("due") === "true";
 
@@ -91,14 +91,14 @@ export async function POST(request: Request) {
       );
     }
 
-    const effectiveUserId = userId || "guest@sakana.net";
+    const effectiveUserId = userId || "guest@sakanajp.site";
 
     // Ensure user row exists for foreign key constraint
     await db
       .insert(users)
       .values({
         id: effectiveUserId,
-        email: effectiveUserId.includes("@") ? effectiveUserId : `${effectiveUserId}@sakana.net`,
+        email: effectiveUserId.includes("@") ? effectiveUserId : `${effectiveUserId}@sakanajp.site`,
         displayName: effectiveUserId.split("@")[0],
       })
       .onConflictDoNothing();
