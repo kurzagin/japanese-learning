@@ -683,9 +683,9 @@ function buildStages(): Stage[] {
         result.push({
           id: bossId,
           name: {
-            en: `⚔️ BOSS: ${bossTitlePrefix} Checkpoint ${bossCounter}`,
-            id: `⚔️ BOSS: Checkpoint ${bossTitlePrefix} ${bossCounter}`,
-            ja: `⚔️ ボス関門：${isHiragana ? "平仮名" : "片仮名"} 突破戦 ${bossCounter}`,
+            en: `BOSS: ${bossTitlePrefix} Checkpoint ${bossCounter}`,
+            id: `BOSS: Checkpoint ${bossTitlePrefix} ${bossCounter}`,
+            ja: `ボス関門：${isHiragana ? "平仮名" : "片仮名"} 突破戦 ${bossCounter}`,
           },
           category,
           depthName: {
@@ -726,3 +726,60 @@ function buildStages(): Stage[] {
 
 export const STAGES: Stage[] = buildStages();
 export const STAGES_BY_ID = new Map(STAGES.map((s) => [s.id, s]));
+
+// The prerequisite stages required to unlock the Arcade mode (Stage 1 of Hiragana and Katakana)
+export const ARCADE_PREREQUISITE_STAGE_IDS = ["hiragana-vowels", "katakana-vowels"];
+
+/**
+ * Determines whether a stage is unlocked given the user's progress map.
+ * Also returns prerequisite stage information when locked.
+ */
+export function getStageUnlockStatus(
+  stageId: string,
+  progress: Record<string, { completed?: boolean }>
+): { isUnlocked: boolean; requiredStage?: Stage; requiredStageIds?: string[] } {
+  const stage = STAGES_BY_ID.get(stageId);
+  if (!stage) {
+    return { isUnlocked: false };
+  }
+
+  // Already completed is always unlocked
+  if (progress[stage.id]?.completed) {
+    return { isUnlocked: true };
+  }
+
+  // Find index within its category
+  const categoryStages = STAGES.filter((s) => s.category === stage.category);
+  const stageIdx = categoryStages.findIndex((s) => s.id === stage.id);
+
+  // First stage of each category or explicit default unlock
+  if (stage.unlockedByDefault || stageIdx === 0) {
+    return { isUnlocked: true };
+  }
+
+  // Boss stages require all preceding stages in their checkpoint group
+  if (stage.isBossStage && stage.requiredStageIds && stage.requiredStageIds.length > 0) {
+    const isUnlocked = stage.requiredStageIds.every((reqId) => !!progress[reqId]?.completed);
+    return {
+      isUnlocked,
+      requiredStageIds: stage.requiredStageIds,
+    };
+  }
+
+  // Normal stages require the immediate previous stage in the category
+  const prevStage = stageIdx > 0 ? categoryStages[stageIdx - 1] : undefined;
+  const isUnlocked = prevStage ? !!progress[prevStage.id]?.completed : false;
+  return {
+    isUnlocked,
+    requiredStage: prevStage,
+  };
+}
+
+/**
+ * Checks whether Arcade mode is unlocked (requires stage 1 of Hiragana and Katakana).
+ */
+export function isArcadeUnlocked(
+  progress: Record<string, { completed?: boolean }>
+): boolean {
+  return ARCADE_PREREQUISITE_STAGE_IDS.every((reqId) => !!progress[reqId]?.completed);
+}

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { STAGES, StudyCard } from "@/data/stages";
+import { STAGES, StudyCard, isArcadeUnlocked, ARCADE_PREREQUISITE_STAGE_IDS, STAGES_BY_ID } from "@/data/stages";
 import { SrsCardRecord } from "@/lib/srs";
+import { StageLockedView } from "@/components/StageLockedView";
 import {
   MinigameCard,
   buildMinigameQueue,
@@ -91,20 +92,23 @@ export default function MinigamePage() {
     }
   }, []);
 
+  const isUnlocked = useMemo(() => isArcadeUnlocked(progress), [progress]);
+
   // 2. Build 30-letter queue once progress & SRS are ready
   const eligibleCards = useMemo(() => {
+    if (!isUnlocked) return [];
     const cards = getUnlockedCardsUpToStage(fromStageId || "hiragana-vowels", progress);
     if (cards.length > 0) return cards;
 
-    // Fallback: use first 2 stages (vowels + k-row = 10 cards)
-    const firstTwoStages = STAGES.filter(
-      (s) => s.category === "hiragana" && !s.isBossStage
-    ).slice(0, 2);
-    return firstTwoStages.flatMap((s) => s.cards);
-  }, [fromStageId, progress]);
+    // Fallback if stages are unlocked: use vowels from both Hiragana & Katakana
+    const firstStages = STAGES.filter(
+      (s) => ARCADE_PREREQUISITE_STAGE_IDS.includes(s.id)
+    );
+    return firstStages.flatMap((s) => s.cards);
+  }, [fromStageId, progress, isUnlocked]);
 
   useEffect(() => {
-    if (!isLoading && eligibleCards.length > 0) {
+    if (!isLoading && isUnlocked && eligibleCards.length > 0) {
       const generatedQueue = buildMinigameQueue(eligibleCards, srsRecords, 30);
       setQueue(generatedQueue);
       setCurrentIndex(0);
@@ -231,6 +235,13 @@ export default function MinigamePage() {
   const accuracyPercent =
     totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
 
+  if (!isLoading && !isUnlocked) {
+    const requiredStages = ARCADE_PREREQUISITE_STAGE_IDS.map((id) => STAGES_BY_ID.get(id)).filter(
+      Boolean
+    ) as typeof STAGES;
+    return <StageLockedView isArcade={true} requiredStages={requiredStages} />;
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
       {/* Full-width Sticky Retro Navbar */}
@@ -263,12 +274,20 @@ export default function MinigamePage() {
                 {/* Heads-Up Display (Lives, Combo, Score) */}
                 <div className="grid grid-cols-3 gap-2 bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono mb-3">
                   {/* Lives / Shields */}
-                  <div className="flex items-center justify-center gap-1 text-[#cc0000] font-bold">
-                    <Shield className="w-4 h-4 fill-[#cc0000]" />
-                    <span>
-                      {"❤️".repeat(Math.max(0, lives))}
-                      {"🖤".repeat(Math.max(0, 3 - lives))}
-                    </span>
+                  <div className="flex items-center justify-center gap-1.5 text-[#cc0000] font-bold">
+                    <Shield className="w-3.5 h-3.5 fill-[#cc0000]" />
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 3 }).map((_, i) => (
+                        <Heart
+                          key={i}
+                          className={`w-3.5 h-3.5 ${
+                            i < lives
+                              ? "fill-[#cc0000] text-[#cc0000]"
+                              : "fill-[#808080] text-[#808080] opacity-40"
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
 
                 {/* Combo Counter */}

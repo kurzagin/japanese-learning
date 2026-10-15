@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
-import { STAGES, Stage, StudyCard } from "@/data/stages";
+import { STAGES, Stage, StudyCard, getStageUnlockStatus, STAGES_BY_ID } from "@/data/stages";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { StageLockedView } from "@/components/StageLockedView";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowLeft, RotateCw, Check, Play, BookOpen, Clock, Sparkles } from "lucide-react";
+import { ArrowLeft, RotateCw, Check, Play, BookOpen, Clock, Sparkles, Zap, Star } from "lucide-react";
 import {
   SrsRating,
   SrsCardRecord,
@@ -34,7 +35,10 @@ export default function StudyClient({ stageId }: { stageId: string }) {
   const [isLoadingDue, setIsLoadingDue] = useState(isDueReviewMode);
   const [userEmail, setUserEmail] = useState<string>("guest@sakana.net");
 
-  // Load user email and SRS states
+  const [progress, setProgress] = useState<Record<string, { completed?: boolean }>>({});
+  const [isCheckingUnlock, setIsCheckingUnlock] = useState(!isDueReviewMode);
+
+  // Load user email, progress, and SRS states
   useEffect(() => {
     const email =
       typeof window !== "undefined"
@@ -43,6 +47,15 @@ export default function StudyClient({ stageId }: { stageId: string }) {
     setUserEmail(email);
 
     // Initial load from localStorage
+    let progMap: Record<string, { completed?: boolean }> = {};
+    const savedProgress = localStorage.getItem("sakana_progress");
+    if (savedProgress) {
+      try {
+        progMap = JSON.parse(savedProgress);
+        setProgress(progMap);
+      } catch {}
+    }
+
     let localMap: Record<string, SrsCardRecord> = {};
     const localSrs = localStorage.getItem("sakana_srs_records");
     if (localSrs) {
@@ -53,6 +66,21 @@ export default function StudyClient({ stageId }: { stageId: string }) {
     }
 
     if (email && email !== "guest@sakana.net") {
+      // Load remote progress for accurate unlock state
+      fetch(`/api/progress?userId=${encodeURIComponent(email)}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            const remoteProg: Record<string, { completed?: boolean }> = {};
+            json.data.forEach((r: any) => {
+              remoteProg[r.stageId] = { completed: r.completed };
+            });
+            setProgress((prev) => ({ ...prev, ...remoteProg }));
+          }
+        })
+        .catch((e) => console.error("Error loading progress:", e))
+        .finally(() => setIsCheckingUnlock(false));
+
       // Load from DB for logged in accounts
       const endpoint = isDueReviewMode
         ? `/api/srs?userId=${encodeURIComponent(email)}&due=true`
@@ -111,6 +139,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         setQueue(dueCards);
         setIsLoadingDue(false);
       }
+      setIsCheckingUnlock(false);
     }
   }, [stageId, isDueReviewMode]);
 
@@ -325,6 +354,23 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         STAGE NOT FOUND.
       </div>
     );
+  }
+
+  // Check if stage is locked
+  if (!isDueReviewMode && stage && !isCheckingUnlock) {
+    const unlockStatus = getStageUnlockStatus(stage.id, progress);
+    if (!unlockStatus.isUnlocked) {
+      const requiredStages: Stage[] = [];
+      if (unlockStatus.requiredStage) {
+        requiredStages.push(unlockStatus.requiredStage);
+      } else if (unlockStatus.requiredStageIds) {
+        unlockStatus.requiredStageIds.forEach((id) => {
+          const s = STAGES_BY_ID.get(id);
+          if (s) requiredStages.push(s);
+        });
+      }
+      return <StageLockedView requiredStages={requiredStages} />;
+    }
   }
 
   const currentHint = currentCard?.hint?.[locale];
@@ -584,7 +630,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                     href={`/test/${stage.id}`}
                     className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
-                    <span>Jump to Speed Sprint ⚡</span>
+                    <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
+                    <span>Jump to Speed Sprint</span>
                   </Link>
                 )}
               </div>
@@ -593,8 +640,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
             /* Completed Screen */
             <div className="p-4 flex flex-col items-center justify-center text-center my-auto space-y-4">
               <div className="relative">
-                <span className="absolute -top-2 -left-3 animate-star-twinkle text-[#ff00ff] text-base">✦</span>
-                <span className="absolute -bottom-1 -right-3 animate-star-twinkle-delay text-[#ffff00] text-base">★</span>
+                <Star className="absolute -top-2 -left-3 w-4 h-4 fill-[#ff00ff] text-[#ff00ff] animate-pulse" />
+                <Star className="absolute -bottom-1 -right-3 w-4 h-4 fill-[#ffff00] text-[#ffff00] animate-pulse" />
                 <div className="w-14 h-14 border-2 border-[#006600] bg-[#eef8ee] flex items-center justify-center text-[#006600] shadow">
                   <Check className="w-8 h-8 stroke-[3]" />
                 </div>
@@ -602,9 +649,9 @@ export default function StudyClient({ stageId }: { stageId: string }) {
 
               <div>
                 <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-[#800000]">
-                  <span className="animate-star-twinkle">★</span>
+                  <Star className="w-3 h-3 fill-[#800000]" />
                   <span>STAGE COMPLETE</span>
-                  <span className="animate-star-twinkle-delay">★</span>
+                  <Star className="w-3 h-3 fill-[#800000]" />
                 </div>
                 <h2 className="text-lg font-black text-[#000080] mt-0.5">
                   {t.study.completeTitle}

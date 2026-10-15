@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, Sparkles } from "lucide-react";
+import { Play, Sparkles, Star } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -39,16 +39,12 @@ export default function HomePage() {
         {/* Header Banner */}
         <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 text-center relative overflow-hidden shadow-xs">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5">
-            <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
-            <span className="animate-star-twinkle-delay text-[#ff9900]">★</span>
+            <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
             <span>{t.home.welcomeBadge}</span>
-            <span className="animate-star-twinkle-delay text-[#ff9900]">★</span>
-            <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
+            <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#000080] mt-1.5 tracking-wider flex items-center justify-center gap-2">
-            <span className="animate-star-twinkle text-sm sm:text-base text-[#008800]">★</span>
             <span>魚 SAKANA 魚</span>
-            <span className="animate-star-twinkle-delay text-sm sm:text-base text-[#008800]">★</span>
           </h1>
           <p className="text-xs sm:text-sm text-[#cc0000] font-bold mt-1">
             〜 {t.home.tagline} 〜
@@ -84,7 +80,7 @@ export default function HomePage() {
           </span>
           <div className="w-full overflow-hidden whitespace-nowrap">
             <div className="animate-retro-ticker">
-              ★ SAKANA-NET FLASH DRILL SYSTEM ACTIVE ★ SM-2 SPACED RETENTION ENABLED ★ PRESS SPACEBAR TO FLIP CARDS ★ TRUE FULL SCREEN WORKSTATION READY ★
+              SAKANA-NET FLASH DRILL SYSTEM ACTIVE // SM-2 SPACED RETENTION ENABLED // PRESS SPACEBAR TO FLIP CARDS // TRUE FULL SCREEN WORKSTATION READY
             </div>
           </div>
         </div>

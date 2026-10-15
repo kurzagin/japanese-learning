@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { FishIcon } from "@/components/FishIcon";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
-import { UserCheck } from "lucide-react";
+import { UserCheck, AlertTriangle } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
@@ -154,7 +154,7 @@ export default function LoginPage() {
           {/* Invite Only Notice Box */}
           <div className="border border-[#b0a88e] bg-[#fffde6] p-2.5 text-[11px] leading-relaxed text-[#4a4228] space-y-1">
             <div className="font-bold text-[10px] text-[#705800] uppercase tracking-wider flex items-center gap-1">
-              <span>⚠</span>
+              <AlertTriangle className="w-3.5 h-3.5 text-[#b38600]" />
               <span>{t.login.inviteNoticeTitle}</span>
             </div>
             <p>

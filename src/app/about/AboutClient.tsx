@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FishIcon } from "@/components/FishIcon";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
 import { 
@@ -13,6 +14,7 @@ import {
   Sparkles,
   ArrowRight,
   ShieldAlert,
+  Star,
   CheckCircle2,
   Zap,
   Layers,
@@ -62,7 +64,7 @@ export default function AboutPage() {
       description: t.about.features.vtuberXDesc,
       preview: {
         speaker: "@sakana_vtuber • X (Twitter)",
-        japanese: "「みんなおはよ〜！✨ 今日20時から歌枠やるよ！遊びに来てね🐟」",
+        japanese: "「みんなおはよ〜！ 今日20時から歌枠やるよ！遊びに来てね！」",
         romaji: "Minna ohayo~! Kyou 20ji kara utawaku yaru yo! Asobi ni kite ne!",
         translation: "Morning everyone~! Doing a singing stream at 20:00 JST! Come hang out!",
         tag: "SLANG & MODERN CASUAL JP",
@@ -121,8 +123,10 @@ export default function AboutPage() {
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Top Banner with Slogan */}
         <div className="border-2 border-[#000080] bg-[#eef3f8] p-4 text-center space-y-2 shadow-xs">
-            <div className="text-[10px] text-[#000080] font-bold tracking-widest uppercase">
-              ★★★ {t.about.badge} ★★★
+            <div className="text-[10px] text-[#000080] font-bold tracking-widest uppercase flex items-center justify-center gap-1">
+              <Star className="w-3 h-3 fill-[#000080]" />
+              <span>{t.about.badge}</span>
+              <Star className="w-3 h-3 fill-[#000080]" />
             </div>
             
             {/* The Slogan: "さ、仮名を始めよう。" with highlighted "さ" and "仮名 (かな)" */}
@@ -148,7 +152,7 @@ export default function AboutPage() {
           <div className="border border-[#808080] bg-[#fafafa]">
             <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
-                <span className="text-sm">🐟</span>
+                <FishIcon className="w-4 h-4 fill-white text-white" />
                 <span>{t.about.whatIsTitle}</span>
               </span>
               <span className="text-[10px] text-[#ffff00] font-mono">ABOUT SAKANA</span>

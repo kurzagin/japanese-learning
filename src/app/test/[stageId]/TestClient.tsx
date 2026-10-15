@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import Link from "next/link";
-import { STAGES, Stage, StudyCard } from "@/data/stages";
+import { STAGES, Stage, StudyCard, getStageUnlockStatus, STAGES_BY_ID } from "@/data/stages";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { StageLockedView } from "@/components/StageLockedView";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award } from "lucide-react";
+import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award, Swords, Sparkles } from "lucide-react";
 
 export type QuestionType = "kana_to_romaji" | "romaji_to_kana";
 
@@ -102,6 +103,44 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
+
+  const [progress, setProgress] = useState<Record<string, { completed?: boolean }>>({});
+  const [isCheckingUnlock, setIsCheckingUnlock] = useState(true);
+
+  // Load progress to verify whether stage is unlocked
+  useEffect(() => {
+    let progMap: Record<string, { completed?: boolean }> = {};
+    const savedProgress = localStorage.getItem("sakana_progress");
+    if (savedProgress) {
+      try {
+        progMap = JSON.parse(savedProgress);
+        setProgress(progMap);
+      } catch {}
+    }
+
+    const email =
+      typeof window !== "undefined"
+        ? localStorage.getItem("sakana_user_email") || "guest@sakana.net"
+        : "guest@sakana.net";
+
+    if (email && email !== "guest@sakana.net") {
+      fetch(`/api/progress?userId=${encodeURIComponent(email)}`)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && Array.isArray(json.data)) {
+            const remoteProg: Record<string, { completed?: boolean }> = {};
+            json.data.forEach((r: any) => {
+              remoteProg[r.stageId] = { completed: r.completed };
+            });
+            setProgress((prev) => ({ ...prev, ...remoteProg }));
+          }
+        })
+        .catch((e) => console.error("Error loading progress in test:", e))
+        .finally(() => setIsCheckingUnlock(false));
+    } else {
+      setIsCheckingUnlock(false);
+    }
+  }, []);
 
   // Timer states
   const [timeLeft, setTimeLeft] = useState<number>(timeLimit);
@@ -266,10 +305,27 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const currentStageIndex = STAGES.findIndex((s) => s.id === stageId);
   const nextStage = currentStageIndex >= 0 && currentStageIndex + 1 < STAGES.length ? STAGES[currentStageIndex + 1] : null;
 
+  // Check if test stage is locked
+  if (!isCheckingUnlock) {
+    const unlockStatus = getStageUnlockStatus(stage.id, progress);
+    if (!unlockStatus.isUnlocked) {
+      const requiredStages: Stage[] = [];
+      if (unlockStatus.requiredStage) {
+        requiredStages.push(unlockStatus.requiredStage);
+      } else if (unlockStatus.requiredStageIds) {
+        unlockStatus.requiredStageIds.forEach((id) => {
+          const s = STAGES_BY_ID.get(id);
+          if (s) requiredStages.push(s);
+        });
+      }
+      return <StageLockedView requiredStages={requiredStages} />;
+    }
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
       {/* Full-width Sticky Retro Navbar */}
-      <RetroNavbar currentSubtitle={`${isBoss ? "⚔️ BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
+      <RetroNavbar currentSubtitle={`${isBoss ? "BOSS BATTLE" : t.test.windowTitle} - ${stageDisplayName}`} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
@@ -283,8 +339,9 @@ export default function TestClient({ stageId }: { stageId: string }) {
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.test.backToDashboard}
           </Link>
-          <span className={`font-mono text-xs uppercase font-bold ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
-            {isBoss ? "⚡ BOSS CHECKPOINT" : stageDisplayName}
+          <span className={`font-mono text-xs uppercase font-bold flex items-center gap-1 ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
+            {isBoss && <Swords className="w-3.5 h-3.5 inline" />}
+            <span>{isBoss ? "BOSS CHECKPOINT" : stageDisplayName}</span>
           </span>
         </div>
 
@@ -398,7 +455,10 @@ export default function TestClient({ stageId }: { stageId: string }) {
               <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
                   <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
-                    <span>⚡ ARCADE SPRINT CONTROLS</span>
+                    <span className="flex items-center gap-1">
+                      <Zap className="w-3.5 h-3.5 fill-[#000080]" />
+                      <span>ARCADE SPRINT CONTROLS</span>
+                    </span>
                     <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
                       HOTKEYS
                     </span>
@@ -491,7 +551,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                 {isBoss && stage.id.match(/-boss-([0-9]+)/) && parseInt(stage.id.match(/-boss-([0-9]+)/)![1], 10) % 2 === 0 && (
                   <div className="bg-[#fff9e6] border-2 border-[#ff9900] p-2.5 mb-2 shadow text-left">
                     <div className="text-[11px] font-black text-[#b35900] flex items-center gap-1">
-                      <span className="animate-star-twinkle text-[#ff6600]">✦</span>
+                      <Sparkles className="w-3.5 h-3.5 text-[#ff6600]" />
                       <span>{t.test.bonusUnlockedTitle}</span>
                     </div>
                     <p className="text-[10px] text-[#666] mt-0.5 leading-snug">
@@ -607,7 +667,10 @@ export default function TestClient({ stageId }: { stageId: string }) {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
-          <span>{isBoss ? "⚔️ BOSS BATTLE REFLEX TEST" : "ARCADE SPEED CHALLENGE"}</span>
+          <span className="flex items-center gap-1">
+            {isBoss && <Swords className="w-3 h-3 text-[#cc0000] inline" />}
+            <span>{isBoss ? "BOSS BATTLE REFLEX TEST" : "ARCADE SPEED CHALLENGE"}</span>
+          </span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span>TARGET SPEED: &lt; {timeLimit}s</span>

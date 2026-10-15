@@ -137,7 +137,8 @@ export function getUnlockedCardsUpToStage(
   completedStageIds.add(stageId);
 
   for (const stage of STAGES) {
-    if (completedStageIds.has(stage.id)) {
+    // Only pool characters from hiragana and katakana (exclude words)
+    if (stage.category !== "words" && completedStageIds.has(stage.id)) {
       for (const card of stage.cards) {
         if (!cardsMap.has(card.id)) {
           cardsMap.set(card.id, card);

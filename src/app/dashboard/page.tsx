@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { STAGES, Stage } from "@/data/stages";
+import { STAGES, Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen, RotateCw, Gamepad2, Sparkles } from "lucide-react";
+import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardPage() {
@@ -192,7 +192,7 @@ export default function DashboardPage() {
                 <strong className="text-sm flex items-center justify-center gap-1">
                   <span>{Math.round((completedCount / totalStages) * 100)}%</span>
                   {completedCount === totalStages && (
-                    <span className="animate-star-twinkle text-[#ffff00]">★</span>
+                    <Star className="w-3.5 h-3.5 fill-[#ffff00] text-[#ffff00] inline" />
                   )}
                 </strong>
               </div>
@@ -204,11 +204,11 @@ export default function DashboardPage() {
             <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
               <span className="flex items-center gap-1">
                 {srsSummary.dueCount > 0 ? (
-                  <span className="animate-retro-blink-fast text-[#ff0000] font-black">●</span>
+                  <span className="w-2 h-2 rounded-full bg-[#ff0000] inline-block animate-pulse"></span>
                 ) : (
-                  <span className="text-[#008000]">●</span>
+                  <span className="w-2 h-2 rounded-full bg-[#008000] inline-block"></span>
                 )}
-                <span>◆ {t.dashboard.srsDueTitle}</span>
+                <span>{t.dashboard.srsDueTitle}</span>
               </span>
               <span className="font-mono text-[9px] text-[#555]">
                 {t.dashboard.srsMastered}: {srsSummary.masteredCount}
@@ -221,9 +221,10 @@ export default function DashboardPage() {
                   <div>
                     <span className="font-bold text-[#cc0000] flex items-center gap-1.5">
                       <span className="animate-retro-blink bg-[#ff0000] text-white px-1 py-0.2 text-[9px] font-mono">
-                        [DUE NOW!]
+                        [DUE NOW]
                       </span>
-                      <span>⚡ {srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
+                      <Zap className="w-3.5 h-3.5 fill-[#cc0000] text-[#cc0000]" />
+                      <span>{srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
                     </span>
                     <span className="text-[11px] text-[#555] block mt-0.5">
                       SM-2 memory intervals require retention reinforcement.
@@ -232,8 +233,8 @@ export default function DashboardPage() {
                 ) : (
                   <div>
                     <span className="font-bold text-[#006600] flex items-center gap-1">
-                      <span className="animate-star-twinkle text-[#00aa00]">✦</span>
-                      <span>✓ {t.dashboard.allCaughtUp}</span>
+                      <Check className="w-3.5 h-3.5 text-[#00aa00]" />
+                      <span>{t.dashboard.allCaughtUp}</span>
                     </span>
                     <span className="text-[11px] text-[#555] block">
                       {srsSummary.totalStudied > 0
@@ -257,33 +258,69 @@ export default function DashboardPage() {
           </div>
 
           {/* Optional Intermission Arcade Section */}
-          <div className="border-2 border-[#ff9900] bg-[#fffdf0] p-2.5 shadow-sm">
-            <div className="text-[10px] font-bold text-[#b35900] uppercase border-b border-[#e6b800] pb-1 flex justify-between items-center">
-              <span className="flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-[#ff6600]" />
-                <span>{t.minigame.optionalBannerTitle}</span>
-              </span>
-              <span className="bg-[#fff0e0] border border-[#ffcc80] text-[#cc6600] text-[9px] px-1 font-mono uppercase">
-                OPTIONAL DRILL
-              </span>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-              <div className="text-xs text-[#555]">
-                <p className="text-[11px] leading-snug">
-                  {t.minigame.optionalBannerDesc}
-                </p>
-              </div>
-
-              <Link
-                href="/minigame"
-                className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow whitespace-nowrap shrink-0"
+          {(() => {
+            const arcadeUnlocked = isArcadeUnlocked(progress);
+            return (
+              <div
+                className={`border-2 p-2.5 shadow-sm transition-colors ${
+                  arcadeUnlocked
+                    ? "border-[#ff9900] bg-[#fffdf0]"
+                    : "border-[#a0a0a0] bg-[#f5f5f5]"
+                }`}
               >
-                <Gamepad2 className="w-3.5 h-3.5 text-[#800000]" />
-                <span>{t.minigame.startArcadeBtn}</span>
-              </Link>
-            </div>
-            </div>
+                <div
+                  className={`text-[10px] font-bold uppercase border-b pb-1 flex justify-between items-center ${
+                    arcadeUnlocked
+                      ? "text-[#b35900] border-[#e6b800]"
+                      : "text-[#777] border-[#ccc]"
+                  }`}
+                >
+                  <span className="flex items-center gap-1">
+                    {arcadeUnlocked ? (
+                      <Sparkles className="w-3.5 h-3.5 text-[#ff6600]" />
+                    ) : (
+                      <Lock className="w-3.5 h-3.5 text-[#888]" />
+                    )}
+                    <span>{t.minigame.optionalBannerTitle}</span>
+                  </span>
+                  <span
+                    className={`text-[9px] px-1 font-mono uppercase border ${
+                      arcadeUnlocked
+                        ? "bg-[#fff0e0] border-[#ffcc80] text-[#cc6600]"
+                        : "bg-[#e8e8e8] border-[#ccc] text-[#888]"
+                    }`}
+                  >
+                    {arcadeUnlocked ? "OPTIONAL DRILL" : t.minigame.arcadeLockedBadge}
+                  </span>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                  <div className="text-xs text-[#555]">
+                    <p className="text-[11px] leading-snug">
+                      {arcadeUnlocked
+                        ? t.minigame.optionalBannerDesc
+                        : t.minigame.arcadeLockedDesc}
+                    </p>
+                  </div>
+
+                  {arcadeUnlocked ? (
+                    <Link
+                      href="/minigame"
+                      className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow whitespace-nowrap shrink-0"
+                    >
+                      <Gamepad2 className="w-3.5 h-3.5 text-[#800000]" />
+                      <span>{t.minigame.startArcadeBtn}</span>
+                    </Link>
+                  ) : (
+                    <div className="px-3 py-1.5 bg-[#d4d0c8] border border-[#a0a0a0] font-bold text-xs text-[#888] flex items-center justify-center gap-1.5 shadow-xs whitespace-nowrap shrink-0 cursor-not-allowed">
+                      <Lock className="w-3.5 h-3.5 text-[#888]" />
+                      <span>{t.dashboard.statusLocked}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
           </div>
 
           {/* Right Column: Stages by Category */}
@@ -339,15 +376,20 @@ export default function DashboardPage() {
                         <div className="flex items-start gap-2">
                           <span className="font-bold font-mono text-[10px] mt-0.5 shrink-0">
                             {isCompleted ? (
-                              <span className={isBoss ? "text-[#800080]" : "text-[#008000]"}>
-                                {isBoss ? "★ WON" : t.dashboard.statusDone}
+                              <span className={isBoss ? "text-[#800080] flex items-center gap-0.5" : "text-[#008000] flex items-center gap-0.5"}>
+                                {isBoss && <Star className="w-3 h-3 fill-[#800080] inline" />}
+                                <span>{isBoss ? "WON" : t.dashboard.statusDone}</span>
                               </span>
                             ) : isUnlocked ? (
-                              <span className={isBoss ? "text-[#cc0000] font-black" : "text-[#000080]"}>
-                                {isBoss ? "⚡ BOSS" : t.dashboard.statusReady}
+                              <span className={isBoss ? "text-[#cc0000] font-black flex items-center gap-0.5" : "text-[#000080]"}>
+                                {isBoss && <Zap className="w-3 h-3 fill-[#cc0000] inline" />}
+                                <span>{isBoss ? "BOSS" : t.dashboard.statusReady}</span>
                               </span>
                             ) : (
-                              <span className="text-[#888]">{t.dashboard.statusLocked}</span>
+                              <span className="text-[#888] flex items-center gap-0.5">
+                                <Lock className="w-2.5 h-2.5 inline" />
+                                <span>{t.dashboard.statusLocked}</span>
+                              </span>
                             )}
                           </span>
 
@@ -394,8 +436,9 @@ export default function DashboardPage() {
                               </Link>
                             </>
                           ) : (
-                            <span className="text-[10px] text-[#999] font-mono py-0.5">
-                              {isBoss ? "🔒 BEAT 2 STAGES FIRST" : t.dashboard.statusLocked}
+                            <span className="text-[10px] text-[#999] font-mono py-0.5 flex items-center gap-1">
+                              <Lock className="w-3 h-3 text-[#999] inline" />
+                              <span>{isBoss ? "BEAT 2 STAGES FIRST" : t.dashboard.statusLocked}</span>
                             </span>
                           )}
                         </div>
