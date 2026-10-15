@@ -224,6 +224,10 @@ export interface TranslationSchema {
       stagesDesc: string;
       kanaDirectoryTitle: string;
       kanaDirectoryDesc: string;
+      categoryHubsTitle: string;
+      categoryHubsDesc: string;
+      vocabularyDirectoryTitle: string;
+      vocabularyDirectoryDesc: string;
       kanaCompareTitle: string;
       kanaCompareDesc: string;
       romajiConverterTitle: string;
@@ -468,9 +472,13 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Randomized test questions challenging both recognition (Kana ➔ Romaji) and active recall (Romaji ➔ Kana) with zero repetitive predictability.",
         stagesTitle: "Progressive Sectors & The Shallows to The Reef",
         stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
-        kanaDirectoryTitle: "Interactive Kana Matrix & 218+ Detail Profiles",
-        kanaDirectoryDesc: "Complete phonetic directory covering Gojūon, Dakuon, and Yōon with stroke counts, mnemonics, audio pronunciation, and elementary vocabulary examples.",
-        kanaCompareTitle: "Lookalike Comparison Guides (シ vs ツ, さ vs き)",
+        kanaDirectoryTitle: "Interactive Kana Matrix & 436+ Detail Profiles",
+        kanaDirectoryDesc: "Complete phonetic directory covering Gojūon, Dakuon, Handakuon, and Yōon with stroke counts, mnemonics, audio pronunciation, and vocabulary examples.",
+        categoryHubsTitle: "Dedicated Kana Category Hubs (Gojūon, Dakuon, Yōon, Extended)",
+        categoryHubsDesc: "Focused phonetic hub portals with complete character rosters, linguistic explanations, and dedicated audio sets for each Japanese sound group.",
+        vocabularyDirectoryTitle: "Core & Anime Vocabulary Dictionary (160+ Words)",
+        vocabularyDirectoryDesc: "Individual standalone word pages featuring native audio pronunciation, constituent Kana character breakdowns, definitions, and pop-culture trivia.",
+        kanaCompareTitle: "18 Lookalike Comparison Guides (シ vs ツ, さ vs き, ソ vs ン)",
         kanaCompareDesc: "Anatomical breakdowns, stroke trajectory indicators, and memory tricks to resolve commonly confused character pairs.",
         romajiConverterTitle: "Real-time Romaji ⇄ Kana Converter Tool",
         romajiConverterDesc: "Instant phonetic transliterator converting Latin input to both Hiragana and Katakana with automatic double consonant (sokuon) and contracted sound handling.",
@@ -846,9 +854,13 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "Pertanyaan tes diacak bebas antara pengenalan (Kana ➔ Romaji) dan ingatan aktif (Romaji ➔ Kana) agar hafalan tidak kaku.",
         stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
         stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
-        kanaDirectoryTitle: "Matriks Lengkap Kana & 218+ Profil Karakter",
-        kanaDirectoryDesc: "Direktori fonetik menyeluruh (Gojūon, Dakuon, Yōon) dilengkapi jumlah goresan, mnemonik visual, pelafalan audio, dan contoh kosakata dasar.",
-        kanaCompareTitle: "Panduan Perbandingan Huruf Mirip (シ vs ツ, さ vs き)",
+        kanaDirectoryTitle: "Matriks Lengkap Kana & 436+ Profil Karakter",
+        kanaDirectoryDesc: "Direktori fonetik menyeluruh (Gojūon, Dakuon, Handakuon, Yōon) dilengkapi jumlah goresan, mnemonik visual, pelafalan audio, dan contoh kosakata dasar.",
+        categoryHubsTitle: "Portal Kategori Khusus (Gojūon, Dakuon, Yōon, Extended)",
+        categoryHubsDesc: "Halaman khusus per kelompok bunyi dengan roster karakter lengkap, penjelasan fonetik, audio, dan sistem klasifikasi alfabet.",
+        vocabularyDirectoryTitle: "Kamus Kosakata Inti & Populer Anime (160+ Kata)",
+        vocabularyDirectoryDesc: "Halaman profil tiap kata Jepang dengan pelafalan audio asli, dekonstruksi karakter pembentuknya, arti kata, dan trivia budaya pop.",
+        kanaCompareTitle: "18 Panduan Perbandingan Huruf Mirip (シ vs ツ, さ vs き, ソ vs ン)",
         kanaCompareDesc: "Analisis arah goresan, sudut kelengkungan, dan trik memori visual untuk membedakan huruf Jepang yang sering tertukar.",
         romajiConverterTitle: "Alat Konversi Real-Time Romaji ⇄ Kana",
         romajiConverterDesc: "Transliterasi instan teks alfabet Latin ke huruf Hiragana dan Katakana dengan penanganan otomatis konsonan ganda (sokuon) dan bunyi kombinasi.",
@@ -1224,9 +1236,13 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalDesc: "「仮名 ➔ ローマ字」の読解認識と「ローマ字 ➔ 仮名」の能動想起がランダムに混ざり合い、予測に頼らない本質的な即答力を鍛えます。",
         stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
         stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
-        kanaDirectoryTitle: "五十音図インタラクティブ図鑑（218文字詳細）",
+        kanaDirectoryTitle: "五十音図インタラクティブ図鑑（436文字完全収録）",
         kanaDirectoryDesc: "清音・濁音・半濁音・拗音を網羅。筆順画数、視覚的記憶ヒント、ネイティブ音声、基礎単語の完全リファレンス。",
-        kanaCompareTitle: "似ている文字の比較徹底解説（シ vs ツ、さ vs き 等）",
+        categoryHubsTitle: "体系別カテゴリ特設ポータル（清音・濁音・拗音・外来音）",
+        categoryHubsDesc: "五十音各行、濁音、半濁音、拗音、現代外来音の音韻体系ごとに独立した解説と文字一覧ハブページ。",
+        vocabularyDirectoryTitle: "重要実戦単語・アニメ語彙辞書（160単語超）",
+        vocabularyDirectoryDesc: "単語ごとのネイティブ音声、構成かな文字への逆引きリンク、意味、ポップカルチャー豆知識を備えた単語個別ページ群。",
+        kanaCompareTitle: "18組の紛らわしい文字比較徹底解説（シ vs ツ、さ vs き、ソ vs ン 等）",
         kanaCompareDesc: "書き出し方向、角度の違い、混乱しやすい文字を一瞬で見分ける記憶の秘訣を視覚的に解説。",
         romajiConverterTitle: "リアルタイム ローマ字 ⇄ かな変換ツール",
         romajiConverterDesc: "ローマ字入力から即座にひらがな・カタカナを生成。促音（っ）や拗音（きゃ等）も自動解析・変換。",

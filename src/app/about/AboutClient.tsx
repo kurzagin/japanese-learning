@@ -310,11 +310,59 @@ export default function AboutPage() {
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e8f0fe] border border-[#4285f4] text-[#1967d2] font-bold">
-                      ACTIVE // 218+ PROFILES
+                      ACTIVE // 436+ PROFILES
                     </span>
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
                     {t.about.currentList.kanaDirectoryDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* NEW FEATURE: Dedicated Category Hubs */}
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#f5f0fa] border border-[#b898d8] shrink-0 mt-0.5">
+                  <Layers className="w-5 h-5 text-[#660099]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <Link
+                      href="/kana/hiragana/category/gojuon"
+                      className="text-xs sm:text-sm font-bold text-[#660099] hover:underline flex items-center gap-1"
+                    >
+                      <span>{t.about.currentList.categoryHubsTitle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#f5f0fa] border border-[#9b51e0] text-[#660099] font-bold">
+                      ACTIVE // 9 SPECIALIZED HUBS
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.categoryHubsDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* NEW FEATURE: Standalone Vocabulary Directory */}
+              <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
+                <div className="p-1.5 bg-[#fdf2f2] border border-[#fca5a5] shrink-0 mt-0.5">
+                  <BookOpenCheck className="w-5 h-5 text-[#991b1b]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
+                    <Link
+                      href="/words/neko"
+                      className="text-xs sm:text-sm font-bold text-[#991b1b] hover:underline flex items-center gap-1"
+                    >
+                      <span>{t.about.currentList.vocabularyDirectoryTitle}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fee2e2] border border-[#ef4444] text-[#991b1b] font-bold">
+                      ACTIVE // 160+ WORD PAGES
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#444] mt-1 leading-normal">
+                    {t.about.currentList.vocabularyDirectoryDesc}
                   </p>
                 </div>
               </div>
@@ -334,7 +382,7 @@ export default function AboutPage() {
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
-                      ACTIVE // LOOKALIKE ENGINE
+                      ACTIVE // 18 CURATED PAIRS
                     </span>
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
