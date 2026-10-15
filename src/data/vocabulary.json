@@ -1,5 +1,22 @@
 [
   {
+    "slug": "sakana",
+    "character": "さかな",
+    "romaji": "sakana",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Fish",
+      "id": "Ikan",
+      "ja": "魚 (さかな)"
+    },
+    "primaryKanaId": "h-sa",
+    "trivia": {
+      "en": "Fish. Also the namesake of SaKana (魚), inspiring effortless speed learning like a fish gliding through water.",
+      "id": "Ikan. Juga merupakan asal nama SaKana (魚), melambangkan kelancaran belajar seperti ikan yang berenang bebas di air.",
+      "ja": "魚。水の中を滑らかに泳ぐ魚のように、軽快に学べるSaKana（魚）の由来です。"
+    }
+  },
+  {
     "slug": "ame",
     "character": "あめ",
     "romaji": "ame",
