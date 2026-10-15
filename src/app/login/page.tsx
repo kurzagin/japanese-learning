@@ -149,18 +149,26 @@ export default function LoginPage() {
               <span>{t.login.inviteNoticeTitle}</span>
             </div>
             <p>
-              {t.login.inviteNoticeText}
-            </p>
-            <div className="pt-0.5">
+              {t.login.inviteNoticeText.beforeMainSite}
+              <a
+                href="https://kurzagin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#000080] underline font-bold hover:text-[#cc0000]"
+              >
+                {t.login.inviteNoticeText.mainSite}
+              </a>
+              {t.login.inviteNoticeText.between}
               <a
                 href="https://kurzagin.com/guestbook"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#000080] font-mono underline hover:text-[#cc0000] break-all inline-block"
+                className="text-[#000080] underline font-bold hover:text-[#cc0000]"
               >
-                https://{t.login.inviteNoticeLinkText}
+                {t.login.inviteNoticeText.guestbook}
               </a>
-            </div>
+              {t.login.inviteNoticeText.afterGuestbook}
+            </p>
           </div>
 
           <div className="text-center">
