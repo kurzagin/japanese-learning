@@ -196,12 +196,12 @@ export default function HomePage() {
                       <span>CORE VOCABULARY</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      160 high-frequency Japanese words with constituent character breakdowns and audio.
+                      161 high-frequency Japanese words with constituent character breakdowns and audio.
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
                     <Link href="/words" className="text-[#000080] hover:underline font-bold">
-                      &rarr; 160-Word Directory
+                      &rarr; 161-Word Directory
                     </Link>
                     <Link href="/words/sakana" className="text-[#555] hover:underline">
                       &bull; さかな (Fish / SaKana)

@@ -92,7 +92,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
 
   // Hiragana W-row & N
   "h-wa": { jp: "わに (wani)", en: "Crocodile", id: "Buaya", ja: "わに" },
-  "h-wo": { jp: "ほん を よむ (hon wo yomu)", en: "Object particle (wo)", id: "Partikel objek (wo)", ja: "本を読む (を)" },
+  "h-wo": { jp: "ほん を よむ (hon wo yomu)", en: "Read a book (wo = object particle)", id: "Membaca buku (wo = partikel objek)", ja: "本を読む (を)" },
   "h-n": { jp: "にほん (nihon)", en: "Japan (ending n)", id: "Jepang (akhiran n)", ja: "にほん" },
 
   // Hiragana G-row
@@ -168,7 +168,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   // Katakana H-row
   "k-ha": { jp: "ハンバーガー (hanbaagaa)", en: "Hamburger", id: "Hamburger", ja: "ハンバーガー" },
   "k-hi": { jp: "ヒーロー (hiiroo)", en: "Hero", id: "Pahlawan / Hero", ja: "ヒーロー" },
-  "k-fu": { jp: "フォーク (fooku)", en: "Fork", id: "Garpu", ja: "フォーク" },
+  "k-fu": { jp: "フランス (furansu)", en: "France", id: "Prancis", ja: "フランス" },
   "k-he": { jp: "ヘルメット (herumetto)", en: "Helmet", id: "Helm", ja: "ヘルメット" },
   "k-ho": { jp: "ホテル (hoteru)", en: "Hotel", id: "Hotel", ja: "ホテル" },
 
@@ -225,7 +225,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-bo": { jp: "ボール (booru)", en: "Ball", id: "Bola", ja: "ボール" },
 
   // Katakana P-row
-  "k-pa": { jp: "パーティー (paatii)", en: "Party", id: "Pesta", ja: "パーティー" },
+  "k-pa": { jp: "パスポート (pasupooto)", en: "Passport", id: "Paspor", ja: "パスポート" },
   "k-pi": { jp: "ピアノ (piano)", en: "Piano", id: "Piano", ja: "ピアノ" },
   "k-pu": { jp: "プール (puuru)", en: "Swimming pool", id: "Kolam renang", ja: "プール" },
   "k-pe": { jp: "ペン (pen)", en: "Pen", id: "Pena / Pulpen", ja: "ペン" },
@@ -240,7 +240,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-di": { jp: "ビルディング (birudingu)", en: "Building", id: "Gedung", ja: "ビルディング" },
   "k-we": { jp: "ウェディング (wedingu)", en: "Wedding", id: "Pernikahan", ja: "ウェディング" },
   "k-wi": { jp: "ウィーク (wiiku)", en: "Week", id: "Minggu / Pekan", ja: "ウィーク" },
-  "k-va": { jp: "バイオリン (vaiorin)", en: "Violin", id: "Biola", ja: "ヴァイオリン" },
+  "k-va": { jp: "ヴァイオリン (vaiorin)", en: "Violin", id: "Biola", ja: "ヴァイオリン" },
   "k-vo": { jp: "ボリューム (voryuumu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
 };
 
@@ -453,15 +453,15 @@ export const WORD_STAGES: Stage[] = [
         kanaReading: "すき (好き)",
         sampleWordJp: "大好き (daisuki)",
         sampleWordMeaning: {
-          en: "I love you / I really like it",
-          id: "Aku sangat suka / Aku mencintaimu",
+          en: "Like / Fond of (daisuki = love / really like)",
+          id: "Suka / Gemar (daisuki = sangat suka)",
           ja: "大好き",
         },
         romaji: "suki",
         hint: {
-          en: "Like / Fond of. Crucial for anime confession scenes.",
-          id: "Suka / Naksir. Kunci adegan nembak di anime.",
-          ja: "アニメの告白シーンで最重要の台詞。",
+          en: "Like / Fond of. Used to express liking; often heard in anime confessions.",
+          id: "Suka / Gemar. Digunakan untuk menyatakan kesukaan atau naksir di anime.",
+          ja: "好意を表す言葉。アニメの告白シーンでも頻出。",
         },
       },
       {
@@ -578,9 +578,9 @@ export const WORD_STAGES: Stage[] = [
         kanaReading: "コーヒー (珈琲)",
         sampleWordJp: "ホットコーヒー (hotto koohii)",
         sampleWordMeaning: {
-          en: "Hot coffee",
-          id: "Kopi panas",
-          ja: "ホットコーヒー",
+          en: "Coffee (hotto koohii = hot coffee)",
+          id: "Kopi (hotto koohii = kopi panas)",
+          ja: "コーヒー (ホットコーヒー)",
         },
         romaji: "koohii",
         hint: {
@@ -595,9 +595,9 @@ export const WORD_STAGES: Stage[] = [
         kanaReading: "ラーメン (拉麺)",
         sampleWordJp: "味噌ラーメン (miso raamen)",
         sampleWordMeaning: {
-          en: "Miso ramen",
-          id: "Ramen kuah miso",
-          ja: "味噌ラーメン",
+          en: "Ramen (miso raamen = miso ramen)",
+          id: "Ramen (miso raamen = ramen kuah miso)",
+          ja: "ラーメン (味噌ラーメン)",
         },
         romaji: "raamen",
         hint: {

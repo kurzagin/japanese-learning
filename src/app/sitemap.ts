@@ -99,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Dynamic vocabulary detail pages (160 words)
+  // Dynamic vocabulary detail pages (161 words)
   const vocabRoutes: MetadataRoute.Sitemap = VOCABULARY_LIST.map((word) => ({
     url: `${baseUrl}/words/${word.slug}`,
     lastModified: now,

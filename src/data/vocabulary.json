@@ -560,8 +560,8 @@
     "romaji": "hon wo yomu",
     "script": "hiragana",
     "meaning": {
-      "en": "Object particle (wo)",
-      "id": "Partikel objek (wo)",
+      "en": "Read a book (wo = object particle)",
+      "id": "Membaca buku (wo = partikel objek)",
       "ja": "本を読む (を)"
     },
     "primaryKanaId": "h-wo"
@@ -912,7 +912,12 @@
       "id": "Web / Website",
       "ja": "ウェブ"
     },
-    "primaryKanaId": "k-u"
+    "primaryKanaId": "k-u",
+    "trivia": {
+      "en": "Japanese phonetic adaptation of the English loanword 'web', with the final 'u' sound added to fit Japanese syllable structure.",
+      "id": "Adaptasi fonetik Jepang dari kata serapan bahasa Inggris 'web', dengan penambahan vokal 'u' di akhir sesuai struktur suku kata bahasa Jepang.",
+      "ja": "英語の「web」の外来語表記。日本語の音節構造に合わせて末尾に母音「u」が付加される。"
+    }
   },
   {
     "slug": "ekoo",
@@ -1208,14 +1213,14 @@
     }
   },
   {
-    "slug": "fooku",
-    "character": "フォーク",
-    "romaji": "fooku",
+    "slug": "furansu",
+    "character": "フランス",
+    "romaji": "furansu",
     "script": "katakana",
     "meaning": {
-      "en": "Fork",
-      "id": "Garpu",
-      "ja": "フォーク"
+      "en": "France",
+      "id": "Prancis",
+      "ja": "フランス"
     },
     "primaryKanaId": "k-fu"
   },
@@ -1681,14 +1686,14 @@
     "primaryKanaId": "k-bo"
   },
   {
-    "slug": "paatii",
-    "character": "パーティー",
-    "romaji": "paatii",
+    "slug": "pasupooto",
+    "character": "パスポート",
+    "romaji": "pasupooto",
     "script": "katakana",
     "meaning": {
-      "en": "Party",
-      "id": "Pesta",
-      "ja": "パーティー"
+      "en": "Passport",
+      "id": "Paspor",
+      "ja": "パスポート"
     },
     "primaryKanaId": "k-pa"
   },
@@ -1777,7 +1782,7 @@
     "primaryKanaId": "k-fe"
   },
   {
-    "slug": "fooku-katakana",
+    "slug": "fooku",
     "character": "フォーク",
     "romaji": "fooku",
     "script": "katakana",
@@ -1789,7 +1794,7 @@
     "primaryKanaId": "k-fo"
   },
   {
-    "slug": "paatii-katakana",
+    "slug": "paatii",
     "character": "パーティー",
     "romaji": "paatii",
     "script": "katakana",
@@ -1838,7 +1843,7 @@
   },
   {
     "slug": "vaiorin",
-    "character": "バイオリン",
+    "character": "ヴァイオリン",
     "romaji": "vaiorin",
     "script": "katakana",
     "meaning": {
@@ -1882,14 +1887,14 @@
     "romaji": "suki",
     "script": "hiragana",
     "meaning": {
-      "en": "I love you / I really like it",
-      "id": "Aku sangat suka / Aku mencintaimu",
-      "ja": "大好き"
+      "en": "Like / Fond of",
+      "id": "Suka / Gemar",
+      "ja": "好き"
     },
     "trivia": {
-      "en": "Like / Fond of. Crucial for anime confession scenes.",
-      "id": "Suka / Naksir. Kunci adegan nembak di anime.",
-      "ja": "アニメの告白シーンで最重要の台詞。"
+      "en": "Like / Fond of. Used to express affection or liking, frequently heard in anime confessions.",
+      "id": "Suka / Gemar. Digunakan untuk menyatakan perasaan suka, sering terdengar dalam adegan pengakuan cinta anime.",
+      "ja": "好意を表す言葉。アニメの告白シーンで最重要の台詞。"
     }
   },
   {
@@ -1946,14 +1951,14 @@
     "romaji": "koohii",
     "script": "katakana",
     "meaning": {
-      "en": "Hot coffee",
-      "id": "Kopi panas",
-      "ja": "ホットコーヒー"
+      "en": "Coffee",
+      "id": "Kopi",
+      "ja": "コーヒー"
     },
     "trivia": {
-      "en": "Coffee. Common café order.",
-      "id": "Kopi. Minuman kafe paling umum.",
-      "ja": "オランダ語・英語の『coffee』から。"
+      "en": "Coffee. Common café order (hot coffee = ホットコーヒー).",
+      "id": "Kopi. Minuman kafe paling umum (kopi panas = ホットコーヒー).",
+      "ja": "オランダ語・英語の『coffee』から。ホットコーヒーも定番。"
     }
   },
   {
@@ -1962,13 +1967,13 @@
     "romaji": "raamen",
     "script": "katakana",
     "meaning": {
-      "en": "Miso ramen",
-      "id": "Ramen kuah miso",
-      "ja": "味噌ラーメン"
+      "en": "Ramen",
+      "id": "Ramen",
+      "ja": "ラーメン"
     },
     "trivia": {
-      "en": "Ramen noodles. Naruto's favorite dish.",
-      "id": "Mie ramen khas Jepang. Makanan kesukaan Naruto.",
+      "en": "Ramen noodles. Japanese staple dish and Naruto's favorite food.",
+      "id": "Mie ramen khas Jepang. Makanan pokok populer dan makanan kesukaan Naruto.",
       "ja": "ナルトの大好物。日本の国民食。"
     }
   },

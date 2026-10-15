@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import WordsHubClient from "./WordsHubClient";
 
 export const metadata: Metadata = {
-  title: "Japanese Core Vocabulary Directory — 160 Essential Words with Audio",
+  title: "Japanese Core Vocabulary Directory — 161 Essential Words with Audio",
   description:
     "Explore essential Japanese Hiragana and Katakana vocabulary words with native Voicevox audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
   alternates: {
