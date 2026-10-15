@@ -400,7 +400,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   {currentQ.type === "kana_to_romaji" ? "Kana ➔ Romaji" : "Romaji ➔ Kana"}
                 </span>
                 <div
-                  className={`font-bold select-none tracking-tight ${
+                  className={`font-bold tracking-tight ${
                     currentQ.type === "kana_to_romaji"
                       ? "text-7xl sm:text-8xl font-serif text-[#000080]"
                       : "text-6xl sm:text-7xl font-mono text-[#cc0000] lowercase"

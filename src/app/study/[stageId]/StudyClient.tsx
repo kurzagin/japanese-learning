@@ -455,7 +455,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                 className="my-3 p-5 border-2 border-dashed border-[#000080] bg-[#fdfdfb] hover:bg-[#fffff0] cursor-pointer flex flex-col items-center justify-center text-center transition-colors min-h-[220px]"
               >
                 {/* Primary Japanese Character / Word */}
-                <div className="text-6xl sm:text-7xl font-bold font-serif text-[#000080] select-none my-1 tracking-tight">
+                <div className="text-6xl sm:text-7xl font-bold font-serif text-[#000080] my-1 tracking-tight">
                   {currentCard.character}
                 </div>
 

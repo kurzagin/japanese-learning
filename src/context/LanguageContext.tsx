@@ -47,7 +47,7 @@ export function LanguageSelector() {
   const { locale, setLocale } = useLanguage();
 
   return (
-    <div className="flex items-center gap-1 text-[11px] font-mono select-none">
+    <div className="flex items-center gap-1 text-[11px] font-mono">
       <Globe className="w-3.5 h-3.5 text-[#000080] shrink-0" />
       <div className="relative inline-block">
         <select

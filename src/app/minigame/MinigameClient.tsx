@@ -330,7 +330,7 @@ export default function MinigamePage() {
                   </span>
                 )}
 
-                <div className="text-7xl sm:text-8xl font-black text-black select-none tracking-normal font-sans py-2 animate-fade-in">
+                <div className="text-7xl sm:text-8xl font-black text-black tracking-normal font-sans py-2 animate-fade-in">
                   {currentCard.character}
                 </div>
 

@@ -63,7 +63,7 @@ export function PronounceButton({
       type="button"
       onClick={handlePlay}
       aria-label={`Listen to pronunciation of ${text}`}
-      className={`inline-flex items-center justify-center font-mono cursor-pointer transition-transform active:translate-y-0.5 border-t border-l border-white border-b-[#404040] border-r-[#404040] bg-[#d4d0c8] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] shadow-xs select-none ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center font-mono cursor-pointer transition-transform active:translate-y-0.5 border-t border-l border-white border-b-[#404040] border-r-[#404040] bg-[#d4d0c8] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] shadow-xs ${sizeClasses[size]} ${className}`}
     >
       {isPlaying ? (
         <VolumeX className="w-3.5 h-3.5 animate-pulse text-[#cc0000]" />
