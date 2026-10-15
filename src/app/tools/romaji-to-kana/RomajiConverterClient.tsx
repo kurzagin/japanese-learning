@@ -17,10 +17,11 @@ import {
 
 export default function RomajiConverterClient() {
   const [inputRomaji, setInputRomaji] = useState("konnichiwa, arigatou");
+  const [smartParticles, setSmartParticles] = useState(true);
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
-  const hiraganaResult = romajiToHiragana(inputRomaji);
-  const katakanaResult = romajiToKatakana(inputRomaji);
+  const hiraganaResult = romajiToHiragana(inputRomaji, smartParticles);
+  const katakanaResult = romajiToKatakana(inputRomaji, smartParticles);
 
   const handleCopy = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
@@ -29,8 +30,8 @@ export default function RomajiConverterClient() {
   };
 
   const samplePresets = [
-    { label: "Greetings", val: "ohayou gozaimasu" },
-    { label: "Thank You", val: "arigatou gozaimasu" },
+    { label: "Greetings (konnichiwa)", val: "konnichiwa, arigatou" },
+    { label: "Topic Particle (watashi wa)", val: "watashi wa gakusei desu" },
     { label: "Anime Quote", val: "ore wa kaizoku ou ni naru otoko da" },
     { label: "Small Tsu Test", val: "chotto matte kudasai" },
   ];
@@ -82,6 +83,19 @@ export default function RomajiConverterClient() {
               placeholder="Type romaji like 'arigatou', 'sensei', 'tsuki'..."
               className="w-full bg-[#fafafa] text-sm p-3 border-t-2 border-l-2 border-[#404040] border-b border-r border-white font-mono outline-none focus:bg-white"
             />
+            {/* Smart Particle Converter Toggle */}
+            <div className="mt-2 flex items-center justify-between text-[11px] font-mono bg-[#f0f4f8] p-2 border border-[#d0d8e8]">
+              <label className="flex items-center gap-2 cursor-pointer select-none text-[#000080] font-semibold">
+                <input
+                  type="checkbox"
+                  checked={smartParticles}
+                  onChange={(e) => setSmartParticles(e.target.checked)}
+                  className="cursor-pointer"
+                />
+                <span>Smart Particle Rule: Convert greeting/particle &quot;wa&quot; to &quot;は&quot; (e.g. こんにちは, わたし は)</span>
+              </label>
+              <span className="text-[#666] hidden sm:inline">Grammar standard: ON</span>
+            </div>
           </div>
 
           {/* Quick Preset Buttons */}
@@ -201,6 +215,7 @@ export default function RomajiConverterClient() {
           <ul className="list-disc pl-5 space-y-1 font-mono text-[11px]">
             <li><strong>Double consonants (Sokuon):</strong> &quot;matte&quot; &rarr; まって / マッテ (using small っ / ッ)</li>
             <li><strong>Contracted sounds (Yōon):</strong> &quot;kya&quot;, &quot;shu&quot;, &quot;cho&quot; &rarr; きゃ, しゅ, ちょ</li>
+            <li><strong>Topic Particle &amp; Greetings:</strong> Although pronounced &quot;wa&quot;, greetings like &quot;konnichiwa&quot; (こんにちは) and standalone topic particles (&quot;watashi wa&quot; &rarr; わたし は) are historically spelled with <strong>は (ha)</strong> in standard Japanese grammar.</li>
             <li><strong>Singular nasal N:</strong> &quot;konnichiwa&quot; &rarr; こんにちは</li>
           </ul>
         </div>

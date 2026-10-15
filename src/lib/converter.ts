@@ -109,10 +109,34 @@ const ROMAJI_TABLE: [string, string, string][] = [
 ];
 
 /**
- * Convert Romaji text to Hiragana
+ * Pre-process text to handle grammatical particle and greeting conventions:
+ * 1. "konnichiwa" -> standard greeting is spelled with 'ha': こんにちは (not こんにちわ)
+ * 2. "konbanwa" -> standard greeting is spelled with 'ha': こんばんは (not こんばんわ)
+ * 3. Standalone particle "wa" (e.g. "watashi wa") -> particle is written as は (not わ)
  */
-export function romajiToHiragana(text: string): string {
-  let lower = text.toLowerCase();
+function preprocessParticles(text: string): string {
+  let processed = text;
+
+  // 1. Standard greetings
+  processed = processed.replace(/\bkonnichiwa\b/gi, "konnichiha");
+  processed = processed.replace(/\bkonbanwa\b/gi, "konbanha");
+
+  // 2. Standalone topic particle 'wa' (surrounded by word boundaries / whitespace / punctuation)
+  // e.g. "watashi wa" -> "watashi ha"
+  processed = processed.replace(/(\s)wa(\s|$|[.,!?、。])/gi, "$1ha$2");
+  processed = processed.replace(/^wa(\s|$|[.,!?、。])/gi, "ha$1");
+
+  return processed;
+}
+
+/**
+ * Convert Romaji text to Hiragana with smart particle awareness
+ */
+export function romajiToHiragana(text: string, smartParticles: boolean = true): string {
+  let lower = (smartParticles ? preprocessParticles(text) : text).toLowerCase();
+
+  // Handle Japanese punctuation replacements
+  lower = lower.replace(/,/g, "、").replace(/\./g, "。");
 
   // Handle small tsu (sokuon): double consonants like 'kk', 'tt', 'pp', 'ss'
   lower = lower.replace(/([bcdfghjklmpqrstvwxyz])\1/g, (match, char) => {
@@ -154,8 +178,10 @@ export function romajiToHiragana(text: string): string {
 /**
  * Convert Romaji text to Katakana
  */
-export function romajiToKatakana(text: string): string {
-  let lower = text.toLowerCase();
+export function romajiToKatakana(text: string, smartParticles: boolean = true): string {
+  let lower = (smartParticles ? preprocessParticles(text) : text).toLowerCase();
+
+  lower = lower.replace(/,/g, "、").replace(/\./g, "。");
 
   // Handle small tsu (sokuon): double consonants
   lower = lower.replace(/([bcdfghjklmpqrstvwxyz])\1/g, (match, char) => {
@@ -198,6 +224,9 @@ export function romajiToKatakana(text: string): string {
  */
 export function kanaToRomaji(kanaText: string): string {
   let result = kanaText;
+
+  // Japanese punctuation back to Latin
+  result = result.replace(/、/g, ", ").replace(/。/g, ". ");
 
   // Sokuon replacements
   result = result.replace(/っ([かきくけこ])/g, "k$1");
