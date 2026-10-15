@@ -13,6 +13,11 @@ export interface TranslationSchema {
     kana: string;
     about: string;
     docs: string;
+    arcade: string;
+    compare: string;
+    converter: string;
+    menu: string;
+    close: string;
     windowTitle: string;
     login: string;
     enter: string;
@@ -387,6 +392,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       kana: "KANA CHART",
       about: "ABOUT",
       docs: "API DOCS",
+      arcade: "ARCADE",
+      compare: "COMPARE",
+      converter: "CONVERTER",
+      menu: "MENU",
+      close: "CLOSE",
       windowTitle: "SaKana",
       login: "LOGIN",
       enter: "ENTER",
@@ -760,6 +770,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       kana: "TABEL KANA",
       about: "TENTANG",
       docs: "DOKUMEN API",
+      arcade: "ARKADE",
+      compare: "PERBANDINGAN",
+      converter: "KONVERTER",
+      menu: "MENU",
+      close: "TUTUP",
       windowTitle: "SaKana",
       login: "MASUK",
       enter: "MASUK KE DASHBOARD",
@@ -1133,6 +1148,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       kana: "五十音図",
       about: "概要",
       docs: "API仕様",
+      arcade: "アーケード",
+      compare: "比較",
+      converter: "変換ツール",
+      menu: "メニュー",
+      close: "閉じる",
       windowTitle: "SaKana",
       login: "ログイン",
       enter: "道場へ入る",
