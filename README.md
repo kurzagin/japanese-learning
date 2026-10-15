@@ -1,21 +1,21 @@
 # Sakana Japanese (魚)
 
-> Fast Kana recognition speed drill designed specifically for anime and manga fans.
+> Audio & reflex drill designed for anime fans to understand spoken Japanese and break free from subtitles.
 
-Sakana Japanese is a focused learning tool designed to help anime and pop-culture enthusiasts master **Hiragana** and **Katakana** with split-second reading reflexes.
+Sakana Japanese is a focused learning tool designed to help anime and Japanese media fans bridge the gap between **subtitles and spoken audio**. 
 
-Rather than burning out on handwriting strokes and complex Kanji right away, the app trains instant visual recognition for Kana primitives—enabling learners to catch anime episode titles, character name cards, attack names, and manga sound effects (SFX) in real time using visual mnemonics, native Voicevox audio, and spaced repetition flashcards.
+Every line spoken in anime is constructed from atomic **Kana sounds**. Rather than getting stuck in the subtitle dependency trap or burning out on handwriting strokes, learners build reflex memory connecting native Voicevox audio with Kana phonetic primitives and high-frequency anime dialogue.
 
 ---
 
 ### Key Highlights
 
-* **Speed-First Reflex Training**: Timed reaction tests and adaptive recognition drills to build sub-second reading speed.
-* **Primitive-First Curriculum**: 218 atomic Kana characters (104 Hiragana + 114 Katakana) categorized by rows and phonetic structure.
-* **Anime & Real Media Context**: Essential anime loanwords, reaction phrases, and manga onomatopoeia.
-* **Spaced Repetition (SM-2)**: Smart interval review scheduling to permanently lock characters into memory.
-* **Multilingual Guides**: Shape mnemonics and sample words available in English, Indonesian, and Japanese.
-* **Native Voicevox Audio**: Accurate neural pitch audio for clear vowel and intonation distinction.
+* **From Sound to Meaning**: Map the 46 core phonetic sounds directly to native audio so your ears recognize them in fast dialogue.
+* **Break Free From Subtitles**: Train your brain to process spoken lines in real time instead of reading translated text.
+* **Primitive-First Curriculum**: 218 atomic Kana characters (Hiragana & Katakana) structured by rows and phonetic properties.
+* **Spoken Vocabulary & Common Expressions**: Dialogue reactions, loanwords, and phrases you hear in anime every day.
+* **Spaced Repetition (SM-2)**: Smart interval scheduling locks sounds and words into reflexive memory.
+* **Clear Neural Audio**: Powered by Voicevox for accurate pitch, natural rhythm, and native pronunciation.
 
 ---
 
