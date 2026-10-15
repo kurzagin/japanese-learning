@@ -19,6 +19,7 @@ export interface TranslationSchema {
     top: string;
     logout: string;
     back: string;
+    mainNavigation: string;
   };
   home: {
     welcomeBadge: string;
@@ -43,6 +44,7 @@ export interface TranslationSchema {
     appTitle: string;
     instruction: string;
     emailLabel: string;
+    passwordLabel: string;
     submit: string;
     submitting: string;
     guestTitle: string;
@@ -107,6 +109,8 @@ export interface TranslationSchema {
     repeatStudyBtn: string;
     backDashboard: string;
     srsScheduledNote: string;
+    srsReviewCenter: string;
+    srsAllCaughtUpDesc: string;
   };
   test: {
     windowTitle: string;
@@ -383,6 +387,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       top: "RETURN TO TOP",
       logout: "LOGOUT",
       back: "BACK",
+      mainNavigation: "Main Navigation",
     },
     home: {
       welcomeBadge: "WELCOME TO SAKANA JAPANESE SPEED DRILL",
@@ -461,6 +466,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       appTitle: "SaKana Authentication",
       instruction: "Enter your email address to save your study records and stage progress.",
       emailLabel: "E-MAIL ADDRESS:",
+      passwordLabel: "PASSWORD:",
       submit: "AUTHENTICATE",
       submitting: "TRANSMITTING...",
       guestTitle: "FAST ACCESS WITHOUT ACCOUNT",
@@ -525,6 +531,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       repeatStudyBtn: "REVIEW AGAIN",
       backDashboard: "<< Return to Dashboard",
       srsScheduledNote: "Memory intervals scheduled via SM-2 spaced repetition.",
+      srsReviewCenter: "SRS Review Center",
+      srsAllCaughtUpDesc: "All studied characters are currently in healthy memory retention intervals. Cards will appear here when due.",
     },
     test: {
       windowTitle: "Speed Test",
@@ -746,6 +754,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       top: "KEMBALI KE BERANDA",
       logout: "KELUAR",
       back: "KEMBALI",
+      mainNavigation: "Navigasi Utama",
     },
     home: {
       welcomeBadge: "SELAMAT DATANG DI SAKANA SPEED DRILL",
@@ -824,6 +833,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       appTitle: "SaKana Autentikasi",
       instruction: "Masukkan email kamu untuk menyimpan rekor waktu dan progress stage.",
       emailLabel: "ALAMAT EMAIL:",
+      passwordLabel: "KATA SANDI:",
       submit: "MASUK DENGAN EMAIL",
       submitting: "MEMPROSES...",
       guestTitle: "COBA CEPAT TANPA AKUN",
@@ -888,6 +898,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       repeatStudyBtn: "ULANGI BELAJAR",
       backDashboard: "<< Kembali ke Dashboard",
       srsScheduledNote: "Interval memori dijadwalkan secara otomatis dengan algoritma SM-2.",
+      srsReviewCenter: "Pusat Review SRS",
+      srsAllCaughtUpDesc: "Semua memori karakter berada dalam jadwal aman. Kartu baru akan muncul di sini saat tiba waktunya.",
     },
     test: {
       windowTitle: "Uji Kecepatan",
@@ -1109,6 +1121,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       top: "トップへ戻る",
       logout: "ログアウト",
       back: "戻る",
+      mainNavigation: "メインナビゲーション",
     },
     home: {
       welcomeBadge: "ようこそ！ SAKANAかな速読ドリルへ",
@@ -1187,6 +1200,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       appTitle: "SaKana 認証",
       instruction: "メールアドレスを入力してログインしてください。記録が保存されます。",
       emailLabel: "メールアドレス:",
+      passwordLabel: "パスワード:",
       submit: "認証する",
       submitting: "通信中...",
       guestTitle: "アカウントなしで即時体験",
@@ -1251,6 +1265,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       repeatStudyBtn: "もう一度復習する",
       backDashboard: "<< 道場メニューへ戻る",
       srsScheduledNote: "SM-2アルゴリズムにより最適な記憶保持インターバルが更新されました。",
+      srsReviewCenter: "SRS復習センター",
+      srsAllCaughtUpDesc: "すべての文字の記憶保持インターバルは順調です。復習時期が来るとここに現れます。",
     },
     test: {
       windowTitle: "速度試練",

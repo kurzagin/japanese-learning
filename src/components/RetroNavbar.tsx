@@ -44,7 +44,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
 
       {/* Real Retro Navigation Bar */}
       <div className="bg-[#ece9d8] px-3 sm:px-6 py-1.5 text-[11px] sm:text-xs flex items-center justify-between gap-2 text-black">
-        <nav className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto scrollbar-none" aria-label="Main Navigation">
+        <nav className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto scrollbar-none" aria-label={t.nav.mainNavigation}>
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"

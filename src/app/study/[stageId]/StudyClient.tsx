@@ -294,18 +294,14 @@ export default function StudyClient({ stageId }: { stageId: string }) {
     return (
       <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-center">
         <div className="w-full max-w-md bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md p-4 space-y-4 text-center">
-          <RetroNavbar currentSubtitle="SRS Review Center" />
+          <RetroNavbar currentSubtitle={t.study.srsReviewCenter} />
           <div className="bg-white p-6 border border-[#808080] space-y-3">
             <Sparkles className="w-10 h-10 text-[#008000] mx-auto" />
             <h2 className="text-sm font-bold text-[#000080]">
               {t.dashboard.allCaughtUp}
             </h2>
             <p className="text-xs text-[#555]">
-              {locale === "ja"
-                ? "すべての文字の記憶保持インターバルは順調です。復習時期が来るとここに現れます。"
-                : locale === "id"
-                ? "Semua memori karakter berada dalam jadwal aman. Kartu baru akan muncul di sini saat tiba waktunya."
-                : "All studied characters are currently in healthy memory retention intervals. Cards will appear here when due."}
+              {t.study.srsAllCaughtUpDesc}
             </p>
             <div className="pt-2">
               <Link

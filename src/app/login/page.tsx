@@ -91,7 +91,7 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="pass" className="block text-[11px] font-bold text-[#333] mb-1">
-                Password
+                {t.login.passwordLabel}
               </label>
               <input
                 id="pass"
