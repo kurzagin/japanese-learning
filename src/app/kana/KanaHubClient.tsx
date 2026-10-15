@@ -59,6 +59,23 @@ export default function KanaHubClient() {
           <p className="text-xs sm:text-sm text-[#404040] font-medium mt-1 max-w-2xl mx-auto">
             {t.kanaHub.description}
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
+            <Link
+              href="/compare"
+              className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
+            >
+              <span>LOOKALIKE COMPARISONS (シ vs ツ, さ vs き)</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+            <Link
+              href="/tools/romaji-to-kana"
+              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+            >
+              <span>ROMAJI ⇄ KANA CONVERTER TOOL</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
 
         {/* Controls Bar */}

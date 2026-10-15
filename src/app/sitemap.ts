@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { STAGES } from "@/data/stages";
 import { ALL_KANA_PRIMITIVES } from "@/data/kana";
-import { getKanaSlug } from "@/lib/kana-seo";
+import { getKanaSlug, CURATED_COMPARISONS } from "@/lib/kana-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
@@ -27,6 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/compare`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/tools/romaji-to-kana`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
@@ -64,5 +76,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...stageRoutes, ...kanaRoutes];
+  // Dynamic comparison pair pages (e.g. /compare/shi-vs-tsu)
+  const compareRoutes: MetadataRoute.Sitemap = CURATED_COMPARISONS.map((comp) => ({
+    url: `${baseUrl}/compare/${comp.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...stageRoutes, ...kanaRoutes, ...compareRoutes];
 }
