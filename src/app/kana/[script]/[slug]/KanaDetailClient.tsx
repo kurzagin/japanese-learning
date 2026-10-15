@@ -207,7 +207,7 @@ export default function KanaDetailClient({
             READY TO DRILL &apos;{kana.character}&apos; AT ARCADE SPEED?
           </h3>
           <p className="text-xs text-[#333] max-w-xl mx-auto">
-            Reading Japanese isn&apos;t just about memorization — it&apos;s about fast visual reflexes. Test your speed in the SaKana Retro Dojo.
+            Reading Japanese isn&apos;t just about memorization — it&apos;s about fast visual reflexes. Test your speed in the SaKana Dojo.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link
@@ -215,7 +215,7 @@ export default function KanaDetailClient({
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
-              <span>START RETRO PRACTICE DRILL</span>
+              <span>START PRACTICE DRILL</span>
             </Link>
             <Link
               href="/kana"

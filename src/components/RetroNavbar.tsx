@@ -37,7 +37,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
           </span>
         </Link>
         <div className="text-[11px] text-[#e0e0ff] hidden sm:flex items-center gap-3 font-mono">
-          <span>魚 SAKANA // RETRO SPEED DRILL</span>
+          <span>魚 SAKANA // JAPANESE SPEED DRILL</span>
           <span className="text-[#00ff66]">● ONLINE</span>
         </div>
       </div>

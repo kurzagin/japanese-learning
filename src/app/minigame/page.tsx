@@ -5,7 +5,7 @@ import MinigameClient from "./MinigameClient";
 export const metadata: Metadata = {
   title: "30-Kana Arcade Loop — Quick Speed Challenge",
   description:
-    "Test your Japanese Kana recognition speed under pressure in the 30-Kana retro arcade challenge.",
+    "Test your Japanese Kana recognition speed under pressure in the 30-Kana arcade challenge.",
   alternates: {
     canonical: "/minigame",
   },

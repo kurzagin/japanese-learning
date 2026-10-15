@@ -13,11 +13,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "SaKana (魚) — Retro Japanese Kana & Vocabulary Speed Drill",
+    default: "SaKana (魚) — Japanese Kana & Vocabulary Speed Drill",
     template: "%s | SaKana (魚)",
   },
   description:
-    "Master Hiragana, Katakana, and essential Japanese vocabulary fast with high-speed SRS flashcards, Voicevox audio pronunciation, arcade drills, and retro aesthetic styling.",
+    "Master Hiragana, Katakana, and essential Japanese vocabulary fast with high-speed SRS flashcards, Voicevox audio pronunciation, and arcade drills.",
   applicationName: "SaKana",
   authors: [{ name: "SaKana Project Team" }],
   generator: "Next.js",
@@ -55,16 +55,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["id_ID", "ja_JP"],
     url: siteUrl,
-    title: "SaKana (魚) — Retro Japanese Speed Drill & SRS Flashcards",
+    title: "SaKana (魚) — Japanese Speed Drill & SRS Flashcards",
     description:
-      "Interactive Japanese learning web app featuring Hiragana & Katakana speed drills, native Voicevox neural audio, retro arcade challenges, and SM-2 spaced repetition.",
+      "Interactive Japanese learning web app featuring Hiragana & Katakana speed drills, native Voicevox neural audio, arcade challenges, and SM-2 spaced repetition.",
     siteName: "SaKana",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaKana (魚) — Retro Japanese Kana Speed Drill",
+    title: "SaKana (魚) — Japanese Kana Speed Drill",
     description:
-      "Master Japanese Hiragana, Katakana & Vocab with retro arcade drills and spaced repetition.",
+      "Master Japanese Hiragana, Katakana & Vocab with arcade drills and spaced repetition.",
   },
   robots: {
     index: true,
