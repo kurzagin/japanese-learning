@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import HomePage from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Free Japanese Speed Drill & Spaced Repetition",
+  title: "Read Kana Before the Subtitles Pop Up | Japanese Speed Drill",
   description:
-    "Learn Japanese Hiragana, Katakana, and core words with fast-paced speed drills, SM-2 flashcard memory system, and Voicevox Japanese audio.",
+    "Fast Kana reading reflexes for anime fans. Master Hiragana, Katakana, and iconic anime words in fractions of a second with SM-2 spaced repetition and Voicevox audio.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SaKana (魚) — Free Japanese Speed Drill",
+    title: "SaKana (魚) — Kana Reading Speed Drill for Anime Fans",
     description:
-      "Interactive flashcards and speed tests for Japanese Hiragana, Katakana, and Vocabulary.",
+      "Stop obsessing over stroke orders. Train your reflexes to read anime titles, attack shouts, and manga sound effects instantly.",
     url: "/",
   },
 };

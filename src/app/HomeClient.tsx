@@ -193,10 +193,10 @@ export default function HomePage() {
                   <div className="space-y-1.5">
                     <div className="font-bold text-[#000080] flex items-center gap-1.5">
                       <span className="text-[#800000]">語</span>
-                      <span>CORE VOCABULARY</span>
+                      <span>ANIME &amp; CORE VOCABULARY</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      161 high-frequency Japanese words with constituent character breakdowns and audio.
+                      161 words: iconic anime reactions, loanwords, and essential daily Japanese with audio.
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
@@ -207,7 +207,7 @@ export default function HomePage() {
                       &bull; さかな (Fish / SaKana)
                     </Link>
                     <Link href="/words/neko" className="text-[#555] hover:underline">
-                      &bull; ねこ (Cat)
+                      &bull; ねこ (Cat / Anime Companion)
                     </Link>
                     <Link href="/words/arigatou" className="text-[#555] hover:underline">
                       &bull; ありがとう (Thank you)
@@ -260,14 +260,14 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* Docked Retro Footer & Status Bar */}
+      {/* Docked Footer & Status Bar */}
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>SAKANA READY</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">SAKANA PROJECT // JAPANESE READING SPEED DRILL</span>
+          <span className="hidden sm:inline">SAKANA PROJECT // KANA SPEED DRILL FOR ANIME FANS</span>
           <span className="border-l border-[#808080] pl-2 font-mono">UTF-8 // MULTILINGUAL</span>
         </div>
       </footer>

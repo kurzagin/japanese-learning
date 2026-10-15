@@ -1,19 +1,21 @@
 # Sakana Japanese (魚)
 
-> A retro Windows 98/2000-themed Japanese kana study application.
+> Fast Kana recognition speed drill designed specifically for anime and manga fans.
 
-Sakana Japanese is a focused learning tool designed to help learners master the fundamentals of Japanese writing systems: **Hiragana** and **Katakana**. 
+Sakana Japanese is a focused learning tool designed to help anime and pop-culture enthusiasts master **Hiragana** and **Katakana** with split-second reading reflexes.
 
-Rather than overwhelming beginners with full vocabulary upfront, the app breaks down the writing systems into **pure Kana primitives**—guiding learners step-by-step through basic vowels, consonant rows, voiced dakuon/handakuon, and contracted yōon combinations using visual mnemonics, audio-visual prompts, and spaced repetition flashcards.
+Rather than burning out on handwriting strokes and complex Kanji right away, the app trains instant visual recognition for Kana primitives—enabling learners to catch anime episode titles, character name cards, attack names, and manga sound effects (SFX) in real time using visual mnemonics, native Voicevox audio, and spaced repetition flashcards.
 
 ---
 
-### Features
+### Key Highlights
 
-* **Retro OS Aesthetic**: Authentic late-90s Windows dialog UI, pixel styling, and tactile controls.
+* **Speed-First Reflex Training**: Timed reaction tests and adaptive recognition drills to build sub-second reading speed.
 * **Primitive-First Curriculum**: 218 atomic Kana characters (104 Hiragana + 114 Katakana) categorized by rows and phonetic structure.
-* **Multilingual Mnemonic Guides**: Shape mnemonics and sample words available in English, Indonesian, and Japanese.
-* **Persistent Progress**: Study progress and mastery tracking backed by Neon Postgres and managed authentication.
+* **Anime & Real Media Context**: Essential anime loanwords, reaction phrases, and manga onomatopoeia.
+* **Spaced Repetition (SM-2)**: Smart interval review scheduling to permanently lock characters into memory.
+* **Multilingual Guides**: Shape mnemonics and sample words available in English, Indonesian, and Japanese.
+* **Native Voicevox Audio**: Accurate neural pitch audio for clear vowel and intonation distinction.
 
 ---
 

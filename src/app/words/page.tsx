@@ -2,24 +2,25 @@ import type { Metadata } from "next";
 import WordsHubClient from "./WordsHubClient";
 
 export const metadata: Metadata = {
-  title: "Japanese Core Vocabulary Directory — 161 Essential Words with Audio",
+  title: "Core & Anime Japanese Vocabulary Directory — 161 Words with Audio",
   description:
-    "Explore essential Japanese Hiragana and Katakana vocabulary words with native Voicevox audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
+    "Explore essential Japanese Hiragana and Katakana vocabulary words including popular anime terms with native Voicevox audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
   alternates: {
     canonical: "/words",
   },
   openGraph: {
-    title: "Japanese Core Vocabulary Directory | SaKana",
+    title: "Core & Anime Japanese Vocabulary Directory | SaKana",
     description:
-      "Master essential Hiragana & Katakana words with native audio pronunciation and character breakdowns.",
+      "Master essential Hiragana & Katakana words and anime loanwords with native audio pronunciation and character breakdowns.",
     url: "/words",
   },
   keywords: [
+    "japanese anime vocabulary",
+    "anime words hiragana katakana",
     "japanese vocabulary list",
     "hiragana words",
     "katakana words",
     "learn japanese words",
-    "elementary japanese vocabulary",
     "sakanajp vocabulary",
   ],
 };
