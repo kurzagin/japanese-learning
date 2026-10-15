@@ -76,6 +76,41 @@ export default function KanaHubClient() {
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
+
+          {/* Quick Category Hub Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2 pt-2 border-t border-[#800000]/10 text-[10px] font-mono">
+            <span className="font-bold text-[#800000] uppercase mr-1">Browse Categories:</span>
+            <Link
+              href="/kana/hiragana/category/gojuon"
+              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+            >
+              Hiragana Gojūon (46)
+            </Link>
+            <Link
+              href="/kana/hiragana/category/dakuon"
+              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+            >
+              Hiragana Dakuon (20)
+            </Link>
+            <Link
+              href="/kana/hiragana/category/yoon"
+              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+            >
+              Hiragana Yōon (33)
+            </Link>
+            <Link
+              href="/kana/katakana/category/gojuon"
+              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+            >
+              Katakana Gojūon (46)
+            </Link>
+            <Link
+              href="/kana/katakana/category/extended"
+              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+            >
+              Extended Katakana (10)
+            </Link>
+          </div>
         </div>
 
         {/* Controls Bar */}

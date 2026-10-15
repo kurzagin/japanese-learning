@@ -1,0 +1,1974 @@
+[
+  {
+    "slug": "ame",
+    "character": "あめ",
+    "romaji": "ame",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Rain / Candy",
+      "id": "Hujan / Permen",
+      "ja": "あめ"
+    },
+    "primaryKanaId": "h-a"
+  },
+  {
+    "slug": "inu",
+    "character": "いぬ",
+    "romaji": "inu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Dog",
+      "id": "Anjing",
+      "ja": "いぬ"
+    },
+    "primaryKanaId": "h-i",
+    "trivia": {
+      "en": "Dog. Man's loyal companion.",
+      "id": "Anjing. Sahabat setia manusia.",
+      "ja": "忠実な相棒の代表格。"
+    }
+  },
+  {
+    "slug": "umi",
+    "character": "うみ",
+    "romaji": "umi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Sea / Ocean",
+      "id": "Laut / Samudra",
+      "ja": "うみ"
+    },
+    "primaryKanaId": "h-u"
+  },
+  {
+    "slug": "eki",
+    "character": "えき",
+    "romaji": "eki",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Train station",
+      "id": "Stasiun kereta",
+      "ja": "えき"
+    },
+    "primaryKanaId": "h-e"
+  },
+  {
+    "slug": "onigiri",
+    "character": "おにぎり",
+    "romaji": "onigiri",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Rice ball",
+      "id": "Nasi kepal onigiri",
+      "ja": "おにぎり"
+    },
+    "primaryKanaId": "h-o"
+  },
+  {
+    "slug": "kawa",
+    "character": "かわ",
+    "romaji": "kawa",
+    "script": "hiragana",
+    "meaning": {
+      "en": "River",
+      "id": "Sungai",
+      "ja": "かわ"
+    },
+    "primaryKanaId": "h-ka"
+  },
+  {
+    "slug": "kitsune",
+    "character": "きつね",
+    "romaji": "kitsune",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Fox",
+      "id": "Rubah",
+      "ja": "きつね"
+    },
+    "primaryKanaId": "h-ki"
+  },
+  {
+    "slug": "kuruma",
+    "character": "くるま",
+    "romaji": "kuruma",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Car / Vehicle",
+      "id": "Mobil",
+      "ja": "くるま"
+    },
+    "primaryKanaId": "h-ku"
+  },
+  {
+    "slug": "kemuri",
+    "character": "けむり",
+    "romaji": "kemuri",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Smoke",
+      "id": "Asap",
+      "ja": "けむり"
+    },
+    "primaryKanaId": "h-ke"
+  },
+  {
+    "slug": "kokoro",
+    "character": "こころ",
+    "romaji": "kokoro",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Heart / Soul",
+      "id": "Hati / Jiwa",
+      "ja": "こころ"
+    },
+    "primaryKanaId": "h-ko"
+  },
+  {
+    "slug": "sakura",
+    "character": "さくら",
+    "romaji": "sakura",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Cherry blossom",
+      "id": "Bunga sakura",
+      "ja": "さくら"
+    },
+    "primaryKanaId": "h-sa"
+  },
+  {
+    "slug": "shiro",
+    "character": "しろ",
+    "romaji": "shiro",
+    "script": "hiragana",
+    "meaning": {
+      "en": "White / Castle",
+      "id": "Putih / Kastil",
+      "ja": "しろ"
+    },
+    "primaryKanaId": "h-shi"
+  },
+  {
+    "slug": "sushi",
+    "character": "すし",
+    "romaji": "sushi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Sushi",
+      "id": "Sushi",
+      "ja": "すし"
+    },
+    "primaryKanaId": "h-su"
+  },
+  {
+    "slug": "sekai",
+    "character": "せかい",
+    "romaji": "sekai",
+    "script": "hiragana",
+    "meaning": {
+      "en": "World",
+      "id": "Dunia",
+      "ja": "せかい"
+    },
+    "primaryKanaId": "h-se"
+  },
+  {
+    "slug": "sora",
+    "character": "そら",
+    "romaji": "sora",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Sky",
+      "id": "Langit",
+      "ja": "そら"
+    },
+    "primaryKanaId": "h-so"
+  },
+  {
+    "slug": "tamago",
+    "character": "たまご",
+    "romaji": "tamago",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Egg",
+      "id": "Telur",
+      "ja": "たまご"
+    },
+    "primaryKanaId": "h-ta"
+  },
+  {
+    "slug": "chizu",
+    "character": "ちず",
+    "romaji": "chizu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Map",
+      "id": "Peta",
+      "ja": "ちず"
+    },
+    "primaryKanaId": "h-chi"
+  },
+  {
+    "slug": "tsuki",
+    "character": "つき",
+    "romaji": "tsuki",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Moon",
+      "id": "Bulan",
+      "ja": "つき"
+    },
+    "primaryKanaId": "h-tsu"
+  },
+  {
+    "slug": "te",
+    "character": "て",
+    "romaji": "te",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Hand",
+      "id": "Tangan",
+      "ja": "て"
+    },
+    "primaryKanaId": "h-te"
+  },
+  {
+    "slug": "tomodachi",
+    "character": "ともだち",
+    "romaji": "tomodachi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Friend",
+      "id": "Teman",
+      "ja": "ともだち"
+    },
+    "primaryKanaId": "h-to"
+  },
+  {
+    "slug": "natsu",
+    "character": "なつ",
+    "romaji": "natsu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Summer",
+      "id": "Musim panas",
+      "ja": "なつ"
+    },
+    "primaryKanaId": "h-na"
+  },
+  {
+    "slug": "niji",
+    "character": "にじ",
+    "romaji": "niji",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Rainbow",
+      "id": "Pelangi",
+      "ja": "にじ"
+    },
+    "primaryKanaId": "h-ni"
+  },
+  {
+    "slug": "nuigurumi",
+    "character": "ぬいぐるみ",
+    "romaji": "nuigurumi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Stuffed plushie",
+      "id": "Boneka",
+      "ja": "ぬいぐるみ"
+    },
+    "primaryKanaId": "h-nu"
+  },
+  {
+    "slug": "neko",
+    "character": "ねこ",
+    "romaji": "neko",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Cat",
+      "id": "Kucing",
+      "ja": "ねこ"
+    },
+    "primaryKanaId": "h-ne",
+    "trivia": {
+      "en": "Cat. Traditional anime pet companion.",
+      "id": "Kucing. Hewan peliharaan favorit di anime.",
+      "ja": "アニメで定番のペット。「ニャー」と鳴く。"
+    }
+  },
+  {
+    "slug": "nori",
+    "character": "のり",
+    "romaji": "nori",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Seaweed",
+      "id": "Rumput laut nori",
+      "ja": "のり"
+    },
+    "primaryKanaId": "h-no"
+  },
+  {
+    "slug": "hana",
+    "character": "はな",
+    "romaji": "hana",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Flower / Nose",
+      "id": "Bunga / Hidung",
+      "ja": "はな"
+    },
+    "primaryKanaId": "h-ha"
+  },
+  {
+    "slug": "hikari",
+    "character": "ひかり",
+    "romaji": "hikari",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Light",
+      "id": "Cahaya",
+      "ja": "ひかり"
+    },
+    "primaryKanaId": "h-hi"
+  },
+  {
+    "slug": "fune",
+    "character": "ふね",
+    "romaji": "fune",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Ship / Boat",
+      "id": "Kapal",
+      "ja": "ふね"
+    },
+    "primaryKanaId": "h-fu"
+  },
+  {
+    "slug": "heya",
+    "character": "へや",
+    "romaji": "heya",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Room",
+      "id": "Kamar",
+      "ja": "へや"
+    },
+    "primaryKanaId": "h-he"
+  },
+  {
+    "slug": "hoshi",
+    "character": "ほし",
+    "romaji": "hoshi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Star",
+      "id": "Bintang",
+      "ja": "ほし"
+    },
+    "primaryKanaId": "h-ho"
+  },
+  {
+    "slug": "matsuri",
+    "character": "まつり",
+    "romaji": "matsuri",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Festival",
+      "id": "Festival",
+      "ja": "まつり"
+    },
+    "primaryKanaId": "h-ma"
+  },
+  {
+    "slug": "mizu",
+    "character": "みず",
+    "romaji": "mizu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Water",
+      "id": "Air",
+      "ja": "みず"
+    },
+    "primaryKanaId": "h-mi"
+  },
+  {
+    "slug": "mushi",
+    "character": "むし",
+    "romaji": "mushi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Insect",
+      "id": "Serangga",
+      "ja": "むし"
+    },
+    "primaryKanaId": "h-mu"
+  },
+  {
+    "slug": "megane",
+    "character": "めがね",
+    "romaji": "megane",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Glasses",
+      "id": "Kacamata",
+      "ja": "めがね"
+    },
+    "primaryKanaId": "h-me"
+  },
+  {
+    "slug": "mori",
+    "character": "もり",
+    "romaji": "mori",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Forest",
+      "id": "Hutan",
+      "ja": "もり"
+    },
+    "primaryKanaId": "h-mo"
+  },
+  {
+    "slug": "yama",
+    "character": "やま",
+    "romaji": "yama",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Mountain",
+      "id": "Gunung",
+      "ja": "やま"
+    },
+    "primaryKanaId": "h-ya"
+  },
+  {
+    "slug": "yuki",
+    "character": "ゆき",
+    "romaji": "yuki",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Snow",
+      "id": "Salju",
+      "ja": "ゆき"
+    },
+    "primaryKanaId": "h-yu"
+  },
+  {
+    "slug": "yoru",
+    "character": "よる",
+    "romaji": "yoru",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Night",
+      "id": "Malam",
+      "ja": "よる"
+    },
+    "primaryKanaId": "h-yo"
+  },
+  {
+    "slug": "raion",
+    "character": "らいおん",
+    "romaji": "raion",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Lion",
+      "id": "Singa",
+      "ja": "らいおん"
+    },
+    "primaryKanaId": "h-ra"
+  },
+  {
+    "slug": "ringo",
+    "character": "りんご",
+    "romaji": "ringo",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Apple",
+      "id": "Apel",
+      "ja": "りんご"
+    },
+    "primaryKanaId": "h-ri"
+  },
+  {
+    "slug": "rusu",
+    "character": "るす",
+    "romaji": "rusu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Away from home",
+      "id": "Tidak di rumah",
+      "ja": "るす"
+    },
+    "primaryKanaId": "h-ru"
+  },
+  {
+    "slug": "renshuu",
+    "character": "れんしゅう",
+    "romaji": "renshuu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Practice",
+      "id": "Latihan",
+      "ja": "れんしゅう"
+    },
+    "primaryKanaId": "h-re"
+  },
+  {
+    "slug": "rousoku",
+    "character": "ろうそく",
+    "romaji": "rousoku",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Candle",
+      "id": "Lilin",
+      "ja": "ろうそく"
+    },
+    "primaryKanaId": "h-ro"
+  },
+  {
+    "slug": "wani",
+    "character": "わに",
+    "romaji": "wani",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Crocodile",
+      "id": "Buaya",
+      "ja": "わに"
+    },
+    "primaryKanaId": "h-wa"
+  },
+  {
+    "slug": "hon-wo-yomu",
+    "character": "ほん を よむ",
+    "romaji": "hon wo yomu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Object particle (wo)",
+      "id": "Partikel objek (wo)",
+      "ja": "本を読む (を)"
+    },
+    "primaryKanaId": "h-wo"
+  },
+  {
+    "slug": "nihon",
+    "character": "にほん",
+    "romaji": "nihon",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Japan (ending n)",
+      "id": "Jepang (akhiran n)",
+      "ja": "にほん"
+    },
+    "primaryKanaId": "h-n"
+  },
+  {
+    "slug": "gakkou",
+    "character": "がっこう",
+    "romaji": "gakkou",
+    "script": "hiragana",
+    "meaning": {
+      "en": "School",
+      "id": "Sekolah",
+      "ja": "がっこう"
+    },
+    "primaryKanaId": "h-ga"
+  },
+  {
+    "slug": "ginkou",
+    "character": "ぎんこう",
+    "romaji": "ginkou",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Bank",
+      "id": "Bank",
+      "ja": "ぎんこう"
+    },
+    "primaryKanaId": "h-gi"
+  },
+  {
+    "slug": "guntai",
+    "character": "ぐんたい",
+    "romaji": "guntai",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Army",
+      "id": "Tentara",
+      "ja": "ぐんたい"
+    },
+    "primaryKanaId": "h-gu"
+  },
+  {
+    "slug": "genki",
+    "character": "げんき",
+    "romaji": "genki",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Healthy / Energetic",
+      "id": "Sehat / Semangat",
+      "ja": "げんき"
+    },
+    "primaryKanaId": "h-ge"
+  },
+  {
+    "slug": "gohan",
+    "character": "ごはん",
+    "romaji": "gohan",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Rice / Meal",
+      "id": "Nasi / Makanan",
+      "ja": "ごはん"
+    },
+    "primaryKanaId": "h-go"
+  },
+  {
+    "slug": "zasshi",
+    "character": "ざっし",
+    "romaji": "zasshi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Magazine",
+      "id": "Majalah",
+      "ja": "ざっし"
+    },
+    "primaryKanaId": "h-za"
+  },
+  {
+    "slug": "jikan",
+    "character": "じかん",
+    "romaji": "jikan",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Time",
+      "id": "Waktu",
+      "ja": "じかん"
+    },
+    "primaryKanaId": "h-ji"
+  },
+  {
+    "slug": "zutto",
+    "character": "ずっと",
+    "romaji": "zutto",
+    "script": "hiragana",
+    "meaning": {
+      "en": "All the time / Always",
+      "id": "Selamanya / Terus-menerus",
+      "ja": "ずっと"
+    },
+    "primaryKanaId": "h-zu"
+  },
+  {
+    "slug": "zenbu",
+    "character": "ぜんぶ",
+    "romaji": "zenbu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "All / Everything",
+      "id": "Semua",
+      "ja": "ぜんぶ"
+    },
+    "primaryKanaId": "h-ze"
+  },
+  {
+    "slug": "zou",
+    "character": "ぞう",
+    "romaji": "zou",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Elephant",
+      "id": "Gajah",
+      "ja": "ぞう"
+    },
+    "primaryKanaId": "h-zo"
+  },
+  {
+    "slug": "daigaku",
+    "character": "だいがく",
+    "romaji": "daigaku",
+    "script": "hiragana",
+    "meaning": {
+      "en": "University",
+      "id": "Universitas",
+      "ja": "だいがく"
+    },
+    "primaryKanaId": "h-da"
+  },
+  {
+    "slug": "hanaji",
+    "character": "はなぢ",
+    "romaji": "hanaji",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Nosebleed (ji / ぢ)",
+      "id": "Mimisan",
+      "ja": "はなぢ"
+    },
+    "primaryKanaId": "h-dji"
+  },
+  {
+    "slug": "tsuzuku",
+    "character": "つづく",
+    "romaji": "tsuzuku",
+    "script": "hiragana",
+    "meaning": {
+      "en": "To continue (zu / づ)",
+      "id": "Berlanjut",
+      "ja": "つづく"
+    },
+    "primaryKanaId": "h-dzu"
+  },
+  {
+    "slug": "densha",
+    "character": "でんしゃ",
+    "romaji": "densha",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Train",
+      "id": "Kereta listrik",
+      "ja": "でんしゃ"
+    },
+    "primaryKanaId": "h-de"
+  },
+  {
+    "slug": "doubutsu",
+    "character": "どうぶつ",
+    "romaji": "doubutsu",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Animal",
+      "id": "Hewan",
+      "ja": "どうぶつ"
+    },
+    "primaryKanaId": "h-do"
+  },
+  {
+    "slug": "basho",
+    "character": "ばしょ",
+    "romaji": "basho",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Place",
+      "id": "Tempat",
+      "ja": "ばしょ"
+    },
+    "primaryKanaId": "h-ba"
+  },
+  {
+    "slug": "byouin",
+    "character": "びょういん",
+    "romaji": "byouin",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Hospital",
+      "id": "Rumah sakit",
+      "ja": "びょういん"
+    },
+    "primaryKanaId": "h-bi"
+  },
+  {
+    "slug": "bunka",
+    "character": "ぶんか",
+    "romaji": "bunka",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Culture",
+      "id": "Budaya",
+      "ja": "ぶんか"
+    },
+    "primaryKanaId": "h-bu"
+  },
+  {
+    "slug": "bentou",
+    "character": "べんとう",
+    "romaji": "bentou",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Bento box",
+      "id": "Bekal bento",
+      "ja": "べんとう"
+    },
+    "primaryKanaId": "h-be"
+  },
+  {
+    "slug": "boushi",
+    "character": "ぼうし",
+    "romaji": "boushi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Hat",
+      "id": "Topi",
+      "ja": "ぼうし"
+    },
+    "primaryKanaId": "h-bo"
+  },
+  {
+    "slug": "panda",
+    "character": "ぱんだ",
+    "romaji": "panda",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Panda",
+      "id": "Panda",
+      "ja": "ぱんだ"
+    },
+    "primaryKanaId": "h-pa"
+  },
+  {
+    "slug": "piano",
+    "character": "ぴあの",
+    "romaji": "piano",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Piano",
+      "id": "Piano",
+      "ja": "ぴあの"
+    },
+    "primaryKanaId": "h-pi"
+  },
+  {
+    "slug": "purezento",
+    "character": "ぷれぜんと",
+    "romaji": "purezento",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Present / Gift",
+      "id": "Hadiah",
+      "ja": "ぷれぜんと"
+    },
+    "primaryKanaId": "h-pu"
+  },
+  {
+    "slug": "pengin",
+    "character": "ぺんぎん",
+    "romaji": "pengin",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Penguin",
+      "id": "Penguin",
+      "ja": "ぺんぎん"
+    },
+    "primaryKanaId": "h-pe"
+  },
+  {
+    "slug": "poketto",
+    "character": "ぽけっと",
+    "romaji": "poketto",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Pocket",
+      "id": "Kantong / Saku",
+      "ja": "ぽけっと"
+    },
+    "primaryKanaId": "h-po"
+  },
+  {
+    "slug": "aisu",
+    "character": "アイス",
+    "romaji": "aisu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Ice cream / Ice",
+      "id": "Es krim / Es",
+      "ja": "アイス"
+    },
+    "primaryKanaId": "k-a"
+  },
+  {
+    "slug": "inku",
+    "character": "インク",
+    "romaji": "inku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Ink",
+      "id": "Tinta",
+      "ja": "インク"
+    },
+    "primaryKanaId": "k-i"
+  },
+  {
+    "slug": "webu",
+    "character": "ウェブ",
+    "romaji": "webu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Web / Website",
+      "id": "Web / Website",
+      "ja": "ウェブ"
+    },
+    "primaryKanaId": "k-u"
+  },
+  {
+    "slug": "ekoo",
+    "character": "エコー",
+    "romaji": "ekoo",
+    "script": "katakana",
+    "meaning": {
+      "en": "Echo",
+      "id": "Gema / Echo",
+      "ja": "エコー"
+    },
+    "primaryKanaId": "k-e"
+  },
+  {
+    "slug": "orenji",
+    "character": "オレンジ",
+    "romaji": "orenji",
+    "script": "katakana",
+    "meaning": {
+      "en": "Orange",
+      "id": "Jeruk / Oranye",
+      "ja": "オレンジ"
+    },
+    "primaryKanaId": "k-o"
+  },
+  {
+    "slug": "kafe",
+    "character": "カフェ",
+    "romaji": "kafe",
+    "script": "katakana",
+    "meaning": {
+      "en": "Café",
+      "id": "Kafe",
+      "ja": "カフェ"
+    },
+    "primaryKanaId": "k-ka"
+  },
+  {
+    "slug": "kii",
+    "character": "キー",
+    "romaji": "kii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Key",
+      "id": "Kunci",
+      "ja": "キー"
+    },
+    "primaryKanaId": "k-ki"
+  },
+  {
+    "slug": "kurasu",
+    "character": "クラス",
+    "romaji": "kurasu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Class",
+      "id": "Kelas",
+      "ja": "クラス"
+    },
+    "primaryKanaId": "k-ku"
+  },
+  {
+    "slug": "keeki",
+    "character": "ケーキ",
+    "romaji": "keeki",
+    "script": "katakana",
+    "meaning": {
+      "en": "Cake",
+      "id": "Kue / Cake",
+      "ja": "ケーキ"
+    },
+    "primaryKanaId": "k-ke"
+  },
+  {
+    "slug": "koin",
+    "character": "コイン",
+    "romaji": "koin",
+    "script": "katakana",
+    "meaning": {
+      "en": "Coin",
+      "id": "Koin",
+      "ja": "コイン"
+    },
+    "primaryKanaId": "k-ko"
+  },
+  {
+    "slug": "sain",
+    "character": "サイン",
+    "romaji": "sain",
+    "script": "katakana",
+    "meaning": {
+      "en": "Signature / Autograph",
+      "id": "Tanda tangan",
+      "ja": "サイン"
+    },
+    "primaryKanaId": "k-sa"
+  },
+  {
+    "slug": "shatsu",
+    "character": "シャツ",
+    "romaji": "shatsu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Shirt",
+      "id": "Kemeja / Kaos",
+      "ja": "シャツ"
+    },
+    "primaryKanaId": "k-shi"
+  },
+  {
+    "slug": "supootsu",
+    "character": "スポーツ",
+    "romaji": "supootsu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Sports",
+      "id": "Olahraga",
+      "ja": "スポーツ"
+    },
+    "primaryKanaId": "k-su"
+  },
+  {
+    "slug": "seetaa",
+    "character": "セーター",
+    "romaji": "seetaa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Sweater",
+      "id": "Baju hangat sweater",
+      "ja": "セーター"
+    },
+    "primaryKanaId": "k-se"
+  },
+  {
+    "slug": "soosu",
+    "character": "ソース",
+    "romaji": "soosu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Sauce",
+      "id": "Saus",
+      "ja": "ソース"
+    },
+    "primaryKanaId": "k-so"
+  },
+  {
+    "slug": "takushii",
+    "character": "タクシー",
+    "romaji": "takushii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Taxi",
+      "id": "Taksi",
+      "ja": "タクシー"
+    },
+    "primaryKanaId": "k-ta"
+  },
+  {
+    "slug": "chiizu",
+    "character": "チーズ",
+    "romaji": "chiizu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Cheese",
+      "id": "Keju",
+      "ja": "チーズ"
+    },
+    "primaryKanaId": "k-chi"
+  },
+  {
+    "slug": "tsuaa",
+    "character": "ツアー",
+    "romaji": "tsuaa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Tour",
+      "id": "Tur / Wisata",
+      "ja": "ツアー"
+    },
+    "primaryKanaId": "k-tsu"
+  },
+  {
+    "slug": "tesuto",
+    "character": "テスト",
+    "romaji": "tesuto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Test / Exam",
+      "id": "Ujian / Tes",
+      "ja": "テスト"
+    },
+    "primaryKanaId": "k-te"
+  },
+  {
+    "slug": "tomato",
+    "character": "トマト",
+    "romaji": "tomato",
+    "script": "katakana",
+    "meaning": {
+      "en": "Tomato",
+      "id": "Tomat",
+      "ja": "トマト"
+    },
+    "primaryKanaId": "k-to"
+  },
+  {
+    "slug": "naifu",
+    "character": "ナイフ",
+    "romaji": "naifu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Knife",
+      "id": "Pisau",
+      "ja": "ナイフ"
+    },
+    "primaryKanaId": "k-na"
+  },
+  {
+    "slug": "nyuusu",
+    "character": "ニュース",
+    "romaji": "nyuusu",
+    "script": "katakana",
+    "meaning": {
+      "en": "News",
+      "id": "Berita",
+      "ja": "ニュース"
+    },
+    "primaryKanaId": "k-ni"
+  },
+  {
+    "slug": "nuudoru",
+    "character": "ヌードル",
+    "romaji": "nuudoru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Noodle",
+      "id": "Mie",
+      "ja": "ヌードル"
+    },
+    "primaryKanaId": "k-nu"
+  },
+  {
+    "slug": "netto",
+    "character": "ネット",
+    "romaji": "netto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Internet / Net",
+      "id": "Internet / Jaring",
+      "ja": "ネット"
+    },
+    "primaryKanaId": "k-ne"
+  },
+  {
+    "slug": "nooto",
+    "character": "ノート",
+    "romaji": "nooto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Notebook",
+      "id": "Buku catatan",
+      "ja": "ノート"
+    },
+    "primaryKanaId": "k-no"
+  },
+  {
+    "slug": "hanbaagaa",
+    "character": "ハンバーガー",
+    "romaji": "hanbaagaa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Hamburger",
+      "id": "Hamburger",
+      "ja": "ハンバーガー"
+    },
+    "primaryKanaId": "k-ha"
+  },
+  {
+    "slug": "hiiroo",
+    "character": "ヒーロー",
+    "romaji": "hiiroo",
+    "script": "katakana",
+    "meaning": {
+      "en": "Hero",
+      "id": "Pahlawan / Hero",
+      "ja": "ヒーロー"
+    },
+    "primaryKanaId": "k-hi",
+    "trivia": {
+      "en": "Hero. Popularized in anime like My Hero Academia.",
+      "id": "Pahlawan (Hero). Populer di anime Boku no Hero Academia.",
+      "ja": "英語の『hero』から。『僕のヒーローアカデミア』等。"
+    }
+  },
+  {
+    "slug": "fooku",
+    "character": "フォーク",
+    "romaji": "fooku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Fork",
+      "id": "Garpu",
+      "ja": "フォーク"
+    },
+    "primaryKanaId": "k-fu"
+  },
+  {
+    "slug": "herumetto",
+    "character": "ヘルメット",
+    "romaji": "herumetto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Helmet",
+      "id": "Helm",
+      "ja": "ヘルメット"
+    },
+    "primaryKanaId": "k-he"
+  },
+  {
+    "slug": "hoteru",
+    "character": "ホテル",
+    "romaji": "hoteru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Hotel",
+      "id": "Hotel",
+      "ja": "ホテル"
+    },
+    "primaryKanaId": "k-ho"
+  },
+  {
+    "slug": "masuku",
+    "character": "マスク",
+    "romaji": "masuku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Mask",
+      "id": "Masker",
+      "ja": "マスク"
+    },
+    "primaryKanaId": "k-ma"
+  },
+  {
+    "slug": "miruku",
+    "character": "ミルク",
+    "romaji": "miruku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Milk",
+      "id": "Susu",
+      "ja": "ミルク"
+    },
+    "primaryKanaId": "k-mi"
+  },
+  {
+    "slug": "muubii",
+    "character": "ムービー",
+    "romaji": "muubii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Movie",
+      "id": "Film / Bioskop",
+      "ja": "ムービー"
+    },
+    "primaryKanaId": "k-mu"
+  },
+  {
+    "slug": "menyuu",
+    "character": "メニュー",
+    "romaji": "menyuu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Menu",
+      "id": "Menu makanan",
+      "ja": "メニュー"
+    },
+    "primaryKanaId": "k-me"
+  },
+  {
+    "slug": "moderu",
+    "character": "モデル",
+    "romaji": "moderu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Model",
+      "id": "Model",
+      "ja": "モデル"
+    },
+    "primaryKanaId": "k-mo"
+  },
+  {
+    "slug": "yaado",
+    "character": "ヤード",
+    "romaji": "yaado",
+    "script": "katakana",
+    "meaning": {
+      "en": "Yard",
+      "id": "Halaman / Yard",
+      "ja": "ヤード"
+    },
+    "primaryKanaId": "k-ya"
+  },
+  {
+    "slug": "yuumoa",
+    "character": "ユーモア",
+    "romaji": "yuumoa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Humor",
+      "id": "Humor / Lelucon",
+      "ja": "ユーモア"
+    },
+    "primaryKanaId": "k-yu"
+  },
+  {
+    "slug": "yooguruto",
+    "character": "ヨーグルト",
+    "romaji": "yooguruto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Yogurt",
+      "id": "Yogurt",
+      "ja": "ヨーグルト"
+    },
+    "primaryKanaId": "k-yo"
+  },
+  {
+    "slug": "rajio",
+    "character": "ラジオ",
+    "romaji": "rajio",
+    "script": "katakana",
+    "meaning": {
+      "en": "Radio",
+      "id": "Radio",
+      "ja": "ラジオ"
+    },
+    "primaryKanaId": "k-ra"
+  },
+  {
+    "slug": "riidaa",
+    "character": "リーダー",
+    "romaji": "riidaa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Leader",
+      "id": "Pemimpin / Leader",
+      "ja": "リーダー"
+    },
+    "primaryKanaId": "k-ri"
+  },
+  {
+    "slug": "ruuru",
+    "character": "ルール",
+    "romaji": "ruuru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Rule",
+      "id": "Aturan / Rules",
+      "ja": "ルール"
+    },
+    "primaryKanaId": "k-ru"
+  },
+  {
+    "slug": "resutoran",
+    "character": "レストラン",
+    "romaji": "resutoran",
+    "script": "katakana",
+    "meaning": {
+      "en": "Restaurant",
+      "id": "Restoran",
+      "ja": "レストラン"
+    },
+    "primaryKanaId": "k-re"
+  },
+  {
+    "slug": "robotto",
+    "character": "ロボット",
+    "romaji": "robotto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Robot",
+      "id": "Robot",
+      "ja": "ロボット"
+    },
+    "primaryKanaId": "k-ro"
+  },
+  {
+    "slug": "wain",
+    "character": "ワイン",
+    "romaji": "wain",
+    "script": "katakana",
+    "meaning": {
+      "en": "Wine",
+      "id": "Anggur / Wine",
+      "ja": "ワイン"
+    },
+    "primaryKanaId": "k-wa"
+  },
+  {
+    "slug": "wo",
+    "character": "ヲ",
+    "romaji": "wo",
+    "script": "katakana",
+    "meaning": {
+      "en": "Rare Katakana wo",
+      "id": "Katakana langka wo",
+      "ja": "ヲ"
+    },
+    "primaryKanaId": "k-wo"
+  },
+  {
+    "slug": "pan",
+    "character": "パン",
+    "romaji": "pan",
+    "script": "katakana",
+    "meaning": {
+      "en": "Bread (ending n)",
+      "id": "Roti (akhiran n)",
+      "ja": "パン"
+    },
+    "primaryKanaId": "k-n"
+  },
+  {
+    "slug": "gasu",
+    "character": "ガス",
+    "romaji": "gasu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Gas",
+      "id": "Gas",
+      "ja": "ガス"
+    },
+    "primaryKanaId": "k-ga"
+  },
+  {
+    "slug": "gitaa",
+    "character": "ギター",
+    "romaji": "gitaa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Guitar",
+      "id": "Gitar",
+      "ja": "ギター"
+    },
+    "primaryKanaId": "k-gi"
+  },
+  {
+    "slug": "gurasu",
+    "character": "グラス",
+    "romaji": "gurasu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Glass / Tumbler",
+      "id": "Gelas",
+      "ja": "グラス"
+    },
+    "primaryKanaId": "k-gu"
+  },
+  {
+    "slug": "geemu",
+    "character": "ゲーム",
+    "romaji": "geemu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Video game",
+      "id": "Video game",
+      "ja": "ゲーム"
+    },
+    "primaryKanaId": "k-ge",
+    "trivia": {
+      "en": "From English 'game'. Note the long vowel mark 'ー'.",
+      "id": "Dari bahasa Inggris 'game'. Perhatikan tanda strip panjang 'ー'.",
+      "ja": "英語の『game』から。長音符「ー」に注目。"
+    }
+  },
+  {
+    "slug": "gorufu",
+    "character": "ゴルフ",
+    "romaji": "gorufu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Golf",
+      "id": "Golf",
+      "ja": "ゴルフ"
+    },
+    "primaryKanaId": "k-go"
+  },
+  {
+    "slug": "dezain",
+    "character": "デザイン",
+    "romaji": "dezain",
+    "script": "katakana",
+    "meaning": {
+      "en": "Design",
+      "id": "Desain",
+      "ja": "デザイン"
+    },
+    "primaryKanaId": "k-za"
+  },
+  {
+    "slug": "juusu",
+    "character": "ジュース",
+    "romaji": "juusu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Juice",
+      "id": "Jus",
+      "ja": "ジュース"
+    },
+    "primaryKanaId": "k-ji"
+  },
+  {
+    "slug": "zubon",
+    "character": "ズボン",
+    "romaji": "zubon",
+    "script": "katakana",
+    "meaning": {
+      "en": "Pants / Trousers",
+      "id": "Celana panjang",
+      "ja": "ズボン"
+    },
+    "primaryKanaId": "k-zu"
+  },
+  {
+    "slug": "zero",
+    "character": "ゼロ",
+    "romaji": "zero",
+    "script": "katakana",
+    "meaning": {
+      "en": "Zero",
+      "id": "Nol",
+      "ja": "ゼロ"
+    },
+    "primaryKanaId": "k-ze"
+  },
+  {
+    "slug": "zonbi",
+    "character": "ゾンビ",
+    "romaji": "zonbi",
+    "script": "katakana",
+    "meaning": {
+      "en": "Zombie",
+      "id": "Zombi",
+      "ja": "ゾンビ"
+    },
+    "primaryKanaId": "k-zo"
+  },
+  {
+    "slug": "dansu",
+    "character": "ダンス",
+    "romaji": "dansu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Dance",
+      "id": "Tari / Dance",
+      "ja": "ダンス"
+    },
+    "primaryKanaId": "k-da"
+  },
+  {
+    "slug": "hanaji-katakana",
+    "character": "ハナヂ",
+    "romaji": "hanaji",
+    "script": "katakana",
+    "meaning": {
+      "en": "Nosebleed (ji / ヂ)",
+      "id": "Mimisan",
+      "ja": "ハナヂ"
+    },
+    "primaryKanaId": "k-dji"
+  },
+  {
+    "slug": "guzzu",
+    "character": "グッズ",
+    "romaji": "guzzu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Goods / Merch (zu / ヅ)",
+      "id": "Barang merchandise",
+      "ja": "グッズ"
+    },
+    "primaryKanaId": "k-dzu"
+  },
+  {
+    "slug": "dezaato",
+    "character": "デザート",
+    "romaji": "dezaato",
+    "script": "katakana",
+    "meaning": {
+      "en": "Dessert",
+      "id": "Hidangan penutup",
+      "ja": "デザート"
+    },
+    "primaryKanaId": "k-de"
+  },
+  {
+    "slug": "doa",
+    "character": "ドア",
+    "romaji": "doa",
+    "script": "katakana",
+    "meaning": {
+      "en": "Door",
+      "id": "Pintu",
+      "ja": "ドア"
+    },
+    "primaryKanaId": "k-do"
+  },
+  {
+    "slug": "basu",
+    "character": "バス",
+    "romaji": "basu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Bus",
+      "id": "Bus",
+      "ja": "バス"
+    },
+    "primaryKanaId": "k-ba"
+  },
+  {
+    "slug": "biiru",
+    "character": "ビール",
+    "romaji": "biiru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Beer",
+      "id": "Bir",
+      "ja": "ビール"
+    },
+    "primaryKanaId": "k-bi"
+  },
+  {
+    "slug": "buutsu",
+    "character": "ブーツ",
+    "romaji": "buutsu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Boots",
+      "id": "Sepatu bot",
+      "ja": "ブーツ"
+    },
+    "primaryKanaId": "k-bu"
+  },
+  {
+    "slug": "beddo",
+    "character": "ベッド",
+    "romaji": "beddo",
+    "script": "katakana",
+    "meaning": {
+      "en": "Bed",
+      "id": "Tempat tidur",
+      "ja": "ベッド"
+    },
+    "primaryKanaId": "k-be"
+  },
+  {
+    "slug": "booru",
+    "character": "ボール",
+    "romaji": "booru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Ball",
+      "id": "Bola",
+      "ja": "ボール"
+    },
+    "primaryKanaId": "k-bo"
+  },
+  {
+    "slug": "paatii",
+    "character": "パーティー",
+    "romaji": "paatii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Party",
+      "id": "Pesta",
+      "ja": "パーティー"
+    },
+    "primaryKanaId": "k-pa"
+  },
+  {
+    "slug": "piano-katakana",
+    "character": "ピアノ",
+    "romaji": "piano",
+    "script": "katakana",
+    "meaning": {
+      "en": "Piano",
+      "id": "Piano",
+      "ja": "ピアノ"
+    },
+    "primaryKanaId": "k-pi"
+  },
+  {
+    "slug": "puuru",
+    "character": "プール",
+    "romaji": "puuru",
+    "script": "katakana",
+    "meaning": {
+      "en": "Swimming pool",
+      "id": "Kolam renang",
+      "ja": "プール"
+    },
+    "primaryKanaId": "k-pu"
+  },
+  {
+    "slug": "pen",
+    "character": "ペン",
+    "romaji": "pen",
+    "script": "katakana",
+    "meaning": {
+      "en": "Pen",
+      "id": "Pena / Pulpen",
+      "ja": "ペン"
+    },
+    "primaryKanaId": "k-pe"
+  },
+  {
+    "slug": "posuto",
+    "character": "ポスト",
+    "romaji": "posuto",
+    "script": "katakana",
+    "meaning": {
+      "en": "Mailbox",
+      "id": "Kotak pos",
+      "ja": "ポスト"
+    },
+    "primaryKanaId": "k-po"
+  },
+  {
+    "slug": "fasshon",
+    "character": "ファッション",
+    "romaji": "fasshon",
+    "script": "katakana",
+    "meaning": {
+      "en": "Fashion",
+      "id": "Mode / Busana",
+      "ja": "ファッション"
+    },
+    "primaryKanaId": "k-fa"
+  },
+  {
+    "slug": "firumu",
+    "character": "フィルム",
+    "romaji": "firumu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Film",
+      "id": "Film",
+      "ja": "フィルム"
+    },
+    "primaryKanaId": "k-fi"
+  },
+  {
+    "slug": "fesu",
+    "character": "フェス",
+    "romaji": "fesu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Festival",
+      "id": "Festival",
+      "ja": "フェス"
+    },
+    "primaryKanaId": "k-fe"
+  },
+  {
+    "slug": "fooku-katakana",
+    "character": "フォーク",
+    "romaji": "fooku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Fork",
+      "id": "Garpu",
+      "ja": "フォーク"
+    },
+    "primaryKanaId": "k-fo"
+  },
+  {
+    "slug": "paatii-katakana",
+    "character": "パーティー",
+    "romaji": "paatii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Party",
+      "id": "Pesta",
+      "ja": "パーティー"
+    },
+    "primaryKanaId": "k-ti"
+  },
+  {
+    "slug": "birudingu",
+    "character": "ビルディング",
+    "romaji": "birudingu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Building",
+      "id": "Gedung",
+      "ja": "ビルディング"
+    },
+    "primaryKanaId": "k-di"
+  },
+  {
+    "slug": "wedingu",
+    "character": "ウェディング",
+    "romaji": "wedingu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Wedding",
+      "id": "Pernikahan",
+      "ja": "ウェディング"
+    },
+    "primaryKanaId": "k-we"
+  },
+  {
+    "slug": "wiiku",
+    "character": "ウィーク",
+    "romaji": "wiiku",
+    "script": "katakana",
+    "meaning": {
+      "en": "Week",
+      "id": "Minggu / Pekan",
+      "ja": "ウィーク"
+    },
+    "primaryKanaId": "k-wi"
+  },
+  {
+    "slug": "vaiorin",
+    "character": "バイオリン",
+    "romaji": "vaiorin",
+    "script": "katakana",
+    "meaning": {
+      "en": "Violin",
+      "id": "Biola",
+      "ja": "ヴァイオリン"
+    },
+    "primaryKanaId": "k-va"
+  },
+  {
+    "slug": "voryuumu",
+    "character": "ボリューム",
+    "romaji": "voryuumu",
+    "script": "katakana",
+    "meaning": {
+      "en": "Volume",
+      "id": "Volume suara",
+      "ja": "ヴォリューム"
+    },
+    "primaryKanaId": "k-vo"
+  },
+  {
+    "slug": "kawaii",
+    "character": "かわいい",
+    "romaji": "kawaii",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Super cute!",
+      "id": "Lucu banget!",
+      "ja": "超かわいい"
+    },
+    "trivia": {
+      "en": "Cute / Adorable. World-famous pop culture phrase.",
+      "id": "Lucu / Imut. Kata pop culture Jepang paling populer.",
+      "ja": "日本ポップカルチャーを象徴する言葉。"
+    }
+  },
+  {
+    "slug": "suki",
+    "character": "すき",
+    "romaji": "suki",
+    "script": "hiragana",
+    "meaning": {
+      "en": "I love you / I really like it",
+      "id": "Aku sangat suka / Aku mencintaimu",
+      "ja": "大好き"
+    },
+    "trivia": {
+      "en": "Like / Fond of. Crucial for anime confession scenes.",
+      "id": "Suka / Naksir. Kunci adegan nembak di anime.",
+      "ja": "アニメの告白シーンで最重要の台詞。"
+    }
+  },
+  {
+    "slug": "arigatou",
+    "character": "ありがとう",
+    "romaji": "arigatou",
+    "script": "hiragana",
+    "meaning": {
+      "en": "Thank you very much",
+      "id": "Terima kasih banyak",
+      "ja": "どうもありがとう"
+    },
+    "trivia": {
+      "en": "Thank you. Everyday expression of gratitude.",
+      "id": "Terima kasih. Ungkapan rasa syukur paling umum.",
+      "ja": "感謝を伝える基本の挨拶。"
+    }
+  },
+  {
+    "slug": "sugoi",
+    "character": "すごい",
+    "romaji": "sugoi",
+    "script": "hiragana",
+    "meaning": {
+      "en": "So awesome!",
+      "id": "Keren abis!",
+      "ja": "すっごい！"
+    },
+    "trivia": {
+      "en": "Amazing / Awesome. Iconic anime reaction shout.",
+      "id": "Hebat / Keren. Reaksi kagum yang sering diteriakkan di anime.",
+      "ja": "アニメの驚き・称賛リアクションの大定番。"
+    }
+  },
+  {
+    "slug": "anime",
+    "character": "アニメ",
+    "romaji": "anime",
+    "script": "katakana",
+    "meaning": {
+      "en": "Japanese anime",
+      "id": "Anime buatan Jepang",
+      "ja": "日本のアニメ"
+    },
+    "trivia": {
+      "en": "Short for animation. Japanese animated media.",
+      "id": "Singkatan dari kata animation. Animasi Jepang.",
+      "ja": "「アニメーション」の略称。世界共通語。"
+    }
+  },
+  {
+    "slug": "koohii",
+    "character": "コーヒー",
+    "romaji": "koohii",
+    "script": "katakana",
+    "meaning": {
+      "en": "Hot coffee",
+      "id": "Kopi panas",
+      "ja": "ホットコーヒー"
+    },
+    "trivia": {
+      "en": "Coffee. Common café order.",
+      "id": "Kopi. Minuman kafe paling umum.",
+      "ja": "オランダ語・英語の『coffee』から。"
+    }
+  },
+  {
+    "slug": "raamen",
+    "character": "ラーメン",
+    "romaji": "raamen",
+    "script": "katakana",
+    "meaning": {
+      "en": "Miso ramen",
+      "id": "Ramen kuah miso",
+      "ja": "味噌ラーメン"
+    },
+    "trivia": {
+      "en": "Ramen noodles. Naruto's favorite dish.",
+      "id": "Mie ramen khas Jepang. Makanan kesukaan Naruto.",
+      "ja": "ナルトの大好物。日本の国民食。"
+    }
+  },
+  {
+    "slug": "terebi",
+    "character": "テレビ",
+    "romaji": "terebi",
+    "script": "katakana",
+    "meaning": {
+      "en": "TV anime broadcast",
+      "id": "Tayangan anime TV",
+      "ja": "テレビアニメ"
+    },
+    "trivia": {
+      "en": "Short for television.",
+      "id": "Singkatan dari kata television (televisi).",
+      "ja": "『television』の略語。"
+    }
+  }
+]

@@ -1,5 +1,5 @@
 import { Locale } from "@/data/i18n";
-import { ALL_KANA_PRIMITIVES, KanaCharacter, KanaScript } from "@/data/kana";
+import { ALL_KANA_PRIMITIVES, KanaCharacter, KanaScript, KanaType } from "@/data/kana";
 import { SAMPLE_WORDS } from "@/data/stages";
 
 /**
@@ -406,6 +406,259 @@ export const CURATED_COMPARISONS: ComparisonPair[] = [
       ja: "覚え方：「クは中が空っぽ、タは中に線が入る」。",
     },
   },
+  {
+    slug: "chi-vs-sa",
+    kana1Id: "h-chi",
+    kana2Id: "h-sa",
+    script: "hiragana",
+    keyDifferences: {
+      en: [
+        "ち (chi) curves to the right (like the number '5').",
+        "さ (sa) curves to the left and starts with a diagonal down-stroke.",
+        "ち has a top horizontal stroke connected directly to the loop.",
+      ],
+      id: [
+        "ち (chi) melengkung menghadap ke kanan (mirip angka '5').",
+        "さ (sa) lengkungan ekornya menghadap ke kiri.",
+        "ち garis atasnya tersambung langsung membentuk lengkungan perut.",
+      ],
+      ja: [
+        "ちは右側へ大きく膨らむ弧を描きます（数字の5に類似）。",
+        "さは左下側へ向かって弧を描きます。",
+        "ちは上の横棒と下の丸みが繋がっています。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'CHI is a Cheerleader with pom-poms facing right, SA faces left.'",
+      id: "Tips: 'CHI perutnya menghadap ke kanan (seperti Cheerleader), SA menghadap ke kiri.'",
+      ja: "覚え方：「ちは右向き、さは左向き」。",
+    },
+  },
+  {
+    slug: "ha-vs-ho",
+    kana1Id: "h-ha",
+    kana2Id: "h-ho",
+    script: "hiragana",
+    keyDifferences: {
+      en: [
+        "は (ha) has ONE horizontal stroke on the right, and the vertical stem goes through it freely.",
+        "ほ (ho) has TWO horizontal strokes on the right, and the vertical line does NOT cross through the top bar.",
+      ],
+      id: [
+        "は (ha) hanya punya SATU palang horizontal di kanan.",
+        "ほ (ho) punya DUA palang horizontal di kanan, dan garis vertikal TIDAK menembus palang paling atas.",
+      ],
+      ja: [
+        "はの右側は横線が1本です。",
+        "ほの右側は横線が2本あり、縦棒は上の横線を上に突き抜けません。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'HO wears a Hat (top bar) that covers its head; HA has no hat.'",
+      id: "Tips: 'HO memakai topi (ada atap di atasnya), HA rambutnya terbuka tanpa topi.'",
+      ja: "覚え方：「ほは帽子をかぶって頭が突き出ない、はは頭が開いている」。",
+    },
+  },
+  {
+    slug: "ko-vs-ni",
+    kana1Id: "h-ko",
+    kana2Id: "h-ni",
+    script: "hiragana",
+    keyDifferences: {
+      en: [
+        "こ (ko) consists solely of two horizontal bars (top and bottom curved).",
+        "に (ni) has a vertical stem stroke on the left, plus the two bars of こ on the right.",
+      ],
+      id: [
+        "こ (ko) hanya terdiri dari dua kurva horizontal atas dan bawah.",
+        "に (ni) punya garis tiang vertikal di kiri sebelum dua kurva kanan.",
+      ],
+      ja: [
+        "こは上下の2本の横線のみです。",
+        "には左側に縦棒（1画目）があり、その右に「こ」が並びます。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'NI is a Needle (left line) next to a KO (right bars).'",
+      id: "Tips: 'NI punya jarum (Needle) di sebelah kiri garis KO.'",
+      ja: "覚え方：「には左に一本針が立ち、右にこがある」。",
+    },
+  },
+  {
+    slug: "fu-vs-u",
+    kana1Id: "h-fu",
+    kana2Id: "h-u",
+    script: "hiragana",
+    keyDifferences: {
+      en: [
+        "ふ (fu) has four distinct strokes: top dot, center hook, and two outer side dots.",
+        "う (u) has only two strokes: a top accent dot and one large curved hook below.",
+      ],
+      id: [
+        "ふ (fu) memiliki 4 goresan terpisah (titik atas, lengkungan tengah, dan 2 titik samping).",
+        "う (u) hanya 2 goresan sederhana (titik atas dan lengkungan bawah).",
+      ],
+      ja: [
+        "ふは4画に分かれ、中心のフックと両脇の点が特徴です。",
+        "うは2画で、上の点と下の大きな湾曲のみです。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'FU is Mount Fuji with clouds drifting on both sides; U is a person bent over.'",
+      id: "Tips: 'FU seperti Gunung Fuji dengan lereng kiri-kanan; U seperti orang membungkuk.'",
+      ja: "覚え方：「ふは富士山と左右の雲、うは体を丸めてうずくまる姿」。",
+    },
+  },
+  {
+    slug: "re-vs-wa",
+    kana1Id: "h-re",
+    kana2Id: "h-wa",
+    script: "hiragana",
+    keyDifferences: {
+      en: [
+        "れ (re) sweeps out and kicks up to the right at the end.",
+        "わ (wa) sweeps inwards in a round curve like a rounded belly.",
+      ],
+      id: [
+        "れ (re) menendang keluar melengkung ke kanan di ujungnya.",
+        "わ (wa) melengkung bulat ke dalam seperti perut buncit.",
+      ],
+      ja: [
+        "れは末尾が右外側へ向けて跳ね上がります。",
+        "わは内側へ丸く巻き込みます。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'RE kicks its leg out, WA wraps around like a wheel.'",
+      id: "Tips: 'RE menendang ke luar, WA melingkar seperti roda bundar.'",
+      ja: "覚え方：「れは右へ跳ね、わは輪のように丸い」。",
+    },
+  },
+  {
+    slug: "yu-vs-ko",
+    kana1Id: "k-yu",
+    kana2Id: "k-ko",
+    script: "katakana",
+    keyDifferences: {
+      en: [
+        "ユ (yu) has a vertical stroke in the middle extending down, and a bottom crossbar.",
+        "コ (ko) forms a clean open square bracket with equal right corners.",
+      ],
+      id: [
+        "ユ (yu) garis vertikalnya tembus dan menancap di garis bawah horizontal.",
+        "コ (ko) membentuk kurung kotak persegi siku sempurna.",
+      ],
+      ja: [
+        "ユは中央の縦線が底辺の横線と交差します。",
+        "コは角ばった四角いコの字型を作ります。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'YU looks like a U-turn fish hook, KO is an open Corner box.'",
+      id: "Tips: 'YU mirip kail putar U-turn, KO adalah kotak Corner (sudut) siku-siku.'",
+      ja: "覚え方：「ユはUターンするフック、コは角ばった箱の角」。",
+    },
+  },
+  {
+    slug: "ke-vs-ku",
+    kana1Id: "k-ke",
+    kana2Id: "k-ku",
+    script: "katakana",
+    keyDifferences: {
+      en: [
+        "ケ (ke) has 3 strokes: left slash, top horizontal stroke, and right curved slash.",
+        "ク (ku) has only 2 strokes: left slash and hooked corner.",
+      ],
+      id: [
+        "ケ (ke) memiliki 3 goresan dengan garis pemotong di sebelah kanan.",
+        "ク (ku) hanya memiliki 2 goresan sederhana tanpa garis kanan.",
+      ],
+      ja: [
+        "ケは3画で右側に長い払いがあります。",
+        "クは2画で角を曲がって終わります。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'KE is a K with extra branches; KU is a simple beak bird.'",
+      id: "Tips: 'KE punya ranting tambahan di kanan, KU seperti paruh burung sederhana.'",
+      ja: "覚え方：「ケは毛の崩しで払いがある、クはシンプルな口の形」。",
+    },
+  },
+  {
+    slug: "ta-vs-nu",
+    kana1Id: "k-ta",
+    kana2Id: "k-nu",
+    script: "katakana",
+    keyDifferences: {
+      en: [
+        "タ (ta) has 3 strokes: slash, hooked angle, and an interior horizontal slash.",
+        "ヌ (nu) has 2 strokes: folded angle and a crossing diagonal stroke.",
+      ],
+      id: [
+        "タ (ta) memiliki 3 goresan (bentuk ク dengan garis di dalam).",
+        "ヌ (nu) memiliki 2 goresan bersilang (bentuk angka 7 terlipat dengan goresan silang).",
+      ],
+      ja: [
+        "タは3画で、クの内側に線が入ります。",
+        "ヌは2画で、折れ曲がった画に交差する払いが付きます。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'TA has a T-mark inside; NU is like cross-chopsticks.'",
+      id: "Tips: 'TA memiliki garis T kecil di dalamnya, NU seperti sumpit bersilang.'",
+      ja: "覚え方：「タは夕方の夕に似て3画、ヌは又に似て2画」。",
+    },
+  },
+  {
+    slug: "shi-vs-so",
+    kana1Id: "k-shi",
+    kana2Id: "k-so",
+    script: "katakana",
+    keyDifferences: {
+      en: [
+        "シ (shi) has THREE strokes (2 small dots on the left, 1 upward sweep).",
+        "ソ (so) has TWO strokes (1 small dot on the top, 1 downward slash).",
+      ],
+      id: [
+        "シ (shi) memiliki 3 goresan (2 titik di sebelah kiri dan 1 sapuan naik).",
+        "ソ (so) memiliki 2 goresan (1 titik di atas dan 1 sapuan turun ke bawah).",
+      ],
+      ja: [
+        "シは3画で左側に点が2つあります。",
+        "ソは2画で上部に点が1つのみです。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'SHI has three strokes (S-H-I), SO has two strokes (S-O).'",
+      id: "Tips: 'SHI ada 3 huruf (3 goresan), SO ada 2 huruf (2 goresan).'",
+      ja: "覚え方：「シは3文字（3画）、ソは2文字（2画）」。",
+    },
+  },
+  {
+    slug: "tsu-vs-n",
+    kana1Id: "k-tsu",
+    kana2Id: "k-n",
+    script: "katakana",
+    keyDifferences: {
+      en: [
+        "ツ (tsu) has THREE strokes (2 dots across the top, 1 downward sweep).",
+        "ン (n) has TWO strokes (1 low angle dash, 1 upward sweep).",
+      ],
+      id: [
+        "ツ (tsu) memiliki 3 goresan (2 titik sejajar di atas, 1 sapuan turun).",
+        "ン (n) memiliki 2 goresan (1 titik bawah mendatar, 1 sapuan naik).",
+      ],
+      ja: [
+        "ツは3画で上部に2点並びます。",
+        "ンは2画で左下の1点から右上に跳ね上げます。",
+      ],
+    },
+    visualTip: {
+      en: "Remember: 'TSU has three strokes (T-S-U); N has two strokes.'",
+      id: "Tips: 'TSU punya 3 goresan di atas, N hanya punya 2 goresan.'",
+      ja: "覚え方：「ツは3画で津波が落ちる、ンは2画で上を向く」。",
+    },
+  },
 ];
 
 /**
@@ -425,3 +678,197 @@ export function getSampleWord(kanaId: string) {
 
   return null;
 }
+
+export interface KanaCategoryInfo {
+  category: KanaType;
+  script: KanaScript;
+  title: Record<Locale, string>;
+  description: Record<Locale, string>;
+  explanation: Record<Locale, string>;
+}
+
+export const KANA_CATEGORIES: KanaCategoryInfo[] = [
+  {
+    category: "gojuon",
+    script: "hiragana",
+    title: {
+      en: "Hiragana Gojūon (46 Basic Characters)",
+      id: "Hiragana Gojūon (46 Huruf Dasar)",
+      ja: "平仮名 五十音（基本46文字）",
+    },
+    description: {
+      en: "Learn all 46 core Hiragana Gojūon characters with stroke order, audio pronunciation, and mnemonics.",
+      id: "Pelajari 46 karakter dasar Hiragana Gojūon lengkap dengan urutan goresan, audio pengucapan, dan jembatan keledai.",
+      ja: "五十音図の基本46文字。書き順、ネイティブ音声、単語例を網羅。",
+    },
+    explanation: {
+      en: "Gojūon (五十音, lit. 'fifty sounds') forms the structural foundation of the Japanese phonetic writing system. It spans 5 vowel sounds (A, I, U, E, O) and consonant rows (K, S, T, N, H, M, Y, R, W, and singular N).",
+      id: "Gojūon (五十音, secara harfiah '50 bunyi') adalah fondasi fonetik utama dalam bahasa Jepang. Terdiri dari 5 vokal dasar (A, I, U, E, O) dan konsonan (K, S, T, N, H, M, Y, R, W, serta konsonan tunggal N).",
+      ja: "五十音は日本語のかな文字の体系的な基礎です。あ行〜わ行までの各段と「ん」で構成されます。",
+    },
+  },
+  {
+    category: "dakuon",
+    script: "hiragana",
+    title: {
+      en: "Hiragana Dakuon (Voiced Sounds: が, ざ, だ, ば)",
+      id: "Hiragana Dakuon (Bunyi Bersuara: が, ざ, だ, ば)",
+      ja: "平仮名 濁音（が・ざ・だ・ば行）",
+    },
+    description: {
+      en: "Master all 20 Hiragana Dakuon voiced sounds with dakuten (tenten) marks, pronunciation audio, and stroke order.",
+      id: "Kuasai 20 karakter Hiragana Dakuon (tanda tenten) lengkap dengan audio, panduan penulisan, dan contoh kata.",
+      ja: "濁点（゛）を付けた濁音20文字。G行、Z行、D行、B行の正しい発音と書き順。",
+    },
+    explanation: {
+      en: "Dakuon (濁音, 'muddy/voiced sounds') are formed by attaching dakuten (濁点, two small strokes commonly called ten-ten: ゛) to the upper right of K, S, T, and H rows, transforming them into G, Z, D, and B sounds.",
+      id: "Dakuon (濁音, 'bunyi keruh/bersuara') dibentuk dengan menambahkan tanda petik dua kecil (濁点, dakuten / ten-ten: ゛) di sudut kanan atas huruf K, S, T, dan H sehingga berubah menjadi G, Z, D, dan B.",
+      ja: "濁音は「か・さ・た・は」行の右上に濁点（゛）を付けて濁った音（が・ざ・だ・ば行）を表します。",
+    },
+  },
+  {
+    category: "handakuon",
+    script: "hiragana",
+    title: {
+      en: "Hiragana Handakuon (Semi-Voiced P-row: ぱ, ぴ, ぷ, ぺ, ぽ)",
+      id: "Hiragana Handakuon (Bunyi Semi-Bersuara: ぱ, ぴ, ぷ, ぺ, ぽ)",
+      ja: "平仮名 半濁音（ぱ・ぴ・ぷ・ぺ・ぽ）",
+    },
+    description: {
+      en: "Guide to the 5 Hiragana Handakuon characters featuring the small maru circle. Full audio and practice cards.",
+      id: "Panduan lengkap 5 karakter Hiragana Handakuon dengan tanda maru (lingkaran kecil). Audio asli dan latihan.",
+      ja: "半濁点（゜）を付けた「ぱ・ぴ・ぷ・ぺ・ぽ」の5文字。発音と書き順ガイド。",
+    },
+    explanation: {
+      en: "Handakuon (半濁音, 'semi-voiced sounds') are created by adding a handakuten (半濁点, a small circle called maru: ゜) to the H-row characters, converting them into P sounds (pa, pi, pu, pe, po).",
+      id: "Handakuon (半濁音, 'bunyi semi-bersuara') dibentuk dengan menambahkan lingkaran kecil (半濁点, handakuten / maru: ゜) pada baris H, mengubahnya menjadi bunyi P (pa, pi, pu, pe, po).",
+      ja: "半濁音は「は」行の右上に半濁点（゜、丸）を付加してP音（ぱ行）を表します。",
+    },
+  },
+  {
+    category: "yoon",
+    script: "hiragana",
+    title: {
+      en: "Hiragana Yōon (Contracted Combo Sounds: きゃ, しゅ, ちょ)",
+      id: "Hiragana Yōon (Kombinasi Suara Majemuk: きゃ, しゅ, ちょ)",
+      ja: "平仮名 拗音（きゃ・しゅ・ちょ等の複合音）",
+    },
+    description: {
+      en: "Learn all 33 Hiragana Yōon contracted sounds formed with small ゃ, ゅ, ょ. Audio, pronunciation, and sample words.",
+      id: "Pelajari 33 karakter gabungan Hiragana Yōon dengan huruf kecil ゃ, ゅ, ょ. Lengkap dengan audio dan kosakata.",
+      ja: "小書きの「ゃ・ゅ・ょ」を組み合わせた拗音33文字。正確な発音と表記規則。",
+    },
+    explanation: {
+      en: "Yōon (拗音, 'contracted/twisted sounds') combine an I-vowel kana (such as ki, shi, chi, ni, hi, mi, ri, gi, ji, bi, pi) with a half-sized small ya (ゃ), yu (ゅ), or yo (ょ) to create single-beat glide syllables.",
+      id: "Yōon (拗音, 'bunyi meliuk/kontraksi') menggabungkan kana berakhiran vokal I (seperti ki, shi, chi, ni, hi, mi, ri, gi, ji, bi, pi) dengan huruf kecil ya (ゃ), yu (ゅ), atau yo (ょ).",
+      ja: "拗音は「い」段のかなに小さく「ゃ・ゅ・ょ」を添えて1拍として発音する複合音です。",
+    },
+  },
+  {
+    category: "gojuon",
+    script: "katakana",
+    title: {
+      en: "Katakana Gojūon (46 Core Angular Characters)",
+      id: "Katakana Gojūon (46 Huruf Dasar)",
+      ja: "片仮名 五十音（基本46文字）",
+    },
+    description: {
+      en: "Master all 46 basic Katakana characters used for loanwords, emphasis, and sound effects.",
+      id: "Kuasai 46 karakter dasar Katakana untuk kata serapan asing, penekanan, dan onomatope.",
+      ja: "外来語や擬音語の表記に欠かせない片仮名五十音の基本文字一覧。",
+    },
+    explanation: {
+      en: "Katakana Gojūon is the angular counterpart to Hiragana, derived from fragments of Chinese characters (kanji). It is primarily used for foreign loanwords (gairaigo), scientific names, and sound effects (manga onomatopoeia).",
+      id: "Katakana Gojūon adalah aksara bersudut tegas yang merupakan pasangan Hiragana. Terutama digunakan untuk kata serapan asing (gairaigo), istilah ilmiah, nama asing, dan onomatope di manga.",
+      ja: "漢字の一部を省略して作られた角ばった文字体系。主に外来語や動植物名、オノマトペに使用されます。",
+    },
+  },
+  {
+    category: "dakuon",
+    script: "katakana",
+    title: {
+      en: "Katakana Dakuon (Voiced Sounds: ガ, ザ, ダ, バ)",
+      id: "Katakana Dakuon (Bunyi Bersuara: ガ, ザ, ダ, バ)",
+      ja: "片仮名 濁音（ガ・ザ・ダ・バ行）",
+    },
+    description: {
+      en: "All 20 Katakana Dakuon characters with dakuten quotation marks for loanwords like 'game', 'design', and 'bus'.",
+      id: "20 karakter Katakana Dakuon untuk kata serapan seperti 'game' (ゲーム), 'desain' (デザイン), dan 'bus' (バス).",
+      ja: "外来語の濁音表記（ゲーム、デザイン、バスなど）に用いる濁音文字20字。",
+    },
+    explanation: {
+      en: "Katakana Dakuon modifies the K, S, T, and H rows into voiced G, Z, D, and B equivalents using the two diagonal strokes (゛). Essential for thousands of modern foreign loanwords.",
+      id: "Katakana Dakuon mengubah baris K, S, T, dan H menjadi bunyi bersuara G, Z, D, dan B dengan tanda tenten (゛). Sangat penting untuk ribuan kosakata serapan modern.",
+      ja: "カ・サ・タ・ハ行に濁点を付けて発音する有声音群。",
+    },
+  },
+  {
+    category: "handakuon",
+    script: "katakana",
+    title: {
+      en: "Katakana Handakuon (Semi-Voiced P-row: パ, ピ, プ, ペ, ポ)",
+      id: "Katakana Handakuon (Bunyi P: パ, ピ, プ, ペ, ポ)",
+      ja: "片仮名 半濁音（パ・ピ・プ・ペ・ポ）",
+    },
+    description: {
+      en: "Study all 5 Katakana Handakuon characters with maru circle marks for loanwords like 'party', 'piano', and 'pen'.",
+      id: "5 karakter Katakana Handakuon dengan tanda maru bulat untuk kata seperti 'party' (パーティー) dan 'pen' (ペン).",
+      ja: "ハ行に半濁点（゜）を付けた「パ・ピ・プ・ペ・ポ」。外来語のP音を表現。",
+    },
+    explanation: {
+      en: "Katakana Handakuon adds the small circle (゜) to represent foreign 'P' sounds, seen in everyday terms like pasokon (PC), pan (bread), and poketto (pocket).",
+      id: "Katakana Handakuon menambahkan lingkaran kecil (゜) untuk mewakili bunyi fonetik 'P' dari bahasa asing.",
+      ja: "外来語のP音を表す半濁音文字。",
+    },
+  },
+  {
+    category: "yoon",
+    script: "katakana",
+    title: {
+      en: "Katakana Yōon (Contracted Combos: キャ, シュ, チョ)",
+      id: "Katakana Yōon (Kombinasi Majemuk: キャ, シュ, チョ)",
+      ja: "片仮名 拗音（キャ・シュ・チョ等の外来語複合音）",
+    },
+    description: {
+      en: "Master Katakana Yōon combo characters with small ャ, ュ, ョ. Essential for loanwords like 'shirt', 'chocolate', and 'camp'.",
+      id: "Kuasai karakter kombinasi Katakana Yōon dengan huruf kecil ャ, ュ, ョ untuk kata serapan.",
+      ja: "外来語の表記に多用される片仮名拗音の全文字一覧とネイティブ発音。",
+    },
+    explanation: {
+      en: "Katakana Yōon matches an I-column character with small ya (ャ), yu (ュ), or yo (ョ), generating glide syllables such as kya, shu, and cho.",
+      id: "Katakana Yōon menggabungkan baris I dengan ャ, ュ, ョ kecil untuk menciptakan suku kata luncur seperti kya, shu, dan cho.",
+      ja: "イ段の片仮名に小字「ャ・ュ・ョ」を組み合わせて外来語の拗音を表現します。",
+    },
+  },
+  {
+    category: "extended",
+    script: "katakana",
+    title: {
+      en: "Katakana Extended Sounds (Modern Foreign Phonemes: ティ, ファ, ヴ, etc.)",
+      id: "Katakana Extended (Fonem Modern: ティ, ファ, ヴ, dll)",
+      ja: "片仮名 特殊音・外来音（ティ・ファ・ヴ等）",
+    },
+    description: {
+      en: "Learn the modern extended Katakana combinations invented to transcribe foreign sounds like 'ti', 'fa', 'di', 'we', and 'v'.",
+      id: "Pelajari huruf Katakana khusus/ekstensi untuk mengeja suara asing modern seperti 'ti', 'fa', 'di', 'we', dan 'v'.",
+      ja: "近代以降の外来語を原音に近づけて表記するための特殊音（ファ・フィ・フェ・フォ・ティ・ディ・ヴ等）。",
+    },
+    explanation: {
+      en: "Extended Katakana (特殊音 / tokushuon) were created in modern times to accurately transcribe Western phonetic sounds not natively present in traditional Japanese, such as 'fa', 'fi', 'fe', 'fo', 'ti', 'di', 'we', and 'v'.",
+      id: "Katakana Ekstensi (特殊音 / tokushuon) diciptakan di era modern untuk menuliskan bunyi bahasa asing Barat secara presisi (seperti 'fa', 'fi', 'fe', 'fo', 'ti', 'di', 'we', dan 'v') yang aslinya tidak ada dalam bahasa Jepang klasik.",
+      ja: "日本語に本来存在しない外国語の音（F、V、TI、DI、W音など）を正確に書き表すために作られた現代的な片仮名表記です。",
+    },
+  },
+];
+
+export function getKanaCategoryInfo(
+  script: string,
+  category: string
+): KanaCategoryInfo | undefined {
+  const normScript = script.toLowerCase();
+  const normCategory = category.toLowerCase();
+  return KANA_CATEGORIES.find(
+    (c) => c.script === normScript && c.category === normCategory
+  );
+}
+
