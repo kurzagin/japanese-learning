@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PrintableKanaChartClient } from "@/components/PrintableKanaChartClient";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
+import { getKanaByScript } from "@/lib/db-data";
 
 interface Props {
   params: Promise<{
@@ -97,6 +98,8 @@ export default async function HiraganaChartPdfPage({ params }: Props) {
     },
   }[locale];
 
+  const kanaList = await getKanaByScript("hiragana");
+
   return (
     <PrintableKanaChartClient
       script="hiragana"
@@ -106,6 +109,7 @@ export default async function HiraganaChartPdfPage({ params }: Props) {
       seoSubtitle={uiProps.seoSubtitle}
       otherScriptUrl={`${prefix}/tools/katakana-chart-pdf`}
       otherScriptLabel={uiProps.otherScriptLabel}
+      kanaList={kanaList}
     />
   );
 }

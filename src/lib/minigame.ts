@@ -1,4 +1,4 @@
-import { StudyCard, STAGES } from "@/data/stages";
+import { StudyCard, STAGES, Stage } from "@/data/stages";
 import { SrsCardRecord } from "@/lib/srs";
 
 export interface MinigameCard extends StudyCard {
@@ -122,7 +122,8 @@ export function buildMinigameQueue(
  */
 export function getUnlockedCardsUpToStage(
   stageId: string,
-  progress: Record<string, { completed: boolean }>
+  progress: Record<string, { completed: boolean }>,
+  allStages: Stage[] = []
 ): StudyCard[] {
   const cardsMap = new Map<string, StudyCard>();
 
@@ -136,7 +137,8 @@ export function getUnlockedCardsUpToStage(
   // Always include the current stage being cleared
   completedStageIds.add(stageId);
 
-  for (const stage of STAGES) {
+  const stagesToUse = allStages.length > 0 ? allStages : STAGES;
+  for (const stage of stagesToUse) {
     // Only pool characters from hiragana and katakana (exclude words)
     if (stage.category !== "words" && completedStageIds.has(stage.id)) {
       for (const card of stage.cards) {

@@ -1,51 +1,28 @@
-import vocabularyData from "@/data/vocabulary.json";
-import { ALL_KANA_PRIMITIVES, KanaCharacter } from "@/data/kana";
-import { getKanaSlug } from "@/lib/kana-seo";
+import { KanaCharacter } from "@/types/kana";
 import { Locale } from "@/data/i18n";
 
-export interface FuriganaSegment {
-  ruby: string;
-  rt?: string;
-}
+export type {
+  FuriganaSegment,
+  VocabSentence,
+  KanjiOption,
+  VocabWord,
+  JlptCategoryMeta,
+} from "@/types/vocab";
 
-export interface VocabSentence {
-  ja: string;
-  furigana: FuriganaSegment[];
-  romaji: string;
-  en: string;
-  id: string;
-}
-
-export interface VocabWord {
-  slug: string;
-  character: string;
-  romaji: string;
-  script: "hiragana" | "katakana";
-  kanji?: string | null;
-  jlpt?: "N5" | "N4" | "N3" | "Anime";
-  furigana?: FuriganaSegment[];
-  sentence?: VocabSentence;
-  meaning: Record<Locale, string>;
-  trivia?: Record<Locale, string>;
-  primaryKanaId?: string;
-}
-
-export const VOCABULARY_LIST: VocabWord[] = vocabularyData as VocabWord[];
-
-export function getWordBySlug(slug: string): VocabWord | undefined {
-  const normSlug = slug.toLowerCase();
-  return VOCABULARY_LIST.find((w) => w.slug === normSlug);
-}
+import type { VocabWord, JlptCategoryMeta } from "@/types/vocab";
 
 /**
  * Breakdown word characters into matching Kana primitives for cross-linking
  */
-export function getConstituentKana(word: VocabWord): KanaCharacter[] {
+export function getConstituentKana(
+  word: VocabWord,
+  allKana: KanaCharacter[] = []
+): KanaCharacter[] {
   const chars = Array.from(word.character);
   const matched: KanaCharacter[] = [];
 
   for (const char of chars) {
-    const kana = ALL_KANA_PRIMITIVES.find(
+    const kana = allKana.find(
       (k) => k.character === char && k.script === word.script
     );
     if (kana && !matched.some((m) => m.id === kana.id)) {
@@ -59,18 +36,14 @@ export function getConstituentKana(word: VocabWord): KanaCharacter[] {
 /**
  * Get related words sharing the same script
  */
-export function getRelatedWords(word: VocabWord, count = 4): VocabWord[] {
-  return VOCABULARY_LIST.filter(
-    (w) => w.slug !== word.slug && w.script === word.script
-  ).slice(0, count);
-}
-
-export interface JlptCategoryMeta {
-  key: "n5" | "n4" | "anime";
-  jlpt: "N5" | "N4" | "Anime";
-  title: Record<Locale, string>;
-  tagline: Record<Locale, string>;
-  description: Record<Locale, string>;
+export function getRelatedWords(
+  word: VocabWord,
+  allWords: VocabWord[] = [],
+  count = 4
+): VocabWord[] {
+  return allWords
+    .filter((w) => w.slug !== word.slug && w.script === word.script)
+    .slice(0, count);
 }
 
 export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
@@ -133,7 +106,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
   },
 ];
 
-export function getWordsByJlpt(jlpt: "N5" | "N4" | "Anime"): VocabWord[] {
-  return VOCABULARY_LIST.filter((w) => w.jlpt === jlpt);
+export function getWordsByJlpt(
+  jlpt: "N5" | "N4" | "Anime",
+  allWords: VocabWord[] = []
+): VocabWord[] {
+  return allWords.filter((w) => w.jlpt === jlpt);
 }
-

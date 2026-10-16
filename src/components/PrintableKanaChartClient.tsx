@@ -5,7 +5,7 @@ import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroWebring } from "@/components/RetroWebring";
 import { useLanguage } from "@/context/LanguageContext";
-import { KanaCharacter, HIRAGANA_PRIMITIVES, KATAKANA_PRIMITIVES } from "@/data/kana";
+import { KanaCharacter } from "@/types/kana";
 import {
   Printer,
   Download,
@@ -24,6 +24,7 @@ interface PrintableKanaChartProps {
   seoSubtitle: string;
   otherScriptUrl: string;
   otherScriptLabel: string;
+  kanaList?: KanaCharacter[];
 }
 
 // Columns for standard Japanese kana charts (Right to Left historically or Left to Right modern table):
@@ -72,6 +73,7 @@ export function PrintableKanaChartClient({
   seoSubtitle,
   otherScriptUrl,
   otherScriptLabel,
+  kanaList = [],
 }: PrintableKanaChartProps) {
   const { t, locale } = useLanguage();
   const chartRef = useRef<HTMLDivElement>(null);
@@ -87,8 +89,7 @@ export function PrintableKanaChartClient({
         ? "Hiragana"
         : "Katakana";
 
-  const primitives: KanaCharacter[] =
-    script === "hiragana" ? HIRAGANA_PRIMITIVES : KATAKANA_PRIMITIVES;
+  const primitives: KanaCharacter[] = kanaList || [];
 
   // Lookup map: romaji -> KanaCharacter
   const kanaMap = React.useMemo(() => {

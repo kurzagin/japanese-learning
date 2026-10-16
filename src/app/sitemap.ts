@@ -1,13 +1,18 @@
 import { MetadataRoute } from "next";
-import { STAGES } from "@/data/stages";
-import { ALL_KANA_PRIMITIVES } from "@/data/kana";
+import { getAllKana, getAllVocabulary, getStages } from "@/lib/db-data";
 import { getKanaSlug, CURATED_COMPARISONS, KANA_CATEGORIES } from "@/lib/kana-seo";
-import { VOCABULARY_LIST, JLPT_CATEGORIES } from "@/lib/vocab-seo";
+import { JLPT_CATEGORIES } from "@/lib/vocab-seo";
 import { LOCALES } from "@/lib/seo/locale";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
   const now = new Date();
+
+  const [allKana, allVocab, stages] = await Promise.all([
+    getAllKana(),
+    getAllVocabulary(),
+    getStages(),
+  ]);
 
   // Helper generating distinct alternate URLs per language + self URL per language
   const getLanguageAlternates = (rawPath: string) => {
@@ -70,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Dynamic study stages
-  const stageRoutes: MetadataRoute.Sitemap = STAGES.flatMap((stage) =>
+  const stageRoutes: MetadataRoute.Sitemap = stages.flatMap((stage) =>
     createLocalizedEntries(`/study/${stage.id}`, {
       priority: 0.8,
       changeFrequency: "monthly",
@@ -79,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Dynamic programmatic Kana character pages (219 characters)
-  const kanaRoutes: MetadataRoute.Sitemap = ALL_KANA_PRIMITIVES.flatMap((kana) => {
+  const kanaRoutes: MetadataRoute.Sitemap = allKana.flatMap((kana) => {
     const path = `/kana/${kana.script}/${getKanaSlug(kana)}`;
     return createLocalizedEntries(path, {
       priority: 0.7,
@@ -119,7 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Dynamic vocabulary detail pages (161 words)
-  const vocabRoutes: MetadataRoute.Sitemap = VOCABULARY_LIST.flatMap((word) => {
+  const vocabRoutes: MetadataRoute.Sitemap = allVocab.flatMap((word) => {
     const path = `/words/${word.slug}`;
     return createLocalizedEntries(path, {
       priority: 0.8,

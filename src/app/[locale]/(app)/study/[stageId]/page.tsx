@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import StudyClient from "./StudyClient";
-import { STAGES } from "@/data/stages";
+import { getStages } from "@/lib/db-data";
 import { translations } from "@/data/i18n";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -12,10 +12,11 @@ interface Props {
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const stages = await getStages();
   const params: Array<{ locale: string; stageId: string }> = [];
   LOCALES.forEach((locale) => {
-    STAGES.forEach((s) => {
+    stages.forEach((s) => {
       params.push({
         locale,
         stageId: s.id,
@@ -45,7 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const stage = STAGES.find((s) => s.id === stageId);
+  const stages = await getStages();
+  const stage = stages.find((s) => s.id === stageId);
   if (!stage) {
     return {
       title: "Study Japanese Kana & Vocabulary",
@@ -79,7 +81,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function StudyContent({ params }: Props) {
   const { locale, stageId } = await params;
-  const stage = STAGES.find((s) => s.id === stageId);
+  const stages = await getStages();
+  const stage = stages.find((s) => s.id === stageId);
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const schemaData = stage && stageId !== "srs-due" ? {
@@ -128,7 +131,7 @@ async function StudyContent({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       )}
-      <StudyClient stageId={stageId} />
+      <StudyClient stageId={stageId} initialStage={stage} allStages={stages} />
     </>
   );
 }

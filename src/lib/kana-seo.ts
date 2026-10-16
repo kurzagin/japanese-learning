@@ -1,5 +1,5 @@
 import { Locale } from "@/data/i18n";
-import { ALL_KANA_PRIMITIVES, KanaCharacter, KanaScript, KanaType } from "@/data/kana";
+import { KanaCharacter, KanaScript, KanaType } from "@/types/kana";
 import { SAMPLE_WORDS } from "@/data/stages";
 
 /**
@@ -17,12 +17,13 @@ export function getKanaSlug(kana: KanaCharacter): string {
  */
 export function getKanaBySlug(
   script: string,
-  slug: string
+  slug: string,
+  allKana: KanaCharacter[] = []
 ): KanaCharacter | undefined {
   const normScript = script.toLowerCase();
   const normSlug = slug.toLowerCase();
 
-  return ALL_KANA_PRIMITIVES.find((k) => {
+  return allKana.find((k) => {
     if (k.script !== normScript) return false;
     const itemSlug = getKanaSlug(k);
     return itemSlug === normSlug;

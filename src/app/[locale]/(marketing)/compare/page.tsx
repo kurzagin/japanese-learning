@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CURATED_COMPARISONS } from "@/lib/kana-seo";
-import { ALL_KANA_PRIMITIVES } from "@/data/kana";
+import { getAllKana } from "@/lib/db-data";
 import { translations } from "@/data/i18n";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { Sparkles, ArrowRight, HelpCircle } from "lucide-react";
@@ -90,6 +90,8 @@ export default async function CompareIndexPage({ params }: Props) {
     ],
   };
 
+  const allKana = await getAllKana();
+
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
       <script
@@ -117,8 +119,8 @@ export default async function CompareIndexPage({ params }: Props) {
         {/* Comparison Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {CURATED_COMPARISONS.map((comp) => {
-            const k1 = ALL_KANA_PRIMITIVES.find((k) => k.id === comp.kana1Id);
-            const k2 = ALL_KANA_PRIMITIVES.find((k) => k.id === comp.kana2Id);
+            const k1 = allKana.find((k) => k.id === comp.kana1Id);
+            const k2 = allKana.find((k) => k.id === comp.kana2Id);
 
             if (!k1 || !k2) return null;
 

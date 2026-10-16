@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { ALL_KANA_PRIMITIVES, KanaScript, KanaType } from "@/data/kana";
+import { getAllKana } from "@/lib/db-data";
+import { KanaScript, KanaType } from "@/types/kana";
 
 export async function GET(request: Request) {
   try {
@@ -8,7 +9,7 @@ export async function GET(request: Request) {
     const type = searchParams.get("type") as KanaType | null; // "gojuon" | "dakuon" | "handakuon" | "yoon" | "extended"
     const minimal = searchParams.get("minimal") === "true"; // return only character, id, and romaji for audio generation
 
-    let results = ALL_KANA_PRIMITIVES;
+    let results = await getAllKana();
 
     if (script) {
       results = results.filter((k) => k.script === script);

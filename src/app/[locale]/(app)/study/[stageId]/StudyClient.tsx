@@ -15,14 +15,25 @@ import {
   getRatingPreviews,
 } from "@/lib/srs";
 
-export default function StudyClient({ stageId }: { stageId: string }) {
+export default function StudyClient({
+  stageId,
+  initialStage,
+  allStages = [],
+}: {
+  stageId: string;
+  initialStage?: Stage | null;
+  allStages?: Stage[];
+}) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const isDueReviewMode = stageId === "srs-due";
   const stage = useMemo(
-    () => STAGES.find((s) => s.id === stageId) || (isDueReviewMode ? null : STAGES[0]),
-    [stageId, isDueReviewMode]
+    () =>
+      initialStage !== undefined
+        ? initialStage
+        : allStages.find((s) => s.id === stageId) || (isDueReviewMode ? null : allStages[0]),
+    [initialStage, allStages, stageId, isDueReviewMode]
   );
 
   const [queue, setQueue] = useState<StudyCard[]>([]);
@@ -99,7 +110,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
 
             if (isDueReviewMode) {
               const allCardsMap = new Map<string, StudyCard>();
-              STAGES.forEach((s) => {
+              allStages.forEach((s) => {
                 s.cards.forEach((c) => allCardsMap.set(c.id, c));
               });
 
@@ -124,7 +135,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
       // For guest mode: resolve due cards completely from local storage
       if (isDueReviewMode) {
         const allCardsMap = new Map<string, StudyCard>();
-        STAGES.forEach((s) => {
+        allStages.forEach((s) => {
           s.cards.forEach((c) => allCardsMap.set(c.id, c));
         });
 
@@ -328,14 +339,14 @@ export default function StudyClient({ stageId }: { stageId: string }) {
 
   // Check if stage is locked
   if (!isDueReviewMode && stage && !isCheckingUnlock) {
-    const unlockStatus = getStageUnlockStatus(stage.id, progress);
+    const unlockStatus = getStageUnlockStatus(stage.id, progress, allStages);
     if (!unlockStatus.isUnlocked) {
       const requiredStages: Stage[] = [];
       if (unlockStatus.requiredStage) {
         requiredStages.push(unlockStatus.requiredStage);
       } else if (unlockStatus.requiredStageIds) {
         unlockStatus.requiredStageIds.forEach((id) => {
-          const s = STAGES_BY_ID.get(id);
+          const s = allStages.find((st) => st.id === id) || STAGES_BY_ID.get(id);
           if (s) requiredStages.push(s);
         });
       }

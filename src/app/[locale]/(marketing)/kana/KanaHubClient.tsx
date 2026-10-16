@@ -3,13 +3,13 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { HIRAGANA_PRIMITIVES, KATAKANA_PRIMITIVES, KanaCharacter, KanaType } from "@/data/kana";
+import { KanaCharacter, KanaType } from "@/types/kana";
 import { getKanaSlug } from "@/lib/kana-seo";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
 import { Search, Sparkles, BookOpen, Volume2, ArrowRight } from "lucide-react";
 
-export default function KanaHubClient() {
+export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacter[] }) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
   const [activeScript, setActiveScript] = useState<"hiragana" | "katakana">("hiragana");
@@ -17,8 +17,8 @@ export default function KanaHubClient() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const kanaList = useMemo(() => {
-    return activeScript === "hiragana" ? HIRAGANA_PRIMITIVES : KATAKANA_PRIMITIVES;
-  }, [activeScript]);
+    return allKana.filter((k) => k.script === activeScript);
+  }, [activeScript, allKana]);
 
   const filteredKana = useMemo(() => {
     return kanaList.filter((k) => {

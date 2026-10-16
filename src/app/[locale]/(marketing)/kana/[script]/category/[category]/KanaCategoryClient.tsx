@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { KanaCharacter } from "@/data/kana";
+import { KanaCharacter } from "@/types/kana";
 import { KanaCategoryInfo, getKanaSlug } from "@/lib/kana-seo";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";

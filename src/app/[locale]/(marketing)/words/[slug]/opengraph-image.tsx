@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { VOCABULARY_LIST, getWordBySlug } from "@/lib/vocab-seo";
+import { getAllVocabulary, getWordBySlug } from "@/lib/db-data";
 
 export const size = {
   width: 1200,
@@ -13,8 +13,9 @@ interface Props {
   }>;
 }
 
-export function generateImageMetadata() {
-  return VOCABULARY_LIST.map((w) => ({
+export async function generateImageMetadata() {
+  const words = await getAllVocabulary();
+  return words.map((w) => ({
     id: `vocab-${w.slug}`,
     alt: `${w.character} (${w.romaji}) — SaKana Japanese Vocabulary`,
   }));
@@ -22,7 +23,7 @@ export function generateImageMetadata() {
 
 export default async function Image({ params }: Props) {
   const { slug } = await params;
-  const word = getWordBySlug(slug);
+  const word = await getWordBySlug(slug);
 
   const character = word ? word.character : "さかな";
   const romaji = word ? word.romaji : "sakana";

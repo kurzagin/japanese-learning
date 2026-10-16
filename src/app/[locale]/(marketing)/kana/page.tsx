@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import KanaHubClient from "./KanaHubClient";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
+import { getAllKana } from "@/lib/db-data";
 
 interface Props {
   params: Promise<{
@@ -82,13 +83,15 @@ export default async function KanaPage({ params }: Props) {
     ],
   };
 
+  const allKana = await getAllKana();
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <KanaHubClient />
+      <KanaHubClient allKana={allKana} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import TestClient from "./TestClient";
-import { STAGES } from "@/data/stages";
+import { getStages } from "@/lib/db-data";
 import { translations } from "@/data/i18n";
 import { isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -11,10 +11,11 @@ interface Props {
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const stages = await getStages();
   const params: Array<{ locale: string; stageId: string }> = [];
   LOCALES.forEach((locale) => {
-    STAGES.forEach((s) => {
+    stages.forEach((s) => {
       params.push({
         locale,
         stageId: s.id,
@@ -26,7 +27,9 @@ export function generateStaticParams() {
 
 async function TestContent({ params }: Props) {
   const { stageId } = await params;
-  return <TestClient stageId={stageId} />;
+  const stages = await getStages();
+  const stage = stages.find((s) => s.id === stageId);
+  return <TestClient stageId={stageId} initialStage={stage} allStages={stages} />;
 }
 
 export default async function TestPage({ params }: Props) {

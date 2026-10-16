@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HIRAGANA_PRIMITIVES, KATAKANA_PRIMITIVES } from "@/data/kana";
+import { getKanaByScript } from "@/lib/db-data";
 import { KANA_CATEGORIES, getKanaCategoryInfo } from "@/lib/kana-seo";
 import KanaCategoryClient from "./KanaCategoryClient";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
@@ -77,7 +77,7 @@ export default async function KanaCategoryPage({ params }: Props) {
     notFound();
   }
 
-  const primitives = script === "hiragana" ? HIRAGANA_PRIMITIVES : KATAKANA_PRIMITIVES;
+  const primitives = await getKanaByScript(script as "hiragana" | "katakana");
   const characters = primitives.filter((k) => k.type === category);
   const prefix = locale === "en" ? "" : `/${locale}`;
 

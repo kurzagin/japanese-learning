@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ALL_KANA_PRIMITIVES } from "@/data/kana";
+import { getAllKana, getKanaBySlug } from "@/lib/db-data";
 import {
-  getKanaBySlug,
   getKanaSlug,
   KANA_STROKE_COUNTS,
   CONFUSED_PAIRS,
@@ -20,10 +19,11 @@ interface Props {
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const allKana = await getAllKana();
   const params: Array<{ locale: string; script: string; slug: string }> = [];
   LOCALES.forEach((locale) => {
-    ALL_KANA_PRIMITIVES.forEach((k) => {
+    allKana.forEach((k) => {
       params.push({
         locale,
         script: k.script,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, script, slug } = await params;
   if (!isValidLocale(locale)) return {};
 
-  const kana = getKanaBySlug(script, slug);
+  const kana = await getKanaBySlug(script, slug);
   if (!kana) {
     return {
       title: "Kana Not Found",
@@ -93,7 +93,10 @@ export default async function KanaDetailPage({ params }: Props) {
     notFound();
   }
 
-  const kana = getKanaBySlug(script, slug);
+  const [kana, allKana] = await Promise.all([
+    getKanaBySlug(script, slug),
+    getAllKana(),
+  ]);
   if (!kana) {
     notFound();
   }
@@ -102,8 +105,8 @@ export default async function KanaDetailPage({ params }: Props) {
   const origin = KANA_ORIGINS[kana.id] || null;
   const confusedIds = CONFUSED_PAIRS[kana.id] || [];
   const confusedKana = confusedIds
-    .map((id) => ALL_KANA_PRIMITIVES.find((k) => k.id === id))
-    .filter((k): k is typeof ALL_KANA_PRIMITIVES[number] => Boolean(k));
+    .map((id) => allKana.find((k) => k.id === id))
+    .filter((k): k is typeof allKana[number] => Boolean(k));
 
   const strokeCount = KANA_STROKE_COUNTS[kana.id] || null;
   const prefix = locale === "en" ? "" : `/${locale}`;

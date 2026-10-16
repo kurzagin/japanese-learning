@@ -1,5 +1,7 @@
 import { LOCALES } from "@/lib/seo/locale";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }

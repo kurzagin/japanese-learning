@@ -1,5 +1,3 @@
-import { ALL_KANA_PRIMITIVES, KanaCharacter } from "@/data/kana";
-
 // Mapping table for Romaji to Hiragana / Katakana
 const ROMAJI_TABLE: [string, string, string][] = [
   // 3-character combos

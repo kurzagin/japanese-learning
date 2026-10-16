@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
-  VOCABULARY_LIST,
+  getAllVocabulary,
   getWordBySlug,
   getConstituentKana,
   getRelatedWords,
-} from "@/lib/vocab-seo";
+} from "@/lib/db-data";
 import WordDetailClient from "./WordDetailClient";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -16,10 +16,11 @@ interface Props {
   }>;
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const words = await getAllVocabulary();
   const params: Array<{ locale: string; slug: string }> = [];
   LOCALES.forEach((locale) => {
-    VOCABULARY_LIST.forEach((w) => {
+    words.forEach((w) => {
       params.push({
         locale,
         slug: w.slug,
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) return {};
 
-  const word = getWordBySlug(slug);
+  const word = await getWordBySlug(slug);
   if (!word) {
     return {
       title: "Japanese Word Not Found",
@@ -87,13 +88,15 @@ export default async function WordDetailPage({ params }: Props) {
     notFound();
   }
 
-  const word = getWordBySlug(slug);
+  const word = await getWordBySlug(slug);
   if (!word) {
     notFound();
   }
 
-  const constituentKana = getConstituentKana(word);
-  const relatedWords = getRelatedWords(word, 6);
+  const [constituentKana, relatedWords] = await Promise.all([
+    getConstituentKana(word),
+    getRelatedWords(word, undefined, 6),
+  ]);
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   // Schema.org DefinedTerm & BreadcrumbList for Dictionary Entries

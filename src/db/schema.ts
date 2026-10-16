@@ -33,7 +33,26 @@ export const kana = pgTable("kana", {
   row: text("row").notNull(), // "vowel", "k", "s", etc.
   hintEn: text("hint_en"),
   hintId: text("hint_id"),
+  hintJa: text("hint_ja"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+// Comprehensive Vocabulary & Homophone Dictionary table
+export const vocabulary = pgTable("vocabulary", {
+  slug: text("slug").primaryKey(), // e.g. "ame", "shiro", "sakana"
+  character: text("character").notNull(), // "あめ", "しろ"
+  romaji: text("romaji").notNull(), // "ame", "shiro"
+  script: text("script").notNull(), // "hiragana" | "katakana"
+  kanji: text("kanji"), // Primary kanji or null
+  jlpt: text("jlpt"), // "N5" | "N4" | "Anime"
+  primaryKanaId: text("primary_kana_id"), // e.g. "h-a"
+  meaning: text("meaning").notNull(), // JSON stringified Record<Locale, string>
+  trivia: text("trivia"), // JSON stringified Record<Locale, string>
+  furigana: text("furigana"), // JSON stringified FuriganaSegment[]
+  sentence: text("sentence"), // JSON stringified VocabSentence
+  kanjiOptions: text("kanji_options"), // JSON stringified KanjiOption[] for homophone distinction
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
 // Site stats table for persistent counters (such as page visitors)

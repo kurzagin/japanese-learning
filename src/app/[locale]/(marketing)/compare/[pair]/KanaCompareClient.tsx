@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { KanaCharacter } from "@/data/kana";
+import { KanaCharacter } from "@/types/kana";
 import { ComparisonPair } from "@/lib/kana-seo";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { PronounceButton } from "@/components/PronounceButton";

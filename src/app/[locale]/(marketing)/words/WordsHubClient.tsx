@@ -3,19 +3,19 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { VOCABULARY_LIST, VocabWord } from "@/lib/vocab-seo";
+import { VocabWord } from "@/types/vocab";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
 import { Search, Sparkles, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 
-export default function WordsHubClient() {
+export default function WordsHubClient({ initialWords = [] }: { initialWords?: VocabWord[] }) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredWords = useMemo(() => {
-    return VOCABULARY_LIST.filter((w) => {
+    return initialWords.filter((w) => {
       if (activeScript !== "all" && w.script !== activeScript) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
@@ -27,7 +27,7 @@ export default function WordsHubClient() {
       }
       return true;
     });
-  }, [activeScript, searchQuery, locale]);
+  }, [activeScript, searchQuery, locale, initialWords]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
@@ -55,7 +55,7 @@ export default function WordsHubClient() {
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
-            {t.wordsHub.title(VOCABULARY_LIST.length)}
+            {t.wordsHub.title(initialWords.length)}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium max-w-2xl mx-auto">
             {t.wordsHub.description}
@@ -110,7 +110,7 @@ export default function WordsHubClient() {
                   : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
-              {t.wordsHub.allTab(VOCABULARY_LIST.length)}
+              {t.wordsHub.allTab(initialWords.length)}
             </button>
             <button
               type="button"

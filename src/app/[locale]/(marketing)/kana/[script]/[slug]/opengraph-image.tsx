@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { ALL_KANA_PRIMITIVES } from "@/data/kana";
-import { getKanaBySlug, getKanaSlug, KANA_ORIGINS, KANA_STROKE_COUNTS } from "@/lib/kana-seo";
+import { getAllKana, getKanaBySlug } from "@/lib/db-data";
+import { getKanaSlug, KANA_ORIGINS, KANA_STROKE_COUNTS } from "@/lib/kana-seo";
 
 export const size = {
   width: 1200,
@@ -15,8 +15,9 @@ interface Props {
   }>;
 }
 
-export function generateImageMetadata() {
-  return ALL_KANA_PRIMITIVES.map((k) => ({
+export async function generateImageMetadata() {
+  const allKana = await getAllKana();
+  return allKana.map((k) => ({
     id: `${k.script}-${getKanaSlug(k)}`,
     alt: `${k.character} (${k.romaji}) — SaKana Japanese Character Guide`,
   }));
@@ -24,7 +25,7 @@ export function generateImageMetadata() {
 
 export default async function Image({ params }: Props) {
   const { script, slug } = await params;
-  const kana = getKanaBySlug(script, slug);
+  const kana = await getKanaBySlug(script, slug);
 
   const character = kana ? kana.character : "あ";
   const romaji = kana ? kana.romaji : "a";

@@ -1,5 +1,5 @@
 import { Locale } from "@/data/i18n";
-import { HIRAGANA_PRIMITIVES, KATAKANA_PRIMITIVES, KanaCharacter } from "@/data/kana";
+import { KanaCharacter } from "@/types/kana";
 
 export type LocalizedString = Record<Locale, string>;
 
@@ -241,7 +241,77 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-we": { jp: "ウェディング (wedingu)", en: "Wedding", id: "Pernikahan", ja: "ウェディング" },
   "k-wi": { jp: "ウィーク (wiiku)", en: "Week", id: "Minggu / Pekan", ja: "ウィーク" },
   "k-va": { jp: "ヴァイオリン (vaiorin)", en: "Violin", id: "Biola", ja: "ヴァイオリン" },
-  "k-vo": { jp: "ボリューム (voryuumu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
+  "k-vo": { jp: "ヴォリューム (voryuumu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
+
+  // Hiragana Yōon Combinations (33)
+  "h-kya": { jp: "きゃく (kyaku)", en: "Guest / Customer", id: "Tamu / Pelanggan", ja: "客" },
+  "h-kyu": { jp: "きゅうり (kyuuri)", en: "Cucumber", id: "Mentimun", ja: "胡瓜" },
+  "h-kyo": { jp: "きょうと (kyouto)", en: "Kyoto city", id: "Kota Kyoto", ja: "京都" },
+  "h-sha": { jp: "しゃしん (shashin)", en: "Photograph", id: "Foto", ja: "写真" },
+  "h-shu": { jp: "しゅみ (shumi)", en: "Hobby", id: "Hobi", ja: "趣味" },
+  "h-sho": { jp: "しょくどう (shokudou)", en: "Dining hall / Cafeteria", id: "Kantin", ja: "食堂" },
+  "h-cha": { jp: "おちゃ (ocha)", en: "Green tea", id: "Teh hijau", ja: "お茶" },
+  "h-chu": { jp: "ちゅうしゃ (chuusha)", en: "Parking / Injection", id: "Parkir / Suntikan", ja: "駐車" },
+  "h-cho": { jp: "ちょっと (chotto)", en: "A little bit", id: "Sebentar / Sedikit", ja: "一寸" },
+  "h-nya": { jp: "にゃんこ (nyanko)", en: "Kitty cat", id: "Kucing kecil", ja: "ニャンコ" },
+  "h-nyu": { jp: "ぎゅうにゅう (gyuunyuu)", en: "Cow milk", id: "Susu sapi", ja: "牛乳" },
+  "h-nyo": { jp: "にょうぼう (nyoubou)", en: "Wife / Court lady", id: "Istri", ja: "女房" },
+  "h-hya": { jp: "ひゃく (hyaku)", en: "Hundred (100)", id: "Seratus (100)", ja: "百" },
+  "h-hyu": { jp: "ひゅうひゅう (hyuuhyuu)", en: "Whistling wind sound", id: "Desir angin kencang", ja: "ひゅうひゅう" },
+  "h-hyo": { jp: "ひょう (hyou)", en: "Leopard / Hail", id: "Macan tutul / Hujan es", ja: "豹" },
+  "h-mya": { jp: "みゃく (myaku)", en: "Pulse / Vein", id: "Denyut nadi", ja: "脈" },
+  "h-myu": { jp: "みゅーじかる (myuujikaru)", en: "Musical theatre", id: "Drama musikal", ja: "ミュージカル" },
+  "h-myo": { jp: "みょうじ (myouji)", en: "Family surname", id: "Nama keluarga", ja: "名字" },
+  "h-rya": { jp: "りゃく (ryaku)", en: "Abbreviation / Shortening", id: "Singkatan", ja: "略" },
+  "h-ryu": { jp: "りゅう (ryuu)", en: "Dragon", id: "Naga", ja: "竜" },
+  "h-ryo": { jp: "りょこう (ryokou)", en: "Travel / Trip", id: "Perjalanan / Wisata", ja: "旅行" },
+  "h-gya": { jp: "ぎゃくてん (gyakuten)", en: "Turnabout / Comeback", id: "Pembalikan keadaan", ja: "逆転" },
+  "h-gyu": { jp: "ぎゅうにく (gyuuniku)", en: "Beef meat", id: "Daging sapi", ja: "牛肉" },
+  "h-gyo": { jp: "ぎょぎょう (gyogyou)", en: "Fishery industry", id: "Perikanan", ja: "漁業" },
+  "h-ja": { jp: "じゃがいも (jagaimo)", en: "Potato", id: "Kentang", ja: "じゃがいも" },
+  "h-ju": { jp: "じゅう (juu)", en: "Ten (10)", id: "Sepuluh (10)", ja: "十" },
+  "h-jo": { jp: "じょせい (josei)", en: "Woman / Female", id: "Wanita / Perempuan", ja: "女性" },
+  "h-bya": { jp: "びゃくだん (byakudan)", en: "Sandalwood incense", id: "Kayu cendana", ja: "白檀" },
+  "h-byu": { jp: "びゅうびゅう (byuubyuu)", en: "Howling wind gust", id: "Deru hembusan angin", ja: "びゅうびゅう" },
+  "h-byo": { jp: "びょういん (byouin)", en: "Hospital", id: "Rumah sakit", ja: "病院" },
+  "h-pya": { jp: "ぴゃっと (pyatto)", en: "In a sudden flash", id: "Dalam sekejap mata", ja: "ぴゃっと" },
+  "h-pyu": { jp: "ぴゅうっと (pyuutto)", en: "Whistling gust", id: "Tiupan angin melesat", ja: "ぴゅうっと" },
+  "h-pyo": { jp: "ぴょんぴょん (pyonpyon)", en: "Hopping happily", id: "Melompat-lompat", ja: "ぴょんぴょん" },
+
+  // Katakana Yōon Combinations (33)
+  "k-kya": { jp: "キャベツ (kyabetsu)", en: "Cabbage", id: "Kubis / Kol", ja: "キャベツ" },
+  "k-kyu": { jp: "キューブ (kyuubu)", en: "Cube", id: "Kubus", ja: "キューブ" },
+  "k-kyo": { jp: "キャンプ (kyanpu)", en: "Camping / Camp", id: "Berkemah", ja: "キャンプ" },
+  "k-sha": { jp: "シャツ (shatsu)", en: "Shirt", id: "Kemeja / Kaos", ja: "シャツ" },
+  "k-shu": { jp: "シュークリーム (shuukuriimu)", en: "Cream puff", id: "Kue sus", ja: "シュークリーム" },
+  "k-sho": { jp: "ショップ (shoppu)", en: "Shop / Store", id: "Toko", ja: "ショップ" },
+  "k-cha": { jp: "チャンス (chansu)", en: "Chance / Opportunity", id: "Kesempatan", ja: "チャンス" },
+  "k-chu": { jp: "チューリップ (chuurippu)", en: "Tulip flower", id: "Bunga tulip", ja: "チューリップ" },
+  "k-cho": { jp: "チョコレート (chokoreeto)", en: "Chocolate", id: "Cokelat", ja: "チョコレート" },
+  "k-nya": { jp: "ニャー (nyaa)", en: "Meow sound", id: "Suara mengeong kucing", ja: "ニャー" },
+  "k-nyu": { jp: "ニュース (nyuusu)", en: "News broadcast", id: "Berita", ja: "ニュース" },
+  "k-nyo": { jp: "ニョッキ (nyokki)", en: "Gnocchi pasta", id: "Pasta gnocchi", ja: "ニョッキ" },
+  "k-hya": { jp: "ヒャッホウ (hyahhou)", en: "Yippee shout", id: "Sorakan riang", ja: "ヒャッホウ" },
+  "k-hyu": { jp: "ヒューズ (hyuuzu)", en: "Electrical fuse", id: "Sekring listrik", ja: "ヒューズ" },
+  "k-hyo": { jp: "ヒョウ柄 (hyougara)", en: "Leopard print", id: "Motif macan tutul", ja: "ヒョウ柄" },
+  "k-mya": { jp: "ミャンマー (myanmaa)", en: "Myanmar country", id: "Negara Myanmar", ja: "ミャンマー" },
+  "k-myu": { jp: "ミュージカル (myuujikaru)", en: "Musical theatre", id: "Drama musikal", ja: "ミュージカル" },
+  "k-myo": { jp: "ミョウガ (myouga)", en: "Japanese myoga ginger", id: "Jahe myoga Jepang", ja: "ミョウガ" },
+  "k-rya": { jp: "略称 (ryakushou)", en: "Abbreviation", id: "Singkatan nama", ja: "略称" },
+  "k-ryu": { jp: "リュック (ryukku)", en: "Backpack / Rucksack", id: "Ransel", ja: "リュック" },
+  "k-ryo": { jp: "リョーカン (ryookan)", en: "Japanese inn", id: "Penginapan ryokan", ja: "旅館" },
+  "k-gya": { jp: "ギャング (gyangu)", en: "Gang / Gangster", id: "Geng", ja: "ギャング" },
+  "k-gyu": { jp: "ギュッと (gyutto)", en: "Tight squeeze / Hug", id: "Pelukan erat", ja: "ギュッと" },
+  "k-gyo": { jp: "ギョーザ (gyooza)", en: "Gyoza dumpling", id: "Pangsit gyoza", ja: "ギョーザ" },
+  "k-ja": { jp: "ジャム (jamu)", en: "Fruit jam", id: "Selai buah", ja: "ジャム" },
+  "k-ju": { jp: "ジュース (juusu)", en: "Fruit juice", id: "Jus buah", ja: "ジュース" },
+  "k-jo": { jp: "ジョギング (jogingu)", en: "Jogging", id: "Lari joging", ja: "ジョギング" },
+  "k-bya": { jp: "白夜 (byakuya)", en: "Midnight sun", id: "Malam putih kutub", ja: "白夜" },
+  "k-byu": { jp: "ビュッフェ (byuffe)", en: "Buffet dining", id: "Prasmanan", ja: "ビュッフェ" },
+  "k-byo": { jp: "ビョウ (byou)", en: "Tack / Rivet pin", id: "Paku payung / Pin", ja: "鋲" },
+  "k-pya": { jp: "ピャッと (pyatto)", en: "Swift flash", id: "Kilatan cepat", ja: "ピャッと" },
+  "k-pyu": { jp: "ピューマ (pyuuma)", en: "Puma cougar", id: "Puma / Singa gunung", ja: "ピューマ" },
+  "k-pyo": { jp: "ピョンチャン (pyonchan)", en: "Pyeongchang", id: "Pyeongchang", ja: "平昌" },
 };
 
 function createCard(k: KanaCharacter): StudyCard {
@@ -627,7 +697,7 @@ export const WORD_STAGES: Stage[] = [
   },
 ];
 
-function buildStages(): Stage[] {
+function buildStagesInternal(allKana: KanaCharacter[] = []): Stage[] {
   const result: Stage[] = [];
 
   // Helper to build rows with boss stages every 2 rows
@@ -713,10 +783,12 @@ function buildStages(): Stage[] {
   }
 
   // 1. HIRAGANA
-  addAlphabetStages("hiragana", HIRAGANA_ROW_DEFS, HIRAGANA_PRIMITIVES);
+  const hiraganaPrimitives = allKana.filter((k) => k.script === "hiragana");
+  addAlphabetStages("hiragana", HIRAGANA_ROW_DEFS, hiraganaPrimitives);
 
   // 2. KATAKANA
-  addAlphabetStages("katakana", KATAKANA_ROW_DEFS, KATAKANA_PRIMITIVES);
+  const katakanaPrimitives = allKana.filter((k) => k.script === "katakana");
+  addAlphabetStages("katakana", KATAKANA_ROW_DEFS, katakanaPrimitives);
 
   // 3. WORD STAGES
   result.push(...WORD_STAGES);
@@ -724,7 +796,11 @@ function buildStages(): Stage[] {
   return result;
 }
 
-export const STAGES: Stage[] = buildStages();
+export function buildStages(allKana: KanaCharacter[] = []): Stage[] {
+  return buildStagesInternal(allKana);
+}
+
+export const STAGES: Stage[] = buildStagesInternal([]);
 export const STAGES_BY_ID = new Map(STAGES.map((s) => [s.id, s]));
 
 // Arcade prerequisites: Defeat Boss Checkpoint 1 and Checkpoint 2 of either Hiragana OR Katakana
@@ -761,9 +837,10 @@ export const ARCADE_PREREQUISITE_STAGE_IDS = [
  */
 export function getStageUnlockStatus(
   stageId: string,
-  progress: Record<string, { completed?: boolean }>
+  progress: Record<string, { completed?: boolean }>,
+  allStages: Stage[] = []
 ): { isUnlocked: boolean; requiredStage?: Stage; requiredStageIds?: string[] } {
-  const stage = STAGES_BY_ID.get(stageId);
+  const stage = allStages.find((s) => s.id === stageId) || STAGES_BY_ID.get(stageId);
   if (!stage) {
     return { isUnlocked: false };
   }
@@ -774,7 +851,9 @@ export function getStageUnlockStatus(
   }
 
   // Find index within its category
-  const categoryStages = STAGES.filter((s) => s.category === stage.category);
+  const categoryStages = allStages.length > 0
+    ? allStages.filter((s) => s.category === stage.category)
+    : STAGES.filter((s) => s.category === stage.category);
   const stageIdx = categoryStages.findIndex((s) => s.id === stage.id);
 
   // First stage of each category or explicit default unlock

@@ -7,6 +7,7 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   STAGES,
+  Stage,
   StudyCard,
   isArcadeUnlocked,
   getArcadePrerequisiteStageIds,
@@ -32,7 +33,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
-export default function MinigamePage() {
+export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { t, locale } = useLanguage();
@@ -105,15 +106,15 @@ export default function MinigamePage() {
   // 2. Build 30-letter queue once progress & SRS are ready
   const eligibleCards = useMemo(() => {
     if (!isUnlocked) return [];
-    const cards = getUnlockedCardsUpToStage(fromStageId || "hiragana-vowels", progress);
+    const cards = getUnlockedCardsUpToStage(fromStageId || "hiragana-vowels", progress, stages);
     if (cards.length > 0) return cards;
 
     // Fallback if stages are unlocked: use vowels from both Hiragana & Katakana
-    const firstStages = STAGES.filter(
+    const firstStages = stages.filter(
       (s) => ARCADE_PREREQUISITE_STAGE_IDS.includes(s.id)
     );
     return firstStages.flatMap((s) => s.cards);
-  }, [fromStageId, progress, isUnlocked]);
+  }, [fromStageId, progress, isUnlocked, stages]);
 
   useEffect(() => {
     if (!isLoading && isUnlocked && eligibleCards.length > 0) {
@@ -246,8 +247,8 @@ export default function MinigamePage() {
   if (!isLoading && !isUnlocked) {
     const reqIds = getArcadePrerequisiteStageIds(progress);
     const requiredStages = reqIds
-      .map((id) => STAGES_BY_ID.get(id))
-      .filter(Boolean) as typeof STAGES;
+      .map((id) => stages.find((s) => s.id === id) || STAGES_BY_ID.get(id))
+      .filter(Boolean) as Stage[];
     return <StageLockedView isArcade={true} requiredStages={requiredStages} />;
   }
 

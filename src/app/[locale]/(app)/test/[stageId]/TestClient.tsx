@@ -19,11 +19,22 @@ interface TestQuestion {
   correctIndex: number;
 }
 
-export default function TestClient({ stageId }: { stageId: string }) {
+export default function TestClient({
+  stageId,
+  initialStage,
+  allStages = [],
+}: {
+  stageId: string;
+  initialStage?: Stage;
+  allStages?: Stage[];
+}) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
 
-  const stage = useMemo(() => STAGES.find((s) => s.id === stageId) || STAGES[0], [stageId]);
+  const stage = useMemo(
+    () => initialStage || allStages.find((s) => s.id === stageId) || allStages[0],
+    [initialStage, allStages, stageId]
+  );
   const timeLimit = stage?.targetDurationSeconds || 15;
 
   const [testSession, setTestSession] = useState(0);
@@ -33,8 +44,8 @@ export default function TestClient({ stageId }: { stageId: string }) {
     if (!stage?.cards || stage.cards.length === 0) return [];
 
     // All available distractor answers from the same category and global fallback
-    const sameCategoryCards = STAGES.filter((s) => s.category === stage.category).flatMap((s) => s.cards);
-    const allStageCards = STAGES.flatMap((s) => s.cards);
+    const sameCategoryCards = allStages.filter((s) => s.category === stage.category).flatMap((s) => s.cards);
+    const allStageCards = allStages.flatMap((s) => s.cards);
 
     // Shuffle cards so question order is random rather than fixed (a -> i -> u -> e -> o)
     const shuffledCards = [...stage.cards].sort(() => 0.5 - Math.random());
@@ -303,19 +314,19 @@ export default function TestClient({ stageId }: { stageId: string }) {
   const timeBarPercent = Math.max(0, Math.min(100, (timeLeft / timeLimit) * 100));
 
   // Determine next stage
-  const currentStageIndex = STAGES.findIndex((s) => s.id === stageId);
-  const nextStage = currentStageIndex >= 0 && currentStageIndex + 1 < STAGES.length ? STAGES[currentStageIndex + 1] : null;
+  const currentStageIndex = allStages.findIndex((s) => s.id === stageId);
+  const nextStage = currentStageIndex >= 0 && currentStageIndex + 1 < allStages.length ? allStages[currentStageIndex + 1] : null;
 
   // Check if test stage is locked
   if (!isCheckingUnlock) {
-    const unlockStatus = getStageUnlockStatus(stage.id, progress);
+    const unlockStatus = getStageUnlockStatus(stage.id, progress, allStages);
     if (!unlockStatus.isUnlocked) {
       const requiredStages: Stage[] = [];
       if (unlockStatus.requiredStage) {
         requiredStages.push(unlockStatus.requiredStage);
       } else if (unlockStatus.requiredStageIds) {
         unlockStatus.requiredStageIds.forEach((id) => {
-          const s = STAGES_BY_ID.get(id);
+          const s = allStages.find((st) => st.id === id) || STAGES_BY_ID.get(id);
           if (s) requiredStages.push(s);
         });
       }

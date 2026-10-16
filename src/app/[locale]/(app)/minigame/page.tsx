@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import MinigameClient from "./MinigameClient";
 import { translations } from "@/data/i18n";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
+import { getStages } from "@/lib/db-data";
 
 interface Props {
   params: Promise<{
@@ -82,6 +83,8 @@ export default async function MinigamePage({ params }: Props) {
     },
   };
 
+  const stages = await getStages();
+
   return (
     <>
       <script
@@ -95,7 +98,7 @@ export default async function MinigamePage({ params }: Props) {
           </div>
         }
       >
-        <MinigameClient />
+        <MinigameClient stages={stages} />
       </Suspense>
     </>
   );

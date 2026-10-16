@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { VocabWord } from "@/lib/vocab-seo";
-import { KanaCharacter } from "@/data/kana";
+import { KanaCharacter } from "@/types/kana";
 import { getKanaSlug } from "@/lib/kana-seo";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
@@ -176,6 +176,82 @@ export default function WordDetailClient({
                   EN: {word.sentence.en}
                 </div>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* Kanji Variations & Homophone Disambiguation (同音異義語) */}
+        {word.kanjiOptions && word.kanjiOptions.length > 0 && (
+          <div className="bg-white border-2 border-[#800000] p-4 sm:p-5 shadow-xs space-y-3">
+            <div className="flex items-center gap-2 border-b border-[#e0c0c0] pb-2">
+              <Sparkles className="w-4 h-4 text-[#800000]" />
+              <h2 className="text-xs sm:text-sm font-bold text-[#800000] uppercase tracking-wider">
+                {t.wordDetail.homophonesHeader}
+              </h2>
+            </div>
+            <p className="text-xs text-[#555]">
+              {t.wordDetail.homophonesSub}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
+              {word.kanjiOptions.map((opt, idx) => {
+                const optMeaning = opt.meaning[locale] || opt.meaning.en;
+                const optNote = opt.note ? opt.note[locale] || opt.note.en : null;
+                const isSelected = word.kanji === opt.kanji;
+
+                return (
+                  <div
+                    key={idx}
+                    className={`p-3.5 border transition-all flex flex-col justify-between ${
+                      isSelected
+                        ? "bg-[#fff8e7] border-2 border-[#800000] shadow-xs"
+                        : "bg-[#fafafa] border border-[#c0c0c0] hover:border-[#000080]"
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="text-3xl font-black text-[#000080] font-sans">
+                          {opt.kanji}
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                          {isSelected && (
+                            <span className="text-[9px] font-mono font-bold uppercase bg-[#800000] text-white px-1.5 py-0.5">
+                              Current Page
+                            </span>
+                          )}
+                          {opt.pitchAccent && (
+                            <span className="text-[10px] font-mono font-bold text-[#800000] bg-[#fff0f0] px-1.5 py-0.5 border border-[#ffcccc]">
+                              {opt.pitchAccent}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-sm font-bold text-black mt-2">
+                        {optMeaning}
+                      </div>
+
+                      {optNote && (
+                        <p className="text-xs text-[#555] mt-1.5 leading-relaxed">
+                          {optNote}
+                        </p>
+                      )}
+                    </div>
+
+                    {opt.example && (
+                      <div className="mt-3 pt-2 border-t border-[#e0e0e0] flex items-center justify-between text-xs">
+                        <div className="font-mono text-[#000080] text-[11px] font-medium">
+                          {opt.example}
+                        </div>
+                        <PronounceButton
+                          text={opt.example.split(" ")[0]}
+                          size="sm"
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}

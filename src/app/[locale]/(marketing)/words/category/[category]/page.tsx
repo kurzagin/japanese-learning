@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { JLPT_CATEGORIES, getWordsByJlpt } from "@/lib/vocab-seo";
+import { JLPT_CATEGORIES } from "@/lib/vocab-seo";
+import { getWordsByJlpt } from "@/lib/db-data";
 import JlptCategoryClient from "./JlptCategoryClient";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -78,7 +79,7 @@ export default async function JlptCategoryPage({ params }: Props) {
     notFound();
   }
 
-  const words = getWordsByJlpt(cat.jlpt);
+  const words = await getWordsByJlpt(cat.jlpt);
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const schemaData = {

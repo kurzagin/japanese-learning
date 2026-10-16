@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CURATED_COMPARISONS, getComparisonBySlug, KANA_STROKE_COUNTS } from "@/lib/kana-seo";
-import { ALL_KANA_PRIMITIVES } from "@/data/kana";
+import { getAllKana } from "@/lib/db-data";
 import KanaCompareClient from "./KanaCompareClient";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -36,8 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const k1 = ALL_KANA_PRIMITIVES.find((k) => k.id === comparison.kana1Id);
-  const k2 = ALL_KANA_PRIMITIVES.find((k) => k.id === comparison.kana2Id);
+  const allKana = await getAllKana();
+  const k1 = allKana.find((k) => k.id === comparison.kana1Id);
+  const k2 = allKana.find((k) => k.id === comparison.kana2Id);
 
   if (!k1 || !k2) {
     return {
@@ -95,8 +96,9 @@ export default async function KanaComparePage({ params }: Props) {
     notFound();
   }
 
-  const k1 = ALL_KANA_PRIMITIVES.find((k) => k.id === comparison.kana1Id);
-  const k2 = ALL_KANA_PRIMITIVES.find((k) => k.id === comparison.kana2Id);
+  const allKana = await getAllKana();
+  const k1 = allKana.find((k) => k.id === comparison.kana1Id);
+  const k2 = allKana.find((k) => k.id === comparison.kana2Id);
 
   if (!k1 || !k2) {
     notFound();

@@ -525,6 +525,10 @@ export interface TranslationSchema {
     strokeOrderLink: string;
     relatedWordsHeader: (script: string) => string;
     returnBtn: string;
+    homophonesHeader: string;
+    homophonesSub: string;
+    pitchAccentLabel: string;
+    exampleLabel: string;
   };
   jlptCategory: {
     wordsCountHeader: (title: string, count: number) => string;
@@ -1166,6 +1170,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       strokeOrderLink: "Stroke Order",
       relatedWordsHeader: (script: string) => `Related ${script} Words`,
       returnBtn: "RETURN TO KANA HUB",
+      homophonesHeader: "Kanji Variations & Homophone Disambiguation (同音異義語)",
+      homophonesSub: "In Japanese, identical kana readings can represent completely different Kanji with distinct meanings and pitch accents:",
+      pitchAccentLabel: "Pitch Accent",
+      exampleLabel: "Example",
     },
     jlptCategory: {
       wordsCountHeader: (title: string, count: number) => `${title} (${count} Words)`,
@@ -1806,6 +1814,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       strokeOrderLink: "Urutan Goresan",
       relatedWordsHeader: (script: string) => `Kosakata ${script} Terkait`,
       returnBtn: "KEMBALI KE PUSAT KANA",
+      homophonesHeader: "Variasi Kanji & Pembedaan Homofon (同音異義語)",
+      homophonesSub: "Dalam bahasa Jepang, bunyi kana yang sama persis dapat ditulis dengan Kanji berbeda yang memiliki arti dan tinggi-rendah nada (pitch accent) berbeda:",
+      pitchAccentLabel: "Pitch Accent (Aksen Nada)",
+      exampleLabel: "Contoh",
     },
     jlptCategory: {
       wordsCountHeader: (title: string, count: number) => `${title} (${count} Kata)`,
@@ -2446,6 +2458,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       strokeOrderLink: "画数・詳細",
       relatedWordsHeader: (script: string) => `関連する${script}の単語`,
       returnBtn: "五十音図ハブへ戻る",
+      homophonesHeader: "漢字の書き分け・同音異義語の判別",
+      homophonesSub: "日本語では同じ「かな読み」でも、文脈やアクセントによって異なる漢字と意味に対応します：",
+      pitchAccentLabel: "アクセント型",
+      exampleLabel: "用例",
     },
     jlptCategory: {
       wordsCountHeader: (title: string, count: number) => `${title} (${count}語)`,

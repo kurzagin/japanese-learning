@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import WordsHubClient from "./WordsHubClient";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
+import { getAllVocabulary } from "@/lib/db-data";
 
 interface Props {
   params: Promise<{
@@ -93,13 +94,15 @@ export default async function WordsPage({ params }: Props) {
     ],
   };
 
+  const words = await getAllVocabulary();
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <WordsHubClient />
+      <WordsHubClient initialWords={words} />
     </>
   );
 }
