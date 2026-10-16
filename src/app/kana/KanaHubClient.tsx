@@ -232,12 +232,12 @@ export default function KanaHubClient() {
           </div>
         )}
 
-        {/* SEO Educational Text Section */}
+        {/* SEO Educational Text & FAQ Section */}
         <section className="border border-[#808080] bg-[#fff] p-4 sm:p-6 space-y-4 shadow-xs">
           <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
             <BookOpen className="w-4 h-4 text-[#000080]" />
             <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
-              {t.kanaHub.eduTitle}
+              {t.kanaHub.eduTitle} — Hiragana &amp; Katakana Explained
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed text-[#333]">
@@ -252,6 +252,27 @@ export default function KanaHubClient() {
               <p>
                 {t.kanaHub.katakanaEduText}
               </p>
+            </div>
+          </div>
+
+          {/* Quick FAQ Section */}
+          <div className="pt-4 border-t border-[#e0ded0] space-y-2.5">
+            <h3 className="text-xs font-bold text-[#000080] uppercase flex items-center gap-1.5">
+              <span>◆ Kana Learning Questions &amp; Answers</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] sm:text-xs">
+              <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
+                <strong className="text-[#800000] block mb-1">Should I learn Hiragana or Katakana first?</strong>
+                <p className="text-[#555] leading-relaxed">
+                  Start with Hiragana to understand core grammar, particles, and fundamental Japanese sounds. Follow immediately with Katakana so you can decipher manga sound effects, modern anime titles, and foreign loanwords without hesitation.
+                </p>
+              </div>
+              <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
+                <strong className="text-[#800000] block mb-1">How can I avoid mixing up lookalike characters?</strong>
+                <p className="text-[#555] leading-relaxed">
+                  Characters like シ (shi) vs ツ (tsu) or さ (sa) vs き (ki) share similar shapes. Visit our <Link href="/compare" className="text-[#000080] font-bold underline">Lookalike Comparison Hub</Link> for side-by-side stroke direction breakdowns and visual memory tricks.
+                </p>
+              </div>
             </div>
           </div>
         </section>

@@ -172,6 +172,37 @@ export default function WordsHubClient() {
             );
           })}
         </div>
+
+        {/* Educational SEO & Study Guide Section */}
+        <section className="border border-[#808080] bg-white p-4 sm:p-6 space-y-4 shadow-xs mt-6">
+          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
+            <BookOpen className="w-4 h-4 text-[#000080]" />
+            <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
+              How to Study Japanese Vocabulary Effectively with SaKana
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-[#444]">
+            <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
+              <strong className="text-[#800000] block mb-1">1. Character Decomposition</strong>
+              <p>
+                Each vocabulary entry breaks down compound words into their constituent Kana primitives. Mastering individual syllables first makes long anime words instantly recognizable.
+              </p>
+            </div>
+            <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
+              <strong className="text-[#800000] block mb-1">2. Native Speech Audio</strong>
+              <p>
+                Listen to natural Japanese pronunciation audio for every word. Linking auditory memory with visual glyphs reinforces long-term vocabulary retention.
+              </p>
+            </div>
+            <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
+              <strong className="text-[#800000] block mb-1">3. Anime Context &amp; Culture</strong>
+              <p>
+                Our curated dictionary features essential conversational Japanese, loanwords (Gairaigo), and iconic pop-culture vocabulary seen in anime dialogue.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

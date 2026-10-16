@@ -21,8 +21,42 @@ export const metadata: Metadata = {
 };
 
 export default function CompareIndexPage() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "Japanese Kana Lookalike Comparisons",
+        description:
+          "Detailed side-by-side guide for distinguishing confusing Japanese Hiragana and Katakana lookalikes including シ vs ツ, ソ vs ン, and さ vs き.",
+        url: "https://sakanajp.site/compare",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://sakanajp.site",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Kana Comparisons",
+            item: "https://sakanajp.site/compare",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       <RetroNavbar currentSubtitle="KANA COMPARISONS" />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4">
@@ -92,6 +126,30 @@ export default function CompareIndexPage() {
             );
           })}
         </div>
+
+        {/* Educational Guide for Confusing Kana Pairs */}
+        <section className="border border-[#808080] bg-white p-4 sm:p-6 space-y-4 shadow-xs mt-6">
+          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
+            <HelpCircle className="w-4 h-4 text-[#000080]" />
+            <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
+              The Secret to Telling Lookalike Japanese Kana Apart
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed text-[#444]">
+            <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
+              <strong className="text-[#800000] block mb-1">Stroke Direction &amp; Alignment</strong>
+              <p>
+                In Katakana, characters like <strong>シ (shi)</strong> and <strong>ツ (tsu)</strong> differ by stroke direction: <em>shi</em> is written from bottom-to-top with strokes aligned along a vertical axis, whereas <em>tsu</em> is written top-to-bottom with strokes aligned horizontally along the ceiling.
+              </p>
+            </div>
+            <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
+              <strong className="text-[#800000] block mb-1">Loop &amp; Tail Variations</strong>
+              <p>
+                In Hiragana pairs like <strong>れ (re)</strong>, <strong>わ (wa)</strong>, and <strong>ね (ne)</strong>, the initial left stroke is identical, but the ending tail tells them apart: <em>re</em> flares outward, <em>wa</em> curves round like a hoop, and <em>ne</em> ties into a closed loop at the finish.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -28,11 +28,36 @@ export const metadata: Metadata = {
 export default function WordsPage() {
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Japanese Core Vocabulary Directory",
-    description:
-      "A curated directory of foundational Japanese Hiragana and Katakana vocabulary with audio pronunciations and stroke breakdowns.",
-    url: "https://sakanajp.site/words",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "Japanese Core & Anime Vocabulary Directory",
+        description:
+          "A curated directory of foundational Japanese Hiragana and Katakana vocabulary with audio pronunciations, character breakdowns, and spaced repetition cards.",
+        url: "https://sakanajp.site/words",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How many Japanese words do beginners need to start watching anime?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Mastering the top 100 to 200 common anime words and loanwords—such as 'arigatou', 'kawaii', 'senpai', and 'sugoi'—along with basic Kana recognition enables beginners to pick out frequent spoken phrases and subtitles instantly.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Why are some words written in Katakana instead of Hiragana?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Words written in Katakana are usually loanwords borrowed from other languages (e.g., パン for bread, コーヒー for coffee), foreign character names, scientific terms, or words emphasized for dramatic effect in manga.",
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (

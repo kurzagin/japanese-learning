@@ -45,7 +45,7 @@ export default function HomePage() {
             <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#000080] mt-1.5 tracking-wider flex items-center justify-center gap-2">
-            <span>魚 SAKANA 魚</span>
+            <span>魚 SAKANA — Master Japanese Kana for Anime Fans</span>
           </h1>
           <p className="text-xs sm:text-sm text-[#cc0000] font-bold mt-1">
             〜 {t.home.tagline} 〜
@@ -254,6 +254,42 @@ export default function HomePage() {
                 >
                   Romaji ⇄ Hiragana &amp; Katakana Converter &rarr;
                 </Link>
+              </div>
+            </div>
+
+            {/* FAQ Accordion Section for Rich Search Snippets */}
+            <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-3">
+              <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
+                <span>◆ FREQUENTLY ASKED QUESTIONS (FAQ)</span>
+                <span className="text-[10px] text-[#ffff00] font-mono">Q&amp;A</span>
+              </div>
+              <div className="space-y-2.5 text-xs">
+                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
+                  <summary className="font-bold text-[#000080] select-none">
+                    How long does it take to learn Hiragana and Katakana?
+                  </summary>
+                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
+                    With SaKana's recognition-first spaced repetition speed drills, most beginners memorize all 46 basic Hiragana and 46 Katakana characters in 3 to 7 days, spending just 10–15 minutes per day.
+                  </p>
+                </details>
+
+                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
+                  <summary className="font-bold text-[#000080] select-none">
+                    Why is Katakana especially important for anime fans?
+                  </summary>
+                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
+                    Katakana is used throughout Japanese pop culture: character names (ナルト, ルフィ), technique names, sci-fi terms, foreign loanwords (ヒーロー, アニメ), and dramatic manga onomatopoeia sound effects (ドドド, ゴゴゴ).
+                  </p>
+                </details>
+
+                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
+                  <summary className="font-bold text-[#000080] select-none">
+                    What makes SaKana different from traditional textbook apps?
+                  </summary>
+                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
+                    Traditional apps slow you down with rigid stroke-tracing tests. SaKana focuses on instant subconscious visual recognition, native Voicevox neural audio, lookalike comparison breakdowns (such as シ vs ツ), and practical vocabulary seen in actual anime dialogue.
+                  </p>
+                </details>
               </div>
             </div>
           </div>

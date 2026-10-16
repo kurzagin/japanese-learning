@@ -65,7 +65,57 @@ async function StudyContent({
   params: Promise<{ stageId: string }>;
 }) {
   const { stageId } = await params;
-  return <StudyClient stageId={stageId} />;
+  const stage = STAGES.find((s) => s.id === stageId);
+
+  const schemaData = stage && stageId !== "srs-due" ? {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        name: stage.name.en || stage.name.ja,
+        description: stage.description.en || stage.description.ja,
+        learningResourceType: "Flashcards",
+        educationalLevel: "Beginner",
+        inLanguage: ["ja", "en", "id"],
+        url: `https://sakanajp.site/study/${stageId}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://sakanajp.site",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Study Stages",
+            item: "https://sakanajp.site/dashboard",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: stage.name.en || stage.name.ja,
+            item: `https://sakanajp.site/study/${stageId}`,
+          },
+        ],
+      },
+    ],
+  } : null;
+
+  return (
+    <>
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
+      <StudyClient stageId={stageId} />
+    </>
+  );
 }
 
 export default function StudyPage({
