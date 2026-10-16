@@ -137,7 +137,7 @@ export default function KanaDetailClient({
               <div>
                 <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#800000] font-bold text-xs uppercase">
                   <Scroll className="w-4 h-4 text-[#800000]" />
-                  <span>Historical Kanji Root (万葉仮名)</span>
+                  <span>{t.kanaDetail.originTitle}</span>
                 </div>
                 <div className="mt-3 flex items-center gap-3">
                   <div className="w-14 h-14 bg-[#fff8e7] border border-[#800000] flex items-center justify-center shrink-0">
@@ -150,16 +150,16 @@ export default function KanaDetailClient({
                   </div>
                   <div>
                     <div className="text-xs font-bold text-[#000080]">
-                      Evolved from Kanji: {origin.kanji} ({origin.reading})
+                      {t.kanaDetail.evolvedFromKanji(origin.kanji, origin.reading)}
                     </div>
                     <p className="text-[11px] text-[#555] mt-1 leading-snug">
-                      {origin.notes}
+                      {origin.notes[locale] || origin.notes.en}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="mt-4 text-[10px] font-mono text-[#800000] bg-[#fff0f0] p-1.5 border border-[#ffcccc]">
-                Ancient source character from Japanese calligraphy tradition.
+                {t.kanaDetail.originFooter}
               </div>
             </div>
           ) : (
@@ -207,7 +207,7 @@ export default function KanaDetailClient({
             <div className="flex items-center justify-between border-b border-[#e0e0e0] pb-2">
               <div className="flex items-center gap-2 text-[#000080] font-bold text-xs uppercase">
                 <BookOpen className="w-4 h-4 text-[#006600]" />
-                <span>Elementary Vocabulary Example</span>
+                <span>{t.kanaDetail.elementaryVocabTitle}</span>
               </div>
               <PronounceButton
                 text={sampleWord.jp.split(" ")[0]}
@@ -220,7 +220,7 @@ export default function KanaDetailClient({
                   {sampleWord.jp}
                 </div>
                 <div className="text-xs text-[#555] font-mono mt-0.5">
-                  Meaning: <strong>{sampleMeaning}</strong>
+                  {t.kanaDetail.vocabMeaning} <strong>{sampleMeaning}</strong>
                 </div>
               </div>
               <div className="text-[11px] font-mono text-[#006600] bg-[#f0fff0] px-2.5 py-1 border border-[#c0e0c0]">

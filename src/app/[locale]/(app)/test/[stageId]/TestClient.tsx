@@ -397,7 +397,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
               {/* Character / Romaji Prompt Card */}
               <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner relative">
                 <span className="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 border border-[#808080] bg-[#ece9d8] text-[#333] uppercase">
-                  {currentQ.type === "kana_to_romaji" ? "Kana ➔ Romaji" : "Romaji ➔ Kana"}
+                  {currentQ.type === "kana_to_romaji" ? t.test.kanaToRomajiBadge : t.test.romajiToKanaBadge}
                 </span>
                 <div
                   className={`font-bold tracking-tight ${
@@ -499,7 +499,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#666]">{t.common.accuracyTarget}</span>
-                      <span className="font-bold">&lt; 1.5s / kana</span>
+                      <span className="font-bold">{t.common.accuracyTargetVal}</span>
                     </div>
                   </div>
                 </div>

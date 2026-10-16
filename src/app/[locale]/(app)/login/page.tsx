@@ -37,7 +37,7 @@ export default function LoginPage() {
     }
 
     localStorage.setItem("sakana_user_email", email);
-    setAuthMsg({ text: "Authentication successful! Redirecting...", isError: false });
+    setAuthMsg({ text: t.login.authSuccessMsg, isError: false });
     setTimeout(() => {
       router.push("/dashboard");
     }, 400);

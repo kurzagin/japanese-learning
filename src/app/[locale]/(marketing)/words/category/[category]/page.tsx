@@ -35,8 +35,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${cat.title} — ${cat.tagline} | SaKana`;
-  const description = `${cat.description} Complete with native Voicevox audio pronunciation, Kanji and Furigana breakdowns.`;
+  const catTitle = cat.title[locale] || cat.title.en;
+  const catTagline = cat.tagline[locale] || cat.tagline.en;
+  const catDesc = cat.description[locale] || cat.description.en;
+
+  const title = `${catTitle} — ${catTagline} | SaKana`;
+  const description = `${catDesc}`;
   const path = `/words/category/${cat.key}`;
   const alternates = getHreflangAlternates(path);
 
@@ -55,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     keywords: [
       `jlpt ${cat.key} vocabulary`,
-      `${cat.title.toLowerCase()}`,
+      `${catTitle.toLowerCase()}`,
       "japanese vocabulary list",
       "learn japanese words",
       "sakanajp",
@@ -82,8 +86,8 @@ export default async function JlptCategoryPage({ params }: Props) {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: cat.title,
-        description: cat.description,
+        name: cat.title[locale] || cat.title.en,
+        description: cat.description[locale] || cat.description.en,
         url: `https://sakanajp.site${prefix}/words/category/${cat.key}`,
       },
       {

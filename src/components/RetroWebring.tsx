@@ -14,46 +14,46 @@ interface WebringNode {
   external?: boolean;
 }
 
-const WEBRING_NODES: WebringNode[] = [
-  {
-    id: "kurzagin",
-    name: "Kur Zagin",
-    url: "https://kurzagin.com",
-    badge: "/badges/kurzagin.svg",
-    desc: "System architect, solo developer & builder",
-    external: true,
-  },
-  {
-    id: "e-teyvat",
-    name: "E-Teyvat",
-    url: "https://e-teyvat.vxnus.xyz",
-    badge: "/badges/e-teyvat.svg",
-    desc: "Genshin Impact Knowledge Base",
-    external: true,
-  },
-  {
-    id: "vxnus",
-    name: "VXNUS Studio",
-    url: "https://vxnus.xyz",
-    badge: "/badges/vxnus.svg",
-    desc: "Creative Technology Studio",
-    external: true,
-  },
-  {
-    id: "join",
-    name: "Join Webring",
-    url: "https://kurzagin.com/guestbook",
-    badge: "/badges/join.svg",
-    desc: "Leave your site link in the guestbook to join",
-    external: true,
-  },
-];
-
 export function RetroWebring() {
   const { t } = useLanguage();
   const [activeNode, setActiveNode] = useState<WebringNode | null>(null);
 
-  const realSites = WEBRING_NODES.filter((n) => n.id !== "join");
+  const webringNodes: WebringNode[] = [
+    {
+      id: "kurzagin",
+      name: "Kur Zagin",
+      url: "https://kurzagin.com",
+      badge: "/badges/kurzagin.svg",
+      desc: t.webring.nodes.kurzaginDesc,
+      external: true,
+    },
+    {
+      id: "e-teyvat",
+      name: "E-Teyvat",
+      url: "https://e-teyvat.vxnus.xyz",
+      badge: "/badges/e-teyvat.svg",
+      desc: t.webring.nodes.eteyvatDesc,
+      external: true,
+    },
+    {
+      id: "vxnus",
+      name: "VXNUS Studio",
+      url: "https://vxnus.xyz",
+      badge: "/badges/vxnus.svg",
+      desc: t.webring.nodes.vxnusDesc,
+      external: true,
+    },
+    {
+      id: "join",
+      name: t.webring.nodes.joinName,
+      url: "https://kurzagin.com/guestbook",
+      badge: "/badges/join.svg",
+      desc: t.webring.nodes.joinDesc,
+      external: true,
+    },
+  ];
+
+  const realSites = webringNodes.filter((n) => n.id !== "join");
 
   const handleRandom = () => {
     const random = realSites[Math.floor(Math.random() * realSites.length)];
@@ -74,7 +74,7 @@ export function RetroWebring() {
       <div className="mt-2.5 p-2 bg-[#f4f2e8] border border-[#a09e90] space-y-2.5">
         {/* Buttons Grid - Optimized for mobile wrapping and touch friendly */}
         <div className="grid grid-cols-2 xs:grid-cols-4 sm:flex sm:flex-wrap items-center justify-center gap-2">
-          {WEBRING_NODES.map((node) => {
+          {webringNodes.map((node) => {
             return (
               <a
                 key={node.id}
@@ -115,7 +115,7 @@ export function RetroWebring() {
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 text-[#ffff99]">
-              <span className="truncate">{">"} INDIE WEBRING FEDERATION</span>
+              <span className="truncate">{">"} {t.webring.federationHeader}</span>
               <span className="text-[10px] text-[#00ff66]">
                 {t.webring.hoverPrompt}
               </span>

@@ -8,8 +8,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   useEffect(() => {
     // Atomically increment and get updated count from DB on page load / refresh
@@ -45,7 +46,7 @@ export default function HomePage() {
             <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#000080] mt-1.5 tracking-wider flex items-center justify-center gap-2">
-            <span>魚 SAKANA — Master Japanese Kana for Anime Fans</span>
+            <span>{t.home.heroTitle}</span>
           </h1>
           <p className="text-xs sm:text-sm text-[#cc0000] font-bold mt-1">
             〜 {t.home.tagline} 〜
@@ -66,18 +67,18 @@ export default function HomePage() {
               {formattedCount}
             </span>
             <span className="animate-retro-blink-fast text-[9px] font-bold px-1.5 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
-              [LIVE!]
+              {t.home.liveTag}
             </span>
           </div>
           <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5">
-            <span className="text-[#008800] font-bold">ONLINE</span> // SAKANA
+            <span className="text-[#008800] font-bold">{t.nav.online}</span> // SAKANA
           </div>
         </div>
 
         {/* Authentic Retro Marquee Ticker */}
         <div className="border border-[#808080] bg-[#000040] text-[#ffff00] text-[11px] font-mono py-1.5 px-3 overflow-hidden flex items-center shadow-inner">
           <span className="shrink-0 bg-[#ff0000] text-white px-1.5 font-bold text-[9px] mr-2.5 animate-retro-blink">
-            NEWS
+            {t.home.newsBadge}
           </span>
           <div className="w-full overflow-hidden whitespace-nowrap">
             <div className="animate-retro-ticker">
@@ -98,14 +99,14 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <Link
-                  href="/dashboard"
+                  href={`${prefix}/dashboard`}
                   className="w-full sm:w-auto px-8 py-2.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs sm:text-sm text-black flex items-center justify-center gap-2 shadow-xs cursor-pointer transition-colors"
                 >
                   <Play className="w-4 h-4 fill-[#000080] text-[#000080]" />
                   <span>{t.home.ctaEnter}</span>
                 </Link>
                 <Link
-                  href="/login"
+                  href={`${prefix}/login`}
                   className="w-full sm:w-auto px-5 py-2.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-xs font-bold text-[#333] cursor-pointer transition-colors"
                 >
                   {t.home.ctaLogin}
@@ -159,8 +160,8 @@ export default function HomePage() {
             {/* Programmatic SEO Link Hub & Learning Pathways */}
             <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-4">
               <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
-                <span>◆ LEARNING MATRIX & DIRECTORIES</span>
-                <span className="text-[10px] text-[#00ff66] font-mono">EXPLORE</span>
+                <span>◆ {t.home.directoriesTitle}</span>
+                <span className="text-[10px] text-[#00ff66] font-mono">{t.home.exploreTag}</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
@@ -169,21 +170,21 @@ export default function HomePage() {
                   <div className="space-y-1.5">
                     <div className="font-bold text-[#000080] flex items-center gap-1.5">
                       <span className="text-[#800000]">あ</span>
-                      <span>KANA ALPHABETS</span>
+                      <span>{t.home.kanaTitle}</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      Complete 46 Gojūon primitives, Dakuon &amp; Yōon combination charts with audio.
+                      {t.home.kanaDesc}
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href="/kana" className="text-[#000080] hover:underline font-bold">
-                      &rarr; Full Kana Matrix Hub
+                    <Link href={`${prefix}/kana`} className="text-[#000080] hover:underline font-bold">
+                      &rarr; {t.home.kanaFullLink}
                     </Link>
-                    <Link href="/kana/hiragana/category/gojuon" className="text-[#555] hover:underline">
-                      &bull; Hiragana Basic (46)
+                    <Link href={`${prefix}/kana/hiragana/category/gojuon`} className="text-[#555] hover:underline">
+                      &bull; {t.home.hiraganaBasicLink}
                     </Link>
-                    <Link href="/kana/katakana/category/gojuon" className="text-[#555] hover:underline">
-                      &bull; Katakana Basic (46)
+                    <Link href={`${prefix}/kana/katakana/category/gojuon`} className="text-[#555] hover:underline">
+                      &bull; {t.home.katakanaBasicLink}
                     </Link>
                   </div>
                 </div>
@@ -193,24 +194,24 @@ export default function HomePage() {
                   <div className="space-y-1.5">
                     <div className="font-bold text-[#000080] flex items-center gap-1.5">
                       <span className="text-[#800000]">語</span>
-                      <span>ANIME &amp; CORE VOCABULARY</span>
+                      <span>{t.home.vocabTitle}</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      161 words: iconic anime reactions, loanwords, and essential daily Japanese with audio.
+                      {t.home.vocabDesc}
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href="/words" className="text-[#000080] hover:underline font-bold">
-                      &rarr; 161-Word Directory
+                    <Link href={`${prefix}/words`} className="text-[#000080] hover:underline font-bold">
+                      &rarr; {t.home.vocabFullLink}
                     </Link>
-                    <Link href="/words/category/n5" className="text-[#000080] hover:underline">
-                      &bull; JLPT N5 Vocabulary (104)
+                    <Link href={`${prefix}/words/category/n5`} className="text-[#000080] hover:underline">
+                      &bull; {t.home.jlptN5Link}
                     </Link>
-                    <Link href="/words/category/anime" className="text-[#800000] hover:underline">
-                      &bull; Anime &amp; Pop Culture (9)
+                    <Link href={`${prefix}/words/category/anime`} className="text-[#800000] hover:underline">
+                      &bull; {t.home.animeVocabLink}
                     </Link>
-                    <Link href="/words/sakana" className="text-[#555] hover:underline">
-                      &bull; さかな (Fish / SaKana)
+                    <Link href={`${prefix}/words/sakana`} className="text-[#555] hover:underline">
+                      &bull; {t.home.sakanaWordLink}
                     </Link>
                   </div>
                 </div>
@@ -220,24 +221,24 @@ export default function HomePage() {
                   <div className="space-y-1.5">
                     <div className="font-bold text-[#000080] flex items-center gap-1.5">
                       <span className="text-[#800000]">対</span>
-                      <span>LOOKALIKE GUIDES</span>
+                      <span>{t.home.lookalikeTitle}</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      Side-by-side visual difference guides for the most confusing Japanese characters.
+                      {t.home.lookalikeDesc}
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href="/compare" className="text-[#000080] hover:underline font-bold">
-                      &rarr; 18 Lookalike Pairs
+                    <Link href={`${prefix}/compare`} className="text-[#000080] hover:underline font-bold">
+                      &rarr; {t.home.lookalikeFullLink}
                     </Link>
-                    <Link href="/compare/shi-vs-tsu" className="text-[#555] hover:underline">
-                      &bull; シ vs ツ (Shi vs Tsu)
+                    <Link href={`${prefix}/compare/shi-vs-tsu`} className="text-[#555] hover:underline">
+                      &bull; {t.home.shiVsTsuLink}
                     </Link>
-                    <Link href="/compare/so-vs-n" className="text-[#555] hover:underline">
-                      &bull; ソ vs ン (So vs N)
+                    <Link href={`${prefix}/compare/so-vs-n`} className="text-[#555] hover:underline">
+                      &bull; {t.home.soVsNLink}
                     </Link>
-                    <Link href="/compare/sa-vs-ki" className="text-[#555] hover:underline">
-                      &bull; さ vs き (Sa vs Ki)
+                    <Link href={`${prefix}/compare/sa-vs-ki`} className="text-[#555] hover:underline">
+                      &bull; {t.home.saVsKiLink}
                     </Link>
                   </div>
                 </div>
@@ -246,13 +247,13 @@ export default function HomePage() {
               {/* Utility Tools Link */}
               <div className="bg-[#f0f4f8] p-2.5 border border-[#d0d8e8] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
                 <span className="text-[#000080] font-bold">
-                  Free Japanese Romanization Tool:
+                  {t.home.toolLabel}
                 </span>
                 <Link
-                  href="/tools/romaji-to-kana"
+                  href={`${prefix}/tools/romaji-to-kana`}
                   className="px-3 py-1 bg-[#000080] text-white font-bold text-[11px] hover:bg-[#0000a0]"
                 >
-                  Romaji ⇄ Hiragana &amp; Katakana Converter &rarr;
+                  {t.home.toolBtn}
                 </Link>
               </div>
             </div>
@@ -260,34 +261,34 @@ export default function HomePage() {
             {/* FAQ Accordion Section for Rich Search Snippets */}
             <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-3">
               <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
-                <span>◆ FREQUENTLY ASKED QUESTIONS (FAQ)</span>
-                <span className="text-[10px] text-[#ffff00] font-mono">Q&amp;A</span>
+                <span>◆ {t.home.faqTitle}</span>
+                <span className="text-[10px] text-[#ffff00] font-mono">{t.home.faqTag}</span>
               </div>
               <div className="space-y-2.5 text-xs">
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
                   <summary className="font-bold text-[#000080] select-none">
-                    How long does it take to learn Hiragana and Katakana?
+                    {t.home.faq1Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    With SaKana's recognition-first spaced repetition speed drills, most beginners memorize all 46 basic Hiragana and 46 Katakana characters in 3 to 7 days, spending just 10–15 minutes per day.
+                    {t.home.faq1A}
                   </p>
                 </details>
 
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
                   <summary className="font-bold text-[#000080] select-none">
-                    Why is Katakana especially important for anime fans?
+                    {t.home.faq2Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    Katakana is used throughout Japanese pop culture: character names (ナルト, ルフィ), technique names, sci-fi terms, foreign loanwords (ヒーロー, アニメ), and dramatic manga onomatopoeia sound effects (ドドド, ゴゴゴ).
+                    {t.home.faq2A}
                   </p>
                 </details>
 
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
                   <summary className="font-bold text-[#000080] select-none">
-                    What makes SaKana different from traditional textbook apps?
+                    {t.home.faq3Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    Traditional apps slow you down with rigid stroke-tracing tests. SaKana focuses on instant subconscious visual recognition, native Voicevox neural audio, lookalike comparison breakdowns (such as シ vs ツ), and practical vocabulary seen in actual anime dialogue.
+                    {t.home.faq3A}
                   </p>
                 </details>
               </div>
@@ -300,11 +301,11 @@ export default function HomePage() {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>SAKANA READY</span>
+          <span>{t.home.footerStatus}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">SAKANA PROJECT // KANA SPEED DRILL FOR ANIME FANS</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">UTF-8 // MULTILINGUAL</span>
+          <span className="hidden sm:inline">{t.home.footerTagline}</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">{t.home.footerEncoding}</span>
         </div>
       </footer>
     </div>

@@ -85,7 +85,7 @@ export function useLanguage() {
 }
 
 export function LanguageSelector() {
-  const { locale, setLocale } = useLanguage();
+  const { locale, setLocale, t } = useLanguage();
 
   return (
     <div className="flex items-center gap-1 text-[11px] font-mono">
@@ -93,7 +93,7 @@ export function LanguageSelector() {
       <div className="relative inline-block">
         <select
           value={locale}
-          aria-label="Select language"
+          aria-label={t.nav.selectLanguage}
           onChange={(e) => setLocale(e.target.value as Locale)}
           className="appearance-none bg-[#d4d0c8] text-black text-[11px] sm:text-xs font-bold py-1 sm:py-0.5 pl-1.5 pr-4 sm:pr-5 border-t border-l border-white border-b-[#404040] border-r-[#404040] outline-none cursor-pointer hover:bg-[#e4e0d8] focus:bg-white"
         >

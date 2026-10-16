@@ -32,7 +32,7 @@ export function StageLockedView({
               <ShieldAlert className="w-4 h-4 text-[#ffff00] animate-pulse" />
               <span>{t.lockedStage.badge}</span>
             </span>
-            <span className="text-[10px] text-[#ffcccc] font-mono">[403 LOCKED]</span>
+            <span className="text-[10px] text-[#ffcccc] font-mono">{t.lockedStage.lockedCode}</span>
           </div>
 
           {/* Window Body */}

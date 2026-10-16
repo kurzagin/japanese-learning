@@ -77,16 +77,35 @@ export default async function HiraganaChartPdfPage({ params }: Props) {
   }
 
   const prefix = locale === "en" ? "" : `/${locale}`;
+  const meta = META_BY_LOCALE[locale];
+
+  const uiProps = {
+    en: {
+      title: "Printable Hiragana Chart PDF",
+      seoSubtitle: "Printable Hiragana Chart PDF (Horizontal Landscape)",
+      otherScriptLabel: "Katakana (片仮名)",
+    },
+    id: {
+      title: "Bagan PDF Hiragana Siap Cetak",
+      seoSubtitle: "Bagan PDF Hiragana Siap Cetak (Landscape Horizontal)",
+      otherScriptLabel: "Katakana (片仮名)",
+    },
+    ja: {
+      title: "印刷用ひらがな五十音図PDF",
+      seoSubtitle: "印刷用ひらがな五十音図PDF（A4横型）",
+      otherScriptLabel: "カタカナ (片仮名)",
+    },
+  }[locale];
 
   return (
     <PrintableKanaChartClient
       script="hiragana"
-      title="Printable Hiragana Chart PDF"
+      title={uiProps.title}
       japaneseTitle="平仮名一覧表"
-      description="Free downloadable and printable horizontal Hiragana reference chart in A4 landscape format. Complete with all 46 Gojūon, 25 Dakuon/Handakuon, and 33 Yōon combinations with clean Romaji guides."
-      seoSubtitle="Printable Hiragana Chart PDF (Horizontal Landscape)"
+      description={meta.description}
+      seoSubtitle={uiProps.seoSubtitle}
       otherScriptUrl={`${prefix}/tools/katakana-chart-pdf`}
-      otherScriptLabel="Katakana (片仮名)"
+      otherScriptLabel={uiProps.otherScriptLabel}
     />
   );
 }

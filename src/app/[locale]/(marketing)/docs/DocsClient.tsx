@@ -90,7 +90,7 @@ data.forEach((k) => {
               REST
             </span>
             <span className="bg-[#00aa00] text-white px-2 py-0.5 font-bold">
-              ONLINE
+              {t.nav.online}
             </span>
           </div>
         </div>

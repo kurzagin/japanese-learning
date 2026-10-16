@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function KanaCategoryClient({ catInfo, characters }: Props) {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const title = catInfo.title[locale] || catInfo.title.en;
   const description = catInfo.description[locale] || catInfo.description.en;
@@ -33,7 +33,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>KANA HUB</span>
+            <span>{t.kanaCategory.breadcrumbHub}</span>
           </Link>
           <span className="text-[#888]">/</span>
           <span className="uppercase text-[#800000] font-bold">
@@ -59,7 +59,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
 
           <div className="pt-2 text-xs font-mono flex items-center justify-center gap-3 text-[#000080]">
             <span className="font-bold bg-[#eef3f8] px-2.5 py-1 border border-[#000080]/30">
-              COUNT: {characters.length} CHARACTERS
+              {t.kanaCategory.countBadge(characters.length)}
             </span>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
           <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-1.5">
             <BookOpen className="w-4 h-4 text-[#000080]" />
             <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
-              About This Character Set
+              {t.kanaCategory.aboutSetTitle}
             </h2>
           </div>
           <p className="text-xs leading-relaxed text-[#333]">
@@ -82,10 +82,10 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold text-[#000080] uppercase flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5" />
-              <span>Character Roster</span>
+              <span>{t.kanaCategory.rosterTitle}</span>
             </h3>
             <span className="text-[11px] font-mono text-[#666]">
-              Click any character to view stroke order and pronunciation
+              {t.kanaCategory.rosterHint}
             </span>
           </div>
 
@@ -143,7 +143,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>RETURN TO KANA HUB</span>
+            <span>{t.kanaCategory.returnBtn}</span>
           </Link>
         </div>
       </main>

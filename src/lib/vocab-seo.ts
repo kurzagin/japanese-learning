@@ -68,35 +68,68 @@ export function getRelatedWords(word: VocabWord, count = 4): VocabWord[] {
 export interface JlptCategoryMeta {
   key: "n5" | "n4" | "anime";
   jlpt: "N5" | "N4" | "Anime";
-  title: string;
-  tagline: string;
-  description: string;
+  title: Record<Locale, string>;
+  tagline: Record<Locale, string>;
+  description: Record<Locale, string>;
 }
 
 export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
   {
     key: "n5",
     jlpt: "N5",
-    title: "JLPT N5 Core Vocabulary List",
-    tagline: "Essential 104 words for Japanese Language Proficiency Test Level 5",
-    description:
-      "Master the foundational JLPT N5 vocabulary words with native pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
+    title: {
+      en: "JLPT N5 Core Vocabulary List",
+      id: "Daftar Kosakata Inti JLPT N5",
+      ja: "JLPT N5 必須基礎単語一覧",
+    },
+    tagline: {
+      en: "Essential 104 words for Japanese Language Proficiency Test Level 5",
+      id: "104 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N5",
+      ja: "日本語能力試験 N5レベルの重要基礎104単語",
+    },
+    description: {
+      en: "Master the foundational JLPT N5 vocabulary words with native pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
+      id: "Kuasai kosakata dasar JLPT N5 lengkap dengan audio pelafalan penutur asli, rincian Kanji & furigana, panduan bacaan romaji, dan kalimat contoh.",
+      ja: "JLPT N5の基礎単語をネイティブ発音音声、漢字・ふりがな分解、ローマ字読み、実践的な例文とともにマスターしましょう。",
+    },
   },
   {
     key: "n4",
     jlpt: "N4",
-    title: "JLPT N4 Elementary Vocabulary List",
-    tagline: "Essential 47 words for Japanese Language Proficiency Test Level 4",
-    description:
-      "Expand your Japanese vocabulary with elementary JLPT N4 words featuring audio pronunciation, romaji guides, and realistic contextual sentences.",
+    title: {
+      en: "JLPT N4 Elementary Vocabulary List",
+      id: "Daftar Kosakata Dasar JLPT N4",
+      ja: "JLPT N4 初級重要単語一覧",
+    },
+    tagline: {
+      en: "Essential 47 words for Japanese Language Proficiency Test Level 4",
+      id: "47 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N4",
+      ja: "日本語能力試験 N4レベルの初級重要47単語",
+    },
+    description: {
+      en: "Expand your Japanese vocabulary with elementary JLPT N4 words featuring audio pronunciation, romaji guides, and realistic contextual sentences.",
+      id: "Perluas kosakata bahasa Jepangmu dengan kata-kata tingkat dasar JLPT N4 lengkap dengan audio pelafalan, panduan romaji, dan kalimat kontekstual.",
+      ja: "ネイティブ音声、ローマ字ガイド、自然な文脈の例文を備えたJLPT N4単語で日本語の語彙力を広げましょう。",
+    },
   },
   {
     key: "anime",
     jlpt: "Anime",
-    title: "Anime & Pop Culture Japanese Vocabulary",
-    tagline: "Iconic words, reactions, and loanwords from anime and manga",
-    description:
-      "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native audio, character origins, and English & Indonesian meanings.",
+    title: {
+      en: "Anime & Pop Culture Japanese Vocabulary",
+      id: "Kosakata Bahasa Jepang Anime & Kultur Pop",
+      ja: "アニメ＆ポップカルチャー日本語語彙集",
+    },
+    tagline: {
+      en: "Iconic words, reactions, and loanwords from anime and manga",
+      id: "Kata ikonik, ekspresi reaksi, dan kata serapan dari dunia anime dan manga",
+      ja: "アニメやマンガで頻出する定番表現・リアクション・外来語",
+    },
+    description: {
+      en: "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native audio, character origins, and English & Indonesian meanings.",
+      id: "Pelajari ekspresi reaksi anime Jepang paling ikonik, kata serapan, dan istilah percakapan lengkap dengan audio asli, rincian karakter, serta artinya.",
+      ja: "アニメの象徴的なリアクション、外来語、日常会話フレーズをネイティブ音声と文字の成り立ち解説とともに楽しく学びましょう。",
+    },
   },
 ];
 

@@ -9,7 +9,7 @@ import { PronounceButton } from "@/components/PronounceButton";
 import { Search, Sparkles, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 
 export default function WordsHubClient() {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,7 +30,7 @@ export default function WordsHubClient() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      <RetroNavbar currentSubtitle="VOCABULARY DIRECTORY" />
+      <RetroNavbar currentSubtitle={t.wordsHub.subtitle} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Breadcrumb Navigation */}
@@ -40,24 +40,24 @@ export default function WordsHubClient() {
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>HOME</span>
+            <span>{t.nav.home}</span>
           </Link>
           <span className="text-[#888]">/</span>
-          <span className="text-[#800000] font-bold uppercase">WORDS DIRECTORY</span>
+          <span className="text-[#800000] font-bold uppercase">{t.wordsHub.breadcrumbWords}</span>
         </div>
 
         {/* Hero Header Banner */}
         <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 sm:p-6 text-center relative overflow-hidden shadow-xs space-y-2">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5 uppercase">
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
-            <span>Japanese Core Vocabulary Dictionary</span>
+            <span>{t.wordsHub.badge}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
-            JAPANESE CORE VOCABULARY DIRECTORY ({VOCABULARY_LIST.length} WORDS)
+            {t.wordsHub.title(VOCABULARY_LIST.length)}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium max-w-2xl mx-auto">
-            Browse elementary Hiragana and Katakana vocabulary words with full pronunciation audio, spelling breakdowns, English &amp; Indonesian definitions, and practice flashcards.
+            {t.wordsHub.description}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
@@ -65,32 +65,32 @@ export default function WordsHubClient() {
               href="/words/category/n5"
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
-              JLPT N5 (104)
+              {t.wordsHub.jlptN5Btn}
             </Link>
             <Link
               href="/words/category/n4"
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
-              JLPT N4 (47)
+              {t.wordsHub.jlptN4Btn}
             </Link>
             <Link
               href="/words/category/anime"
               className="px-2.5 py-1 bg-[#fff] text-[#800000] font-bold border border-[#800000] hover:bg-[#fff0f0]"
             >
-              Anime &amp; Pop Culture (9)
+              {t.wordsHub.animePopBtn}
             </Link>
             <Link
               href="/kana"
               className="px-2.5 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
             >
-              <span>KANA MATRIX</span>
+              <span>{t.wordsHub.kanaMatrixBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href="/compare"
               className="px-2.5 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
-              <span>LOOKALIKES</span>
+              <span>{t.wordsHub.lookalikesBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -109,7 +109,7 @@ export default function WordsHubClient() {
                   : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
-              ALL ({VOCABULARY_LIST.length})
+              {t.wordsHub.allTab(VOCABULARY_LIST.length)}
             </button>
             <button
               type="button"
@@ -120,7 +120,7 @@ export default function WordsHubClient() {
                   : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
-              HIRAGANA
+              {t.wordsHub.hiraganaTab}
             </button>
             <button
               type="button"
@@ -131,7 +131,7 @@ export default function WordsHubClient() {
                   : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
-              KATAKANA
+              {t.wordsHub.katakanaTab}
             </button>
           </div>
 
@@ -142,7 +142,7 @@ export default function WordsHubClient() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search word, romaji, or meaning..."
+              placeholder={t.wordsHub.searchPlaceholder}
               className="w-full pl-8 pr-3 py-1 text-xs bg-[#fdfdfd] border-t border-l border-[#808080] border-b border-r border-[#d4d0c8] font-mono outline-none focus:bg-white"
             />
           </div>
@@ -182,7 +182,7 @@ export default function WordsHubClient() {
                     href={`/words/${word.slug}`}
                     className="inline-flex items-center gap-0.5 text-[10px] text-[#000080] font-bold group-hover:underline mt-1"
                   >
-                    <span>Breakdown</span>
+                    <span>{t.wordsHub.breakdownLink}</span>
                     <ArrowRight className="w-2.5 h-2.5" />
                   </Link>
                 </div>
@@ -196,27 +196,27 @@ export default function WordsHubClient() {
           <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
             <BookOpen className="w-4 h-4 text-[#000080]" />
             <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
-              How to Study Japanese Vocabulary Effectively with SaKana
+              {t.wordsHub.eduTitle}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-[#444]">
             <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
-              <strong className="text-[#800000] block mb-1">1. Character Decomposition</strong>
+              <strong className="text-[#800000] block mb-1">{t.wordsHub.edu1Title}</strong>
               <p>
-                Each vocabulary entry breaks down compound words into their constituent Kana primitives. Mastering individual syllables first makes long anime words instantly recognizable.
+                {t.wordsHub.edu1Desc}
               </p>
             </div>
             <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
-              <strong className="text-[#800000] block mb-1">2. Native Speech Audio</strong>
+              <strong className="text-[#800000] block mb-1">{t.wordsHub.edu2Title}</strong>
               <p>
-                Listen to natural Japanese pronunciation audio for every word. Linking auditory memory with visual glyphs reinforces long-term vocabulary retention.
+                {t.wordsHub.edu2Desc}
               </p>
             </div>
             <div className="p-3 bg-[#faf9f5] border border-[#e8e6d8]">
-              <strong className="text-[#800000] block mb-1">3. Anime Context &amp; Culture</strong>
+              <strong className="text-[#800000] block mb-1">{t.wordsHub.edu3Title}</strong>
               <p>
-                Our curated dictionary features essential conversational Japanese, loanwords (Gairaigo), and iconic pop-culture vocabulary seen in anime dialogue.
+                {t.wordsHub.edu3Desc}
               </p>
             </div>
           </div>

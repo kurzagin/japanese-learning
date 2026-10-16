@@ -155,470 +155,838 @@ export const KANA_STROKE_COUNTS: Record<string, number> = {
 export interface KanaOrigin {
   kanji: string;
   reading: string;
-  notes: string;
+  notes: Record<Locale, string>;
 }
 
 export const KANA_ORIGINS: Record<string, KanaOrigin> = {
   "h-a": {
-    "kanji": "安",
-    "reading": "an",
-    "notes": "Derived from the cursive form of the Kanji 安 (peace/cheap)."
+    kanji: "安",
+    reading: "an",
+    notes: {
+      en: "Derived from the cursive form of the Kanji 安 (peace/cheap).",
+      id: "Berasal dari bentuk kaligrafi kursif Kanji 安 (damai/tenang).",
+      ja: "漢字「安」の草書体（くずし字）から生まれました。",
+    },
   },
   "h-i": {
-    "kanji": "以",
-    "reading": "i",
-    "notes": "Derived from the cursive form of 以 (by means of)."
+    kanji: "以",
+    reading: "i",
+    notes: {
+      en: "Derived from the cursive form of 以 (by means of).",
+      id: "Berasal dari bentuk kursif Kanji 以 (dengan/melalui).",
+      ja: "漢字「以」の草書体から生まれました。",
+    },
   },
   "h-u": {
-    "kanji": "宇",
-    "reading": "u",
-    "notes": "Derived from the crown and body of 宇 (universe)."
+    kanji: "宇",
+    reading: "u",
+    notes: {
+      en: "Derived from the crown and body of 宇 (universe).",
+      id: "Berasal dari bagian mahkota dan badan Kanji 宇 (alam semesta).",
+      ja: "漢字「宇」の草書体から生まれました。",
+    },
   },
   "h-e": {
-    "kanji": "衣",
-    "reading": "e",
-    "notes": "Derived from the cursive strokes of 衣 (clothing)."
+    kanji: "衣",
+    reading: "e",
+    notes: {
+      en: "Derived from the cursive strokes of 衣 (clothing).",
+      id: "Berasal dari goresan kursif Kanji 衣 (pakaian).",
+      ja: "漢字「衣」の草書体から生まれました。",
+    },
   },
   "h-o": {
-    "kanji": "於",
-    "reading": "o",
-    "notes": "Derived from the cursive form of 於 (at/in)."
+    kanji: "於",
+    reading: "o",
+    notes: {
+      en: "Derived from the cursive form of 於 (at/in).",
+      id: "Berasal dari bentuk kursif Kanji 於 (di/pada).",
+      ja: "漢字「於」の草書体から生まれました。",
+    },
   },
   "h-ka": {
-    "kanji": "加",
-    "reading": "ka",
-    "notes": "Derived from 加 (to add)."
+    kanji: "加",
+    reading: "ka",
+    notes: {
+      en: "Derived from 加 (to add).",
+      id: "Berasal dari bentuk kursif Kanji 加 (menambah).",
+      ja: "漢字「加」の草書体から生まれました。",
+    },
   },
   "h-ki": {
-    "kanji": "幾",
-    "reading": "ki",
-    "notes": "Derived from the cursive form of 幾 (how many)."
+    kanji: "幾",
+    reading: "ki",
+    notes: {
+      en: "Derived from the cursive form of 幾 (how many).",
+      id: "Berasal dari bentuk kursif Kanji 幾 (berapa banyak).",
+      ja: "漢字「幾」の草書体から生まれました。",
+    },
   },
   "h-ku": {
-    "kanji": "久",
-    "reading": "ku",
-    "notes": "Derived from 久 (long time)."
+    kanji: "久",
+    reading: "ku",
+    notes: {
+      en: "Derived from 久 (long time).",
+      id: "Berasal dari bentuk kursif Kanji 久 (waktu lama).",
+      ja: "漢字「久」の草書体から生まれました。",
+    },
   },
   "h-ke": {
-    "kanji": "計",
-    "reading": "ke",
-    "notes": "Derived from 計 (to measure/plan)."
+    kanji: "計",
+    reading: "ke",
+    notes: {
+      en: "Derived from 計 (to measure/plan).",
+      id: "Berasal dari bentuk kursif Kanji 計 (mengukur/merencanakan).",
+      ja: "漢字「計」の草書体から生まれました。",
+    },
   },
   "h-ko": {
-    "kanji": "己",
-    "reading": "ko",
-    "notes": "Derived from 己 (oneself)."
+    kanji: "己",
+    reading: "ko",
+    notes: {
+      en: "Derived from 己 (oneself).",
+      id: "Berasal dari bentuk kursif Kanji 己 (diri sendiri).",
+      ja: "漢字「己」の草書体から生まれました。",
+    },
   },
   "h-sa": {
-    "kanji": "左",
-    "reading": "sa",
-    "notes": "Derived from 左 (left)."
+    kanji: "左",
+    reading: "sa",
+    notes: {
+      en: "Derived from 左 (left).",
+      id: "Berasal dari bentuk kursif Kanji 左 (kiri).",
+      ja: "漢字「左」の草書体から生まれました。",
+    },
   },
   "h-shi": {
-    "kanji": "之",
-    "reading": "shi",
-    "notes": "Derived from the flowing stroke of 之 (of)."
+    kanji: "之",
+    reading: "shi",
+    notes: {
+      en: "Derived from the flowing stroke of 之 (of).",
+      id: "Berasal dari goresan mengalir Kanji 之 (dari/milik).",
+      ja: "漢字「之」の草書体から生まれました。",
+    },
   },
   "h-su": {
-    "kanji": "寸",
-    "reading": "su",
-    "notes": "Derived from 寸 (traditional measurement unit)."
+    kanji: "寸",
+    reading: "su",
+    notes: {
+      en: "Derived from 寸 (traditional measurement unit).",
+      id: "Berasal dari bentuk kursif Kanji 寸 (satuan ukur tradisional).",
+      ja: "漢字「寸」の草書体から生まれました。",
+    },
   },
   "h-se": {
-    "kanji": "世",
-    "reading": "se",
-    "notes": "Derived from 世 (world/generation)."
+    kanji: "世",
+    reading: "se",
+    notes: {
+      en: "Derived from 世 (world/generation).",
+      id: "Berasal dari bentuk kursif Kanji 世 (dunia/generasi).",
+      ja: "漢字「世」の草書体から生まれました。",
+    },
   },
   "h-so": {
-    "kanji": "曽",
-    "reading": "so",
-    "notes": "Derived from 曽 (formerly)."
+    kanji: "曽",
+    reading: "so",
+    notes: {
+      en: "Derived from 曽 (formerly).",
+      id: "Berasal dari bentuk kursif Kanji 曽 (dahulu).",
+      ja: "漢字「曽」の草書体から生まれました。",
+    },
   },
   "h-ta": {
-    "kanji": "太",
-    "reading": "ta",
-    "notes": "Derived from 太 (thick/great)."
+    kanji: "太",
+    reading: "ta",
+    notes: {
+      en: "Derived from 太 (thick/great).",
+      id: "Berasal dari bentuk kursif Kanji 太 (tebal/besar).",
+      ja: "漢字「太」の草書体から生まれました。",
+    },
   },
   "h-chi": {
-    "kanji": "知",
-    "reading": "chi",
-    "notes": "Derived from 知 (to know)."
+    kanji: "知",
+    reading: "chi",
+    notes: {
+      en: "Derived from 知 (to know).",
+      id: "Berasal dari bentuk kursif Kanji 知 (mengetahui).",
+      ja: "漢字「知」の草書体から生まれました。",
+    },
   },
   "h-tsu": {
-    "kanji": "川",
-    "reading": "tsu",
-    "notes": "Derived from 川 (river)."
+    kanji: "川",
+    reading: "tsu",
+    notes: {
+      en: "Derived from 川 (river).",
+      id: "Berasal dari bentuk kursif Kanji 川 (sungai).",
+      ja: "漢字「川」の草書体から生まれました。",
+    },
   },
   "h-te": {
-    "kanji": "天",
-    "reading": "te",
-    "notes": "Derived from 天 (heaven/sky)."
+    kanji: "天",
+    reading: "te",
+    notes: {
+      en: "Derived from 天 (heaven/sky).",
+      id: "Berasal dari bentuk kursif Kanji 天 (langit/surga).",
+      ja: "漢字「天」の草書体から生まれました。",
+    },
   },
   "h-to": {
-    "kanji": "止",
-    "reading": "to",
-    "notes": "Derived from 止 (to stop)."
+    kanji: "止",
+    reading: "to",
+    notes: {
+      en: "Derived from 止 (to stop).",
+      id: "Berasal dari bentuk kursif Kanji 止 (berhenti).",
+      ja: "漢字「止」の草書体から生まれました。",
+    },
   },
   "h-na": {
-    "kanji": "奈",
-    "reading": "na",
-    "notes": "Derived from 奈 (Nara prefecture / what)."
+    kanji: "奈",
+    reading: "na",
+    notes: {
+      en: "Derived from 奈 (Nara prefecture / what).",
+      id: "Berasal dari bentuk kursif Kanji 奈 (Nara).",
+      ja: "漢字「奈」の草書体から生まれました。",
+    },
   },
   "h-ni": {
-    "kanji": "仁",
-    "reading": "ni",
-    "notes": "Derived from 仁 (benevolence)."
+    kanji: "仁",
+    reading: "ni",
+    notes: {
+      en: "Derived from 仁 (benevolence).",
+      id: "Berasal dari bentuk kursif Kanji 仁 (kebajikan/kemurahan hati).",
+      ja: "漢字「仁」の草書体から生まれました。",
+    },
   },
   "h-nu": {
-    "kanji": "奴",
-    "reading": "nu",
-    "notes": "Derived from 奴 (fellow/servant)."
+    kanji: "奴",
+    reading: "nu",
+    notes: {
+      en: "Derived from 奴 (fellow/servant).",
+      id: "Berasal dari bentuk kursif Kanji 奴 (orang/abdi).",
+      ja: "漢字「奴」の草書体から生まれました。",
+    },
   },
   "h-ne": {
-    "kanji": "祢",
-    "reading": "ne",
-    "notes": "Derived from 祢 (ancestral shrine)."
+    kanji: "祢",
+    reading: "ne",
+    notes: {
+      en: "Derived from 祢 (ancestral shrine).",
+      id: "Berasal dari bentuk kursif Kanji 祢 (kuil leluhur).",
+      ja: "漢字「祢」の草書体から生まれました。",
+    },
   },
   "h-no": {
-    "kanji": "乃",
-    "reading": "no",
-    "notes": "Derived from 乃 (from/whereupon)."
+    kanji: "乃",
+    reading: "no",
+    notes: {
+      en: "Derived from 乃 (from/whereupon).",
+      id: "Berasal dari bentuk kursif Kanji 乃 (dari/milik).",
+      ja: "漢字「乃」の草書体から生まれました。",
+    },
   },
   "h-ha": {
-    "kanji": "波",
-    "reading": "ha",
-    "notes": "Derived from 波 (wave)."
+    kanji: "波",
+    reading: "ha",
+    notes: {
+      en: "Derived from 波 (wave).",
+      id: "Berasal dari bentuk kursif Kanji 波 (ombak).",
+      ja: "漢字「波」の草書体から生まれました。",
+    },
   },
   "h-hi": {
-    "kanji": "比",
-    "reading": "hi",
-    "notes": "Derived from 比 (to compare)."
+    kanji: "比",
+    reading: "hi",
+    notes: {
+      en: "Derived from 比 (to compare).",
+      id: "Berasal dari bentuk kursif Kanji 比 (membandingkan).",
+      ja: "漢字「比」の草書体から生まれました。",
+    },
   },
   "h-fu": {
-    "kanji": "不",
-    "reading": "fu",
-    "notes": "Derived from 不 (non/negative)."
+    kanji: "不",
+    reading: "fu",
+    notes: {
+      en: "Derived from 不 (non/negative).",
+      id: "Berasal dari bentuk kursif Kanji 不 (tidak/negasi).",
+      ja: "漢字「不」の草書体から生まれました。",
+    },
   },
   "h-he": {
-    "kanji": "部",
-    "reading": "he",
-    "notes": "Derived from 部 (part/section)."
+    kanji: "部",
+    reading: "he",
+    notes: {
+      en: "Derived from 部 (part/section).",
+      id: "Berasal dari bagian kanan Kanji 部 (bagian/sektor).",
+      ja: "漢字「部」の旁（つくり）の草書体から生まれました。",
+    },
   },
   "h-ho": {
-    "kanji": "保",
-    "reading": "ho",
-    "notes": "Derived from 保 (to protect/preserve)."
+    kanji: "保",
+    reading: "ho",
+    notes: {
+      en: "Derived from 保 (to protect/preserve).",
+      id: "Berasal dari bentuk kursif Kanji 保 (melindungi/menjaga).",
+      ja: "漢字「保」の草書体から生まれました。",
+    },
   },
   "h-ma": {
-    "kanji": "末",
-    "reading": "ma",
-    "notes": "Derived from 末 (end/extremity)."
+    kanji: "末",
+    reading: "ma",
+    notes: {
+      en: "Derived from 末 (end/extremity).",
+      id: "Berasal dari bentuk kursif Kanji 末 (ujung/akhir).",
+      ja: "漢字「末」の草書体から生まれました。",
+    },
   },
   "h-mi": {
-    "kanji": "美",
-    "reading": "mi",
-    "notes": "Derived from 美 (beauty)."
+    kanji: "美",
+    reading: "mi",
+    notes: {
+      en: "Derived from 美 (beauty).",
+      id: "Berasal dari bentuk kursif Kanji 美 (keindahan).",
+      ja: "漢字「美」の草書体から生まれました。",
+    },
   },
   "h-mu": {
-    "kanji": "武",
-    "reading": "mu",
-    "notes": "Derived from 武 (martial/warrior)."
+    kanji: "武",
+    reading: "mu",
+    notes: {
+      en: "Derived from 武 (martial/warrior).",
+      id: "Berasal dari bentuk kursif Kanji 武 (bela diri/kesatria).",
+      ja: "漢字「武」の草書体から生まれました。",
+    },
   },
   "h-me": {
-    "kanji": "女",
-    "reading": "me",
-    "notes": "Derived from 女 (woman/female)."
+    kanji: "女",
+    reading: "me",
+    notes: {
+      en: "Derived from 女 (woman/female).",
+      id: "Berasal dari bentuk kursif Kanji 女 (perempuan/wanita).",
+      ja: "漢字「女」の草書体から生まれました。",
+    },
   },
   "h-mo": {
-    "kanji": "毛",
-    "reading": "mo",
-    "notes": "Derived from 毛 (hair/fur)."
+    kanji: "毛",
+    reading: "mo",
+    notes: {
+      en: "Derived from 毛 (hair/fur).",
+      id: "Berasal dari bentuk kursif Kanji 毛 (rambut/bulu).",
+      ja: "漢字「毛」の草書体から生まれました。",
+    },
   },
   "h-ya": {
-    "kanji": "也",
-    "reading": "ya",
-    "notes": "Derived from 也 (to be)."
+    kanji: "也",
+    reading: "ya",
+    notes: {
+      en: "Derived from 也 (to be).",
+      id: "Berasal dari bentuk kursif Kanji 也 (adalah).",
+      ja: "漢字「也」の草書体から生まれました。",
+    },
   },
   "h-yu": {
-    "kanji": "由",
-    "reading": "yu",
-    "notes": "Derived from 由 (reason/cause)."
+    kanji: "由",
+    reading: "yu",
+    notes: {
+      en: "Derived from 由 (reason/cause).",
+      id: "Berasal dari bentuk kursif Kanji 由 (alasan/asal).",
+      ja: "漢字「由」の草書体から生まれました。",
+    },
   },
   "h-yo": {
-    "kanji": "与",
-    "reading": "yo",
-    "notes": "Derived from 与 (to give)."
+    kanji: "与",
+    reading: "yo",
+    notes: {
+      en: "Derived from 与 (to give).",
+      id: "Berasal dari bentuk kursif Kanji 与 (memberikan).",
+      ja: "漢字「与」の草書体から生まれました。",
+    },
   },
   "h-ra": {
-    "kanji": "良",
-    "reading": "ra",
-    "notes": "Derived from 良 (good/virtuous)."
+    kanji: "良",
+    reading: "ra",
+    notes: {
+      en: "Derived from 良 (good/virtuous).",
+      id: "Berasal dari bentuk kursif Kanji 良 (baik/bagus).",
+      ja: "漢字「良」の草書体から生まれました。",
+    },
   },
   "h-ri": {
-    "kanji": "利",
-    "reading": "ri",
-    "notes": "Derived from 利 (benefit/sharp)."
+    kanji: "利",
+    reading: "ri",
+    notes: {
+      en: "Derived from 利 (benefit/sharp).",
+      id: "Berasal dari bentuk kursif Kanji 利 (manfaat/tajam).",
+      ja: "漢字「利」の草書体から生まれました。",
+    },
   },
   "h-ru": {
-    "kanji": "留",
-    "reading": "ru",
-    "notes": "Derived from 留 (to stay/detain)."
+    kanji: "留",
+    reading: "ru",
+    notes: {
+      en: "Derived from 留 (to stay/detain).",
+      id: "Berasal dari bentuk kursif Kanji 留 (menetap/tinggal).",
+      ja: "漢字「留」の草書体から生まれました。",
+    },
   },
   "h-re": {
-    "kanji": "礼",
-    "reading": "re",
-    "notes": "Derived from 礼 (courtesy/bow)."
+    kanji: "礼",
+    reading: "re",
+    notes: {
+      en: "Derived from 礼 (courtesy/bow).",
+      id: "Berasal dari bentuk kursif Kanji 礼 (hormat/sopan santun).",
+      ja: "漢字「礼」の草書体から生まれました。",
+    },
   },
   "h-ro": {
-    "kanji": "呂",
-    "reading": "ro",
-    "notes": "Derived from 呂 (bath/spine)."
+    kanji: "呂",
+    reading: "ro",
+    notes: {
+      en: "Derived from 呂 (bath/spine).",
+      id: "Berasal dari bentuk kursif Kanji 呂 (punggung/pemandian).",
+      ja: "漢字「呂」の草書体から生まれました。",
+    },
   },
   "h-wa": {
-    "kanji": "和",
-    "reading": "wa",
-    "notes": "Derived from 和 (harmony/peace)."
+    kanji: "和",
+    reading: "wa",
+    notes: {
+      en: "Derived from 和 (harmony/peace).",
+      id: "Berasal dari bentuk kursif Kanji 和 (harmoni/kedamaian).",
+      ja: "漢字「和」の草書体から生まれました。",
+    },
   },
   "h-wo": {
-    "kanji": "遠",
-    "reading": "wo",
-    "notes": "Derived from 遠 (distant/far)."
+    kanji: "遠",
+    reading: "wo",
+    notes: {
+      en: "Derived from 遠 (distant/far).",
+      id: "Berasal dari bentuk kursif Kanji 遠 (jauh).",
+      ja: "漢字「遠」の草書体から生まれました。",
+    },
   },
   "h-n": {
-    "kanji": "无",
-    "reading": "n",
-    "notes": "Derived from 无 (nothingness)."
+    kanji: "无",
+    reading: "n",
+    notes: {
+      en: "Derived from 无 (nothingness).",
+      id: "Berasal dari bentuk kursif Kanji 无 (ketiadaan).",
+      ja: "漢字「无」の草書体から生まれました。",
+    },
   },
   "k-a": {
-    "kanji": "阿",
-    "reading": "a",
-    "notes": "Derived from the left radical 阝 of 阿."
+    kanji: "阿",
+    reading: "a",
+    notes: {
+      en: "Derived from the left radical 阝 of 阿.",
+      id: "Berasal dari radikal kiri 阝 pada Kanji 阿.",
+      ja: "漢字「阿」の偏（こざとへん）から生まれました。",
+    },
   },
   "k-i": {
-    "kanji": "伊",
-    "reading": "i",
-    "notes": "Derived from the left radical 亻 of 伊."
+    kanji: "伊",
+    reading: "i",
+    notes: {
+      en: "Derived from the left radical 亻 of 伊.",
+      id: "Berasal dari radikal kiri 亻 pada Kanji 伊.",
+      ja: "漢字「伊」の偏（にんべん）から生まれました。",
+    },
   },
   "k-u": {
-    "kanji": "宇",
-    "reading": "u",
-    "notes": "Derived from the crown radical 宀 of 宇."
+    kanji: "宇",
+    reading: "u",
+    notes: {
+      en: "Derived from the crown radical 宀 of 宇.",
+      id: "Berasal dari radikal mahkota atas 宀 pada Kanji 宇.",
+      ja: "漢字「宇」の冠（うかんむり）から生まれました。",
+    },
   },
   "k-e": {
-    "kanji": "江",
-    "reading": "e",
-    "notes": "Derived from the right part 工 of 江."
+    kanji: "江",
+    reading: "e",
+    notes: {
+      en: "Derived from the right part 工 of 江.",
+      id: "Berasal dari bagian kanan 工 pada Kanji 江.",
+      ja: "漢字「江」の旁（つくり「工」）から生まれました。",
+    },
   },
   "k-o": {
-    "kanji": "於",
-    "reading": "o",
-    "notes": "Derived from the upper-left of 於."
+    kanji: "於",
+    reading: "o",
+    notes: {
+      en: "Derived from the upper-left of 於.",
+      id: "Berasal dari bagian kiri-atas pada Kanji 於.",
+      ja: "漢字「於」の偏（かたへん）から生まれました。",
+    },
   },
   "k-ka": {
-    "kanji": "加",
-    "reading": "ka",
-    "notes": "Derived from the left part 力 of 加."
+    kanji: "加",
+    reading: "ka",
+    notes: {
+      en: "Derived from the left part 力 of 加.",
+      id: "Berasal dari bagian kiri 力 pada Kanji 加.",
+      ja: "漢字「加」の偏（「力」）から生まれました。",
+    },
   },
   "k-ki": {
-    "kanji": "幾",
-    "reading": "ki",
-    "notes": "Derived from the top part of 幾."
+    kanji: "幾",
+    reading: "ki",
+    notes: {
+      en: "Derived from the top part of 幾.",
+      id: "Berasal dari bagian atas Kanji 幾.",
+      ja: "漢字「幾」の草書体の一部から生まれました。",
+    },
   },
   "k-ku": {
-    "kanji": "久",
-    "reading": "ku",
-    "notes": "Derived from the first two strokes of 久."
+    kanji: "久",
+    reading: "ku",
+    notes: {
+      en: "Derived from the first two strokes of 久.",
+      id: "Berasal dari dua goresan pertama Kanji 久.",
+      ja: "漢字「久」の最初の2画から生まれました。",
+    },
   },
   "k-ke": {
-    "kanji": "介",
-    "reading": "ke",
-    "notes": "Derived from the left part of 介."
+    kanji: "介",
+    reading: "ke",
+    notes: {
+      en: "Derived from the left part of 介.",
+      id: "Berasal dari bagian pecahan Kanji 介.",
+      ja: "漢字「介」の一部から生まれました。",
+    },
   },
   "k-ko": {
-    "kanji": "己",
-    "reading": "ko",
-    "notes": "Derived from the top strokes of 己."
+    kanji: "己",
+    reading: "ko",
+    notes: {
+      en: "Derived from the top strokes of 己.",
+      id: "Berasal dari goresan bagian atas Kanji 己.",
+      ja: "漢字「己」の上部2画から生まれました。",
+    },
   },
   "k-sa": {
-    "kanji": "散",
-    "reading": "sa",
-    "notes": "Derived from the top-left of 散."
+    kanji: "散",
+    reading: "sa",
+    notes: {
+      en: "Derived from the top-left of 散.",
+      id: "Berasal dari bagian kiri-atas Kanji 散.",
+      ja: "漢字「散」の左上部分から生まれました。",
+    },
   },
   "k-shi": {
-    "kanji": "之",
-    "reading": "shi",
-    "notes": "Derived from the cursive form of 之."
+    kanji: "之",
+    reading: "shi",
+    notes: {
+      en: "Derived from the cursive form of 之.",
+      id: "Berasal dari bentuk pecahan Kanji 之.",
+      ja: "漢字「之」の草書体・点画から生まれました。",
+    },
   },
   "k-su": {
-    "kanji": "須",
-    "reading": "su",
-    "notes": "Derived from the top-right strokes of 須."
+    kanji: "須",
+    reading: "su",
+    notes: {
+      en: "Derived from the top-right strokes of 須.",
+      id: "Berasal dari goresan akhir kanan-bawah Kanji 須.",
+      ja: "漢字「須」の右下部分から生まれました。",
+    },
   },
   "k-se": {
-    "kanji": "世",
-    "reading": "se",
-    "notes": "Derived from the bottom stroke and body of 世."
+    kanji: "世",
+    reading: "se",
+    notes: {
+      en: "Derived from the bottom stroke and body of 世.",
+      id: "Berasal dari kerangka bagian dalam Kanji 世.",
+      ja: "漢字「世」の一部を省略して生まれました。",
+    },
   },
   "k-so": {
-    "kanji": "曽",
-    "reading": "so",
-    "notes": "Derived from the top two strokes of 曽."
+    kanji: "曽",
+    reading: "so",
+    notes: {
+      en: "Derived from the top two strokes of 曽.",
+      id: "Berasal dari dua titik goresan paling atas Kanji 曽.",
+      ja: "漢字「曽」の上部の2画から生まれました。",
+    },
   },
   "k-ta": {
-    "kanji": "多",
-    "reading": "ta",
-    "notes": "Derived from the top part of 多."
+    kanji: "多",
+    reading: "ta",
+    notes: {
+      en: "Derived from the top part of 多.",
+      id: "Berasal dari bagian atas (夕) Kanji 多.",
+      ja: "漢字「多」の上半分の「夕」から生まれました。",
+    },
   },
   "k-chi": {
-    "kanji": "千",
-    "reading": "chi",
-    "notes": "Derived from 千 (thousand)."
+    kanji: "千",
+    reading: "chi",
+    notes: {
+      en: "Derived from 千 (thousand).",
+      id: "Berasal dari Kanji 千 (seribu).",
+      ja: "漢字「千」の全体から生まれました。",
+    },
   },
   "k-tsu": {
-    "kanji": "川",
-    "reading": "tsu",
-    "notes": "Derived from 川 (river)."
+    kanji: "川",
+    reading: "tsu",
+    notes: {
+      en: "Derived from 川 (river).",
+      id: "Berasal dari tiga aliran goresan Kanji 川 (sungai).",
+      ja: "漢字「川」の3画から生まれました。",
+    },
   },
   "k-te": {
-    "kanji": "天",
-    "reading": "te",
-    "notes": "Derived from the top strokes of 天."
+    kanji: "天",
+    reading: "te",
+    notes: {
+      en: "Derived from the top strokes of 天.",
+      id: "Berasal dari tiga goresan awal Kanji 天.",
+      ja: "漢字「天」の最初の3画から生まれました。",
+    },
   },
   "k-to": {
-    "kanji": "止",
-    "reading": "to",
-    "notes": "Derived from the right and top stroke of 止."
+    kanji: "止",
+    reading: "to",
+    notes: {
+      en: "Derived from the right and top stroke of 止.",
+      id: "Berasal dari dua goresan awal Kanji 止.",
+      ja: "漢字「止」の最初の2画から生まれました。",
+    },
   },
   "k-na": {
-    "kanji": "奈",
-    "reading": "na",
-    "notes": "Derived from the top two strokes of 奈."
+    kanji: "奈",
+    reading: "na",
+    notes: {
+      en: "Derived from the top two strokes of 奈.",
+      id: "Berasal dari dua goresan pertama Kanji 奈.",
+      ja: "漢字「奈」の最初の2画から生まれました。",
+    },
   },
   "k-ni": {
-    "kanji": "二",
-    "reading": "ni",
-    "notes": "Derived from 二 (two)."
+    kanji: "二",
+    reading: "ni",
+    notes: {
+      en: "Derived from 二 (two).",
+      id: "Berasal langsung dari Kanji 二 (dua).",
+      ja: "漢字「二」の全体から生まれました。",
+    },
   },
   "k-nu": {
-    "kanji": "奴",
-    "reading": "nu",
-    "notes": "Derived from the right part 又 of 奴."
+    kanji: "奴",
+    reading: "nu",
+    notes: {
+      en: "Derived from the right part 又 of 奴.",
+      id: "Berasal dari bagian kanan 又 pada Kanji 奴.",
+      ja: "漢字「奴」の旁（「又」）から生まれました。",
+    },
   },
   "k-ne": {
-    "kanji": "祢",
-    "reading": "ne",
-    "notes": "Derived from the left radical 礻 of 祢."
+    kanji: "祢",
+    reading: "ne",
+    notes: {
+      en: "Derived from the left radical 礻 of 祢.",
+      id: "Berasal dari radikal kiri 礻 pada Kanji 祢.",
+      ja: "漢字「祢」の偏（しめすへん）から生まれました。",
+    },
   },
   "k-no": {
-    "kanji": "乃",
-    "reading": "no",
-    "notes": "Derived from the left stroke of 乃."
+    kanji: "乃",
+    reading: "no",
+    notes: {
+      en: "Derived from the left stroke of 乃.",
+      id: "Berasal dari goresan miring kiri pada Kanji 乃.",
+      ja: "漢字「乃」の最初の1画（左払い）から生まれました。",
+    },
   },
   "k-ha": {
-    "kanji": "八",
-    "reading": "ha",
-    "notes": "Derived from 八 (eight)."
+    kanji: "八",
+    reading: "ha",
+    notes: {
+      en: "Derived from 八 (eight).",
+      id: "Berasal langsung dari Kanji 八 (delapan).",
+      ja: "漢字「八」の全体から生まれました。",
+    },
   },
   "k-hi": {
-    "kanji": "比",
-    "reading": "hi",
-    "notes": "Derived from the right half of 比."
+    kanji: "比",
+    reading: "hi",
+    notes: {
+      en: "Derived from the right half of 比.",
+      id: "Berasal dari separuh bagian kanan Kanji 比.",
+      ja: "漢字「比」の右半分から生まれました。",
+    },
   },
   "k-fu": {
-    "kanji": "不",
-    "reading": "fu",
-    "notes": "Derived from the first stroke of 不."
+    kanji: "不",
+    reading: "fu",
+    notes: {
+      en: "Derived from the first stroke of 不.",
+      id: "Berasal dari goresan sudut kiri-atas Kanji 不.",
+      ja: "漢字「不」の左上部分から生まれました。",
+    },
   },
   "k-he": {
-    "kanji": "部",
-    "reading": "he",
-    "notes": "Derived from the right part 阝 of 部."
+    kanji: "部",
+    reading: "he",
+    notes: {
+      en: "Derived from the right part 阝 of 部.",
+      id: "Berasal dari bagian kanan 阝 pada Kanji 部.",
+      ja: "漢字「部」の旁の草書体から生まれました。",
+    },
   },
   "k-ho": {
-    "kanji": "保",
-    "reading": "ho",
-    "notes": "Derived from the right part 呆 of 保."
+    kanji: "保",
+    reading: "ho",
+    notes: {
+      en: "Derived from the right part 呆 of 保.",
+      id: "Berasal dari bagian kanan-bawah 木 pada Kanji 保.",
+      ja: "漢字「保」の右下部分（「木」）から生まれました。",
+    },
   },
   "k-ma": {
-    "kanji": "末",
-    "reading": "ma",
-    "notes": "Derived from the top strokes of 末."
+    kanji: "末",
+    reading: "ma",
+    notes: {
+      en: "Derived from the top strokes of 末.",
+      id: "Berasal dari bagian atas Kanji 末.",
+      ja: "漢字「末」の上部2画から生まれました。",
+    },
   },
   "k-mi": {
-    "kanji": "三",
-    "reading": "mi",
-    "notes": "Derived from 三 (three)."
+    kanji: "三",
+    reading: "mi",
+    notes: {
+      en: "Derived from 三 (three).",
+      id: "Berasal langsung dari tiga garis Kanji 三 (tiga).",
+      ja: "漢字「三」の全体から生まれました。",
+    },
   },
   "k-mu": {
-    "kanji": "牟",
-    "reading": "mu",
-    "notes": "Derived from the top strokes of 牟."
+    kanji: "牟",
+    reading: "mu",
+    notes: {
+      en: "Derived from the top strokes of 牟.",
+      id: "Berasal dari bagian mahkota atas Kanji 牟.",
+      ja: "漢字「牟」の上部（ム）から生まれました。",
+    },
   },
   "k-me": {
-    "kanji": "女",
-    "reading": "me",
-    "notes": "Derived from the cross strokes of 女."
+    kanji: "女",
+    reading: "me",
+    notes: {
+      en: "Derived from the cross strokes of 女.",
+      id: "Berasal dari dua goresan silang bawah Kanji 女.",
+      ja: "漢字「女」の下部2画から生まれました。",
+    },
   },
   "k-mo": {
-    "kanji": "毛",
-    "reading": "mo",
-    "notes": "Derived from the bottom strokes of 毛."
+    kanji: "毛",
+    reading: "mo",
+    notes: {
+      en: "Derived from the bottom strokes of 毛.",
+      id: "Berasal dari goresan Kanji 毛.",
+      ja: "漢字「毛」の画を省略して生まれました。",
+    },
   },
   "k-ya": {
-    "kanji": "也",
-    "reading": "ya",
-    "notes": "Derived from the first strokes of 也."
+    kanji: "也",
+    reading: "ya",
+    notes: {
+      en: "Derived from the first strokes of 也.",
+      id: "Berasal dari dua goresan pertama Kanji 也.",
+      ja: "漢字「也」の上部2画から生まれました。",
+    },
   },
   "k-yu": {
-    "kanji": "由",
-    "reading": "yu",
-    "notes": "Derived from the lower strokes of 由."
+    kanji: "由",
+    reading: "yu",
+    notes: {
+      en: "Derived from the lower strokes of 由.",
+      id: "Berasal dari bagian kerangka Kanji 由.",
+      ja: "漢字「由」の上部から生まれました。",
+    },
   },
   "k-yo": {
-    "kanji": "与",
-    "reading": "yo",
-    "notes": "Derived from the right and bottom angles of 与."
+    kanji: "与",
+    reading: "yo",
+    notes: {
+      en: "Derived from the right and bottom angles of 与.",
+      id: "Berasal dari sudut garis Kanji 与.",
+      ja: "漢字「与」の一部から生まれました。",
+    },
   },
   "k-ra": {
-    "kanji": "良",
-    "reading": "ra",
-    "notes": "Derived from the top of 良."
+    kanji: "良",
+    reading: "ra",
+    notes: {
+      en: "Derived from the top of 良.",
+      id: "Berasal dari bagian atas Kanji 良.",
+      ja: "漢字「良」の上部2画から生まれました。",
+    },
   },
   "k-ri": {
-    "kanji": "利",
-    "reading": "ri",
-    "notes": "Derived from the right radical 刂 of 利."
+    kanji: "利",
+    reading: "ri",
+    notes: {
+      en: "Derived from the right radical 刂 of 利.",
+      id: "Berasal dari radikal kanan 刂 pada Kanji 利.",
+      ja: "漢字「利」の旁（りっとう「刂」）から生まれました。",
+    },
   },
   "k-ru": {
-    "kanji": "流",
-    "reading": "ru",
-    "notes": "Derived from the bottom-right strokes of 流."
+    kanji: "流",
+    reading: "ru",
+    notes: {
+      en: "Derived from the bottom-right strokes of 流.",
+      id: "Berasal dari goresan kaki kanan-bawah Kanji 流.",
+      ja: "漢字「流」の右下部分から生まれました。",
+    },
   },
   "k-re": {
-    "kanji": "礼",
-    "reading": "re",
-    "notes": "Derived from the right radical 乚 of 礼."
+    kanji: "礼",
+    reading: "re",
+    notes: {
+      en: "Derived from the right radical 乚 of 礼.",
+      id: "Berasal dari bagian kanan Kanji 礼.",
+      ja: "漢字「礼」の旁（右側）から生まれました。",
+    },
   },
   "k-ro": {
-    "kanji": "呂",
-    "reading": "ro",
-    "notes": "Derived from the top square 口 of 呂."
+    kanji: "呂",
+    reading: "ro",
+    notes: {
+      en: "Derived from the top square 口 of 呂.",
+      id: "Berasal dari kotak atas 口 pada Kanji 呂.",
+      ja: "漢字「呂」の上部の「口」から生まれました。",
+    },
   },
   "k-wa": {
-    "kanji": "和",
-    "reading": "wa",
-    "notes": "Derived from the right radical 口 of 和."
+    kanji: "和",
+    reading: "wa",
+    notes: {
+      en: "Derived from the right radical 口 of 和.",
+      id: "Berasal dari bagian sudut atas Kanji 和.",
+      ja: "漢字「和」の旁などから生まれました。",
+    },
   },
   "k-wo": {
-    "kanji": "乎",
-    "reading": "wo",
-    "notes": "Derived from the top and body strokes of 乎."
+    kanji: "乎",
+    reading: "wo",
+    notes: {
+      en: "Derived from the top and body strokes of 乎.",
+      id: "Berasal dari tiga goresan atas Kanji 乎.",
+      ja: "漢字「乎」の上部3画から生まれました。",
+    },
   },
   "k-n": {
-    "kanji": "尓",
-    "reading": "n",
-    "notes": "Derived from the cursive form of 尓."
-  }
+    kanji: "尓",
+    reading: "n",
+    notes: {
+      en: "Derived from the cursive form of 尓.",
+      id: "Berasal dari goresan atas Kanji 尓.",
+      ja: "漢字「尓」の上部2画から生まれました。",
+    },
+  },
 };
 
 export const CONFUSED_PAIRS: Record<string, string[]> = {

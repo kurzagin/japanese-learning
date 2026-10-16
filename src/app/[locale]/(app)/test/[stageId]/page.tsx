@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import TestClient from "./TestClient";
 import { STAGES } from "@/data/stages";
-import { LOCALES } from "@/lib/seo/locale";
+import { translations } from "@/data/i18n";
+import { isValidLocale, LOCALES } from "@/lib/seo/locale";
 
 interface Props {
   params: Promise<{
@@ -28,12 +29,14 @@ async function TestContent({ params }: Props) {
   return <TestClient stageId={stageId} />;
 }
 
-export default function TestPage({ params }: Props) {
+export default async function TestPage({ params }: Props) {
+  const { locale } = await params;
+  const t = isValidLocale(locale) ? translations[locale] : translations.en;
   return (
     <Suspense
       fallback={
         <div className="min-h-screen p-4 flex items-center justify-center font-mono text-xs">
-          LOADING SPEED TEST MODULE...
+          {t.common.initializingPool}
         </div>
       }
     >

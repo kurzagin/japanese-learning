@@ -41,7 +41,7 @@ export default function AboutPage() {
         speaker: "ロボ Type T (VOICEVOX)",
         japanese: "「あ、い、う、え、お。音声パラメータ認識中。」",
         romaji: "A, i, u, e, o. Onsei paramēta ninshikichū.",
-        translation: "A, I, U, E, O. Audio parameter recognition in progress.",
+        translation: t.about.features.voicevoxTrans,
         tag: "NEURAL PITCH ACCURACY",
       },
     },
@@ -52,10 +52,10 @@ export default function AboutPage() {
       title: t.about.features.animeTitle,
       description: t.about.features.animeDesc,
       preview: {
-        speaker: "Classic Anime Dialogue",
+        speaker: t.about.features.animeSpeaker,
         japanese: "「あきらめたら そこで 試合終了ですよ…？」",
         romaji: "Akirametara sokode shiai shūryō desu yo...",
-        translation: "If you give up now, the game is already over...?",
+        translation: t.about.features.animeTrans,
         tag: "ICONIC LINES DRILL",
       },
     },
@@ -69,7 +69,7 @@ export default function AboutPage() {
         speaker: "@sakana_vtuber • X (Twitter)",
         japanese: "「みんなおはよ〜！ 今日20時から歌枠やるよ！遊びに来てね！」",
         romaji: "Minna ohayo~! Kyou 20ji kara utawaku yaru yo! Asobi ni kite ne!",
-        translation: "Morning everyone~! Doing a singing stream at 20:00 JST! Come hang out!",
+        translation: t.about.features.vtuberXTrans,
         tag: "SLANG & MODERN CASUAL JP",
       },
     },
@@ -80,10 +80,10 @@ export default function AboutPage() {
       title: t.about.features.vtuberVoiceTitle,
       description: t.about.features.vtuberVoiceDesc,
       preview: {
-        speaker: "Incoming Voice Call • 00:14",
+        speaker: t.about.features.vtuberVoiceSpeaker,
         japanese: "「もしもし？聞こえる？…よかった！今ちょっと話せる？」",
         romaji: "Moshimoshi? Kikoeru? ...Yokatta! Ima chotto hanaseru?",
-        translation: "Hello? Can you hear me? ...Great! Got a minute to talk right now?",
+        translation: t.about.features.vtuberVoiceTrans,
         tag: "1-ON-1 ACTIVE LISTENING",
       },
     },
@@ -94,10 +94,10 @@ export default function AboutPage() {
       title: t.about.features.vtuberAsmrTitle,
       description: t.about.features.vtuberAsmrDesc,
       preview: {
-        speaker: "Binaural Whisper Feed",
+        speaker: t.about.features.vtuberAsmrSpeaker,
         japanese: "【01:23】「今日も一日、本当にお疲れ様でした…ゆっくり休んでね」",
         romaji: "[01:23] Kyou mo ichinichi, hontou ni otsukaresama deshita... yukkuri yasunde ne",
-        translation: "[01:23] You worked so hard today... please rest well tonight.",
+        translation: t.about.features.vtuberAsmrTrans,
         tag: "FINE-GRAINED AUDITORY & KANA",
       },
     },
@@ -108,10 +108,10 @@ export default function AboutPage() {
       title: t.about.features.eduPostTitle,
       description: t.about.features.eduPostDesc,
       preview: {
-        speaker: "Japanese Tip of the Day • X Post",
+        speaker: t.about.features.eduPostSpeaker,
         japanese: "【豆知識】「結構です」は肯定・否定の両方で使われます。文脈とトーンに注意！",
-        romaji: "[Trivia] 'Kekkou desu' can mean both Yes or No depending on tone and context!",
-        translation: "Native nuance explained succinctly in real native Japanese tweets.",
+        romaji: t.about.features.eduPostRomaji,
+        translation: t.about.features.eduPostTrans,
         tag: "REAL-LIFE USAGE & TRIVIA",
       },
     },
@@ -141,7 +141,7 @@ export default function AboutPage() {
                   を始めよう。”
                 </span>
                 <div className="text-[10px] text-[#666] font-mono mt-0.5 tracking-tight">
-                  [ <span className="text-[#cc0000] font-bold">sa</span>, <span className="text-[#000080] font-bold">kana</span> wo hajimeyou • Let&apos;s begin Kana ]
+                  [ <span className="text-[#cc0000] font-bold">sa</span>, <span className="text-[#000080] font-bold">kana</span> wo hajimeyou • {t.about.sloganSub} ]
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 <FishIcon className="w-4 h-4 fill-white text-white" />
                 <span>{t.about.whatIsTitle}</span>
               </span>
-              <span className="text-[10px] text-[#ffff00] font-mono">ABOUT SAKANA</span>
+              <span className="text-[10px] text-[#ffff00] font-mono">{t.about.whatIsTag}</span>
             </div>
             <div className="p-3 text-xs space-y-2.5 bg-white">
               <p className="text-xs sm:text-[13px] text-[#222] font-semibold leading-relaxed border-l-2 border-[#000080] pl-2 bg-[#f0f4f8] py-1">
@@ -464,7 +464,7 @@ export default function AboutPage() {
               </span>
               <span className="text-[10px] text-[#ffff00] font-mono flex items-center gap-1">
                 <Hourglass className="w-3 h-3 text-[#ffff00]" />
-                ROADMAP // IN PROGRESS
+                {t.about.roadmapBadge}
               </span>
             </div>
             <div className="p-3 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs space-y-1">
@@ -561,11 +561,11 @@ export default function AboutPage() {
       <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>SAKANA ARCHITECTURE // READY</span>
+          <span>{t.about.footerStatus}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">VOICEVOX NEURAL AUDIO & SM-2 SRS</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">INTERACTIVE SYSTEM</span>
+          <span className="hidden sm:inline">{t.about.footerSub}</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">{t.about.footerRight}</span>
         </div>
       </footer>
     </div>

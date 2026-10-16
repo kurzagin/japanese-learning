@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import MinigameClient from "./MinigameClient";
+import { translations } from "@/data/i18n";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
 
 interface Props {
@@ -59,6 +60,7 @@ export default async function MinigamePage({ params }: Props) {
     notFound();
   }
 
+  const t = translations[locale];
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const schemaData = {
@@ -89,7 +91,7 @@ export default async function MinigamePage({ params }: Props) {
       <Suspense
         fallback={
           <div className="min-h-screen p-4 flex items-center justify-center font-mono text-xs">
-            LOADING 30-KANA ARCADE LOOP...
+            {t.common.initializingPool}
           </div>
         }
       >

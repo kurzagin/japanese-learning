@@ -4,11 +4,11 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroWebring } from "@/components/RetroWebring";
+import { useLanguage } from "@/context/LanguageContext";
 import { KanaCharacter, HIRAGANA_PRIMITIVES, KATAKANA_PRIMITIVES } from "@/data/kana";
 import {
   Printer,
   Download,
-  FileText,
   Sparkles,
   ArrowRight,
   CheckCircle,
@@ -73,8 +73,19 @@ export function PrintableKanaChartClient({
   otherScriptUrl,
   otherScriptLabel,
 }: PrintableKanaChartProps) {
+  const { t, locale } = useLanguage();
   const chartRef = useRef<HTMLDivElement>(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+
+  const prefix = locale === "en" ? "" : `/${locale}`;
+  const scriptDisplay =
+    locale === "ja"
+      ? script === "hiragana"
+        ? "ひらがな"
+        : "カタカナ"
+      : script === "hiragana"
+        ? "Hiragana"
+        : "Katakana";
 
   const primitives: KanaCharacter[] =
     script === "hiragana" ? HIRAGANA_PRIMITIVES : KATAKANA_PRIMITIVES;
@@ -155,15 +166,15 @@ export function PrintableKanaChartClient({
           <div className="flex items-center justify-between flex-wrap gap-2 text-xs font-mono text-[#800000] border-b border-[#800000]/20 pb-2">
             <div className="flex items-center gap-1.5 font-bold uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
-              <span>SaKana Japanese Study Tools</span>
+              <span>{t.pdfChart.studyToolsBreadcrumb}</span>
               <span>/</span>
-              <span className="text-[#000080]">{script.toUpperCase()} PDF CHART</span>
+              <span className="text-[#000080]">{script.toUpperCase()} {t.pdfChart.pdfChartSuffix}</span>
             </div>
             <Link
               href={otherScriptUrl}
               className="text-[#000080] hover:underline font-bold flex items-center gap-1"
             >
-              <span>Switch to {otherScriptLabel} Chart</span>
+              <span>{t.pdfChart.switchChartLink(otherScriptLabel)}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -190,7 +201,7 @@ export function PrintableKanaChartClient({
                 className="cursor-pointer px-4 py-2 bg-[#008000] text-white font-bold text-xs uppercase border-t-2 border-l-2 border-[#80ff80] border-b-2 border-r-2 border-[#004000] hover:bg-[#009900] active:translate-y-0.5 flex items-center gap-2 shadow-xs disabled:opacity-50"
               >
                 <Download className="w-4 h-4" />
-                <span>{isGeneratingPdf ? "Generating PDF..." : "Download PDF (A4 Landscape)"}</span>
+                <span>{isGeneratingPdf ? t.pdfChart.generatingPdf : t.pdfChart.downloadPdfBtn}</span>
               </button>
 
               <button
@@ -199,7 +210,7 @@ export function PrintableKanaChartClient({
                 className="cursor-pointer px-4 py-2 bg-[#000080] text-white font-bold text-xs uppercase border-t-2 border-l-2 border-[#8080ff] border-b-2 border-r-2 border-[#000040] hover:bg-[#0000a0] active:translate-y-0.5 flex items-center gap-2 shadow-xs"
               >
                 <Printer className="w-4 h-4" />
-                <span>Print Chart</span>
+                <span>{t.pdfChart.printChartBtn}</span>
               </button>
             </div>
           </div>
@@ -208,15 +219,15 @@ export function PrintableKanaChartClient({
           <div className="mt-3 pt-2 border-t border-[#800000]/20 flex flex-wrap items-center gap-4 text-[11px] text-[#444444] font-mono">
             <span className="flex items-center gap-1 font-bold text-[#000080]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
-              Orientation: Landscape Horizontal
+              {t.pdfChart.tipOrientation}
             </span>
             <span className="flex items-center gap-1 font-bold text-[#000080]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
-              All Variants Included: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon
+              {t.pdfChart.tipVariants}
             </span>
             <span className="flex items-center gap-1 font-bold text-[#000080]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
-              100% Free Printable & Study Sheet
+              {t.pdfChart.tipFree}
             </span>
           </div>
         </div>
@@ -231,15 +242,15 @@ export function PrintableKanaChartClient({
             <div className="border-b-2 border-[#000080] pb-2 mb-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="bg-[#000080] text-white px-2 py-0.5 font-bold text-sm tracking-wider uppercase">
-                  SaKana Japanese
+                  {t.pdfChart.sheetBrand}
                 </div>
                 <h2 className="text-xl font-black text-[#000080] tracking-wider uppercase">
-                  Complete {script} Chart (全{script === "hiragana" ? "平仮名" : "片仮名"}一覧表)
+                  {t.pdfChart.sheetTitle(scriptDisplay, script === "hiragana" ? "平仮名" : "片仮名")}
                 </h2>
               </div>
               <div className="text-right text-[10px] font-mono text-[#555555]">
                 <div className="font-bold text-[#800000]">sakanajp.site/tools/{script}-chart-pdf</div>
-                <div>A4 Horizontal Layout • All Variants (Gojūon, Dakuon & Yōon)</div>
+                <div>{t.pdfChart.sheetSub}</div>
               </div>
             </div>
 
@@ -249,13 +260,13 @@ export function PrintableKanaChartClient({
               <div className="col-span-8 space-y-3">
                 <div className="border border-[#000080]">
                   <div className="bg-[#000080] text-white text-[11px] font-bold px-2 py-0.5 flex justify-between items-center">
-                    <span>1. BASIC GOJŪON (五十音 - 46 CHARACTERS)</span>
-                    <span className="text-[9px] font-mono text-[#ffff99]">Horizontal Table (A - I - U - E - O)</span>
+                    <span>{t.pdfChart.sec1Title}</span>
+                    <span className="text-[9px] font-mono text-[#ffff99]">{t.pdfChart.sec1Sub}</span>
                   </div>
                   <table className="w-full text-center border-collapse text-xs">
                     <thead>
                       <tr className="bg-[#f0f4f8] text-[#000080] font-bold border-b border-[#000080]">
-                        <th className="py-1 px-1 border-r border-[#000080] w-16 text-[10px]">Row</th>
+                        <th className="py-1 px-1 border-r border-[#000080] w-16 text-[10px]">{t.pdfChart.rowCol}</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">a (あ/ア)</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">i (い/イ)</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">u (う/ウ)</th>
@@ -309,13 +320,13 @@ export function PrintableKanaChartClient({
                 {/* SECTION 2: DAKUON & HANDAKUON (25 Characters) */}
                 <div className="border border-[#800000]">
                   <div className="bg-[#800000] text-white text-[11px] font-bold px-2 py-0.5 flex justify-between items-center">
-                    <span>2. DAKUON & HANDAKUON (濁音・半濁音 - 25 VOICED SOUNDS)</span>
-                    <span className="text-[9px] font-mono text-[#ffd700]">Tenten (ﾞ) & Maru (ﾟ)</span>
+                    <span>{t.pdfChart.sec2Title}</span>
+                    <span className="text-[9px] font-mono text-[#ffd700]">{t.pdfChart.sec2Sub}</span>
                   </div>
                   <table className="w-full text-center border-collapse text-xs">
                     <thead>
                       <tr className="bg-[#fff5f5] text-[#800000] font-bold border-b border-[#800000]">
-                        <th className="py-1 px-1 border-r border-[#800000] w-16 text-[10px]">Row</th>
+                        <th className="py-1 px-1 border-r border-[#800000] w-16 text-[10px]">{t.pdfChart.rowCol}</th>
                         <th className="py-1 px-1 border-r border-[#800000] w-[18%] text-[11px]">a</th>
                         <th className="py-1 px-1 border-r border-[#800000] w-[18%] text-[11px]">i</th>
                         <th className="py-1 px-1 border-r border-[#800000] w-[18%] text-[11px]">u</th>
@@ -359,13 +370,13 @@ export function PrintableKanaChartClient({
               {/* SECTION 3: YOON COMBINATIONS (33 Characters) */}
               <div className="col-span-4 border border-[#006064] flex flex-col">
                 <div className="bg-[#006064] text-white text-[11px] font-bold px-2 py-0.5 flex justify-between items-center">
-                  <span>3. YŌON (拗音 - 33 COMBINATIONS)</span>
-                  <span className="text-[9px] font-mono text-[#80deea]">Small ya/yu/yo</span>
+                  <span>{t.pdfChart.sec3Title}</span>
+                  <span className="text-[9px] font-mono text-[#80deea]">{t.pdfChart.sec3Sub}</span>
                 </div>
                 <table className="w-full text-center border-collapse text-xs flex-1">
                   <thead>
                     <tr className="bg-[#e0f7fa] text-[#006064] font-bold border-b border-[#006064]">
-                      <th className="py-1 px-1 border-r border-[#006064] w-12 text-[10px]">Root</th>
+                      <th className="py-1 px-1 border-r border-[#006064] w-12 text-[10px]">{t.pdfChart.rootCol}</th>
                       <th className="py-1 px-1 border-r border-[#006064] text-[11px]">-ya</th>
                       <th className="py-1 px-1 border-r border-[#006064] text-[11px]">-yu</th>
                       <th className="py-1 px-1 text-[11px]">-yo</th>
@@ -409,10 +420,10 @@ export function PrintableKanaChartClient({
             {/* Footer of Printable Sheet */}
             <div className="mt-3 pt-1 border-t border-[#000080] flex items-center justify-between text-[9px] text-[#666666] font-mono">
               <div>
-                © SaKana (魚) Japanese Drill • Free for Personal, Educational & Classroom Use
+                {t.pdfChart.sheetFooterLeft}
               </div>
               <div>
-                Practice online at: <span className="font-bold text-[#000080]">sakanajp.site</span>
+                {t.pdfChart.sheetFooterRight} <span className="font-bold text-[#000080]">sakanajp.site</span>
               </div>
             </div>
           </div>
@@ -423,12 +434,10 @@ export function PrintableKanaChartClient({
           <div className="border-b border-[#cccccc] pb-3">
             <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-[#800000]" />
-              <span>How to Use This Printable {script === "hiragana" ? "Hiragana" : "Katakana"} Chart</span>
+              <span>{t.pdfChart.howToUseTitle(scriptDisplay)}</span>
             </h2>
             <p className="text-xs text-[#555555] mt-1 leading-relaxed">
-              Mastering {script === "hiragana" ? "Hiragana" : "Katakana"} is step one for Japanese learners.
-              This printable horizontal reference sheet contains all 104+ phonetic variations organized in the standard
-              A-I-U-E-O matrix for convenient desk reference, writing practice, and classroom use.
+              {t.pdfChart.howToUseDesc(scriptDisplay)}
             </p>
           </div>
 
@@ -436,30 +445,30 @@ export function PrintableKanaChartClient({
             <div className="border border-[#dddddd] p-3 bg-[#fafafa]">
               <div className="font-bold text-[#800000] mb-1 flex items-center gap-1.5">
                 <span className="w-4 h-4 rounded-full bg-[#800000] text-white flex items-center justify-center text-[10px]">1</span>
-                <span>Basic Gojūon (46 Sounds)</span>
+                <span>{t.pdfChart.box1Title}</span>
               </div>
               <p className="text-[#555555] leading-relaxed">
-                The core foundation of spoken Japanese. Starts with the 5 vowels (A, I, U, E, O) followed by consonant combinations (K, S, T, N, H, M, Y, R, W) plus the singular consonant N (ん/ン).
+                {t.pdfChart.box1Desc}
               </p>
             </div>
 
             <div className="border border-[#dddddd] p-3 bg-[#fafafa]">
               <div className="font-bold text-[#800000] mb-1 flex items-center gap-1.5">
                 <span className="w-4 h-4 rounded-full bg-[#800000] text-white flex items-center justify-center text-[10px]">2</span>
-                <span>Dakuon & Handakuon (25 Sounds)</span>
+                <span>{t.pdfChart.box2Title}</span>
               </div>
               <p className="text-[#555555] leading-relaxed">
-                Voiced sounds formed by adding dakuten diacritic marks (ﾞ) turning K→G, S→Z, T→D, H→B; or handakuten circle (ﾟ) turning H→P.
+                {t.pdfChart.box2Desc}
               </p>
             </div>
 
             <div className="border border-[#dddddd] p-3 bg-[#fafafa]">
               <div className="font-bold text-[#800000] mb-1 flex items-center gap-1.5">
                 <span className="w-4 h-4 rounded-full bg-[#800000] text-white flex items-center justify-center text-[10px]">3</span>
-                <span>Yōon Combinations (33 Sounds)</span>
+                <span>{t.pdfChart.box3Title}</span>
               </div>
               <p className="text-[#555555] leading-relaxed">
-                Contracted sounds created by pairing an &quot;i-column&quot; kana (like ki, shi, chi) with a subscript small ya, yu, or yo (ゃ/ゅ/ょ or ャ/ュ/ョ).
+                {t.pdfChart.box3Desc}
               </p>
             </div>
           </div>
@@ -468,31 +477,31 @@ export function PrintableKanaChartClient({
           <div className="border-t border-[#cccccc] pt-3">
             <h3 className="font-bold text-sm text-[#000080] mb-2 flex items-center gap-1.5">
               <HelpCircle className="w-4 h-4 text-[#800000]" />
-              <span>Frequently Asked Questions</span>
+              <span>{t.pdfChart.faqTitle}</span>
             </h3>
             <div className="space-y-2 text-xs">
               <details className="border border-[#e0e0e0] p-2 bg-[#fdfdfd] cursor-pointer">
                 <summary className="font-bold text-[#333333]">
-                  What is the best print settings for this chart?
+                  {t.pdfChart.faq1Q}
                 </summary>
                 <p className="text-[#555555] mt-1 pl-2">
-                  Select <strong>Landscape (Horizontal)</strong> orientation and <strong>A4</strong> or <strong>Letter</strong> paper size. Ensure &quot;Background graphics&quot; is enabled in your browser print dialogue for proper table colors.
+                  {t.pdfChart.faq1A}
                 </p>
               </details>
               <details className="border border-[#e0e0e0] p-2 bg-[#fdfdfd] cursor-pointer">
                 <summary className="font-bold text-[#333333]">
-                  Is this PDF chart free to print for teachers and classrooms?
+                  {t.pdfChart.faq2Q}
                 </summary>
                 <p className="text-[#555555] mt-1 pl-2">
-                  Yes, 100% free! You are welcome to print copies for yourself, students, study groups, and classroom handouts.
+                  {t.pdfChart.faq2A}
                 </p>
               </details>
               <details className="border border-[#e0e0e0] p-2 bg-[#fdfdfd] cursor-pointer">
                 <summary className="font-bold text-[#333333]">
-                  Should I learn Hiragana or Katakana first?
+                  {t.pdfChart.faq3Q}
                 </summary>
                 <p className="text-[#555555] mt-1 pl-2">
-                  Always start with Hiragana! It is used for native Japanese words, grammatical particles, and verb endings. Once comfortable, transition to Katakana for loanwords and foreign names.
+                  {t.pdfChart.faq3A}
                 </p>
               </details>
             </div>
@@ -501,24 +510,24 @@ export function PrintableKanaChartClient({
           {/* Links to interactive tools */}
           <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
             <Link
-              href="/kana"
+              href={`${prefix}/kana`}
               className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
-              <span>INTERACTIVE KANA AUDIO DRILL</span>
+              <span>{t.pdfChart.interactiveDrillLink}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/tools/romaji-to-kana"
+              href={`${prefix}/tools/romaji-to-kana`}
               className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
-              <span>ROMAJI ⇄ KANA CONVERTER</span>
+              <span>{t.pdfChart.converterLink}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/compare"
+              href={`${prefix}/compare`}
               className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
-              <span>LOOKALIKE KANA COMPARISONS</span>
+              <span>{t.pdfChart.lookalikesLink}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

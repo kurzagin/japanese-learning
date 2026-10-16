@@ -30,7 +30,7 @@ export default function WordDetailClient({
   constituentKana,
   relatedWords,
 }: Props) {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const meaningText = word.meaning[locale] || word.meaning.en;
   const triviaText = word.trivia ? (word.trivia[locale] || word.trivia.en) : null;
@@ -47,7 +47,7 @@ export default function WordDetailClient({
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>KANA HUB</span>
+            <span>{t.wordDetail.breadcrumbHub}</span>
           </Link>
           <span className="text-[#888]">/</span>
           <span className="text-[#800000] font-bold uppercase">{word.script}</span>
@@ -59,7 +59,7 @@ export default function WordDetailClient({
         <div className="bg-[#fff8e7] border-2 border-[#800000] p-6 shadow-xs text-center space-y-4 relative overflow-hidden">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest uppercase flex items-center justify-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
-            <span>Japanese Vocabulary Word • {word.script}</span>
+            <span>{t.wordDetail.badge(word.script)}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
 
@@ -74,7 +74,7 @@ export default function WordDetailClient({
                   </rt>
                 </ruby>
                 <div className="text-xs text-[#666] font-mono">
-                  [ Kana: <span className="font-bold text-[#000080]">{word.character}</span> ]
+                  [ {t.wordDetail.kanaLabel} <span className="font-bold text-[#000080]">{word.character}</span> ]
                 </div>
               </div>
             ) : (
@@ -90,7 +90,7 @@ export default function WordDetailClient({
             <div className="flex items-center justify-center gap-2 pt-1 font-mono text-[11px]">
               {word.jlpt && (
                 <span className="bg-[#800000] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
-                  {word.jlpt === "Anime" ? "POP CULTURE / ANIME" : `JLPT ${word.jlpt}`}
+                  {word.jlpt === "Anime" ? t.wordDetail.popCultureBadge : `JLPT ${word.jlpt}`}
                 </span>
               )}
               <span className="bg-[#000080] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
@@ -107,7 +107,7 @@ export default function WordDetailClient({
           {/* Meaning Banner */}
           <div className="border border-[#808080] bg-[#f0f0f0] p-3 max-w-md mx-auto shadow-inner space-y-1">
             <div className="text-[10px] uppercase font-bold text-[#666] tracking-wider">
-              Meaning / Translation
+              {t.wordDetail.meaningHeader}
             </div>
             <div className="text-base sm:text-lg font-bold text-[#000080]">
               {meaningText}
@@ -134,7 +134,7 @@ export default function WordDetailClient({
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#000080]" />
                 <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
-                  Example Sentence with Furigana (文例)
+                  {t.wordDetail.exampleSentenceHeader}
                 </h2>
               </div>
               <PronounceButton text={word.sentence.ja} size="sm" />
@@ -184,11 +184,11 @@ export default function WordDetailClient({
           <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
             <BookOpen className="w-4 h-4 text-[#000080]" />
             <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
-              Character Breakdown (Spelling Guide)
+              {t.wordDetail.breakdownHeader}
             </h2>
           </div>
           <p className="text-xs text-[#555]">
-            Click any character below to learn its stroke order, audio, and mnemonics:
+            {t.wordDetail.breakdownDesc}
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
@@ -209,7 +209,7 @@ export default function WordDetailClient({
                     {k.romaji}
                   </div>
                   <div className="text-[10px] text-[#555] mt-1 font-mono uppercase flex items-center justify-center gap-1">
-                    <span>Stroke Order</span>
+                    <span>{t.wordDetail.strokeOrderLink}</span>
                     <ArrowRight className="w-2.5 h-2.5 text-[#000080]" />
                   </div>
                 </Link>
@@ -224,7 +224,7 @@ export default function WordDetailClient({
             <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
               <Compass className="w-4 h-4 text-[#800000]" />
               <h2 className="text-xs sm:text-sm font-bold text-[#800000] uppercase tracking-wider">
-                Related {word.script === "hiragana" ? "Hiragana" : "Katakana"} Words
+                {t.wordDetail.relatedWordsHeader(word.script === "hiragana" ? "Hiragana" : "Katakana")}
               </h2>
             </div>
 
@@ -242,7 +242,7 @@ export default function WordDetailClient({
                     {rw.romaji}
                   </div>
                   <div className="text-[10px] text-[#666] truncate mt-0.5">
-                    {rw.meaning.en}
+                    {rw.meaning[locale] || rw.meaning.en}
                   </div>
                 </Link>
               ))}
@@ -257,7 +257,7 @@ export default function WordDetailClient({
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>RETURN TO KANA HUB</span>
+            <span>{t.wordDetail.returnBtn}</span>
           </Link>
         </div>
       </main>

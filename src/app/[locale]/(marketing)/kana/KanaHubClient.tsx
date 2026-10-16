@@ -65,57 +65,57 @@ export default function KanaHubClient() {
               href="/compare"
               className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
             >
-              <span>LOOKALIKE COMPARISONS (シ vs ツ, さ vs き)</span>
+              <span>{t.kanaHub.lookalikeBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href="/tools/hiragana-chart-pdf"
               className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
             >
-              <span>HIRAGANA PDF CHART (HORIZONTAL)</span>
+              <span>{t.kanaHub.hiraganaPdfBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href="/tools/katakana-chart-pdf"
               className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
             >
-              <span>KATAKANA PDF CHART (HORIZONTAL)</span>
+              <span>{t.kanaHub.katakanaPdfBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
           {/* Quick Category Hub Badges */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2 pt-2 border-t border-[#800000]/10 text-[10px] font-mono">
-            <span className="font-bold text-[#800000] uppercase mr-1">Browse Categories:</span>
+            <span className="font-bold text-[#800000] uppercase mr-1">{t.kanaHub.browseCategoriesLabel}</span>
             <Link
               href="/kana/hiragana/category/gojuon"
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
-              Hiragana Gojūon (46)
+              {t.kanaHub.hiraganaGojuonBadge}
             </Link>
             <Link
               href="/kana/hiragana/category/dakuon"
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
-              Hiragana Dakuon (20)
+              {t.kanaHub.hiraganaDakuonBadge}
             </Link>
             <Link
               href="/kana/hiragana/category/yoon"
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
-              Hiragana Yōon (33)
+              {t.kanaHub.hiraganaYoonBadge}
             </Link>
             <Link
               href="/kana/katakana/category/gojuon"
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
-              Katakana Gojūon (46)
+              {t.kanaHub.katakanaGojuonBadge}
             </Link>
             <Link
               href="/kana/katakana/category/extended"
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
-              Extended Katakana (10)
+              {t.kanaHub.katakanaExtendedBadge}
             </Link>
           </div>
         </div>
@@ -244,7 +244,7 @@ export default function KanaHubClient() {
           <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
             <BookOpen className="w-4 h-4 text-[#000080]" />
             <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
-              {t.kanaHub.eduTitle} — Hiragana &amp; Katakana Explained
+              {t.kanaHub.eduTitle}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed text-[#333]">
@@ -265,19 +265,19 @@ export default function KanaHubClient() {
           {/* Quick FAQ Section */}
           <div className="pt-4 border-t border-[#e0ded0] space-y-2.5">
             <h3 className="text-xs font-bold text-[#000080] uppercase flex items-center gap-1.5">
-              <span>◆ Kana Learning Questions &amp; Answers</span>
+              <span>{t.kanaHub.faqTitle}</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] sm:text-xs">
               <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
-                <strong className="text-[#800000] block mb-1">Should I learn Hiragana or Katakana first?</strong>
+                <strong className="text-[#800000] block mb-1">{t.kanaHub.faq1Q}</strong>
                 <p className="text-[#555] leading-relaxed">
-                  Start with Hiragana to understand core grammar, particles, and fundamental Japanese sounds. Follow immediately with Katakana so you can decipher manga sound effects, modern anime titles, and foreign loanwords without hesitation.
+                  {t.kanaHub.faq1A}
                 </p>
               </div>
               <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
-                <strong className="text-[#800000] block mb-1">How can I avoid mixing up lookalike characters?</strong>
+                <strong className="text-[#800000] block mb-1">{t.kanaHub.faq2Q}</strong>
                 <p className="text-[#555] leading-relaxed">
-                  Characters like シ (shi) vs ツ (tsu) or さ (sa) vs き (ki) share similar shapes. Visit our <Link href="/compare" className="text-[#000080] font-bold underline">Lookalike Comparison Hub</Link> for side-by-side stroke direction breakdowns and visual memory tricks.
+                  {t.kanaHub.faq2ABefore}<Link href="/compare" className="text-[#000080] font-bold underline">{t.kanaHub.faq2ALink}</Link>{t.kanaHub.faq2AAfter}
                 </p>
               </div>
             </div>

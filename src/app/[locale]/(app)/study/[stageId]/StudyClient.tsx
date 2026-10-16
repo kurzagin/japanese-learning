@@ -344,8 +344,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
 
   const currentHint = currentCard?.hint?.[locale];
   const currentSampleMeaning = currentCard?.sampleWordMeaning?.[locale];
-  const stageDisplayName = isDueReviewMode ? "SRS Due Reviews" : stage!.name[locale];
-  const stageDepthName = isDueReviewMode ? "Daily Retention Queue" : stage!.depthName[locale];
+  const stageDisplayName = isDueReviewMode ? t.study.srsDueReviewsTitle : stage!.name[locale];
+  const stageDepthName = isDueReviewMode ? t.study.dailyRetentionQueue : stage!.depthName[locale];
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
@@ -392,14 +392,14 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                     {/* SRS Status Pill */}
                     <span className="text-[10px] px-1.5 py-0.2 border border-[#808080] bg-[#f0f0f0] text-[#333]">
                       {currentSrsRecord?.repetitionCount === 0 ? (
-                        <span className="text-[#cc0000] font-bold animate-retro-blink">[NEW]</span>
+                        <span className="text-[#cc0000] font-bold animate-retro-blink">{t.study.newBadge}</span>
                       ) : (
                         `${currentSrsRecord?.state.toUpperCase()} (int: ${currentSrsRecord?.intervalDays}d)`
                       )}
                     </span>
                   </div>
                   <span className="text-[#888] text-[10px] hidden sm:inline">
-                    [ SPACE: FLIP // 1-4: RATE ]
+                    {t.study.hotkeyHint}
                   </span>
                 </div>
 
@@ -677,8 +677,8 @@ export default function StudyClient({ stageId }: { stageId: string }) {
           <span>{stageDisplayName}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span>SRS REVIEWS: {sessionReviewedCount}</span>
-          <span className="border-l border-[#808080] pl-2">LAPSES: {againCount}</span>
+          <span>{t.study.footerSrsReviews} {sessionReviewedCount}</span>
+          <span className="border-l border-[#808080] pl-2">{t.study.footerLapses} {againCount}</span>
         </div>
       </footer>
     </div>

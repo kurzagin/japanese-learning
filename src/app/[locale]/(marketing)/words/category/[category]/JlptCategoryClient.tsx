@@ -14,9 +14,13 @@ interface Props {
 }
 
 export default function JlptCategoryClient({ category, words }: Props) {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
+
+  const catTitle = category.title[locale] || category.title.en;
+  const catTagline = category.tagline[locale] || category.tagline.en;
+  const catDesc = category.description[locale] || category.description.en;
 
   const filteredWords = useMemo(() => {
     return words.filter((w) => {
@@ -35,7 +39,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      <RetroNavbar currentSubtitle={category.title.toUpperCase()} />
+      <RetroNavbar currentSubtitle={catTitle.toUpperCase()} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Breadcrumb Navigation */}
@@ -45,11 +49,11 @@ export default function JlptCategoryClient({ category, words }: Props) {
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>HOME</span>
+            <span>{t.nav.home}</span>
           </Link>
           <span className="text-[#888]">/</span>
           <Link href="/words" className="text-[#000080] hover:underline font-bold">
-            WORDS
+            {t.wordsHub.breadcrumbWords}
           </Link>
           <span className="text-[#888]">/</span>
           <span className="text-[#800000] font-bold uppercase">{category.jlpt}</span>
@@ -59,14 +63,14 @@ export default function JlptCategoryClient({ category, words }: Props) {
         <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 sm:p-6 text-center relative overflow-hidden shadow-xs space-y-2">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5 uppercase">
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
-            <span>{category.tagline}</span>
+            <span>{catTagline}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
-            {category.title} ({words.length} Words)
+            {t.jlptCategory.wordsCountHeader(catTitle, words.length)}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium max-w-2xl mx-auto">
-            {category.description}
+            {catDesc}
           </p>
 
           {/* Quick Category Switcher */}
@@ -77,7 +81,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n5" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              JLPT N5 (104)
+              {t.wordsHub.jlptN5Btn}
             </Link>
             <Link
               href="/words/category/n4"
@@ -85,7 +89,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n4" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              JLPT N4 (47)
+              {t.wordsHub.jlptN4Btn}
             </Link>
             <Link
               href="/words/category/anime"
@@ -93,13 +97,13 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "anime" ? "bg-[#800000] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              Anime &amp; Pop Culture (9)
+              {t.wordsHub.animePopBtn}
             </Link>
             <Link
               href="/words"
               className="px-3 py-1 border border-[#808080] bg-[#d4d0c8] text-black hover:bg-white"
             >
-              All 161 Words &rarr;
+              {t.jlptCategory.allWordsBtn(161)}
             </Link>
           </div>
         </div>
@@ -107,7 +111,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
         {/* Filter & Search Bar */}
         <div className="border border-[#808080] bg-[#f0f0f0] p-3 flex flex-col sm:flex-row gap-3 items-center justify-between shadow-inner text-xs">
           <div className="flex items-center gap-1.5 w-full sm:w-auto">
-            <span className="font-bold text-[#000080]">Script:</span>
+            <span className="font-bold text-[#000080]">{t.jlptCategory.scriptFilterLabel}</span>
             {(["all", "hiragana", "katakana"] as const).map((sc) => (
               <button
                 key={sc}
@@ -118,7 +122,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                     : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-white"
                 }`}
               >
-                {sc}
+                {sc === "all" ? t.jlptCategory.allFilter : sc === "hiragana" ? t.wordsHub.hiraganaTab : t.wordsHub.katakanaTab}
               </button>
             ))}
           </div>
@@ -129,7 +133,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search meaning or romaji..."
+              placeholder={t.jlptCategory.searchPlaceholder}
               className="w-full pl-8 pr-3 py-1 bg-white border border-[#808080] text-xs font-mono outline-none shadow-inner"
             />
           </div>
@@ -183,7 +187,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                   href={`/words/${w.slug}`}
                   className="mt-2 w-full py-1 text-[11px] font-bold text-center bg-white border border-[#808080] hover:bg-[#000080] hover:text-white flex items-center justify-center gap-1 transition-colors"
                 >
-                  <span>Learn Word</span>
+                  <span>{t.jlptCategory.learnWordBtn}</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -193,7 +197,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
 
         {filteredWords.length === 0 && (
           <div className="border border-[#808080] bg-white p-8 text-center text-xs text-[#666] font-mono">
-            No words found matching &ldquo;{searchQuery}&rdquo;.
+            {t.jlptCategory.noResults(searchQuery)}
           </div>
         )}
       </main>

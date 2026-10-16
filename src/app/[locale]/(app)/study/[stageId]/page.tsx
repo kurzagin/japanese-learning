@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import StudyClient from "./StudyClient";
 import { STAGES } from "@/data/stages";
+import { translations } from "@/data/i18n";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
 interface Props {
@@ -132,12 +133,14 @@ async function StudyContent({ params }: Props) {
   );
 }
 
-export default function StudyPage({ params }: Props) {
+export default async function StudyPage({ params }: Props) {
+  const { locale } = await params;
+  const t = isValidLocale(locale) ? translations[locale] : translations.en;
   return (
     <Suspense
       fallback={
         <div className="min-h-screen p-4 flex items-center justify-center font-mono text-xs">
-          LOADING STUDY MODULE...
+          {t.common.loadingDueSrs}
         </div>
       }
     >

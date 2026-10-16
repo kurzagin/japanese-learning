@@ -301,7 +301,7 @@ export default function DashboardPage() {
                         : "bg-[#e8e8e8] border-[#ccc] text-[#888]"
                     }`}
                   >
-                    {arcadeUnlocked ? "OPTIONAL DRILL" : t.minigame.arcadeLockedBadge}
+                    {arcadeUnlocked ? t.dashboard.optionalDrillBadge : t.minigame.arcadeLockedBadge}
                   </span>
                 </div>
 
@@ -389,12 +389,12 @@ export default function DashboardPage() {
                             {isCompleted ? (
                               <span className={isBoss ? "text-[#800080] flex items-center gap-0.5" : "text-[#008000] flex items-center gap-0.5"}>
                                 {isBoss && <Star className="w-3 h-3 fill-[#800080] inline" />}
-                                <span>{isBoss ? "WON" : t.dashboard.statusDone}</span>
+                                <span>{isBoss ? t.dashboard.statusWon : t.dashboard.statusDone}</span>
                               </span>
                             ) : isUnlocked ? (
                               <span className={isBoss ? "text-[#cc0000] font-black flex items-center gap-0.5" : "text-[#000080]"}>
                                 {isBoss && <Zap className="w-3 h-3 fill-[#cc0000] inline" />}
-                                <span>{isBoss ? "BOSS" : t.dashboard.statusReady}</span>
+                                <span>{isBoss ? t.dashboard.statusBoss : t.dashboard.statusReady}</span>
                               </span>
                             ) : (
                               <span className="text-[#888] flex items-center gap-0.5">
@@ -409,7 +409,7 @@ export default function DashboardPage() {
                               <span className="truncate">{stage.name[locale]}</span>
                               {isBoss && (
                                 <span className="bg-[#cc0000] text-white text-[8px] px-1 py-0.2 font-mono uppercase shrink-0">
-                                  BOSS
+                                  {t.dashboard.statusBoss}
                                 </span>
                               )}
                             </div>
@@ -443,7 +443,7 @@ export default function DashboardPage() {
                                 }`}
                               >
                                 <Play className={`w-3 h-3 ${isBoss ? "fill-[#800000]" : "fill-[#cc0000]"}`} />
-                                <span>{isBoss ? "BOSS" : t.dashboard.sprintBtn}</span>
+                                <span>{isBoss ? t.dashboard.statusBoss : t.dashboard.sprintBtn}</span>
                               </Link>
                             </>
                           ) : (
@@ -470,8 +470,8 @@ export default function DashboardPage() {
           <span>SAKANA DOJO // {t.common.systemOnline}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">MULTILINGUAL SRS MEMORY SPEED DRILL</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">UTF-8 // READY</span>
+          <span className="hidden sm:inline">{t.dashboard.footerTagline}</span>
+          <span className="border-l border-[#808080] pl-2 font-mono">{t.dashboard.footerReady}</span>
         </div>
       </footer>
     </div>

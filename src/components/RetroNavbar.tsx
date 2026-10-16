@@ -93,8 +93,8 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
         {/* Right side status & controls */}
         <div className="flex items-center gap-2 shrink-0">
           <div className="text-[11px] text-[#e0e0ff] hidden md:flex items-center gap-3 font-mono">
-            <span>魚 SAKANA // JAPANESE SPEED DRILL</span>
-            <span className="text-[#00ff66]">● ONLINE</span>
+            <span>{t.nav.titleBarSub}</span>
+            <span className="text-[#00ff66]">● {t.nav.online}</span>
           </div>
 
           {/* Mobile-only quick Language & Menu toggles */}
