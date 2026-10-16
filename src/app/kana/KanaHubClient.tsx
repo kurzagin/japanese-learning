@@ -69,10 +69,17 @@ export default function KanaHubClient() {
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/tools/romaji-to-kana"
-              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+              href="/tools/hiragana-chart-pdf"
+              className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
             >
-              <span>ROMAJI ⇄ KANA CONVERTER TOOL</span>
+              <span>HIRAGANA PDF CHART (HORIZONTAL)</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+            <Link
+              href="/tools/katakana-chart-pdf"
+              className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
+            >
+              <span>KATAKANA PDF CHART (HORIZONTAL)</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

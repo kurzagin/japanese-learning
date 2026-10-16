@@ -55,6 +55,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: getLanguageAlternates("/tools/romaji-to-kana"),
     },
     {
+      url: `${baseUrl}/tools/hiragana-chart-pdf`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: getLanguageAlternates("/tools/hiragana-chart-pdf"),
+    },
+    {
+      url: `${baseUrl}/tools/katakana-chart-pdf`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: getLanguageAlternates("/tools/katakana-chart-pdf"),
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: "weekly",
