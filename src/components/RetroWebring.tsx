@@ -82,7 +82,7 @@ export function RetroWebring() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center transition-transform duration-100 hover:-translate-y-0.5 active:translate-y-0 shadow-xs mx-auto"
-                style={{ width: "80px", height: "33px" }}
+                style={{ width: "88px", height: "31px" }}
                 title={`${node.name} — ${node.desc}`}
                 onMouseEnter={() => setActiveNode(node)}
                 onMouseLeave={() => setActiveNode(null)}
@@ -90,10 +90,10 @@ export function RetroWebring() {
               >
                 <Image
                   src={node.badge}
-                  alt={`${node.name} 80x33 badge`}
-                  width={80}
-                  height={33}
-                  className="w-[80px] h-[33px] block"
+                  alt={`${node.name} 88x31 badge`}
+                  width={88}
+                  height={31}
+                  className="w-[88px] h-[31px] block"
                   style={{ imageRendering: "pixelated" }}
                   unoptimized
                 />
