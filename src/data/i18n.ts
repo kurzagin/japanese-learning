@@ -17,6 +17,7 @@ export interface TranslationSchema {
     arcade: string;
     compare: string;
     converter: string;
+    pdfCharts: string;
     menu: string;
     close: string;
     windowTitle: string;
@@ -401,6 +402,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       arcade: "ARCADE",
       compare: "COMPARE",
       converter: "CONVERTER",
+      pdfCharts: "PDF CHARTS",
       menu: "MENU",
       close: "CLOSE",
       windowTitle: "SaKana",
@@ -784,6 +786,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       arcade: "ARKADE",
       compare: "PERBANDINGAN",
       converter: "KONVERTER",
+      pdfCharts: "BAGAN PDF",
       menu: "MENU",
       close: "TUTUP",
       windowTitle: "SaKana",
@@ -1167,6 +1170,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       arcade: "アーケード",
       compare: "比較",
       converter: "変換ツール",
+      pdfCharts: "PDF一覧表",
       menu: "メニュー",
       close: "閉じる",
       windowTitle: "SaKana",

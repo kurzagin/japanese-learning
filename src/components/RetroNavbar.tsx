@@ -16,6 +16,7 @@ import {
   ArrowLeftRight,
   Info,
   BookOpen,
+  FileDown,
 } from "lucide-react";
 
 interface RetroNavbarProps {
@@ -36,6 +37,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
     { href: "/minigame", label: t.nav.arcade, icon: Gamepad2 },
     { href: "/compare", label: t.nav.compare, icon: GitCompare },
     { href: "/tools/romaji-to-kana", label: t.nav.converter, icon: ArrowLeftRight },
+    { href: "/tools/hiragana-chart-pdf", label: t.nav.pdfCharts, icon: FileDown },
     { href: "/about", label: t.nav.about, icon: Info },
     { href: "/docs", label: t.nav.docs, icon: BookOpen },
   ];
