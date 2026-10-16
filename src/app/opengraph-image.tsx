@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "SaKana (魚) — Understand Spoken Anime Japanese";
+export const alt = "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans";
 export const size = {
   width: 1200,
   height: 630,
@@ -39,7 +39,7 @@ export default async function Image() {
             letterSpacing: "2px",
           }}
         >
-          <span>魚 SAKANA // AUDIO & REFLEX DRILL FOR ANIME FANS</span>
+          <span>魚 SAKANA // KANA SPEED DRILL FOR ANIME FANS</span>
           <span style={{ color: "#00ff66" }}>● ONLINE</span>
         </div>
 
@@ -76,7 +76,7 @@ export default async function Image() {
               marginBottom: "16px",
             }}
           >
-            〜 Break Free From Subtitles. Understand What You Hear. 〜
+            〜 Master Kana the Fun Way — Built for Anime Fans 〜
           </div>
           <div
             style={{
@@ -90,7 +90,7 @@ export default async function Image() {
               Hiragana & Katakana
             </span>
             <span style={{ backgroundColor: "#800000", color: "#fff", padding: "6px 16px" }}>
-              Spoken Anime Dialogue
+              Anime Words & Loanwords
             </span>
             <span style={{ backgroundColor: "#006600", color: "#fff", padding: "6px 16px" }}>
               Voicevox Audio
@@ -111,7 +111,7 @@ export default async function Image() {
           }}
         >
           <span>https://sakanajp.site</span>
-          <span>AUDIO & REFLEX DRILL FOR ANIME FANS</span>
+          <span>FAST KANA DRILL FOR ANIME & MANGA FANS</span>
         </div>
       </div>
     ),

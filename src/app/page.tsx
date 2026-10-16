@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import HomePage from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Understand Spoken Anime Japanese | Kana & Audio Drill",
+  title: "Master Kana the Fun Way — Built for Anime Fans | SaKana",
   description:
-    "Break free from subtitles. Connect spoken sounds to real Japanese words with Voicevox audio drills and spaced repetition.",
+    "Skip the boring textbooks. Master Hiragana and Katakana fast with audio flashcards, spaced repetition, and iconic Japanese pop-culture words.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SaKana (魚) — Understand Spoken Anime Japanese",
+    title: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",
     description:
-      "Stop getting glued to English subtitles. Train your ears and brain to catch spoken Japanese dialogue in real time.",
+      "Master Japanese Hiragana and Katakana through speed recognition flashcards, native Voicevox audio, and real anime words.",
     url: "/",
   },
 };
