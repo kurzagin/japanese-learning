@@ -30,7 +30,7 @@ export interface Stage {
 // Map of real Japanese sample words for kana characters
 export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; ja: string }> = {
   // Hiragana Vowels
-  "h-a": { jp: "あめ (ame)", en: "Rain / Candy", id: "Hujan / Permen", ja: "あめ" },
+  "h-a": { jp: "あめ (ame / 雨・飴)", en: "Rain (雨) / Candy (飴)", id: "Hujan (雨) / Permen (飴)", ja: "雨（天候）・飴（菓子）" },
   "h-i": { jp: "いぬ (inu)", en: "Dog", id: "Anjing", ja: "いぬ" },
   "h-u": { jp: "うみ (umi)", en: "Sea / Ocean", id: "Laut / Samudra", ja: "うみ" },
   "h-e": { jp: "えき (eki)", en: "Train station", id: "Stasiun kereta", ja: "えき" },
@@ -45,7 +45,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
 
   // Hiragana S-row
   "h-sa": { jp: "さくら (sakura)", en: "Cherry blossom", id: "Bunga sakura", ja: "さくら" },
-  "h-shi": { jp: "しろ (shiro)", en: "White / Castle", id: "Putih / Kastil", ja: "しろ" },
+  "h-shi": { jp: "しろ (shiro / 白・城)", en: "White (白) / Castle (城)", id: "Putih (白) / Kastil (城)", ja: "白（色）・城（建造物）" },
   "h-su": { jp: "すし (sushi)", en: "Sushi", id: "Sushi", ja: "すし" },
   "h-se": { jp: "せかい (sekai)", en: "World", id: "Dunia", ja: "せかい" },
   "h-so": { jp: "そら (sora)", en: "Sky", id: "Langit", ja: "そら" },
@@ -65,7 +65,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "h-no": { jp: "のり (nori)", en: "Seaweed", id: "Rumput laut nori", ja: "のり" },
 
   // Hiragana H-row
-  "h-ha": { jp: "はな (hana)", en: "Flower / Nose", id: "Bunga / Hidung", ja: "はな" },
+  "h-ha": { jp: "はな (hana / 花・鼻)", en: "Flower (花) / Nose (鼻)", id: "Bunga (花) / Hidung (鼻)", ja: "花（植物）・鼻（身体）" },
   "h-hi": { jp: "ひかり (hikari)", en: "Light", id: "Cahaya", ja: "ひかり" },
   "h-fu": { jp: "ふね (fune)", en: "Ship / Boat", id: "Kapal", ja: "ふね" },
   "h-he": { jp: "へや (heya)", en: "Room", id: "Kamar", ja: "へや" },
@@ -92,7 +92,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
 
   // Hiragana W-row & N
   "h-wa": { jp: "わに (wani)", en: "Crocodile", id: "Buaya", ja: "わに" },
-  "h-wo": { jp: "ほん を よむ (hon wo yomu)", en: "Read a book (wo = object particle)", id: "Membaca buku (wo = partikel objek)", ja: "本を読む (を)" },
+  "h-wo": { jp: "ほんをよむ (hon wo yomu)", en: "Read a book (wo = object particle)", id: "Membaca buku (wo = partikel objek)", ja: "本を読む (を)" },
   "h-n": { jp: "にほん (nihon)", en: "Japan (ending n)", id: "Jepang (akhiran n)", ja: "にほん" },
 
   // Hiragana G-row
@@ -125,7 +125,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
 
   // Hiragana P-row
   "h-pa": { jp: "ぱんだ (panda)", en: "Panda", id: "Panda", ja: "ぱんだ" },
-  "h-pi": { jp: "ぴあの (piano)", en: "Piano", id: "Piano", ja: "ぴあの" },
+  "h-pi": { jp: "ぴかぴか (pikapika)", en: "Sparkling / Shiny", id: "Berkilau", ja: "ぴかぴか" },
   "h-pu": { jp: "ぷれぜんと (purezento)", en: "Present / Gift", id: "Hadiah", ja: "ぷれぜんと" },
   "h-pe": { jp: "ぺんぎん (pengin)", en: "Penguin", id: "Penguin", ja: "ぺんぎん" },
   "h-po": { jp: "ぽけっと (poketto)", en: "Pocket", id: "Kantong / Saku", ja: "ぽけっと" },
@@ -241,7 +241,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-we": { jp: "ウェディング (wedingu)", en: "Wedding", id: "Pernikahan", ja: "ウェディング" },
   "k-wi": { jp: "ウィーク (wiiku)", en: "Week", id: "Minggu / Pekan", ja: "ウィーク" },
   "k-va": { jp: "ヴァイオリン (vaiorin)", en: "Violin", id: "Biola", ja: "ヴァイオリン" },
-  "k-vo": { jp: "ヴォリューム (voryuumu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
+  "k-vo": { jp: "ヴォリューム (voryūmu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
 
   // Hiragana Yōon Combinations (33)
   "h-kya": { jp: "きゃく (kyaku)", en: "Guest / Customer", id: "Tamu / Pelanggan", ja: "客" },

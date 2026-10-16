@@ -6,7 +6,7 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { VocabWord, JlptCategoryMeta } from "@/lib/vocab-seo";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
-import { Search, Sparkles, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
+import { Search, Sparkles, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface Props {
   category: JlptCategoryMeta;
@@ -82,7 +82,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n5" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.jlptN5Btn}
+              {t.wordsHub.jlptN5Btn()}
             </Link>
             <Link
               href={`${prefix}/words/category/n4`}
@@ -90,7 +90,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n4" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.jlptN4Btn}
+              {t.wordsHub.jlptN4Btn()}
             </Link>
             <Link
               href={`${prefix}/words/category/anime`}
@@ -98,7 +98,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "anime" ? "bg-[#800000] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.animePopBtn}
+              {t.wordsHub.animePopBtn()}
             </Link>
             <Link
               href={`${prefix}/words`}
@@ -171,11 +171,15 @@ export default function JlptCategoryClient({ category, words }: Props) {
                   <div className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide group-hover:scale-105 transition-transform">
                     {w.character}
                   </div>
-                  {w.kanji && w.kanji !== w.character && (
+                  {w.kanjiOptions && w.kanjiOptions.length > 0 ? (
+                    <div className="text-xs text-[#800000] font-mono mt-0.5 font-bold">
+                      [{w.kanjiOptions.map((o) => o.kanji).join("・")}]
+                    </div>
+                  ) : w.kanji && w.kanji !== w.character ? (
                     <div className="text-xs text-[#800000] font-mono mt-0.5">
                       [{w.kanji}]
                     </div>
-                  )}
+                  ) : null}
                   <div className="text-xs font-mono text-[#cc0000] font-bold mt-1">
                     {w.romaji}
                   </div>

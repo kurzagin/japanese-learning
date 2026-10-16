@@ -81,7 +81,7 @@ export async function getAllVocabulary(): Promise<VocabWord[]> {
     romaji: r.romaji,
     script: r.script as "hiragana" | "katakana",
     kanji: r.kanji || null,
-    jlpt: (r.jlpt as any) || undefined,
+    jlpt: (r.jlpt as VocabWord["jlpt"]) || undefined,
     primaryKanaId: r.primaryKanaId || undefined,
     meaning: JSON.parse(r.meaning),
     trivia: r.trivia ? JSON.parse(r.trivia) : undefined,
@@ -118,16 +118,34 @@ export async function getConstituentKana(
   providedKana?: KanaCharacter[]
 ): Promise<KanaCharacter[]> {
   const all = providedKana || (await getAllKana());
-  const chars = Array.from(word.character);
+  const text = word.character;
   const matched: KanaCharacter[] = [];
 
-  for (const char of chars) {
-    const kanaMatch = all.find(
+  for (let i = 0; i < text.length; ) {
+    // Try 2-character digraph (e.g. ヴォ, リュ, しゃ) first
+    if (i + 1 < text.length) {
+      const two = text.slice(i, i + 2);
+      const matchTwo = all.find(
+        (k) => k.character === two && k.script === word.script
+      );
+      if (matchTwo) {
+        if (!matched.some((m) => m.id === matchTwo.id)) {
+          matched.push(matchTwo);
+        }
+        i += 2;
+        continue;
+      }
+    }
+
+    // Fallback to single character
+    const char = text[i];
+    const matchOne = all.find(
       (k) => k.character === char && k.script === word.script
     );
-    if (kanaMatch && !matched.some((m) => m.id === kanaMatch.id)) {
-      matched.push(kanaMatch);
+    if (matchOne && !matched.some((m) => m.id === matchOne.id)) {
+      matched.push(matchOne);
     }
+    i += 1;
   }
 
   return matched;

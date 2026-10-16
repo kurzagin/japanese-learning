@@ -14,16 +14,36 @@ export default function WordsHubClient({ initialWords = [] }: { initialWords?: V
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const n5Count = useMemo(() => initialWords.filter((w) => w.jlpt === "N5").length, [initialWords]);
+  const n4Count = useMemo(() => initialWords.filter((w) => w.jlpt === "N4").length, [initialWords]);
+  const animeCount = useMemo(() => initialWords.filter((w) => w.jlpt === "Anime").length, [initialWords]);
+
   const filteredWords = useMemo(() => {
+    const normalizeRomaji = (str: string) =>
+      str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/aa/g, "a")
+        .replace(/ii/g, "i")
+        .replace(/uu/g, "u")
+        .replace(/ee/g, "e")
+        .replace(/oo/g, "o")
+        .replace(/ou/g, "o");
+
     return initialWords.filter((w) => {
       if (activeScript !== "all" && w.script !== activeScript) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
-        const matchRomaji = w.romaji.toLowerCase().includes(query);
+        const normQuery = normalizeRomaji(query);
+        const normRomaji = normalizeRomaji(w.romaji);
+        const matchRomaji = w.romaji.toLowerCase().includes(query) || normRomaji.includes(normQuery);
         const matchChar = w.character.includes(query);
+        const matchKanji = w.kanji?.includes(query);
+        const matchKanjiOptions = w.kanjiOptions?.some((o) => o.kanji.includes(query));
         const meaning = w.meaning[locale] || w.meaning.en;
         const matchMeaning = meaning.toLowerCase().includes(query);
-        return matchRomaji || matchChar || matchMeaning;
+        return matchRomaji || matchChar || matchKanji || matchKanjiOptions || matchMeaning;
       }
       return true;
     });
@@ -66,19 +86,19 @@ export default function WordsHubClient({ initialWords = [] }: { initialWords?: V
               href={`${prefix}/words/category/n5`}
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
-              {t.wordsHub.jlptN5Btn}
+              {t.wordsHub.jlptN5Btn(n5Count)}
             </Link>
             <Link
               href={`${prefix}/words/category/n4`}
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
-              {t.wordsHub.jlptN4Btn}
+              {t.wordsHub.jlptN4Btn(n4Count)}
             </Link>
             <Link
               href={`${prefix}/words/category/anime`}
               className="px-2.5 py-1 bg-[#fff] text-[#800000] font-bold border border-[#800000] hover:bg-[#fff0f0]"
             >
-              {t.wordsHub.animePopBtn}
+              {t.wordsHub.animePopBtn(animeCount)}
             </Link>
             <Link
               href={`${prefix}/kana`}
@@ -169,6 +189,15 @@ export default function WordsHubClient({ initialWords = [] }: { initialWords?: V
                     <div className="text-2xl sm:text-3xl font-black text-[#000080] group-hover:scale-105 transition-transform font-sans">
                       {word.character}
                     </div>
+                    {word.kanjiOptions && word.kanjiOptions.length > 0 ? (
+                      <div className="text-xs text-[#800000] font-mono mt-0.5 font-bold">
+                        [{word.kanjiOptions.map((o) => o.kanji).join("・")}]
+                      </div>
+                    ) : word.kanji && word.kanji !== word.character ? (
+                      <div className="text-xs text-[#800000] font-mono mt-0.5">
+                        [{word.kanji}]
+                      </div>
+                    ) : null}
                     <div className="text-xs font-mono font-bold text-[#cc0000] mt-0.5">
                       {word.romaji}
                     </div>

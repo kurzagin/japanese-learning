@@ -495,9 +495,9 @@ export interface TranslationSchema {
     badge: string;
     title: (count: number) => string;
     description: string;
-    jlptN5Btn: string;
-    jlptN4Btn: string;
-    animePopBtn: string;
+    jlptN5Btn: (count?: number) => string;
+    jlptN4Btn: (count?: number) => string;
+    animePopBtn: (count?: number) => string;
     kanaMatrixBtn: string;
     lookalikesBtn: string;
     allTab: (count: number) => string;
@@ -1140,9 +1140,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "Japanese Core Vocabulary Dictionary",
       title: (count: number) => `JAPANESE CORE VOCABULARY DIRECTORY (${count} WORDS)`,
       description: "Browse elementary Hiragana and Katakana vocabulary words with full pronunciation audio, spelling breakdowns, multilingual definitions, and practice flashcards.",
-      jlptN5Btn: "JLPT N5 (104)",
-      jlptN4Btn: "JLPT N4 (47)",
-      animePopBtn: "Anime & Pop Culture (9)",
+      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number = 9) => `Anime & Pop Culture (${count})`,
       kanaMatrixBtn: "KANA MATRIX",
       lookalikesBtn: "LOOKALIKES",
       allTab: (count: number) => `ALL (${count})`,
@@ -1784,9 +1784,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "Kamus Kosakata Inti Bahasa Jepang",
       title: (count: number) => `DIREKTORI KOSAKATA INTI JEPANG (${count} KATA)`,
       description: "Jelajahi kosakata dasar Hiragana dan Katakana lengkap dengan audio pelafalan, rincian ejaan per karakter, arti multibahasa, dan flashcard latihan.",
-      jlptN5Btn: "JLPT N5 (104)",
-      jlptN4Btn: "JLPT N4 (47)",
-      animePopBtn: "Anime & Kultur Pop (9)",
+      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number = 9) => `Anime & Kultur Pop (${count})`,
       kanaMatrixBtn: "MATRIKS KANA",
       lookalikesBtn: "HURUF MIRIP",
       allTab: (count: number) => `SEMUA (${count})`,
@@ -2428,9 +2428,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "日本語基礎＆アニメ重要語彙辞典",
       title: (count: number) => `日本語コア単語ディレクトリ (全${count}語)`,
       description: "基礎的なひらがな・カタカナ単語をネイティブ発音音声、構成文字の分解解説、多言語の意味、反復練習カードとともに収録しています。",
-      jlptN5Btn: "JLPT N5 (104)",
-      jlptN4Btn: "JLPT N4 (47)",
-      animePopBtn: "アニメ＆ポップカルチャー (9)",
+      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number = 9) => `アニメ＆ポップカルチャー (${count})`,
       kanaMatrixBtn: "五十音図",
       lookalikesBtn: "類似文字比較",
       allTab: (count: number) => `すべて (${count})`,
