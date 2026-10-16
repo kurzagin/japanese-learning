@@ -105,7 +105,7 @@ export function PrintableKanaChartClient({
       const { jsPDF } = jsPDFModule;
 
       const canvas = await html2canvas(chartRef.current, {
-        scale: 2,
+        scale: 2.5,
         useCORS: true,
         logging: false,
         backgroundColor: "#ffffff",
@@ -115,13 +115,26 @@ export function PrintableKanaChartClient({
       const pdf = new jsPDF({
         orientation: "landscape",
         unit: "mm",
-        format: "a4",
+        format: "a4", // 297mm x 210mm
       });
 
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight, undefined, "FAST");
-      pdf.save(`sakana-${script}-chart-horizontal.pdf`);
+      const pdfWidth = pdf.internal.pageSize.getWidth(); // 297
+      const pdfHeight = pdf.internal.pageSize.getHeight(); // 210
+      const margin = 8; // 8mm margin
+      const printableWidth = pdfWidth - margin * 2;
+      const printableHeight = pdfHeight - margin * 2;
+
+      // Maintain exact aspect ratio to fit within single A4 page
+      const imgWidth = printableWidth;
+      const imgHeight = (canvas.height * printableWidth) / canvas.width;
+
+      const finalWidth = imgHeight > printableHeight ? (canvas.width * printableHeight) / canvas.height : imgWidth;
+      const finalHeight = imgHeight > printableHeight ? printableHeight : imgHeight;
+      const posX = margin + (printableWidth - finalWidth) / 2;
+      const posY = margin + (printableHeight - finalHeight) / 2;
+
+      pdf.addImage(imgData, "PNG", posX, posY, finalWidth, finalHeight, undefined, "FAST");
+      pdf.save(`sakana-${script}-chart-horizontal-a4.pdf`);
     } catch (err) {
       console.error("PDF generation failed, falling back to window.print():", err);
       window.print();

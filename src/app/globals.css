@@ -89,13 +89,20 @@ body {
 /* Print optimization for PDF/paper exports */
 @media print {
   @page {
-    size: landscape;
-    margin: 8mm;
+    size: 297mm 210mm;
+    margin: 6mm 8mm;
   }
 
-  body {
+  html, body {
+    width: 297mm !important;
+    height: 210mm !important;
     background: #ffffff !important;
     color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   header, footer, nav, .no-print {
@@ -108,12 +115,17 @@ body {
 
   .printable-chart-container {
     box-shadow: none !important;
-    border: 1px solid #333333 !important;
+    border: 1.5px solid #000080 !important;
     background: #ffffff !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    page-break-inside: avoid;
+    width: 281mm !important;
+    max-width: 281mm !important;
+    height: 196mm !important;
+    max-height: 196mm !important;
+    margin: 0 auto !important;
+    padding: 3mm 4mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 }
