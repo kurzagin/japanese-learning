@@ -21,7 +21,7 @@ export default function robots(): MetadataRoute.Robots {
           "/words/",
           "/words",
         ],
-        disallow: ["/api/", "/dashboard", "/login"],
+        disallow: ["/api/", "/dashboard", "/login", "/test/"],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

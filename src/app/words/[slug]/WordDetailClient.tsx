@@ -63,12 +63,39 @@ export default function WordDetailClient({
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
 
-          <div className="space-y-1">
-            <div className="text-5xl sm:text-7xl font-black text-[#000080] font-sans tracking-wide">
-              {word.character}
-            </div>
+          {/* Main Visual Glyph & Kanji Display with Furigana Ruby */}
+          <div className="space-y-2">
+            {word.kanji ? (
+              <div className="space-y-1">
+                <ruby className="text-4xl sm:text-6xl font-black text-[#000080] font-sans tracking-wide">
+                  {word.kanji}
+                  <rt className="text-base sm:text-xl font-normal text-[#800000] font-mono tracking-normal">
+                    {word.character}
+                  </rt>
+                </ruby>
+                <div className="text-xs text-[#666] font-mono">
+                  [ Kana: <span className="font-bold text-[#000080]">{word.character}</span> ]
+                </div>
+              </div>
+            ) : (
+              <div className="text-5xl sm:text-7xl font-black text-[#000080] font-sans tracking-wide">
+                {word.character}
+              </div>
+            )}
             <div className="text-lg sm:text-xl font-mono font-bold text-[#cc0000]">
-              {word.romaji}
+              /{word.romaji}/
+            </div>
+
+            {/* Badges: JLPT & Script */}
+            <div className="flex items-center justify-center gap-2 pt-1 font-mono text-[11px]">
+              {word.jlpt && (
+                <span className="bg-[#800000] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
+                  {word.jlpt === "Anime" ? "POP CULTURE / ANIME" : `JLPT ${word.jlpt}`}
+                </span>
+              )}
+              <span className="bg-[#000080] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
+                {word.script.toUpperCase()}
+              </span>
             </div>
           </div>
 
@@ -99,6 +126,58 @@ export default function WordDetailClient({
             </div>
           )}
         </div>
+
+        {/* Real Contextual Example Sentence with Furigana Ruby */}
+        {word.sentence && (
+          <div className="bg-white border-2 border-[#000080] p-4 sm:p-5 shadow-xs space-y-3">
+            <div className="flex items-center justify-between border-b border-[#c0c0c0] pb-2">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#000080]" />
+                <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
+                  Example Sentence with Furigana (文例)
+                </h2>
+              </div>
+              <PronounceButton text={word.sentence.ja} size="sm" />
+            </div>
+
+            <div className="p-3 bg-[#f7f9fc] border border-[#d0d8e8] space-y-2">
+              {/* Furigana Ruby Sentence */}
+              <div className="text-base sm:text-xl font-medium text-[#111] leading-loose">
+                {word.sentence.furigana.map((seg, idx) =>
+                  seg.rt ? (
+                    <ruby key={idx} className="mx-0.5">
+                      {seg.ruby}
+                      <rt className="text-[10px] sm:text-xs text-[#800000] font-mono font-normal">
+                        {seg.rt}
+                      </rt>
+                    </ruby>
+                  ) : (
+                    <span key={idx}>{seg.ruby}</span>
+                  )
+                )}
+              </div>
+
+              {/* Romaji transcription */}
+              <div className="text-xs font-mono text-[#666]">
+                {word.sentence.romaji}
+              </div>
+
+              {/* Localized Translations */}
+              <div className="text-xs font-bold text-[#000080] pt-1 border-t border-[#e0e8f0]">
+                {locale === "id"
+                  ? word.sentence.id
+                  : locale === "ja"
+                  ? word.sentence.ja
+                  : word.sentence.en}
+              </div>
+              {locale !== "en" && (
+                <div className="text-[11px] text-[#777] font-mono">
+                  EN: {word.sentence.en}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Constituent Kana Breakdown Card */}
         <div className="bg-white border border-[#808080] p-4 sm:p-5 shadow-xs space-y-3">

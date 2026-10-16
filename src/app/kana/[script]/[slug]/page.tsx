@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ALL_KANA_PRIMITIVES } from "@/data/kana";
-import { getKanaBySlug, getKanaSlug, KANA_STROKE_COUNTS, CONFUSED_PAIRS, getSampleWord } from "@/lib/kana-seo";
+import {
+  getKanaBySlug,
+  getKanaSlug,
+  KANA_STROKE_COUNTS,
+  CONFUSED_PAIRS,
+  getSampleWord,
+  KANA_ORIGINS,
+} from "@/lib/kana-seo";
 import KanaDetailClient from "./KanaDetailClient";
 
 interface Props {
@@ -30,8 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const scriptTitle = kana.script === "hiragana" ? "Hiragana" : "Katakana";
   const strokes = KANA_STROKE_COUNTS[kana.id] || "standard";
-  const title = `${kana.character} (${kana.romaji}) — ${scriptTitle} Character Guide, Stroke Order & Pronunciation`;
-  const description = `Learn how to read and write ${scriptTitle} ${kana.character} (${kana.romaji}). Includes audio pronunciation, ${strokes} stroke order guide, mnemonic memory aid, and example vocabulary words.`;
+  const origin = KANA_ORIGINS[kana.id];
+  const originNote = origin ? ` Derived from ancient Kanji ${origin.kanji}.` : "";
+  const title = `${kana.character} (${kana.romaji}) — ${scriptTitle} Character Guide & Pronunciation`;
+  const description = `Master Japanese ${scriptTitle} ${kana.character} (${kana.romaji}).${originNote} Includes native audio pronunciation, mnemonic memory aid, and vocabulary words.`;
   const canonicalUrl = `/kana/${kana.script}/${slug}`;
 
   return {
@@ -49,8 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [
       `${kana.script} ${kana.romaji}`,
       `japanese ${kana.character}`,
-      `how to write ${kana.character}`,
-      `${kana.script} ${kana.character} stroke order`,
+      `how to pronounce ${kana.character}`,
       `${kana.romaji} pronunciation`,
       "learn japanese kana",
       "sakanajp",
@@ -67,6 +75,7 @@ export default async function KanaDetailPage({ params }: Props) {
   }
 
   const sampleWord = getSampleWord(kana.id);
+  const origin = KANA_ORIGINS[kana.id] || null;
   const confusedIds = CONFUSED_PAIRS[kana.id] || [];
   const confusedKana = confusedIds
     .map((id) => ALL_KANA_PRIMITIVES.find((k) => k.id === id))
@@ -81,7 +90,9 @@ export default async function KanaDetailPage({ params }: Props) {
       {
         "@type": "DefinedTerm",
         name: `${kana.character} (${kana.romaji})`,
+        alternateName: origin ? [origin.kanji, kana.romaji] : [kana.romaji],
         termCode: kana.character,
+        inLanguage: "ja",
         description: kana.hint.en || `Japanese ${kana.script} character for ${kana.romaji}.`,
         inDefinedTermSet: {
           "@type": "DefinedTermSet",
@@ -127,6 +138,7 @@ export default async function KanaDetailPage({ params }: Props) {
         strokeCount={strokeCount}
         sampleWord={sampleWord}
         confusedKana={confusedKana}
+        origin={origin}
       />
     </>
   );

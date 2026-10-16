@@ -14,6 +14,43 @@
       "en": "Fish. Also the namesake of SaKana (魚), inspiring effortless speed learning like a fish gliding through water.",
       "id": "Ikan. Juga merupakan asal nama SaKana (魚), melambangkan kelancaran belajar seperti ikan yang berenang bebas di air.",
       "ja": "魚。水の中を滑らかに泳ぐ魚のように、軽快に学べるSaKana（魚）の由来です。"
+    },
+    "kanji": "魚",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "魚",
+        "rt": "さかな"
+      }
+    ],
+    "sentence": {
+      "ja": "海で魚が泳いでいます。",
+      "furigana": [
+        {
+          "ruby": "海",
+          "rt": "うみ"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "魚",
+          "rt": "さかな"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "泳",
+          "rt": "およ"
+        },
+        {
+          "ruby": "いでいます。"
+        }
+      ],
+      "romaji": "Umi de sakana ga oyoide imasu.",
+      "en": "Fish are swimming in the sea.",
+      "id": "Ikan sedang berenang di laut."
     }
   },
   {
@@ -26,7 +63,44 @@
       "id": "Hujan / Permen",
       "ja": "あめ"
     },
-    "primaryKanaId": "h-a"
+    "primaryKanaId": "h-a",
+    "kanji": "雨",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "雨",
+        "rt": "あめ"
+      }
+    ],
+    "sentence": {
+      "ja": "今日は雨が降っています。",
+      "furigana": [
+        {
+          "ruby": "今日",
+          "rt": "きょう"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "雨",
+          "rt": "あめ"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "降",
+          "rt": "ふ"
+        },
+        {
+          "ruby": "っています。"
+        }
+      ],
+      "romaji": "Kyou wa ame ga futte imasu.",
+      "en": "It is raining today.",
+      "id": "Hari ini hujan turun."
+    }
   },
   {
     "slug": "inu",
@@ -43,6 +117,43 @@
       "en": "Dog. Man's loyal companion.",
       "id": "Anjing. Sahabat setia manusia.",
       "ja": "忠実な相棒の代表格。"
+    },
+    "kanji": "犬",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "犬",
+        "rt": "いぬ"
+      }
+    ],
+    "sentence": {
+      "ja": "公園で犬と散歩します。",
+      "furigana": [
+        {
+          "ruby": "公園",
+          "rt": "こうえん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "犬",
+          "rt": "いぬ"
+        },
+        {
+          "ruby": "と"
+        },
+        {
+          "ruby": "散歩",
+          "rt": "さんぽ"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Kouen de inu to sanpo shimasu.",
+      "en": "I walk with the dog in the park.",
+      "id": "Saya jalan-jalan dengan anjing di taman."
     }
   },
   {
@@ -55,7 +166,44 @@
       "id": "Laut / Samudra",
       "ja": "うみ"
     },
-    "primaryKanaId": "h-u"
+    "primaryKanaId": "h-u",
+    "kanji": "海",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "海",
+        "rt": "うみ"
+      }
+    ],
+    "sentence": {
+      "ja": "夏の海はとても青いです。",
+      "furigana": [
+        {
+          "ruby": "夏",
+          "rt": "なつ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "海",
+          "rt": "うみ"
+        },
+        {
+          "ruby": "はとても"
+        },
+        {
+          "ruby": "青",
+          "rt": "あお"
+        },
+        {
+          "ruby": "いです。"
+        }
+      ],
+      "romaji": "Natsu no umi wa totemo aoi desu.",
+      "en": "The summer ocean is very blue.",
+      "id": "Laut di musim panas sangat biru."
+    }
   },
   {
     "slug": "eki",
@@ -67,7 +215,51 @@
       "id": "Stasiun kereta",
       "ja": "えき"
     },
-    "primaryKanaId": "h-e"
+    "primaryKanaId": "h-e",
+    "kanji": "駅",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "駅",
+        "rt": "えき"
+      }
+    ],
+    "sentence": {
+      "ja": "駅の前で友達を待ちます。",
+      "furigana": [
+        {
+          "ruby": "駅",
+          "rt": "えき"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "前",
+          "rt": "まえ"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "待",
+          "rt": "ま"
+        },
+        {
+          "ruby": "ちます。"
+        }
+      ],
+      "romaji": "Eki no mae de tomodachi wo machimasu.",
+      "en": "I wait for my friend in front of the station.",
+      "id": "Saya menunggu teman di depan stasiun."
+    }
   },
   {
     "slug": "onigiri",
@@ -79,7 +271,52 @@
       "id": "Nasi kepal onigiri",
       "ja": "おにぎり"
     },
-    "primaryKanaId": "h-o"
+    "primaryKanaId": "h-o",
+    "kanji": "お握り",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "お"
+      },
+      {
+        "ruby": "握",
+        "rt": "にぎ"
+      },
+      {
+        "ruby": "り"
+      }
+    ],
+    "sentence": {
+      "ja": "お昼におにぎりを食べます。",
+      "furigana": [
+        {
+          "ruby": "お"
+        },
+        {
+          "ruby": "昼",
+          "rt": "ひる"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "おにぎり"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Ohiru ni onigiri wo tabemasu.",
+      "en": "I eat rice balls for lunch.",
+      "id": "Saya makan onigiri untuk makan siang."
+    }
   },
   {
     "slug": "kawa",
@@ -91,7 +328,37 @@
       "id": "Sungai",
       "ja": "かわ"
     },
-    "primaryKanaId": "h-ka"
+    "primaryKanaId": "h-ka",
+    "kanji": "川",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "川",
+        "rt": "かわ"
+      }
+    ],
+    "sentence": {
+      "ja": "川の水がきれいです。",
+      "furigana": [
+        {
+          "ruby": "川",
+          "rt": "かわ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "水",
+          "rt": "みず"
+        },
+        {
+          "ruby": "がきれいです。"
+        }
+      ],
+      "romaji": "Kawa no mizu ga kirei desu.",
+      "en": "The river water is clean and clear.",
+      "id": "Air sungai itu jernih dan bersih."
+    }
   },
   {
     "slug": "kitsune",
@@ -103,7 +370,51 @@
       "id": "Rubah",
       "ja": "きつね"
     },
-    "primaryKanaId": "h-ki"
+    "primaryKanaId": "h-ki",
+    "kanji": "狐",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "狐",
+        "rt": "きつね"
+      }
+    ],
+    "sentence": {
+      "ja": "神社で狐の像を見ました。",
+      "furigana": [
+        {
+          "ruby": "神社",
+          "rt": "じんじゃ"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "狐",
+          "rt": "きつね"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "像",
+          "rt": "ぞう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Jinja de kitsune no zou wo mimashita.",
+      "en": "I saw a fox statue at the shrine.",
+      "id": "Saya melihat patung rubah di kuil jinja."
+    }
   },
   {
     "slug": "kuruma",
@@ -115,7 +426,44 @@
       "id": "Mobil",
       "ja": "くるま"
     },
-    "primaryKanaId": "h-ku"
+    "primaryKanaId": "h-ku",
+    "kanji": "車",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "車",
+        "rt": "くるま"
+      }
+    ],
+    "sentence": {
+      "ja": "新しい車を買いました。",
+      "furigana": [
+        {
+          "ruby": "新",
+          "rt": "あたら"
+        },
+        {
+          "ruby": "しい"
+        },
+        {
+          "ruby": "車",
+          "rt": "くるま"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "買",
+          "rt": "か"
+        },
+        {
+          "ruby": "いました。"
+        }
+      ],
+      "romaji": "Atarashii kuruma wo kaimashita.",
+      "en": "I bought a new car.",
+      "id": "Saya membeli mobil baru."
+    }
   },
   {
     "slug": "kemuri",
@@ -127,7 +475,51 @@
       "id": "Asap",
       "ja": "けむり"
     },
-    "primaryKanaId": "h-ke"
+    "primaryKanaId": "h-ke",
+    "kanji": "煙",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "煙",
+        "rt": "けむり"
+      }
+    ],
+    "sentence": {
+      "ja": "山から白い煙が上がっています。",
+      "furigana": [
+        {
+          "ruby": "山",
+          "rt": "やま"
+        },
+        {
+          "ruby": "から"
+        },
+        {
+          "ruby": "白",
+          "rt": "しろ"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "煙",
+          "rt": "けむり"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "上",
+          "rt": "あ"
+        },
+        {
+          "ruby": "がっています。"
+        }
+      ],
+      "romaji": "Yama kara shiroi kemuri ga agatte imasu.",
+      "en": "White smoke is rising from the mountain.",
+      "id": "Asap putih membubung dari gunung."
+    }
   },
   {
     "slug": "kokoro",
@@ -139,7 +531,51 @@
       "id": "Hati / Jiwa",
       "ja": "こころ"
     },
-    "primaryKanaId": "h-ko"
+    "primaryKanaId": "h-ko",
+    "kanji": "心",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "心",
+        "rt": "こころ"
+      }
+    ],
+    "sentence": {
+      "ja": "優しい心を持つことが大切です。",
+      "furigana": [
+        {
+          "ruby": "優",
+          "rt": "やさ"
+        },
+        {
+          "ruby": "しい"
+        },
+        {
+          "ruby": "心",
+          "rt": "こころ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "持",
+          "rt": "も"
+        },
+        {
+          "ruby": "つことが"
+        },
+        {
+          "ruby": "大切",
+          "rt": "たいせつ"
+        },
+        {
+          "ruby": "です。"
+        }
+      ],
+      "romaji": "Yasashii kokoro wo motsu koto ga taisetsu desu.",
+      "en": "Having a kind heart is important.",
+      "id": "Memiliki hati yang baik itu penting."
+    }
   },
   {
     "slug": "sakura",
@@ -151,7 +587,44 @@
       "id": "Bunga sakura",
       "ja": "さくら"
     },
-    "primaryKanaId": "h-sa"
+    "primaryKanaId": "h-sa",
+    "kanji": "桜",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "桜",
+        "rt": "さくら"
+      }
+    ],
+    "sentence": {
+      "ja": "春になると桜が咲きます。",
+      "furigana": [
+        {
+          "ruby": "春",
+          "rt": "はる"
+        },
+        {
+          "ruby": "になると"
+        },
+        {
+          "ruby": "桜",
+          "rt": "さくら"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "咲",
+          "rt": "さ"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Haru ni naru to sakura ga sakimasu.",
+      "en": "Cherry blossoms bloom when spring comes.",
+      "id": "Bunga sakura mekar saat musim semi tiba."
+    }
   },
   {
     "slug": "shiro",
@@ -163,7 +636,51 @@
       "id": "Putih / Kastil",
       "ja": "しろ"
     },
-    "primaryKanaId": "h-shi"
+    "primaryKanaId": "h-shi",
+    "kanji": "城",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "城",
+        "rt": "しろ"
+      }
+    ],
+    "sentence": {
+      "ja": "古い日本の城を訪れました。",
+      "furigana": [
+        {
+          "ruby": "古",
+          "rt": "ふる"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "城",
+          "rt": "しろ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "訪",
+          "rt": "おとず"
+        },
+        {
+          "ruby": "れました。"
+        }
+      ],
+      "romaji": "Furui Nihon no shiro wo otozuremashita.",
+      "en": "I visited an ancient Japanese castle.",
+      "id": "Saya mengunjungi kastil kuno Jepang."
+    }
   },
   {
     "slug": "sushi",
@@ -175,7 +692,40 @@
       "id": "Sushi",
       "ja": "すし"
     },
-    "primaryKanaId": "h-su"
+    "primaryKanaId": "h-su",
+    "kanji": "寿司",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "寿",
+        "rt": "す"
+      },
+      {
+        "ruby": "司",
+        "rt": "し"
+      }
+    ],
+    "sentence": {
+      "ja": "寿司にワサビをつけます。",
+      "furigana": [
+        {
+          "ruby": "寿司",
+          "rt": "すし"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "ワサビ"
+        },
+        {
+          "ruby": "をつけます。"
+        }
+      ],
+      "romaji": "Sushi ni wasabi wo tsukemasu.",
+      "en": "I put wasabi on the sushi.",
+      "id": "Saya menambahkan wasabi pada sushi."
+    }
   },
   {
     "slug": "sekai",
@@ -187,7 +737,41 @@
       "id": "Dunia",
       "ja": "せかい"
     },
-    "primaryKanaId": "h-se"
+    "primaryKanaId": "h-se",
+    "kanji": "世界",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "世",
+        "rt": "せ"
+      },
+      {
+        "ruby": "界",
+        "rt": "かい"
+      }
+    ],
+    "sentence": {
+      "ja": "世界中を旅したいです。",
+      "furigana": [
+        {
+          "ruby": "世界中",
+          "rt": "せかいじゅう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "旅",
+          "rt": "たび"
+        },
+        {
+          "ruby": "したいです。"
+        }
+      ],
+      "romaji": "Sekaijuu wo tabi shitai desu.",
+      "en": "I want to travel around the world.",
+      "id": "Saya ingin bepergian keliling dunia."
+    }
   },
   {
     "slug": "sora",
@@ -199,7 +783,51 @@
       "id": "Langit",
       "ja": "そら"
     },
-    "primaryKanaId": "h-so"
+    "primaryKanaId": "h-so",
+    "kanji": "空",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "空",
+        "rt": "そら"
+      }
+    ],
+    "sentence": {
+      "ja": "青い空に鳥が飛んでいます。",
+      "furigana": [
+        {
+          "ruby": "青",
+          "rt": "あお"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "空",
+          "rt": "そら"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "鳥",
+          "rt": "とり"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "飛",
+          "rt": "と"
+        },
+        {
+          "ruby": "んでいます。"
+        }
+      ],
+      "romaji": "Aoi sora ni tori ga tonde imasu.",
+      "en": "Birds are flying in the blue sky.",
+      "id": "Burung-burung terbang di langit biru."
+    }
   },
   {
     "slug": "tamago",
@@ -211,7 +839,44 @@
       "id": "Telur",
       "ja": "たまご"
     },
-    "primaryKanaId": "h-ta"
+    "primaryKanaId": "h-ta",
+    "kanji": "卵",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "卵",
+        "rt": "たまご"
+      }
+    ],
+    "sentence": {
+      "ja": "朝ごはんに卵焼きを食べます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "ごはんに"
+        },
+        {
+          "ruby": "卵焼",
+          "rt": "たまごや"
+        },
+        {
+          "ruby": "きを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Asagohan ni tamagoyaki wo tabemasu.",
+      "en": "I eat rolled omelette for breakfast.",
+      "id": "Saya makan tamagoyaki untuk sarapan."
+    }
   },
   {
     "slug": "chizu",
@@ -223,7 +888,54 @@
       "id": "Peta",
       "ja": "ちず"
     },
-    "primaryKanaId": "h-chi"
+    "primaryKanaId": "h-chi",
+    "kanji": "地図",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "地",
+        "rt": "ち"
+      },
+      {
+        "ruby": "図",
+        "rt": "ず"
+      }
+    ],
+    "sentence": {
+      "ja": "スマホの地図で道を探します。",
+      "furigana": [
+        {
+          "ruby": "スマホ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "地図",
+          "rt": "ちず"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "道",
+          "rt": "みち"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "探",
+          "rt": "さが"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Sumaho no chizu de michi wo sagashimasu.",
+      "en": "I look for the route on my smartphone map.",
+      "id": "Saya mencari jalan lewat peta di ponsel pintar."
+    }
   },
   {
     "slug": "tsuki",
@@ -235,7 +947,44 @@
       "id": "Bulan",
       "ja": "つき"
     },
-    "primaryKanaId": "h-tsu"
+    "primaryKanaId": "h-tsu",
+    "kanji": "月",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "月",
+        "rt": "つき"
+      }
+    ],
+    "sentence": {
+      "ja": "今夜は月がとても明るいです。",
+      "furigana": [
+        {
+          "ruby": "今夜",
+          "rt": "こんや"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "月",
+          "rt": "つき"
+        },
+        {
+          "ruby": "がとても"
+        },
+        {
+          "ruby": "明",
+          "rt": "あか"
+        },
+        {
+          "ruby": "るいです。"
+        }
+      ],
+      "romaji": "Konya wa tsuki ga totemo akarui desu.",
+      "en": "The moon is very bright tonight.",
+      "id": "Malam ini bulannya sangat terang."
+    }
   },
   {
     "slug": "te",
@@ -247,7 +996,51 @@
       "id": "Tangan",
       "ja": "て"
     },
-    "primaryKanaId": "h-te"
+    "primaryKanaId": "h-te",
+    "kanji": "手",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "手",
+        "rt": "て"
+      }
+    ],
+    "sentence": {
+      "ja": "食事の前に手を洗います。",
+      "furigana": [
+        {
+          "ruby": "食事",
+          "rt": "しょくじ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "前",
+          "rt": "まえ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "手",
+          "rt": "て"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "洗",
+          "rt": "あら"
+        },
+        {
+          "ruby": "います。"
+        }
+      ],
+      "romaji": "Shokuji no mae ni te wo araimasu.",
+      "en": "I wash my hands before eating.",
+      "id": "Saya mencuci tangan sebelum makan."
+    }
   },
   {
     "slug": "tomodachi",
@@ -259,7 +1052,47 @@
       "id": "Teman",
       "ja": "ともだち"
     },
-    "primaryKanaId": "h-to"
+    "primaryKanaId": "h-to",
+    "kanji": "友達",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "友",
+        "rt": "とも"
+      },
+      {
+        "ruby": "達",
+        "rt": "だち"
+      }
+    ],
+    "sentence": {
+      "ja": "友達とアニメの話をします。",
+      "furigana": [
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "と"
+        },
+        {
+          "ruby": "アニメ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "話",
+          "rt": "はなし"
+        },
+        {
+          "ruby": "をします。"
+        }
+      ],
+      "romaji": "Tomodachi to anime no hanashi wo shimasu.",
+      "en": "I talk about anime with my friend.",
+      "id": "Saya mengobrol tentang anime bersama teman."
+    }
   },
   {
     "slug": "natsu",
@@ -271,7 +1104,44 @@
       "id": "Musim panas",
       "ja": "なつ"
     },
-    "primaryKanaId": "h-na"
+    "primaryKanaId": "h-na",
+    "kanji": "夏",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "夏",
+        "rt": "なつ"
+      }
+    ],
+    "sentence": {
+      "ja": "日本の夏は花火大会があります。",
+      "furigana": [
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "夏",
+          "rt": "なつ"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "花火大会",
+          "rt": "はなびたいかい"
+        },
+        {
+          "ruby": "があります。"
+        }
+      ],
+      "romaji": "Nihon no natsu wa hanabi taikai ga arimasu.",
+      "en": "Japan's summer has fireworks festivals.",
+      "id": "Musim panas di Jepang memiliki festival kembang api."
+    }
   },
   {
     "slug": "niji",
@@ -283,7 +1153,51 @@
       "id": "Pelangi",
       "ja": "にじ"
     },
-    "primaryKanaId": "h-ni"
+    "primaryKanaId": "h-ni",
+    "kanji": "虹",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "虹",
+        "rt": "にじ"
+      }
+    ],
+    "sentence": {
+      "ja": "雨の後にきれいな虹が出ました。",
+      "furigana": [
+        {
+          "ruby": "雨",
+          "rt": "あめ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "後",
+          "rt": "あと"
+        },
+        {
+          "ruby": "にきれいな"
+        },
+        {
+          "ruby": "虹",
+          "rt": "にじ"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "出",
+          "rt": "で"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Ame no ato ni kireina niji ga demashita.",
+      "en": "A beautiful rainbow appeared after the rain.",
+      "id": "Pelangi indah muncul setelah hujan."
+    }
   },
   {
     "slug": "nuigurumi",
@@ -295,7 +1209,48 @@
       "id": "Boneka",
       "ja": "ぬいぐるみ"
     },
-    "primaryKanaId": "h-nu"
+    "primaryKanaId": "h-nu",
+    "kanji": "ぬいぐるみ",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ぬいぐるみ"
+      }
+    ],
+    "sentence": {
+      "ja": "可愛いポケモンのぬいぐるみを集めています。",
+      "furigana": [
+        {
+          "ruby": "可愛",
+          "rt": "かわい"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "ポケモン"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "ぬいぐるみ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "集",
+          "rt": "あつ"
+        },
+        {
+          "ruby": "めています。"
+        }
+      ],
+      "romaji": "Kawaii pokemon no nuigurumi wo atsumete imasu.",
+      "en": "I collect cute Pokemon plushies.",
+      "id": "Saya mengoleksi boneka Pokemon yang lucu."
+    }
   },
   {
     "slug": "neko",
@@ -312,6 +1267,43 @@
       "en": "Cat. Traditional anime pet companion.",
       "id": "Kucing. Hewan peliharaan favorit di anime.",
       "ja": "アニメで定番のペット。「ニャー」と鳴く。"
+    },
+    "kanji": "猫",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "猫",
+        "rt": "ねこ"
+      }
+    ],
+    "sentence": {
+      "ja": "猫が日向で眠っています。",
+      "furigana": [
+        {
+          "ruby": "猫",
+          "rt": "ねこ"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "日向",
+          "rt": "ひなた"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "眠",
+          "rt": "ねむ"
+        },
+        {
+          "ruby": "っています。"
+        }
+      ],
+      "romaji": "Neko ga hinata de nemutte imasu.",
+      "en": "The cat is sleeping in a sunny spot.",
+      "id": "Kucing sedang tidur di tempat yang terkena sinar matahari."
     }
   },
   {
@@ -324,7 +1316,43 @@
       "id": "Rumput laut nori",
       "ja": "のり"
     },
-    "primaryKanaId": "h-no"
+    "primaryKanaId": "h-no",
+    "kanji": "海苔",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "海苔",
+        "rt": "のり"
+      }
+    ],
+    "sentence": {
+      "ja": "おにぎりにパリパリの海苔を巻きます。",
+      "furigana": [
+        {
+          "ruby": "おにぎり"
+        },
+        {
+          "ruby": "にパリパリの"
+        },
+        {
+          "ruby": "海苔",
+          "rt": "のり"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "巻",
+          "rt": "ま"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Onigiri ni paripari no nori wo makimasu.",
+      "en": "I wrap crispy seaweed around the rice ball.",
+      "id": "Saya membungkus onigiri dengan rumput laut renyah."
+    }
   },
   {
     "slug": "hana",
@@ -336,7 +1364,44 @@
       "id": "Bunga / Hidung",
       "ja": "はな"
     },
-    "primaryKanaId": "h-ha"
+    "primaryKanaId": "h-ha",
+    "kanji": "花",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "花",
+        "rt": "はな"
+      }
+    ],
+    "sentence": {
+      "ja": "庭にきれいな花が咲きました。",
+      "furigana": [
+        {
+          "ruby": "庭",
+          "rt": "にわ"
+        },
+        {
+          "ruby": "にきれいな"
+        },
+        {
+          "ruby": "花",
+          "rt": "はな"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "咲",
+          "rt": "さ"
+        },
+        {
+          "ruby": "きました。"
+        }
+      ],
+      "romaji": "Niwa ni kireina hana ga sakimashita.",
+      "en": "Beautiful flowers bloomed in the garden.",
+      "id": "Bunga-bunga indah bermekaran di taman."
+    }
   },
   {
     "slug": "hikari",
@@ -348,7 +1413,51 @@
       "id": "Cahaya",
       "ja": "ひかり"
     },
-    "primaryKanaId": "h-hi"
+    "primaryKanaId": "h-hi",
+    "kanji": "光",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "光",
+        "rt": "ひかり"
+      }
+    ],
+    "sentence": {
+      "ja": "太陽の光が部屋に入ります。",
+      "furigana": [
+        {
+          "ruby": "太陽",
+          "rt": "たいよう"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "光",
+          "rt": "ひかり"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "部屋",
+          "rt": "へや"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "入",
+          "rt": "はい"
+        },
+        {
+          "ruby": "ります。"
+        }
+      ],
+      "romaji": "Taiyou no hikari ga heya ni hairimasu.",
+      "en": "Sunlight enters the room.",
+      "id": "Cahaya matahari masuk ke dalam kamar."
+    }
   },
   {
     "slug": "fune",
@@ -360,7 +1469,51 @@
       "id": "Kapal",
       "ja": "ふね"
     },
-    "primaryKanaId": "h-fu"
+    "primaryKanaId": "h-fu",
+    "kanji": "船",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "船",
+        "rt": "ふね"
+      }
+    ],
+    "sentence": {
+      "ja": "大きな船が港を出発します。",
+      "furigana": [
+        {
+          "ruby": "大",
+          "rt": "おお"
+        },
+        {
+          "ruby": "きな"
+        },
+        {
+          "ruby": "船",
+          "rt": "ふね"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "港",
+          "rt": "みなと"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "出発",
+          "rt": "しゅっぱつ"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Ookina fune ga minato wo shuppatsu shimasu.",
+      "en": "A large boat departs from the harbor.",
+      "id": "Kapal besar berangkat dari pelabuhan."
+    }
   },
   {
     "slug": "heya",
@@ -372,7 +1525,48 @@
       "id": "Kamar",
       "ja": "へや"
     },
-    "primaryKanaId": "h-he"
+    "primaryKanaId": "h-he",
+    "kanji": "部屋",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "部",
+        "rt": "へ"
+      },
+      {
+        "ruby": "屋",
+        "rt": "や"
+      }
+    ],
+    "sentence": {
+      "ja": "自分の部屋を掃除します。",
+      "furigana": [
+        {
+          "ruby": "自分",
+          "rt": "じぶん"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "部屋",
+          "rt": "へや"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "掃除",
+          "rt": "そうじ"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Jibun no heya wo souji shimasu.",
+      "en": "I clean my room.",
+      "id": "Saya membersihkan kamar saya sendiri."
+    }
   },
   {
     "slug": "hoshi",
@@ -384,7 +1578,44 @@
       "id": "Bintang",
       "ja": "ほし"
     },
-    "primaryKanaId": "h-ho"
+    "primaryKanaId": "h-ho",
+    "kanji": "星",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "星",
+        "rt": "ほし"
+      }
+    ],
+    "sentence": {
+      "ja": "夜空にたくさんの星が輝いています。",
+      "furigana": [
+        {
+          "ruby": "夜空",
+          "rt": "よぞら"
+        },
+        {
+          "ruby": "にたくさんの"
+        },
+        {
+          "ruby": "星",
+          "rt": "ほし"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "輝",
+          "rt": "かがや"
+        },
+        {
+          "ruby": "いています。"
+        }
+      ],
+      "romaji": "Yozora ni takusan no hoshi ga kagayaite imasu.",
+      "en": "Many stars are shining in the night sky.",
+      "id": "Banyak bintang bersinar di langit malam."
+    }
   },
   {
     "slug": "matsuri",
@@ -396,7 +1627,47 @@
       "id": "Festival",
       "ja": "まつり"
     },
-    "primaryKanaId": "h-ma"
+    "primaryKanaId": "h-ma",
+    "kanji": "祭り",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "祭",
+        "rt": "まつ"
+      },
+      {
+        "ruby": "り"
+      }
+    ],
+    "sentence": {
+      "ja": "夏祭りで浴衣を着ました。",
+      "furigana": [
+        {
+          "ruby": "夏祭",
+          "rt": "なつまつ"
+        },
+        {
+          "ruby": "りで"
+        },
+        {
+          "ruby": "浴衣",
+          "rt": "ゆかた"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "着",
+          "rt": "き"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Natsumatsuri de yukata wo kimashita.",
+      "en": "I wore a yukata at the summer festival.",
+      "id": "Saya mengenakan yukata di festival musim panas."
+    }
   },
   {
     "slug": "mizu",
@@ -408,7 +1679,48 @@
       "id": "Air",
       "ja": "みず"
     },
-    "primaryKanaId": "h-mi"
+    "primaryKanaId": "h-mi",
+    "kanji": "水",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "水",
+        "rt": "みず"
+      }
+    ],
+    "sentence": {
+      "ja": "冷たい水を一杯飲みます。",
+      "furigana": [
+        {
+          "ruby": "冷",
+          "rt": "つめ"
+        },
+        {
+          "ruby": "たい"
+        },
+        {
+          "ruby": "水",
+          "rt": "みず"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "一杯",
+          "rt": "いっぱい"
+        },
+        {
+          "ruby": "飲",
+          "rt": "の"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Tsumetai mizu wo ippai nomimasu.",
+      "en": "I drink a cup of cold water.",
+      "id": "Saya minum segelas air dingin."
+    }
   },
   {
     "slug": "mushi",
@@ -420,7 +1732,44 @@
       "id": "Serangga",
       "ja": "むし"
     },
-    "primaryKanaId": "h-mu"
+    "primaryKanaId": "h-mu",
+    "kanji": "虫",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "虫",
+        "rt": "むし"
+      }
+    ],
+    "sentence": {
+      "ja": "夏になるとセミなどの虫が鳴きます。",
+      "furigana": [
+        {
+          "ruby": "夏",
+          "rt": "なつ"
+        },
+        {
+          "ruby": "になるとセミなどの"
+        },
+        {
+          "ruby": "虫",
+          "rt": "むし"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "鳴",
+          "rt": "な"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Natsu ni naru to semi nado no mushi ga nakimasu.",
+      "en": "When summer comes, insects like cicadas sing.",
+      "id": "Saat musim panas tiba, serangga seperti tonggeret bersuara."
+    }
   },
   {
     "slug": "megane",
@@ -432,7 +1781,48 @@
       "id": "Kacamata",
       "ja": "めがね"
     },
-    "primaryKanaId": "h-me"
+    "primaryKanaId": "h-me",
+    "kanji": "眼鏡",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "眼",
+        "rt": "め"
+      },
+      {
+        "ruby": "鏡",
+        "rt": "がね"
+      }
+    ],
+    "sentence": {
+      "ja": "本を読むときに眼鏡をかけます。",
+      "furigana": [
+        {
+          "ruby": "本",
+          "rt": "ほん"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "読",
+          "rt": "よ"
+        },
+        {
+          "ruby": "むときに"
+        },
+        {
+          "ruby": "眼鏡",
+          "rt": "めがね"
+        },
+        {
+          "ruby": "をかけます。"
+        }
+      ],
+      "romaji": "Hon wo yomu toki ni megane wo kakemasu.",
+      "en": "I wear glasses when reading books.",
+      "id": "Saya memakai kacamata saat membaca buku."
+    }
   },
   {
     "slug": "mori",
@@ -444,7 +1834,51 @@
       "id": "Hutan",
       "ja": "もり"
     },
-    "primaryKanaId": "h-mo"
+    "primaryKanaId": "h-mo",
+    "kanji": "森",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "森",
+        "rt": "もり"
+      }
+    ],
+    "sentence": {
+      "ja": "静かな森の中を散歩します。",
+      "furigana": [
+        {
+          "ruby": "静",
+          "rt": "しず"
+        },
+        {
+          "ruby": "かな"
+        },
+        {
+          "ruby": "森",
+          "rt": "もり"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "中",
+          "rt": "なか"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "散歩",
+          "rt": "さんぽ"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Shizukana mori no naka wo sanpo shimasu.",
+      "en": "I walk inside the quiet forest.",
+      "id": "Saya berjalan-jalan di dalam hutan yang tenang."
+    }
   },
   {
     "slug": "yama",
@@ -456,7 +1890,55 @@
       "id": "Gunung",
       "ja": "やま"
     },
-    "primaryKanaId": "h-ya"
+    "primaryKanaId": "h-ya",
+    "kanji": "山",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "山",
+        "rt": "やま"
+      }
+    ],
+    "sentence": {
+      "ja": "富士山は日本で一番高い山です。",
+      "furigana": [
+        {
+          "ruby": "富士山",
+          "rt": "ふじさん"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "一番",
+          "rt": "いちばん"
+        },
+        {
+          "ruby": "高",
+          "rt": "たか"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "山",
+          "rt": "やま"
+        },
+        {
+          "ruby": "です。"
+        }
+      ],
+      "romaji": "Fujisan wa Nihon de ichiban takai yama desu.",
+      "en": "Mount Fuji is the tallest mountain in Japan.",
+      "id": "Gunung Fuji adalah gunung tertinggi di Jepang."
+    }
   },
   {
     "slug": "yuki",
@@ -468,7 +1950,58 @@
       "id": "Salju",
       "ja": "ゆき"
     },
-    "primaryKanaId": "h-yu"
+    "primaryKanaId": "h-yu",
+    "kanji": "雪",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "雪",
+        "rt": "ゆき"
+      }
+    ],
+    "sentence": {
+      "ja": "冬の朝に白い雪が積もりました。",
+      "furigana": [
+        {
+          "ruby": "冬",
+          "rt": "ふゆ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "白",
+          "rt": "しろ"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "雪",
+          "rt": "ゆき"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "積",
+          "rt": "つ"
+        },
+        {
+          "ruby": "もりました。"
+        }
+      ],
+      "romaji": "Fuyu no asa ni shiroi yuki ga tsumorimashita.",
+      "en": "White snow piled up in the winter morning.",
+      "id": "Salju putih menumpuk di pagi musim dingin."
+    }
   },
   {
     "slug": "yoru",
@@ -480,7 +2013,44 @@
       "id": "Malam",
       "ja": "よる"
     },
-    "primaryKanaId": "h-yo"
+    "primaryKanaId": "h-yo",
+    "kanji": "夜",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "夜",
+        "rt": "よる"
+      }
+    ],
+    "sentence": {
+      "ja": "夜になると街が静かになります。",
+      "furigana": [
+        {
+          "ruby": "夜",
+          "rt": "よる"
+        },
+        {
+          "ruby": "になると"
+        },
+        {
+          "ruby": "街",
+          "rt": "まち"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "静",
+          "rt": "しず"
+        },
+        {
+          "ruby": "かになります。"
+        }
+      ],
+      "romaji": "Yoru ni naru to machi ga shizuka ni narimasu.",
+      "en": "The town becomes quiet at night.",
+      "id": "Saat malam tiba, kota menjadi tenang."
+    }
   },
   {
     "slug": "raion",
@@ -492,7 +2062,43 @@
       "id": "Singa",
       "ja": "らいおん"
     },
-    "primaryKanaId": "h-ra"
+    "primaryKanaId": "h-ra",
+    "kanji": "獅子",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "らいおん"
+      }
+    ],
+    "sentence": {
+      "ja": "動物園で大きなライオンを見ました。",
+      "furigana": [
+        {
+          "ruby": "動物園",
+          "rt": "どうぶつえん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "大",
+          "rt": "おお"
+        },
+        {
+          "ruby": "きなライオンを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Doubutsuen de ookina raion wo mimashita.",
+      "en": "I saw a big lion at the zoo.",
+      "id": "Saya melihat singa besar di kebun binatang."
+    }
   },
   {
     "slug": "ringo",
@@ -504,7 +2110,43 @@
       "id": "Apel",
       "ja": "りんご"
     },
-    "primaryKanaId": "h-ri"
+    "primaryKanaId": "h-ri",
+    "kanji": "林檎",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "りんご"
+      }
+    ],
+    "sentence": {
+      "ja": "朝に甘いりんごを食べます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "甘",
+          "rt": "あま"
+        },
+        {
+          "ruby": "いりんごを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Asa ni amai ringo wo tabemasu.",
+      "en": "I eat a sweet apple in the morning.",
+      "id": "Saya makan apel manis di pagi hari."
+    }
   },
   {
     "slug": "rusu",
@@ -516,7 +2158,55 @@
       "id": "Tidak di rumah",
       "ja": "るす"
     },
-    "primaryKanaId": "h-ru"
+    "primaryKanaId": "h-ru",
+    "kanji": "留守",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "留",
+        "rt": "る"
+      },
+      {
+        "ruby": "守",
+        "rt": "す"
+      }
+    ],
+    "sentence": {
+      "ja": "友達の家に行きましたが留守でした。",
+      "furigana": [
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "家",
+          "rt": "いえ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "きましたが"
+        },
+        {
+          "ruby": "留守",
+          "rt": "るす"
+        },
+        {
+          "ruby": "でした。"
+        }
+      ],
+      "romaji": "Tomodachi no ie ni ikimashita ga rusu deshita.",
+      "en": "I went to my friend's house, but they were away.",
+      "id": "Saya pergi ke rumah teman, tapi sedang tidak ada orang di rumah."
+    }
   },
   {
     "slug": "renshuu",
@@ -528,7 +2218,41 @@
       "id": "Latihan",
       "ja": "れんしゅう"
     },
-    "primaryKanaId": "h-re"
+    "primaryKanaId": "h-re",
+    "kanji": "練習",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "練",
+        "rt": "れん"
+      },
+      {
+        "ruby": "習",
+        "rt": "しゅう"
+      }
+    ],
+    "sentence": {
+      "ja": "毎日ひらがなの練習をします。",
+      "furigana": [
+        {
+          "ruby": "毎日",
+          "rt": "まいにち"
+        },
+        {
+          "ruby": "ひらがなの"
+        },
+        {
+          "ruby": "練習",
+          "rt": "れんしゅう"
+        },
+        {
+          "ruby": "をします。"
+        }
+      ],
+      "romaji": "Mainichi hiragana no renshuu wo shimasu.",
+      "en": "I practice Hiragana every day.",
+      "id": "Saya berlatih Hiragana setiap hari."
+    }
   },
   {
     "slug": "rousoku",
@@ -540,7 +2264,39 @@
       "id": "Lilin",
       "ja": "ろうそく"
     },
-    "primaryKanaId": "h-ro"
+    "primaryKanaId": "h-ro",
+    "kanji": "蝋燭",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ろうそく"
+      }
+    ],
+    "sentence": {
+      "ja": "ケーキの上にろうそくを立てます。",
+      "furigana": [
+        {
+          "ruby": "ケーキの"
+        },
+        {
+          "ruby": "上",
+          "rt": "うえ"
+        },
+        {
+          "ruby": "にろうそくを"
+        },
+        {
+          "ruby": "立",
+          "rt": "た"
+        },
+        {
+          "ruby": "てます。"
+        }
+      ],
+      "romaji": "Keeki no ue ni rousoku wo tatemasu.",
+      "en": "I set candles on top of the cake.",
+      "id": "Saya menaruh lilin di atas kue."
+    }
   },
   {
     "slug": "wani",
@@ -552,7 +2308,36 @@
       "id": "Buaya",
       "ja": "わに"
     },
-    "primaryKanaId": "h-wa"
+    "primaryKanaId": "h-wa",
+    "kanji": "鰐",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "わに"
+      }
+    ],
+    "sentence": {
+      "ja": "川辺でわにが休んでいます。",
+      "furigana": [
+        {
+          "ruby": "川辺",
+          "rt": "かわべ"
+        },
+        {
+          "ruby": "でわにが"
+        },
+        {
+          "ruby": "休",
+          "rt": "やす"
+        },
+        {
+          "ruby": "んでいます。"
+        }
+      ],
+      "romaji": "Kawabe de wani ga yasunde imasu.",
+      "en": "An alligator is resting by the riverbank.",
+      "id": "Buaya sedang beristirahat di tepi sungai."
+    }
   },
   {
     "slug": "hon-wo-yomu",
@@ -564,7 +2349,61 @@
       "id": "Membaca buku (wo = partikel objek)",
       "ja": "本を読む (を)"
     },
-    "primaryKanaId": "h-wo"
+    "primaryKanaId": "h-wo",
+    "kanji": "本を読む",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "本",
+        "rt": "ほん"
+      },
+      {
+        "ruby": "を"
+      },
+      {
+        "ruby": "読",
+        "rt": "よ"
+      },
+      {
+        "ruby": "む"
+      }
+    ],
+    "sentence": {
+      "ja": "図書館で静かに本を読みます。",
+      "furigana": [
+        {
+          "ruby": "図書館",
+          "rt": "としょかん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "静",
+          "rt": "しず"
+        },
+        {
+          "ruby": "かに"
+        },
+        {
+          "ruby": "本",
+          "rt": "ほん"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "読",
+          "rt": "よ"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Toshokan de shizuka ni hon wo yomimasu.",
+      "en": "I read books quietly in the library.",
+      "id": "Saya membaca buku dengan tenang di perpustakaan."
+    }
   },
   {
     "slug": "nihon",
@@ -576,7 +2415,44 @@
       "id": "Jepang (akhiran n)",
       "ja": "にほん"
     },
-    "primaryKanaId": "h-n"
+    "primaryKanaId": "h-n",
+    "kanji": "日本",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "日",
+        "rt": "に"
+      },
+      {
+        "ruby": "本",
+        "rt": "ほん"
+      }
+    ],
+    "sentence": {
+      "ja": "いつか日本へ旅行したいです。",
+      "furigana": [
+        {
+          "ruby": "いつか"
+        },
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "へ"
+        },
+        {
+          "ruby": "旅行",
+          "rt": "りょこう"
+        },
+        {
+          "ruby": "したいです。"
+        }
+      ],
+      "romaji": "Itsuka Nihon e ryokou shitai desu.",
+      "en": "I want to travel to Japan someday.",
+      "id": "Suatu hari nanti saya ingin bepergian ke Jepang."
+    }
   },
   {
     "slug": "gakkou",
@@ -588,7 +2464,52 @@
       "id": "Sekolah",
       "ja": "がっこう"
     },
-    "primaryKanaId": "h-ga"
+    "primaryKanaId": "h-ga",
+    "kanji": "学校",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "学",
+        "rt": "がっ"
+      },
+      {
+        "ruby": "校",
+        "rt": "こう"
+      }
+    ],
+    "sentence": {
+      "ja": "朝八時に学校へ行きます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "八時",
+          "rt": "はちじ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "学校",
+          "rt": "がっこう"
+        },
+        {
+          "ruby": "へ"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Asa hachiji ni gakkou e ikimasu.",
+      "en": "I go to school at 8 in the morning.",
+      "id": "Saya pergi ke sekolah jam 8 pagi."
+    }
   },
   {
     "slug": "ginkou",
@@ -600,7 +2521,62 @@
       "id": "Bank",
       "ja": "ぎんこう"
     },
-    "primaryKanaId": "h-gi"
+    "primaryKanaId": "h-gi",
+    "kanji": "銀行",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "銀",
+        "rt": "ぎん"
+      },
+      {
+        "ruby": "行",
+        "rt": "こう"
+      }
+    ],
+    "sentence": {
+      "ja": "駅の近くの銀行でお金を下ろします。",
+      "furigana": [
+        {
+          "ruby": "駅",
+          "rt": "えき"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "近",
+          "rt": "ちか"
+        },
+        {
+          "ruby": "くの"
+        },
+        {
+          "ruby": "銀行",
+          "rt": "ぎんこう"
+        },
+        {
+          "ruby": "でお"
+        },
+        {
+          "ruby": "金",
+          "rt": "かね"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "下",
+          "rt": "お"
+        },
+        {
+          "ruby": "ろします。"
+        }
+      ],
+      "romaji": "Eki no chikaku no ginkou de okane wo oroshimasu.",
+      "en": "I withdraw money at the bank near the station.",
+      "id": "Saya mengambil uang di bank dekat stasiun."
+    }
   },
   {
     "slug": "guntai",
@@ -612,7 +2588,55 @@
       "id": "Tentara",
       "ja": "ぐんたい"
     },
-    "primaryKanaId": "h-gu"
+    "primaryKanaId": "h-gu",
+    "kanji": "軍隊",
+    "jlpt": "N3",
+    "furigana": [
+      {
+        "ruby": "軍",
+        "rt": "ぐん"
+      },
+      {
+        "ruby": "隊",
+        "rt": "たい"
+      }
+    ],
+    "sentence": {
+      "ja": "歴史の授業で軍隊について学びました。",
+      "furigana": [
+        {
+          "ruby": "歴史",
+          "rt": "れきし"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "授業",
+          "rt": "じゅぎょう"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "軍隊",
+          "rt": "ぐんたい"
+        },
+        {
+          "ruby": "について"
+        },
+        {
+          "ruby": "学",
+          "rt": "まな"
+        },
+        {
+          "ruby": "びました。"
+        }
+      ],
+      "romaji": "Rekishi no jugyou de guntai ni tsuite manabimashita.",
+      "en": "I learned about the military in history class.",
+      "id": "Saya belajar tentang militer di kelas sejarah."
+    }
   },
   {
     "slug": "genki",
@@ -624,7 +2648,47 @@
       "id": "Sehat / Semangat",
       "ja": "げんき"
     },
-    "primaryKanaId": "h-ge"
+    "primaryKanaId": "h-ge",
+    "kanji": "元気",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "元",
+        "rt": "げん"
+      },
+      {
+        "ruby": "気",
+        "rt": "き"
+      }
+    ],
+    "sentence": {
+      "ja": "「お元気ですか？」「はい、元気です！」",
+      "furigana": [
+        {
+          "ruby": "「お"
+        },
+        {
+          "ruby": "元気",
+          "rt": "げんき"
+        },
+        {
+          "ruby": "ですか？」"
+        },
+        {
+          "ruby": "「はい、"
+        },
+        {
+          "ruby": "元気",
+          "rt": "げんき"
+        },
+        {
+          "ruby": "です！」"
+        }
+      ],
+      "romaji": "\"O-genki desu ka?\" \"Hai, genki desu!\"",
+      "en": "\"How are you?\" \"Yes, I am doing well!\"",
+      "id": "\"Bagaimana kabarmu?\" \"Ya, saya baik-baik saja!\""
+    }
   },
   {
     "slug": "gohan",
@@ -636,7 +2700,61 @@
       "id": "Nasi / Makanan",
       "ja": "ごはん"
     },
-    "primaryKanaId": "h-go"
+    "primaryKanaId": "h-go",
+    "kanji": "ご飯",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ご"
+      },
+      {
+        "ruby": "飯",
+        "rt": "はん"
+      }
+    ],
+    "sentence": {
+      "ja": "家族と一緒に温かいご飯を食べます。",
+      "furigana": [
+        {
+          "ruby": "家族",
+          "rt": "かぞく"
+        },
+        {
+          "ruby": "と"
+        },
+        {
+          "ruby": "一緒",
+          "rt": "いっしょ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "温",
+          "rt": "あたた"
+        },
+        {
+          "ruby": "かいご"
+        },
+        {
+          "ruby": "飯",
+          "rt": "はん"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Kazoku to issho ni atatakai gohan wo tabemasu.",
+      "en": "I eat a warm meal together with my family.",
+      "id": "Saya makan hidangan hangat bersama keluarga."
+    }
   },
   {
     "slug": "zasshi",
@@ -648,7 +2766,44 @@
       "id": "Majalah",
       "ja": "ざっし"
     },
-    "primaryKanaId": "h-za"
+    "primaryKanaId": "h-za",
+    "kanji": "雑誌",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "雑",
+        "rt": "ざっ"
+      },
+      {
+        "ruby": "誌",
+        "rt": "し"
+      }
+    ],
+    "sentence": {
+      "ja": "コンビニでアニメの雑誌を買いました。",
+      "furigana": [
+        {
+          "ruby": "コンビニでアニメの"
+        },
+        {
+          "ruby": "雑誌",
+          "rt": "ざっし"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "買",
+          "rt": "か"
+        },
+        {
+          "ruby": "いました。"
+        }
+      ],
+      "romaji": "Konbini de anime no zasshi wo kaimashita.",
+      "en": "I bought an anime magazine at the convenience store.",
+      "id": "Saya membeli majalah anime di toserba konbini."
+    }
   },
   {
     "slug": "jikan",
@@ -660,7 +2815,55 @@
       "id": "Waktu",
       "ja": "じかん"
     },
-    "primaryKanaId": "h-ji"
+    "primaryKanaId": "h-ji",
+    "kanji": "時間",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "時",
+        "rt": "じ"
+      },
+      {
+        "ruby": "間",
+        "rt": "かん"
+      }
+    ],
+    "sentence": {
+      "ja": "日本語を勉強する時間を作ります。",
+      "furigana": [
+        {
+          "ruby": "日本語",
+          "rt": "にほんご"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "勉強",
+          "rt": "べんきょう"
+        },
+        {
+          "ruby": "する"
+        },
+        {
+          "ruby": "時間",
+          "rt": "じかん"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "作",
+          "rt": "つく"
+        },
+        {
+          "ruby": "ります。"
+        }
+      ],
+      "romaji": "Nihongo wo benkyou suru jikan wo tsukurimasu.",
+      "en": "I make time to study Japanese.",
+      "id": "Saya meluangkan waktu untuk belajar bahasa Jepang."
+    }
   },
   {
     "slug": "zutto",
@@ -672,7 +2875,32 @@
       "id": "Selamanya / Terus-menerus",
       "ja": "ずっと"
     },
-    "primaryKanaId": "h-zu"
+    "primaryKanaId": "h-zu",
+    "kanji": "ずっと",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ずっと"
+      }
+    ],
+    "sentence": {
+      "ja": "これからもずっと友達でいようね。",
+      "furigana": [
+        {
+          "ruby": "これからもずっと"
+        },
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "でいようね。"
+        }
+      ],
+      "romaji": "Kore kara mo zutto tomodachi de iyou ne.",
+      "en": "Let's be friends forever and always.",
+      "id": "Mari tetap berteman selamanya dari sekarang."
+    }
   },
   {
     "slug": "zenbu",
@@ -684,7 +2912,45 @@
       "id": "Semua",
       "ja": "ぜんぶ"
     },
-    "primaryKanaId": "h-ze"
+    "primaryKanaId": "h-ze",
+    "kanji": "全部",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "全",
+        "rt": "ぜん"
+      },
+      {
+        "ruby": "部",
+        "rt": "ぶ"
+      }
+    ],
+    "sentence": {
+      "ja": "宿題を全部終わらせました。",
+      "furigana": [
+        {
+          "ruby": "宿題",
+          "rt": "しゅくだい"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "全部",
+          "rt": "ぜんぶ"
+        },
+        {
+          "ruby": "終",
+          "rt": "お"
+        },
+        {
+          "ruby": "わらせました。"
+        }
+      ],
+      "romaji": "Shukudai wo zenbu owarasemashita.",
+      "en": "I finished all of my homework.",
+      "id": "Saya sudah menyelesaikan semua PR saya."
+    }
   },
   {
     "slug": "zou",
@@ -696,7 +2962,44 @@
       "id": "Gajah",
       "ja": "ぞう"
     },
-    "primaryKanaId": "h-zo"
+    "primaryKanaId": "h-zo",
+    "kanji": "象",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "象",
+        "rt": "ぞう"
+      }
+    ],
+    "sentence": {
+      "ja": "象の鼻はとても長いです。",
+      "furigana": [
+        {
+          "ruby": "象",
+          "rt": "ぞう"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "鼻",
+          "rt": "はな"
+        },
+        {
+          "ruby": "はとても"
+        },
+        {
+          "ruby": "長",
+          "rt": "なが"
+        },
+        {
+          "ruby": "いです。"
+        }
+      ],
+      "romaji": "Zou no hana wa totemo nagai desu.",
+      "en": "An elephant's trunk is very long.",
+      "id": "Belalai gajah sangat panjang."
+    }
   },
   {
     "slug": "daigaku",
@@ -708,7 +3011,45 @@
       "id": "Universitas",
       "ja": "だいがく"
     },
-    "primaryKanaId": "h-da"
+    "primaryKanaId": "h-da",
+    "kanji": "大学",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "大",
+        "rt": "だい"
+      },
+      {
+        "ruby": "学",
+        "rt": "がく"
+      }
+    ],
+    "sentence": {
+      "ja": "来年大学に進学します。",
+      "furigana": [
+        {
+          "ruby": "来年",
+          "rt": "らいねん"
+        },
+        {
+          "ruby": "大学",
+          "rt": "だいがく"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "進学",
+          "rt": "しんがく"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Rainen daigaku ni shingaku shimasu.",
+      "en": "I will enter university next year.",
+      "id": "Tahun depan saya akan melanjutkan studi ke universitas."
+    }
   },
   {
     "slug": "hanaji",
@@ -720,7 +3061,51 @@
       "id": "Mimisan",
       "ja": "はなぢ"
     },
-    "primaryKanaId": "h-dji"
+    "primaryKanaId": "h-dji",
+    "kanji": "鼻血",
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "鼻",
+        "rt": "はな"
+      },
+      {
+        "ruby": "血",
+        "rt": "ぢ"
+      }
+    ],
+    "sentence": {
+      "ja": "アニメで驚いたキャラクターが鼻血を出します。",
+      "furigana": [
+        {
+          "ruby": "アニメで"
+        },
+        {
+          "ruby": "驚",
+          "rt": "おどろ"
+        },
+        {
+          "ruby": "いたキャラクターが"
+        },
+        {
+          "ruby": "鼻血",
+          "rt": "はなぢ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "出",
+          "rt": "だ"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Anime de odoroita kyarakutaa ga hanaji wo dashimasu.",
+      "en": "In anime, a shocked character gets a nosebleed.",
+      "id": "Di anime, karakter yang terkejut mimisan."
+    }
   },
   {
     "slug": "tsuzuku",
@@ -732,7 +3117,36 @@
       "id": "Berlanjut",
       "ja": "つづく"
     },
-    "primaryKanaId": "h-dzu"
+    "primaryKanaId": "h-dzu",
+    "kanji": "続く",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "続",
+        "rt": "つづ"
+      },
+      {
+        "ruby": "く"
+      }
+    ],
+    "sentence": {
+      "ja": "アニメのエンディングに「つづく」と出ました。",
+      "furigana": [
+        {
+          "ruby": "アニメのエンディングに「つづく」と"
+        },
+        {
+          "ruby": "出",
+          "rt": "で"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Anime no endingu ni 'tsuzuku' to demashita.",
+      "en": "'To be continued' appeared at the end of the anime.",
+      "id": "'Bersambung' muncul di bagian akhir anime."
+    }
   },
   {
     "slug": "densha",
@@ -744,7 +3158,55 @@
       "id": "Kereta listrik",
       "ja": "でんしゃ"
     },
-    "primaryKanaId": "h-de"
+    "primaryKanaId": "h-de",
+    "kanji": "電車",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "電",
+        "rt": "でん"
+      },
+      {
+        "ruby": "車",
+        "rt": "しゃ"
+      }
+    ],
+    "sentence": {
+      "ja": "電車に乗って東京へ行きます。",
+      "furigana": [
+        {
+          "ruby": "電車",
+          "rt": "でんしゃ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "乗",
+          "rt": "の"
+        },
+        {
+          "ruby": "って"
+        },
+        {
+          "ruby": "東京",
+          "rt": "とうきょう"
+        },
+        {
+          "ruby": "へ"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Densha ni notte Toukyou e ikimasu.",
+      "en": "I take the train to go to Tokyo.",
+      "id": "Saya naik kereta listrik pergi ke Tokyo."
+    }
   },
   {
     "slug": "doubutsu",
@@ -756,7 +3218,48 @@
       "id": "Hewan",
       "ja": "どうぶつ"
     },
-    "primaryKanaId": "h-do"
+    "primaryKanaId": "h-do",
+    "kanji": "動物",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "動",
+        "rt": "どう"
+      },
+      {
+        "ruby": "物",
+        "rt": "ぶつ"
+      }
+    ],
+    "sentence": {
+      "ja": "可愛い動物が大好きです。",
+      "furigana": [
+        {
+          "ruby": "可愛",
+          "rt": "かわい"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "動物",
+          "rt": "どうぶつ"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "大好",
+          "rt": "だいす"
+        },
+        {
+          "ruby": "きです。"
+        }
+      ],
+      "romaji": "Kawaii doubutsu ga daisuki desu.",
+      "en": "I love cute animals.",
+      "id": "Saya sangat suka hewan-hewan lucu."
+    }
   },
   {
     "slug": "basho",
@@ -768,7 +3271,55 @@
       "id": "Tempat",
       "ja": "ばしょ"
     },
-    "primaryKanaId": "h-ba"
+    "primaryKanaId": "h-ba",
+    "kanji": "場所",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "場",
+        "rt": "ば"
+      },
+      {
+        "ruby": "所",
+        "rt": "しょ"
+      }
+    ],
+    "sentence": {
+      "ja": "待ち合わせの場所を決めましょう。",
+      "furigana": [
+        {
+          "ruby": "待",
+          "rt": "ま"
+        },
+        {
+          "ruby": "ち"
+        },
+        {
+          "ruby": "合",
+          "rt": "あ"
+        },
+        {
+          "ruby": "わせの"
+        },
+        {
+          "ruby": "場所",
+          "rt": "ばしょ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "決",
+          "rt": "き"
+        },
+        {
+          "ruby": "めましょう。"
+        }
+      ],
+      "romaji": "Machiawase no basho wo kimemashou.",
+      "en": "Let's decide on the meeting place.",
+      "id": "Mari tentukan tempat pertemuannya."
+    }
   },
   {
     "slug": "byouin",
@@ -780,7 +3331,48 @@
       "id": "Rumah sakit",
       "ja": "びょういん"
     },
-    "primaryKanaId": "h-bi"
+    "primaryKanaId": "h-bi",
+    "kanji": "病院",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "病",
+        "rt": "びょう"
+      },
+      {
+        "ruby": "院",
+        "rt": "いん"
+      }
+    ],
+    "sentence": {
+      "ja": "熱があるので病院へ行きます。",
+      "furigana": [
+        {
+          "ruby": "熱",
+          "rt": "ねつ"
+        },
+        {
+          "ruby": "があるので"
+        },
+        {
+          "ruby": "病院",
+          "rt": "びょういん"
+        },
+        {
+          "ruby": "へ"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Netsu ga aru node byouin e ikimasu.",
+      "en": "I have a fever, so I go to the hospital.",
+      "id": "Karena demam, saya pergi ke rumah sakit."
+    }
   },
   {
     "slug": "bunka",
@@ -792,7 +3384,48 @@
       "id": "Budaya",
       "ja": "ぶんか"
     },
-    "primaryKanaId": "h-bu"
+    "primaryKanaId": "h-bu",
+    "kanji": "文化",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "文",
+        "rt": "ぶん"
+      },
+      {
+        "ruby": "化",
+        "rt": "か"
+      }
+    ],
+    "sentence": {
+      "ja": "日本の伝統文化に興味があります。",
+      "furigana": [
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "伝統文化",
+          "rt": "でんとうぶんか"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "興味",
+          "rt": "きょうみ"
+        },
+        {
+          "ruby": "があります。"
+        }
+      ],
+      "romaji": "Nihon no dentou bunka ni kyoumi ga arimasu.",
+      "en": "I am interested in Japanese traditional culture.",
+      "id": "Saya tertarik dengan kebudayaan tradisional Jepang."
+    }
   },
   {
     "slug": "bentou",
@@ -804,7 +3437,58 @@
       "id": "Bekal bento",
       "ja": "べんとう"
     },
-    "primaryKanaId": "h-be"
+    "primaryKanaId": "h-be",
+    "kanji": "弁当",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "弁",
+        "rt": "べん"
+      },
+      {
+        "ruby": "当",
+        "rt": "とう"
+      }
+    ],
+    "sentence": {
+      "ja": "お母さんが美味しい弁当を作ってくれました。",
+      "furigana": [
+        {
+          "ruby": "お"
+        },
+        {
+          "ruby": "母",
+          "rt": "かあ"
+        },
+        {
+          "ruby": "さんが"
+        },
+        {
+          "ruby": "美味",
+          "rt": "おい"
+        },
+        {
+          "ruby": "しい"
+        },
+        {
+          "ruby": "弁当",
+          "rt": "べんとう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "作",
+          "rt": "つく"
+        },
+        {
+          "ruby": "ってくれました。"
+        }
+      ],
+      "romaji": "Okaasan ga oishii bentou wo tsukutte kuremashita.",
+      "en": "My mother made a delicious bento for me.",
+      "id": "Ibu membuatkan bekal bento yang lezat untukku."
+    }
   },
   {
     "slug": "boushi",
@@ -816,7 +3500,55 @@
       "id": "Topi",
       "ja": "ぼうし"
     },
-    "primaryKanaId": "h-bo"
+    "primaryKanaId": "h-bo",
+    "kanji": "帽子",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "帽",
+        "rt": "ぼう"
+      },
+      {
+        "ruby": "子",
+        "rt": "し"
+      }
+    ],
+    "sentence": {
+      "ja": "日差しが強いので麦わら帽子をかぶります。",
+      "furigana": [
+        {
+          "ruby": "日差",
+          "rt": "ひざ"
+        },
+        {
+          "ruby": "しが"
+        },
+        {
+          "ruby": "強",
+          "rt": "つよ"
+        },
+        {
+          "ruby": "いので"
+        },
+        {
+          "ruby": "麦",
+          "rt": "むぎ"
+        },
+        {
+          "ruby": "わら"
+        },
+        {
+          "ruby": "帽子",
+          "rt": "ぼうし"
+        },
+        {
+          "ruby": "をかぶります。"
+        }
+      ],
+      "romaji": "Hizashi ga tsuyoi node mugiwara boushi wo kaburimasu.",
+      "en": "The sunlight is strong, so I wear a straw hat.",
+      "id": "Sinar matahari terik, jadi saya memakai topi jerami."
+    }
   },
   {
     "slug": "panda",
@@ -828,7 +3560,43 @@
       "id": "Panda",
       "ja": "ぱんだ"
     },
-    "primaryKanaId": "h-pa"
+    "primaryKanaId": "h-pa",
+    "kanji": "パンダ",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ぱんだ"
+      }
+    ],
+    "sentence": {
+      "ja": "上野動物園で可愛いパンダを見ました。",
+      "furigana": [
+        {
+          "ruby": "上野動物園",
+          "rt": "うえのどうぶつえん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "可愛",
+          "rt": "かわい"
+        },
+        {
+          "ruby": "いパンダを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Ueno doubutsuen de kawaii panda wo mimashita.",
+      "en": "I saw a cute panda at Ueno Zoo.",
+      "id": "Saya melihat panda lucu di Kebun Binatang Ueno."
+    }
   },
   {
     "slug": "piano",
@@ -840,7 +3608,36 @@
       "id": "Piano",
       "ja": "ぴあの"
     },
-    "primaryKanaId": "h-pi"
+    "primaryKanaId": "h-pi",
+    "kanji": "ピアノ",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ぴあの"
+      }
+    ],
+    "sentence": {
+      "ja": "音楽室でピアノを弾きます。",
+      "furigana": [
+        {
+          "ruby": "音楽室",
+          "rt": "おんがくしつ"
+        },
+        {
+          "ruby": "でピアノを"
+        },
+        {
+          "ruby": "弾",
+          "rt": "ひ"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Ongakushitsu de piano wo hikimasu.",
+      "en": "I play the piano in the music room.",
+      "id": "Saya bermain piano di ruang musik."
+    }
   },
   {
     "slug": "purezento",
@@ -852,7 +3649,36 @@
       "id": "Hadiah",
       "ja": "ぷれぜんと"
     },
-    "primaryKanaId": "h-pu"
+    "primaryKanaId": "h-pu",
+    "kanji": "プレゼント",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ぷれぜんと"
+      }
+    ],
+    "sentence": {
+      "ja": "誕生日に友達からプレゼントをもらいました。",
+      "furigana": [
+        {
+          "ruby": "誕生日",
+          "rt": "たんじょうび"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "からプレゼントをもらいました。"
+        }
+      ],
+      "romaji": "Tanjoubi ni tomodachi kara purezento wo moraimashita.",
+      "en": "I received a present from my friend on my birthday.",
+      "id": "Saya menerima kado hadiah dari teman pada hari ulang tahun saya."
+    }
   },
   {
     "slug": "pengin",
@@ -864,7 +3690,36 @@
       "id": "Penguin",
       "ja": "ぺんぎん"
     },
-    "primaryKanaId": "h-pe"
+    "primaryKanaId": "h-pe",
+    "kanji": "ペンギン",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ぺんぎん"
+      }
+    ],
+    "sentence": {
+      "ja": "水族館でペンギンが歩いています。",
+      "furigana": [
+        {
+          "ruby": "水族館",
+          "rt": "すいぞくかん"
+        },
+        {
+          "ruby": "でペンギンが"
+        },
+        {
+          "ruby": "歩",
+          "rt": "ある"
+        },
+        {
+          "ruby": "いています。"
+        }
+      ],
+      "romaji": "Suizokukan de pengin ga aruite imasu.",
+      "en": "Penguins are walking at the aquarium.",
+      "id": "Penguin sedang berjalan di akuarium."
+    }
   },
   {
     "slug": "poketto",
@@ -876,7 +3731,39 @@
       "id": "Kantong / Saku",
       "ja": "ぽけっと"
     },
-    "primaryKanaId": "h-po"
+    "primaryKanaId": "h-po",
+    "kanji": "ポケット",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ぽけっと"
+      }
+    ],
+    "sentence": {
+      "ja": "コートのポケットに鍵を入れます。",
+      "furigana": [
+        {
+          "ruby": "コートのポケットに"
+        },
+        {
+          "ruby": "鍵",
+          "rt": "かぎ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "入",
+          "rt": "い"
+        },
+        {
+          "ruby": "れます。"
+        }
+      ],
+      "romaji": "Kooto no poketto ni kagi wo iremasu.",
+      "en": "I put the key into my coat pocket.",
+      "id": "Saya memasukkan kunci ke dalam saku mantel."
+    }
   },
   {
     "slug": "aisu",
@@ -888,7 +3775,50 @@
       "id": "Es krim / Es",
       "ja": "アイス"
     },
-    "primaryKanaId": "k-a"
+    "primaryKanaId": "k-a",
+    "kanji": "アイスクリーム",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "アイス"
+      }
+    ],
+    "sentence": {
+      "ja": "暑い日に冷たいアイスを食べます。",
+      "furigana": [
+        {
+          "ruby": "暑",
+          "rt": "あつ"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "日",
+          "rt": "ひ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "冷",
+          "rt": "つめ"
+        },
+        {
+          "ruby": "たいアイスを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Atsui hi ni tsumetai aisu wo tabemasu.",
+      "en": "I eat cold ice cream on a hot day.",
+      "id": "Saya makan es krim dingin di hari yang panas."
+    }
   },
   {
     "slug": "inku",
@@ -900,7 +3830,25 @@
       "id": "Tinta",
       "ja": "インク"
     },
-    "primaryKanaId": "k-i"
+    "primaryKanaId": "k-i",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "インク"
+      }
+    ],
+    "sentence": {
+      "ja": "ペンのインクがなくなりました。",
+      "furigana": [
+        {
+          "ruby": "ペンのインクがなくなりました。"
+        }
+      ],
+      "romaji": "Pen no inku ga nakunarimashita.",
+      "en": "The pen ran out of ink.",
+      "id": "Tinta pulpen sudah habis."
+    }
   },
   {
     "slug": "webu",
@@ -917,6 +3865,45 @@
       "en": "Japanese phonetic adaptation of the English loanword 'web', with the final 'u' sound added to fit Japanese syllable structure.",
       "id": "Adaptasi fonetik Jepang dari kata serapan bahasa Inggris 'web', dengan penambahan vokal 'u' di akhir sesuai struktur suku kata bahasa Jepang.",
       "ja": "英語の「web」の外来語表記。日本語の音節構造に合わせて末尾に母音「u」が付加される。"
+    },
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ウェブ"
+      }
+    ],
+    "sentence": {
+      "ja": "ウェブサイトで最新の情報を調べます。",
+      "furigana": [
+        {
+          "ruby": "ウェブサイトで"
+        },
+        {
+          "ruby": "最新",
+          "rt": "さいしん"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "情報",
+          "rt": "じょうほう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "調",
+          "rt": "しら"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Webusaito de saishin no jouhou wo shirabemasu.",
+      "en": "I look up the latest info on the website.",
+      "id": "Saya mencari informasi terbaru di situs web."
     }
   },
   {
@@ -929,7 +3916,46 @@
       "id": "Gema / Echo",
       "ja": "エコー"
     },
-    "primaryKanaId": "k-e"
+    "primaryKanaId": "k-e",
+    "kanji": "反響",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "エコー"
+      }
+    ],
+    "sentence": {
+      "ja": "トンネルの中で声のエコーが響きます。",
+      "furigana": [
+        {
+          "ruby": "トンネルの"
+        },
+        {
+          "ruby": "中",
+          "rt": "なか"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "声",
+          "rt": "こえ"
+        },
+        {
+          "ruby": "のエコーが"
+        },
+        {
+          "ruby": "響",
+          "rt": "ひび"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Tonneru no naka de koe no ekoo ga hibikimasu.",
+      "en": "The voice's echo resonates inside the tunnel.",
+      "id": "Gema suara bergema di dalam terowongan."
+    }
   },
   {
     "slug": "orenji",
@@ -941,7 +3967,43 @@
       "id": "Jeruk / Oranye",
       "ja": "オレンジ"
     },
-    "primaryKanaId": "k-o"
+    "primaryKanaId": "k-o",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "オレンジ"
+      }
+    ],
+    "sentence": {
+      "ja": "朝に新鮮なオレンジジュースを飲みます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "新鮮",
+          "rt": "しんせん"
+        },
+        {
+          "ruby": "なオレンジジュースを"
+        },
+        {
+          "ruby": "飲",
+          "rt": "の"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Asa ni shinsen na orenji juusu wo nomimasu.",
+      "en": "I drink fresh orange juice in the morning.",
+      "id": "Saya minum jus jeruk segar di pagi hari."
+    }
   },
   {
     "slug": "kafe",
@@ -953,7 +4015,43 @@
       "id": "Kafe",
       "ja": "カフェ"
     },
-    "primaryKanaId": "k-ka"
+    "primaryKanaId": "k-ka",
+    "kanji": "喫茶店",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "カフェ"
+      }
+    ],
+    "sentence": {
+      "ja": "静かなカフェで本を読みます。",
+      "furigana": [
+        {
+          "ruby": "静",
+          "rt": "しず"
+        },
+        {
+          "ruby": "かなカフェで"
+        },
+        {
+          "ruby": "本",
+          "rt": "ほん"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "読",
+          "rt": "よ"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Shizukana kafe de hon wo yomimasu.",
+      "en": "I read books at a quiet cafe.",
+      "id": "Saya membaca buku di kafe yang tenang."
+    }
   },
   {
     "slug": "kii",
@@ -965,7 +4063,32 @@
       "id": "Kunci",
       "ja": "キー"
     },
-    "primaryKanaId": "k-ki"
+    "primaryKanaId": "k-ki",
+    "kanji": "鍵",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "キー"
+      }
+    ],
+    "sentence": {
+      "ja": "キーボードのキーを押します。",
+      "furigana": [
+        {
+          "ruby": "キーボードのキーを"
+        },
+        {
+          "ruby": "押",
+          "rt": "お"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Kiiboodo no kii wo oshimasu.",
+      "en": "I press a key on the keyboard.",
+      "id": "Saya menekan tombol pada papan tik."
+    }
   },
   {
     "slug": "kurasu",
@@ -977,7 +4100,50 @@
       "id": "Kelas",
       "ja": "クラス"
     },
-    "primaryKanaId": "k-ku"
+    "primaryKanaId": "k-ku",
+    "kanji": "学級",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "クラス"
+      }
+    ],
+    "sentence": {
+      "ja": "日本語のクラスに新しい生徒が来ました。",
+      "furigana": [
+        {
+          "ruby": "日本語",
+          "rt": "にほんご"
+        },
+        {
+          "ruby": "のクラスに"
+        },
+        {
+          "ruby": "新",
+          "rt": "あたら"
+        },
+        {
+          "ruby": "しい"
+        },
+        {
+          "ruby": "生徒",
+          "rt": "せいと"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "来",
+          "rt": "き"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Nihongo no kurasu ni atarashii seito ga kimashita.",
+      "en": "A new student came to the Japanese class.",
+      "id": "Murid baru datang ke kelas bahasa Jepang."
+    }
   },
   {
     "slug": "keeki",
@@ -989,7 +4155,36 @@
       "id": "Kue / Cake",
       "ja": "ケーキ"
     },
-    "primaryKanaId": "k-ke"
+    "primaryKanaId": "k-ke",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ケーキ"
+      }
+    ],
+    "sentence": {
+      "ja": "誕生日にイチゴのケーキを食べました。",
+      "furigana": [
+        {
+          "ruby": "誕生日",
+          "rt": "たんじょうび"
+        },
+        {
+          "ruby": "にイチゴのケーキを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べました。"
+        }
+      ],
+      "romaji": "Tanjoubi ni ichigo no keeki wo tabemashita.",
+      "en": "I ate strawberry cake on my birthday.",
+      "id": "Saya makan kue stroberi di hari ulang tahun."
+    }
   },
   {
     "slug": "koin",
@@ -1001,7 +4196,36 @@
       "id": "Koin",
       "ja": "コイン"
     },
-    "primaryKanaId": "k-ko"
+    "primaryKanaId": "k-ko",
+    "kanji": "硬貨",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "コイン"
+      }
+    ],
+    "sentence": {
+      "ja": "自動販売機にコインを入れます。",
+      "furigana": [
+        {
+          "ruby": "自動販売機",
+          "rt": "じどうはんばいき"
+        },
+        {
+          "ruby": "にコインを"
+        },
+        {
+          "ruby": "入",
+          "rt": "い"
+        },
+        {
+          "ruby": "れます。"
+        }
+      ],
+      "romaji": "Jidouhanbaiki ni koin wo iremasu.",
+      "en": "I insert a coin into the vending machine.",
+      "id": "Saya memasukkan koin ke mesin penjual otomatis."
+    }
   },
   {
     "slug": "sain",
@@ -1013,7 +4237,29 @@
       "id": "Tanda tangan",
       "ja": "サイン"
     },
-    "primaryKanaId": "k-sa"
+    "primaryKanaId": "k-sa",
+    "kanji": "署名",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "サイン"
+      }
+    ],
+    "sentence": {
+      "ja": "書類にボールペンでサインします。",
+      "furigana": [
+        {
+          "ruby": "書類",
+          "rt": "しょるい"
+        },
+        {
+          "ruby": "にボールペンでサインします。"
+        }
+      ],
+      "romaji": "Shorui ni boorupen de sain shimasu.",
+      "en": "I sign the document with a ballpoint pen.",
+      "id": "Saya menandatangani dokumen dengan pulpen."
+    }
   },
   {
     "slug": "shatsu",
@@ -1025,7 +4271,43 @@
       "id": "Kemeja / Kaos",
       "ja": "シャツ"
     },
-    "primaryKanaId": "k-shi"
+    "primaryKanaId": "k-shi",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "シャツ"
+      }
+    ],
+    "sentence": {
+      "ja": "白いシャツを着て出かけます。",
+      "furigana": [
+        {
+          "ruby": "白",
+          "rt": "しろ"
+        },
+        {
+          "ruby": "いシャツを"
+        },
+        {
+          "ruby": "着",
+          "rt": "き"
+        },
+        {
+          "ruby": "て"
+        },
+        {
+          "ruby": "出",
+          "rt": "で"
+        },
+        {
+          "ruby": "かけます。"
+        }
+      ],
+      "romaji": "Shiroi shatsu wo kite dekakemasu.",
+      "en": "I wear a white shirt and head out.",
+      "id": "Saya memakai kemeja putih lalu pergi keluar."
+    }
   },
   {
     "slug": "supootsu",
@@ -1037,7 +4319,43 @@
       "id": "Olahraga",
       "ja": "スポーツ"
     },
-    "primaryKanaId": "k-su"
+    "primaryKanaId": "k-su",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "スポーツ"
+      }
+    ],
+    "sentence": {
+      "ja": "週末に友達とスポーツを楽しみます。",
+      "furigana": [
+        {
+          "ruby": "週末",
+          "rt": "しゅうまつ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "とスポーツを"
+        },
+        {
+          "ruby": "楽",
+          "rt": "たの"
+        },
+        {
+          "ruby": "しみます。"
+        }
+      ],
+      "romaji": "Shuumatsu ni tomodachi to supootsu wo tanoshimimasu.",
+      "en": "I enjoy sports with friends on the weekend.",
+      "id": "Saya menikmati olahraga bersama teman di akhir pekan."
+    }
   },
   {
     "slug": "seetaa",
@@ -1049,7 +4367,43 @@
       "id": "Baju hangat sweater",
       "ja": "セーター"
     },
-    "primaryKanaId": "k-se"
+    "primaryKanaId": "k-se",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "セーター"
+      }
+    ],
+    "sentence": {
+      "ja": "冬は温かいセーターを着ます。",
+      "furigana": [
+        {
+          "ruby": "冬",
+          "rt": "ふゆ"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "温",
+          "rt": "あたた"
+        },
+        {
+          "ruby": "かいセーターを"
+        },
+        {
+          "ruby": "着",
+          "rt": "き"
+        },
+        {
+          "ruby": "ます。"
+        }
+      ],
+      "romaji": "Fuyu wa atatakai seetaa wo kimasu.",
+      "en": "I wear a warm sweater in winter.",
+      "id": "Saya memakai sweter hangat di musim dingin."
+    }
   },
   {
     "slug": "soosu",
@@ -1061,7 +4415,39 @@
       "id": "Saus",
       "ja": "ソース"
     },
-    "primaryKanaId": "k-so"
+    "primaryKanaId": "k-so",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ソース"
+      }
+    ],
+    "sentence": {
+      "ja": "たこ焼きに特製ソースをかけます。",
+      "furigana": [
+        {
+          "ruby": "たこ"
+        },
+        {
+          "ruby": "焼",
+          "rt": "や"
+        },
+        {
+          "ruby": "きに"
+        },
+        {
+          "ruby": "特製",
+          "rt": "とくせい"
+        },
+        {
+          "ruby": "ソースをかけます。"
+        }
+      ],
+      "romaji": "Takoyaki ni tokusei soosu wo kakemasu.",
+      "en": "I drizzle special sauce over takoyaki.",
+      "id": "Saya menuangkan saus khusus ke atas takoyaki."
+    }
   },
   {
     "slug": "takushii",
@@ -1073,7 +4459,36 @@
       "id": "Taksi",
       "ja": "タクシー"
     },
-    "primaryKanaId": "k-ta"
+    "primaryKanaId": "k-ta",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "タクシー"
+      }
+    ],
+    "sentence": {
+      "ja": "駅からホテルまでタクシーで行きます。",
+      "furigana": [
+        {
+          "ruby": "駅",
+          "rt": "えき"
+        },
+        {
+          "ruby": "からホテルまでタクシーで"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Eki kara hoteru made takushii de ikimasu.",
+      "en": "I take a taxi from the station to the hotel.",
+      "id": "Saya naik taksi dari stasiun ke hotel."
+    }
   },
   {
     "slug": "chiizu",
@@ -1085,7 +4500,25 @@
       "id": "Keju",
       "ja": "チーズ"
     },
-    "primaryKanaId": "k-chi"
+    "primaryKanaId": "k-chi",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "チーズ"
+      }
+    ],
+    "sentence": {
+      "ja": "ピザにとろけるチーズをのせます。",
+      "furigana": [
+        {
+          "ruby": "ピザにとろけるチーズをのせます。"
+        }
+      ],
+      "romaji": "Piza ni torokeru chiizu wo nosemasu.",
+      "en": "I top the pizza with melted cheese.",
+      "id": "Saya meletakkan keju leleh di atas pizza."
+    }
   },
   {
     "slug": "tsuaa",
@@ -1097,7 +4530,43 @@
       "id": "Tur / Wisata",
       "ja": "ツアー"
     },
-    "primaryKanaId": "k-tsu"
+    "primaryKanaId": "k-tsu",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ツアー"
+      }
+    ],
+    "sentence": {
+      "ja": "京都の観光ツアーに参加します。",
+      "furigana": [
+        {
+          "ruby": "京都",
+          "rt": "きょうと"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "観光",
+          "rt": "かんこう"
+        },
+        {
+          "ruby": "ツアーに"
+        },
+        {
+          "ruby": "参加",
+          "rt": "さんか"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Kyouto no kankou tsuaa ni sanka shimasu.",
+      "en": "I join a sightseeing tour of Kyoto.",
+      "id": "Saya mengikuti tur wisata di Kyoto."
+    }
   },
   {
     "slug": "tesuto",
@@ -1109,7 +4578,50 @@
       "id": "Ujian / Tes",
       "ja": "テスト"
     },
-    "primaryKanaId": "k-te"
+    "primaryKanaId": "k-te",
+    "kanji": "試験",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "テスト"
+      }
+    ],
+    "sentence": {
+      "ja": "明日の日本語テストに向けて復習します。",
+      "furigana": [
+        {
+          "ruby": "明日",
+          "rt": "あした"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "日本語",
+          "rt": "にほんご"
+        },
+        {
+          "ruby": "テストに"
+        },
+        {
+          "ruby": "向",
+          "rt": "む"
+        },
+        {
+          "ruby": "けて"
+        },
+        {
+          "ruby": "復習",
+          "rt": "ふくしゅう"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Ashita no Nihongo tesuto ni mukete fukushuu shimasu.",
+      "en": "I review for tomorrow's Japanese test.",
+      "id": "Saya mengulang pelajaran untuk ujian bahasa Jepang besok."
+    }
   },
   {
     "slug": "tomato",
@@ -1121,7 +4633,39 @@
       "id": "Tomat",
       "ja": "トマト"
     },
-    "primaryKanaId": "k-to"
+    "primaryKanaId": "k-to",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "トマト"
+      }
+    ],
+    "sentence": {
+      "ja": "サラダに赤いトマトを入れます。",
+      "furigana": [
+        {
+          "ruby": "サラダに"
+        },
+        {
+          "ruby": "赤",
+          "rt": "あか"
+        },
+        {
+          "ruby": "いトマトを"
+        },
+        {
+          "ruby": "入",
+          "rt": "い"
+        },
+        {
+          "ruby": "れます。"
+        }
+      ],
+      "romaji": "Sarada ni akai tomato wo iremasu.",
+      "en": "I add red tomatoes to the salad.",
+      "id": "Saya memasukkan tomat merah ke dalam salad."
+    }
   },
   {
     "slug": "naifu",
@@ -1133,7 +4677,39 @@
       "id": "Pisau",
       "ja": "ナイフ"
     },
-    "primaryKanaId": "k-na"
+    "primaryKanaId": "k-na",
+    "kanji": "包丁",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ナイフ"
+      }
+    ],
+    "sentence": {
+      "ja": "ナイフとフォークを使って食べます。",
+      "furigana": [
+        {
+          "ruby": "ナイフとフォークを"
+        },
+        {
+          "ruby": "使",
+          "rt": "つか"
+        },
+        {
+          "ruby": "って"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Naifu to fooku wo tsukatte tabemasu.",
+      "en": "I eat using a knife and fork.",
+      "id": "Saya makan menggunakan pisau dan garpu."
+    }
   },
   {
     "slug": "nyuusu",
@@ -1145,7 +4721,36 @@
       "id": "Berita",
       "ja": "ニュース"
     },
-    "primaryKanaId": "k-ni"
+    "primaryKanaId": "k-ni",
+    "kanji": "報道",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ニュース"
+      }
+    ],
+    "sentence": {
+      "ja": "毎朝テレビでニュースを見ます。",
+      "furigana": [
+        {
+          "ruby": "毎朝",
+          "rt": "まいあさ"
+        },
+        {
+          "ruby": "テレビでニュースを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ます。"
+        }
+      ],
+      "romaji": "Maiasa terebi de nyuusu wo mimasu.",
+      "en": "I watch the news on TV every morning.",
+      "id": "Saya menonton berita di TV setiap pagi."
+    }
   },
   {
     "slug": "nuudoru",
@@ -1157,7 +4762,39 @@
       "id": "Mie",
       "ja": "ヌードル"
     },
-    "primaryKanaId": "k-nu"
+    "primaryKanaId": "k-nu",
+    "kanji": "麺類",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ヌードル"
+      }
+    ],
+    "sentence": {
+      "ja": "カップヌードルにお湯を注ぎます。",
+      "furigana": [
+        {
+          "ruby": "カップヌードルにお"
+        },
+        {
+          "ruby": "湯",
+          "rt": "ゆ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "注",
+          "rt": "そそ"
+        },
+        {
+          "ruby": "ぎます。"
+        }
+      ],
+      "romaji": "Kappu nuudoru ni oyu wo sosogimasu.",
+      "en": "I pour hot water into the cup noodles.",
+      "id": "Saya menuangkan air panas ke mi instan cangkir."
+    }
   },
   {
     "slug": "netto",
@@ -1169,7 +4806,32 @@
       "id": "Internet / Jaring",
       "ja": "ネット"
     },
-    "primaryKanaId": "k-ne"
+    "primaryKanaId": "k-ne",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ネット"
+      }
+    ],
+    "sentence": {
+      "ja": "ネットでアニメのグッズを注文しました。",
+      "furigana": [
+        {
+          "ruby": "ネットでアニメのグッズを"
+        },
+        {
+          "ruby": "注文",
+          "rt": "ちゅうもん"
+        },
+        {
+          "ruby": "しました。"
+        }
+      ],
+      "romaji": "Netto de anime no guzzu wo chuumon shimashita.",
+      "en": "I ordered anime merchandise online.",
+      "id": "Saya memesan merchandise anime di internet."
+    }
   },
   {
     "slug": "nooto",
@@ -1181,7 +4843,43 @@
       "id": "Buku catatan",
       "ja": "ノート"
     },
-    "primaryKanaId": "k-no"
+    "primaryKanaId": "k-no",
+    "kanji": "帳面",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ノート"
+      }
+    ],
+    "sentence": {
+      "ja": "新しいノートに漢字を書きます。",
+      "furigana": [
+        {
+          "ruby": "新",
+          "rt": "あたら"
+        },
+        {
+          "ruby": "しいノートに"
+        },
+        {
+          "ruby": "漢字",
+          "rt": "かんじ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "書",
+          "rt": "か"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Atarashii nooto ni kanji wo kakimasu.",
+      "en": "I write kanji in a new notebook.",
+      "id": "Saya menulis kanji di buku catatan baru."
+    }
   },
   {
     "slug": "hanbaagaa",
@@ -1193,7 +4891,39 @@
       "id": "Hamburger",
       "ja": "ハンバーガー"
     },
-    "primaryKanaId": "k-ha"
+    "primaryKanaId": "k-ha",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ハンバーガー"
+      }
+    ],
+    "sentence": {
+      "ja": "お昼にハンバーガーとポテトを食べます。",
+      "furigana": [
+        {
+          "ruby": "お"
+        },
+        {
+          "ruby": "昼",
+          "rt": "ひる"
+        },
+        {
+          "ruby": "にハンバーガーとポテトを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Ohiru ni hanbaagaa to poteto wo tabemasu.",
+      "en": "I eat a hamburger and fries for lunch.",
+      "id": "Saya makan hamburger dan kentang goreng untuk makan siang."
+    }
   },
   {
     "slug": "hiiroo",
@@ -1210,6 +4940,38 @@
       "en": "Hero. Popularized in anime like My Hero Academia.",
       "id": "Pahlawan (Hero). Populer di anime Boku no Hero Academia.",
       "ja": "英語の『hero』から。『僕のヒーローアカデミア』等。"
+    },
+    "kanji": "英雄",
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "ヒーロー"
+      }
+    ],
+    "sentence": {
+      "ja": "アニメのヒーローが悪者を倒します。",
+      "furigana": [
+        {
+          "ruby": "アニメのヒーローが"
+        },
+        {
+          "ruby": "悪者",
+          "rt": "わるもの"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "倒",
+          "rt": "たお"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Anime no hiiroo ga warumono wo taoshimasu.",
+      "en": "The anime hero defeats the villain.",
+      "id": "Pahlawan anime mengalahkan penjahat."
     }
   },
   {
@@ -1222,7 +4984,32 @@
       "id": "Prancis",
       "ja": "フランス"
     },
-    "primaryKanaId": "k-fu"
+    "primaryKanaId": "k-fu",
+    "kanji": "仏蘭西",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "フランス"
+      }
+    ],
+    "sentence": {
+      "ja": "フランスのパリに行ってみたいです。",
+      "furigana": [
+        {
+          "ruby": "フランスのパリに"
+        },
+        {
+          "ruby": "行",
+          "rt": "い"
+        },
+        {
+          "ruby": "ってみたいです。"
+        }
+      ],
+      "romaji": "Furansu no Pari ni itte mitai desu.",
+      "en": "I want to try visiting Paris in France.",
+      "id": "Saya ingin mencoba pergi ke Paris di Perancis."
+    }
   },
   {
     "slug": "herumetto",
@@ -1234,7 +5021,36 @@
       "id": "Helm",
       "ja": "ヘルメット"
     },
-    "primaryKanaId": "k-he"
+    "primaryKanaId": "k-he",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ヘルメット"
+      }
+    ],
+    "sentence": {
+      "ja": "自転車に乗るときはヘルメットをかぶります。",
+      "furigana": [
+        {
+          "ruby": "自転車",
+          "rt": "じてんしゃ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "乗",
+          "rt": "の"
+        },
+        {
+          "ruby": "るときはヘルメットをかぶります。"
+        }
+      ],
+      "romaji": "Jitensha ni noru toki wa herumetto wo kaburimasu.",
+      "en": "I wear a helmet when riding a bicycle.",
+      "id": "Saya memakai helm saat mengendarai sepeda."
+    }
   },
   {
     "slug": "hoteru",
@@ -1246,7 +5062,36 @@
       "id": "Hotel",
       "ja": "ホテル"
     },
-    "primaryKanaId": "k-ho"
+    "primaryKanaId": "k-ho",
+    "kanji": "旅館",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ホテル"
+      }
+    ],
+    "sentence": {
+      "ja": "旅行先のホテルを予約しました。",
+      "furigana": [
+        {
+          "ruby": "旅行先",
+          "rt": "りょこうさき"
+        },
+        {
+          "ruby": "のホテルを"
+        },
+        {
+          "ruby": "予約",
+          "rt": "よやく"
+        },
+        {
+          "ruby": "しました。"
+        }
+      ],
+      "romaji": "Ryokousaki no hoteru wo yoyaku shimashita.",
+      "en": "I reserved a hotel at my travel destination.",
+      "id": "Saya sudah memesan hotel di tempat tujuan wisata."
+    }
   },
   {
     "slug": "masuku",
@@ -1258,7 +5103,43 @@
       "id": "Masker",
       "ja": "マスク"
     },
-    "primaryKanaId": "k-ma"
+    "primaryKanaId": "k-ma",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "マスク"
+      }
+    ],
+    "sentence": {
+      "ja": "風邪を予防するためにマスクを着けます。",
+      "furigana": [
+        {
+          "ruby": "風邪",
+          "rt": "かぜ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "予防",
+          "rt": "よぼう"
+        },
+        {
+          "ruby": "するためにマスクを"
+        },
+        {
+          "ruby": "着",
+          "rt": "つ"
+        },
+        {
+          "ruby": "けます。"
+        }
+      ],
+      "romaji": "Kaze wo yobou suru tame ni masuku wo tsukemasu.",
+      "en": "I wear a mask to prevent catching a cold.",
+      "id": "Saya memakai masker untuk mencegah flu."
+    }
   },
   {
     "slug": "miruku",
@@ -1270,7 +5151,32 @@
       "id": "Susu",
       "ja": "ミルク"
     },
-    "primaryKanaId": "k-mi"
+    "primaryKanaId": "k-mi",
+    "kanji": "牛乳",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ミルク"
+      }
+    ],
+    "sentence": {
+      "ja": "ホットコーヒーにミルクを入れます。",
+      "furigana": [
+        {
+          "ruby": "ホットコーヒーにミルクを"
+        },
+        {
+          "ruby": "入",
+          "rt": "い"
+        },
+        {
+          "ruby": "れます。"
+        }
+      ],
+      "romaji": "Hotto koohii ni miruku wo iremasu.",
+      "en": "I add milk to hot coffee.",
+      "id": "Saya menuangkan susu ke dalam kopi panas."
+    }
   },
   {
     "slug": "muubii",
@@ -1282,7 +5188,43 @@
       "id": "Film / Bioskop",
       "ja": "ムービー"
     },
-    "primaryKanaId": "k-mu"
+    "primaryKanaId": "k-mu",
+    "kanji": "映画",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ムービー"
+      }
+    ],
+    "sentence": {
+      "ja": "映画館で新しいムービーを鑑賞します。",
+      "furigana": [
+        {
+          "ruby": "映画館",
+          "rt": "えいがかん"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "新",
+          "rt": "あたら"
+        },
+        {
+          "ruby": "しいムービーを"
+        },
+        {
+          "ruby": "鑑賞",
+          "rt": "かんしょう"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Eigakan de atarashii muubii wo kanshou shimasu.",
+      "en": "I watch a new movie at the cinema.",
+      "id": "Saya menonton film baru di bioskop."
+    }
   },
   {
     "slug": "menyuu",
@@ -1294,7 +5236,39 @@
       "id": "Menu makanan",
       "ja": "メニュー"
     },
-    "primaryKanaId": "k-me"
+    "primaryKanaId": "k-me",
+    "kanji": "献立",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "メニュー"
+      }
+    ],
+    "sentence": {
+      "ja": "レストランでメニューを見て注文します。",
+      "furigana": [
+        {
+          "ruby": "レストランでメニューを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "て"
+        },
+        {
+          "ruby": "注文",
+          "rt": "ちゅうもん"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Resutoran de menyuu wo mite chuumon shimasu.",
+      "en": "I look at the menu at the restaurant and order.",
+      "id": "Saya melihat menu di restoran lalu memesan."
+    }
   },
   {
     "slug": "moderu",
@@ -1306,7 +5280,36 @@
       "id": "Model",
       "ja": "モデル"
     },
-    "primaryKanaId": "k-mo"
+    "primaryKanaId": "k-mo",
+    "kanji": "模型",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "モデル"
+      }
+    ],
+    "sentence": {
+      "ja": "最新モデルのスマートフォンを買いました。",
+      "furigana": [
+        {
+          "ruby": "最新",
+          "rt": "さいしん"
+        },
+        {
+          "ruby": "モデルのスマートフォンを"
+        },
+        {
+          "ruby": "買",
+          "rt": "か"
+        },
+        {
+          "ruby": "いました。"
+        }
+      ],
+      "romaji": "Saishin moderu no sumaatofon wo kaimashita.",
+      "en": "I bought the newest model smartphone.",
+      "id": "Saya membeli ponsel pintar model terbaru."
+    }
   },
   {
     "slug": "yaado",
@@ -1318,7 +5321,39 @@
       "id": "Halaman / Yard",
       "ja": "ヤード"
     },
-    "primaryKanaId": "k-ya"
+    "primaryKanaId": "k-ya",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ヤード"
+      }
+    ],
+    "sentence": {
+      "ja": "アメリカでは長さをヤードで測ることもあります。",
+      "furigana": [
+        {
+          "ruby": "アメリカでは"
+        },
+        {
+          "ruby": "長",
+          "rt": "なが"
+        },
+        {
+          "ruby": "さをヤードで"
+        },
+        {
+          "ruby": "測",
+          "rt": "はか"
+        },
+        {
+          "ruby": "ることもあります。"
+        }
+      ],
+      "romaji": "Amerika de wa nagasa wo yaado de hakaru koto mo arimasu.",
+      "en": "In America, length is sometimes measured in yards.",
+      "id": "Di Amerika, panjang terkadang diukur dengan yard."
+    }
   },
   {
     "slug": "yuumoa",
@@ -1330,7 +5365,43 @@
       "id": "Humor / Lelucon",
       "ja": "ユーモア"
     },
-    "primaryKanaId": "k-yu"
+    "primaryKanaId": "k-yu",
+    "kanji": "滑稽",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ユーモア"
+      }
+    ],
+    "sentence": {
+      "ja": "彼はユーモアがあって面白い人です。",
+      "furigana": [
+        {
+          "ruby": "彼",
+          "rt": "かれ"
+        },
+        {
+          "ruby": "はユーモアがあって"
+        },
+        {
+          "ruby": "面白",
+          "rt": "おもしろ"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "人",
+          "rt": "ひと"
+        },
+        {
+          "ruby": "です。"
+        }
+      ],
+      "romaji": "Kare wa yuumoa ga atte omoshiroi hito desu.",
+      "en": "He has good humor and is a fun person.",
+      "id": "Dia memiliki rasa humor dan orang yang menyenangkan."
+    }
   },
   {
     "slug": "yooguruto",
@@ -1342,7 +5413,36 @@
       "id": "Yogurt",
       "ja": "ヨーグルト"
     },
-    "primaryKanaId": "k-yo"
+    "primaryKanaId": "k-yo",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ヨーグルト"
+      }
+    ],
+    "sentence": {
+      "ja": "朝食にフルーツとヨーグルトを食べます。",
+      "furigana": [
+        {
+          "ruby": "朝食",
+          "rt": "ちょうしょく"
+        },
+        {
+          "ruby": "にフルーツとヨーグルトを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Choushoku ni furuutsu to yooguruto wo tabemasu.",
+      "en": "I eat fruit and yogurt for breakfast.",
+      "id": "Saya makan buah dan yoghurt untuk sarapan."
+    }
   },
   {
     "slug": "rajio",
@@ -1354,7 +5454,43 @@
       "id": "Radio",
       "ja": "ラジオ"
     },
-    "primaryKanaId": "k-ra"
+    "primaryKanaId": "k-ra",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ラジオ"
+      }
+    ],
+    "sentence": {
+      "ja": "車の中でラジオを聞きます。",
+      "furigana": [
+        {
+          "ruby": "車",
+          "rt": "くるま"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "中",
+          "rt": "なか"
+        },
+        {
+          "ruby": "でラジオを"
+        },
+        {
+          "ruby": "聞",
+          "rt": "き"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Kuruma no naka de rajio wo kikimasu.",
+      "en": "I listen to the radio inside the car.",
+      "id": "Saya mendengarkan radio di dalam mobil."
+    }
   },
   {
     "slug": "riidaa",
@@ -1366,7 +5502,39 @@
       "id": "Pemimpin / Leader",
       "ja": "リーダー"
     },
-    "primaryKanaId": "k-ri"
+    "primaryKanaId": "k-ri",
+    "kanji": "指導者",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "リーダー"
+      }
+    ],
+    "sentence": {
+      "ja": "チームのリーダーが目標を決めます。",
+      "furigana": [
+        {
+          "ruby": "チームのリーダーが"
+        },
+        {
+          "ruby": "目標",
+          "rt": "もくひょう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "決",
+          "rt": "き"
+        },
+        {
+          "ruby": "めます。"
+        }
+      ],
+      "romaji": "Chiimu no riidaa ga mokuhyou wo kimemasu.",
+      "en": "The team leader decides the goals.",
+      "id": "Pemimpin tim menentukan tujuan."
+    }
   },
   {
     "slug": "ruuru",
@@ -1378,7 +5546,32 @@
       "id": "Aturan / Rules",
       "ja": "ルール"
     },
-    "primaryKanaId": "k-ru"
+    "primaryKanaId": "k-ru",
+    "kanji": "規則",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ルール"
+      }
+    ],
+    "sentence": {
+      "ja": "ゲームのルールをみんなで守りましょう。",
+      "furigana": [
+        {
+          "ruby": "ゲームのルールをみんなで"
+        },
+        {
+          "ruby": "守",
+          "rt": "まも"
+        },
+        {
+          "ruby": "りましょう。"
+        }
+      ],
+      "romaji": "Geemu no ruuru wo minna de mamorimashou.",
+      "en": "Let's all follow the game rules.",
+      "id": "Mari kita semua mematuhi aturan permainannya."
+    }
   },
   {
     "slug": "resutoran",
@@ -1390,7 +5583,36 @@
       "id": "Restoran",
       "ja": "レストラン"
     },
-    "primaryKanaId": "k-re"
+    "primaryKanaId": "k-re",
+    "kanji": "飲食店",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "レストラン"
+      }
+    ],
+    "sentence": {
+      "ja": "美味しいイタリアンレストランを予約しました。",
+      "furigana": [
+        {
+          "ruby": "美味",
+          "rt": "おい"
+        },
+        {
+          "ruby": "しいイタリアンレストランを"
+        },
+        {
+          "ruby": "予約",
+          "rt": "よやく"
+        },
+        {
+          "ruby": "しました。"
+        }
+      ],
+      "romaji": "Oishii itarian resutoran wo yoyaku shimashita.",
+      "en": "I booked a delicious Italian restaurant.",
+      "id": "Saya memesan restoran Italia yang lezat."
+    }
   },
   {
     "slug": "robotto",
@@ -1402,7 +5624,36 @@
       "id": "Robot",
       "ja": "ロボット"
     },
-    "primaryKanaId": "k-ro"
+    "primaryKanaId": "k-ro",
+    "kanji": null,
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "ロボット"
+      }
+    ],
+    "sentence": {
+      "ja": "巨大ロボットのアニメに夢中になりました。",
+      "furigana": [
+        {
+          "ruby": "巨大",
+          "rt": "きょだい"
+        },
+        {
+          "ruby": "ロボットのアニメに"
+        },
+        {
+          "ruby": "夢中",
+          "rt": "むちゅう"
+        },
+        {
+          "ruby": "になりました。"
+        }
+      ],
+      "romaji": "Kyodai robotto no anime ni muchuu ni narimashita.",
+      "en": "I was captivated by the giant mecha robot anime.",
+      "id": "Saya terpikat oleh anime robot mecha raksasa."
+    }
   },
   {
     "slug": "wain",
@@ -1414,7 +5665,50 @@
       "id": "Anggur / Wine",
       "ja": "ワイン"
     },
-    "primaryKanaId": "k-wa"
+    "primaryKanaId": "k-wa",
+    "kanji": "葡萄酒",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ワイン"
+      }
+    ],
+    "sentence": {
+      "ja": "夕食に赤ワインを少し飲みます。",
+      "furigana": [
+        {
+          "ruby": "夕食",
+          "rt": "ゆうしょく"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "赤",
+          "rt": "あか"
+        },
+        {
+          "ruby": "ワインを"
+        },
+        {
+          "ruby": "少",
+          "rt": "すこ"
+        },
+        {
+          "ruby": "し"
+        },
+        {
+          "ruby": "飲",
+          "rt": "の"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Yuushoku ni aka wain wo sukoshi nomimasu.",
+      "en": "I drink a little red wine with dinner.",
+      "id": "Saya minum sedikit anggur merah saat makan malam."
+    }
   },
   {
     "slug": "wo",
@@ -1426,7 +5720,32 @@
       "id": "Katakana langka wo",
       "ja": "ヲ"
     },
-    "primaryKanaId": "k-wo"
+    "primaryKanaId": "k-wo",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ヲ"
+      }
+    ],
+    "sentence": {
+      "ja": "ヲはカタカナの助詞ユニットです。",
+      "furigana": [
+        {
+          "ruby": "ヲはカタカナの"
+        },
+        {
+          "ruby": "助詞",
+          "rt": "じょし"
+        },
+        {
+          "ruby": "ユニットです。"
+        }
+      ],
+      "romaji": "Wo wa Katakana no joshi yunitto desu.",
+      "en": "'Wo' is the katakana particle glyph.",
+      "id": "'Wo' adalah bentuk katakana dari partikel."
+    }
   },
   {
     "slug": "pan",
@@ -1438,7 +5757,43 @@
       "id": "Roti (akhiran n)",
       "ja": "パン"
     },
-    "primaryKanaId": "k-n"
+    "primaryKanaId": "k-n",
+    "kanji": "麺麭",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "パン"
+      }
+    ],
+    "sentence": {
+      "ja": "朝ごはんに焼きたてのパンを食べます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "ごはんに"
+        },
+        {
+          "ruby": "焼",
+          "rt": "や"
+        },
+        {
+          "ruby": "きたてのパンを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Asagohan ni yakitate no pan wo tabemasu.",
+      "en": "I eat freshly baked bread for breakfast.",
+      "id": "Saya makan roti yang baru matang untuk sarapan."
+    }
   },
   {
     "slug": "gasu",
@@ -1450,7 +5805,43 @@
       "id": "Gas",
       "ja": "ガス"
     },
-    "primaryKanaId": "k-ga"
+    "primaryKanaId": "k-ga",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ガス"
+      }
+    ],
+    "sentence": {
+      "ja": "料理が終わったらガスを止めます。",
+      "furigana": [
+        {
+          "ruby": "料理",
+          "rt": "りょうり"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "終",
+          "rt": "お"
+        },
+        {
+          "ruby": "わったらガスを"
+        },
+        {
+          "ruby": "止",
+          "rt": "と"
+        },
+        {
+          "ruby": "めます。"
+        }
+      ],
+      "romaji": "Ryouri ga owattara gasu wo tomemasu.",
+      "en": "I turn off the gas when cooking is done.",
+      "id": "Setelah selesai memasak, saya mematikan gas."
+    }
   },
   {
     "slug": "gitaa",
@@ -1462,7 +5853,36 @@
       "id": "Gitar",
       "ja": "ギター"
     },
-    "primaryKanaId": "k-gi"
+    "primaryKanaId": "k-gi",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ギター"
+      }
+    ],
+    "sentence": {
+      "ja": "放課後にギターの練習をします。",
+      "furigana": [
+        {
+          "ruby": "放課後",
+          "rt": "ほうかご"
+        },
+        {
+          "ruby": "にギターの"
+        },
+        {
+          "ruby": "練習",
+          "rt": "れんしゅう"
+        },
+        {
+          "ruby": "をします。"
+        }
+      ],
+      "romaji": "Houkago ni gitaa no renshuu wo shimasu.",
+      "en": "I practice guitar after school.",
+      "id": "Saya berlatih gitar sepulang sekolah."
+    }
   },
   {
     "slug": "gurasu",
@@ -1474,7 +5894,50 @@
       "id": "Gelas",
       "ja": "グラス"
     },
-    "primaryKanaId": "k-gu"
+    "primaryKanaId": "k-gu",
+    "kanji": "硝子杯",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "グラス"
+      }
+    ],
+    "sentence": {
+      "ja": "透明なグラスに冷たい水を注ぎます。",
+      "furigana": [
+        {
+          "ruby": "透明",
+          "rt": "とうめい"
+        },
+        {
+          "ruby": "なグラスに"
+        },
+        {
+          "ruby": "冷",
+          "rt": "つめ"
+        },
+        {
+          "ruby": "たい"
+        },
+        {
+          "ruby": "水",
+          "rt": "みず"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "注",
+          "rt": "そそ"
+        },
+        {
+          "ruby": "ぎます。"
+        }
+      ],
+      "romaji": "Toumei na gurasu ni tsumetai mizu wo sosogimasu.",
+      "en": "I pour cold water into the clear glass.",
+      "id": "Saya menuangkan air dingin ke dalam gelas bening."
+    }
   },
   {
     "slug": "geemu",
@@ -1491,6 +5954,35 @@
       "en": "From English 'game'. Note the long vowel mark 'ー'.",
       "id": "Dari bahasa Inggris 'game'. Perhatikan tanda strip panjang 'ー'.",
       "ja": "英語の『game』から。長音符「ー」に注目。"
+    },
+    "kanji": null,
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "ゲーム"
+      }
+    ],
+    "sentence": {
+      "ja": "友達とオンラインでゲームを対戦します。",
+      "furigana": [
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "とオンラインでゲームを"
+        },
+        {
+          "ruby": "対戦",
+          "rt": "たいせん"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Tomodachi to onrain de geemu wo taisen shimasu.",
+      "en": "I battle friends online in a video game.",
+      "id": "Saya bermain game tanding online bersama teman."
     }
   },
   {
@@ -1503,7 +5995,36 @@
       "id": "Golf",
       "ja": "ゴルフ"
     },
-    "primaryKanaId": "k-go"
+    "primaryKanaId": "k-go",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ゴルフ"
+      }
+    ],
+    "sentence": {
+      "ja": "日曜日にゴルフ場でプレーします。",
+      "furigana": [
+        {
+          "ruby": "日曜日",
+          "rt": "にちようび"
+        },
+        {
+          "ruby": "にゴルフ"
+        },
+        {
+          "ruby": "場",
+          "rt": "じょう"
+        },
+        {
+          "ruby": "でプレーします。"
+        }
+      ],
+      "romaji": "Nichiyoubi ni gorufujou de puree shimasu.",
+      "en": "I play at the golf course on Sunday.",
+      "id": "Saya bermain di lapangan golf pada hari Minggu."
+    }
   },
   {
     "slug": "dezain",
@@ -1515,7 +6036,39 @@
       "id": "Desain",
       "ja": "デザイン"
     },
-    "primaryKanaId": "k-za"
+    "primaryKanaId": "k-za",
+    "kanji": "意匠",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "デザイン"
+      }
+    ],
+    "sentence": {
+      "ja": "この服はレトロなデザインが可愛いです。",
+      "furigana": [
+        {
+          "ruby": "この"
+        },
+        {
+          "ruby": "服",
+          "rt": "ふく"
+        },
+        {
+          "ruby": "はレトロなデザインが"
+        },
+        {
+          "ruby": "可愛",
+          "rt": "かわい"
+        },
+        {
+          "ruby": "いです。"
+        }
+      ],
+      "romaji": "Kono fuku wa retoro na dezain ga kawaii desu.",
+      "en": "The retro design of this outfit is cute.",
+      "id": "Pakaian ini lucu dengan desain retro."
+    }
   },
   {
     "slug": "juusu",
@@ -1527,7 +6080,36 @@
       "id": "Jus",
       "ja": "ジュース"
     },
-    "primaryKanaId": "k-ji"
+    "primaryKanaId": "k-ji",
+    "kanji": "果汁",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ジュース"
+      }
+    ],
+    "sentence": {
+      "ja": "冷たいリンゴジュースを飲みます。",
+      "furigana": [
+        {
+          "ruby": "冷",
+          "rt": "つめ"
+        },
+        {
+          "ruby": "たいリンゴジュースを"
+        },
+        {
+          "ruby": "飲",
+          "rt": "の"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Tsumetai ringo juusu wo nomimasu.",
+      "en": "I drink cold apple juice.",
+      "id": "Saya minum jus apel dingin."
+    }
   },
   {
     "slug": "zubon",
@@ -1539,7 +6121,36 @@
       "id": "Celana panjang",
       "ja": "ズボン"
     },
-    "primaryKanaId": "k-zu"
+    "primaryKanaId": "k-zu",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ズボン"
+      }
+    ],
+    "sentence": {
+      "ja": "青いジーンズのズボンを履きます。",
+      "furigana": [
+        {
+          "ruby": "青",
+          "rt": "あお"
+        },
+        {
+          "ruby": "いジーンズのズボンを"
+        },
+        {
+          "ruby": "履",
+          "rt": "は"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Aoi jiinzu no zubon wo hakimasu.",
+      "en": "I put on blue jeans trousers.",
+      "id": "Saya memakai celana jin biru."
+    }
   },
   {
     "slug": "zero",
@@ -1551,7 +6162,25 @@
       "id": "Nol",
       "ja": "ゼロ"
     },
-    "primaryKanaId": "k-ze"
+    "primaryKanaId": "k-ze",
+    "kanji": "零",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ゼロ"
+      }
+    ],
+    "sentence": {
+      "ja": "テストでカウントダウンがゼロになりました。",
+      "furigana": [
+        {
+          "ruby": "テストでカウントダウンがゼロになりました。"
+        }
+      ],
+      "romaji": "Tesuto de kauntodaun ga zero ni narimashita.",
+      "en": "The countdown reached zero during the test.",
+      "id": "Hitungan mundur mencapai angka nol saat tes."
+    }
   },
   {
     "slug": "zonbi",
@@ -1563,7 +6192,53 @@
       "id": "Zombi",
       "ja": "ゾンビ"
     },
-    "primaryKanaId": "k-zo"
+    "primaryKanaId": "k-zo",
+    "kanji": null,
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "ゾンビ"
+      }
+    ],
+    "sentence": {
+      "ja": "アニメのゾンビ映画を友達と一緒に見ました。",
+      "furigana": [
+        {
+          "ruby": "アニメのゾンビ"
+        },
+        {
+          "ruby": "映画",
+          "rt": "えいが"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "と"
+        },
+        {
+          "ruby": "一緒",
+          "rt": "いっしょ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Anime no zonbi eiga wo tomodachi to issho ni mimashita.",
+      "en": "I watched an anime zombie movie with my friends.",
+      "id": "Saya menonton film zombie anime bersama teman-teman."
+    }
   },
   {
     "slug": "dansu",
@@ -1575,7 +6250,36 @@
       "id": "Tari / Dance",
       "ja": "ダンス"
     },
-    "primaryKanaId": "k-da"
+    "primaryKanaId": "k-da",
+    "kanji": "舞踏",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ダンス"
+      }
+    ],
+    "sentence": {
+      "ja": "文化祭でアイドルのダンスを披露します。",
+      "furigana": [
+        {
+          "ruby": "文化祭",
+          "rt": "ぶんかさい"
+        },
+        {
+          "ruby": "でアイドルのダンスを"
+        },
+        {
+          "ruby": "披露",
+          "rt": "ひろう"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Bunkasai de aidoru no dansu wo hirou shimasu.",
+      "en": "We perform an idol dance at the school festival.",
+      "id": "Kami menampilkan tarian idola di festival kebudayaan sekolah."
+    }
   },
   {
     "slug": "hanaji-katakana",
@@ -1587,7 +6291,39 @@
       "id": "Mimisan",
       "ja": "ハナヂ"
     },
-    "primaryKanaId": "k-dji"
+    "primaryKanaId": "k-dji",
+    "kanji": "鼻血",
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "ハナヂ"
+      }
+    ],
+    "sentence": {
+      "ja": "あまりの興奮にハナヂが出そうになりました！",
+      "furigana": [
+        {
+          "ruby": "あまりの"
+        },
+        {
+          "ruby": "興奮",
+          "rt": "こうふん"
+        },
+        {
+          "ruby": "にハナヂが"
+        },
+        {
+          "ruby": "出",
+          "rt": "で"
+        },
+        {
+          "ruby": "そうになりました！"
+        }
+      ],
+      "romaji": "Amari no koufun ni hanaji ga desou ni narimashita!",
+      "en": "I was so excited I almost got a nosebleed!",
+      "id": "Saking gembiranya aku hampir mimisan!"
+    }
   },
   {
     "slug": "guzzu",
@@ -1599,7 +6335,43 @@
       "id": "Barang merchandise",
       "ja": "グッズ"
     },
-    "primaryKanaId": "k-dzu"
+    "primaryKanaId": "k-dzu",
+    "kanji": null,
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "グッズ"
+      }
+    ],
+    "sentence": {
+      "ja": "秋葉原で好きなアニメのグッズを買いました。",
+      "furigana": [
+        {
+          "ruby": "秋葉原",
+          "rt": "あきはばら"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "好",
+          "rt": "す"
+        },
+        {
+          "ruby": "きなアニメのグッズを"
+        },
+        {
+          "ruby": "買",
+          "rt": "か"
+        },
+        {
+          "ruby": "いました。"
+        }
+      ],
+      "romaji": "Akihabara de sukina anime no guzzu wo kaimashita.",
+      "en": "I bought goods of my favorite anime in Akihabara.",
+      "id": "Saya membeli suvenir anime favorit di Akihabara."
+    }
   },
   {
     "slug": "dezaato",
@@ -1611,7 +6383,43 @@
       "id": "Hidangan penutup",
       "ja": "デザート"
     },
-    "primaryKanaId": "k-de"
+    "primaryKanaId": "k-de",
+    "kanji": "甘味",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "デザート"
+      }
+    ],
+    "sentence": {
+      "ja": "食後に甘いデザートを食べます。",
+      "furigana": [
+        {
+          "ruby": "食後",
+          "rt": "しょくご"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "甘",
+          "rt": "あま"
+        },
+        {
+          "ruby": "いデザートを"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Shokugo ni amai dezaato wo tabemasu.",
+      "en": "I eat sweet dessert after the meal.",
+      "id": "Saya makan hidangan penutup yang manis setelah makan."
+    }
   },
   {
     "slug": "doa",
@@ -1623,7 +6431,29 @@
       "id": "Pintu",
       "ja": "ドア"
     },
-    "primaryKanaId": "k-do"
+    "primaryKanaId": "k-do",
+    "kanji": "扉",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ドア"
+      }
+    ],
+    "sentence": {
+      "ja": "部屋のドアをノックしてください。",
+      "furigana": [
+        {
+          "ruby": "部屋",
+          "rt": "へや"
+        },
+        {
+          "ruby": "のドアをノックしてください。"
+        }
+      ],
+      "romaji": "Heya no doa wo nokku shite kudasai.",
+      "en": "Please knock on the room door.",
+      "id": "Tolong ketuk pintu kamar."
+    }
   },
   {
     "slug": "basu",
@@ -1635,7 +6465,43 @@
       "id": "Bus",
       "ja": "バス"
     },
-    "primaryKanaId": "k-ba"
+    "primaryKanaId": "k-ba",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "バス"
+      }
+    ],
+    "sentence": {
+      "ja": "毎朝バスに乗って通学します。",
+      "furigana": [
+        {
+          "ruby": "毎朝",
+          "rt": "まいあさ"
+        },
+        {
+          "ruby": "バスに"
+        },
+        {
+          "ruby": "乗",
+          "rt": "の"
+        },
+        {
+          "ruby": "って"
+        },
+        {
+          "ruby": "通学",
+          "rt": "つうがく"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Maiasa basu ni notte tsuugaku shimasu.",
+      "en": "I take the bus to school every morning.",
+      "id": "Saya naik bus ke sekolah setiap pagi."
+    }
   },
   {
     "slug": "biiru",
@@ -1647,7 +6513,50 @@
       "id": "Bir",
       "ja": "ビール"
     },
-    "primaryKanaId": "k-bi"
+    "primaryKanaId": "k-bi",
+    "kanji": "麦酒",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ビール"
+      }
+    ],
+    "sentence": {
+      "ja": "仕事の後に冷たいビールで乾杯します。",
+      "furigana": [
+        {
+          "ruby": "仕事",
+          "rt": "しごと"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "後",
+          "rt": "あと"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "冷",
+          "rt": "つめ"
+        },
+        {
+          "ruby": "たいビールで"
+        },
+        {
+          "ruby": "乾杯",
+          "rt": "かんぱい"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Shigoto no ato ni tsumetai biiru de kanpai shimasu.",
+      "en": "We toast with cold beer after work.",
+      "id": "Kami bersulang dengan bir dingin setelah bekerja."
+    }
   },
   {
     "slug": "buutsu",
@@ -1659,7 +6568,57 @@
       "id": "Sepatu bot",
       "ja": "ブーツ"
     },
-    "primaryKanaId": "k-bu"
+    "primaryKanaId": "k-bu",
+    "kanji": "長靴",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ブーツ"
+      }
+    ],
+    "sentence": {
+      "ja": "冬の寒い日に革のブーツを履きます。",
+      "furigana": [
+        {
+          "ruby": "冬",
+          "rt": "ふゆ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "寒",
+          "rt": "さむ"
+        },
+        {
+          "ruby": "い"
+        },
+        {
+          "ruby": "日",
+          "rt": "ひ"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "革",
+          "rt": "かわ"
+        },
+        {
+          "ruby": "のブーツを"
+        },
+        {
+          "ruby": "履",
+          "rt": "は"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Fuyu no samui hi ni kawa no buutsu wo hakimasu.",
+      "en": "I wear leather boots on cold winter days.",
+      "id": "Saya memakai sepatu bot kulit di hari musim dingin yang sejuk."
+    }
   },
   {
     "slug": "beddo",
@@ -1671,7 +6630,43 @@
       "id": "Tempat tidur",
       "ja": "ベッド"
     },
-    "primaryKanaId": "k-be"
+    "primaryKanaId": "k-be",
+    "kanji": "寝台",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ベッド"
+      }
+    ],
+    "sentence": {
+      "ja": "疲れたのでベッドに入って休みます。",
+      "furigana": [
+        {
+          "ruby": "疲",
+          "rt": "つか"
+        },
+        {
+          "ruby": "れたのでベッドに"
+        },
+        {
+          "ruby": "入",
+          "rt": "はい"
+        },
+        {
+          "ruby": "って"
+        },
+        {
+          "ruby": "休",
+          "rt": "やす"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Tsukareta node beddo ni haitte yasumimasu.",
+      "en": "I was tired, so I got into bed and rested.",
+      "id": "Saya lelah, jadi saya berbaring di tempat tidur dan istirahat."
+    }
   },
   {
     "slug": "booru",
@@ -1683,7 +6678,32 @@
       "id": "Bola",
       "ja": "ボール"
     },
-    "primaryKanaId": "k-bo"
+    "primaryKanaId": "k-bo",
+    "kanji": "球",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ボール"
+      }
+    ],
+    "sentence": {
+      "ja": "グラウンドでサッカーボールを蹴ります。",
+      "furigana": [
+        {
+          "ruby": "グラウンドでサッカーボールを"
+        },
+        {
+          "ruby": "蹴",
+          "rt": "け"
+        },
+        {
+          "ruby": "ります。"
+        }
+      ],
+      "romaji": "Guraundo de sakkaa booru wo kerimasu.",
+      "en": "I kick the soccer ball on the field.",
+      "id": "Saya menendang bola sepak di lapangan."
+    }
   },
   {
     "slug": "pasupooto",
@@ -1695,7 +6715,36 @@
       "id": "Paspor",
       "ja": "パスポート"
     },
-    "primaryKanaId": "k-pa"
+    "primaryKanaId": "k-pa",
+    "kanji": "旅券",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "パスポート"
+      }
+    ],
+    "sentence": {
+      "ja": "空港でパスポートを見せます。",
+      "furigana": [
+        {
+          "ruby": "空港",
+          "rt": "くうこう"
+        },
+        {
+          "ruby": "でパスポートを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "せます。"
+        }
+      ],
+      "romaji": "Kuukou de pasupooto wo misemasu.",
+      "en": "I present my passport at the airport.",
+      "id": "Saya memperlihatkan paspor di bandara."
+    }
   },
   {
     "slug": "piano-katakana",
@@ -1707,7 +6756,32 @@
       "id": "Piano",
       "ja": "ピアノ"
     },
-    "primaryKanaId": "k-pi"
+    "primaryKanaId": "k-pi",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ピアノ"
+      }
+    ],
+    "sentence": {
+      "ja": "コンサートホールでグランドピアノを演奏します。",
+      "furigana": [
+        {
+          "ruby": "コンサートホールでグランドピアノを"
+        },
+        {
+          "ruby": "演奏",
+          "rt": "えんそう"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Konsaato hooru de gurando piano wo ensou shimasu.",
+      "en": "I perform on a grand piano in the concert hall.",
+      "id": "Saya memainkan grand piano di gedung konser."
+    }
   },
   {
     "slug": "puuru",
@@ -1719,7 +6793,43 @@
       "id": "Kolam renang",
       "ja": "プール"
     },
-    "primaryKanaId": "k-pu"
+    "primaryKanaId": "k-pu",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "プール"
+      }
+    ],
+    "sentence": {
+      "ja": "夏休みに学校のプールで泳ぎます。",
+      "furigana": [
+        {
+          "ruby": "夏休",
+          "rt": "なつやす"
+        },
+        {
+          "ruby": "みに"
+        },
+        {
+          "ruby": "学校",
+          "rt": "がっこう"
+        },
+        {
+          "ruby": "のプールで"
+        },
+        {
+          "ruby": "泳",
+          "rt": "およ"
+        },
+        {
+          "ruby": "ぎます。"
+        }
+      ],
+      "romaji": "Natsuyasumi ni gakkou no puuru de oyogimasu.",
+      "en": "I swim in the school pool during summer break.",
+      "id": "Saya berenang di kolam renang sekolah saat liburan musim panas."
+    }
   },
   {
     "slug": "pen",
@@ -1731,7 +6841,43 @@
       "id": "Pena / Pulpen",
       "ja": "ペン"
     },
-    "primaryKanaId": "k-pe"
+    "primaryKanaId": "k-pe",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ペン"
+      }
+    ],
+    "sentence": {
+      "ja": "黒いペンで手紙を書きます。",
+      "furigana": [
+        {
+          "ruby": "黒",
+          "rt": "くろ"
+        },
+        {
+          "ruby": "いペンで"
+        },
+        {
+          "ruby": "手紙",
+          "rt": "てがみ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "書",
+          "rt": "か"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Kuroi pen de tegami wo kakimasu.",
+      "en": "I write a letter with a black pen.",
+      "id": "Saya menulis surat dengan pulpen hitam."
+    }
   },
   {
     "slug": "posuto",
@@ -1743,7 +6889,43 @@
       "id": "Kotak pos",
       "ja": "ポスト"
     },
-    "primaryKanaId": "k-po"
+    "primaryKanaId": "k-po",
+    "kanji": "郵便受け",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ポスト"
+      }
+    ],
+    "sentence": {
+      "ja": "手紙を赤いポストに投函します。",
+      "furigana": [
+        {
+          "ruby": "手紙",
+          "rt": "てがみ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "赤",
+          "rt": "あか"
+        },
+        {
+          "ruby": "いポストに"
+        },
+        {
+          "ruby": "投函",
+          "rt": "とうかん"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Tegami wo akai posuto ni toukan shimasu.",
+      "en": "I drop the letter into the red postbox.",
+      "id": "Saya memasukkan surat ke dalam kotak pos merah."
+    }
   },
   {
     "slug": "fasshon",
@@ -1755,7 +6937,43 @@
       "id": "Mode / Busana",
       "ja": "ファッション"
     },
-    "primaryKanaId": "k-fa"
+    "primaryKanaId": "k-fa",
+    "kanji": "流行",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ファッション"
+      }
+    ],
+    "sentence": {
+      "ja": "原宿のユニークなファッションが世界で話題です。",
+      "furigana": [
+        {
+          "ruby": "原宿",
+          "rt": "はらじゅく"
+        },
+        {
+          "ruby": "のユニークなファッションが"
+        },
+        {
+          "ruby": "世界",
+          "rt": "せかい"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "話題",
+          "rt": "わだい"
+        },
+        {
+          "ruby": "です。"
+        }
+      ],
+      "romaji": "Harajuku no yuniiku na fasshon ga sekai de wadai desu.",
+      "en": "Harajuku's unique fashion is talked about worldwide.",
+      "id": "Gaya busana unik Harajuku menjadi perbincangan di seluruh dunia."
+    }
   },
   {
     "slug": "firumu",
@@ -1767,7 +6985,32 @@
       "id": "Film",
       "ja": "フィルム"
     },
-    "primaryKanaId": "k-fi"
+    "primaryKanaId": "k-fi",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "フィルム"
+      }
+    ],
+    "sentence": {
+      "ja": "クラシックカメラにフィルムを装填します。",
+      "furigana": [
+        {
+          "ruby": "クラシックカメラにフィルムを"
+        },
+        {
+          "ruby": "装填",
+          "rt": "そうてん"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Kurashikku kamera ni firumu wo souten shimasu.",
+      "en": "I load film into the classic camera.",
+      "id": "Saya memasang rol film ke kamera klasik."
+    }
   },
   {
     "slug": "fesu",
@@ -1779,7 +7022,43 @@
       "id": "Festival",
       "ja": "フェス"
     },
-    "primaryKanaId": "k-fe"
+    "primaryKanaId": "k-fe",
+    "kanji": "祝祭",
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "フェス"
+      }
+    ],
+    "sentence": {
+      "ja": "夏のアニメソングフェスで大盛り上がりしました！",
+      "furigana": [
+        {
+          "ruby": "夏",
+          "rt": "なつ"
+        },
+        {
+          "ruby": "のアニメソングフェスで"
+        },
+        {
+          "ruby": "大盛",
+          "rt": "おおも"
+        },
+        {
+          "ruby": "り"
+        },
+        {
+          "ruby": "上",
+          "rt": "あ"
+        },
+        {
+          "ruby": "がりしました！"
+        }
+      ],
+      "romaji": "Natsu no anime songu fesu de oomoriagari shimashita!",
+      "en": "We had a blast at the summer anime song festival!",
+      "id": "Kami sangat bersemangat di festival lagu anime musim panas!"
+    }
   },
   {
     "slug": "fooku",
@@ -1791,7 +7070,39 @@
       "id": "Garpu",
       "ja": "フォーク"
     },
-    "primaryKanaId": "k-fo"
+    "primaryKanaId": "k-fo",
+    "kanji": "叉",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "フォーク"
+      }
+    ],
+    "sentence": {
+      "ja": "フォークでパスタを巻いて食べます。",
+      "furigana": [
+        {
+          "ruby": "フォークでパスタを"
+        },
+        {
+          "ruby": "巻",
+          "rt": "ま"
+        },
+        {
+          "ruby": "いて"
+        },
+        {
+          "ruby": "食",
+          "rt": "た"
+        },
+        {
+          "ruby": "べます。"
+        }
+      ],
+      "romaji": "Fooku de pasuta wo maite tabemasu.",
+      "en": "I twirl pasta with a fork and eat it.",
+      "id": "Saya menggulung pasta dengan garpu lalu memakannya."
+    }
   },
   {
     "slug": "paatii",
@@ -1803,7 +7114,43 @@
       "id": "Pesta",
       "ja": "パーティー"
     },
-    "primaryKanaId": "k-ti"
+    "primaryKanaId": "k-ti",
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "パーティー"
+      }
+    ],
+    "sentence": {
+      "ja": "友達の誕生日パーティーに招待されました。",
+      "furigana": [
+        {
+          "ruby": "友達",
+          "rt": "ともだち"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "誕生日",
+          "rt": "たんじょうび"
+        },
+        {
+          "ruby": "パーティーに"
+        },
+        {
+          "ruby": "招待",
+          "rt": "しょうたい"
+        },
+        {
+          "ruby": "されました。"
+        }
+      ],
+      "romaji": "Tomodachi no tanjoubi paatii ni shoutai saremashita.",
+      "en": "I was invited to my friend's birthday party.",
+      "id": "Saya diundang ke pesta ulang tahun teman."
+    }
   },
   {
     "slug": "birudingu",
@@ -1815,7 +7162,43 @@
       "id": "Gedung",
       "ja": "ビルディング"
     },
-    "primaryKanaId": "k-di"
+    "primaryKanaId": "k-di",
+    "kanji": "高層ビル",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ビルディング"
+      }
+    ],
+    "sentence": {
+      "ja": "東京には高いビルディングがたくさん並んでいます。",
+      "furigana": [
+        {
+          "ruby": "東京",
+          "rt": "とうきょう"
+        },
+        {
+          "ruby": "には"
+        },
+        {
+          "ruby": "高",
+          "rt": "たか"
+        },
+        {
+          "ruby": "いビルディングがたくさん"
+        },
+        {
+          "ruby": "並",
+          "rt": "なら"
+        },
+        {
+          "ruby": "んでいます。"
+        }
+      ],
+      "romaji": "Toukyou ni wa takai birudingu ga takusan narande imasu.",
+      "en": "Many tall buildings line the streets of Tokyo.",
+      "id": "Banyak gedung tinggi berjejer di Tokyo."
+    }
   },
   {
     "slug": "wedingu",
@@ -1827,7 +7210,43 @@
       "id": "Pernikahan",
       "ja": "ウェディング"
     },
-    "primaryKanaId": "k-we"
+    "primaryKanaId": "k-we",
+    "kanji": "結婚式",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ウェディング"
+      }
+    ],
+    "sentence": {
+      "ja": "教会で美しいウェディングドレスを見ました。",
+      "furigana": [
+        {
+          "ruby": "教会",
+          "rt": "きょうかい"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "美",
+          "rt": "うつく"
+        },
+        {
+          "ruby": "しいウェディングドレスを"
+        },
+        {
+          "ruby": "見",
+          "rt": "み"
+        },
+        {
+          "ruby": "ました。"
+        }
+      ],
+      "romaji": "Kyoukai de utsukushii wedingu doresu wo mimashita.",
+      "en": "I saw a beautiful wedding dress at the church.",
+      "id": "Saya melihat gaun pengantin yang indah di gereja."
+    }
   },
   {
     "slug": "wiiku",
@@ -1839,7 +7258,39 @@
       "id": "Minggu / Pekan",
       "ja": "ウィーク"
     },
-    "primaryKanaId": "k-wi"
+    "primaryKanaId": "k-wi",
+    "kanji": "週間",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ウィーク"
+      }
+    ],
+    "sentence": {
+      "ja": "ゴールデンウィークに旅行を計画しています。",
+      "furigana": [
+        {
+          "ruby": "ゴールデンウィークに"
+        },
+        {
+          "ruby": "旅行",
+          "rt": "りょこう"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "計画",
+          "rt": "けいかく"
+        },
+        {
+          "ruby": "しています。"
+        }
+      ],
+      "romaji": "Gooruden wiiku ni ryokou wo keikaku shite imasu.",
+      "en": "I am planning a trip for Golden Week.",
+      "id": "Saya merencanakan liburan saat Golden Week."
+    }
   },
   {
     "slug": "vaiorin",
@@ -1851,7 +7302,60 @@
       "id": "Biola",
       "ja": "ヴァイオリン"
     },
-    "primaryKanaId": "k-va"
+    "primaryKanaId": "k-va",
+    "kanji": null,
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ヴァイオリン"
+      }
+    ],
+    "sentence": {
+      "ja": "アニメの劇中で美しいヴァイオリンの音が鳴り響きます。",
+      "furigana": [
+        {
+          "ruby": "アニメの"
+        },
+        {
+          "ruby": "劇中",
+          "rt": "げきちゅう"
+        },
+        {
+          "ruby": "で"
+        },
+        {
+          "ruby": "美",
+          "rt": "うつく"
+        },
+        {
+          "ruby": "しいヴァイオリンの"
+        },
+        {
+          "ruby": "音",
+          "rt": "おと"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "鳴",
+          "rt": "な"
+        },
+        {
+          "ruby": "り"
+        },
+        {
+          "ruby": "響",
+          "rt": "ひび"
+        },
+        {
+          "ruby": "きます。"
+        }
+      ],
+      "romaji": "Anime no gekichuu de utsukushii vaiorin no oto ga narihibikimasu.",
+      "en": "The beautiful sound of a violin resounds in the anime.",
+      "id": "Suara biola yang indah berkumandang di dalam anime."
+    }
   },
   {
     "slug": "voryuumu",
@@ -1863,7 +7367,43 @@
       "id": "Volume suara",
       "ja": "ヴォリューム"
     },
-    "primaryKanaId": "k-vo"
+    "primaryKanaId": "k-vo",
+    "kanji": "音量",
+    "jlpt": "N4",
+    "furigana": [
+      {
+        "ruby": "ボリューム"
+      }
+    ],
+    "sentence": {
+      "ja": "音楽のボリュームを少し上げてください。",
+      "furigana": [
+        {
+          "ruby": "音楽",
+          "rt": "おんがく"
+        },
+        {
+          "ruby": "のボリュームを"
+        },
+        {
+          "ruby": "少",
+          "rt": "すこ"
+        },
+        {
+          "ruby": "し"
+        },
+        {
+          "ruby": "上",
+          "rt": "あ"
+        },
+        {
+          "ruby": "げてください。"
+        }
+      ],
+      "romaji": "Ongaku no voryuumu wo sukoshi agete kudasai.",
+      "en": "Please turn up the music volume a little.",
+      "id": "Tolong besarkan sedikit volume musiknya."
+    }
   },
   {
     "slug": "kawaii",
@@ -1879,6 +7419,53 @@
       "en": "Cute / Adorable. World-famous pop culture phrase.",
       "id": "Lucu / Imut. Kata pop culture Jepang paling populer.",
       "ja": "日本ポップカルチャーを象徴する言葉。"
+    },
+    "kanji": "可愛い",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "可",
+        "rt": "か"
+      },
+      {
+        "ruby": "愛",
+        "rt": "わい"
+      },
+      {
+        "ruby": "い"
+      }
+    ],
+    "sentence": {
+      "ja": "その子猫は本当に可愛いです！",
+      "furigana": [
+        {
+          "ruby": "その"
+        },
+        {
+          "ruby": "子猫",
+          "rt": "こねこ"
+        },
+        {
+          "ruby": "は"
+        },
+        {
+          "ruby": "本当",
+          "rt": "ほんとう"
+        },
+        {
+          "ruby": "に"
+        },
+        {
+          "ruby": "可愛",
+          "rt": "かわい"
+        },
+        {
+          "ruby": "いです！"
+        }
+      ],
+      "romaji": "Sono koneko wa hontou ni kawaii desu!",
+      "en": "That kitten is really cute!",
+      "id": "Anak kucing itu sungguh imut!"
     }
   },
   {
@@ -1895,6 +7482,46 @@
       "en": "Like / Fond of. Used to express affection or liking, frequently heard in anime confessions.",
       "id": "Suka / Gemar. Digunakan untuk menyatakan perasaan suka, sering terdengar dalam adegan pengakuan cinta anime.",
       "ja": "好意を表す言葉。アニメの告白シーンで最重要の台詞。"
+    },
+    "kanji": "好き",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "好",
+        "rt": "す"
+      },
+      {
+        "ruby": "き"
+      }
+    ],
+    "sentence": {
+      "ja": "日本のアニメや漫画が大好きです。",
+      "furigana": [
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "のアニメや"
+        },
+        {
+          "ruby": "漫画",
+          "rt": "まんが"
+        },
+        {
+          "ruby": "が"
+        },
+        {
+          "ruby": "大好",
+          "rt": "だいす"
+        },
+        {
+          "ruby": "きです。"
+        }
+      ],
+      "romaji": "Nihon no anime ya manga ga daisuki desu.",
+      "en": "I love Japanese anime and manga.",
+      "id": "Saya sangat menyukai anime dan manga Jepang."
     }
   },
   {
@@ -1911,6 +7538,43 @@
       "en": "Thank you. Everyday expression of gratitude.",
       "id": "Terima kasih. Ungkapan rasa syukur paling umum.",
       "ja": "感謝を伝える基本の挨拶。"
+    },
+    "kanji": "有難う",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "有",
+        "rt": "あり"
+      },
+      {
+        "ruby": "難",
+        "rt": "がと"
+      },
+      {
+        "ruby": "う"
+      }
+    ],
+    "sentence": {
+      "ja": "手伝ってくれて本当にありがとう！",
+      "furigana": [
+        {
+          "ruby": "手伝",
+          "rt": "てつだ"
+        },
+        {
+          "ruby": "ってくれて"
+        },
+        {
+          "ruby": "本当",
+          "rt": "ほんとう"
+        },
+        {
+          "ruby": "にありがとう！"
+        }
+      ],
+      "romaji": "Tetsudatte kurete hontou ni arigatou!",
+      "en": "Thank you so much for helping me out!",
+      "id": "Terima kasih banyak sudah membantu!"
     }
   },
   {
@@ -1927,6 +7591,42 @@
       "en": "Amazing / Awesome. Iconic anime reaction shout.",
       "id": "Hebat / Keren. Reaksi kagum yang sering diteriakkan di anime.",
       "ja": "アニメの驚き・称賛リアクションの大定番。"
+    },
+    "kanji": "凄い",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "凄",
+        "rt": "すご"
+      },
+      {
+        "ruby": "い"
+      }
+    ],
+    "sentence": {
+      "ja": "その技のスピードは本当にすごいです！",
+      "furigana": [
+        {
+          "ruby": "その"
+        },
+        {
+          "ruby": "技",
+          "rt": "わざ"
+        },
+        {
+          "ruby": "のスピードは"
+        },
+        {
+          "ruby": "本当",
+          "rt": "ほんとう"
+        },
+        {
+          "ruby": "にすごいです！"
+        }
+      ],
+      "romaji": "Sono waza no supiido wa hontou ni sugoi desu!",
+      "en": "The speed of that technique is truly amazing!",
+      "id": "Kecepatan jurus itu benar-benar luar biasa!"
     }
   },
   {
@@ -1943,6 +7643,42 @@
       "en": "Short for animation. Japanese animated media.",
       "id": "Singkatan dari kata animation. Animasi Jepang.",
       "ja": "「アニメーション」の略称。世界共通語。"
+    },
+    "kanji": "動画",
+    "jlpt": "Anime",
+    "furigana": [
+      {
+        "ruby": "アニメ"
+      }
+    ],
+    "sentence": {
+      "ja": "日本のアニメを字幕なしで楽しみたいです！",
+      "furigana": [
+        {
+          "ruby": "日本",
+          "rt": "にほん"
+        },
+        {
+          "ruby": "のアニメを"
+        },
+        {
+          "ruby": "字幕",
+          "rt": "じまく"
+        },
+        {
+          "ruby": "なしで"
+        },
+        {
+          "ruby": "楽",
+          "rt": "たの"
+        },
+        {
+          "ruby": "しみたいです！"
+        }
+      ],
+      "romaji": "Nihon no anime wo jimaku nashi de tanoshimitai desu!",
+      "en": "I want to enjoy Japanese anime without subtitles!",
+      "id": "Saya ingin menikmati anime Jepang tanpa terjemahan teks!"
     }
   },
   {
@@ -1959,6 +7695,49 @@
       "en": "Coffee. Common café order (hot coffee = ホットコーヒー).",
       "id": "Kopi. Minuman kafe paling umum (kopi panas = ホットコーヒー).",
       "ja": "オランダ語・英語の『coffee』から。ホットコーヒーも定番。"
+    },
+    "kanji": "珈琲",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "コーヒー"
+      }
+    ],
+    "sentence": {
+      "ja": "朝の目覚ましに温かいコーヒーを飲みます。",
+      "furigana": [
+        {
+          "ruby": "朝",
+          "rt": "あさ"
+        },
+        {
+          "ruby": "の"
+        },
+        {
+          "ruby": "目覚",
+          "rt": "めざ"
+        },
+        {
+          "ruby": "ましに"
+        },
+        {
+          "ruby": "温",
+          "rt": "あたた"
+        },
+        {
+          "ruby": "かいコーヒーを"
+        },
+        {
+          "ruby": "飲",
+          "rt": "の"
+        },
+        {
+          "ruby": "みます。"
+        }
+      ],
+      "romaji": "Asa no mezamashi ni atatakai koohii wo nomimasu.",
+      "en": "I drink warm coffee to wake up in the morning.",
+      "id": "Saya minum kopi hangat untuk menyegarkan diri di pagi hari."
     }
   },
   {
@@ -1975,6 +7754,42 @@
       "en": "Ramen noodles. Japanese staple dish and Naruto's favorite food.",
       "id": "Mie ramen khas Jepang. Makanan pokok populer dan makanan kesukaan Naruto.",
       "ja": "ナルトの大好物。日本の国民食。"
+    },
+    "kanji": "拉麺",
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "ラーメン"
+      }
+    ],
+    "sentence": {
+      "ja": "豚骨スープの熱いラーメンを注文します。",
+      "furigana": [
+        {
+          "ruby": "豚骨",
+          "rt": "とんこつ"
+        },
+        {
+          "ruby": "スープの"
+        },
+        {
+          "ruby": "熱",
+          "rt": "あつ"
+        },
+        {
+          "ruby": "いラーメンを"
+        },
+        {
+          "ruby": "注文",
+          "rt": "ちゅうもん"
+        },
+        {
+          "ruby": "します。"
+        }
+      ],
+      "romaji": "Tonkotsu suupu no atsui raamen wo chuumon shimasu.",
+      "en": "I order hot tonkotsu broth ramen.",
+      "id": "Saya memesan semangkuk ramen panas kuah tonkotsu."
     }
   },
   {
@@ -1991,6 +7806,38 @@
       "en": "Short for television.",
       "id": "Singkatan dari kata television (televisi).",
       "ja": "『television』の略語。"
+    },
+    "kanji": null,
+    "jlpt": "N5",
+    "furigana": [
+      {
+        "ruby": "テレビ"
+      }
+    ],
+    "sentence": {
+      "ja": "リビングのテレビでアニメの最新話を観ます。",
+      "furigana": [
+        {
+          "ruby": "リビングのテレビでアニメの"
+        },
+        {
+          "ruby": "最新話",
+          "rt": "さいしんわ"
+        },
+        {
+          "ruby": "を"
+        },
+        {
+          "ruby": "観",
+          "rt": "み"
+        },
+        {
+          "ruby": "ます。"
+        }
+      ],
+      "romaji": "Ribingu no terebi de anime no saishinwa wo mimasu.",
+      "en": "I watch the latest anime episode on the living room TV.",
+      "id": "Saya menonton episode terbaru anime di TV ruang tamu."
     }
   }
 ]

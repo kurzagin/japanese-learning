@@ -3,11 +3,28 @@ import { ALL_KANA_PRIMITIVES, KanaCharacter } from "@/data/kana";
 import { getKanaSlug } from "@/lib/kana-seo";
 import { Locale } from "@/data/i18n";
 
+export interface FuriganaSegment {
+  ruby: string;
+  rt?: string;
+}
+
+export interface VocabSentence {
+  ja: string;
+  furigana: FuriganaSegment[];
+  romaji: string;
+  en: string;
+  id: string;
+}
+
 export interface VocabWord {
   slug: string;
   character: string;
   romaji: string;
   script: "hiragana" | "katakana";
+  kanji?: string | null;
+  jlpt?: "N5" | "N4" | "N3" | "Anime";
+  furigana?: FuriganaSegment[];
+  sentence?: VocabSentence;
   meaning: Record<Locale, string>;
   trivia?: Record<Locale, string>;
   primaryKanaId?: string;

@@ -76,13 +76,20 @@ export default async function WordDetailPage({ params }: Props) {
       {
         "@type": "DefinedTerm",
         name: `${word.character} (${word.romaji})`,
+        alternateName: word.kanji ? [word.kanji, word.romaji] : [word.romaji],
         termCode: word.character,
         description: word.meaning.en,
+        inLanguage: "ja",
         inDefinedTermSet: {
           "@type": "DefinedTermSet",
           name: "SaKana Japanese Core Vocabulary",
           url: "https://sakanajp.site/words",
         },
+        ...(word.sentence
+          ? {
+              disambiguatingDescription: `Example usage: ${word.sentence.ja} (${word.sentence.romaji}) — ${word.sentence.en}`,
+            }
+          : {}),
       },
       {
         "@type": "BreadcrumbList",

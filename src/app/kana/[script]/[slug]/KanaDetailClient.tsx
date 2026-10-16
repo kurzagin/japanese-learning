@@ -7,6 +7,7 @@ import { getKanaSlug } from "@/lib/kana-seo";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { PronounceButton } from "@/components/PronounceButton";
 import { useLanguage } from "@/context/LanguageContext";
+import { KanaOrigin } from "@/lib/kana-seo";
 import {
   ArrowLeft,
   Volume2,
@@ -17,6 +18,7 @@ import {
   Play,
   Share2,
   CheckCircle,
+  Scroll,
 } from "lucide-react";
 
 interface KanaDetailClientProps {
@@ -25,6 +27,7 @@ interface KanaDetailClientProps {
   strokeCount: number | null;
   sampleWord: { jp: string; en: string; id: string; ja: string } | null;
   confusedKana: KanaCharacter[];
+  origin?: KanaOrigin | null;
 }
 
 export default function KanaDetailClient({
@@ -33,6 +36,7 @@ export default function KanaDetailClient({
   strokeCount,
   sampleWord,
   confusedKana,
+  origin,
 }: KanaDetailClientProps) {
   const { t, locale } = useLanguage();
   const scriptName = kana.script === "hiragana" ? "Hiragana" : "Katakana";
@@ -127,42 +131,104 @@ export default function KanaDetailClient({
             </div>
           </div>
 
-          {/* Standard Elementary Example Word */}
-          <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
-                <BookOpen className="w-4 h-4 text-[#006600]" />
-                <span>{t.kanaDetail.vocabTitle}</span>
+          {/* Historical Origin / Man'yōgana with Furigana */}
+          {origin ? (
+            <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#800000] font-bold text-xs uppercase">
+                  <Scroll className="w-4 h-4 text-[#800000]" />
+                  <span>Historical Kanji Root (万葉仮名)</span>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-14 h-14 bg-[#fff8e7] border border-[#800000] flex items-center justify-center shrink-0">
+                    <ruby className="text-3xl font-black text-[#800000] font-sans">
+                      {origin.kanji}
+                      <rt className="text-[10px] font-mono font-normal text-[#000080]">
+                        {origin.reading}
+                      </rt>
+                    </ruby>
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#000080]">
+                      Evolved from Kanji: {origin.kanji} ({origin.reading})
+                    </div>
+                    <p className="text-[11px] text-[#555] mt-1 leading-snug">
+                      {origin.notes}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 text-[10px] font-mono text-[#800000] bg-[#fff0f0] p-1.5 border border-[#ffcccc]">
+                Ancient source character from Japanese calligraphy tradition.
+              </div>
+            </div>
+          ) : (
+            /* Standard Elementary Example Word fallback */
+            <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
+                  <BookOpen className="w-4 h-4 text-[#006600]" />
+                  <span>{t.kanaDetail.vocabTitle}</span>
+                </div>
+
+                {sampleWord ? (
+                  <div className="mt-3 space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl font-bold text-[#000080]">
+                        {sampleWord.jp}
+                      </span>
+                      <PronounceButton
+                        text={sampleWord.jp.split(" ")[0]}
+                        size="sm"
+                      />
+                    </div>
+                    <div className="text-xs text-[#555] font-mono">
+                      {t.kanaDetail.vocabMeaning} <strong>{sampleMeaning}</strong>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mt-3 text-xs text-[#666]">
+                    {t.kanaDetail.vocabDefault}
+                  </div>
+                )}
               </div>
 
-              {sampleWord ? (
-                <div className="mt-3 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold text-[#000080]">
-                      {sampleWord.jp}
-                    </span>
-                    <PronounceButton
-                      text={sampleWord.jp.split(" ")[0]}
-                      size="sm"
-                    />
-                  </div>
-                  <div className="text-xs text-[#555] font-mono">
-                    {t.kanaDetail.vocabMeaning} <strong>{sampleMeaning}</strong>
-                  </div>
-                </div>
-              ) : (
-                <div className="mt-3 text-xs text-[#666]">
-                  {t.kanaDetail.vocabDefault}
-                </div>
-              )}
+              <div className="mt-4 text-[11px] font-mono text-[#006600] bg-[#f0fff0] p-2 border border-[#c0e0c0] flex items-center gap-1.5">
+                <CheckCircle className="w-3.5 h-3.5 shrink-0" />
+                <span>{t.kanaDetail.standardSyllabusBadge}</span>
+              </div>
             </div>
+          )}
+        </div>
 
-            <div className="mt-4 text-[11px] font-mono text-[#006600] bg-[#f0fff0] p-2 border border-[#c0e0c0] flex items-center gap-1.5">
-              <CheckCircle className="w-3.5 h-3.5 shrink-0" />
-              <span>{t.kanaDetail.standardSyllabusBadge}</span>
+        {/* Standard Elementary Example Word Row if Origin was rendered */}
+        {origin && sampleWord && (
+          <div className="border border-[#808080] bg-white p-4 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#e0e0e0] pb-2">
+              <div className="flex items-center gap-2 text-[#000080] font-bold text-xs uppercase">
+                <BookOpen className="w-4 h-4 text-[#006600]" />
+                <span>Elementary Vocabulary Example</span>
+              </div>
+              <PronounceButton
+                text={sampleWord.jp.split(" ")[0]}
+                size="sm"
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between">
+              <div>
+                <div className="text-xl font-bold text-[#000080]">
+                  {sampleWord.jp}
+                </div>
+                <div className="text-xs text-[#555] font-mono mt-0.5">
+                  Meaning: <strong>{sampleMeaning}</strong>
+                </div>
+              </div>
+              <div className="text-[11px] font-mono text-[#006600] bg-[#f0fff0] px-2.5 py-1 border border-[#c0e0c0]">
+                {t.kanaDetail.standardSyllabusBadge}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Easily Confused Characters Section */}
         {confusedKana.length > 0 && (
