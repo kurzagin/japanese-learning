@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     "Explore the complete Japanese Kana reference directory. Comprehensive Hiragana and Katakana matrix (Gojūon, Dakuon, Handakuon, Yōon) with romaji, stroke counts, audio pronunciation, and mnemonics.",
   alternates: {
     canonical: "/kana",
+    languages: {
+      en: "/kana",
+      id: "/kana",
+      ja: "/kana",
+      "x-default": "/kana",
+    },
   },
   openGraph: {
     title: "Complete Japanese Kana Chart — Hiragana & Katakana | SaKana",

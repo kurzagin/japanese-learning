@@ -203,14 +203,14 @@ export default function HomePage() {
                     <Link href="/words" className="text-[#000080] hover:underline font-bold">
                       &rarr; 161-Word Directory
                     </Link>
+                    <Link href="/words/category/n5" className="text-[#000080] hover:underline">
+                      &bull; JLPT N5 Vocabulary (104)
+                    </Link>
+                    <Link href="/words/category/anime" className="text-[#800000] hover:underline">
+                      &bull; Anime &amp; Pop Culture (9)
+                    </Link>
                     <Link href="/words/sakana" className="text-[#555] hover:underline">
                       &bull; さかな (Fish / SaKana)
-                    </Link>
-                    <Link href="/words/neko" className="text-[#555] hover:underline">
-                      &bull; ねこ (Cat / Anime Companion)
-                    </Link>
-                    <Link href="/words/arigatou" className="text-[#555] hover:underline">
-                      &bull; ありがとう (Thank you)
                     </Link>
                   </div>
                 </div>

@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     "Skip the boring textbooks. Master Hiragana and Katakana fast with audio flashcards, spaced repetition, and iconic Japanese pop-culture words.",
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      id: "/",
+      ja: "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     title: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",

@@ -11,6 +11,12 @@ export const metadata: Metadata = {
     "Master the most confusing Japanese Hiragana and Katakana characters. Side-by-side comparisons of シ vs ツ, ソ vs ン, さ vs き, and more with stroke orders and visual tricks.",
   alternates: {
     canonical: "/compare",
+    languages: {
+      en: "/compare",
+      id: "/compare",
+      ja: "/compare",
+      "x-default": "/compare",
+    },
   },
   openGraph: {
     title: "Japanese Kana Lookalike Comparisons | SaKana",

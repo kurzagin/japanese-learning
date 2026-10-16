@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     "Convert Romaji to Japanese Hiragana and Katakana in real time. Fast, accurate, handles small tsu (sokuon), combinations (yōon), and features pronunciation audio.",
   alternates: {
     canonical: "/tools/romaji-to-kana",
+    languages: {
+      en: "/tools/romaji-to-kana",
+      id: "/tools/romaji-to-kana",
+      ja: "/tools/romaji-to-kana",
+      "x-default": "/tools/romaji-to-kana",
+    },
   },
   openGraph: {
     title: "Free Romaji to Hiragana & Katakana Converter | SaKana",

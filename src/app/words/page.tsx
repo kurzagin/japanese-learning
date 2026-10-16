@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     "Explore essential Japanese Hiragana and Katakana vocabulary words including popular anime terms with native Voicevox audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
   alternates: {
     canonical: "/words",
+    languages: {
+      en: "/words",
+      id: "/words",
+      ja: "/words",
+      "x-default": "/words",
+    },
   },
   openGraph: {
     title: "Core & Anime Japanese Vocabulary Directory | SaKana",

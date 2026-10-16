@@ -62,17 +62,35 @@ export default function WordsHubClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
             <Link
-              href="/kana"
-              className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
+              href="/words/category/n5"
+              className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
-              <span>KANA ALPHABET MATRIX (あ, い, う...)</span>
+              JLPT N5 (104)
+            </Link>
+            <Link
+              href="/words/category/n4"
+              className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
+            >
+              JLPT N4 (47)
+            </Link>
+            <Link
+              href="/words/category/anime"
+              className="px-2.5 py-1 bg-[#fff] text-[#800000] font-bold border border-[#800000] hover:bg-[#fff0f0]"
+            >
+              Anime &amp; Pop Culture (9)
+            </Link>
+            <Link
+              href="/kana"
+              className="px-2.5 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
+            >
+              <span>KANA MATRIX</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href="/compare"
-              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+              className="px-2.5 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
-              <span>LOOKALIKE COMPARISONS</span>
+              <span>LOOKALIKES</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

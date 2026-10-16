@@ -64,3 +64,43 @@ export function getRelatedWords(word: VocabWord, count = 4): VocabWord[] {
     (w) => w.slug !== word.slug && w.script === word.script
   ).slice(0, count);
 }
+
+export interface JlptCategoryMeta {
+  key: "n5" | "n4" | "anime";
+  jlpt: "N5" | "N4" | "Anime";
+  title: string;
+  tagline: string;
+  description: string;
+}
+
+export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
+  {
+    key: "n5",
+    jlpt: "N5",
+    title: "JLPT N5 Core Vocabulary List",
+    tagline: "Essential 104 words for Japanese Language Proficiency Test Level 5",
+    description:
+      "Master the foundational JLPT N5 vocabulary words with native pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
+  },
+  {
+    key: "n4",
+    jlpt: "N4",
+    title: "JLPT N4 Elementary Vocabulary List",
+    tagline: "Essential 47 words for Japanese Language Proficiency Test Level 4",
+    description:
+      "Expand your Japanese vocabulary with elementary JLPT N4 words featuring audio pronunciation, romaji guides, and realistic contextual sentences.",
+  },
+  {
+    key: "anime",
+    jlpt: "Anime",
+    title: "Anime & Pop Culture Japanese Vocabulary",
+    tagline: "Iconic words, reactions, and loanwords from anime and manga",
+    description:
+      "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native audio, character origins, and English & Indonesian meanings.",
+  },
+];
+
+export function getWordsByJlpt(jlpt: "N5" | "N4" | "Anime"): VocabWord[] {
+  return VOCABULARY_LIST.filter((w) => w.jlpt === jlpt);
+}
+
