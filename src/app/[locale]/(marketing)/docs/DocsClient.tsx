@@ -20,7 +20,8 @@ import {
 } from "lucide-react";
 
 export default function DocsClient() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [testScript, setTestScript] = useState<string>("hiragana");
   const [testType, setTestType] = useState<string>("gojuon");
@@ -74,7 +75,7 @@ data.forEach((k) => {
         <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <div className="flex items-center gap-2">
             <Link
-              href="/dashboard"
+              href={`${prefix}/dashboard`}
               className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-xs font-bold"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> {t.nav.dashboard}
@@ -408,7 +409,7 @@ data.forEach((k) => {
           {/* Bottom Navigation & Actions */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#808080]">
             <Link
-              href="/dashboard"
+              href={`${prefix}/dashboard`}
               className="bg-[#d4d0c8] text-black px-3 py-1 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#e0dcd4] active:border-t-black active:border-l-black active:border-b-white active:border-r-white flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />

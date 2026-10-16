@@ -21,6 +21,7 @@ interface TestQuestion {
 
 export default function TestClient({ stageId }: { stageId: string }) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   const stage = useMemo(() => STAGES.find((s) => s.id === stageId) || STAGES[0], [stageId]);
   const timeLimit = stage?.targetDurationSeconds || 15;
@@ -334,7 +335,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
           isBoss ? "bg-[#ffe4e1]" : "bg-[#d4d0c8]"
         }`}>
           <Link
-            href="/dashboard"
+            href={`${prefix}/dashboard`}
             className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.test.backToDashboard}
@@ -505,7 +506,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                 </div>
 
                 <Link
-                  href={`/study/${stage.id}`}
+                  href={`${prefix}/study/${stage.id}`}
                   className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
@@ -558,7 +559,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                       {t.test.bonusUnlockedDesc}
                     </p>
                     <Link
-                      href={`/minigame?from=${stage.id}&next=${nextStage ? nextStage.id : ""}`}
+                      href={`${prefix}/minigame?from=${stage.id}&next=${nextStage ? nextStage.id : ""}`}
                       className="mt-2 w-full py-2 px-3 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow"
                     >
                       <span>{t.test.playMinigameBtn}</span>
@@ -568,7 +569,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
                 {nextStage && (
                   <Link
-                    href={`/study/${nextStage.id}`}
+                    href={`${prefix}/study/${nextStage.id}`}
                     className="w-full py-2 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-2 shadow"
                   >
                     <span>
@@ -590,7 +591,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   </button>
 
                   <Link
-                    href="/dashboard"
+                    href={`${prefix}/dashboard`}
                     className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>
@@ -643,7 +644,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
 
                 <div className="grid grid-cols-2 gap-2">
                   <Link
-                    href={`/study/${stage.id}`}
+                    href={`${prefix}/study/${stage.id}`}
                     className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-1 shadow"
                   >
                     <BookOpen className="w-3.5 h-3.5" />
@@ -651,7 +652,7 @@ export default function TestClient({ stageId }: { stageId: string }) {
                   </Link>
 
                   <Link
-                    href="/dashboard"
+                    href={`${prefix}/dashboard`}
                     className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>

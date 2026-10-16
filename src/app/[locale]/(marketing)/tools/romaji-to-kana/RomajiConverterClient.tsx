@@ -17,7 +17,8 @@ import {
 } from "lucide-react";
 
 export default function RomajiConverterClient() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [inputRomaji, setInputRomaji] = useState("konnichiwa, arigatou");
   const [smartParticles, setSmartParticles] = useState(true);
   const [copiedType, setCopiedType] = useState<string | null>(null);
@@ -232,7 +233,7 @@ export default function RomajiConverterClient() {
           </p>
           <div className="pt-1">
             <Link
-              href="/dashboard"
+              href={`${prefix}/dashboard`}
               className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0]"
             >
               <span>{t.converter.ctaBtn}</span>

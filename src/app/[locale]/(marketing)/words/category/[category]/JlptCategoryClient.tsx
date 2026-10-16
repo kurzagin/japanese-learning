@@ -15,6 +15,7 @@ interface Props {
 
 export default function JlptCategoryClient({ category, words }: Props) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [searchQuery, setSearchQuery] = useState("");
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
 
@@ -45,14 +46,14 @@ export default function JlptCategoryClient({ category, words }: Props) {
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
-            href="/"
+            href={prefix || "/"}
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.nav.home}</span>
           </Link>
           <span className="text-[#888]">/</span>
-          <Link href="/words" className="text-[#000080] hover:underline font-bold">
+          <Link href={`${prefix}/words`} className="text-[#000080] hover:underline font-bold">
             {t.wordsHub.breadcrumbWords}
           </Link>
           <span className="text-[#888]">/</span>
@@ -76,7 +77,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
           {/* Quick Category Switcher */}
           <div className="pt-2 flex flex-wrap justify-center gap-2 text-xs font-bold">
             <Link
-              href="/words/category/n5"
+              href={`${prefix}/words/category/n5`}
               className={`px-3 py-1 border border-[#808080] ${
                 category.key === "n5" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
@@ -84,7 +85,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
               {t.wordsHub.jlptN5Btn}
             </Link>
             <Link
-              href="/words/category/n4"
+              href={`${prefix}/words/category/n4`}
               className={`px-3 py-1 border border-[#808080] ${
                 category.key === "n4" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
@@ -92,7 +93,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
               {t.wordsHub.jlptN4Btn}
             </Link>
             <Link
-              href="/words/category/anime"
+              href={`${prefix}/words/category/anime`}
               className={`px-3 py-1 border border-[#808080] ${
                 category.key === "anime" ? "bg-[#800000] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
@@ -100,7 +101,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
               {t.wordsHub.animePopBtn}
             </Link>
             <Link
-              href="/words"
+              href={`${prefix}/words`}
               className="px-3 py-1 border border-[#808080] bg-[#d4d0c8] text-black hover:bg-white"
             >
               {t.jlptCategory.allWordsBtn(161)}
@@ -184,7 +185,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 </div>
 
                 <Link
-                  href={`/words/${w.slug}`}
+                  href={`${prefix}/words/${w.slug}`}
                   className="mt-2 w-full py-1 text-[11px] font-bold text-center bg-white border border-[#808080] hover:bg-[#000080] hover:text-white flex items-center justify-center gap-1 transition-colors"
                 >
                   <span>{t.jlptCategory.learnWordBtn}</span>

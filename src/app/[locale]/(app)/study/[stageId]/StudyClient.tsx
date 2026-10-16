@@ -17,6 +17,7 @@ import {
 
 export default function StudyClient({ stageId }: { stageId: string }) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   const isDueReviewMode = stageId === "srs-due";
   const stage = useMemo(
@@ -305,7 +306,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
             </p>
             <div className="pt-2">
               <Link
-                href="/dashboard"
+                href={`${prefix}/dashboard`}
                 className="inline-block py-1.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black"
               >
                 &lt;&lt; {t.study.backDashboard}
@@ -357,7 +358,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
         {/* Top Info Bar */}
         <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <Link
-            href="/dashboard"
+            href={`${prefix}/dashboard`}
             className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.study.backDashboard}
@@ -596,7 +597,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
 
                 {stage && (
                   <Link
-                    href={`/test/${stage.id}`}
+                    href={`${prefix}/test/${stage.id}`}
                     className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
@@ -636,7 +637,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
               <div className="w-full space-y-2 pt-2">
                 {stage && (
                   <Link
-                    href={`/test/${stage.id}`}
+                    href={`${prefix}/test/${stage.id}`}
                     className="w-full py-2.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-black text-xs text-[#cc0000] flex items-center justify-center gap-2 shadow"
                   >
                     <Play className="w-3.5 h-3.5 fill-[#cc0000]" />
@@ -656,7 +657,7 @@ export default function StudyClient({ stageId }: { stageId: string }) {
                   )}
 
                   <Link
-                    href="/dashboard"
+                    href={`${prefix}/dashboard`}
                     className={`py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-black flex items-center justify-center ${
                       isDueReviewMode ? "col-span-2" : ""
                     }`}

@@ -33,6 +33,7 @@ export default function KanaCompareClient({
   k2Strokes,
 }: KanaCompareClientProps) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const scriptName = comparison.script === "hiragana" ? "Hiragana" : "Katakana";
 
   const differences = comparison.keyDifferences[locale] || comparison.keyDifferences.en;
@@ -46,7 +47,7 @@ export default function KanaCompareClient({
         {/* Navigation Breadcrumb */}
         <div className="flex items-center justify-between text-xs font-mono">
           <Link
-            href="/kana"
+            href={`${prefix}/kana`}
             className="inline-flex items-center gap-1.5 text-[#000080] font-bold hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -101,7 +102,7 @@ export default function KanaCompareClient({
                 &ldquo;{kana1.hint[locale] || kana1.hint.en}&rdquo;
               </div>
               <Link
-                href={`/kana/${kana1.script}/${kana1.romaji}`}
+                href={`${prefix}/kana/${kana1.script}/${kana1.romaji}`}
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#000080] hover:underline pt-1"
               >
                 <span>{t.compareDetail.fullProfileLink(kana1.character)}</span>
@@ -137,7 +138,7 @@ export default function KanaCompareClient({
                 &ldquo;{kana2.hint[locale] || kana2.hint.en}&rdquo;
               </div>
               <Link
-                href={`/kana/${kana2.script}/${kana2.romaji}`}
+                href={`${prefix}/kana/${kana2.script}/${kana2.romaji}`}
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#800000] hover:underline pt-1"
               >
                 <span>{t.compareDetail.fullProfileLink(kana2.character)}</span>
@@ -185,7 +186,7 @@ export default function KanaCompareClient({
           </p>
           <div className="pt-1">
             <Link
-              href="/dashboard"
+              href={`${prefix}/dashboard`}
               className="inline-flex items-center gap-1.5 px-5 py-2 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0]"
             >
               <Play className="w-3.5 h-3.5 fill-current" />

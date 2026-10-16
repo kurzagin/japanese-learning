@@ -10,6 +10,7 @@ import { Search, Sparkles, BookOpen, ArrowRight, ArrowLeft } from "lucide-react"
 
 export default function WordsHubClient() {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [activeScript, setActiveScript] = useState<"all" | "hiragana" | "katakana">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -36,7 +37,7 @@ export default function WordsHubClient() {
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
-            href="/"
+            href={prefix || "/"}
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -62,32 +63,32 @@ export default function WordsHubClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
             <Link
-              href="/words/category/n5"
+              href={`${prefix}/words/category/n5`}
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
               {t.wordsHub.jlptN5Btn}
             </Link>
             <Link
-              href="/words/category/n4"
+              href={`${prefix}/words/category/n4`}
               className="px-2.5 py-1 bg-[#fff] text-[#000080] font-bold border border-[#000080] hover:bg-[#eef3f8]"
             >
               {t.wordsHub.jlptN4Btn}
             </Link>
             <Link
-              href="/words/category/anime"
+              href={`${prefix}/words/category/anime`}
               className="px-2.5 py-1 bg-[#fff] text-[#800000] font-bold border border-[#800000] hover:bg-[#fff0f0]"
             >
               {t.wordsHub.animePopBtn}
             </Link>
             <Link
-              href="/kana"
+              href={`${prefix}/kana`}
               className="px-2.5 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
             >
               <span>{t.wordsHub.kanaMatrixBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/compare"
+              href={`${prefix}/compare`}
               className="px-2.5 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
               <span>{t.wordsHub.lookalikesBtn}</span>
@@ -164,7 +165,7 @@ export default function WordsHubClient() {
                     <PronounceButton text={word.character} size="sm" />
                   </div>
 
-                  <Link href={`/words/${word.slug}`} className="block text-center py-1">
+                  <Link href={`${prefix}/words/${word.slug}`} className="block text-center py-1">
                     <div className="text-2xl sm:text-3xl font-black text-[#000080] group-hover:scale-105 transition-transform font-sans">
                       {word.character}
                     </div>
@@ -179,7 +180,7 @@ export default function WordsHubClient() {
                     {wordMeaning}
                   </div>
                   <Link
-                    href={`/words/${word.slug}`}
+                    href={`${prefix}/words/${word.slug}`}
                     className="inline-flex items-center gap-0.5 text-[10px] text-[#000080] font-bold group-hover:underline mt-1"
                   >
                     <span>{t.wordsHub.breakdownLink}</span>

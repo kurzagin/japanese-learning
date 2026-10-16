@@ -16,6 +16,7 @@ interface Props {
 
 export default function KanaCategoryClient({ catInfo, characters }: Props) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   const title = catInfo.title[locale] || catInfo.title.en;
   const description = catInfo.description[locale] || catInfo.description.en;
@@ -29,7 +30,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
-            href="/kana"
+            href={`${prefix}/kana`}
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -92,7 +93,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5">
             {characters.map((k) => {
               const slug = getKanaSlug(k);
-              const detailUrl = `/kana/${k.script}/${slug}`;
+              const detailUrl = `${prefix}/kana/${k.script}/${slug}`;
               const hintText = k.hint[locale] || k.hint.en || "";
 
               return (
@@ -139,7 +140,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         {/* Back Link */}
         <div className="pt-4 text-center">
           <Link
-            href="/kana"
+            href={`${prefix}/kana`}
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />

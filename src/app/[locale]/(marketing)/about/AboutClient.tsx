@@ -28,7 +28,8 @@ import {
 } from "lucide-react";
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   const interactiveFeatures = [
     {
@@ -303,7 +304,7 @@ export default function AboutPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
-                      href="/kana"
+                      href={`${prefix}/kana`}
                       className="text-xs sm:text-sm font-bold text-[#000080] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.kanaDirectoryTitle}</span>
@@ -327,7 +328,7 @@ export default function AboutPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
-                      href="/kana/hiragana/category/gojuon"
+                      href={`${prefix}/kana/hiragana/category/gojuon`}
                       className="text-xs sm:text-sm font-bold text-[#660099] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.categoryHubsTitle}</span>
@@ -351,7 +352,7 @@ export default function AboutPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
-                      href="/words/neko"
+                      href={`${prefix}/words/neko`}
                       className="text-xs sm:text-sm font-bold text-[#991b1b] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.vocabularyDirectoryTitle}</span>
@@ -375,7 +376,7 @@ export default function AboutPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
-                      href="/compare"
+                      href={`${prefix}/compare`}
                       className="text-xs sm:text-sm font-bold text-[#800000] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.kanaCompareTitle}</span>
@@ -399,7 +400,7 @@ export default function AboutPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
-                      href="/tools/romaji-to-kana"
+                      href={`${prefix}/tools/romaji-to-kana`}
                       className="text-xs sm:text-sm font-bold text-[#15803d] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.romajiConverterTitle}</span>
@@ -541,14 +542,14 @@ export default function AboutPage() {
           <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-3 text-center space-y-2">
             <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
               <Link
-                href="/dashboard"
+                href={`${prefix}/dashboard`}
                 className="w-full sm:w-auto px-6 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow"
               >
                 <span>{t.about.backBtn}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#000080]" />
               </Link>
               <Link
-                href="/study/hiragana-vowels"
+                href={`${prefix}/study/hiragana-vowels`}
                 className="w-full sm:w-auto px-5 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-[#000080]"
               >
                 {t.dashboard.studyBtn}: {t.dashboard.sec1Title}

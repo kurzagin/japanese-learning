@@ -11,7 +11,8 @@ import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +40,7 @@ export default function LoginPage() {
     localStorage.setItem("sakana_user_email", email);
     setAuthMsg({ text: t.login.authSuccessMsg, isError: false });
     setTimeout(() => {
-      router.push("/dashboard");
+      router.push(`${prefix}/dashboard`);
     }, 400);
   };
 
@@ -47,7 +48,7 @@ export default function LoginPage() {
     setGuestLoading(true);
     localStorage.setItem("sakana_user_email", "guest@sakanajp.site");
     setTimeout(() => {
-      router.push("/dashboard");
+      router.push(`${prefix}/dashboard`);
     }, 300);
   };
 
@@ -173,7 +174,7 @@ export default function LoginPage() {
 
           <div className="text-center">
             <Link
-              href="/"
+              href={prefix || "/"}
               className="text-[11px] text-[#000080] underline hover:text-[#cc0000]"
             >
               {t.login.returnLink}

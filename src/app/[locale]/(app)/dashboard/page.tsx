@@ -12,6 +12,7 @@ import { authClient } from "@/lib/auth-client";
 export default function DashboardPage() {
   const router = useRouter();
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [userEmail, setUserEmail] = useState<string>("guest@sakanajp.site");
   const [progress, setProgress] = useState<Record<string, { completed: boolean; bestSec?: number; stars: number }>>({});
   const [srsSummary, setSrsSummary] = useState<{ dueCount: number; masteredCount: number; totalStudied: number }>({
@@ -28,7 +29,7 @@ export default function DashboardPage() {
     } catch (e) {
       console.error("Sign out error:", e);
     } finally {
-      router.push("/login");
+      router.push(`${prefix}/login`);
     }
   };
 
@@ -258,7 +259,7 @@ export default function DashboardPage() {
 
               {srsSummary.dueCount > 0 && (
                 <Link
-                  href="/study/srs-due"
+                  href={`${prefix}/study/srs-due`}
                   className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1 shadow whitespace-nowrap animate-pulse"
                 >
                   <RotateCw className="w-3.5 h-3.5 animate-spin" />
@@ -316,7 +317,7 @@ export default function DashboardPage() {
 
                   {arcadeUnlocked ? (
                     <Link
-                      href="/minigame"
+                      href={`${prefix}/minigame`}
                       className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow whitespace-nowrap shrink-0"
                     >
                       <Gamepad2 className="w-3.5 h-3.5 text-[#800000]" />
@@ -429,7 +430,7 @@ export default function DashboardPage() {
                           {isUnlocked ? (
                             <>
                               <Link
-                                href={`/study/${stage.id}`}
+                                href={`${prefix}/study/${stage.id}`}
                                 className="px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] text-[#000080] flex items-center gap-1 shadow-xs cursor-pointer"
                               >
                                 <BookOpen className="w-3 h-3 text-[#000080]" />
@@ -437,7 +438,7 @@ export default function DashboardPage() {
                               </Link>
 
                               <Link
-                                href={`/test/${stage.id}`}
+                                href={`${prefix}/test/${stage.id}`}
                                 className={`px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] flex items-center gap-1 shadow-xs cursor-pointer ${
                                   isBoss ? "text-[#800000] bg-[#ffe4e1] border-[#800000]" : "text-[#cc0000]"
                                 }`}

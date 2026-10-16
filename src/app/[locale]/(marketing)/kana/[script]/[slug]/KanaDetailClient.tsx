@@ -39,6 +39,7 @@ export default function KanaDetailClient({
   origin,
 }: KanaDetailClientProps) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const scriptName = kana.script === "hiragana" ? "Hiragana" : "Katakana";
   const localizedHint = kana.hint[locale] || kana.hint.en;
 
@@ -54,7 +55,7 @@ export default function KanaDetailClient({
         {/* Navigation Breadcrumbs */}
         <div className="flex items-center justify-between text-xs font-mono">
           <Link
-            href="/kana"
+            href={`${prefix}/kana`}
             className="inline-flex items-center gap-1.5 text-[#000080] font-bold hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -246,7 +247,7 @@ export default function KanaDetailClient({
                 return (
                   <Link
                     key={ck.id}
-                    href={`/kana/${ck.script}/${ckSlug}`}
+                    href={`${prefix}/kana/${ck.script}/${ckSlug}`}
                     className="p-2.5 bg-[#f5f5f5] hover:bg-[#e8f0fe] border border-[#ccc] flex items-center justify-between transition-colors group"
                   >
                     <div>
@@ -277,14 +278,14 @@ export default function KanaDetailClient({
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link
-              href="/dashboard"
+              href={`${prefix}/dashboard`}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>{t.kanaDetail.startDrillBtn}</span>
             </Link>
             <Link
-              href="/kana"
+              href={`${prefix}/kana`}
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#d4d0c8] text-black text-xs font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] transition-colors"
             >
               <span>{t.kanaDetail.browseAllBtn}</span>

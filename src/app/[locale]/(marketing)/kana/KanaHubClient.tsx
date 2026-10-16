@@ -11,6 +11,7 @@ import { Search, Sparkles, BookOpen, Volume2, ArrowRight } from "lucide-react";
 
 export default function KanaHubClient() {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const [activeScript, setActiveScript] = useState<"hiragana" | "katakana">("hiragana");
   const [activeType, setActiveType] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,21 +63,21 @@ export default function KanaHubClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
             <Link
-              href="/compare"
+              href={`${prefix}/compare`}
               className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
             >
               <span>{t.kanaHub.lookalikeBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/tools/hiragana-chart-pdf"
+              href={`${prefix}/tools/hiragana-chart-pdf`}
               className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
             >
               <span>{t.kanaHub.hiraganaPdfBtn}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
-              href="/tools/katakana-chart-pdf"
+              href={`${prefix}/tools/katakana-chart-pdf`}
               className="px-3 py-1 bg-[#800000] text-white font-bold border-t border-l border-[#ff8080] border-b border-r border-[#400000] hover:bg-[#a00000] flex items-center gap-1.5"
             >
               <span>{t.kanaHub.katakanaPdfBtn}</span>
@@ -88,31 +89,31 @@ export default function KanaHubClient() {
           <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2 pt-2 border-t border-[#800000]/10 text-[10px] font-mono">
             <span className="font-bold text-[#800000] uppercase mr-1">{t.kanaHub.browseCategoriesLabel}</span>
             <Link
-              href="/kana/hiragana/category/gojuon"
+              href={`${prefix}/kana/hiragana/category/gojuon`}
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaGojuonBadge}
             </Link>
             <Link
-              href="/kana/hiragana/category/dakuon"
+              href={`${prefix}/kana/hiragana/category/dakuon`}
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaDakuonBadge}
             </Link>
             <Link
-              href="/kana/hiragana/category/yoon"
+              href={`${prefix}/kana/hiragana/category/yoon`}
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaYoonBadge}
             </Link>
             <Link
-              href="/kana/katakana/category/gojuon"
+              href={`${prefix}/kana/katakana/category/gojuon`}
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
               {t.kanaHub.katakanaGojuonBadge}
             </Link>
             <Link
-              href="/kana/katakana/category/extended"
+              href={`${prefix}/kana/katakana/category/extended`}
               className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
             >
               {t.kanaHub.katakanaExtendedBadge}
@@ -186,7 +187,7 @@ export default function KanaHubClient() {
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5 sm:gap-3">
           {filteredKana.map((k) => {
             const slug = getKanaSlug(k);
-            const detailUrl = `/kana/${k.script}/${slug}`;
+            const detailUrl = `${prefix}/kana/${k.script}/${slug}`;
             const hintText = k.hint[locale] || k.hint.en || "";
 
             return (
@@ -277,7 +278,7 @@ export default function KanaHubClient() {
               <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
                 <strong className="text-[#800000] block mb-1">{t.kanaHub.faq2Q}</strong>
                 <p className="text-[#555] leading-relaxed">
-                  {t.kanaHub.faq2ABefore}<Link href="/compare" className="text-[#000080] font-bold underline">{t.kanaHub.faq2ALink}</Link>{t.kanaHub.faq2AAfter}
+                  {t.kanaHub.faq2ABefore}<Link href={`${prefix}/compare`} className="text-[#000080] font-bold underline">{t.kanaHub.faq2ALink}</Link>{t.kanaHub.faq2AAfter}
                 </p>
               </div>
             </div>

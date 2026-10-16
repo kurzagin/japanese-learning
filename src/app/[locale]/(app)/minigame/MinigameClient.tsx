@@ -36,6 +36,7 @@ export default function MinigamePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   const fromStageId = searchParams.get("from") || "";
   const nextStageId = searchParams.get("next") || "";
@@ -437,7 +438,7 @@ export default function MinigamePage() {
                 </div>
 
                 <Link
-                  href="/dashboard"
+                  href={`${prefix}/dashboard`}
                   className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
@@ -481,7 +482,7 @@ export default function MinigamePage() {
               <div className="w-full max-w-xs space-y-2 pt-2">
                 {nextStageId ? (
                   <Link
-                    href={`/study/${nextStageId}`}
+                    href={`${prefix}/study/${nextStageId}`}
                     className="w-full py-2.5 px-4 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] font-black text-xs text-[#800000] flex items-center justify-center gap-2 shadow"
                   >
                     <span>{t.minigame.nextStageBtn}</span>
@@ -489,7 +490,7 @@ export default function MinigamePage() {
                   </Link>
                 ) : (
                   <Link
-                    href="/dashboard"
+                    href={`${prefix}/dashboard`}
                     className="w-full py-2.5 px-4 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] font-black text-xs text-[#800000] flex items-center justify-center gap-2 shadow"
                   >
                     <span>{t.minigame.backDashboard}</span>
@@ -507,7 +508,7 @@ export default function MinigamePage() {
                   </button>
 
                   <Link
-                    href="/dashboard"
+                    href={`${prefix}/dashboard`}
                     className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>
@@ -556,7 +557,7 @@ export default function MinigamePage() {
 
                 {nextStageId && (
                   <Link
-                    href={`/study/${nextStageId}`}
+                    href={`${prefix}/study/${nextStageId}`}
                     className="w-full py-2 px-4 bg-[#f0f0f0] border border-[#808080] hover:bg-[#e0ded6] font-bold text-xs text-[#000080] flex items-center justify-center gap-1 shadow"
                   >
                     <span>{t.minigame.nextStageBtn}</span>
@@ -564,7 +565,7 @@ export default function MinigamePage() {
                 )}
 
                 <Link
-                  href="/dashboard"
+                  href={`${prefix}/dashboard`}
                   className="block py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black shadow text-center"
                 >
                   <span>{t.nav.dashboard}</span>

@@ -18,6 +18,7 @@ export function StageLockedView({
   isArcade = false,
 }: StageLockedViewProps) {
   const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
@@ -72,7 +73,7 @@ export function StageLockedView({
                         </div>
                       </div>
                       <Link
-                        href={`/study/${reqStage.id}`}
+                        href={`${prefix}/study/${reqStage.id}`}
                         className="px-2.5 py-1 bg-[#d4d0c8] border-t border-l border-white border-b border-r-[#404040] hover:bg-[#c0bca8] text-[10px] font-bold text-[#000080] flex items-center gap-1 shrink-0"
                       >
                         <span>{t.lockedStage.goToRequiredBtn}</span>
@@ -87,7 +88,7 @@ export function StageLockedView({
             {/* Action Buttons */}
             <div className="pt-2 border-t border-[#e0e0e0] flex flex-col sm:flex-row items-center justify-end gap-2">
               <Link
-                href="/dashboard"
+                href={`${prefix}/dashboard`}
                 className="w-full sm:w-auto px-4 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
