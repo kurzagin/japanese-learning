@@ -3,161 +3,129 @@ import { STAGES } from "@/data/stages";
 import { ALL_KANA_PRIMITIVES } from "@/data/kana";
 import { getKanaSlug, CURATED_COMPARISONS, KANA_CATEGORIES } from "@/lib/kana-seo";
 import { VOCABULARY_LIST, JLPT_CATEGORIES } from "@/lib/vocab-seo";
+import { LOCALES } from "@/lib/seo/locale";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
   const now = new Date();
 
-  const getLanguageAlternates = (path: string) => ({
-    languages: {
-      en: `${baseUrl}${path}`,
-      id: `${baseUrl}${path}`,
-      ja: `${baseUrl}${path}`,
-      "x-default": `${baseUrl}${path}`,
-    },
-  });
+  // Helper generating distinct alternate URLs per language + self URL per language
+  const getLanguageAlternates = (rawPath: string) => {
+    const cleanPath = rawPath === "/" ? "" : rawPath;
+    return {
+      languages: {
+        en: `${baseUrl}${cleanPath}`,
+        id: `${baseUrl}/id${cleanPath}`,
+        ja: `${baseUrl}/ja${cleanPath}`,
+        "x-default": `${baseUrl}${cleanPath}`,
+      },
+    };
+  };
+
+  const createLocalizedEntries = (
+    rawPath: string,
+    options: {
+      changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
+      priority?: number;
+      lastModified?: Date;
+    } = {}
+  ): MetadataRoute.Sitemap => {
+    const alternates = getLanguageAlternates(rawPath);
+    const cleanPath = rawPath === "/" ? "" : rawPath;
+
+    return LOCALES.map((locale) => {
+      const localizedUrl =
+        locale === "en" ? `${baseUrl}${cleanPath}` : `${baseUrl}/${locale}${cleanPath}`;
+
+      return {
+        url: localizedUrl || `${baseUrl}/`,
+        lastModified: options.lastModified || now,
+        changeFrequency: options.changeFrequency || "weekly",
+        priority: options.priority || 0.8,
+        alternates,
+      };
+    });
+  };
 
   // Core static routes
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 1.0,
-      alternates: getLanguageAlternates(""),
-    },
-    {
-      url: `${baseUrl}/kana`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-      alternates: getLanguageAlternates("/kana"),
-    },
-    {
-      url: `${baseUrl}/words`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-      alternates: getLanguageAlternates("/words"),
-    },
-    {
-      url: `${baseUrl}/compare`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-      alternates: getLanguageAlternates("/compare"),
-    },
-    {
-      url: `${baseUrl}/tools/romaji-to-kana`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-      alternates: getLanguageAlternates("/tools/romaji-to-kana"),
-    },
-    {
-      url: `${baseUrl}/tools/hiragana-chart-pdf`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.85,
-      alternates: getLanguageAlternates("/tools/hiragana-chart-pdf"),
-    },
-    {
-      url: `${baseUrl}/tools/katakana-chart-pdf`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.85,
-      alternates: getLanguageAlternates("/tools/katakana-chart-pdf"),
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-      alternates: getLanguageAlternates("/about"),
-    },
-    {
-      url: `${baseUrl}/docs`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
-      alternates: getLanguageAlternates("/docs"),
-    },
-    {
-      url: `${baseUrl}/minigame`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
-      alternates: getLanguageAlternates("/minigame"),
-    },
+  const staticPaths: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
+    { path: "/", priority: 1.0, changeFrequency: "daily" },
+    { path: "/kana", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/words", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/compare", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/tools/romaji-to-kana", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/tools/hiragana-chart-pdf", priority: 0.85, changeFrequency: "weekly" },
+    { path: "/tools/katakana-chart-pdf", priority: 0.85, changeFrequency: "weekly" },
+    { path: "/about", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/docs", priority: 0.7, changeFrequency: "weekly" },
+    { path: "/minigame", priority: 0.7, changeFrequency: "weekly" },
   ];
 
-  // Dynamic study stages
-  const stageRoutes: MetadataRoute.Sitemap = STAGES.map((stage) => ({
-    url: `${baseUrl}/study/${stage.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-    alternates: getLanguageAlternates(`/study/${stage.id}`),
-  }));
-
-  // Dynamic programmatic Kana character pages
-  const kanaRoutes: MetadataRoute.Sitemap = ALL_KANA_PRIMITIVES.map((kana) => {
-    const path = `/kana/${kana.script}/${getKanaSlug(kana)}`;
-    return {
-      url: `${baseUrl}${path}`,
+  const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((s) =>
+    createLocalizedEntries(s.path, {
+      priority: s.priority,
+      changeFrequency: s.changeFrequency,
       lastModified: now,
+    })
+  );
+
+  // Dynamic study stages
+  const stageRoutes: MetadataRoute.Sitemap = STAGES.flatMap((stage) =>
+    createLocalizedEntries(`/study/${stage.id}`, {
+      priority: 0.8,
       changeFrequency: "monthly",
+      lastModified: now,
+    })
+  );
+
+  // Dynamic programmatic Kana character pages (219 characters)
+  const kanaRoutes: MetadataRoute.Sitemap = ALL_KANA_PRIMITIVES.flatMap((kana) => {
+    const path = `/kana/${kana.script}/${getKanaSlug(kana)}`;
+    return createLocalizedEntries(path, {
       priority: 0.7,
-      alternates: getLanguageAlternates(path),
-    };
+      changeFrequency: "monthly",
+      lastModified: now,
+    });
   });
 
   // Dynamic comparison pair pages (18 pairs)
-  const compareRoutes: MetadataRoute.Sitemap = CURATED_COMPARISONS.map((comp) => {
+  const compareRoutes: MetadataRoute.Sitemap = CURATED_COMPARISONS.flatMap((comp) => {
     const path = `/compare/${comp.slug}`;
-    return {
-      url: `${baseUrl}${path}`,
-      lastModified: now,
-      changeFrequency: "monthly",
+    return createLocalizedEntries(path, {
       priority: 0.8,
-      alternates: getLanguageAlternates(path),
-    };
+      changeFrequency: "monthly",
+      lastModified: now,
+    });
   });
 
   // Dynamic category hub pages (9 hubs: gojuon, dakuon, handakuon, yoon, extended)
-  const categoryRoutes: MetadataRoute.Sitemap = KANA_CATEGORIES.map((cat) => {
+  const categoryRoutes: MetadataRoute.Sitemap = KANA_CATEGORIES.flatMap((cat) => {
     const path = `/kana/${cat.script}/category/${cat.category}`;
-    return {
-      url: `${baseUrl}${path}`,
-      lastModified: now,
-      changeFrequency: "monthly",
+    return createLocalizedEntries(path, {
       priority: 0.8,
-      alternates: getLanguageAlternates(path),
-    };
+      changeFrequency: "monthly",
+      lastModified: now,
+    });
   });
 
   // Dynamic JLPT and Pop Culture vocabulary category hubs
-  const jlptRoutes: MetadataRoute.Sitemap = JLPT_CATEGORIES.map((cat) => {
+  const jlptRoutes: MetadataRoute.Sitemap = JLPT_CATEGORIES.flatMap((cat) => {
     const path = `/words/category/${cat.key}`;
-    return {
-      url: `${baseUrl}${path}`,
-      lastModified: now,
-      changeFrequency: "weekly",
+    return createLocalizedEntries(path, {
       priority: 0.85,
-      alternates: getLanguageAlternates(path),
-    };
+      changeFrequency: "weekly",
+      lastModified: now,
+    });
   });
 
   // Dynamic vocabulary detail pages (161 words)
-  const vocabRoutes: MetadataRoute.Sitemap = VOCABULARY_LIST.map((word) => {
+  const vocabRoutes: MetadataRoute.Sitemap = VOCABULARY_LIST.flatMap((word) => {
     const path = `/words/${word.slug}`;
-    return {
-      url: `${baseUrl}${path}`,
-      lastModified: now,
-      changeFrequency: "monthly",
+    return createLocalizedEntries(path, {
       priority: 0.8,
-      alternates: getLanguageAlternates(path),
-    };
+      changeFrequency: "monthly",
+      lastModified: now,
+    });
   });
 
   return [
@@ -170,4 +138,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...vocabRoutes,
   ];
 }
-

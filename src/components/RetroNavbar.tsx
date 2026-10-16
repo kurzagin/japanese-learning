@@ -24,22 +24,27 @@ interface RetroNavbarProps {
 }
 
 export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
+  const getLocalizedHref = (path: string) => {
+    if (locale === "en") return path;
+    return path === "/" ? `/${locale}` : `/${locale}${path}`;
+  };
+
   const navLinks = [
-    { href: "/", label: t.nav.home, icon: Home },
-    { href: "/dashboard", label: t.nav.dashboard, icon: LayoutDashboard },
-    { href: "/kana", label: t.nav.kana, icon: Grid },
-    { href: "/words", label: t.nav.words, icon: BookOpen },
-    { href: "/minigame", label: t.nav.arcade, icon: Gamepad2 },
-    { href: "/compare", label: t.nav.compare, icon: GitCompare },
-    { href: "/tools/romaji-to-kana", label: t.nav.converter, icon: ArrowLeftRight },
-    { href: "/tools/hiragana-chart-pdf", label: t.nav.pdfCharts, icon: FileDown },
-    { href: "/about", label: t.nav.about, icon: Info },
-    { href: "/docs", label: t.nav.docs, icon: BookOpen },
+    { href: getLocalizedHref("/"), rawPath: "/", label: t.nav.home, icon: Home },
+    { href: getLocalizedHref("/dashboard"), rawPath: "/dashboard", label: t.nav.dashboard, icon: LayoutDashboard },
+    { href: getLocalizedHref("/kana"), rawPath: "/kana", label: t.nav.kana, icon: Grid },
+    { href: getLocalizedHref("/words"), rawPath: "/words", label: t.nav.words, icon: BookOpen },
+    { href: getLocalizedHref("/minigame"), rawPath: "/minigame", label: t.nav.arcade, icon: Gamepad2 },
+    { href: getLocalizedHref("/compare"), rawPath: "/compare", label: t.nav.compare, icon: GitCompare },
+    { href: getLocalizedHref("/tools/romaji-to-kana"), rawPath: "/tools/romaji-to-kana", label: t.nav.converter, icon: ArrowLeftRight },
+    { href: getLocalizedHref("/tools/hiragana-chart-pdf"), rawPath: "/tools/hiragana-chart-pdf", label: t.nav.pdfCharts, icon: FileDown },
+    { href: getLocalizedHref("/about"), rawPath: "/about", label: t.nav.about, icon: Info },
+    { href: getLocalizedHref("/docs"), rawPath: "/docs", label: t.nav.docs, icon: BookOpen },
   ];
 
   // Close mobile drawer on route change
@@ -75,7 +80,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
       {/* OS Title Bar */}
       <div className="bg-[#000080] text-white px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-2">
         <Link
-          href="/"
+          href={getLocalizedHref("/")}
           className="flex items-center gap-2 hover:opacity-90 transition-opacity min-w-0"
         >
           <FishIcon className="w-4 h-4 text-[#ffff00] shrink-0" />
@@ -130,9 +135,9 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
         >
           {navLinks.map((item) => {
             const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname?.startsWith(item.href);
+              item.rawPath === "/"
+                ? pathname === item.href
+                : pathname === item.href || (pathname?.startsWith(item.href + "/") ?? false);
 
             const Icon = item.icon;
 
@@ -176,9 +181,9 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
           <div className="p-2 space-y-1">
             {navLinks.map((item) => {
               const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(item.href);
+                item.rawPath === "/"
+                  ? pathname === item.href
+                  : pathname === item.href || (pathname?.startsWith(item.href + "/") ?? false);
 
               const Icon = item.icon;
 
