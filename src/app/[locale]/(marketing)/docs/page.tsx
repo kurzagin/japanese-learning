@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import DocsClient from "./DocsClient";
+import { DocsLayout } from "@/components/docs/DocsLayout";
+import { DocsHubClient } from "@/components/docs/DocsHubClient";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
 
 interface Props {
@@ -11,28 +12,28 @@ interface Props {
 
 const META_BY_LOCALE = {
   en: {
-    title: "API Documentation | SaKana Kana Primitives API",
+    title: "Documentation & Knowledge Base | SaKana Japanese Learning",
     description:
-      "Public API reference for SaKana Japanese Learning platform. Access Hiragana & Katakana primitives, romaji romanization, phonetic groupings, and native audio endpoints.",
-    ogTitle: "SaKana Public API Documentation",
+      "Comprehensive documentation for SaKana. Learn about the SM-2 Spaced Repetition System (SRS), Speed Sprint reflex challenges, Voicevox neural audio, and adaptive Arcade drills.",
+    ogTitle: "SaKana Knowledge Base & System Documentation",
     ogDescription:
-      "Explore the SaKana Public Kana API v1. Access structured Japanese Hiragana & Katakana characters, phonetic rows, hints, and pronunciation audio files.",
+      "Explore the science and mechanics behind SaKana: SM-2 spaced repetition, reflex sprints, Voicevox neural audio, and arcade survival loops.",
   },
   id: {
-    title: "Dokumentasi API | API Primitif Kana SaKana",
+    title: "Dokumentasi & Basis Pengetahuan | Belajar Bahasa Jepang SaKana",
     description:
-      "Referensi API publik untuk platform belajar SaKana. Akses dataset Hiragana & Katakana, alih aksara romaji, klasifikasi fonetik, dan endpoint audio native.",
-    ogTitle: "Dokumentasi API Publik SaKana",
+      "Dokumentasi lengkap untuk SaKana. Pelajari tentang Sistem Pengulangan Berjarak (SRS) SM-2, tantangan refleks Speed Sprint, audio saraf Voicevox, dan latihan Arcade adaptif.",
+    ogTitle: "Basis Pengetahuan & Dokumentasi Sistem SaKana",
     ogDescription:
-      "Akses data karakter Hiragana & Katakana terstruktur, petunjuk visual, dan file audio pengucapan Voicevox via REST API.",
+      "Pelajari sains dan mekanik di balik SaKana: pengulangan berjarak SM-2, sprint refleks, audio saraf Voicevox, dan loop bertahan hidup arcade.",
   },
   ja: {
-    title: "APIドキュメント | SaKana かなプリミティブAPI仕様",
+    title: "ドキュメント＆ナレッジベース | SaKana 日本語学習システム",
     description:
-      "SaKana日本語学習プラットフォームの公開REST APIリファレンス。ひらがな・カタカナの字形データ、ローマ字転写、音韻分類、ネイティブ音声をプログラムから取得可能。",
-    ogTitle: "SaKana 公開APIドキュメント",
+      "SaKanaの総合ドキュメント。SM-2間隔反復システム（SRS）、スピードスプリント反射テスト、VOICEVOXニューラル音声、適応型アーケードドリルの仕組みを解説。",
+    ogTitle: "SaKana ナレッジベース＆システムドキュメント",
     ogDescription:
-      "構造化されたひらがな・カタカナの五十音データとVOICEVOX音声エンドポイントを自由にご利用いただけます。",
+      "SaKanaの背後にある記憶科学とシステム仕様：SM-2間隔反復、反射神経スプリント、VOICEVOX音声、アーケード生存ループを徹底解説。",
   },
 };
 
@@ -63,5 +64,9 @@ export default async function DocsPage({ params }: Props) {
   if (!isValidLocale(locale)) {
     notFound();
   }
-  return <DocsClient />;
+  return (
+    <DocsLayout>
+      <DocsHubClient />
+    </DocsLayout>
+  );
 }
