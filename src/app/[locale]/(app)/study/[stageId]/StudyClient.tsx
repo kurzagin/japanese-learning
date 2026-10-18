@@ -5,8 +5,9 @@ import Link from "next/link";
 import { STAGES, Stage, StudyCard, getStageUnlockStatus, STAGES_BY_ID } from "@/data/stages";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { StageLockedView } from "@/components/StageLockedView";
+import { PronounceButton } from "@/components/PronounceButton";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowLeft, RotateCw, Check, Play, BookOpen, Clock, Sparkles, Zap, Star } from "lucide-react";
+import { ArrowLeft, RotateCw, Check, Play, BookOpen, Clock, Sparkles, Zap, Star, Volume2 } from "lucide-react";
 import {
   SrsRating,
   SrsCardRecord,
@@ -255,13 +256,43 @@ export default function StudyClient({
     ]
   );
 
-  // Keyboard shortcuts: Space/Enter = flip; 1 = Again, 2 = Hard, 3 = Good, 4 = Easy
+  const playCardAudio = useCallback(
+    (textToSpeak?: string) => {
+      const targetText = textToSpeak || currentCard?.character;
+      if (!targetText) return;
+      if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(targetText);
+        utterance.lang = "ja-JP";
+        utterance.rate = 0.85;
+        const voices = window.speechSynthesis.getVoices();
+        const jaVoice = voices.find(
+          (v) => v.lang.startsWith("ja") || v.lang.includes("JP")
+        );
+        if (jaVoice) {
+          utterance.voice = jaVoice;
+        }
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.error("Audio playback error:", err);
+      }
+    },
+    [currentCard]
+  );
+
+  // Keyboard shortcuts: Space/Enter = flip; 1 = Again, 2 = Hard, 3 = Good, 4 = Easy; R = Replay Audio
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (completed) return;
       if (e.code === "Space" || e.code === "Enter") {
         e.preventDefault();
         setIsFlipped((prev) => !prev);
+      } else if (e.key === "r" || e.key === "R") {
+        e.preventDefault();
+        playCardAudio();
       } else if (isFlipped) {
         if (e.key === "1") {
           e.preventDefault();
@@ -280,7 +311,7 @@ export default function StudyClient({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isFlipped, completed, handleRating]);
+  }, [isFlipped, completed, handleRating, playCardAudio]);
 
   const restartStudy = () => {
     if (stage?.cards) {
@@ -436,8 +467,13 @@ export default function StudyClient({
                 className="my-3 p-5 border-2 border-dashed border-[#000080] bg-[#fdfdfb] hover:bg-[#fffff0] cursor-pointer flex flex-col items-center justify-center text-center transition-colors min-h-[220px]"
               >
                 {/* Primary Japanese Character / Word */}
-                <div className="text-6xl sm:text-7xl font-bold font-serif text-[#000080] my-1 tracking-tight">
-                  {currentCard.character}
+                <div className="flex flex-col items-center justify-center my-1">
+                  <div className="text-6xl sm:text-7xl font-bold font-serif text-[#000080] tracking-tight">
+                    {currentCard.character}
+                  </div>
+                  <div className="mt-2" onClick={(e) => e.stopPropagation()}>
+                    <PronounceButton text={currentCard.character} size="sm" label="AUDIO (R)" />
+                  </div>
                 </div>
 
                 {!isFlipped ? (
@@ -448,9 +484,17 @@ export default function StudyClient({
                   <div className="w-full mt-2 pt-3 border-t border-[#d0d0d0] text-center space-y-2.5">
                     {/* Native Japanese Sample Word & Reading */}
                     <div className="bg-[#eef3f8] border border-[#b8c8d8] p-2 text-xs">
-                      <span className="text-[10px] text-[#000080] font-bold block">
-                        ◆ {t.study.sampleWord}
-                      </span>
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-[10px] text-[#000080] font-bold">
+                          ◆ {t.study.sampleWord}
+                        </span>
+                        <div onClick={(e) => e.stopPropagation()}>
+                          <PronounceButton
+                            text={currentCard.sampleWordJp.split(" ")[0]}
+                            size="sm"
+                          />
+                        </div>
+                      </div>
                       <div className="text-sm font-bold text-[#000080] mt-0.5">
                         {currentCard.sampleWordJp}
                       </div>
