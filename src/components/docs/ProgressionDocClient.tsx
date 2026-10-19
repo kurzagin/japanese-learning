@@ -57,10 +57,40 @@ export function ProgressionDocClient() {
           <div className="mt-3 text-[11px] text-[#555] bg-white p-2 border border-[#e8b8b8]">
             ✓ Timed reflex drill (&lt; 1.5s per character)<br />
             ✓ Requires $\ge 80\%$ accuracy to pass<br />
+            ✓ Optional Listening Sprint: audio questions auto-pause timer during playback<br />
             ✓ <strong>Unlocks the next sector</strong>
           </div>
         </div>
       </div>
+
+      {/* Multimodal Question Mechanics in Speed Sprint */}
+      <section className="space-y-3 pt-4">
+        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+          <Zap className="w-5 h-5 text-[#cc0000]" />
+          <span>Multimodal Sprint Mechanics &amp; Audio Drills</span>
+        </h2>
+        <p className="text-xs text-[#333] leading-relaxed">
+          Speed Sprint tests are engineered for balanced neural wiring. They test both visual orthography and optional ear-to-script phonetic decoding without unfair speed penalties:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div className="p-3 bg-[#f5f5f0] border border-[#808080] space-y-1">
+            <div className="font-bold text-[#000080] font-mono">1. Visual Recognition (Default)</div>
+            <ul className="list-disc pl-4 space-y-1 text-[#333] text-[11px]">
+              <li><strong>Kana ➔ Romaji:</strong> See target kana, pick corresponding romaji pronunciation.</li>
+              <li><strong>Romaji ➔ Kana:</strong> See Latin romanization, pick the correct native kana shape.</li>
+            </ul>
+          </div>
+          <div className="p-3 bg-[#f5f5f0] border border-[#808080] space-y-1">
+            <div className="font-bold text-[#008000] font-mono">2. Auditory Recall (Optional Toggle)</div>
+            <ul className="list-disc pl-4 space-y-1 text-[#333] text-[11px]">
+              <li><strong>Audio ➔ Kana:</strong> Listen to authentic Japanese audio, select target kana.</li>
+              <li><strong>Audio ➔ Romaji:</strong> Listen to audio, select romaji spelling.</li>
+              <li><strong>Automatic Timer Pausing:</strong> The countdown timer pauses completely while audio is playing and resumes the instant speech finishes.</li>
+              <li><strong>Fair Replay [R]:</strong> Replay button and keyboard shortcut <code>[R]</code> also pause the clock so learners are never penalized for re-listening.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Boss Checkpoint Gates */}
       <section className="space-y-3 pt-4">
