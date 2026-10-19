@@ -5,7 +5,7 @@ export interface DocsTopic {
   category: "guide" | "developer";
   iconName: "book" | "sparkles" | "trophy" | "gamepad" | "volume" | "code";
   readTime: string;
-  badgeKey: "hub" | "coreAlgorithm" | "gameplay" | "combat" | "voicevox" | "restApi";
+  badgeKey: "hub" | "coreAlgorithm" | "gameplay" | "combat" | "audioEngine" | "restApi";
 }
 
 export const DOCS_TOPICS: DocsTopic[] = [
@@ -52,7 +52,7 @@ export const DOCS_TOPICS: DocsTopic[] = [
     category: "guide",
     iconName: "volume",
     readTime: "5 min",
-    badgeKey: "voicevox",
+    badgeKey: "audioEngine",
   },
   {
     id: "api",

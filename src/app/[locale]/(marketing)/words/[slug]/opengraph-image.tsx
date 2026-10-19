@@ -193,7 +193,7 @@ export default async function Image({ params }: Props) {
                   padding: "6px 14px",
                 }}
               >
-                VOICEVOX AUDIO
+                NATIVE AUDIO
               </span>
             </div>
           </div>

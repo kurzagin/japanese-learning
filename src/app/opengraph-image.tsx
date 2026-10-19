@@ -93,7 +93,7 @@ export default async function Image() {
               Anime Words & Loanwords
             </span>
             <span style={{ backgroundColor: "#006600", color: "#fff", padding: "6px 16px" }}>
-              Voicevox Audio
+              Native Audio
             </span>
           </div>
         </div>

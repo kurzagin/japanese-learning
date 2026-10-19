@@ -41,24 +41,24 @@ export function AudioDocClient() {
           <span>NEURAL SYNTHESIS &amp; PHONETICS</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-tight">
-          Voicevox Neural Audio &amp; Japanese Phonetics
+          Native Japanese Speech &amp; Phonetics
         </h1>
         <p className="text-sm text-[#444] mt-2 leading-relaxed">
-          How SaKana uses Voicevox neural speech modeling (Robo Type T) at a calibrated 0.85× pace to train
+          How SaKana uses calibrated native Japanese speech synthesis (TTS) at an optimal 0.85× pace to train
           your ears for native Japanese pitch and mora timing.
         </p>
       </div>
 
-      {/* Voicevox Engine Intro */}
+      {/* Speech Engine Intro */}
       <div className="p-4 bg-[#fdfdfb] border-2 border-[#000080] shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-xs font-bold text-[#000080] uppercase font-mono">
             <Bot className="w-4 h-4 text-[#000080]" />
-            <span>Voicevox Neural Engine: Robo Type T</span>
+            <span>Native Speech Synthesis Engine</span>
           </div>
           <p className="text-xs text-[#555] leading-relaxed">
-            Every audio file in SaKana was synthesized using deep neural networks to produce authentic Japanese
-            accentuation and clear consonant attacks.
+            Audio pronunciation in SaKana is rendered through clear native Japanese speech synthesis to produce authentic
+            accentuation and crisp consonant attacks.
           </p>
         </div>
         <span className="px-2 py-1 bg-[#000080] text-white font-mono text-[10px] font-bold shrink-0">
@@ -73,7 +73,7 @@ export function AudioDocClient() {
           <span>Interactive Phonetic Audio Samples</span>
         </h2>
         <p className="text-xs text-[#555]">
-          Click any button below to audition tricky characters directly through the Voicevox pipeline:
+          Click any button below to audition tricky characters directly through the native audio player:
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">

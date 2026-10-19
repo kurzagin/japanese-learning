@@ -16,7 +16,7 @@ const META_BY_LOCALE = {
       "Skip the boring textbooks. Master Hiragana and Katakana fast with audio flashcards, spaced repetition, and iconic Japanese pop-culture words.",
     ogTitle: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",
     ogDescription:
-      "Master Japanese Hiragana and Katakana through speed recognition flashcards, native Voicevox audio, and real anime words.",
+      "Master Japanese Hiragana and Katakana through speed recognition flashcards, native Japanese audio, and real anime words.",
   },
   id: {
     title: "Cara Menyenangkan Kuasai Kana — Didesain untuk Penggemar Anime | SaKana",
@@ -24,12 +24,12 @@ const META_BY_LOCALE = {
       "Tinggalkan buku teks yang membosankan. Kuasai Hiragana dan Katakana cepat dengan flashcard audio, spaced repetition, dan kosakata anime populer.",
     ogTitle: "SaKana (魚) — Cara Tercepat Belajar Huruf Jepang untuk Penggemar Anime",
     ogDescription:
-      "Kuasai Hiragana dan Katakana Jepang melalui drill kecepatan, audio Voicevox native, dan kata-kata anime populer.",
+      "Kuasai Hiragana dan Katakana Jepang melalui drill kecepatan, audio Jepang native, dan kata-kata anime populer.",
   },
   ja: {
     title: "アニメファンのための最速「かな文字」学習ドリル | SaKana (魚)",
     description:
-      "退屈なテキスト練習は不要。テンポの良いカード学習、クリアなVOICEVOXネイティブ音声、大好きなポップカルチャーの言葉でひらがな・カタカナを楽しく身につけます。",
+      "退屈なテキスト練習は不要。テンポの良いカード学習、クリアなネイティブ音声、大好きなポップカルチャーの言葉でひらがな・カタカナを楽しく身につけます。",
     ogTitle: "SaKana (魚) — アニメファンのための「かな文字」瞬時認識ドリル",
     ogDescription:
       "反射神経を鍛えるカード学習とクリアな音声で、ひらがな・カタカナを素早くマスター。",

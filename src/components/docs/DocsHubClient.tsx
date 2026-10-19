@@ -58,9 +58,9 @@ export function DocsHubClient() {
     },
     "audio-phonetics": {
       title: "Audio Engine & Japanese Phonetics",
-      desc: "Voicevox neural voice synthesis (Robo Type T), Japanese Mora timing, Pitch accents, and foreign loanword Katakana combinations.",
+      desc: "Native Japanese speech synthesis (TTS), Japanese Mora timing, Pitch accents, and foreign loanword Katakana combinations.",
       highlights: [
-        "Voicevox Robo Type T neural model at 0.85x speed",
+        "Calibrated native speech model at 0.85x speed",
         "Mora timing vs. English syllables",
         "Pitch accent fundamentals (Heiban, Odaka, etc.)",
         "Foreign loanword Katakana (Fa, Ti, She, Je)",
@@ -68,7 +68,7 @@ export function DocsHubClient() {
     },
     api: {
       title: "Developer REST API Console",
-      desc: "Interactive REST API playground for developers. Access structured Hiragana and Katakana character primitives, romaji, and Voicevox audio endpoints.",
+      desc: "Interactive REST API playground for developers. Access structured Hiragana and Katakana character primitives, romaji, and pronunciation audio endpoints.",
       highlights: [
         "GET /api/v1/kana endpoint reference",
         "Filter by script, phonetic type, and minimal mode",
@@ -92,7 +92,7 @@ export function DocsHubClient() {
         </h1>
         <p className="text-sm text-[#444] mt-2 max-w-3xl leading-relaxed">
           Welcome to the comprehensive SaKana guide. Learn how our spaced repetition memory model (SM-2),
-          arcade reflex drills, neural Voicevox audio, and progression gates work together to build
+          arcade reflex drills, native Japanese audio, and progression gates work together to build
           effortless Japanese recognition.
         </p>
       </div>

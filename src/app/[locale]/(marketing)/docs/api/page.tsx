@@ -14,7 +14,7 @@ const META_BY_LOCALE = {
   en: {
     title: "Developer REST API Playground | SaKana Documentation",
     description:
-      "Public REST API reference and interactive console for SaKana. Access structured Hiragana and Katakana character primitives, romaji romanization, and Voicevox audio endpoints.",
+      "Public REST API reference and interactive console for SaKana. Access structured Hiragana and Katakana character primitives, romaji romanization, and native pronunciation audio endpoints.",
     ogTitle: "SaKana Public REST API Documentation",
     ogDescription:
       "Explore the SaKana Public Kana API v1. Access structured Japanese Hiragana & Katakana characters, phonetic rows, hints, and pronunciation audio files.",
@@ -22,18 +22,18 @@ const META_BY_LOCALE = {
   id: {
     title: "Konsol Developer REST API | Dokumentasi SaKana",
     description:
-      "Referensi REST API publik dan konsol interaktif untuk SaKana. Akses data karakter Hiragana dan Katakana terstruktur, romaji, dan endpoint audio Voicevox.",
+      "Referensi REST API publik dan konsol interaktif untuk SaKana. Akses data karakter Hiragana dan Katakana terstruktur, romaji, dan endpoint audio pengucapan native.",
     ogTitle: "Dokumentasi API Publik SaKana",
     ogDescription:
-      "Akses data karakter Hiragana & Katakana terstruktur, petunjuk visual, dan file audio pengucapan Voicevox via REST API.",
+      "Akses data karakter Hiragana & Katakana terstruktur, petunjuk visual, dan file audio pengucapan native via REST API.",
   },
   ja: {
     title: "開発者向け REST API コンソール | SaKana ドキュメント",
     description:
-      "SaKana日本語学習プラットフォームの公開REST APIリファレンスとインタラクティブテストベンチ。五十音データとVOICEVOX音声エンドポイントをプログラムから取得可能。",
+      "SaKana日本語学習プラットフォームの公開REST APIリファレンスとインタラクティブテストベンチ。五十音データと発音音声エンドポイントをプログラムから取得可能。",
     ogTitle: "SaKana 公開APIドキュメント",
     ogDescription:
-      "構造化されたひらがな・カタカナの五十音データとVOICEVOX音声エンドポイントを自由にご利用いただけます。",
+      "構造化されたひらがな・カタカナの五十音データとネイティブ音声エンドポイントを自由にご利用いただけます。",
   },
 };
 

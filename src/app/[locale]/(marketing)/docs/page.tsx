@@ -14,26 +14,26 @@ const META_BY_LOCALE = {
   en: {
     title: "Documentation & Knowledge Base | SaKana Japanese Learning",
     description:
-      "Comprehensive documentation for SaKana. Learn about the SM-2 Spaced Repetition System (SRS), Speed Sprint reflex challenges, Voicevox neural audio, and adaptive Arcade drills.",
+      "Comprehensive documentation for SaKana. Learn about the SM-2 Spaced Repetition System (SRS), Speed Sprint reflex challenges, native Japanese speech audio, and adaptive Arcade drills.",
     ogTitle: "SaKana Knowledge Base & System Documentation",
     ogDescription:
-      "Explore the science and mechanics behind SaKana: SM-2 spaced repetition, reflex sprints, Voicevox neural audio, and arcade survival loops.",
+      "Explore the science and mechanics behind SaKana: SM-2 spaced repetition, reflex sprints, native speech audio, and arcade survival loops.",
   },
   id: {
     title: "Dokumentasi & Basis Pengetahuan | Belajar Bahasa Jepang SaKana",
     description:
-      "Dokumentasi lengkap untuk SaKana. Pelajari tentang Sistem Pengulangan Berjarak (SRS) SM-2, tantangan refleks Speed Sprint, audio saraf Voicevox, dan latihan Arcade adaptif.",
+      "Dokumentasi lengkap untuk SaKana. Pelajari tentang Sistem Pengulangan Berjarak (SRS) SM-2, tantangan refleks Speed Sprint, audio penutur asli Jepang, dan latihan Arcade adaptif.",
     ogTitle: "Basis Pengetahuan & Dokumentasi Sistem SaKana",
     ogDescription:
-      "Pelajari sains dan mekanik di balik SaKana: pengulangan berjarak SM-2, sprint refleks, audio saraf Voicevox, dan loop bertahan hidup arcade.",
+      "Pelajari sains dan mekanik di balik SaKana: pengulangan berjarak SM-2, sprint refleks, audio penutur asli, dan loop bertahan hidup arcade.",
   },
   ja: {
     title: "ドキュメント＆ナレッジベース | SaKana 日本語学習システム",
     description:
-      "SaKanaの総合ドキュメント。SM-2間隔反復システム（SRS）、スピードスプリント反射テスト、VOICEVOXニューラル音声、適応型アーケードドリルの仕組みを解説。",
+      "SaKanaの総合ドキュメント。SM-2間隔反復システム（SRS）、スピードスプリント反射テスト、ネイティブ日本語音声、適応型アーケードドリルの仕組みを解説。",
     ogTitle: "SaKana ナレッジベース＆システムドキュメント",
     ogDescription:
-      "SaKanaの背後にある記憶科学とシステム仕様：SM-2間隔反復、反射神経スプリント、VOICEVOX音声、アーケード生存ループを徹底解説。",
+      "SaKanaの背後にある記憶科学とシステム仕様：SM-2間隔反復、反射神経スプリント、ネイティブ日本語音声、アーケード生存ループを徹底解説。",
   },
 };
 
