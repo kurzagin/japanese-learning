@@ -266,7 +266,7 @@ export default function HomePage() {
               </div>
               <div className="space-y-2.5 text-xs">
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080] select-none">
+                  <summary className="font-bold text-[#000080]">
                     {t.home.faq1Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
@@ -275,7 +275,7 @@ export default function HomePage() {
                 </details>
 
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080] select-none">
+                  <summary className="font-bold text-[#000080]">
                     {t.home.faq2Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
@@ -284,7 +284,7 @@ export default function HomePage() {
                 </details>
 
                 <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080] select-none">
+                  <summary className="font-bold text-[#000080]">
                     {t.home.faq3Q}
                   </summary>
                   <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">

@@ -76,7 +76,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   }, []);
 
   return (
-    <header className="w-full shrink-0 sticky top-0 z-50 border-b border-[#808080] shadow-xs select-none">
+    <header className="w-full shrink-0 sticky top-0 z-50 border-b border-[#808080] shadow-xs">
       {/* OS Title Bar */}
       <div className="bg-[#000080] text-white px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-2">
         <Link

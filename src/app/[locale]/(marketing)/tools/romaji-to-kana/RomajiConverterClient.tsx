@@ -88,7 +88,7 @@ export default function RomajiConverterClient() {
             />
             {/* Smart Particle Converter Toggle */}
             <div className="mt-2 flex items-center justify-between text-[11px] font-mono bg-[#f0f4f8] p-2 border border-[#d0d8e8]">
-              <label className="flex items-center gap-2 cursor-pointer select-none text-[#000080] font-semibold">
+              <label className="flex items-center gap-2 cursor-pointer text-[#000080] font-semibold">
                 <input
                   type="checkbox"
                   checked={smartParticles}
