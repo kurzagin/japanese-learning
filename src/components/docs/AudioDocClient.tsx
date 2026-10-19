@@ -130,6 +130,31 @@ export function AudioDocClient() {
         </div>
       </section>
 
+      {/* Audio Integration in Speed Sprints */}
+      <section className="space-y-3 pt-4">
+        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+          <Volume2 className="w-5 h-5 text-[#008000]" />
+          <span>Interactive Audio in Speed Sprints (Timed Drills)</span>
+        </h2>
+        <p className="text-xs text-[#333] leading-relaxed">
+          While flashcards in study mode allow relaxed listening, SaKana&apos;s <strong>Speed Sprint</strong> challenges also feature an optional <em>Listening Sprint</em> mode.
+        </p>
+        <div className="p-3 bg-[#f5f5f0] border border-[#808080] text-xs space-y-2">
+          <div className="font-bold text-[#000080] uppercase font-mono">
+            Zero Audio Latency Penalty:
+          </div>
+          <p className="text-[#333] text-[11px] leading-relaxed">
+            Speech synthesis naturally takes 500ms–800ms to articulate phonemes. To keep 15-second timed tests 100% fair, SaKana features an <strong>auto-pause timer mechanism</strong>:
+          </p>
+          <ul className="list-disc pl-4 space-y-1 text-[#333] text-[11px]">
+            <li><strong>Auto Pause on Play:</strong> The countdown timer pauses instantly while speech plays.</li>
+            <li><strong>Auto Resume on End:</strong> The moment the audio finishes, the timer resumes so pure reaction speed is recorded.</li>
+            <li><strong>Hotkeys:</strong> Press <code>[R]</code> during an audio question to replay the sound at any time without losing seconds.</li>
+            <li><strong>User Toggle:</strong> Can be turned ON or OFF at any time in the test header or system settings.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Navigation Footer */}
       <div className="mt-8 pt-4 border-t-2 border-[#808080] flex justify-between items-center text-xs">
         <Link
