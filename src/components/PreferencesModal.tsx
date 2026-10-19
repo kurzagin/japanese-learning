@@ -15,7 +15,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const [userEmail, setUserEmail] = useState<string>("guest@sakanajp.site");
-  const [audioQuestions, setAudioQuestions] = useState<boolean>(true);
+  const [audioQuestions, setAudioQuestions] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -25,6 +25,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
       const savedAudio = localStorage.getItem("sakana_test_enable_audio");
       if (savedAudio !== null) {
         setAudioQuestions(savedAudio === "true");
+      } else {
+        setAudioQuestions(false);
       }
     }
   }, [isOpen]);
