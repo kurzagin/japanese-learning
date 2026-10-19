@@ -87,7 +87,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
         {/* Win98 Window Shell */}
         <div className="border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] bg-[#d4d0c8] shadow-2xl flex-1 flex flex-col">
           {/* Blue Title Bar */}
-          <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between select-none">
+          <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 bg-[#ffff00] inline-block border border-black shadow-xs"></span>
               <span className="font-bold text-xs sm:text-sm tracking-wider font-mono">
@@ -100,7 +100,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </div>
 
           {/* MSDN Style Menu / Breadcrumb Bar */}
-          <div className="px-3 py-1.5 bg-[#ece9d8] border-b border-[#808080] flex flex-wrap items-center justify-between gap-2 text-xs select-none">
+          <div className="px-3 py-1.5 bg-[#ece9d8] border-b border-[#808080] flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#333]">
               <Link href={`${prefix}/`} className="hover:underline text-[#000080] flex items-center gap-1">
                 <Home className="w-3 h-3" />
@@ -200,7 +200,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </div>
 
           {/* Win98 Status Bar */}
-          <div className="px-3 py-1 bg-[#d4d0c8] border-t border-[#808080] flex items-center justify-between text-[11px] font-mono text-[#555] select-none">
+          <div className="px-3 py-1 bg-[#d4d0c8] border-t border-[#808080] flex items-center justify-between text-[11px] font-mono text-[#555]">
             <span className="truncate">SaKana Manual // Documentation System</span>
             <span className="shrink-0">PAGE READY</span>
           </div>
