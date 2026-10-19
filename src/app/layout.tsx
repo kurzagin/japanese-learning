@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | SaKana (魚)",
   },
   description:
-    "Skip the boring textbooks. Master Hiragana, Katakana, and iconic Japanese pop-culture words through fast flashcards, native Voicevox audio, and speed drills.",
+    "Skip the boring textbooks. Master Hiragana, Katakana, and iconic Japanese pop-culture words through fast flashcards, native Japanese audio, and speed drills.",
   applicationName: "SaKana",
   authors: [{ name: "SaKana Project Team" }],
   generator: "Next.js",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Anime Katakana",
     "Japanese alphabet drill",
     "Fast Japanese flashcards",
-    "Voicevox audio Japanese",
+    "Native Japanese audio speech",
     "Belajar Hiragana Katakana anime",
     "日本語学習",
     "ひらがな",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",
     description:
-      "Master Hiragana, Katakana, and Japanese pop-culture vocabulary with fast-paced flashcards and native Voicevox neural audio.",
+      "Master Hiragana, Katakana, and Japanese pop-culture vocabulary with fast-paced flashcards and native Japanese audio.",
     siteName: "SaKana",
   },
   twitter: {

@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (locale === "id") {
     title = `${kana.character} (${kana.romaji}) — Panduan & Pengucapan Karakter ${scriptTitle}`;
-    description = `Pelajari karakter Jepang ${scriptTitle} ${kana.character} (${kana.romaji}). Audio pengucapan Voicevox native, petunjuk visual, dan contoh kosakata.`;
+    description = `Pelajari karakter Jepang ${scriptTitle} ${kana.character} (${kana.romaji}). Audio pengucapan Jepang native, petunjuk visual, dan contoh kosakata.`;
   } else if (locale === "ja") {
     title = `${kana.character}（${kana.romaji}）— ${scriptTitle === "Hiragana" ? "ひらがな" : "カタカナ"}解説と発音ガイド`;
     description = `日本語の${scriptTitle === "Hiragana" ? "ひらがな" : "カタカナ"}「${kana.character}」（${kana.romaji}）の正しい発音、書き順、記憶のコツと単語例。`;

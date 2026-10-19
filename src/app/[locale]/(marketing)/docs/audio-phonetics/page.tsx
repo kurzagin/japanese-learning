@@ -14,26 +14,26 @@ const META_BY_LOCALE = {
   en: {
     title: "Audio Engine & Japanese Phonetics | SaKana Documentation",
     description:
-      "Learn about SaKana's audio pipeline: Voicevox neural synthesis (Robo Type T) at a calibrated 0.85x speed, Japanese Mora timing, pitch accents, and loanword Katakana combinations.",
-    ogTitle: "Voicevox Neural Audio & Phonetics — SaKana",
+      "Learn about SaKana's audio pipeline: native Japanese speech synthesis at a calibrated 0.85x speed, Japanese Mora timing, pitch accents, and loanword Katakana combinations.",
+    ogTitle: "Native Audio Engine & Phonetics — SaKana",
     ogDescription:
-      "Explore the phonetic accuracy and Voicevox neural speech engine powering SaKana's crystal-clear pronunciation.",
+      "Explore the phonetic accuracy and speech engine powering SaKana's crystal-clear native pronunciation.",
   },
   id: {
     title: "Mesin Audio & Fonetik Bahasa Jepang | Dokumentasi SaKana",
     description:
-      "Pelajari sistem audio SaKana: sintesis neural Voicevox (Robo Type T) dengan tempo terkalibrasi 0.85x, ketukan Mora Jepang, aksen nada, dan kombinasi Katakana kata serapan.",
-    ogTitle: "Audio Neural Voicevox & Fonetik — SaKana",
+      "Pelajari sistem audio SaKana: sintesis suara native bahasa Jepang dengan tempo terkalibrasi 0.85x, ketukan Mora Jepang, aksen nada, dan kombinasi Katakana kata serapan.",
+    ogTitle: "Mesin Audio Native & Fonetik — SaKana",
     ogDescription:
-      "Jelajahi keakuratan fonetik dan mesin suara neural Voicevox yang menggerakkan pelafalan jernih SaKana.",
+      "Jelajahi keakuratan fonetik dan mesin suara yang menggerakkan pelafalan jernih SaKana.",
   },
   ja: {
     title: "音声エンジン＆日本語音韻論 | SaKana ドキュメント",
     description:
-      "SaKanaの音声パイプライン解説：0.85倍速に調整されたVOICEVOXニューラル音声（ロボType T）、モーラ拍感覚、高低アクセント、外来語カタカナ特殊音の仕組み。",
-    ogTitle: "VOICEVOXニューラル音声＆音韻論仕様 — SaKana",
+      "SaKanaの音声パイプライン解説：0.85倍速に調整されたネイティブ日本語音声合成、モーラ拍感覚、高低アクセント、外来語カタカナ特殊音の仕組み。",
+    ogTitle: "ネイティブ音声＆音韻論仕様 — SaKana",
     ogDescription:
-      "SaKanaのクリアなネイティブ発音を支える音韻設計とVOICEVOX音声エンジンの詳細。",
+      "SaKanaのクリアなネイティブ発音を支える音韻設計と音声合成エンジンの詳細。",
   },
 };
 

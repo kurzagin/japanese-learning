@@ -48,7 +48,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
       srs: "SRS & Memory Intervals",
       progression: "Progression & Sprint Gates",
       arcade: "Arcade Engine & Survival",
-      audio: "Audio & Phonetics (VOICEVOX)",
+      audio: "Audio & Japanese Phonetics",
       api: "REST API Developer Console",
     },
     id: {
@@ -56,7 +56,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
       srs: "SRS & Interval Memori",
       progression: "Progresi & Gerbang Sprint",
       arcade: "Mesin Arcade & Bertahan Hidup",
-      audio: "Audio & Fonetik (VOICEVOX)",
+      audio: "Audio & Fonetik Bahasa Jepang",
       api: "Konsol Developer REST API",
     },
     ja: {
@@ -64,7 +64,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
       srs: "SRS記憶間隔アルゴリズム",
       progression: "進捗・スピードスプリント関門",
       arcade: "アーケード適応生存ループ",
-      audio: "音声・音韻論 (VOICEVOX)",
+      audio: "音声・日本語音韻論",
       api: "REST API 開発者リファレンス",
     },
   };
