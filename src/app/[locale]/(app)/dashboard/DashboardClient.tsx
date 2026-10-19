@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check } from "lucide-react";
+import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
@@ -21,6 +22,7 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
     totalStudied: 0,
   });
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -157,15 +159,24 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
               {userEmail}
             </span>
           </div>
-          {userEmail !== "guest@sakanajp.site" && (
+          <div className="flex items-center gap-3">
             <button
-              onClick={handleLogout}
-              disabled={isLoggingOut}
-              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
+              onClick={() => setPreferencesOpen(true)}
+              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline flex items-center gap-1 cursor-pointer"
             >
-              [{t.nav.logout}]
+              <Settings className="w-3.5 h-3.5" />
+              <span>[{t.nav.preferences}]</span>
             </button>
-          )}
+            {userEmail !== "guest@sakanajp.site" && (
+              <button
+                onClick={handleLogout}
+                disabled={isLoggingOut}
+                className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
+              >
+                [{t.nav.logout}]
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Desktop 2-Column Workstation Layout */}
@@ -475,6 +486,10 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
           <span className="border-l border-[#808080] pl-2 font-mono">{t.dashboard.footerReady}</span>
         </div>
       </footer>
+      <PreferencesModal
+        isOpen={preferencesOpen}
+        onClose={() => setPreferencesOpen(false)}
+      />
     </div>
   );
 }
