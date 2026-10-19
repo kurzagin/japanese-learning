@@ -8,20 +8,18 @@ import { StageLockedView } from "@/components/StageLockedView";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award, Swords, Sparkles, Volume2, VolumeX } from "lucide-react";
 
-export type QuestionType = "kana_to_romaji" | "romaji_to_kana" | "audio_to_kana_romaji";
-
-export interface TestChoiceOption {
-  value: string;
-  kana?: string;
-  romaji?: string;
-}
+export type QuestionType =
+  | "kana_to_romaji"
+  | "romaji_to_kana"
+  | "audio_to_kana"
+  | "audio_to_romaji";
 
 interface TestQuestion {
   card: StudyCard;
   type: QuestionType;
   prompt: string;
   subPrompt?: string;
-  options: TestChoiceOption[]; // 4 choices (can contain both kana and romaji)
+  options: string[]; // 4 choices (pure kana or pure romaji)
   correctIndex: number;
 }
 
@@ -96,79 +94,41 @@ export default function TestClient({
           type = "kana_to_romaji";
         } else if (rand < 0.70) {
           type = "romaji_to_kana";
+        } else if (rand < 0.85) {
+          type = "audio_to_kana";
         } else {
-          type = "audio_to_kana_romaji";
+          type = "audio_to_romaji";
         }
       } else {
         type = Math.random() < 0.5 ? "kana_to_romaji" : "romaji_to_kana";
       }
 
-      if (type === "audio_to_kana_romaji") {
-        // Audio question: options must display BOTH kana & romaji
-        const prompt = card.character; // Text to be spoken by speech synthesis
+      // Determine prompt & whether the answer choices should be Kana or Romaji
+      const isAudio = type === "audio_to_kana" || type === "audio_to_romaji";
+      const choicesAreKana = type === "romaji_to_kana" || type === "audio_to_kana";
 
-        // Distractor cards
-        const stageCardDistractors = stage.cards.filter((c) => c.character !== card.character);
-        const categoryCardDistractors = sameCategoryCards.filter(
-          (c) => c.character !== card.character && !stageCardDistractors.some((sc) => sc.character === c.character)
-        );
-        const globalCardDistractors = allStageCards.filter(
-          (c) =>
-            c.character !== card.character &&
-            !stageCardDistractors.some((sc) => sc.character === c.character) &&
-            !categoryCardDistractors.some((cc) => cc.character === c.character)
-        );
+      const prompt = isAudio
+        ? card.character // Spoken Japanese sound
+        : type === "kana_to_romaji"
+        ? card.character
+        : card.romaji;
 
-        const shuffledStage = [...stageCardDistractors].sort(() => 0.5 - Math.random());
-        const shuffledCat = [...categoryCardDistractors].sort(() => 0.5 - Math.random());
-        const shuffledGlob = [...globalCardDistractors].sort(() => 0.5 - Math.random());
-
-        const pickedOthers = [...shuffledStage, ...shuffledCat, ...shuffledGlob].slice(0, 3);
-
-        const correctOpt: TestChoiceOption = {
-          value: card.character,
-          kana: card.character,
-          romaji: card.romaji,
-        };
-
-        const otherOpts: TestChoiceOption[] = pickedOthers.map((c) => ({
-          value: c.character,
-          kana: c.character,
-          romaji: c.romaji,
-        }));
-
-        const rawChoices = [correctOpt, ...otherOpts];
-        const choices = [...rawChoices].sort(() => 0.5 - Math.random());
-        const correctIndex = choices.findIndex((c) => c.value === correctOpt.value);
-
-        return {
-          card,
-          type,
-          prompt,
-          options: choices,
-          correctIndex,
-        };
-      }
-
-      // Visual questions (kana_to_romaji or romaji_to_kana)
-      const isKanaToRomaji = type === "kana_to_romaji";
-      const prompt = isKanaToRomaji ? card.character : card.romaji;
-      const correctAnswer = isKanaToRomaji ? card.romaji : card.character;
+      const correctAnswer = choicesAreKana ? card.character : card.romaji;
 
       // 1. Distractors from CURRENT stage first
       const stageDistractors = Array.from(
         new Set(
           stage.cards
-            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
+            .map((c) => (choicesAreKana ? c.character : c.romaji))
             .filter((ans) => ans !== correctAnswer)
         )
       );
 
-      // 2. Fallback distractors from the same category
+      // 2. Fallback distractors from same category
       const categoryDistractors = Array.from(
         new Set(
           sameCategoryCards
-            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
+            .map((c) => (choicesAreKana ? c.character : c.romaji))
             .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans))
         )
       );
@@ -177,7 +137,7 @@ export default function TestClient({
       const globalDistractors = Array.from(
         new Set(
           allStageCards
-            .map((c) => (isKanaToRomaji ? c.romaji : c.character))
+            .map((c) => (choicesAreKana ? c.character : c.romaji))
             .filter((ans) => ans !== correctAnswer && !stageDistractors.includes(ans) && !categoryDistractors.includes(ans))
         )
       );
@@ -193,12 +153,8 @@ export default function TestClient({
       ].slice(0, 3);
 
       const rawChoices = [correctAnswer, ...selectedOthers];
-      const choices = [...rawChoices].sort(() => 0.5 - Math.random()).map((val) => ({
-        value: val,
-        kana: isKanaToRomaji ? undefined : val,
-        romaji: isKanaToRomaji ? val : undefined,
-      }));
-      const correctIndex = choices.findIndex((c) => c.value === correctAnswer);
+      const choices = [...rawChoices].sort(() => 0.5 - Math.random());
+      const correctIndex = choices.indexOf(correctAnswer);
 
       return {
         card,
@@ -350,11 +306,12 @@ export default function TestClient({
     resetTest();
   }, [resetTest]);
 
-  // Trigger audio playback whenever an audio_to_kana_romaji question is active
+  // Trigger audio playback whenever an audio question is active
   useEffect(() => {
     if (status !== "playing") return;
     const currentQ = questions[currentIndex];
-    if (currentQ && currentQ.type === "audio_to_kana_romaji") {
+    const isAudioQ = currentQ && (currentQ.type === "audio_to_kana" || currentQ.type === "audio_to_romaji");
+    if (isAudioQ) {
       playQuestionAudio(currentQ.prompt);
     } else {
       resumeTimer();
@@ -500,7 +457,7 @@ export default function TestClient({
       if (status !== "playing") return;
       if (e.key === "r" || e.key === "R") {
         const q = questions[currentIndex];
-        if (q && q.type === "audio_to_kana_romaji") {
+        if (q && (q.type === "audio_to_kana" || q.type === "audio_to_romaji")) {
           e.preventDefault();
           playQuestionAudio(q.prompt);
           return;
@@ -622,7 +579,7 @@ export default function TestClient({
                 <span className="text-[#000080] font-bold">
                   {t.test.questionProgress}: {currentIndex + 1} / {questions.length}
                 </span>
-                {currentQ.type === "audio_to_kana_romaji" && (
+                {(currentQ.type === "audio_to_kana" || currentQ.type === "audio_to_romaji") && (
                   <span
                     className={`text-[11px] font-bold px-2 py-0.5 border flex items-center gap-1 ${
                       isAudioPlaying
@@ -646,10 +603,12 @@ export default function TestClient({
                     ? t.test.kanaToRomajiBadge
                     : currentQ.type === "romaji_to_kana"
                     ? t.test.romajiToKanaBadge
-                    : t.test.audioToKanaRomajiBadge}
+                    : currentQ.type === "audio_to_kana"
+                    ? t.test.audioToKanaBadge
+                    : t.test.audioToRomajiBadge}
                 </span>
 
-                {currentQ.type === "audio_to_kana_romaji" ? (
+                {currentQ.type === "audio_to_kana" || currentQ.type === "audio_to_romaji" ? (
                   <div className="flex flex-col items-center justify-center space-y-3">
                     <button
                       type="button"
@@ -700,7 +659,8 @@ export default function TestClient({
                     }
                   }
 
-                  const hasBoth = Boolean(option.kana && option.romaji);
+                  const isKanaChoice =
+                    currentQ.type === "romaji_to_kana" || currentQ.type === "audio_to_kana";
 
                   return (
                     <button
@@ -713,26 +673,15 @@ export default function TestClient({
                       <span className="font-mono text-xs px-1.5 py-0.5 bg-black/10 rounded">
                         {idx + 1}
                       </span>
-                      {hasBoth ? (
-                        <div className="flex flex-col items-center justify-center flex-1">
-                          <span className="text-2xl font-serif leading-tight">
-                            {option.kana}
-                          </span>
-                          <span className={`font-mono text-xs uppercase tracking-wider ${isAnswered ? "text-white/90" : "text-[#444]"}`}>
-                            {option.romaji}
-                          </span>
-                        </div>
-                      ) : (
-                        <span
-                          className={
-                            option.kana
-                              ? "text-2xl font-serif text-center flex-1"
-                              : "font-mono text-base uppercase text-center flex-1"
-                          }
-                        >
-                          {option.value}
-                        </span>
-                      )}
+                      <span
+                        className={
+                          isKanaChoice
+                            ? "text-2xl font-serif text-center flex-1"
+                            : "font-mono text-base uppercase text-center flex-1"
+                        }
+                      >
+                        {option}
+                      </span>
                       <span className="w-4" />
                     </button>
                   );
