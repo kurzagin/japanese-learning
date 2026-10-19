@@ -42,7 +42,7 @@ export default function TestClient({
   const timeLimit = stage?.targetDurationSeconds || 15;
 
   const [testSession, setTestSession] = useState(0);
-  const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
+  const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
   // Sync audioEnabled from localStorage and listen to preference changes
@@ -51,11 +51,15 @@ export default function TestClient({
       const saved = localStorage.getItem("sakana_test_enable_audio");
       if (saved !== null) {
         setAudioEnabled(saved === "true");
+      } else {
+        setAudioEnabled(false);
       }
       const handlePrefChange = () => {
         const updated = localStorage.getItem("sakana_test_enable_audio");
         if (updated !== null) {
           setAudioEnabled(updated === "true");
+        } else {
+          setAudioEnabled(false);
         }
       };
       window.addEventListener("sakana_preferences_changed", handlePrefChange);
