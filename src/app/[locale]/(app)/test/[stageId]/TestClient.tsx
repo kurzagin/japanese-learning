@@ -6,16 +6,22 @@ import { STAGES, Stage, StudyCard, getStageUnlockStatus, STAGES_BY_ID } from "@/
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { StageLockedView } from "@/components/StageLockedView";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award, Swords, Sparkles } from "lucide-react";
+import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award, Swords, Sparkles, Volume2, VolumeX } from "lucide-react";
 
-export type QuestionType = "kana_to_romaji" | "romaji_to_kana";
+export type QuestionType = "kana_to_romaji" | "romaji_to_kana" | "audio_to_kana_romaji";
+
+export interface TestChoiceOption {
+  value: string;
+  kana?: string;
+  romaji?: string;
+}
 
 interface TestQuestion {
   card: StudyCard;
   type: QuestionType;
   prompt: string;
   subPrompt?: string;
-  options: string[]; // 4 choices (romaji or kana depending on question type)
+  options: TestChoiceOption[]; // 4 choices (can contain both kana and romaji)
   correctIndex: number;
 }
 
@@ -38,27 +44,118 @@ export default function TestClient({
   const timeLimit = stage?.targetDurationSeconds || 15;
 
   const [testSession, setTestSession] = useState(0);
+  const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
+  const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
-  // Generate randomized questions and 4 options for each card (random mix of Kana->Romaji and Romaji->Kana)
+  // Sync audioEnabled from localStorage and listen to preference changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("sakana_test_enable_audio");
+      if (saved !== null) {
+        setAudioEnabled(saved === "true");
+      }
+      const handlePrefChange = () => {
+        const updated = localStorage.getItem("sakana_test_enable_audio");
+        if (updated !== null) {
+          setAudioEnabled(updated === "true");
+        }
+      };
+      window.addEventListener("sakana_preferences_changed", handlePrefChange);
+      return () => window.removeEventListener("sakana_preferences_changed", handlePrefChange);
+    }
+  }, []);
+
+  const toggleAudioPreference = useCallback(() => {
+    const nextVal = !audioEnabled;
+    setAudioEnabled(nextVal);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sakana_test_enable_audio", String(nextVal));
+      window.dispatchEvent(new Event("sakana_preferences_changed"));
+    }
+    // Re-generate questions with new preference
+    setTestSession((prev) => prev + 1);
+  }, [audioEnabled]);
+
+  // Generate randomized questions and 4 options for each card (random mix of Kana->Romaji, Romaji->Kana, and Audio->Kana+Romaji)
   const questions: TestQuestion[] = useMemo(() => {
     if (!stage?.cards || stage.cards.length === 0) return [];
 
-    // All available distractor answers from the same category and global fallback
+    // All available distractor cards from the same category and global fallback
     const sameCategoryCards = allStages.filter((s) => s.category === stage.category).flatMap((s) => s.cards);
     const allStageCards = allStages.flatMap((s) => s.cards);
 
-    // Shuffle cards so question order is random rather than fixed (a -> i -> u -> e -> o)
+    // Shuffle cards so question order is random rather than fixed
     const shuffledCards = [...stage.cards].sort(() => 0.5 - Math.random());
 
     return shuffledCards.map((card) => {
-      // Randomly pick question type: 50% chance Kana -> Romaji, 50% chance Romaji -> Kana
-      const type: QuestionType = Math.random() < 0.5 ? "kana_to_romaji" : "romaji_to_kana";
+      // Pick question type
+      let type: QuestionType;
+      if (audioEnabled) {
+        const rand = Math.random();
+        if (rand < 0.35) {
+          type = "kana_to_romaji";
+        } else if (rand < 0.70) {
+          type = "romaji_to_kana";
+        } else {
+          type = "audio_to_kana_romaji";
+        }
+      } else {
+        type = Math.random() < 0.5 ? "kana_to_romaji" : "romaji_to_kana";
+      }
 
+      if (type === "audio_to_kana_romaji") {
+        // Audio question: options must display BOTH kana & romaji
+        const prompt = card.character; // Text to be spoken by speech synthesis
+
+        // Distractor cards
+        const stageCardDistractors = stage.cards.filter((c) => c.character !== card.character);
+        const categoryCardDistractors = sameCategoryCards.filter(
+          (c) => c.character !== card.character && !stageCardDistractors.some((sc) => sc.character === c.character)
+        );
+        const globalCardDistractors = allStageCards.filter(
+          (c) =>
+            c.character !== card.character &&
+            !stageCardDistractors.some((sc) => sc.character === c.character) &&
+            !categoryCardDistractors.some((cc) => cc.character === c.character)
+        );
+
+        const shuffledStage = [...stageCardDistractors].sort(() => 0.5 - Math.random());
+        const shuffledCat = [...categoryCardDistractors].sort(() => 0.5 - Math.random());
+        const shuffledGlob = [...globalCardDistractors].sort(() => 0.5 - Math.random());
+
+        const pickedOthers = [...shuffledStage, ...shuffledCat, ...shuffledGlob].slice(0, 3);
+
+        const correctOpt: TestChoiceOption = {
+          value: card.character,
+          kana: card.character,
+          romaji: card.romaji,
+        };
+
+        const otherOpts: TestChoiceOption[] = pickedOthers.map((c) => ({
+          value: c.character,
+          kana: c.character,
+          romaji: c.romaji,
+        }));
+
+        const rawChoices = [correctOpt, ...otherOpts];
+        const choices = [...rawChoices].sort(() => 0.5 - Math.random());
+        const correctIndex = choices.findIndex((c) => c.value === correctOpt.value);
+
+        return {
+          card,
+          type,
+          prompt,
+          options: choices,
+          correctIndex,
+        };
+      }
+
+      // Visual questions (kana_to_romaji or romaji_to_kana)
       const isKanaToRomaji = type === "kana_to_romaji";
       const prompt = isKanaToRomaji ? card.character : card.romaji;
       const correctAnswer = isKanaToRomaji ? card.romaji : card.character;
 
-      // 1. Distractors from the CURRENT stage first
+      // 1. Distractors from CURRENT stage first
       const stageDistractors = Array.from(
         new Set(
           stage.cards
@@ -67,7 +164,7 @@ export default function TestClient({
         )
       );
 
-      // 2. Fallback distractors from the same category if current stage has fewer than 3 other cards
+      // 2. Fallback distractors from the same category
       const categoryDistractors = Array.from(
         new Set(
           sameCategoryCards
@@ -76,7 +173,7 @@ export default function TestClient({
         )
       );
 
-      // 3. Fallback from any cards across all stages if still needed
+      // 3. Fallback from any cards across all stages
       const globalDistractors = Array.from(
         new Set(
           allStageCards
@@ -95,10 +192,13 @@ export default function TestClient({
         ...shuffledGlobalDistractors,
       ].slice(0, 3);
 
-      // Create 4 choices and shuffle
       const rawChoices = [correctAnswer, ...selectedOthers];
-      const choices = [...rawChoices].sort(() => 0.5 - Math.random());
-      const correctIndex = choices.indexOf(correctAnswer);
+      const choices = [...rawChoices].sort(() => 0.5 - Math.random()).map((val) => ({
+        value: val,
+        kana: isKanaToRomaji ? undefined : val,
+        romaji: isKanaToRomaji ? val : undefined,
+      }));
+      const correctIndex = choices.findIndex((c) => c.value === correctAnswer);
 
       return {
         card,
@@ -108,7 +208,7 @@ export default function TestClient({
         correctIndex,
       };
     });
-  }, [stage, testSession]);
+  }, [stage, testSession, audioEnabled, allStages]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -163,8 +263,73 @@ export default function TestClient({
   const startTimeRef = useRef<number>(Date.now());
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Audio pause tracking
+  const pauseStartTimeRef = useRef<number | null>(null);
+  const accumulatedPausedMsRef = useRef<number>(0);
+
+  const pauseTimer = useCallback(() => {
+    if (pauseStartTimeRef.current === null) {
+      pauseStartTimeRef.current = Date.now();
+    }
+  }, []);
+
+  const resumeTimer = useCallback(() => {
+    if (pauseStartTimeRef.current !== null) {
+      const pausedDuration = Date.now() - pauseStartTimeRef.current;
+      accumulatedPausedMsRef.current += pausedDuration;
+      pauseStartTimeRef.current = null;
+    }
+  }, []);
+
+  // Web Speech playback with automatic timer pause & resume
+  const playQuestionAudio = useCallback((text: string) => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      setIsAudioPlaying(false);
+      return;
+    }
+
+    try {
+      window.speechSynthesis.cancel();
+      pauseTimer();
+      setIsAudioPlaying(true);
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "ja-JP";
+      utterance.rate = 0.85;
+
+      const voices = window.speechSynthesis.getVoices();
+      const jaVoice = voices.find((v) => v.lang.startsWith("ja") || v.lang.includes("JP"));
+      if (jaVoice) {
+        utterance.voice = jaVoice;
+      }
+
+      utterance.onstart = () => {
+        pauseTimer();
+        setIsAudioPlaying(true);
+      };
+
+      utterance.onend = () => {
+        resumeTimer();
+        setIsAudioPlaying(false);
+      };
+
+      utterance.onerror = () => {
+        resumeTimer();
+        setIsAudioPlaying(false);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      resumeTimer();
+      setIsAudioPlaying(false);
+    }
+  }, [pauseTimer, resumeTimer]);
+
   // Start countdown on mount or reset
   const resetTest = useCallback(() => {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
     setTestSession((prev) => prev + 1);
     setCurrentIndex(0);
     setSelectedOption(null);
@@ -175,6 +340,9 @@ export default function TestClient({
     setElapsedMs(0);
     setStatus("playing");
     setFailureReason("timeout");
+    setIsAudioPlaying(false);
+    pauseStartTimeRef.current = null;
+    accumulatedPausedMsRef.current = 0;
     startTimeRef.current = Date.now();
   }, [timeLimit]);
 
@@ -182,7 +350,24 @@ export default function TestClient({
     resetTest();
   }, [resetTest]);
 
-  // Handle countdown interval
+  // Trigger audio playback whenever an audio_to_kana_romaji question is active
+  useEffect(() => {
+    if (status !== "playing") return;
+    const currentQ = questions[currentIndex];
+    if (currentQ && currentQ.type === "audio_to_kana_romaji") {
+      playQuestionAudio(currentQ.prompt);
+    } else {
+      resumeTimer();
+      setIsAudioPlaying(false);
+    }
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, [currentIndex, status, questions, playQuestionAudio, resumeTimer]);
+
+  // Handle countdown interval (pauses elapsed accumulation while audio plays)
   useEffect(() => {
     if (status !== "playing") {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -190,16 +375,25 @@ export default function TestClient({
     }
 
     timerRef.current = setInterval(() => {
-      const now = Date.now();
-      const elapsed = now - startTimeRef.current;
-      setElapsedMs(elapsed);
+      // If currently paused for audio, do not advance active elapsed timer
+      if (pauseStartTimeRef.current !== null) {
+        return;
+      }
 
-      const remaining = Math.max(0, timeLimit - elapsed / 1000);
+      const now = Date.now();
+      const rawElapsed = now - startTimeRef.current;
+      const netElapsed = Math.max(0, rawElapsed - accumulatedPausedMsRef.current);
+      setElapsedMs(netElapsed);
+
+      const remaining = Math.max(0, timeLimit - netElapsed / 1000);
       setTimeLeft(remaining);
 
       if (remaining <= 0) {
         setFailureReason("timeout");
         setStatus("failed");
+        if (typeof window !== "undefined" && "speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
         clearInterval(timerRef.current!);
       }
     }, 100);
@@ -279,7 +473,12 @@ export default function TestClient({
           setIsCorrect(null);
         } else {
           // Finished all questions
-          const totalElapsed = Date.now() - startTimeRef.current;
+          if (pauseStartTimeRef.current !== null) {
+            accumulatedPausedMsRef.current += Date.now() - pauseStartTimeRef.current;
+            pauseStartTimeRef.current = null;
+          }
+          const rawTotal = Date.now() - startTimeRef.current;
+          const totalElapsed = Math.max(0, rawTotal - accumulatedPausedMsRef.current);
           const isTimeOk = totalElapsed / 1000 <= timeLimit;
           const isAccuracyOk = (newCorrectCount / questions.length) >= 0.8;
           const passed = isTimeOk && isAccuracyOk;
@@ -295,10 +494,19 @@ export default function TestClient({
     [isAnswered, status, questions, currentIndex, correctCount, timeLimit, finalizeResult]
   );
 
-  // Keyboard shortcut listener for numbers 1 to 4
+  // Keyboard shortcut listener for numbers 1 to 4 and R for audio replay
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (status !== "playing" || isAnswered) return;
+      if (status !== "playing") return;
+      if (e.key === "r" || e.key === "R") {
+        const q = questions[currentIndex];
+        if (q && q.type === "audio_to_kana_romaji") {
+          e.preventDefault();
+          playQuestionAudio(q.prompt);
+          return;
+        }
+      }
+      if (isAnswered) return;
       if (e.key === "1") handleSelectOption(0);
       else if (e.key === "2") handleSelectOption(1);
       else if (e.key === "3") handleSelectOption(2);
@@ -306,7 +514,7 @@ export default function TestClient({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [status, isAnswered, handleSelectOption]);
+  }, [status, isAnswered, handleSelectOption, questions, currentIndex, playQuestionAudio]);
 
   const currentQ = questions[currentIndex];
   const stageDisplayName = stage.name[locale];
@@ -351,10 +559,23 @@ export default function TestClient({
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.test.backToDashboard}
           </Link>
-          <span className={`font-mono text-xs uppercase font-bold flex items-center gap-1 ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
-            {isBoss && <Swords className="w-3.5 h-3.5 inline" />}
-            <span>{isBoss ? t.common.bossCheckpoint : stageDisplayName}</span>
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleAudioPreference}
+              className={`px-2 py-0.5 text-[10px] font-mono font-bold border border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 ${
+                audioEnabled ? "bg-[#008000] text-white" : "bg-[#d4d0c8] text-[#555]"
+              }`}
+              title="Toggle audio questions"
+            >
+              {audioEnabled ? <Volume2 className="w-3 h-3" /> : <VolumeX className="w-3 h-3" />}
+              <span>{audioEnabled ? t.test.audioQuestionsOn : t.test.audioQuestionsOff}</span>
+            </button>
+            <span className={`font-mono text-xs uppercase font-bold flex items-center gap-1 ${isBoss ? "text-[#990000]" : "text-[#555]"}`}>
+              {isBoss && <Swords className="w-3.5 h-3.5 inline" />}
+              <span>{isBoss ? t.common.bossCheckpoint : stageDisplayName}</span>
+            </span>
+          </div>
         </div>
 
         {/* Test Header with Countdown Meter */}
@@ -396,30 +617,75 @@ export default function TestClient({
               {/* Main Test Column */}
               <div className="lg:col-span-8 flex flex-col justify-between space-y-3">
 
-              {/* Question progress */}
+              {/* Question progress & Audio Status Indicator */}
               <div className="flex items-center justify-between text-xs font-mono border-b border-[#d0d0d0] pb-2">
                 <span className="text-[#000080] font-bold">
                   {t.test.questionProgress}: {currentIndex + 1} / {questions.length}
                 </span>
+                {currentQ.type === "audio_to_kana_romaji" && (
+                  <span
+                    className={`text-[11px] font-bold px-2 py-0.5 border flex items-center gap-1 ${
+                      isAudioPlaying
+                        ? "bg-[#ffffcc] text-[#996600] border-[#996600] animate-pulse"
+                        : "bg-[#eef8ee] text-[#008000] border-[#008000]"
+                    }`}
+                  >
+                    <Volume2 className="w-3.5 h-3.5" />
+                    <span>{isAudioPlaying ? t.test.audioPlayingStatus : t.test.audioReadyStatus}</span>
+                  </span>
+                )}
                 <span className="text-[#888] text-[10px] hidden sm:inline">
                   {t.test.choosePrompt}
                 </span>
               </div>
 
-              {/* Character / Romaji Prompt Card */}
-              <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner relative">
+              {/* Character / Romaji / Audio Prompt Card */}
+              <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner relative min-h-[170px]">
                 <span className="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 border border-[#808080] bg-[#ece9d8] text-[#333] uppercase">
-                  {currentQ.type === "kana_to_romaji" ? t.test.kanaToRomajiBadge : t.test.romajiToKanaBadge}
+                  {currentQ.type === "kana_to_romaji"
+                    ? t.test.kanaToRomajiBadge
+                    : currentQ.type === "romaji_to_kana"
+                    ? t.test.romajiToKanaBadge
+                    : t.test.audioToKanaRomajiBadge}
                 </span>
-                <div
-                  className={`font-bold tracking-tight ${
-                    currentQ.type === "kana_to_romaji"
-                      ? "text-7xl sm:text-8xl font-serif text-[#000080]"
-                      : "text-6xl sm:text-7xl font-mono text-[#cc0000] lowercase"
-                  }`}
-                >
-                  {currentQ.prompt}
-                </div>
+
+                {currentQ.type === "audio_to_kana_romaji" ? (
+                  <div className="flex flex-col items-center justify-center space-y-3">
+                    <button
+                      type="button"
+                      onClick={() => playQuestionAudio(currentQ.prompt)}
+                      className={`w-20 h-20 rounded-full border-2 border-[#000080] flex items-center justify-center shadow-md transition-all ${
+                        isAudioPlaying
+                          ? "bg-[#000080] text-white scale-105 animate-pulse"
+                          : "bg-[#e0e0ff] text-[#000080] hover:bg-[#000080] hover:text-white"
+                      }`}
+                      aria-label={t.test.audioReplayBtn}
+                    >
+                      <Volume2 className="w-10 h-10" />
+                    </button>
+                    <div className="text-xs font-mono font-bold text-[#555]">
+                      {t.test.audioListeningPrompt}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => playQuestionAudio(currentQ.prompt)}
+                      className="px-2.5 py-1 text-[11px] font-bold font-mono bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 text-[#000080]"
+                    >
+                      <RotateCw className="w-3 h-3" />
+                      <span>{t.test.audioReplayBtn}</span>
+                    </button>
+                  </div>
+                ) : (
+                  <div
+                    className={`font-bold tracking-tight ${
+                      currentQ.type === "kana_to_romaji"
+                        ? "text-7xl sm:text-8xl font-serif text-[#000080]"
+                        : "text-6xl sm:text-7xl font-mono text-[#cc0000] lowercase"
+                    }`}
+                  >
+                    {currentQ.prompt}
+                  </div>
+                )}
               </div>
 
               {/* 4 Choices Grid */}
@@ -434,7 +700,7 @@ export default function TestClient({
                     }
                   }
 
-                  const isKanaChoice = currentQ.type === "romaji_to_kana";
+                  const hasBoth = Boolean(option.kana && option.romaji);
 
                   return (
                     <button
@@ -447,15 +713,26 @@ export default function TestClient({
                       <span className="font-mono text-xs px-1.5 py-0.5 bg-black/10 rounded">
                         {idx + 1}
                       </span>
-                      <span
-                        className={
-                          isKanaChoice
-                            ? "text-2xl font-serif text-center flex-1"
-                            : "font-mono text-base uppercase text-center flex-1"
-                        }
-                      >
-                        {option}
-                      </span>
+                      {hasBoth ? (
+                        <div className="flex flex-col items-center justify-center flex-1">
+                          <span className="text-2xl font-serif leading-tight">
+                            {option.kana}
+                          </span>
+                          <span className={`font-mono text-xs uppercase tracking-wider ${isAnswered ? "text-white/90" : "text-[#444]"}`}>
+                            {option.romaji}
+                          </span>
+                        </div>
+                      ) : (
+                        <span
+                          className={
+                            option.kana
+                              ? "text-2xl font-serif text-center flex-1"
+                              : "font-mono text-base uppercase text-center flex-1"
+                          }
+                        >
+                          {option.value}
+                        </span>
+                      )}
                       <span className="w-4" />
                     </button>
                   );
@@ -490,9 +767,13 @@ export default function TestClient({
                       <span className="text-[#000080]">3:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
                     </div>
-                    <div className="flex justify-between items-center py-0.5">
+                    <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
                       <span className="text-[#000080]">4:</span>
                       <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                    </div>
+                    <div className="flex justify-between items-center py-0.5 text-[#555]">
+                      <span className="text-[#000080]">REPLAY AUDIO:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">R</kbd>
                     </div>
                   </div>
 

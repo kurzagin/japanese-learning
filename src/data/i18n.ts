@@ -30,6 +30,8 @@ export interface TranslationSchema {
     selectLanguage: string;
     titleBarSub: string;
     online: string;
+    profile: string;
+    preferences: string;
   };
   home: {
     welcomeBadge: string;
@@ -178,6 +180,14 @@ export interface TranslationSchema {
     choosePrompt: string;
     kanaToRomajiBadge: string;
     romajiToKanaBadge: string;
+    audioToKanaRomajiBadge: string;
+    audioListeningPrompt: string;
+    audioReplayBtn: string;
+    audioPlayingStatus: string;
+    audioReadyStatus: string;
+    audioQuestionToggle: string;
+    audioQuestionsOn: string;
+    audioQuestionsOff: string;
     passTitle: string;
     failTitle: string;
     failWrongTitle: string;
@@ -675,6 +685,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       selectLanguage: "Select language",
       titleBarSub: "魚 SAKANA // JAPANESE SPEED DRILL",
       online: "ONLINE",
+      profile: "PROFILE",
+      preferences: "SETTINGS",
     },
     home: {
       welcomeBadge: "KANA SPEED DRILL FOR ANIME FANS",
@@ -904,6 +916,14 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Press 1-4 or Click to Answer ]",
       kanaToRomajiBadge: "Kana ➔ Romaji",
       romajiToKanaBadge: "Romaji ➔ Kana",
+      audioToKanaRomajiBadge: "Audio ➔ Kana + Romaji",
+      audioListeningPrompt: "Listen carefully to the audio...",
+      audioReplayBtn: "Replay Audio [R]",
+      audioPlayingStatus: "PLAYING (TIMER PAUSED)",
+      audioReadyStatus: "ANSWER NOW (TIMER RUNNING)",
+      audioQuestionToggle: "AUDIO QUESTIONS",
+      audioQuestionsOn: "AUDIO: ON",
+      audioQuestionsOff: "AUDIO: OFF",
       passTitle: "STAGE CLEARED!",
       failTitle: "TIME EXPIRED!",
       failWrongTitle: "TEST FAILED!",
@@ -1319,6 +1339,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       selectLanguage: "Pilih bahasa",
       titleBarSub: "魚 SAKANA // LATIHAN CEPAT BAHASA JEPANG",
       online: "AKTIF",
+      profile: "PROFIL",
+      preferences: "PENGATURAN",
     },
     home: {
       welcomeBadge: "LATIHAN KANA CEPAT UNTUK PENGGEMAR ANIME",
@@ -1548,6 +1570,14 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Tekan 1-4 atau Klik Jawaban ]",
       kanaToRomajiBadge: "Kana ➔ Romaji",
       romajiToKanaBadge: "Romaji ➔ Kana",
+      audioToKanaRomajiBadge: "Audio ➔ Kana + Romaji",
+      audioListeningPrompt: "Dengarkan audio dengan saksama...",
+      audioReplayBtn: "Ulangi Audio [R]",
+      audioPlayingStatus: "MEMUTAR (TIMER JEDA)",
+      audioReadyStatus: "JAWAB SEKARANG (TIMER BERJALAN)",
+      audioQuestionToggle: "SOAL AUDIO",
+      audioQuestionsOn: "AUDIO: NYALA",
+      audioQuestionsOff: "AUDIO: MATI",
       passTitle: "STAGE BERHASIL DITEMPUH!",
       failTitle: "WAKTU HABIS!",
       failWrongTitle: "BELUM BERHASIL!",
@@ -1963,6 +1993,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       selectLanguage: "言語を選択",
       titleBarSub: "魚 SAKANA // 日本語かな反射速読ドリル",
       online: "稼働中",
+      profile: "プロフィール",
+      preferences: "設定",
     },
     home: {
       welcomeBadge: "アニメファンのための「かな文字」瞬時認識ドリル",
@@ -2192,6 +2224,14 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "【 1〜4キー またはクリックで解答 】",
       kanaToRomajiBadge: "仮名 ➔ ローマ字",
       romajiToKanaBadge: "ローマ字 ➔ 仮名",
+      audioToKanaRomajiBadge: "音声 ➔ 仮名+ローマ字",
+      audioListeningPrompt: "音声をよく聴いてください...",
+      audioReplayBtn: "音声再再生 [R]",
+      audioPlayingStatus: "音声再生中 (タイマー停止)",
+      audioReadyStatus: "回答してください (タイマー再開)",
+      audioQuestionToggle: "音声問題",
+      audioQuestionsOn: "音声出題: オン",
+      audioQuestionsOff: "音声出題: オフ",
       passTitle: "海域突破！",
       failTitle: "時間切れ！",
       failWrongTitle: "試練不合格",

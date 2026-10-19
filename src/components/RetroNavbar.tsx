@@ -17,7 +17,10 @@ import {
   Info,
   BookOpen,
   FileDown,
+  Settings,
+  User,
 } from "lucide-react";
+import { PreferencesModal } from "@/components/PreferencesModal";
 
 interface RetroNavbarProps {
   currentSubtitle?: string;
@@ -27,6 +30,7 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   const { t, locale } = useLanguage();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const getLocalizedHref = (path: string) => {
@@ -99,6 +103,14 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
 
           {/* Mobile-only quick Language & Menu toggles */}
           <div className="flex sm:hidden items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setPreferencesOpen(true)}
+              aria-label={t.nav.preferences}
+              className="flex items-center gap-1 px-2 py-1 text-[11px] font-bold border bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
+            >
+              <Settings className="w-3.5 h-3.5 text-[#000080]" />
+            </button>
             <LanguageSelector />
             <button
               type="button"
@@ -157,7 +169,15 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
             );
           })}
         </nav>
-        <div className="shrink-0">
+        <div className="shrink-0 flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setPreferencesOpen(true)}
+            className="flex items-center gap-1.5 px-2.5 py-1 border text-xs font-semibold whitespace-nowrap bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
+          >
+            <Settings className="w-3.5 h-3.5 text-[#000080]" />
+            <span>{t.nav.preferences}</span>
+          </button>
           <LanguageSelector />
         </div>
       </div>
@@ -212,9 +232,27 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
                 </Link>
               );
             })}
+            {/* Mobile Settings Item */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setPreferencesOpen(true);
+              }}
+              className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold border bg-[#ece9d8] text-black border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#ffffff] active:bg-[#c0c0c0]"
+            >
+              <Settings className="w-4 h-4 shrink-0 text-[#000080]" />
+              <span className="flex-1 text-left">{t.nav.preferences}</span>
+            </button>
           </div>
         </div>
       )}
+
+      {/* Control Panel / Preferences Modal */}
+      <PreferencesModal
+        isOpen={preferencesOpen}
+        onClose={() => setPreferencesOpen(false)}
+      />
     </header>
   );
 }
