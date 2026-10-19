@@ -180,7 +180,8 @@ export interface TranslationSchema {
     choosePrompt: string;
     kanaToRomajiBadge: string;
     romajiToKanaBadge: string;
-    audioToKanaRomajiBadge: string;
+    audioToKanaBadge: string;
+    audioToRomajiBadge: string;
     audioListeningPrompt: string;
     audioReplayBtn: string;
     audioPlayingStatus: string;
@@ -916,7 +917,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Press 1-4 or Click to Answer ]",
       kanaToRomajiBadge: "Kana ➔ Romaji",
       romajiToKanaBadge: "Romaji ➔ Kana",
-      audioToKanaRomajiBadge: "Audio ➔ Kana + Romaji",
+      audioToKanaBadge: "Audio ➔ Kana",
+      audioToRomajiBadge: "Audio ➔ Romaji",
       audioListeningPrompt: "Listen carefully to the audio...",
       audioReplayBtn: "Replay Audio [R]",
       audioPlayingStatus: "PLAYING (TIMER PAUSED)",
@@ -1570,7 +1572,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "[ Tekan 1-4 atau Klik Jawaban ]",
       kanaToRomajiBadge: "Kana ➔ Romaji",
       romajiToKanaBadge: "Romaji ➔ Kana",
-      audioToKanaRomajiBadge: "Audio ➔ Kana + Romaji",
+      audioToKanaBadge: "Audio ➔ Kana",
+      audioToRomajiBadge: "Audio ➔ Romaji",
       audioListeningPrompt: "Dengarkan audio dengan saksama...",
       audioReplayBtn: "Ulangi Audio [R]",
       audioPlayingStatus: "MEMUTAR (TIMER JEDA)",
@@ -2224,7 +2227,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       choosePrompt: "【 1〜4キー またはクリックで解答 】",
       kanaToRomajiBadge: "仮名 ➔ ローマ字",
       romajiToKanaBadge: "ローマ字 ➔ 仮名",
-      audioToKanaRomajiBadge: "音声 ➔ 仮名+ローマ字",
+      audioToKanaBadge: "音声 ➔ 仮名",
+      audioToRomajiBadge: "音声 ➔ ローマ字",
       audioListeningPrompt: "音声をよく聴いてください...",
       audioReplayBtn: "音声再再生 [R]",
       audioPlayingStatus: "音声再生中 (タイマー停止)",
