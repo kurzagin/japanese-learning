@@ -45,106 +45,100 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
   const isGuest = userEmail === "guest@sakanajp.site";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-in fade-in duration-150">
-      <div className="bg-[#ece9d8] border-2 border-t-white border-l-white border-b-black border-r-black shadow-2xl max-w-md w-full text-black">
-        {/* Retro Window Header */}
-        <div className="bg-[#000080] text-white px-2 py-1.5 flex items-center justify-between select-none">
-          <div className="flex items-center gap-1.5 font-bold text-xs tracking-wider">
-            <Settings className="w-3.5 h-3.5 text-[#ffff00]" />
-            <span>SAKANA // {t.nav.preferences}</span>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 animate-in fade-in duration-150">
+      <div className="bg-white rounded-2xl border border-stone-200/80 shadow-2xl max-w-md w-full text-stone-900 overflow-hidden">
+        {/* Modal Header */}
+        <div className="px-5 py-4 border-b border-stone-100 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-[#fff5f2] text-[#fa624d] flex items-center justify-center">
+              <Settings className="w-4 h-4" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-sm text-stone-900">{t.nav.preferences}</h2>
+              <p className="text-[11px] text-stone-400">SaKana Settings</p>
+            </div>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="w-4 h-4 bg-[#d4d0c8] text-black border border-t-white border-l-white border-b-black border-r-black flex items-center justify-center font-bold text-xs leading-none hover:bg-[#c0c0c0] active:border-t-black active:border-l-black active:border-b-white active:border-r-white"
+            className="p-1.5 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
           >
-            ×
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="p-4 space-y-4 text-xs">
+        <div className="p-5 space-y-4 text-xs">
           {/* User Profile Card */}
-          <fieldset className="border border-[#808080] p-3 bg-[#f5f5f0]">
-            <legend className="px-1 font-bold text-[#000080] uppercase flex items-center gap-1">
-              <User className="w-3 h-3" />
+          <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/60 space-y-2.5">
+            <div className="flex items-center gap-1.5 font-semibold text-stone-700 text-xs">
+              <User className="w-3.5 h-3.5 text-[#fa624d]" />
               <span>{t.nav.profile}</span>
-            </legend>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-[#555] font-mono">ACCOUNT:</span>
-                <span className="font-mono font-bold bg-white px-2 py-0.5 border border-[#808080] text-[11px] truncate max-w-[200px]">
-                  {userEmail}
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-[11px] text-[#555]">
-                <span>STATUS:</span>
-                <span className="flex items-center gap-1 font-bold text-[#006600]">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  {isGuest ? "GUEST MODE (LOCAL SYNC)" : "REGISTERED ACCOUNT (CLOUD SYNC)"}
-                </span>
-              </div>
-              {isGuest && (
-                <div className="pt-1 border-t border-[#d0d0d0] text-right">
-                  <Link
-                    href={`${prefix}/login`}
-                    onClick={onClose}
-                    className="inline-block text-[11px] font-bold text-[#000080] hover:text-[#cc0000] underline"
-                  >
-                    → {t.nav.login}
-                  </Link>
-                </div>
-              )}
             </div>
-          </fieldset>
-
-          {/* Test & Audio Preferences */}
-          <fieldset className="border border-[#808080] p-3 bg-[#f5f5f0]">
-            <legend className="px-1 font-bold text-[#000080] uppercase flex items-center gap-1">
-              <Volume2 className="w-3 h-3" />
-              <span>SPEED TEST DRILLS</span>
-            </legend>
-            <div className="space-y-2.5">
-              <div className="flex items-start justify-between gap-3">
-                <div className="space-y-0.5">
-                  <div className="font-bold flex items-center gap-1">
-                    {audioQuestions ? (
-                      <Volume2 className="w-3.5 h-3.5 text-[#008000]" />
-                    ) : (
-                      <VolumeX className="w-3.5 h-3.5 text-[#cc0000]" />
-                    )}
-                    <span>{t.test.audioQuestionToggle}</span>
-                  </div>
-                  <p className="text-[11px] text-[#555] leading-snug">
-                    Include listening questions in Speed Sprint. Timer pauses automatically during audio playback.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={toggleAudioQuestions}
-                  className={`px-3 py-1 font-mono font-bold text-xs border border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white transition-colors shrink-0 ${
-                    audioQuestions
-                      ? "bg-[#008000] text-white hover:bg-[#006600]"
-                      : "bg-[#d4d0c8] text-[#555] hover:bg-[#c0c0c0]"
-                  }`}
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-stone-500">Account:</span>
+              <span className="font-mono font-medium text-stone-900 bg-white px-2 py-0.5 rounded border border-stone-200 truncate max-w-[200px]">
+                {userEmail}
+              </span>
+            </div>
+            <div className="flex items-center justify-between text-[11px] text-stone-500">
+              <span>Status:</span>
+              <span className="flex items-center gap-1 font-medium text-emerald-600">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                {isGuest ? "Guest (Local Sync)" : "Synced (Cloud)"}
+              </span>
+            </div>
+            {isGuest && (
+              <div className="pt-2 border-t border-stone-200/60 text-right">
+                <Link
+                  href={`${prefix}/login`}
+                  onClick={onClose}
+                  className="inline-block text-[11px] font-semibold text-[#fa624d] hover:text-[#e84630]"
                 >
-                  {audioQuestions ? t.test.audioQuestionsOn : t.test.audioQuestionsOff}
-                </button>
+                  → {t.nav.login}
+                </Link>
               </div>
-            </div>
-          </fieldset>
-
-          {/* Dialog Action Buttons */}
-          <div className="flex justify-end gap-2 pt-1 border-t border-[#808080]">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-1.5 bg-[#d4d0c8] text-black border border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs flex items-center gap-1"
-            >
-              <Check className="w-3.5 h-3.5" />
-              <span>OK</span>
-            </button>
+            )}
           </div>
+
+          {/* Test & Audio Preference */}
+          <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/60 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className={`p-1.5 rounded-lg ${audioQuestions ? "bg-[#fff5f2] text-[#fa624d]" : "bg-stone-100 text-stone-400"}`}>
+                  {audioQuestions ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </div>
+                <div>
+                  <div className="font-semibold text-stone-800 text-xs">Audio Questions</div>
+                  <div className="text-[11px] text-stone-500">Play spoken audio prompt during tests</div>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={toggleAudioQuestions}
+                className={`w-11 h-6 rounded-full transition-colors relative flex items-center px-0.5 ${
+                  audioQuestions ? "bg-[#fa624d]" : "bg-stone-300"
+                }`}
+              >
+                <div
+                  className={`w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
+                    audioQuestions ? "translate-x-5" : "translate-x-0"
+                  }`}
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal Footer */}
+        <div className="px-5 py-3.5 bg-stone-50 border-t border-stone-100 flex justify-end">
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-4 py-1.5 text-xs font-semibold rounded-lg bg-stone-900 text-white hover:bg-stone-800 transition-colors shadow-xs"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>

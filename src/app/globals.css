@@ -1,131 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ece9d8;
-  --foreground: #111111;
+  --background: #fdfbf7;
+  --foreground: #1c1917;
+  --salmon-50: #fff5f2;
+  --salmon-100: #ffe8e4;
+  --salmon-200: #ffd5cc;
+  --salmon-300: #ffb1a3;
+  --salmon-400: #ff8572;
+  --salmon-500: #fa624d;
+  --salmon-600: #e84630;
+  --salmon-700: #c4321e;
+  --salmon-800: #a22c1d;
+  --salmon-900: #852a1e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-salmon-50: var(--salmon-50);
+  --color-salmon-100: var(--salmon-100);
+  --color-salmon-200: var(--salmon-200);
+  --color-salmon-300: var(--salmon-300);
+  --color-salmon-400: var(--salmon-400);
+  --color-salmon-500: var(--salmon-500);
+  --color-salmon-600: var(--salmon-600);
+  --color-salmon-700: var(--salmon-700);
+  --color-salmon-800: var(--salmon-800);
+  --color-salmon-900: var(--salmon-900);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 body {
-  background-color: #ece9d8;
-  color: #111111;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Authentic Web 1.0 <blink> animation */
-@keyframes retro-blink {
-  0%, 49% {
+/* Subtle modern pulse for live badges */
+@keyframes subtle-pulse {
+  0%, 100% {
     opacity: 1;
-    visibility: visible;
-  }
-  50%, 100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.animate-retro-blink {
-  animation: retro-blink 1s steps(1, start) infinite;
-}
-
-.animate-retro-blink-fast {
-  animation: retro-blink 0.5s steps(1, start) infinite;
-}
-
-/* Flashy pixel star twinkle animation */
-@keyframes retro-star-twinkle {
-  0% {
-    transform: scale(0.7) rotate(0deg);
-    opacity: 0.4;
-    filter: drop-shadow(0 0 2px #ff00ff);
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.3) rotate(45deg);
-    opacity: 1;
-    filter: drop-shadow(0 0 6px #ffff00);
-  }
-  100% {
-    transform: scale(0.7) rotate(0deg);
-    opacity: 0.4;
-    filter: drop-shadow(0 0 2px #ff00ff);
+    opacity: 0.6;
+    transform: scale(0.96);
   }
 }
 
-.animate-star-twinkle {
-  display: inline-block;
-  animation: retro-star-twinkle 1.2s ease-in-out infinite;
-}
-
-.animate-star-twinkle-delay {
-  display: inline-block;
-  animation: retro-star-twinkle 1.2s ease-in-out infinite 0.6s;
-}
-
-/* Retro marquee ticker */
-@keyframes retro-ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.animate-retro-ticker {
-  display: inline-block;
-  white-space: nowrap;
-  animation: retro-ticker 18s linear infinite;
-}
-
-.animate-retro-ticker:hover {
-  animation-play-state: paused;
+.animate-subtle-pulse {
+  animation: subtle-pulse 2.5s ease-in-out infinite;
 }
 
 /* Print optimization for PDF/paper exports */
 @media print {
   @page {
-    size: 297mm 210mm;
-    margin: 6mm 8mm;
+    size: A4 landscape;
+    margin: 8mm;
   }
 
-  html, body {
-    width: 297mm !important;
-    height: 210mm !important;
+  body {
     background: #ffffff !important;
     color: #000000 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    font-size: 10pt;
   }
 
-  header, footer, nav, .no-print {
+  header,
+  footer,
+  nav,
+  button,
+  .no-print {
     display: none !important;
-  }
-
-  .print-only {
-    display: block !important;
   }
 
   .printable-chart-container {
     box-shadow: none !important;
-    border: 1.5px solid #000080 !important;
+    border: 1.5px solid #fa624d !important;
     background: #ffffff !important;
     width: 281mm !important;
     max-width: 281mm !important;
-    height: 196mm !important;
-    max-height: 196mm !important;
     margin: 0 auto !important;
-    padding: 3mm 4mm !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
+    padding: 4mm !important;
+  }
+
+  .printable-grid-cell {
+    border-color: #d1d5db !important;
+    background: #ffffff !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }

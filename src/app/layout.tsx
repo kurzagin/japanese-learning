@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
 
 export const viewport: Viewport = {
-  themeColor: "#000080",
+  themeColor: "#fa624d",
   width: "device-width",
   initialScale: 1,
 };
@@ -119,7 +119,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#ece9d8] text-[#111111] font-mono selection:bg-[#000080] selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#fdfbf7] text-[#1c1917] selection:bg-[#ffd5cc] selection:text-[#852a1e] antialiased">
         <LanguageProvider>
           <div className="min-h-screen flex flex-col w-full">{children}</div>
         </LanguageProvider>

@@ -18,7 +18,6 @@ import {
   BookOpen,
   FileDown,
   Settings,
-  User,
 } from "lucide-react";
 import { PreferencesModal } from "@/components/PreferencesModal";
 
@@ -70,7 +69,6 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Lock body scroll optionally or keep accessible
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMobileMenuOpen(false);
@@ -80,175 +78,120 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
   }, []);
 
   return (
-    <header className="w-full shrink-0 sticky top-0 z-50 border-b border-[#808080] shadow-xs">
-      {/* OS Title Bar */}
-      <div className="bg-[#000080] text-white px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between gap-2">
-        <Link
-          href={getLocalizedHref("/")}
-          className="flex items-center gap-2 hover:opacity-90 transition-opacity min-w-0"
-        >
-          <FishIcon className="w-4 h-4 text-[#ffff00] shrink-0" />
-          <span className="font-bold text-xs sm:text-sm tracking-wider truncate">
-            {t.nav.brand}
-            {currentSubtitle ? ` - ${currentSubtitle}` : ""}
-          </span>
-        </Link>
-
-        {/* Right side status & controls */}
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="text-[11px] text-[#e0e0ff] hidden md:flex items-center gap-3 font-mono">
-            <span>{t.nav.titleBarSub}</span>
-            <span className="text-[#00ff66]">● {t.nav.online}</span>
+    <header className="w-full shrink-0 sticky top-0 z-50 bg-[#fdfbf7]/80 backdrop-blur-md border-b border-stone-200/80 transition-all">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
+          {/* Logo / Brand */}
+          <div className="flex items-center gap-3 min-w-0">
+            <Link
+              href={getLocalizedHref("/")}
+              className="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
+            >
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fa624d] to-[#ff8572] flex items-center justify-center text-white shadow-sm shadow-[#fa624d]/20 transition-transform group-hover:scale-105">
+                <FishIcon className="w-4 h-4 text-white" />
+              </div>
+              <div className="flex items-baseline gap-1.5 truncate">
+                <span className="font-extrabold text-base tracking-tight text-stone-900">
+                  SaKana
+                </span>
+                <span className="text-xs font-semibold text-[#fa624d]">魚</span>
+                {currentSubtitle && (
+                  <span className="text-xs text-stone-400 font-medium truncate hidden md:inline">
+                    / {currentSubtitle}
+                  </span>
+                )}
+              </div>
+            </Link>
           </div>
 
-          {/* Mobile-only quick Language & Menu toggles */}
-          <div className="flex sm:hidden items-center gap-1.5">
-            <button
-              type="button"
-              onClick={() => setPreferencesOpen(true)}
-              aria-label={t.nav.preferences}
-              className="flex items-center gap-1 px-2 py-1 text-[11px] font-bold border bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
-            >
-              <Settings className="w-3.5 h-3.5 text-[#000080]" />
-            </button>
-            <LanguageSelector />
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? t.nav.close : t.nav.menu}
-              aria-expanded={mobileMenuOpen}
-              className={`flex items-center gap-1 px-2 py-1 text-[11px] font-bold border transition-colors ${
-                mobileMenuOpen
-                  ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                  : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
-              }`}
-            >
-              {mobileMenuOpen ? (
-                <>
-                  <X className="w-3.5 h-3.5 text-white" />
-                  <span>{t.nav.close}</span>
-                </>
-              ) : (
-                <>
-                  <Menu className="w-3.5 h-3.5 text-black" />
-                  <span>{t.nav.menu}</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Desktop Navigation Bar (≥ sm) */}
-      <div className="hidden sm:flex bg-[#ece9d8] px-4 sm:px-6 py-1.5 text-xs items-center justify-between gap-2 text-black border-t border-white">
-        <nav
-          className="flex items-center gap-1.5 lg:gap-2 flex-wrap"
-          aria-label={t.nav.mainNavigation}
-        >
-          {navLinks.map((item) => {
-            const isActive =
-              item.rawPath === "/"
-                ? pathname === item.href
-                : pathname === item.href || (pathname?.startsWith(item.href + "/") ?? false);
-
-            const Icon = item.icon;
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-1.5 px-2.5 py-1 border text-xs font-semibold whitespace-nowrap transition-colors ${
-                  isActive
-                    ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                    : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#ffff00]" : "text-[#404040]"}`} />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="shrink-0 flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setPreferencesOpen(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1 border text-xs font-semibold whitespace-nowrap bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
+          {/* Desktop Navigation Links */}
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            aria-label={t.nav.mainNavigation}
           >
-            <Settings className="w-3.5 h-3.5 text-[#000080]" />
-            <span>{t.nav.preferences}</span>
-          </button>
-          <LanguageSelector />
-        </div>
-      </div>
-
-      {/* Mobile Window Popup Menu (< sm) */}
-      {mobileMenuOpen && (
-        <div
-          ref={menuRef}
-          className="sm:hidden absolute top-full left-0 right-0 bg-[#d4d0c8] border-b-2 border-r-2 border-[#404040] border-l border-white shadow-xl animate-in fade-in slide-in-from-top-2 duration-150 z-50"
-        >
-          {/* Menu Title Header */}
-          <div className="bg-[#808080] text-white text-[11px] font-bold px-3 py-1 flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
-              <FishIcon className="w-3.5 h-3.5 text-[#ffff00]" />
-              <span>{t.nav.mainNavigation}</span>
-            </span>
-            <span className="text-[10px] text-[#e0e0e0] font-mono">SAKANA OS</span>
-          </div>
-
-          {/* Menu Items List with Accessible Touch Targets */}
-          <div className="p-2 space-y-1">
-            {navLinks.map((item) => {
+            {navLinks.slice(0, 7).map((item) => {
               const isActive =
                 item.rawPath === "/"
                   ? pathname === item.href
                   : pathname === item.href || (pathname?.startsWith(item.href + "/") ?? false);
 
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${
+                    isActive
+                      ? "bg-[#fff5f2] text-[#fa624d] font-semibold"
+                      : "text-stone-600 hover:text-stone-900 hover:bg-stone-100/60"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right Action Controls */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <LanguageSelector />
+
+            <button
+              type="button"
+              onClick={() => setPreferencesOpen(true)}
+              aria-label={t.nav.preferences}
+              className="p-2 rounded-lg text-stone-500 hover:text-stone-800 hover:bg-stone-100/80 transition-colors"
+            >
+              <Settings className="w-4 h-4" />
+            </button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? t.nav.close : t.nav.menu}
+              aria-expanded={mobileMenuOpen}
+              className="lg:hidden p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div
+          ref={menuRef}
+          className="lg:hidden border-t border-stone-200 bg-[#fdfbf7] px-4 py-3 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto"
+        >
+          <div className="grid grid-cols-2 gap-1.5 py-1">
+            {navLinks.map((item) => {
+              const isActive =
+                item.rawPath === "/"
+                  ? pathname === item.href
+                  : pathname === item.href || (pathname?.startsWith(item.href + "/") ?? false);
               const Icon = item.icon;
 
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2.5 text-xs font-semibold border transition-colors ${
+                  className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                     isActive
-                      ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                      : "bg-[#ece9d8] text-black border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#ffffff] active:bg-[#c0c0c0]"
+                      ? "bg-[#fff5f2] text-[#fa624d] font-semibold"
+                      : "text-stone-700 hover:bg-stone-100"
                   }`}
                 >
-                  <Icon
-                    className={`w-4 h-4 shrink-0 ${
-                      isActive ? "text-[#ffff00]" : "text-[#000080]"
-                    }`}
-                  />
-                  <span className="flex-1">{item.label}</span>
-                  {isActive && (
-                    <span className="text-[10px] font-mono text-[#ffff00]">
-                      ●
-                    </span>
-                  )}
+                  <Icon className={`w-4 h-4 ${isActive ? "text-[#fa624d]" : "text-stone-400"}`} />
+                  <span>{item.label}</span>
                 </Link>
               );
             })}
-            {/* Mobile Settings Item */}
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setPreferencesOpen(true);
-              }}
-              className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold border bg-[#ece9d8] text-black border-t-white border-l-white border-b-[#808080] border-r-[#808080] hover:bg-[#ffffff] active:bg-[#c0c0c0]"
-            >
-              <Settings className="w-4 h-4 shrink-0 text-[#000080]" />
-              <span className="flex-1 text-left">{t.nav.preferences}</span>
-            </button>
           </div>
         </div>
       )}
 
-      {/* Control Panel / Preferences Modal */}
+      {/* Preferences Modal */}
       <PreferencesModal
         isOpen={preferencesOpen}
         onClose={() => setPreferencesOpen(false)}
