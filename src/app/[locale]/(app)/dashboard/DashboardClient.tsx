@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { BottomNav } from "@/components/BottomNav";
+import { ModernFooter } from "@/components/ModernFooter";
 import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings } from "lucide-react";
+import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings, LogOut, User } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
@@ -39,7 +41,6 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
     const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakanajp.site";
     setUserEmail(savedEmail);
 
-    // 1. Initial instant load from localStorage
     const savedProgress = localStorage.getItem("sakana_progress");
     if (savedProgress) {
       try {
@@ -56,7 +57,6 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
       } catch {}
     }
 
-    // 2. Fetch live progress & SRS from Neon Postgres ONLY for logged-in accounts
     if (savedEmail && savedEmail !== "guest@sakanajp.site") {
       fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
         .then((res) => res.json())
@@ -84,7 +84,6 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
         })
         .catch((err) => console.error("Error fetching SRS summary:", err));
     } else {
-      // For guests: calculate SRS due summary purely from local browser storage
       try {
         const localSrs = localStorage.getItem("sakana_srs_records");
         if (localSrs) {
@@ -98,7 +97,7 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
             if (r.nextReviewAt && new Date(r.nextReviewAt) <= now) {
               dueCount++;
             }
-            if (r.state === "mastered" || (r.intervalDays && r.intervalDays >= 21)) {
+            if (r.intervalDays && r.intervalDays >= 21) {
               masteredCount++;
             }
           });
@@ -109,14 +108,14 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
     }
   }, []);
 
-  const completedList = Object.values(progress).filter((p) => p.completed);
-  const completedCount = completedList.length;
-  const stagesWithSpeed = completedList.filter((p) => typeof p.bestSec === "number" && (p.bestSec as number) > 0);
+  const totalStages = stages.length;
+  const completedStages = Object.values(progress).filter((p) => p.completed);
+  const completedCount = completedStages.length;
+  const stagesWithSpeed = completedStages.filter((p) => typeof p.bestSec === "number");
   const avgSpeedSec =
     stagesWithSpeed.length > 0
       ? (stagesWithSpeed.reduce((acc, curr) => acc + (curr.bestSec || 0), 0) / stagesWithSpeed.length).toFixed(1)
       : null;
-  const totalStages = stages.length;
 
   const categories: Array<{
     title: string;
@@ -127,240 +126,225 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
     {
       title: t.dashboard.sec1Title,
       sub: t.dashboard.sec1Sub,
-      color: "#000080",
+      color: "#fa624d",
       stages: stages.filter((s) => s.category === "hiragana"),
     },
     {
       title: t.dashboard.sec2Title,
       sub: t.dashboard.sec2Sub,
-      color: "#006600",
+      color: "#ea580c",
       stages: stages.filter((s) => s.category === "katakana"),
     },
     {
       title: t.dashboard.sec3Title,
       sub: t.dashboard.sec3Sub,
-      color: "#800000",
+      color: "#db2777",
       stages: stages.filter((s) => s.category === "words"),
     },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      {/* Full-width Sticky Retro Navbar */}
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-stone-900">
       <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
 
-      {/* Edge-to-Edge Responsive Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
-        {/* User Info Bar */}
-        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-[#000080]">{t.dashboard.operator}:</span>
-            <span className="bg-white px-2 py-0.5 border border-[#808080] text-xs font-mono font-bold">
-              {userEmail}
-            </span>
-          </div>
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
+        {/* User Status Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-stone-200/70 shadow-xs">
           <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#fff5f2] text-[#fa624d] flex items-center justify-center font-bold">
+              <User className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-sm text-stone-900">{userEmail}</span>
+                {userEmail === "guest@sakanajp.site" ? (
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">
+                    Guest Mode
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Synced
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-stone-500">
+                {t.dashboard.operator}: <strong className="text-stone-700">{userEmail}</strong>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setPreferencesOpen(true)}
-              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline flex items-center gap-1 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 hover:bg-stone-50 text-xs font-medium text-stone-700 transition-colors"
             >
               <Settings className="w-3.5 h-3.5" />
-              <span>[{t.nav.preferences}]</span>
+              <span>{t.nav.preferences}</span>
             </button>
             {userEmail !== "guest@sakanajp.site" && (
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-rose-200 text-rose-700 hover:bg-rose-50 text-xs font-medium transition-colors disabled:opacity-50"
               >
-                [{t.nav.logout}]
+                <LogOut className="w-3.5 h-3.5" />
+                <span>{t.nav.logout}</span>
               </button>
             )}
           </div>
         </div>
 
-        {/* Desktop 2-Column Workstation Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          {/* Left Column: Stats, SRS Retention & Arcade */}
+        {/* 2-Column Dashboard Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Left Column: Metrics & Actions */}
           <div className="lg:col-span-4 space-y-4">
-
-          
-          {/* Status Matrix Board */}
-          <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
-            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
-              <span className="flex items-center gap-1">
-                <span className="animate-star-twinkle text-[#ff00ff]">✦</span>
-                <span>◆ {t.dashboard.statsTitle}</span>
-              </span>
-              <span className="text-[#cc0000] font-mono text-[9px] bg-[#fff0f0] border border-[#ffcccc] px-1">
-                {t.dashboard.standard}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 text-center pt-2 text-xs">
-              <div className="bg-black text-[#00ff66] border border-[#808080] p-1.5 font-mono shadow-inner">
-                <span className="block text-[9px] text-[#888]">{t.dashboard.cleared}</span>
-                <strong className="text-sm">
-                  {completedCount} / {totalStages}
-                </strong>
-              </div>
-              <div className="bg-black text-[#ffcc00] border border-[#808080] p-1.5 font-mono shadow-inner">
-                <span className="block text-[9px] text-[#888]">{t.dashboard.speed}</span>
-                <strong className="text-sm">
-                  {avgSpeedSec ? `${avgSpeedSec}s` : "--"}
-                </strong>
-              </div>
-              <div className="bg-black text-[#00ffff] border border-[#808080] p-1.5 font-mono shadow-inner">
-                <span className="block text-[9px] text-[#888]">{t.dashboard.mastery}</span>
-                <strong className="text-sm flex items-center justify-center gap-1">
-                  <span>{Math.round((completedCount / totalStages) * 100)}%</span>
-                  {completedCount === totalStages && (
-                    <Star className="w-3.5 h-3.5 fill-[#ffff00] text-[#ffff00] inline" />
-                  )}
-                </strong>
-              </div>
-            </div>
-          </div>
-
-          {/* SRS Due Review Center */}
-          <div className="border border-[#808080] bg-[#f5f5f0] p-2.5">
-            <div className="text-[10px] font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 flex justify-between items-center">
-              <span className="flex items-center gap-1">
-                {srsSummary.dueCount > 0 ? (
-                  <span className="w-2 h-2 rounded-full bg-[#ff0000] inline-block animate-pulse"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-[#008000] inline-block"></span>
-                )}
-                <span>{t.dashboard.srsDueTitle}</span>
-              </span>
-              <span className="font-mono text-[9px] text-[#555]">
-                {t.dashboard.srsMastered}: {srsSummary.masteredCount}
-              </span>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div className="text-xs">
-                {srsSummary.dueCount > 0 ? (
-                  <div>
-                    <span className="font-bold text-[#cc0000] flex items-center gap-1.5">
-                      <span className="animate-retro-blink bg-[#ff0000] text-white px-1 py-0.2 text-[9px] font-mono">
-                        {t.common.dueNow}
-                      </span>
-                      <Zap className="w-3.5 h-3.5 fill-[#cc0000] text-[#cc0000]" />
-                      <span>{srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
-                    </span>
-                    <span className="text-[11px] text-[#555] block mt-0.5">
-                      {t.common.dueReinforcementNote}
-                    </span>
-                  </div>
-                ) : (
-                  <div>
-                    <span className="font-bold text-[#006600] flex items-center gap-1">
-                      <Check className="w-3.5 h-3.5 text-[#00aa00]" />
-                      <span>{t.dashboard.allCaughtUp}</span>
-                    </span>
-                    <span className="text-[11px] text-[#555] block">
-                      {srsSummary.totalStudied > 0
-                        ? t.common.srsTrackingNote(srsSummary.totalStudied)
-                        : t.common.srsEmptyNote}
-                    </span>
-                  </div>
-                )}
+            {/* Stats Metric Box */}
+            <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-xs text-stone-500 uppercase tracking-wider">
+                  {t.dashboard.statsTitle}
+                </h3>
+                <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#fff5f2] text-[#fa624d]">
+                  {t.dashboard.standard}
+                </span>
               </div>
 
-              {srsSummary.dueCount > 0 && (
-                <Link
-                  href={`${prefix}/study/srs-due`}
-                  className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1 shadow whitespace-nowrap animate-pulse"
-                >
-                  <RotateCw className="w-3.5 h-3.5 animate-spin" />
-                  <span>{t.dashboard.startSrsReview} ({srsSummary.dueCount})</span>
-                </Link>
-              )}
-            </div>
-          </div>
-
-          {/* Optional Intermission Arcade Section */}
-          {(() => {
-            const arcadeUnlocked = isArcadeUnlocked(progress);
-            return (
-              <div
-                className={`border-2 p-2.5 shadow-sm transition-colors ${
-                  arcadeUnlocked
-                    ? "border-[#ff9900] bg-[#fffdf0]"
-                    : "border-[#a0a0a0] bg-[#f5f5f5]"
-                }`}
-              >
-                <div
-                  className={`text-[10px] font-bold uppercase border-b pb-1 flex justify-between items-center ${
-                    arcadeUnlocked
-                      ? "text-[#b35900] border-[#e6b800]"
-                      : "text-[#777] border-[#ccc]"
-                  }`}
-                >
-                  <span className="flex items-center gap-1">
-                    {arcadeUnlocked ? (
-                      <Sparkles className="w-3.5 h-3.5 text-[#ff6600]" />
-                    ) : (
-                      <Lock className="w-3.5 h-3.5 text-[#888]" />
-                    )}
-                    <span>{t.minigame.optionalBannerTitle}</span>
-                  </span>
-                  <span
-                    className={`text-[9px] px-1 font-mono uppercase border ${
-                      arcadeUnlocked
-                        ? "bg-[#fff0e0] border-[#ffcc80] text-[#cc6600]"
-                        : "bg-[#e8e8e8] border-[#ccc] text-[#888]"
-                    }`}
-                  >
-                    {arcadeUnlocked ? t.dashboard.optionalDrillBadge : t.minigame.arcadeLockedBadge}
-                  </span>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-100">
+                  <span className="block text-[10px] text-stone-400 font-medium">{t.dashboard.cleared}</span>
+                  <strong className="text-base font-extrabold text-stone-900">
+                    {completedCount}/{totalStages}
+                  </strong>
                 </div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-100">
+                  <span className="block text-[10px] text-stone-400 font-medium">{t.dashboard.speed}</span>
+                  <strong className="text-base font-extrabold text-stone-900">
+                    {avgSpeedSec ? `${avgSpeedSec}s` : "--"}
+                  </strong>
+                </div>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-100">
+                  <span className="block text-[10px] text-stone-400 font-medium">{t.dashboard.mastery}</span>
+                  <strong className="text-base font-extrabold text-[#fa624d]">
+                    {Math.round((completedCount / (totalStages || 1)) * 100)}%
+                  </strong>
+                </div>
+              </div>
+            </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                  <div className="text-xs text-[#555]">
-                    <p className="text-[11px] leading-snug">
-                      {arcadeUnlocked
-                        ? t.minigame.optionalBannerDesc
-                        : t.minigame.arcadeLockedDesc}
-                    </p>
-                  </div>
+            {/* SRS Review Station */}
+            <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`w-2 h-2 rounded-full ${
+                      srsSummary.dueCount > 0 ? "bg-[#fa624d] animate-subtle-pulse" : "bg-emerald-500"
+                    }`}
+                  />
+                  <h3 className="font-semibold text-xs text-stone-800">{t.dashboard.srsDueTitle}</h3>
+                </div>
+                <span className="text-[11px] text-stone-400">
+                  {t.dashboard.srsMastered}: {srsSummary.masteredCount}
+                </span>
+              </div>
 
-                  {arcadeUnlocked ? (
-                    <Link
-                      href={`${prefix}/minigame`}
-                      className="px-3 py-1.5 bg-[#ffff00] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#800000] hover:bg-[#fff066] active:border-t-[#800000] active:border-l-[#800000] active:border-b-white active:border-r-white font-black text-xs text-[#800000] flex items-center justify-center gap-1.5 shadow whitespace-nowrap shrink-0"
-                    >
-                      <Gamepad2 className="w-3.5 h-3.5 text-[#800000]" />
-                      <span>{t.minigame.startArcadeBtn}</span>
-                    </Link>
+              <div className="pt-1 space-y-2">
+                <div>
+                  {srsSummary.dueCount > 0 ? (
+                    <div>
+                      <span className="font-bold text-[#fa624d] flex items-center gap-1.5 text-xs">
+                        <Zap className="w-3.5 h-3.5 fill-[#fa624d]" />
+                        <span>{srsSummary.dueCount} {t.dashboard.srsDueDesc}</span>
+                      </span>
+                      <span className="text-[11px] text-stone-500 block mt-0.5">
+                        {t.common.dueReinforcementNote}
+                      </span>
+                    </div>
                   ) : (
-                    <div className="px-3 py-1.5 bg-[#d4d0c8] border border-[#a0a0a0] font-bold text-xs text-[#888] flex items-center justify-center gap-1.5 shadow-xs whitespace-nowrap shrink-0 cursor-not-allowed">
-                      <Lock className="w-3.5 h-3.5 text-[#888]" />
-                      <span>{t.dashboard.statusLocked}</span>
+                    <div>
+                      <span className="font-semibold text-emerald-600 flex items-center gap-1 text-xs">
+                        <Check className="w-3.5 h-3.5" />
+                        <span>{t.dashboard.allCaughtUp}</span>
+                      </span>
+                      <span className="text-[11px] text-stone-400 block mt-0.5">
+                        {srsSummary.totalStudied > 0
+                          ? t.common.srsTrackingNote(srsSummary.totalStudied)
+                          : t.common.srsEmptyNote}
+                      </span>
                     </div>
                   )}
                 </div>
+
+                {srsSummary.dueCount > 0 && (
+                  <Link
+                    href={`${prefix}/study/srs-due`}
+                    className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#fa624d] hover:bg-[#e84630] text-white font-semibold text-xs shadow-xs transition-colors"
+                  >
+                    <RotateCw className="w-3.5 h-3.5" />
+                    <span>{t.dashboard.startSrsReview} ({srsSummary.dueCount})</span>
+                  </Link>
+                )}
               </div>
-            );
-          })()}
+            </div>
+
+            {/* Arcade Minigame Box */}
+            {(() => {
+              const arcadeUnlocked = isArcadeUnlocked(progress);
+              return (
+                <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Gamepad2 className="w-4 h-4 text-[#fa624d]" />
+                      <h3 className="font-semibold text-xs text-stone-800">{t.minigame.optionalBannerTitle}</h3>
+                    </div>
+                    <span
+                      className={`text-[10px] font-medium px-2 py-0.5 rounded-md ${
+                        arcadeUnlocked ? "bg-amber-50 text-amber-700" : "bg-stone-100 text-stone-400"
+                      }`}
+                    >
+                      {arcadeUnlocked ? t.dashboard.optionalDrillBadge : t.minigame.arcadeLockedBadge}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-stone-500 leading-relaxed">
+                    {arcadeUnlocked ? t.minigame.optionalBannerDesc : t.minigame.arcadeLockedDesc}
+                  </p>
+
+                  <div className="pt-1">
+                    {arcadeUnlocked ? (
+                      <Link
+                        href={`${prefix}/minigame`}
+                        className="inline-flex items-center justify-center gap-2 w-full py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs shadow-xs transition-colors"
+                      >
+                        <Gamepad2 className="w-3.5 h-3.5" />
+                        <span>{t.minigame.startArcadeBtn}</span>
+                      </Link>
+                    ) : (
+                      <div className="flex items-center justify-center gap-2 w-full py-2 rounded-xl bg-stone-100 text-stone-400 font-medium text-xs">
+                        <Lock className="w-3.5 h-3.5" />
+                        <span>{t.dashboard.statusLocked}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
 
-          {/* Right Column: Stages by Category */}
-          <div className="lg:col-span-8 space-y-4">
+          {/* Right Column: Stage Sectors */}
+          <div className="lg:col-span-8 space-y-6">
             {categories.map((cat, catIdx) => (
-              <div key={catIdx} className="border border-[#808080] bg-[#ece9d8]">
+              <div key={catIdx} className="space-y-3">
                 {/* Sector Header */}
-                <div
-                  style={{ backgroundColor: cat.color }}
-                  className="text-white px-2.5 py-1.5 text-xs font-bold flex items-center justify-between"
-                >
-                  <span className="tracking-wide uppercase font-mono">{cat.title}</span>
-                  <span className="text-[10px] text-[#ffff00] font-mono">{cat.sub}</span>
+                <div className="flex items-center justify-between px-1">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#fa624d]" />
+                    <h2 className="font-bold text-sm text-stone-900 tracking-tight">{cat.title}</h2>
+                  </div>
+                  <span className="text-xs text-stone-400">{cat.sub}</span>
                 </div>
 
-                {/* Stages Responsive Grid */}
-                <div className="p-2 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                {/* Grid of Stages */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {cat.stages.map((stage, stageIdx) => {
                     const stageProgress = progress[stage.id];
                     const isCompleted = !!stageProgress?.completed;
@@ -369,10 +353,8 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
                     if (stage.unlockedByDefault || stageIdx === 0 || isCompleted) {
                       isUnlocked = true;
                     } else if (stage.isBossStage && stage.requiredStageIds) {
-                      // Boss stage requires all preceding stages in its block to be completed
                       isUnlocked = stage.requiredStageIds.every((reqId) => !!progress[reqId]?.completed);
                     } else {
-                      // Normal stage requires the previous stage to be completed
                       const prevStage = stageIdx > 0 ? cat.stages[stageIdx - 1] : null;
                       isUnlocked = prevStage ? !!progress[prevStage.id]?.completed : false;
                     }
@@ -382,85 +364,93 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
                     return (
                       <div
                         key={stage.id}
-                        className={`p-2.5 border border-t-white border-l-white border-b-[#808080] border-r-[#808080] flex flex-col justify-between gap-2 transition-colors ${
+                        className={`p-4 rounded-2xl border transition-all flex flex-col justify-between gap-3 ${
                           isBoss
                             ? isCompleted
-                              ? "bg-[#fff0f5] border-l-4 border-l-[#800080]"
+                              ? "bg-purple-50/50 border-purple-200"
                               : isUnlocked
-                              ? "bg-[#fff8dc] border-l-4 border-l-[#cc0000]"
-                              : "bg-[#f2f2f2] border-l-4 border-l-[#888] text-[#888]"
+                              ? "bg-amber-50/50 border-amber-300 shadow-sm"
+                              : "bg-stone-50 border-stone-200 text-stone-400"
                             : isCompleted
-                            ? "bg-[#f0fff0]"
+                            ? "bg-[#fff9f8] border-[#ffd5cc]"
                             : isUnlocked
-                            ? "bg-white hover:bg-[#fffae6]"
-                            : "bg-[#f5f5f5] text-[#888]"
+                            ? "bg-white border-stone-200/80 hover:border-[#ffd5cc] shadow-xs"
+                            : "bg-stone-50/60 border-stone-200/50 text-stone-400"
                         }`}
                       >
-                        <div className="flex items-start gap-2">
-                          <span className="font-bold font-mono text-[10px] mt-0.5 shrink-0">
-                            {isCompleted ? (
-                              <span className={isBoss ? "text-[#800080] flex items-center gap-0.5" : "text-[#008000] flex items-center gap-0.5"}>
-                                {isBoss && <Star className="w-3 h-3 fill-[#800080] inline" />}
-                                <span>{isBoss ? t.dashboard.statusWon : t.dashboard.statusDone}</span>
-                              </span>
-                            ) : isUnlocked ? (
-                              <span className={isBoss ? "text-[#cc0000] font-black flex items-center gap-0.5" : "text-[#000080]"}>
-                                {isBoss && <Zap className="w-3 h-3 fill-[#cc0000] inline" />}
-                                <span>{isBoss ? t.dashboard.statusBoss : t.dashboard.statusReady}</span>
-                              </span>
-                            ) : (
-                              <span className="text-[#888] flex items-center gap-0.5">
-                                <Lock className="w-2.5 h-2.5 inline" />
-                                <span>{t.dashboard.statusLocked}</span>
-                              </span>
-                            )}
-                          </span>
-
-                          <div className="min-w-0 flex-1">
-                            <div className={`font-bold text-xs truncate flex items-center gap-1.5 ${isUnlocked ? (isBoss ? "text-[#990000]" : "text-black") : "text-[#777]"}`}>
-                              <span className="truncate">{stage.name[locale]}</span>
-                              {isBoss && (
-                                <span className="bg-[#cc0000] text-white text-[8px] px-1 py-0.2 font-mono uppercase shrink-0">
-                                  {t.dashboard.statusBoss}
+                        <div>
+                          <div className="flex items-start justify-between gap-2 mb-1.5">
+                            <div className="flex items-center gap-1.5 font-bold text-xs">
+                              {isCompleted ? (
+                                <span className="inline-flex items-center gap-1 text-emerald-600">
+                                  <Check className="w-3.5 h-3.5" />
+                                  <span>{isBoss ? t.dashboard.statusWon : t.dashboard.statusDone}</span>
+                                </span>
+                              ) : isUnlocked ? (
+                                <span className={`inline-flex items-center gap-1 ${isBoss ? "text-amber-600" : "text-[#fa624d]"}`}>
+                                  {isBoss && <Zap className="w-3.5 h-3.5 fill-amber-500" />}
+                                  <span>{isBoss ? t.dashboard.statusBoss : t.dashboard.statusReady}</span>
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1 text-stone-400">
+                                  <Lock className="w-3 h-3" />
+                                  <span>{t.dashboard.statusLocked}</span>
                                 </span>
                               )}
                             </div>
-                            <div className="text-[11px] text-[#555] mt-0.5 line-clamp-1">
-                              {stage.description[locale]}
-                            </div>
-                            {stageProgress?.bestSec && (
-                              <div className="text-[10px] text-[#006600] font-mono mt-0.5">
-                                {t.common.best}: {stageProgress.bestSec}s
-                              </div>
+
+                            {isBoss && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 uppercase">
+                                Boss
+                              </span>
                             )}
                           </div>
+
+                          <h3
+                            className={`font-semibold text-sm ${
+                              isUnlocked ? "text-stone-900" : "text-stone-400"
+                            }`}
+                          >
+                            {stage.name[locale]}
+                          </h3>
+
+                          <p className="text-xs text-stone-500 mt-0.5 line-clamp-1">
+                            {stage.description[locale]}
+                          </p>
+
+                          {stageProgress?.bestSec && (
+                            <div className="text-[11px] text-emerald-600 font-medium mt-1">
+                              {t.common.best}: {stageProgress.bestSec}s
+                            </div>
+                          )}
                         </div>
 
-                        {/* Action Buttons: [LEARN] + [CHALLENGE] */}
-                        <div className="flex items-center gap-1.5 pt-1 border-t border-[#e8e8e8] justify-end">
+                        {/* Action Buttons */}
+                        <div className="flex items-center justify-end gap-2 pt-2 border-t border-stone-100">
                           {isUnlocked ? (
                             <>
                               <Link
                                 href={`${prefix}/study/${stage.id}`}
-                                className="px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] text-[#000080] flex items-center gap-1 shadow-xs cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold transition-colors"
                               >
-                                <BookOpen className="w-3 h-3 text-[#000080]" />
+                                <BookOpen className="w-3.5 h-3.5" />
                                 <span>{t.dashboard.studyBtn}</span>
                               </Link>
-
                               <Link
                                 href={`${prefix}/test/${stage.id}`}
-                                className={`px-2 py-0.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px] flex items-center gap-1 shadow-xs cursor-pointer ${
-                                  isBoss ? "text-[#800000] bg-[#ffe4e1] border-[#800000]" : "text-[#cc0000]"
+                                className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition-colors ${
+                                  isBoss
+                                    ? "bg-amber-500 hover:bg-amber-600 text-white"
+                                    : "bg-[#fa624d] hover:bg-[#e84630] text-white"
                                 }`}
                               >
-                                <Play className={`w-3 h-3 ${isBoss ? "fill-[#800000]" : "fill-[#cc0000]"}`} />
+                                <Play className="w-3.5 h-3.5 fill-white" />
                                 <span>{isBoss ? t.dashboard.statusBoss : t.dashboard.sprintBtn}</span>
                               </Link>
                             </>
                           ) : (
-                            <span className="text-[10px] text-[#999] font-mono py-0.5 flex items-center gap-1">
-                              <Lock className="w-3 h-3 text-[#999] inline" />
+                            <span className="text-xs text-stone-400 flex items-center gap-1 py-1">
+                              <Lock className="w-3 h-3" />
                               <span>{isBoss ? t.common.beatTwoStagesFirst : t.dashboard.statusLocked}</span>
                             </span>
                           )}
@@ -475,17 +465,8 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
         </div>
       </main>
 
-      {/* Docked Retro Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>SAKANA DOJO // {t.common.systemOnline}</span>
-        </div>
-        <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">{t.dashboard.footerTagline}</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">{t.dashboard.footerReady}</span>
-        </div>
-      </footer>
+      <ModernFooter />
+      <BottomNav />
       <PreferencesModal
         isOpen={preferencesOpen}
         onClose={() => setPreferencesOpen(false)}

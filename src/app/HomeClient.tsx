@@ -3,9 +3,38 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { RetroWebring } from "@/components/RetroWebring";
+import { BottomNav } from "@/components/BottomNav";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, Sparkles, Star } from "lucide-react";
+import { Play, Sparkles, BookOpen, Grid, ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
+
+export function ModernFooter() {
+  const { t, locale } = useLanguage();
+  const prefix = locale === "en" ? "" : `/${locale}`;
+
+  return (
+    <footer className="border-t border-stone-200/80 bg-white/50 backdrop-blur-xs py-8 px-4 sm:px-6 lg:px-8 mt-12 pb-20 sm:pb-8">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#fa624d] animate-subtle-pulse inline-block" />
+          <span className="font-semibold text-stone-800">SaKana (魚)</span>
+          <span>— Fast Kana Mastery for Anime Fans</span>
+        </div>
+        <div className="flex items-center gap-4 text-[11px]">
+          <Link href={`${prefix}/about`} className="hover:text-[#fa624d] transition-colors">
+            {t.nav.about}
+          </Link>
+          <Link href={`${prefix}/docs`} className="hover:text-[#fa624d] transition-colors">
+            {t.nav.docs}
+          </Link>
+          <Link href={`${prefix}/tools/hiragana-chart-pdf`} className="hover:text-[#fa624d] transition-colors">
+            PDF Chart
+          </Link>
+          <span>© {new Date().getFullYear()} SaKana</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 export default function HomePage() {
   const { t, locale } = useLanguage();
@@ -13,7 +42,6 @@ export default function HomePage() {
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   useEffect(() => {
-    // Atomically increment and get updated count from DB on page load / refresh
     fetch("/api/visitors", { method: "POST" })
       .then((res) => res.json())
       .then((data) => {
@@ -27,287 +55,230 @@ export default function HomePage() {
   }, []);
 
   const formattedCount =
-    visitorCount !== null
-      ? String(visitorCount).padStart(6, "0")
-      : "------";
+    visitorCount !== null ? visitorCount.toLocaleString() : "--";
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      {/* Full-width Sticky Retro Navbar */}
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-stone-900">
       <RetroNavbar />
 
-      {/* Edge-to-Edge Responsive Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
-        {/* Header Banner */}
-        <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 text-center relative overflow-hidden shadow-xs">
-          <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5">
-            <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+        {/* Modern Minimalist Hero */}
+        <section className="text-center space-y-5 pt-4 sm:pt-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fff5f2] border border-[#ffd5cc] text-[#fa624d] text-xs font-semibold shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#fa624d] animate-subtle-pulse" />
             <span>{t.home.welcomeBadge}</span>
-            <Star className="w-3 h-3 fill-[#ff9900] text-[#ff9900]" />
           </div>
-          <h1 className="text-2xl sm:text-4xl font-black text-[#000080] mt-1.5 tracking-wider flex items-center justify-center gap-2">
+
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 max-w-3xl mx-auto leading-tight">
             <span>{t.home.heroTitle}</span>
           </h1>
-          <p className="text-xs sm:text-sm text-[#cc0000] font-bold mt-1">
-            〜 {t.home.tagline} 〜
+
+          <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            {t.home.tagline} — <span className="text-stone-500 font-normal">{t.home.subTagline}</span>
           </p>
-          <p className="text-[11px] sm:text-xs text-[#555] mt-1 font-mono">
-            [ {t.home.subTagline} ]
-          </p>
-        </div>
 
-        {/* Real Visitor Counter Stored in DB with Retro Flash */}
-        <div className="border border-[#808080] bg-[#f0f0f0] px-3 sm:px-4 py-2 flex items-center justify-between text-xs shadow-inner">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <span className="font-bold text-[#000080] flex items-center gap-1.5">
-              <span className="text-[#ff0055] animate-retro-blink font-black">●</span>
-              {t.home.counterLabel}
-            </span>
-            <span className="bg-black text-[#00ff66] font-mono px-2 py-0.5 border border-[#808080] text-xs sm:text-sm font-bold tracking-widest shadow-inner">
-              {formattedCount}
-            </span>
-            <span className="animate-retro-blink-fast text-[9px] font-bold px-1.5 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
-              {t.home.liveTag}
-            </span>
+          {/* Quick CTA Actions */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <Link
+              href={`${prefix}/dashboard`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-xl bg-[#fa624d] hover:bg-[#e84630] text-white font-semibold text-sm shadow-md shadow-[#fa624d]/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <Play className="w-4 h-4 fill-white" />
+              <span>{t.home.ctaEnter}</span>
+            </Link>
+            <Link
+              href={`${prefix}/kana`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-700 font-semibold text-sm border border-stone-200/80 shadow-xs transition-colors"
+            >
+              <Grid className="w-4 h-4 text-[#fa624d]" />
+              <span>{t.nav.kana}</span>
+            </Link>
           </div>
-          <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5">
-            <span className="text-[#008800] font-bold">{t.nav.online}</span> // SAKANA
-          </div>
-        </div>
 
-        {/* Authentic Retro Marquee Ticker */}
-        <div className="border border-[#808080] bg-[#000040] text-[#ffff00] text-[11px] font-mono py-1.5 px-3 overflow-hidden flex items-center shadow-inner">
-          <span className="shrink-0 bg-[#ff0000] text-white px-1.5 font-bold text-[9px] mr-2.5 animate-retro-blink">
-            {t.home.newsBadge}
-          </span>
-          <div className="w-full overflow-hidden whitespace-nowrap">
-            <div className="animate-retro-ticker">
-              {t.home.ticker}
+          {/* Minimalist Counter / Live Metric */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-stone-100/70 text-[11px] text-stone-600 font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>{t.home.counterLabel}:</span>
+            <span className="font-semibold text-stone-900">{formattedCount} learners</span>
+          </div>
+        </section>
+
+        {/* 3 Core Rules / Value Pillars */}
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+          <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-2 hover:border-[#ffd5cc] transition-colors">
+            <div className="w-7 h-7 rounded-lg bg-[#fff5f2] text-[#fa624d] flex items-center justify-center text-xs font-bold">
+              01
             </div>
+            <h3 className="font-bold text-stone-900 text-sm">{t.home.rule1Title}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">{t.home.rule1Desc}</p>
           </div>
-        </div>
 
-        {/* Main Content Area: Quick Actions & Rules */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          {/* Quick Actions & Rules */}
-          <div className="space-y-4">
-            {/* Quick Enter Action Banner */}
-            <div className="border-2 border-dashed border-[#000080] bg-[#eef3f8] p-4 sm:p-5 text-center space-y-3.5 shadow-xs">
-              <div className="text-xs sm:text-sm font-bold text-[#000080] flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#ff9900]" />
-                <span>{t.home.startSessionBanner}</span>
+          <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-2 hover:border-[#ffd5cc] transition-colors">
+            <div className="w-7 h-7 rounded-lg bg-[#fff5f2] text-[#fa624d] flex items-center justify-center text-xs font-bold">
+              02
+            </div>
+            <h3 className="font-bold text-stone-900 text-sm">{t.home.rule2Title}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">{t.home.rule2Desc}</p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs space-y-2 hover:border-[#ffd5cc] transition-colors">
+            <div className="w-7 h-7 rounded-lg bg-[#fff5f2] text-[#fa624d] flex items-center justify-center text-xs font-bold">
+              03
+            </div>
+            <h3 className="font-bold text-stone-900 text-sm">{t.home.rule3Title}</h3>
+            <p className="text-xs text-stone-500 leading-relaxed">{t.home.rule3Desc}</p>
+          </div>
+        </section>
+
+        {/* Exploratory Pathways Grid */}
+        <section className="space-y-4 pt-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-base sm:text-lg font-bold text-stone-900">{t.home.directoriesTitle}</h2>
+            <span className="text-xs text-stone-500">{t.home.exploreTag}</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Kana Directory */}
+            <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-xl bg-[#fff5f2] text-[#fa624d] flex items-center justify-center font-bold text-sm">
+                    あ
+                  </span>
+                  <h3 className="font-semibold text-stone-900 text-sm">{t.home.kanaTitle}</h3>
+                </div>
+                <p className="text-xs text-stone-500 leading-relaxed">{t.home.kanaDesc}</p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+
+              <div className="space-y-1.5 pt-3 border-t border-stone-100 text-xs">
                 <Link
-                  href={`${prefix}/dashboard`}
-                  className="w-full sm:w-auto px-8 py-2.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs sm:text-sm text-black flex items-center justify-center gap-2 shadow-xs cursor-pointer transition-colors"
+                  href={`${prefix}/kana`}
+                  className="flex items-center justify-between font-semibold text-[#fa624d] hover:text-[#e84630] py-1"
                 >
-                  <Play className="w-4 h-4 fill-[#000080] text-[#000080]" />
-                  <span>{t.home.ctaEnter}</span>
+                  <span>{t.home.kanaFullLink}</span>
+                  <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href={`${prefix}/login`}
-                  className="w-full sm:w-auto px-5 py-2.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-xs font-bold text-[#333] cursor-pointer transition-colors"
+                  href={`${prefix}/kana/hiragana/category/gojuon`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
                 >
-                  {t.home.ctaLogin}
+                  {t.home.hiraganaBasicLink}
                 </Link>
-              </div>
-            </div>
-
-            {/* Guidelines / Method Table */}
-            <div className="border border-[#808080] bg-white shadow-xs">
-              <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
-                <span>◆ {t.home.ruleTitle}</span>
-                <span className="text-[10px] text-[#ffff00] font-mono">{t.home.ruleTag}</span>
-              </div>
-              
-              <div className="divide-y divide-[#d0d0d0] text-xs">
-                <div className="p-3 flex items-start gap-2.5 bg-[#fafafa]">
-                  <span className="text-[#cc0000] font-bold font-mono">【1】</span>
-                  <div>
-                    <strong className="text-[#000080] text-xs sm:text-sm">{t.home.rule1Title}:</strong>
-                    <p className="text-[11px] sm:text-xs text-[#444] mt-0.5 leading-relaxed">
-                      {t.home.rule1Desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3 flex items-start gap-2.5 bg-white">
-                  <span className="text-[#cc0000] font-bold font-mono">【2】</span>
-                  <div>
-                    <strong className="text-[#000080] text-xs sm:text-sm">{t.home.rule2Title}:</strong>
-                    <p className="text-[11px] sm:text-xs text-[#444] mt-0.5 leading-relaxed">
-                      {t.home.rule2Desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3 flex items-start gap-2.5 bg-[#fafafa]">
-                  <span className="text-[#cc0000] font-bold font-mono">【3】</span>
-                  <div>
-                    <strong className="text-[#000080] text-xs sm:text-sm">{t.home.rule3Title}:</strong>
-                    <p className="text-[11px] sm:text-xs text-[#444] mt-0.5 leading-relaxed">
-                      {t.home.rule3Desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Federated Webring Panel */}
-            <RetroWebring />
-
-            {/* Programmatic SEO Link Hub & Learning Pathways */}
-            <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-4">
-              <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
-                <span>◆ {t.home.directoriesTitle}</span>
-                <span className="text-[10px] text-[#00ff66] font-mono">{t.home.exploreTag}</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                {/* Kana Hub Links */}
-                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
-                      <span className="text-[#800000]">あ</span>
-                      <span>{t.home.kanaTitle}</span>
-                    </div>
-                    <p className="text-[11px] text-[#555] leading-snug">
-                      {t.home.kanaDesc}
-                    </p>
-                  </div>
-                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href={`${prefix}/kana`} className="text-[#000080] hover:underline font-bold">
-                      &rarr; {t.home.kanaFullLink}
-                    </Link>
-                    <Link href={`${prefix}/kana/hiragana/category/gojuon`} className="text-[#555] hover:underline">
-                      &bull; {t.home.hiraganaBasicLink}
-                    </Link>
-                    <Link href={`${prefix}/kana/katakana/category/gojuon`} className="text-[#555] hover:underline">
-                      &bull; {t.home.katakanaBasicLink}
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Vocabulary Directory Links */}
-                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
-                      <span className="text-[#800000]">語</span>
-                      <span>{t.home.vocabTitle}</span>
-                    </div>
-                    <p className="text-[11px] text-[#555] leading-snug">
-                      {t.home.vocabDesc}
-                    </p>
-                  </div>
-                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href={`${prefix}/words`} className="text-[#000080] hover:underline font-bold">
-                      &rarr; {t.home.vocabFullLink}
-                    </Link>
-                    <Link href={`${prefix}/words/category/n5`} className="text-[#000080] hover:underline">
-                      &bull; {t.home.jlptN5Link}
-                    </Link>
-                    <Link href={`${prefix}/words/category/anime`} className="text-[#800000] hover:underline">
-                      &bull; {t.home.animeVocabLink}
-                    </Link>
-                    <Link href={`${prefix}/words/sakana`} className="text-[#555] hover:underline">
-                      &bull; {t.home.sakanaWordLink}
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Confused Pairs / Lookalikes */}
-                <div className="border border-[#d0cebf] p-3 bg-[#faf9f5] flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="font-bold text-[#000080] flex items-center gap-1.5">
-                      <span className="text-[#800000]">対</span>
-                      <span>{t.home.lookalikeTitle}</span>
-                    </div>
-                    <p className="text-[11px] text-[#555] leading-snug">
-                      {t.home.lookalikeDesc}
-                    </p>
-                  </div>
-                  <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
-                    <Link href={`${prefix}/compare`} className="text-[#000080] hover:underline font-bold">
-                      &rarr; {t.home.lookalikeFullLink}
-                    </Link>
-                    <Link href={`${prefix}/compare/shi-vs-tsu`} className="text-[#555] hover:underline">
-                      &bull; {t.home.shiVsTsuLink}
-                    </Link>
-                    <Link href={`${prefix}/compare/so-vs-n`} className="text-[#555] hover:underline">
-                      &bull; {t.home.soVsNLink}
-                    </Link>
-                    <Link href={`${prefix}/compare/sa-vs-ki`} className="text-[#555] hover:underline">
-                      &bull; {t.home.saVsKiLink}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Utility Tools Link */}
-              <div className="bg-[#f0f4f8] p-2.5 border border-[#d0d8e8] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
-                <span className="text-[#000080] font-bold">
-                  {t.home.toolLabel}
-                </span>
                 <Link
-                  href={`${prefix}/tools/romaji-to-kana`}
-                  className="px-3 py-1 bg-[#000080] text-white font-bold text-[11px] hover:bg-[#0000a0]"
+                  href={`${prefix}/kana/katakana/category/gojuon`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
                 >
-                  {t.home.toolBtn}
+                  {t.home.katakanaBasicLink}
                 </Link>
               </div>
             </div>
 
-            {/* FAQ Accordion Section for Rich Search Snippets */}
-            <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-3">
-              <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
-                <span>◆ {t.home.faqTitle}</span>
-                <span className="text-[10px] text-[#ffff00] font-mono">{t.home.faqTag}</span>
+            {/* Vocabulary Directory */}
+            <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-xl bg-[#fff5f2] text-[#fa624d] flex items-center justify-center font-bold text-sm">
+                    語
+                  </span>
+                  <h3 className="font-semibold text-stone-900 text-sm">{t.home.vocabTitle}</h3>
+                </div>
+                <p className="text-xs text-stone-500 leading-relaxed">{t.home.vocabDesc}</p>
               </div>
-              <div className="space-y-2.5 text-xs">
-                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080]">
-                    {t.home.faq1Q}
-                  </summary>
-                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    {t.home.faq1A}
-                  </p>
-                </details>
 
-                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080]">
-                    {t.home.faq2Q}
-                  </summary>
-                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    {t.home.faq2A}
-                  </p>
-                </details>
+              <div className="space-y-1.5 pt-3 border-t border-stone-100 text-xs">
+                <Link
+                  href={`${prefix}/words`}
+                  className="flex items-center justify-between font-semibold text-[#fa624d] hover:text-[#e84630] py-1"
+                >
+                  <span>{t.home.vocabFullLink}</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href={`${prefix}/words/category/anime`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
+                >
+                  {t.home.animeVocabLink}
+                </Link>
+                <Link
+                  href={`${prefix}/words/category/n5`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
+                >
+                  {t.home.jlptN5Link}
+                </Link>
+              </div>
+            </div>
 
-                <details className="p-2.5 bg-[#fafafa] border border-[#e0ded0] cursor-pointer">
-                  <summary className="font-bold text-[#000080]">
-                    {t.home.faq3Q}
-                  </summary>
-                  <p className="mt-2 text-[#444] leading-relaxed text-[11px] sm:text-xs">
-                    {t.home.faq3A}
-                  </p>
-                </details>
+            {/* Lookalike Pairs */}
+            <div className="p-5 rounded-2xl bg-white border border-stone-200/70 shadow-xs flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-xl bg-[#fff5f2] text-[#fa624d] flex items-center justify-center font-bold text-sm">
+                    対
+                  </span>
+                  <h3 className="font-semibold text-stone-900 text-sm">{t.home.lookalikeTitle}</h3>
+                </div>
+                <p className="text-xs text-stone-500 leading-relaxed">{t.home.lookalikeDesc}</p>
+              </div>
+
+              <div className="space-y-1.5 pt-3 border-t border-stone-100 text-xs">
+                <Link
+                  href={`${prefix}/compare`}
+                  className="flex items-center justify-between font-semibold text-[#fa624d] hover:text-[#e84630] py-1"
+                >
+                  <span>{t.home.lookalikeFullLink}</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href={`${prefix}/compare/shi-vs-tsu`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
+                >
+                  {t.home.shiVsTsuLink}
+                </Link>
+                <Link
+                  href={`${prefix}/compare/so-vs-n`}
+                  className="block text-stone-600 hover:text-stone-900 py-0.5"
+                >
+                  {t.home.soVsNLink}
+                </Link>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* Minimal FAQ Accordion */}
+        <section className="space-y-4 pt-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-base sm:text-lg font-bold text-stone-900">{t.home.faqTitle}</h2>
+            <span className="text-xs text-stone-500">{t.home.faqTag}</span>
+          </div>
+
+          <div className="space-y-2.5">
+            {[
+              { q: t.home.faq1Q, a: t.home.faq1A },
+              { q: t.home.faq2Q, a: t.home.faq2A },
+              { q: t.home.faq3Q, a: t.home.faq3A },
+            ].map((faq, idx) => (
+              <details
+                key={idx}
+                className="group p-4 rounded-xl bg-white border border-stone-200/70 shadow-xs open:bg-[#fffdfc] transition-all"
+              >
+                <summary className="font-semibold text-stone-800 text-xs sm:text-sm cursor-pointer list-none flex items-center justify-between">
+                  <span>{faq.q}</span>
+                  <span className="text-[#fa624d] text-base group-open:rotate-45 transition-transform duration-200">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-2.5 text-xs text-stone-500 leading-relaxed">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
       </main>
 
-      {/* Docked Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>{t.home.footerStatus}</span>
-        </div>
-        <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">{t.home.footerTagline}</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">{t.home.footerEncoding}</span>
-        </div>
-      </footer>
+      <ModernFooter />
+      <BottomNav />
     </div>
   );
 }
