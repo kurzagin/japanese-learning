@@ -66,10 +66,10 @@ export function SrsSimulator() {
 
   return (
     <div className="my-6 border-2 border-[#000080] bg-[#fdfdfb] p-4 sm:p-5 shadow-sm font-sans">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#c0c0c0] gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-stone-200 gap-2">
         <div>
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#000080] uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-[#000080]" />
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#fa624d] uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-[#fa624d]" />
             <span>Interactive SM-2 Interval Simulator</span>
           </div>
           <p className="text-xs text-[#555] mt-0.5">
@@ -79,7 +79,7 @@ export function SrsSimulator() {
         <button
           type="button"
           onClick={handleReset}
-          className="self-start sm:self-auto px-2 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-[11px] font-bold text-[#800000] flex items-center gap-1 cursor-pointer"
+          className="self-start sm:self-auto px-2 py-1 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-[11px] font-bold text-[#800000] flex items-center gap-1 cursor-pointer"
         >
           <RotateCcw className="w-3 h-3" />
           <span>Reset Demo</span>
@@ -88,9 +88,9 @@ export function SrsSimulator() {
 
       {/* Real-time State Board */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 my-4">
-        <div className="p-2 border border-[#808080] bg-white">
+        <div className="p-2 border border-stone-200 bg-white">
           <span className="block text-[10px] text-[#888] font-mono uppercase">Current Interval</span>
-          <strong className="text-base font-bold text-[#000080]">
+          <strong className="text-base font-bold text-[#fa624d]">
             {formatIntervalPreview(currentInterval)}
           </strong>
           <span className="block text-[9px] text-[#666]">
@@ -98,7 +98,7 @@ export function SrsSimulator() {
           </span>
         </div>
 
-        <div className="p-2 border border-[#808080] bg-white">
+        <div className="p-2 border border-stone-200 bg-white">
           <span className="block text-[10px] text-[#888] font-mono uppercase">Ease Factor (EF)</span>
           <strong className="text-base font-bold text-[#333]">
             {easeFactor.toFixed(2)}
@@ -108,10 +108,10 @@ export function SrsSimulator() {
           </span>
         </div>
 
-        <div className="p-2 border border-[#808080] bg-white">
+        <div className="p-2 border border-stone-200 bg-white">
           <span className="block text-[10px] text-[#888] font-mono uppercase">Repetitions / Lapses</span>
           <strong className="text-base font-bold text-[#333]">
-            {repetitionCount} <span className="text-xs text-[#888]">reps</span> / <span className="text-[#cc0000]">{lapses}</span>
+            {repetitionCount} <span className="text-xs text-[#888]">reps</span> / <span className="text-[#fa624d]">{lapses}</span>
           </strong>
           <span className="block text-[9px] text-[#666]">
             (Lapses drop EF by 0.20)
@@ -119,7 +119,7 @@ export function SrsSimulator() {
         </div>
 
         <div
-          className="p-2 border border-[#808080] flex flex-col justify-center"
+          className="p-2 border border-stone-200 flex flex-col justify-center"
           style={{ backgroundColor: stateLabel.bg }}
         >
           <span className="block text-[10px] text-[#888] font-mono uppercase">Card Status</span>
@@ -142,7 +142,7 @@ export function SrsSimulator() {
           <button
             type="button"
             onClick={() => handleSimulate(1)}
-            className="p-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
+            className="p-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
           >
             <span className="block text-[10px] text-[#800000] font-mono font-bold">&lt; 10m (Re-queue)</span>
             <span className="block text-xs font-black text-[#800000]">1. Again</span>
@@ -153,7 +153,7 @@ export function SrsSimulator() {
           <button
             type="button"
             onClick={() => handleSimulate(2)}
-            className="p-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
+            className="p-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
           >
             <span className="block text-[10px] text-[#b85d00] font-mono font-bold">× 1.2 Multiplier</span>
             <span className="block text-xs font-black text-[#b85d00]">2. Hard</span>
@@ -164,7 +164,7 @@ export function SrsSimulator() {
           <button
             type="button"
             onClick={() => handleSimulate(3)}
-            className="p-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
+            className="p-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
           >
             <span className="block text-[10px] text-[#006600] font-mono font-bold">Standard SM-2</span>
             <span className="block text-xs font-black text-[#006600]">3. Good</span>
@@ -175,10 +175,10 @@ export function SrsSimulator() {
           <button
             type="button"
             onClick={() => handleSimulate(4)}
-            className="p-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
+            className="p-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer"
           >
-            <span className="block text-[10px] text-[#000080] font-mono font-bold">Rapid Leap</span>
-            <span className="block text-xs font-black text-[#000080]">4. Easy</span>
+            <span className="block text-[10px] text-[#fa624d] font-mono font-bold">Rapid Leap</span>
+            <span className="block text-xs font-black text-[#fa624d]">4. Easy</span>
             <span className="block text-[9px] text-[#666]">4d → 6d → (d × EF × 1.3)</span>
           </button>
         </div>
@@ -191,7 +191,7 @@ export function SrsSimulator() {
             Review Timeline Simulation Log:
           </span>
           <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
-            <span className="px-1.5 py-0.5 bg-[#e0e0e0] border border-[#808080] text-[10px] text-[#333]">
+            <span className="px-1.5 py-0.5 bg-[#e0e0e0] border border-stone-200 text-[10px] text-[#333]">
               Day 0: Intro
             </span>
             {history.map((h, i) => (
@@ -200,10 +200,10 @@ export function SrsSimulator() {
                 <span
                   className={`px-1.5 py-0.5 border text-[10px] font-bold ${
                     h.rating === 1
-                      ? "bg-[#fff0f0] border-[#cc0000] text-[#cc0000]"
+                      ? "bg-[#fff0f0] border-[#cc0000] text-[#fa624d]"
                       : h.resultingDays >= 21
                       ? "bg-[#eef8ee] border-[#008000] text-[#008000]"
-                      : "bg-[#eef3f8] border-[#000080] text-[#000080]"
+                      : "bg-[#eef3f8] border-[#000080] text-[#fa624d]"
                   }`}
                 >
                   Step {i + 1}: {h.label} ➔ {formatIntervalPreview(h.resultingDays)}

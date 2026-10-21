@@ -18,7 +18,7 @@ export function ProgressionDocClient() {
           <span>//</span>
           <span>DUAL-PILLAR FRAMEWORK</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] mt-1 tracking-tight">
           Study SRS vs. Speed Sprint Challenges
         </h1>
         <p className="text-sm text-[#444] mt-2 leading-relaxed">
@@ -30,8 +30,8 @@ export function ProgressionDocClient() {
       {/* The Dual Pillar Concept */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4 border-2 border-[#000080] bg-[#eef3f8]">
-          <div className="flex items-center gap-2 text-xs font-bold text-[#000080] uppercase font-mono mb-2">
-            <span className="w-2.5 h-2.5 bg-[#000080]"></span>
+          <div className="flex items-center gap-2 text-xs font-bold text-[#fa624d] uppercase font-mono mb-2">
+            <span className="w-2.5 h-2.5 bg-[#fa624d]"></span>
             <span>Pillar 1: Flashcard SRS Study</span>
           </div>
           <p className="text-xs text-[#333] leading-relaxed">
@@ -46,7 +46,7 @@ export function ProgressionDocClient() {
         </div>
 
         <div className="p-4 border-2 border-[#cc0000] bg-[#fff5f5]">
-          <div className="flex items-center gap-2 text-xs font-bold text-[#cc0000] uppercase font-mono mb-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#fa624d] uppercase font-mono mb-2">
             <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
             <span>Pillar 2: Speed Sprint Challenge</span>
           </div>
@@ -65,22 +65,22 @@ export function ProgressionDocClient() {
 
       {/* Multimodal Question Mechanics in Speed Sprint */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
-          <Zap className="w-5 h-5 text-[#cc0000]" />
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
+          <Zap className="w-5 h-5 text-[#fa624d]" />
           <span>Multimodal Sprint Mechanics &amp; Audio Drills</span>
         </h2>
         <p className="text-xs text-[#333] leading-relaxed">
           Speed Sprint tests are engineered for balanced neural wiring. They test both visual orthography and optional ear-to-script phonetic decoding without unfair speed penalties:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="p-3 bg-[#f5f5f0] border border-[#808080] space-y-1">
-            <div className="font-bold text-[#000080] font-mono">1. Visual Recognition (Default)</div>
+          <div className="p-3 bg-[#f5f5f0] border border-stone-200 space-y-1">
+            <div className="font-bold text-[#fa624d] font-mono">1. Visual Recognition (Default)</div>
             <ul className="list-disc pl-4 space-y-1 text-[#333] text-[11px]">
               <li><strong>Kana ➔ Romaji:</strong> See target kana, pick corresponding romaji pronunciation.</li>
               <li><strong>Romaji ➔ Kana:</strong> See Latin romanization, pick the correct native kana shape.</li>
             </ul>
           </div>
-          <div className="p-3 bg-[#f5f5f0] border border-[#808080] space-y-1">
+          <div className="p-3 bg-[#f5f5f0] border border-stone-200 space-y-1">
             <div className="font-bold text-[#008000] font-mono">2. Auditory Recall (Optional Toggle)</div>
             <ul className="list-disc pl-4 space-y-1 text-[#333] text-[11px]">
               <li><strong>Audio ➔ Kana:</strong> Listen to authentic Japanese audio, select target kana.</li>
@@ -94,7 +94,7 @@ export function ProgressionDocClient() {
 
       {/* Boss Checkpoint Gates */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
           <Trophy className="w-5 h-5 text-[#800000]" />
           <span>Boss Checkpoints: Cumulative Milestones</span>
         </h2>
@@ -102,7 +102,7 @@ export function ProgressionDocClient() {
           Throughout Hiragana and Katakana, sectors are divided into blocks. At the end of every block sits
           a <strong>Boss Checkpoint</strong> (e.g. <em>Hiragana Checkpoint 1: Vowels to T-Row</em>).
         </p>
-        <div className="p-3 bg-[#f5f5f0] border border-[#808080] text-xs space-y-2">
+        <div className="p-3 bg-[#f5f5f0] border border-stone-200 text-xs space-y-2">
           <div className="font-bold text-[#800000] uppercase font-mono">
             Boss Gate Rules:
           </div>
@@ -121,16 +121,16 @@ export function ProgressionDocClient() {
       </section>
 
       {/* Navigation Footer */}
-      <div className="mt-8 pt-4 border-t-2 border-[#808080] flex justify-between items-center text-xs">
+      <div className="mt-8 pt-4 border-t-2 border-stone-200 flex justify-between items-center text-xs">
         <Link
           href={`${prefix}/docs/srs-methodology`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           &lt;&lt; SRS &amp; Intervals
         </Link>
         <Link
           href={`${prefix}/docs/arcade-engine`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           <span>Arcade Engine &amp; Survival</span>
           <ArrowRight className="w-3.5 h-3.5" />

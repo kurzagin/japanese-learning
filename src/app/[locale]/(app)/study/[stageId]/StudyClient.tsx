@@ -336,11 +336,11 @@ export default function StudyClient({
   if (isDueReviewMode && queue.length === 0 && !completed) {
     return (
       <div className="min-h-screen py-4 px-2 sm:px-6 flex flex-col items-center justify-center">
-        <div className="w-full max-w-md bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md p-4 space-y-4 text-center">
+        <div className="w-full max-w-md bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] shadow-md p-4 space-y-4 text-center">
           <RetroNavbar currentSubtitle={t.study.srsReviewCenter} />
-          <div className="bg-white p-6 border border-[#808080] space-y-3">
+          <div className="bg-white p-6 border border-stone-200 space-y-3">
             <Sparkles className="w-10 h-10 text-[#008000] mx-auto" />
-            <h2 className="text-sm font-bold text-[#000080]">
+            <h2 className="text-sm font-bold text-[#fa624d]">
               {t.dashboard.allCaughtUp}
             </h2>
             <p className="text-xs text-[#555]">
@@ -349,7 +349,7 @@ export default function StudyClient({
             <div className="pt-2">
               <Link
                 href={`${prefix}/dashboard`}
-                className="inline-block py-1.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black"
+                className="inline-block py-1.5 px-4 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black"
               >
                 &lt;&lt; {t.study.backDashboard}
               </Link>
@@ -391,17 +391,17 @@ export default function StudyClient({
   const stageDepthName = isDueReviewMode ? t.study.dailyRetentionQueue : stage!.depthName[locale];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={`${t.study.windowTitle} - ${stageDisplayName}`} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Info Bar */}
-        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
+        <div className="border border-stone-200 bg-stone-100 px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <Link
             href={`${prefix}/dashboard`}
-            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
+            className="text-[#fa624d] underline hover:text-[#fa624d] flex items-center gap-1.5 text-xs font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.study.backDashboard}
           </Link>
@@ -411,7 +411,7 @@ export default function StudyClient({
         </div>
 
         {/* Mode Notice Banner */}
-        <div className="bg-[#fff8e7] border border-[#808080] p-3 text-center text-xs shadow-xs">
+        <div className="bg-[#fff8e7] border border-stone-200 p-3 text-center text-xs shadow-xs">
           <span className="font-bold text-[#800000] text-xs sm:text-sm">{t.study.studyBadge}</span>
           <span className="text-[11px] sm:text-xs text-[#555] block mt-0.5">
             {stageDepthName} {stage ? `// ${stage.description[locale]}` : ""}
@@ -419,7 +419,7 @@ export default function StudyClient({
         </div>
 
         {/* Card Screen Body */}
-        <div className="p-4 sm:p-6 bg-white text-black min-h-[380px] flex flex-col justify-between border border-[#808080] shadow-xs">
+        <div className="p-4 sm:p-6 bg-white text-black min-h-[380px] flex flex-col justify-between border border-stone-200 shadow-xs">
           {!completed && currentCard ? (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
               {/* Main Study Deck Column */}
@@ -429,13 +429,13 @@ export default function StudyClient({
               <div className="space-y-1.5 border-b border-[#d0d0d0] pb-2">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <div className="flex items-center gap-2">
-                    <span className="text-[#000080] font-bold">
+                    <span className="text-[#fa624d] font-bold">
                       {t.study.progress}: {currentIndex + 1} / {queue.length}
                     </span>
                     {/* SRS Status Pill */}
-                    <span className="text-[10px] px-1.5 py-0.2 border border-[#808080] bg-[#f0f0f0] text-[#333]">
+                    <span className="text-[10px] px-1.5 py-0.2 border border-stone-200 bg-[#f0f0f0] text-[#333]">
                       {currentSrsRecord?.repetitionCount === 0 ? (
-                        <span className="text-[#cc0000] font-bold animate-retro-blink">{t.study.newBadge}</span>
+                        <span className="text-[#fa624d] font-bold animate-retro-blink">{t.study.newBadge}</span>
                       ) : (
                         `${currentSrsRecord?.state.toUpperCase()} (int: ${currentSrsRecord?.intervalDays}d)`
                       )}
@@ -447,13 +447,13 @@ export default function StudyClient({
                 </div>
 
                 {/* Windows 98 Segmented Chunky Progress Meter */}
-                <div className="w-full bg-[#c0c0c0] p-[2px] border-t border-l border-[#808080] border-b border-r border-white flex gap-[2px] h-3.5 overflow-hidden">
+                <div className="w-full bg-stone-100 p-[2px] border-t border-l border-stone-200 border-b border-r border-white flex gap-[2px] h-3.5 overflow-hidden">
                   {Array.from({ length: queue.length }).map((_, idx) => (
                     <div
                       key={idx}
                       className={`flex-1 transition-none ${
                         idx <= currentIndex
-                          ? "bg-[#000080]"
+                          ? "bg-[#fa624d]"
                           : "bg-[#e0e0e0]"
                       }`}
                     />
@@ -468,7 +468,7 @@ export default function StudyClient({
               >
                 {/* Primary Japanese Character / Word */}
                 <div className="flex flex-col items-center justify-center my-1">
-                  <div className="text-6xl sm:text-7xl font-bold font-serif text-[#000080] tracking-tight">
+                  <div className="text-6xl sm:text-7xl font-bold font-serif text-[#fa624d] tracking-tight">
                     {currentCard.character}
                   </div>
                   <div className="mt-2" onClick={(e) => e.stopPropagation()}>
@@ -485,7 +485,7 @@ export default function StudyClient({
                     {/* Native Japanese Sample Word & Reading */}
                     <div className="bg-[#eef3f8] border border-[#b8c8d8] p-2 text-xs">
                       <div className="flex items-center justify-between gap-1 mb-1">
-                        <span className="text-[10px] text-[#000080] font-bold">
+                        <span className="text-[10px] text-[#fa624d] font-bold">
                           ◆ {t.study.sampleWord}
                         </span>
                         <div onClick={(e) => e.stopPropagation()}>
@@ -495,7 +495,7 @@ export default function StudyClient({
                           />
                         </div>
                       </div>
-                      <div className="text-sm font-bold text-[#000080] mt-0.5">
+                      <div className="text-sm font-bold text-[#fa624d] mt-0.5">
                         {currentCard.sampleWordJp}
                       </div>
                       <div className="text-[11px] text-[#555]">
@@ -506,7 +506,7 @@ export default function StudyClient({
                     {/* Romaji helper */}
                     <div className="text-[11px] text-[#666] font-mono">
                       <span>{t.study.romajiLabel} </span>
-                      <strong className="text-[#cc0000]">/{currentCard.romaji}/</strong>
+                      <strong className="text-[#fa624d]">/{currentCard.romaji}/</strong>
                     </div>
 
                     {/* Mnemonic / Hint */}
@@ -526,7 +526,7 @@ export default function StudyClient({
                   <button
                     type="button"
                     onClick={() => setIsFlipped(true)}
-                    className="w-full py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black cursor-pointer"
+                    className="w-full py-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black cursor-pointer"
                   >
                     {t.study.flipPrompt}
                   </button>
@@ -536,7 +536,7 @@ export default function StudyClient({
                     <button
                       type="button"
                       onClick={() => handleRating(1)}
-                      className="py-1.5 px-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
+                      className="py-1.5 px-1 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
                     >
                       <span className="text-[10px] text-[#888] font-mono">
                         {previews[1]}
@@ -550,7 +550,7 @@ export default function StudyClient({
                     <button
                       type="button"
                       onClick={() => handleRating(2)}
-                      className="py-1.5 px-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
+                      className="py-1.5 px-1 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
                     >
                       <span className="text-[10px] text-[#888] font-mono">
                         {previews[2]}
@@ -564,7 +564,7 @@ export default function StudyClient({
                     <button
                       type="button"
                       onClick={() => handleRating(3)}
-                      className="py-1.5 px-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
+                      className="py-1.5 px-1 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
                     >
                       <span className="text-[10px] text-[#888] font-mono">
                         {previews[3]}
@@ -578,12 +578,12 @@ export default function StudyClient({
                     <button
                       type="button"
                       onClick={() => handleRating(4)}
-                      className="py-1.5 px-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
+                      className="py-1.5 px-1 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-center cursor-pointer flex flex-col items-center justify-center"
                     >
                       <span className="text-[10px] text-[#888] font-mono">
                         {previews[4]}
                       </span>
-                      <span className="font-bold text-xs text-[#000080]">
+                      <span className="font-bold text-xs text-[#fa624d]">
                         4. {t.study.easyBtn}
                       </span>
                     </button>
@@ -593,46 +593,46 @@ export default function StudyClient({
               </div>
 
               {/* Desktop Flight Deck / Workstation Panel */}
-              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
+              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-stone-200 bg-[#fdfbf7] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
-                  <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
+                  <div className="text-xs font-bold text-[#fa624d] border-b border-stone-200 pb-1.5 flex items-center justify-between">
                     <span>{t.common.workstationCommands}</span>
-                    <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
+                    <span className="text-[10px] bg-white border border-stone-200 px-1 font-mono">
                       {t.common.hotkeys}
                     </span>
                   </div>
 
                   {/* Hotkeys Legend */}
-                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
+                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-stone-200">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
                       <span className="text-[#555]">{t.common.flipCard}</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">SPACE</kbd>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">SPACE</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
                       <span className="text-[#800000]">{t.study.againBtn.toUpperCase()}:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
                       <span className="text-[#b85d00]">{t.study.hardBtn.toUpperCase()}:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
                       <span className="text-[#006600]">{t.study.goodBtn.toUpperCase()}:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">{t.study.easyBtn.toUpperCase()}:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                      <span className="text-[#fa624d]">{t.study.easyBtn.toUpperCase()}:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">4</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5">
                       <span className="text-[#555]">{t.common.replayAudio}</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">R</kbd>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">R</kbd>
                     </div>
                   </div>
 
                   {/* Session Metrics */}
-                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
-                    <div className="font-bold text-[#000080] text-[10px] uppercase mb-1">
+                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-stone-200">
+                    <div className="font-bold text-[#fa624d] text-[10px] uppercase mb-1">
                       {t.common.telemetry}
                     </div>
                     <div className="flex justify-between">
@@ -641,7 +641,7 @@ export default function StudyClient({
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#666]">{t.common.lapses}</span>
-                      <span className="font-bold text-[#cc0000]">{againCount}</span>
+                      <span className="font-bold text-[#fa624d]">{againCount}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#666]">{t.common.intervalDays}</span>
@@ -653,7 +653,7 @@ export default function StudyClient({
                 {stage && (
                   <Link
                     href={`${prefix}/test/${stage.id}`}
-                    className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                    className="w-full py-1.5 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <Zap className="w-3.5 h-3.5 fill-[#cc0000]" />
                     <span>{t.common.jumpToSpeedSprint}</span>
@@ -678,7 +678,7 @@ export default function StudyClient({
                   <span>{t.common.stageComplete}</span>
                   <Star className="w-3 h-3 fill-[#800000]" />
                 </div>
-                <h2 className="text-lg font-black text-[#000080] mt-0.5">
+                <h2 className="text-lg font-black text-[#fa624d] mt-0.5">
                   {t.study.completeTitle}
                 </h2>
                 <p className="text-xs text-[#555] mt-1 max-w-sm">
@@ -693,7 +693,7 @@ export default function StudyClient({
                 {stage && (
                   <Link
                     href={`${prefix}/test/${stage.id}`}
-                    className="w-full py-2.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-black text-xs text-[#cc0000] flex items-center justify-center gap-2 shadow"
+                    className="w-full py-2.5 px-4 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-black text-xs text-[#fa624d] flex items-center justify-center gap-2 shadow"
                   >
                     <Play className="w-3.5 h-3.5 fill-[#cc0000]" />
                     <span>{t.study.readyChallengeBtn}</span>
@@ -705,7 +705,7 @@ export default function StudyClient({
                     <button
                       type="button"
                       onClick={restartStudy}
-                      className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-black"
+                      className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-black"
                     >
                       {t.study.repeatStudyBtn}
                     </button>
@@ -713,7 +713,7 @@ export default function StudyClient({
 
                   <Link
                     href={`${prefix}/dashboard`}
-                    className={`py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-black flex items-center justify-center ${
+                    className={`py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-black flex items-center justify-center ${
                       isDueReviewMode ? "col-span-2" : ""
                     }`}
                   >
@@ -727,14 +727,14 @@ export default function StudyClient({
       </main>
 
       {/* Docked Retro Footer */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-stone-200 bg-stone-100 px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>{stageDisplayName}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span>{t.study.footerSrsReviews} {sessionReviewedCount}</span>
-          <span className="border-l border-[#808080] pl-2">{t.study.footerLapses} {againCount}</span>
+          <span className="border-l border-stone-200 pl-2">{t.study.footerLapses} {againCount}</span>
         </div>
       </footer>
     </div>

@@ -40,7 +40,7 @@ export function AudioDocClient() {
           <span>//</span>
           <span>NEURAL SYNTHESIS &amp; PHONETICS</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] mt-1 tracking-tight">
           Native Japanese Speech &amp; Phonetics
         </h1>
         <p className="text-sm text-[#444] mt-2 leading-relaxed">
@@ -52,8 +52,8 @@ export function AudioDocClient() {
       {/* Speech Engine Intro */}
       <div className="p-4 bg-[#fdfdfb] border-2 border-[#000080] shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#000080] uppercase font-mono">
-            <Bot className="w-4 h-4 text-[#000080]" />
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#fa624d] uppercase font-mono">
+            <Bot className="w-4 h-4 text-[#fa624d]" />
             <span>Native Speech Synthesis Engine</span>
           </div>
           <p className="text-xs text-[#555] leading-relaxed">
@@ -61,15 +61,15 @@ export function AudioDocClient() {
             accentuation and crisp consonant attacks.
           </p>
         </div>
-        <span className="px-2 py-1 bg-[#000080] text-white font-mono text-[10px] font-bold shrink-0">
+        <span className="px-2 py-1 bg-[#fa624d] text-white font-mono text-[10px] font-bold shrink-0">
           CALIBRATED 0.85× PACE
         </span>
       </div>
 
       {/* Interactive Phonetic Audio Samples */}
       <section className="space-y-3 pt-2">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
-          <Volume2 className="w-5 h-5 text-[#000080]" />
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
+          <Volume2 className="w-5 h-5 text-[#fa624d]" />
           <span>Interactive Phonetic Audio Samples</span>
         </h2>
         <p className="text-xs text-[#555]">
@@ -85,18 +85,18 @@ export function AudioDocClient() {
               className={`p-2.5 border-2 flex items-center justify-between text-left transition-colors cursor-pointer ${
                 playingAudio === sample.kana
                   ? "bg-[#ffff00] border-[#800000] text-[#800000]"
-                  : "bg-[#d4d0c8] border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8]"
+                  : "bg-stone-100 border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8]"
               }`}
             >
               <div>
-                <div className="text-lg font-bold text-[#000080] font-serif leading-none">
+                <div className="text-lg font-bold text-[#fa624d] font-serif leading-none">
                   {sample.kana}
                 </div>
                 <div className="text-[10px] text-[#555] font-mono mt-0.5">
                   /{sample.romaji}/ — {sample.label}
                 </div>
               </div>
-              <Play className={`w-3.5 h-3.5 shrink-0 ${playingAudio === sample.kana ? "fill-[#800000] text-[#800000]" : "text-[#000080]"}`} />
+              <Play className={`w-3.5 h-3.5 shrink-0 ${playingAudio === sample.kana ? "fill-[#800000] text-[#800000]" : "text-[#fa624d]"}`} />
             </button>
           ))}
         </div>
@@ -104,7 +104,7 @@ export function AudioDocClient() {
 
       {/* Concept: Mora Timing */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
           <Music className="w-5 h-5 text-[#800000]" />
           <span>The Concept of Mora Timing (拍)</span>
         </h2>
@@ -112,7 +112,7 @@ export function AudioDocClient() {
           Unlike English syllables, which vary greatly in length, Japanese is an <strong>isochronous mora-timed language</strong>.
           Every mora gets approximately the same beat duration:
         </p>
-        <div className="p-3 bg-[#f5f5f0] border border-[#808080] text-xs space-y-2">
+        <div className="p-3 bg-[#f5f5f0] border border-stone-200 text-xs space-y-2">
           <ul className="list-disc pl-4 space-y-1.5 text-[#333]">
             <li>
               <strong>Standard Kana:</strong> Each basic kana (あ, か, さ) counts as 1 full mora beat.
@@ -132,15 +132,15 @@ export function AudioDocClient() {
 
       {/* Audio Integration in Speed Sprints */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
           <Volume2 className="w-5 h-5 text-[#008000]" />
           <span>Interactive Audio in Speed Sprints (Timed Drills)</span>
         </h2>
         <p className="text-xs text-[#333] leading-relaxed">
           While flashcards in study mode allow relaxed listening, SaKana&apos;s <strong>Speed Sprint</strong> challenges also feature an optional <em>Listening Sprint</em> mode.
         </p>
-        <div className="p-3 bg-[#f5f5f0] border border-[#808080] text-xs space-y-2">
-          <div className="font-bold text-[#000080] uppercase font-mono">
+        <div className="p-3 bg-[#f5f5f0] border border-stone-200 text-xs space-y-2">
+          <div className="font-bold text-[#fa624d] uppercase font-mono">
             Zero Audio Latency Penalty:
           </div>
           <p className="text-[#333] text-[11px] leading-relaxed">
@@ -156,16 +156,16 @@ export function AudioDocClient() {
       </section>
 
       {/* Navigation Footer */}
-      <div className="mt-8 pt-4 border-t-2 border-[#808080] flex justify-between items-center text-xs">
+      <div className="mt-8 pt-4 border-t-2 border-stone-200 flex justify-between items-center text-xs">
         <Link
           href={`${prefix}/docs/arcade-engine`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           &lt;&lt; Arcade Engine
         </Link>
         <Link
           href={`${prefix}/docs/api`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           <span>Developer REST API</span>
           <ArrowRight className="w-3.5 h-3.5" />

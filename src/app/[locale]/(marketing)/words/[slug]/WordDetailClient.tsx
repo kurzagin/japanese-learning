@@ -37,7 +37,7 @@ export default function WordDetailClient({
   const triviaText = word.trivia ? (word.trivia[locale] || word.trivia.en) : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <RetroNavbar currentSubtitle={word.romaji.toUpperCase()} />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4">
@@ -45,7 +45,7 @@ export default function WordDetailClient({
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
             href={`${prefix}/kana`}
-            className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
+            className="text-[#fa624d] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.wordDetail.breadcrumbHub}</span>
@@ -68,22 +68,22 @@ export default function WordDetailClient({
           <div className="space-y-2">
             {word.kanji ? (
               <div className="space-y-1">
-                <ruby className="text-4xl sm:text-6xl font-black text-[#000080] font-sans tracking-wide">
+                <ruby className="text-4xl sm:text-6xl font-black text-[#fa624d] font-sans tracking-wide">
                   {word.kanji}
                   <rt className="text-base sm:text-xl font-normal text-[#800000] font-mono tracking-normal">
                     {word.character}
                   </rt>
                 </ruby>
                 <div className="text-xs text-[#666] font-mono">
-                  [ {t.wordDetail.kanaLabel} <span className="font-bold text-[#000080]">{word.character}</span> ]
+                  [ {t.wordDetail.kanaLabel} <span className="font-bold text-[#fa624d]">{word.character}</span> ]
                 </div>
               </div>
             ) : (
-              <div className="text-5xl sm:text-7xl font-black text-[#000080] font-sans tracking-wide">
+              <div className="text-5xl sm:text-7xl font-black text-[#fa624d] font-sans tracking-wide">
                 {word.character}
               </div>
             )}
-            <div className="text-lg sm:text-xl font-mono font-bold text-[#cc0000]">
+            <div className="text-lg sm:text-xl font-mono font-bold text-[#fa624d]">
               /{word.romaji}/
             </div>
 
@@ -94,7 +94,7 @@ export default function WordDetailClient({
                   {word.jlpt === "Anime" ? t.wordDetail.popCultureBadge : `JLPT ${word.jlpt}`}
                 </span>
               )}
-              <span className="bg-[#000080] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
+              <span className="bg-[#fa624d] text-white px-2.5 py-0.5 font-bold uppercase shadow-xs">
                 {word.script.toUpperCase()}
               </span>
             </div>
@@ -106,11 +106,11 @@ export default function WordDetailClient({
           </div>
 
           {/* Meaning Banner */}
-          <div className="border border-[#808080] bg-[#f0f0f0] p-3 max-w-md mx-auto shadow-inner space-y-1">
+          <div className="border border-stone-200 bg-[#f0f0f0] p-3 max-w-md mx-auto shadow-inner space-y-1">
             <div className="text-[10px] uppercase font-bold text-[#666] tracking-wider">
               {t.wordDetail.meaningHeader}
             </div>
-            <div className="text-base sm:text-lg font-bold text-[#000080]">
+            <div className="text-base sm:text-lg font-bold text-[#fa624d]">
               {meaningText}
             </div>
             {locale !== "en" && (
@@ -131,10 +131,10 @@ export default function WordDetailClient({
         {/* Real Contextual Example Sentence with Furigana Ruby */}
         {word.sentence && (
           <div className="bg-white border-2 border-[#000080] p-4 sm:p-5 shadow-xs space-y-3">
-            <div className="flex items-center justify-between border-b border-[#c0c0c0] pb-2">
+            <div className="flex items-center justify-between border-b border-stone-200 pb-2">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#000080]" />
-                <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
+                <Sparkles className="w-4 h-4 text-[#fa624d]" />
+                <h2 className="text-xs sm:text-sm font-bold text-[#fa624d] uppercase tracking-wider">
                   {t.wordDetail.exampleSentenceHeader}
                 </h2>
               </div>
@@ -164,7 +164,7 @@ export default function WordDetailClient({
               </div>
 
               {/* Localized Translations */}
-              <div className="text-xs font-bold text-[#000080] pt-1 border-t border-[#e0e8f0]">
+              <div className="text-xs font-bold text-[#fa624d] pt-1 border-t border-[#e0e8f0]">
                 {locale === "id"
                   ? word.sentence.id
                   : locale === "ja"
@@ -205,12 +205,12 @@ export default function WordDetailClient({
                     className={`p-3.5 border transition-all flex flex-col justify-between ${
                       isSelected
                         ? "bg-[#fff8e7] border-2 border-[#800000] shadow-xs"
-                        : "bg-[#fafafa] border border-[#c0c0c0] hover:border-[#000080]"
+                        : "bg-[#fafafa] border border-stone-200 hover:border-[#000080]"
                     }`}
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">
-                        <div className="text-3xl font-black text-[#000080] font-sans">
+                        <div className="text-3xl font-black text-[#fa624d] font-sans">
                           {opt.kanji}
                         </div>
                         <div className="flex flex-col items-end gap-1">
@@ -240,7 +240,7 @@ export default function WordDetailClient({
 
                     {opt.example && (
                       <div className="mt-3 pt-2 border-t border-[#e0e0e0] flex items-center justify-between text-xs">
-                        <div className="font-mono text-[#000080] text-[11px] font-medium">
+                        <div className="font-mono text-[#fa624d] text-[11px] font-medium">
                           {opt.example}
                         </div>
                         <PronounceButton
@@ -257,10 +257,10 @@ export default function WordDetailClient({
         )}
 
         {/* Constituent Kana Breakdown Card */}
-        <div className="bg-white border border-[#808080] p-4 sm:p-5 shadow-xs space-y-3">
-          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
-            <BookOpen className="w-4 h-4 text-[#000080]" />
-            <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
+        <div className="bg-white border border-stone-200 p-4 sm:p-5 shadow-xs space-y-3">
+          <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+            <BookOpen className="w-4 h-4 text-[#fa624d]" />
+            <h2 className="text-xs sm:text-sm font-bold text-[#fa624d] uppercase tracking-wider">
               {t.wordDetail.breakdownHeader}
             </h2>
           </div>
@@ -277,17 +277,17 @@ export default function WordDetailClient({
                 <Link
                   key={k.id}
                   href={kanaUrl}
-                  className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-3 text-center hover:bg-[#e2dfd7] transition-all group block shadow-xs"
+                  className="bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-3 text-center hover:bg-[#e2dfd7] transition-all group block shadow-xs"
                 >
-                  <div className="text-3xl font-black text-[#000080] group-hover:scale-105 transition-transform font-sans">
+                  <div className="text-3xl font-black text-[#fa624d] group-hover:scale-105 transition-transform font-sans">
                     {k.character}
                   </div>
-                  <div className="text-xs font-mono font-bold text-[#cc0000] mt-1">
+                  <div className="text-xs font-mono font-bold text-[#fa624d] mt-1">
                     {k.romaji}
                   </div>
                   <div className="text-[10px] text-[#555] mt-1 font-mono uppercase flex items-center justify-center gap-1">
                     <span>{t.wordDetail.strokeOrderLink}</span>
-                    <ArrowRight className="w-2.5 h-2.5 text-[#000080]" />
+                    <ArrowRight className="w-2.5 h-2.5 text-[#fa624d]" />
                   </div>
                 </Link>
               );
@@ -297,8 +297,8 @@ export default function WordDetailClient({
 
         {/* Related Words Section */}
         {relatedWords.length > 0 && (
-          <div className="bg-[#f8f8f8] border border-[#808080] p-4 sm:p-5 shadow-xs space-y-3">
-            <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
+          <div className="bg-[#f8f8f8] border border-stone-200 p-4 sm:p-5 shadow-xs space-y-3">
+            <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
               <Compass className="w-4 h-4 text-[#800000]" />
               <h2 className="text-xs sm:text-sm font-bold text-[#800000] uppercase tracking-wider">
                 {t.wordDetail.relatedWordsHeader(word.script === "hiragana" ? "Hiragana" : "Katakana")}
@@ -310,12 +310,12 @@ export default function WordDetailClient({
                 <Link
                   key={rw.slug}
                   href={`${prefix}/words/${rw.slug}`}
-                  className="bg-white border border-[#c0c0c0] p-2.5 text-center hover:border-[#000080] hover:bg-[#eef3f8] transition-colors block"
+                  className="bg-white border border-stone-200 p-2.5 text-center hover:border-[#000080] hover:bg-[#eef3f8] transition-colors block"
                 >
-                  <div className="text-lg font-bold text-[#000080] font-sans">
+                  <div className="text-lg font-bold text-[#fa624d] font-sans">
                     {rw.character}
                   </div>
-                  <div className="text-[11px] font-mono text-[#cc0000] font-bold">
+                  <div className="text-[11px] font-mono text-[#fa624d] font-bold">
                     {rw.romaji}
                   </div>
                   <div className="text-[10px] text-[#666] truncate mt-0.5">
@@ -331,7 +331,7 @@ export default function WordDetailClient({
         <div className="pt-2 text-center">
           <Link
             href={`${prefix}/kana`}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-stone-100 text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.wordDetail.returnBtn}</span>

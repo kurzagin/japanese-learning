@@ -43,7 +43,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <RetroNavbar currentSubtitle={t.kanaHub.subtitle} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
@@ -54,7 +54,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
             <span>{t.kanaHub.badge}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-wider">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] mt-1 tracking-wider">
             {t.kanaHub.title}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium mt-1 max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3 pt-2 border-t border-[#800000]/20 text-xs font-mono">
             <Link
               href={`${prefix}/compare`}
-              className="px-3 py-1 bg-[#000080] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
+              className="px-3 py-1 bg-[#fa624d] text-white font-bold border-t border-l border-[#4040ff] border-b border-r border-[#000040] hover:bg-[#0000a0] flex items-center gap-1.5"
             >
               <span>{t.kanaHub.lookalikeBtn}</span>
               <ArrowRight className="w-3 h-3" />
@@ -90,31 +90,31 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
             <span className="font-bold text-[#800000] uppercase mr-1">{t.kanaHub.browseCategoriesLabel}</span>
             <Link
               href={`${prefix}/kana/hiragana/category/gojuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              className="px-2 py-0.5 bg-white border border-stone-200 text-[#fa624d] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaGojuonBadge}
             </Link>
             <Link
               href={`${prefix}/kana/hiragana/category/dakuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              className="px-2 py-0.5 bg-white border border-stone-200 text-[#fa624d] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaDakuonBadge}
             </Link>
             <Link
               href={`${prefix}/kana/hiragana/category/yoon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              className="px-2 py-0.5 bg-white border border-stone-200 text-[#fa624d] hover:underline font-bold"
             >
               {t.kanaHub.hiraganaYoonBadge}
             </Link>
             <Link
               href={`${prefix}/kana/katakana/category/gojuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              className="px-2 py-0.5 bg-white border border-stone-200 text-[#fa624d] hover:underline font-bold"
             >
               {t.kanaHub.katakanaGojuonBadge}
             </Link>
             <Link
               href={`${prefix}/kana/katakana/category/extended`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              className="px-2 py-0.5 bg-white border border-stone-200 text-[#fa624d] hover:underline font-bold"
             >
               {t.kanaHub.katakanaExtendedBadge}
             </Link>
@@ -122,15 +122,15 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
         </div>
 
         {/* Controls Bar */}
-        <div className="border border-[#808080] bg-[#f0f0f0] p-3 shadow-inner flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="border border-stone-200 bg-[#f0f0f0] p-3 shadow-inner flex flex-col md:flex-row items-center justify-between gap-3">
           {/* Script Switcher */}
           <div className="flex items-center gap-1 w-full md:w-auto">
             <button
               onClick={() => setActiveScript("hiragana")}
               className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-bold border transition-colors ${
                 activeScript === "hiragana"
-                  ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                  : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                  ? "bg-[#fa624d] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
+                  : "bg-stone-100 text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
               }`}
             >
               {t.kanaHub.hiraganaTab}
@@ -139,8 +139,8 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
               onClick={() => setActiveScript("katakana")}
               className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-bold border transition-colors ${
                 activeScript === "katakana"
-                  ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                  : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                  ? "bg-[#fa624d] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
+                  : "bg-stone-100 text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
               }`}
             >
               {t.kanaHub.katakanaTab}
@@ -156,7 +156,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
                 className={`px-2.5 py-1 text-[11px] font-mono border whitespace-nowrap ${
                   activeType === typeItem.id
                     ? "bg-[#202020] text-white border-t-black border-l-black border-b-white border-r-white font-bold"
-                    : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                    : "bg-stone-100 text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
                 }`}
               >
                 {typeItem.label}
@@ -180,7 +180,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
         {/* Counter Info */}
         <div className="flex items-center justify-between text-[11px] font-mono text-[#555] px-1">
           <span>{t.kanaHub.showingCount(filteredKana.length, kanaList.length)}</span>
-          <span>{t.kanaHub.scriptLabel} <strong className="uppercase text-[#000080]">{activeScript}</strong></span>
+          <span>{t.kanaHub.scriptLabel} <strong className="uppercase text-[#fa624d]">{activeScript}</strong></span>
         </div>
 
         {/* Kana Matrix Grid */}
@@ -193,7 +193,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
             return (
               <div
                 key={k.id}
-                className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-2 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
+                className="bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-2 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
               >
                 {/* Character header */}
                 <div className="flex items-center justify-between">
@@ -208,22 +208,22 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
                   href={detailUrl}
                   className="my-2 text-center block group-hover:scale-105 transition-transform"
                 >
-                  <div className="text-3xl sm:text-4xl font-black text-[#000080] leading-tight font-sans">
+                  <div className="text-3xl sm:text-4xl font-black text-[#fa624d] leading-tight font-sans">
                     {k.character}
                   </div>
-                  <div className="text-xs font-mono font-bold text-[#cc0000] mt-0.5">
+                  <div className="text-xs font-mono font-bold text-[#fa624d] mt-0.5">
                     {k.romaji}
                   </div>
                 </Link>
 
                 {/* Quick Hint & Detail Link */}
-                <div className="pt-1.5 border-t border-[#808080]/30 text-[10px] flex items-center justify-between">
+                <div className="pt-1.5 border-t border-stone-200/30 text-[10px] flex items-center justify-between">
                   <span className="line-clamp-1 text-[#555] italic pr-1">
                     {hintText}
                   </span>
                   <Link
                     href={detailUrl}
-                    className="shrink-0 text-[#000080] font-bold hover:underline flex items-center"
+                    className="shrink-0 text-[#fa624d] font-bold hover:underline flex items-center"
                     title={`${t.kanaHub.viewDetails}: ${k.character} (${k.romaji})`}
                   >
                     <ArrowRight className="w-3 h-3" />
@@ -235,16 +235,16 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
         </div>
 
         {filteredKana.length === 0 && (
-          <div className="border border-[#808080] bg-white p-8 text-center text-sm font-mono text-[#666]">
+          <div className="border border-stone-200 bg-white p-8 text-center text-sm font-mono text-[#666]">
             {t.kanaHub.noResults(searchQuery)}
           </div>
         )}
 
         {/* SEO Educational Text & FAQ Section */}
-        <section className="border border-[#808080] bg-[#fff] p-4 sm:p-6 space-y-4 shadow-xs">
-          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
-            <BookOpen className="w-4 h-4 text-[#000080]" />
-            <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
+        <section className="border border-stone-200 bg-[#fff] p-4 sm:p-6 space-y-4 shadow-xs">
+          <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+            <BookOpen className="w-4 h-4 text-[#fa624d]" />
+            <h2 className="text-sm sm:text-base font-bold text-[#fa624d] uppercase">
               {t.kanaHub.eduTitle}
             </h2>
           </div>
@@ -265,7 +265,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
 
           {/* Quick FAQ Section */}
           <div className="pt-4 border-t border-[#e0ded0] space-y-2.5">
-            <h3 className="text-xs font-bold text-[#000080] uppercase flex items-center gap-1.5">
+            <h3 className="text-xs font-bold text-[#fa624d] uppercase flex items-center gap-1.5">
               <span>{t.kanaHub.faqTitle}</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] sm:text-xs">
@@ -278,7 +278,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
               <div className="p-3 bg-[#fafafa] border border-[#e8e6d8]">
                 <strong className="text-[#800000] block mb-1">{t.kanaHub.faq2Q}</strong>
                 <p className="text-[#555] leading-relaxed">
-                  {t.kanaHub.faq2ABefore}<Link href={`${prefix}/compare`} className="text-[#000080] font-bold underline">{t.kanaHub.faq2ALink}</Link>{t.kanaHub.faq2AAfter}
+                  {t.kanaHub.faq2ABefore}<Link href={`${prefix}/compare`} className="text-[#fa624d] font-bold underline">{t.kanaHub.faq2ALink}</Link>{t.kanaHub.faq2AAfter}
                 </p>
               </div>
             </div>

@@ -65,29 +65,29 @@ data.forEach((k) => {
 });`;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={t.docs.subtitle} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Info & Breadcrumb Bar */}
-        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
+        <div className="border border-stone-200 bg-stone-100 px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <div className="flex items-center gap-2">
             <Link
               href={`${prefix}/dashboard`}
-              className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1 text-xs font-bold"
+              className="text-[#fa624d] underline hover:text-[#fa624d] flex items-center gap-1 text-xs font-bold"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> {t.nav.dashboard}
             </Link>
             <span className="text-[#808080]">|</span>
-            <div className="flex items-center gap-1.5 font-bold text-[#000080]">
+            <div className="flex items-center gap-1.5 font-bold text-[#fa624d]">
               <Code className="w-4 h-4" />
               <span>{t.docs.breadcrumbApi}</span>
             </div>
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-mono">
-            <span className="bg-white px-2 py-0.5 border border-[#808080] font-bold">
+            <span className="bg-white px-2 py-0.5 border border-stone-200 font-bold">
               REST
             </span>
             <span className="bg-[#00aa00] text-white px-2 py-0.5 font-bold">
@@ -97,9 +97,9 @@ data.forEach((k) => {
         </div>
 
         {/* Content Body */}
-        <div className="p-4 sm:p-6 bg-white text-black space-y-4 border border-[#808080] shadow-xs">
+        <div className="p-4 sm:p-6 bg-white text-black space-y-4 border border-stone-200 shadow-xs">
           {/* Header Banner */}
-          <div className="border border-[#808080] bg-[#ffffd0] p-3 text-xs leading-relaxed text-[#402000]">
+          <div className="border border-stone-200 bg-[#ffffd0] p-3 text-xs leading-relaxed text-[#402000]">
             <div className="flex items-center gap-2 font-bold mb-1">
               <Sparkles className="w-4 h-4 text-[#800000]" />
               <span>{t.docs.apiOverviewBadge}</span>
@@ -111,32 +111,32 @@ data.forEach((k) => {
 
           {/* Quick Specs Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
-            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
-              <div className="flex items-center gap-1.5 font-bold text-[#000080] mb-1">
+            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-2.5">
+              <div className="flex items-center gap-1.5 font-bold text-[#fa624d] mb-1">
                 <Database className="w-4 h-4" />
                 <span>{t.docs.baseEndpoint}</span>
               </div>
-              <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px] truncate">
+              <div className="font-mono bg-white px-2 py-1 border border-stone-200 text-[11px] truncate">
                 /api/v1/kana
               </div>
             </div>
 
-            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
+            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-2.5">
               <div className="flex items-center gap-1.5 font-bold text-[#006000] mb-1">
                 <Sliders className="w-4 h-4" />
                 <span>{t.docs.authLabel}</span>
               </div>
-              <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px]">
+              <div className="font-mono bg-white px-2 py-1 border border-stone-200 text-[11px]">
                 {t.docs.authValue}
               </div>
             </div>
 
-            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-2.5">
+            <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-2.5">
               <div className="flex items-center gap-1.5 font-bold text-[#800080] mb-1">
                 <Volume2 className="w-4 h-4" />
                 <span>{t.docs.audioDeliveryLabel}</span>
               </div>
-              <div className="font-mono bg-white px-2 py-1 border border-[#808080] text-[11px]">
+              <div className="font-mono bg-white px-2 py-1 border border-stone-200 text-[11px]">
                 {t.docs.audioDeliveryValue}
               </div>
             </div>
@@ -147,10 +147,10 @@ data.forEach((k) => {
             {/* Left Column: API Reference & Examples */}
             <div className="lg:col-span-6 space-y-4">
               {/* Endpoint Specification */}
-              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#808080] pb-2">
+              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-3.5 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#000080] text-white px-2 py-0.5 text-xs font-mono font-bold">
+                    <span className="bg-[#fa624d] text-white px-2 py-0.5 text-xs font-mono font-bold">
                       GET
                     </span>
                     <span className="font-mono font-bold text-xs sm:text-sm text-[#000040]">
@@ -164,14 +164,14 @@ data.forEach((k) => {
 
                 {/* Query Parameters Table */}
                 <div className="text-xs">
-                  <div className="font-bold mb-1.5 text-[#000080]">{t.docs.queryParamsTitle}</div>
-                  <div className="overflow-x-auto border border-[#808080] bg-white">
+                  <div className="font-bold mb-1.5 text-[#fa624d]">{t.docs.queryParamsTitle}</div>
+                  <div className="overflow-x-auto border border-stone-200 bg-white">
                     <table className="w-full text-left border-collapse text-[11px]">
-                      <thead className="bg-[#d4d0c8] border-b border-[#808080]">
+                      <thead className="bg-stone-100 border-b border-stone-200">
                         <tr>
-                          <th className="p-1.5 border-r border-[#808080]">{t.docs.paramCol}</th>
-                          <th className="p-1.5 border-r border-[#808080]">{t.docs.typeCol}</th>
-                          <th className="p-1.5 border-r border-[#808080]">{t.docs.valuesCol}</th>
+                          <th className="p-1.5 border-r border-stone-200">{t.docs.paramCol}</th>
+                          <th className="p-1.5 border-r border-stone-200">{t.docs.typeCol}</th>
+                          <th className="p-1.5 border-r border-stone-200">{t.docs.valuesCol}</th>
                           <th className="p-1.5">{t.docs.descCol}</th>
                         </tr>
                       </thead>
@@ -179,19 +179,19 @@ data.forEach((k) => {
                         <tr className="border-b border-[#e0e0e0]">
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">script</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">string</td>
-                          <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">hiragana | katakana</td>
+                          <td className="p-1.5 font-mono text-[#fa624d] border-r border-[#e0e0e0]">hiragana | katakana</td>
                           <td className="p-1.5 text-[#404040]">{t.docs.scriptDesc}</td>
                         </tr>
                         <tr className="border-b border-[#e0e0e0]">
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">type</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">string</td>
-                          <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">gojuon | dakuon | handakuon | yoon</td>
+                          <td className="p-1.5 font-mono text-[#fa624d] border-r border-[#e0e0e0]">gojuon | dakuon | handakuon | yoon</td>
                           <td className="p-1.5 text-[#404040]">{t.docs.typeDesc}</td>
                         </tr>
                         <tr>
                           <td className="p-1.5 font-mono font-bold border-r border-[#e0e0e0]">minimal</td>
                           <td className="p-1.5 font-mono text-[#800000] border-r border-[#e0e0e0]">boolean</td>
-                          <td className="p-1.5 font-mono text-[#000080] border-r border-[#e0e0e0]">true | false</td>
+                          <td className="p-1.5 font-mono text-[#fa624d] border-r border-[#e0e0e0]">true | false</td>
                           <td className="p-1.5 text-[#404040]">
                             {t.docs.minimalDesc}
                           </td>
@@ -203,15 +203,15 @@ data.forEach((k) => {
               </div>
 
               {/* Code Snippets */}
-              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-3">
-                <div className="flex items-center gap-2 font-bold text-xs text-[#000080]">
+              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-3.5 space-y-3">
+                <div className="flex items-center gap-2 font-bold text-xs text-[#fa624d]">
                   <BookOpen className="w-4 h-4" />
                   <span>{t.docs.snippetsTitle}</span>
                 </div>
 
                 {/* cURL */}
                 <div>
-                  <div className="flex items-center justify-between font-bold text-[11px] text-[#000080] mb-1">
+                  <div className="flex items-center justify-between font-bold text-[11px] text-[#fa624d] mb-1">
                     <span>{t.docs.curlTitle}</span>
                     <button
                       onClick={() => copyToClipboard(curlExample, "curl")}
@@ -228,7 +228,7 @@ data.forEach((k) => {
                       )}
                     </button>
                   </div>
-                  <pre className="bg-[#1e1e1e] text-[#9cdcfe] p-2.5 font-mono text-[11px] overflow-x-auto border border-[#808080]">
+                  <pre className="bg-[#1e1e1e] text-[#9cdcfe] p-2.5 font-mono text-[11px] overflow-x-auto border border-stone-200">
                     {curlExample}
                   </pre>
                 </div>
@@ -252,7 +252,7 @@ data.forEach((k) => {
                       )}
                     </button>
                   </div>
-                  <pre className="bg-[#1e1e1e] text-[#ce9178] p-2.5 font-mono text-[11px] overflow-x-auto border border-[#808080]">
+                  <pre className="bg-[#1e1e1e] text-[#ce9178] p-2.5 font-mono text-[11px] overflow-x-auto border border-stone-200">
                     {fetchJsExample}
                   </pre>
                 </div>
@@ -262,13 +262,13 @@ data.forEach((k) => {
             {/* Right Column: Interactive Explorer & Response Visualizer */}
             <div className="lg:col-span-6 space-y-4">
               {/* Interactive Console */}
-              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-3">
-                <div className="flex items-center justify-between border-b border-[#808080] pb-2">
-                  <div className="flex items-center gap-2 font-bold text-xs text-[#000080]">
+              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-3.5 space-y-3">
+                <div className="flex items-center justify-between border-b border-stone-200 pb-2">
+                  <div className="flex items-center gap-2 font-bold text-xs text-[#fa624d]">
                     <Terminal className="w-4 h-4" />
                     <span>{t.docs.interactiveTitle}</span>
                   </div>
-                  <span className="text-[10px] bg-[#ffff99] text-[#800000] px-1.5 py-0.5 border border-[#808080] font-bold">
+                  <span className="text-[10px] bg-[#ffff99] text-[#800000] px-1.5 py-0.5 border border-stone-200 font-bold">
                     {t.docs.testBenchBadge}
                   </span>
                 </div>
@@ -281,7 +281,7 @@ data.forEach((k) => {
                     <select
                       value={testScript}
                       onChange={(e) => setTestScript(e.target.value)}
-                      className="w-full bg-white border border-[#808080] p-1 text-xs"
+                      className="w-full bg-white border border-stone-200 p-1 text-xs"
                     >
                       <option value="">{t.docs.allScriptsOption}</option>
                       <option value="hiragana">hiragana</option>
@@ -296,7 +296,7 @@ data.forEach((k) => {
                     <select
                       value={testType}
                       onChange={(e) => setTestType(e.target.value)}
-                      className="w-full bg-white border border-[#808080] p-1 text-xs"
+                      className="w-full bg-white border border-stone-200 p-1 text-xs"
                     >
                       <option value="">{t.docs.allTypesOption}</option>
                       <option value="gojuon">gojuon</option>
@@ -313,7 +313,7 @@ data.forEach((k) => {
                     <select
                       value={testMinimal ? "true" : "false"}
                       onChange={(e) => setTestMinimal(e.target.value === "true")}
-                      className="w-full bg-white border border-[#808080] p-1 text-xs"
+                      className="w-full bg-white border border-stone-200 p-1 text-xs"
                     >
                       <option value="false">{t.docs.fullModeOption}</option>
                       <option value="true">{t.docs.minimalModeOption}</option>
@@ -325,7 +325,7 @@ data.forEach((k) => {
                   <button
                     onClick={handleTestApi}
                     disabled={isLoading}
-                    className="w-full bg-[#000080] text-white py-1.5 px-3 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#101090] active:translate-y-0.5 disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                    className="w-full bg-[#fa624d] text-white py-1.5 px-3 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#101090] active:translate-y-0.5 disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5" />
                     {isLoading ? t.docs.executingBtn : t.docs.executeBtn}
@@ -339,7 +339,7 @@ data.forEach((k) => {
                     {apiResponse && (
                       <button
                         onClick={() => copyToClipboard(apiResponse, "live-res")}
-                        className="text-[10px] text-[#000080] flex items-center gap-1 hover:underline cursor-pointer"
+                        className="text-[10px] text-[#fa624d] flex items-center gap-1 hover:underline cursor-pointer"
                       >
                         {copiedKey === "live-res" ? (
                           <>
@@ -353,15 +353,15 @@ data.forEach((k) => {
                       </button>
                     )}
                   </div>
-                  <pre className="bg-[#1e1e1e] text-[#4ec9b0] p-2.5 font-mono text-[11px] overflow-x-auto border border-[#808080] max-h-64 sm:max-h-72">
+                  <pre className="bg-[#1e1e1e] text-[#4ec9b0] p-2.5 font-mono text-[11px] overflow-x-auto border border-stone-200 max-h-64 sm:max-h-72">
                     {apiResponse || t.docs.outputPlaceholder}
                   </pre>
                 </div>
               </div>
 
               {/* Sample Response Payloads */}
-              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#ece9d8] p-3.5 space-y-2.5">
-                <div className="flex items-center justify-between font-bold text-xs text-[#000080] border-b border-[#808080] pb-1.5">
+              <div className="border border-t-white border-l-white border-b-[#808080] border-r-[#808080] bg-[#fdfbf7] p-3.5 space-y-2.5">
+                <div className="flex items-center justify-between font-bold text-xs text-[#fa624d] border-b border-stone-200 pb-1.5">
                   <span>{t.docs.schemaTitle}</span>
                   <button
                     onClick={() =>
@@ -370,7 +370,7 @@ data.forEach((k) => {
                         "schema-json"
                       )
                     }
-                    className="text-[10px] font-mono text-[#000080] flex items-center gap-1 hover:underline cursor-pointer"
+                    className="text-[10px] font-mono text-[#fa624d] flex items-center gap-1 hover:underline cursor-pointer"
                   >
                     {copiedKey === "schema-json" ? (
                       <>
@@ -383,7 +383,7 @@ data.forEach((k) => {
                     )}
                   </button>
                 </div>
-                <pre className="bg-[#1e1e1e] text-[#d4d4d4] p-2.5 font-mono text-[10px] sm:text-[11px] overflow-x-auto border border-[#808080] max-h-44">
+                <pre className="bg-[#1e1e1e] text-[#d4d4d4] p-2.5 font-mono text-[10px] sm:text-[11px] overflow-x-auto border border-stone-200 max-h-44">
 {`{
   "success": true,
   "count": 46,
@@ -407,10 +407,10 @@ data.forEach((k) => {
           </div>
 
           {/* Bottom Navigation & Actions */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#808080]">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-stone-200">
             <Link
               href={`${prefix}/dashboard`}
-              className="bg-[#d4d0c8] text-black px-3 py-1 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#e0dcd4] active:border-t-black active:border-l-black active:border-b-white active:border-r-white flex items-center gap-1.5"
+              className="bg-stone-100 text-black px-3 py-1 text-xs font-bold border border-t-white border-l-white border-b-black border-r-black hover:bg-[#e0dcd4] active:border-t-black active:border-l-black active:border-b-white active:border-r-white flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               {t.docs.returnDashboard}
@@ -424,14 +424,14 @@ data.forEach((k) => {
       </main>
 
       {/* Docked Retro Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-stone-200 bg-stone-100 px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>{t.docs.serverReady}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span className="hidden sm:inline">SAKANA PUBLIC REST API V1.0</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">HTTP 200 OK</span>
+          <span className="border-l border-stone-200 pl-2 font-mono">HTTP 200 OK</span>
         </div>
       </footer>
     </div>

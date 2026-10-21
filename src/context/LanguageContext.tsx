@@ -89,13 +89,13 @@ export function LanguageSelector() {
 
   return (
     <div className="flex items-center gap-1 text-[11px] font-mono">
-      <Globe className="w-3.5 h-3.5 text-[#000080] shrink-0" />
+      <Globe className="w-3.5 h-3.5 text-[#fa624d] shrink-0" />
       <div className="relative inline-block">
         <select
           value={locale}
           aria-label={t.nav.selectLanguage}
           onChange={(e) => setLocale(e.target.value as Locale)}
-          className="appearance-none bg-[#d4d0c8] text-black text-[11px] sm:text-xs font-bold py-1 sm:py-0.5 pl-1.5 pr-4 sm:pr-5 border-t border-l border-white border-b-[#404040] border-r-[#404040] outline-none cursor-pointer hover:bg-[#e4e0d8] focus:bg-white"
+          className="appearance-none bg-stone-100 text-black text-[11px] sm:text-xs font-bold py-1 sm:py-0.5 pl-1.5 pr-4 sm:pr-5 border-t border-l border-white border-b-[#404040] border-r-[#404040] outline-none cursor-pointer hover:bg-[#e4e0d8] focus:bg-white"
         >
           {LOCALES.map((loc) => (
             <option key={loc} value={loc}>

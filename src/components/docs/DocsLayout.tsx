@@ -85,9 +85,9 @@ export function DocsLayout({ children }: DocsLayoutProps) {
 
       <main className="flex-1 w-full max-w-7xl mx-auto p-2 sm:p-4 md:p-6 flex flex-col">
         {/* Win98 Window Shell */}
-        <div className="border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] bg-[#d4d0c8] shadow-2xl flex-1 flex flex-col">
+        <div className="border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] bg-stone-100 shadow-2xl flex-1 flex flex-col">
           {/* Blue Title Bar */}
-          <div className="bg-[#000080] text-white px-3 py-1.5 flex items-center justify-between">
+          <div className="bg-[#fa624d] text-white px-3 py-1.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 bg-[#ffff00] inline-block border border-black shadow-xs"></span>
               <span className="font-bold text-xs sm:text-sm tracking-wider font-mono">
@@ -100,14 +100,14 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </div>
 
           {/* MSDN Style Menu / Breadcrumb Bar */}
-          <div className="px-3 py-1.5 bg-[#ece9d8] border-b border-[#808080] flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="px-3 py-1.5 bg-[#fdfbf7] border-b border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#333]">
-              <Link href={`${prefix}/`} className="hover:underline text-[#000080] flex items-center gap-1">
+              <Link href={`${prefix}/`} className="hover:underline text-[#fa624d] flex items-center gap-1">
                 <Home className="w-3 h-3" />
                 <span>ROOT</span>
               </Link>
               <ChevronRight className="w-3 h-3 text-[#888]" />
-              <Link href={`${prefix}/docs`} className="hover:underline text-[#000080]">
+              <Link href={`${prefix}/docs`} className="hover:underline text-[#fa624d]">
                 DOCS
               </Link>
               {currentTopic && currentTopic.slug !== "" && (
@@ -126,9 +126,9 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </div>
 
           {/* Split Pane: Sidebar + Content */}
-          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-[#d4d0c8]">
+          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-stone-100">
             {/* Left Sidebar (MSDN Tree) */}
-            <aside className="w-full md:w-64 lg:w-72 border-b md:border-b-0 md:border-r border-[#808080] bg-[#e0ded8] p-3 flex flex-col shrink-0">
+            <aside className="w-full md:w-64 lg:w-72 border-b md:border-b-0 md:border-r border-stone-200 bg-[#e0ded8] p-3 flex flex-col shrink-0">
               {/* Search Bar */}
               <div className="mb-3">
                 <div className="relative">
@@ -137,7 +137,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search manual topics..."
-                    className="w-full pl-7 pr-2 py-1 text-xs border-t border-l border-[#808080] border-b border-r border-white bg-white font-mono focus:outline-none focus:ring-1 focus:ring-[#000080]"
+                    className="w-full pl-7 pr-2 py-1 text-xs border-t border-l border-stone-200 border-b border-r border-white bg-white font-mono focus:outline-none focus:ring-1 focus:ring-[#000080]"
                   />
                   <Search className="w-3.5 h-3.5 text-[#888] absolute left-2 top-2 pointer-events-none" />
                 </div>
@@ -161,7 +161,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
                       href={targetHref}
                       className={`flex items-center gap-2 px-2 py-1.5 transition-colors border ${
                         isActive
-                          ? "bg-[#000080] text-white border-[#000080] font-bold shadow-xs"
+                          ? "bg-[#fa624d] text-white border-[#000080] font-bold shadow-xs"
                           : "hover:bg-[#d0ccc0] text-[#111] border-transparent"
                       }`}
                     >
@@ -171,7 +171,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
                         className={`text-[9px] px-1 py-0.2 shrink-0 ${
                           isActive
                             ? "bg-white/20 text-white"
-                            : "bg-[#c0c0c0] text-[#333]"
+                            : "bg-stone-100 text-[#333]"
                         }`}
                       >
                         {topic.readTime}
@@ -185,7 +185,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
               <div className="mt-3 pt-3 border-t border-[#b0aca0]">
                 <Link
                   href={`${prefix}/dashboard`}
-                  className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[11px] font-bold text-[#000080] flex items-center justify-center gap-1.5"
+                  className="w-full py-1.5 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[11px] font-bold text-[#fa624d] flex items-center justify-center gap-1.5"
                 >
                   <ArrowLeft className="w-3 h-3" />
                   <span>Return to Workstation</span>
@@ -200,7 +200,7 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </div>
 
           {/* Win98 Status Bar */}
-          <div className="px-3 py-1 bg-[#d4d0c8] border-t border-[#808080] flex items-center justify-between text-[11px] font-mono text-[#555]">
+          <div className="px-3 py-1 bg-stone-100 border-t border-stone-200 flex items-center justify-between text-[11px] font-mono text-[#555]">
             <span className="truncate">SaKana Manual // Documentation System</span>
             <span className="shrink-0">PAGE READY</span>
           </div>

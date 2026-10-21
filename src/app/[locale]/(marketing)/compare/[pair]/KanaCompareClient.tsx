@@ -40,7 +40,7 @@ export default function KanaCompareClient({
   const tip = comparison.visualTip[locale] || comparison.visualTip.en;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <RetroNavbar currentSubtitle={t.compareDetail.subtitle(kana1.character, kana2.character)} />
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4">
@@ -48,7 +48,7 @@ export default function KanaCompareClient({
         <div className="flex items-center justify-between text-xs font-mono">
           <Link
             href={`${prefix}/kana`}
-            className="inline-flex items-center gap-1.5 text-[#000080] font-bold hover:underline"
+            className="inline-flex items-center gap-1.5 text-[#fa624d] font-bold hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.compareDetail.backToMatrix}</span>
@@ -65,7 +65,7 @@ export default function KanaCompareClient({
             <span>{t.compareDetail.badge}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] tracking-wide">
             {t.compareDetail.title(kana1.character, kana2.character)}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium mt-1 max-w-xl mx-auto">
@@ -82,11 +82,11 @@ export default function KanaCompareClient({
                 {t.compareDetail.char1Label}
               </span>
               <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#f5f5f5] border border-[#000080] mx-auto mt-2 flex items-center justify-center">
-                <span className="text-5xl sm:text-6xl font-black text-[#000080]">
+                <span className="text-5xl sm:text-6xl font-black text-[#fa624d]">
                   {kana1.character}
                 </span>
               </div>
-              <div className="text-2xl font-mono font-black text-[#cc0000] mt-2">
+              <div className="text-2xl font-mono font-black text-[#fa624d] mt-2">
                 /{kana1.romaji}/
               </div>
               <div className="mt-2">
@@ -103,7 +103,7 @@ export default function KanaCompareClient({
               </div>
               <Link
                 href={`${prefix}/kana/${kana1.script}/${kana1.romaji}`}
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#000080] hover:underline pt-1"
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#fa624d] hover:underline pt-1"
               >
                 <span>{t.compareDetail.fullProfileLink(kana1.character)}</span>
                 <ArrowRight className="w-3 h-3" />
@@ -122,7 +122,7 @@ export default function KanaCompareClient({
                   {kana2.character}
                 </span>
               </div>
-              <div className="text-2xl font-mono font-black text-[#cc0000] mt-2">
+              <div className="text-2xl font-mono font-black text-[#fa624d] mt-2">
                 /{kana2.romaji}/
               </div>
               <div className="mt-2">
@@ -149,8 +149,8 @@ export default function KanaCompareClient({
         </div>
 
         {/* Detailed Breakdown Points */}
-        <div className="border border-[#808080] bg-white p-5 shadow-xs space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
+        <div className="border border-stone-200 bg-white p-5 shadow-xs space-y-4">
+          <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#fa624d] font-bold text-xs uppercase">
             <Layers className="w-4 h-4" />
             <span>{t.compareDetail.keyDifferencesTitle}</span>
           </div>
@@ -178,7 +178,7 @@ export default function KanaCompareClient({
 
         {/* Call to Action */}
         <div className="border-2 border-[#000080] bg-[#e8f0fe] p-4 text-center space-y-2 shadow-xs">
-          <h3 className="text-sm sm:text-base font-bold text-[#000080]">
+          <h3 className="text-sm sm:text-base font-bold text-[#fa624d]">
             {t.compareDetail.ctaTitle}
           </h3>
           <p className="text-xs text-[#444] max-w-lg mx-auto">
@@ -187,7 +187,7 @@ export default function KanaCompareClient({
           <div className="pt-1">
             <Link
               href={`${prefix}/dashboard`}
-              className="inline-flex items-center gap-1.5 px-5 py-2 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0]"
+              className="inline-flex items-center gap-1.5 px-5 py-2 bg-[#fa624d] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0]"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>{t.compareDetail.ctaBtn}</span>

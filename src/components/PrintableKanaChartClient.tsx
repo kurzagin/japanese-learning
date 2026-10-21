@@ -156,7 +156,7 @@ export function PrintableKanaChartClient({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <div className="no-print">
         <RetroNavbar currentSubtitle={seoSubtitle} />
       </div>
@@ -169,11 +169,11 @@ export function PrintableKanaChartClient({
               <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
               <span>{t.pdfChart.studyToolsBreadcrumb}</span>
               <span>/</span>
-              <span className="text-[#000080]">{script.toUpperCase()} {t.pdfChart.pdfChartSuffix}</span>
+              <span className="text-[#fa624d]">{script.toUpperCase()} {t.pdfChart.pdfChartSuffix}</span>
             </div>
             <Link
               href={otherScriptUrl}
-              className="text-[#000080] hover:underline font-bold flex items-center gap-1"
+              className="text-[#fa624d] hover:underline font-bold flex items-center gap-1"
             >
               <span>{t.pdfChart.switchChartLink(otherScriptLabel)}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -182,7 +182,7 @@ export function PrintableKanaChartClient({
 
           <div className="mt-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide flex items-center gap-2">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] tracking-wide flex items-center gap-2">
                 <span>{title}</span>
                 <span className="text-sm font-bold text-[#800000] bg-[#ffd700] px-2 py-0.5 border border-[#800000]">
                   {japaneseTitle}
@@ -208,7 +208,7 @@ export function PrintableKanaChartClient({
               <button
                 type="button"
                 onClick={handlePrint}
-                className="cursor-pointer px-4 py-2 bg-[#000080] text-white font-bold text-xs uppercase border-t-2 border-l-2 border-[#8080ff] border-b-2 border-r-2 border-[#000040] hover:bg-[#0000a0] active:translate-y-0.5 flex items-center gap-2 shadow-xs"
+                className="cursor-pointer px-4 py-2 bg-[#fa624d] text-white font-bold text-xs uppercase border-t-2 border-l-2 border-[#8080ff] border-b-2 border-r-2 border-[#000040] hover:bg-[#0000a0] active:translate-y-0.5 flex items-center gap-2 shadow-xs"
               >
                 <Printer className="w-4 h-4" />
                 <span>{t.pdfChart.printChartBtn}</span>
@@ -218,15 +218,15 @@ export function PrintableKanaChartClient({
 
           {/* Quick tips bar */}
           <div className="mt-3 pt-2 border-t border-[#800000]/20 flex flex-wrap items-center gap-4 text-[11px] text-[#444444] font-mono">
-            <span className="flex items-center gap-1 font-bold text-[#000080]">
+            <span className="flex items-center gap-1 font-bold text-[#fa624d]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
               {t.pdfChart.tipOrientation}
             </span>
-            <span className="flex items-center gap-1 font-bold text-[#000080]">
+            <span className="flex items-center gap-1 font-bold text-[#fa624d]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
               {t.pdfChart.tipVariants}
             </span>
-            <span className="flex items-center gap-1 font-bold text-[#000080]">
+            <span className="flex items-center gap-1 font-bold text-[#fa624d]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
               {t.pdfChart.tipFree}
             </span>
@@ -242,10 +242,10 @@ export function PrintableKanaChartClient({
             {/* Header of Printable Sheet */}
             <div className="border-b-2 border-[#000080] pb-2 mb-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="bg-[#000080] text-white px-2 py-0.5 font-bold text-sm tracking-wider uppercase">
+                <div className="bg-[#fa624d] text-white px-2 py-0.5 font-bold text-sm tracking-wider uppercase">
                   {t.pdfChart.sheetBrand}
                 </div>
-                <h2 className="text-xl font-black text-[#000080] tracking-wider uppercase">
+                <h2 className="text-xl font-black text-[#fa624d] tracking-wider uppercase">
                   {t.pdfChart.sheetTitle(scriptDisplay, script === "hiragana" ? "平仮名" : "片仮名")}
                 </h2>
               </div>
@@ -260,13 +260,13 @@ export function PrintableKanaChartClient({
               {/* SECTION 1: GOJUON (Basic 46) */}
               <div className="col-span-8 space-y-3">
                 <div className="border border-[#000080]">
-                  <div className="bg-[#000080] text-white text-[11px] font-bold px-2 py-0.5 flex justify-between items-center">
+                  <div className="bg-[#fa624d] text-white text-[11px] font-bold px-2 py-0.5 flex justify-between items-center">
                     <span>{t.pdfChart.sec1Title}</span>
                     <span className="text-[9px] font-mono text-[#ffff99]">{t.pdfChart.sec1Sub}</span>
                   </div>
                   <table className="w-full text-center border-collapse text-xs">
                     <thead>
-                      <tr className="bg-[#f0f4f8] text-[#000080] font-bold border-b border-[#000080]">
+                      <tr className="bg-[#f0f4f8] text-[#fa624d] font-bold border-b border-[#000080]">
                         <th className="py-1 px-1 border-r border-[#000080] w-16 text-[10px]">{t.pdfChart.rowCol}</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">a (あ/ア)</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">i (い/イ)</th>
@@ -424,16 +424,16 @@ export function PrintableKanaChartClient({
                 {t.pdfChart.sheetFooterLeft}
               </div>
               <div>
-                {t.pdfChart.sheetFooterRight} <span className="font-bold text-[#000080]">sakanajp.site</span>
+                {t.pdfChart.sheetFooterRight} <span className="font-bold text-[#fa624d]">sakanajp.site</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* SEO In-Depth Educational Guide & FAQ */}
-        <section className="no-print bg-white border-2 border-[#808080] p-5 shadow-xs space-y-4">
+        <section className="no-print bg-white border-2 border-stone-200 p-5 shadow-xs space-y-4">
           <div className="border-b border-[#cccccc] pb-3">
-            <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2">
+            <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-[#800000]" />
               <span>{t.pdfChart.howToUseTitle(scriptDisplay)}</span>
             </h2>
@@ -476,7 +476,7 @@ export function PrintableKanaChartClient({
 
           {/* Quick FAQ Accordion */}
           <div className="border-t border-[#cccccc] pt-3">
-            <h3 className="font-bold text-sm text-[#000080] mb-2 flex items-center gap-1.5">
+            <h3 className="font-bold text-sm text-[#fa624d] mb-2 flex items-center gap-1.5">
               <HelpCircle className="w-4 h-4 text-[#800000]" />
               <span>{t.pdfChart.faqTitle}</span>
             </h3>
@@ -512,21 +512,21 @@ export function PrintableKanaChartClient({
           <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
             <Link
               href={`${prefix}/kana`}
-              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+              className="px-3 py-1 bg-stone-100 text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
               <span>{t.pdfChart.interactiveDrillLink}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href={`${prefix}/tools/romaji-to-kana`}
-              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+              className="px-3 py-1 bg-stone-100 text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
               <span>{t.pdfChart.converterLink}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
             <Link
               href={`${prefix}/compare`}
-              className="px-3 py-1 bg-[#d4d0c8] text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
+              className="px-3 py-1 bg-stone-100 text-black font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] flex items-center gap-1.5"
             >
               <span>{t.pdfChart.lookalikesLink}</span>
               <ArrowRight className="w-3 h-3" />

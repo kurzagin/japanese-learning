@@ -504,19 +504,19 @@ export default function TestClient({
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={`${isBoss ? t.common.bossBattleTest : t.test.windowTitle} - ${stageDisplayName}`} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Info Bar */}
-        <div className={`border border-[#808080] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs ${
-          isBoss ? "bg-[#ffe4e1]" : "bg-[#d4d0c8]"
+        <div className={`border border-stone-200 px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs ${
+          isBoss ? "bg-[#ffe4e1]" : "bg-stone-100"
         }`}>
           <Link
             href={`${prefix}/dashboard`}
-            className="text-[#000080] underline hover:text-[#cc0000] flex items-center gap-1.5 text-xs font-bold"
+            className="text-[#fa624d] underline hover:text-[#fa624d] flex items-center gap-1.5 text-xs font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> {t.test.backToDashboard}
           </Link>
@@ -525,7 +525,7 @@ export default function TestClient({
               type="button"
               onClick={toggleAudioPreference}
               className={`px-2 py-0.5 text-[10px] font-mono font-bold border border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 ${
-                audioEnabled ? "bg-[#008000] text-white" : "bg-[#d4d0c8] text-[#555]"
+                audioEnabled ? "bg-[#008000] text-white" : "bg-stone-100 text-[#555]"
               }`}
               title="Toggle audio questions"
             >
@@ -540,9 +540,9 @@ export default function TestClient({
         </div>
 
         {/* Test Header with Countdown Meter */}
-        <div className={`${isBoss ? "bg-[#fff0f0] border-2 border-[#cc0000]" : "bg-[#fff8e7] border border-[#808080]"} p-3 shadow-xs`}>
+        <div className={`${isBoss ? "bg-[#fff0f0] border-2 border-[#cc0000]" : "bg-[#fff8e7] border border-stone-200"} p-3 shadow-xs`}>
           <div className="flex items-center justify-between text-xs">
-            <span className={`font-bold flex items-center gap-1 font-mono ${isBoss ? "text-[#800000]" : "text-[#cc0000]"}`}>
+            <span className={`font-bold flex items-center gap-1 font-mono ${isBoss ? "text-[#800000]" : "text-[#fa624d]"}`}>
               <Zap className="w-3.5 h-3.5 fill-current" />
               {isBoss ? t.common.bossBattleTest : t.test.testBadge}
             </span>
@@ -552,7 +552,7 @@ export default function TestClient({
                 className={`text-sm px-1.5 py-0.5 border ${
                   timeLeft <= 5
                     ? "bg-[#cc0000] text-white animate-pulse"
-                    : "bg-white text-[#cc0000] border-[#808080]"
+                    : "bg-white text-[#fa624d] border-stone-200"
                 }`}
               >
                 {timeLeft.toFixed(1)}s
@@ -561,10 +561,10 @@ export default function TestClient({
           </div>
 
           {/* Retro Win98 Style Progress Bar */}
-          <div className="w-full h-3 bg-[#e0e0e0] border border-[#808080] mt-1.5 p-0.5 flex">
+          <div className="w-full h-3 bg-[#e0e0e0] border border-stone-200 mt-1.5 p-0.5 flex">
             <div
               className={`h-full transition-all duration-100 ${
-                timeLeft <= 5 ? "bg-[#cc0000]" : "bg-[#000080]"
+                timeLeft <= 5 ? "bg-[#cc0000]" : "bg-[#fa624d]"
               }`}
               style={{ width: `${timeBarPercent}%` }}
             />
@@ -580,7 +580,7 @@ export default function TestClient({
 
               {/* Question progress & Audio Status Indicator */}
               <div className="flex items-center justify-between text-xs font-mono border-b border-[#d0d0d0] pb-2">
-                <span className="text-[#000080] font-bold">
+                <span className="text-[#fa624d] font-bold">
                   {t.test.questionProgress}: {currentIndex + 1} / {questions.length}
                 </span>
                 {(currentQ.type === "audio_to_kana" || currentQ.type === "audio_to_romaji") && (
@@ -602,7 +602,7 @@ export default function TestClient({
 
               {/* Character / Romaji / Audio Prompt Card */}
               <div className="my-4 py-8 px-4 border-2 border-[#000080] bg-[#f8f9fa] flex flex-col items-center justify-center text-center shadow-inner relative min-h-[170px]">
-                <span className="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 border border-[#808080] bg-[#ece9d8] text-[#333] uppercase">
+                <span className="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 border border-stone-200 bg-[#fdfbf7] text-[#333] uppercase">
                   {currentQ.type === "kana_to_romaji"
                     ? t.test.kanaToRomajiBadge
                     : currentQ.type === "romaji_to_kana"
@@ -619,8 +619,8 @@ export default function TestClient({
                       onClick={() => playQuestionAudio(currentQ.prompt)}
                       className={`w-20 h-20 rounded-full border-2 border-[#000080] flex items-center justify-center shadow-md transition-all ${
                         isAudioPlaying
-                          ? "bg-[#000080] text-white scale-105 animate-pulse"
-                          : "bg-[#e0e0ff] text-[#000080] hover:bg-[#000080] hover:text-white"
+                          ? "bg-[#fa624d] text-white scale-105 animate-pulse"
+                          : "bg-[#e0e0ff] text-[#fa624d] hover:bg-[#fa624d] hover:text-white"
                       }`}
                       aria-label={t.test.audioReplayBtn}
                     >
@@ -632,7 +632,7 @@ export default function TestClient({
                     <button
                       type="button"
                       onClick={() => playQuestionAudio(currentQ.prompt)}
-                      className="px-2.5 py-1 text-[11px] font-bold font-mono bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 text-[#000080]"
+                      className="px-2.5 py-1 text-[11px] font-bold font-mono bg-stone-100 border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 text-[#fa624d]"
                     >
                       <RotateCw className="w-3 h-3" />
                       <span>{t.test.audioReplayBtn}</span>
@@ -642,8 +642,8 @@ export default function TestClient({
                   <div
                     className={`font-bold tracking-tight ${
                       currentQ.type === "kana_to_romaji"
-                        ? "text-7xl sm:text-8xl font-serif text-[#000080]"
-                        : "text-6xl sm:text-7xl font-mono text-[#cc0000] lowercase"
+                        ? "text-7xl sm:text-8xl font-serif text-[#fa624d]"
+                        : "text-6xl sm:text-7xl font-mono text-[#fa624d] lowercase"
                     }`}
                   >
                     {currentQ.prompt}
@@ -654,7 +654,7 @@ export default function TestClient({
               {/* 4 Choices Grid */}
               <div className="grid grid-cols-2 gap-2.5 pt-1">
                 {currentQ.options.map((option, idx) => {
-                  let buttonColor = "bg-[#d4d0c8] text-black hover:bg-[#c0bca8]";
+                  let buttonColor = "bg-stone-100 text-black hover:bg-[#c0bca8]";
                   if (isAnswered) {
                     if (idx === currentQ.correctIndex) {
                       buttonColor = "bg-[#008000] text-white";
@@ -694,45 +694,45 @@ export default function TestClient({
               </div>
 
               {/* Desktop Test Workstation Telemetry */}
-              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
+              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-stone-200 bg-[#fdfbf7] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
-                  <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
+                  <div className="text-xs font-bold text-[#fa624d] border-b border-stone-200 pb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1">
                       <Zap className="w-3.5 h-3.5 fill-[#000080]" />
                       <span>{t.common.arcadeControls}</span>
                     </span>
-                    <span className="text-[10px] bg-white border border-[#808080] px-1 font-mono">
+                    <span className="text-[10px] bg-white border border-stone-200 px-1 font-mono">
                       {t.common.hotkeys}
                     </span>
                   </div>
 
                   {/* Hotkeys */}
-                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
+                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-stone-200">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">1:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
+                      <span className="text-[#fa624d]">1:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">2:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
+                      <span className="text-[#fa624d]">2:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">3:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
+                      <span className="text-[#fa624d]">3:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">4:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                      <span className="text-[#fa624d]">4:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">4</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 text-[#555]">
-                      <span className="text-[#000080]">REPLAY AUDIO:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">R</kbd>
+                      <span className="text-[#fa624d]">REPLAY AUDIO:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">R</kbd>
                     </div>
                   </div>
 
                   {/* Benchmark */}
-                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
-                    <div className="font-bold text-[#cc0000] text-[10px] uppercase mb-1">
+                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-stone-200">
+                    <div className="font-bold text-[#fa624d] text-[10px] uppercase mb-1">
                       {t.common.telemetry}
                     </div>
                     <div className="flex justify-between">
@@ -752,7 +752,7 @@ export default function TestClient({
 
                 <Link
                   href={`${prefix}/study/${stage.id}`}
-                  className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="w-full py-1.5 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>{t.common.reviewStudyDeck}</span>
@@ -779,7 +779,7 @@ export default function TestClient({
               <div className="grid grid-cols-2 gap-2 w-full max-w-xs bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono">
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.test.yourTime}</div>
-                  <div className="text-base font-bold text-[#000080]">
+                  <div className="text-base font-bold text-[#fa624d]">
                     {(elapsedMs / 1000).toFixed(1)}s
                   </div>
                 </div>
@@ -815,7 +815,7 @@ export default function TestClient({
                 {nextStage && (
                   <Link
                     href={`${prefix}/study/${nextStage.id}`}
-                    className="w-full py-2 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-2 shadow"
+                    className="w-full py-2 px-4 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-2 shadow"
                   >
                     <span>
                       {isBoss && stage.id.match(/-boss-([0-9]+)/) && parseInt(stage.id.match(/-boss-([0-9]+)/)![1], 10) % 2 === 0
@@ -829,7 +829,7 @@ export default function TestClient({
                   <button
                     type="button"
                     onClick={resetTest}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#cc0000] flex items-center justify-center gap-1.5 shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1.5 shadow"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
                     <span>{t.test.tryAgainBtn}</span>
@@ -837,7 +837,7 @@ export default function TestClient({
 
                   <Link
                     href={`${prefix}/dashboard`}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>
                   </Link>
@@ -847,12 +847,12 @@ export default function TestClient({
           ) : (
             /* Failed / Time Expired Screen */
             <div className="p-4 flex flex-col items-center justify-center text-center my-auto space-y-4">
-              <div className="w-14 h-14 border-2 border-[#cc0000] bg-[#ffeeee] flex items-center justify-center text-[#cc0000] shadow">
+              <div className="w-14 h-14 border-2 border-[#cc0000] bg-[#ffeeee] flex items-center justify-center text-[#fa624d] shadow">
                 <AlertCircle className="w-8 h-8 stroke-[2.5]" />
               </div>
 
               <div>
-                <h2 className="text-lg font-bold text-[#cc0000]">
+                <h2 className="text-lg font-bold text-[#fa624d]">
                   {failureReason === "accuracy" ? t.test.failWrongTitle : t.test.failTitle}
                 </h2>
                 <p className="text-xs text-[#555] mt-1 max-w-sm">
@@ -864,13 +864,13 @@ export default function TestClient({
               <div className="grid grid-cols-2 gap-2 w-full max-w-xs bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono">
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.test.yourTime}</div>
-                  <div className={`text-base font-bold ${elapsedMs / 1000 <= timeLimit ? "text-[#008000]" : "text-[#cc0000]"}`}>
+                  <div className={`text-base font-bold ${elapsedMs / 1000 <= timeLimit ? "text-[#008000]" : "text-[#fa624d]"}`}>
                     {(elapsedMs / 1000).toFixed(1)}s
                   </div>
                 </div>
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.test.accuracy}</div>
-                  <div className={`text-base font-bold ${Math.round((correctCount / questions.length) * 100) >= 80 ? "text-[#008000]" : "text-[#cc0000]"}`}>
+                  <div className={`text-base font-bold ${Math.round((correctCount / questions.length) * 100) >= 80 ? "text-[#008000]" : "text-[#fa624d]"}`}>
                     {Math.round((correctCount / questions.length) * 100)}%
                   </div>
                 </div>
@@ -881,7 +881,7 @@ export default function TestClient({
                 <button
                   type="button"
                   onClick={resetTest}
-                  className="w-full py-2.5 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-black text-xs text-[#cc0000] flex items-center justify-center gap-2 shadow"
+                  className="w-full py-2.5 px-4 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-black text-xs text-[#fa624d] flex items-center justify-center gap-2 shadow"
                 >
                   <RotateCw className="w-4 h-4" />
                   <span>{t.test.tryAgainBtn}</span>
@@ -890,7 +890,7 @@ export default function TestClient({
                 <div className="grid grid-cols-2 gap-2">
                   <Link
                     href={`${prefix}/study/${stage.id}`}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-1 shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1 shadow"
                   >
                     <BookOpen className="w-3.5 h-3.5" />
                     <span>{t.test.studyFirstBtn}</span>
@@ -898,7 +898,7 @@ export default function TestClient({
 
                   <Link
                     href={`${prefix}/dashboard`}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>
                   </Link>
@@ -910,17 +910,17 @@ export default function TestClient({
       </main>
 
       {/* Docked Retro Footer */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-stone-200 bg-stone-100 px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
           <span className="flex items-center gap-1">
-            {isBoss && <Swords className="w-3 h-3 text-[#cc0000] inline" />}
+            {isBoss && <Swords className="w-3 h-3 text-[#fa624d] inline" />}
             <span>{isBoss ? t.common.bossBattleTest : t.common.arcadeSpeedChallenge}</span>
           </span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span>{t.common.targetSpeed}: &lt; {timeLimit}s</span>
-          <span className="border-l border-[#808080] pl-2">{stageDisplayName}</span>
+          <span className="border-l border-stone-200 pl-2">{stageDisplayName}</span>
         </div>
       </footer>
     </div>

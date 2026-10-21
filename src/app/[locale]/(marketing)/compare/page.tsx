@@ -93,7 +93,7 @@ export default async function CompareIndexPage({ params }: Props) {
   const allKana = await getAllKana();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -108,7 +108,7 @@ export default async function CompareIndexPage({ params }: Props) {
             <span>{t.compareHub.badge}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] tracking-wide">
             {t.compareHub.title}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium mt-1 max-w-xl mx-auto">
@@ -128,12 +128,12 @@ export default async function CompareIndexPage({ params }: Props) {
               <Link
                 key={comp.slug}
                 href={`${prefix}/compare/${comp.slug}`}
-                className="border-2 border-[#808080] bg-white p-4 hover:border-[#000080] hover:bg-[#f0f4ff] transition-all group flex flex-col justify-between shadow-xs"
+                className="border-2 border-stone-200 bg-white p-4 hover:border-[#000080] hover:bg-[#f0f4ff] transition-all group flex flex-col justify-between shadow-xs"
               >
                 <div>
                   <div className="flex items-center justify-between text-[10px] font-mono text-[#800000] uppercase font-bold">
                     <span>{comp.script}</span>
-                    <span className="text-[#000080] group-hover:underline flex items-center gap-0.5">
+                    <span className="text-[#fa624d] group-hover:underline flex items-center gap-0.5">
                       {t.compareHub.compareAction} <ArrowRight className="w-3 h-3 inline" />
                     </span>
                   </div>
@@ -141,10 +141,10 @@ export default async function CompareIndexPage({ params }: Props) {
                   {/* Visual vs */}
                   <div className="flex items-center justify-center gap-4 my-3">
                     <div className="text-center">
-                      <div className="text-4xl font-black text-[#000080] group-hover:scale-110 transition-transform">
+                      <div className="text-4xl font-black text-[#fa624d] group-hover:scale-110 transition-transform">
                         {k1.character}
                       </div>
-                      <div className="text-xs font-mono font-bold text-[#cc0000]">
+                      <div className="text-xs font-mono font-bold text-[#fa624d]">
                         /{k1.romaji}/
                       </div>
                     </div>
@@ -153,7 +153,7 @@ export default async function CompareIndexPage({ params }: Props) {
                       <div className="text-4xl font-black text-[#800000] group-hover:scale-110 transition-transform">
                         {k2.character}
                       </div>
-                      <div className="text-xs font-mono font-bold text-[#cc0000]">
+                      <div className="text-xs font-mono font-bold text-[#fa624d]">
                         /{k2.romaji}/
                       </div>
                     </div>
@@ -169,10 +169,10 @@ export default async function CompareIndexPage({ params }: Props) {
         </div>
 
         {/* Educational Guide for Confusing Kana Pairs */}
-        <section className="border border-[#808080] bg-white p-4 sm:p-6 space-y-4 shadow-xs mt-6">
-          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-2">
-            <HelpCircle className="w-4 h-4 text-[#000080]" />
-            <h2 className="text-sm sm:text-base font-bold text-[#000080] uppercase">
+        <section className="border border-stone-200 bg-white p-4 sm:p-6 space-y-4 shadow-xs mt-6">
+          <div className="flex items-center gap-2 border-b border-stone-200 pb-2">
+            <HelpCircle className="w-4 h-4 text-[#fa624d]" />
+            <h2 className="text-sm sm:text-base font-bold text-[#fa624d] uppercase">
               {t.compareHub.eduTitle}
             </h2>
           </div>

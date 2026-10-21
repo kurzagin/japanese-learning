@@ -23,7 +23,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
   const explanation = catInfo.explanation[locale] || catInfo.explanation.en;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <RetroNavbar currentSubtitle={catInfo.script.toUpperCase()} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
@@ -31,7 +31,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
             href={`${prefix}/kana`}
-            className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
+            className="text-[#fa624d] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.kanaCategory.breadcrumbHub}</span>
@@ -51,14 +51,14 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
             <span>{catInfo.script} • {catInfo.category}</span>
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] tracking-wide">
             {title}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium max-w-2xl mx-auto">
             {description}
           </p>
 
-          <div className="pt-2 text-xs font-mono flex items-center justify-center gap-3 text-[#000080]">
+          <div className="pt-2 text-xs font-mono flex items-center justify-center gap-3 text-[#fa624d]">
             <span className="font-bold bg-[#eef3f8] px-2.5 py-1 border border-[#000080]/30">
               {t.kanaCategory.countBadge(characters.length)}
             </span>
@@ -66,10 +66,10 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         </div>
 
         {/* Educational Explainer Section */}
-        <section className="border border-[#808080] bg-white p-4 sm:p-5 shadow-inner space-y-2">
-          <div className="flex items-center gap-2 border-b border-[#c0c0c0] pb-1.5">
-            <BookOpen className="w-4 h-4 text-[#000080]" />
-            <h2 className="text-xs sm:text-sm font-bold text-[#000080] uppercase tracking-wider">
+        <section className="border border-stone-200 bg-white p-4 sm:p-5 shadow-inner space-y-2">
+          <div className="flex items-center gap-2 border-b border-stone-200 pb-1.5">
+            <BookOpen className="w-4 h-4 text-[#fa624d]" />
+            <h2 className="text-xs sm:text-sm font-bold text-[#fa624d] uppercase tracking-wider">
               {t.kanaCategory.aboutSetTitle}
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         {/* Character Grid */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <h3 className="text-xs font-bold text-[#000080] uppercase flex items-center gap-1.5">
+            <h3 className="text-xs font-bold text-[#fa624d] uppercase flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5" />
               <span>{t.kanaCategory.rosterTitle}</span>
             </h3>
@@ -99,7 +99,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
               return (
                 <div
                   key={k.id}
-                  className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-3 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
+                  className="bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-3 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-[#800000] uppercase">
@@ -112,21 +112,21 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
                     href={detailUrl}
                     className="my-2.5 text-center block group-hover:scale-105 transition-transform"
                   >
-                    <div className="text-3xl sm:text-4xl font-black text-[#000080] leading-tight font-sans">
+                    <div className="text-3xl sm:text-4xl font-black text-[#fa624d] leading-tight font-sans">
                       {k.character}
                     </div>
-                    <div className="text-xs font-mono font-bold text-[#cc0000] mt-0.5">
+                    <div className="text-xs font-mono font-bold text-[#fa624d] mt-0.5">
                       {k.romaji}
                     </div>
                   </Link>
 
-                  <div className="pt-2 border-t border-[#808080]/30 text-[10px] flex items-center justify-between">
+                  <div className="pt-2 border-t border-stone-200/30 text-[10px] flex items-center justify-between">
                     <span className="line-clamp-1 text-[#555] italic pr-1">
                       {hintText}
                     </span>
                     <Link
                       href={detailUrl}
-                      className="shrink-0 text-[#000080] font-bold hover:underline flex items-center"
+                      className="shrink-0 text-[#fa624d] font-bold hover:underline flex items-center"
                     >
                       <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -141,7 +141,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
         <div className="pt-4 text-center">
           <Link
             href={`${prefix}/kana`}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-stone-100 text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.kanaCategory.returnBtn}</span>

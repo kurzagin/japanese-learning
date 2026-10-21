@@ -48,7 +48,7 @@ export default function KanaDetailClient({
     : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       <RetroNavbar currentSubtitle={`${scriptName.toUpperCase()} // ${kana.character}`} />
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4">
@@ -56,7 +56,7 @@ export default function KanaDetailClient({
         <div className="flex items-center justify-between text-xs font-mono">
           <Link
             href={`${prefix}/kana`}
-            className="inline-flex items-center gap-1.5 text-[#000080] font-bold hover:underline"
+            className="inline-flex items-center gap-1.5 text-[#fa624d] font-bold hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>{t.kanaDetail.returnToMatrix}</span>
@@ -77,14 +77,14 @@ export default function KanaDetailClient({
           {/* Large Glyph Display */}
           <div className="my-3 flex flex-col items-center justify-center">
             <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white border-2 border-[#000080] flex items-center justify-center shadow-inner rounded-xs">
-              <span className="text-6xl sm:text-7xl font-black text-[#000080] font-sans select-all">
+              <span className="text-6xl sm:text-7xl font-black text-[#fa624d] font-sans select-all">
                 {kana.character}
               </span>
             </div>
 
             {/* Pronunciation & Audio Trigger */}
             <div className="mt-4 flex items-center gap-3">
-              <div className="text-2xl sm:text-3xl font-mono font-black text-[#cc0000]">
+              <div className="text-2xl sm:text-3xl font-mono font-black text-[#fa624d]">
                 /{kana.romaji}/
               </div>
               <PronounceButton
@@ -97,13 +97,13 @@ export default function KanaDetailClient({
 
           {/* Meta Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-[11px] font-mono">
-            <span className="bg-[#000080] text-white px-3 py-1 font-bold">
+            <span className="bg-[#fa624d] text-white px-3 py-1 font-bold">
               {t.kanaDetail.scriptLabel}: {scriptName}
             </span>
             <span className="bg-[#202020] text-white px-3 py-1">
               {t.kanaDetail.classLabel}: {kana.type.toUpperCase()}
             </span>
-            <span className="bg-[#d4d0c8] text-black border border-[#808080] px-3 py-1">
+            <span className="bg-stone-100 text-black border border-stone-200 px-3 py-1">
               {t.kanaDetail.rowLabel}: {kana.row.toUpperCase()}
             </span>
             {strokeCount !== null && (
@@ -117,9 +117,9 @@ export default function KanaDetailClient({
         {/* Two-Column Details Area */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Mnemonic / Memory Aid */}
-          <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
+          <div className="border border-stone-200 bg-white p-4 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
+              <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#fa624d] font-bold text-xs uppercase">
                 <HelpCircle className="w-4 h-4 text-[#ff9900]" />
                 <span>{t.kanaDetail.mnemonicTitle}</span>
               </div>
@@ -134,7 +134,7 @@ export default function KanaDetailClient({
 
           {/* Historical Origin / Man'yōgana with Furigana */}
           {origin ? (
-            <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
+            <div className="border border-stone-200 bg-white p-4 shadow-xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#800000] font-bold text-xs uppercase">
                   <Scroll className="w-4 h-4 text-[#800000]" />
@@ -144,13 +144,13 @@ export default function KanaDetailClient({
                   <div className="w-14 h-14 bg-[#fff8e7] border border-[#800000] flex items-center justify-center shrink-0">
                     <ruby className="text-3xl font-black text-[#800000] font-sans">
                       {origin.kanji}
-                      <rt className="text-[10px] font-mono font-normal text-[#000080]">
+                      <rt className="text-[10px] font-mono font-normal text-[#fa624d]">
                         {origin.reading}
                       </rt>
                     </ruby>
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-[#000080]">
+                    <div className="text-xs font-bold text-[#fa624d]">
                       {t.kanaDetail.evolvedFromKanji(origin.kanji, origin.reading)}
                     </div>
                     <p className="text-[11px] text-[#555] mt-1 leading-snug">
@@ -165,9 +165,9 @@ export default function KanaDetailClient({
             </div>
           ) : (
             /* Standard Elementary Example Word fallback */
-            <div className="border border-[#808080] bg-white p-4 shadow-xs flex flex-col justify-between">
+            <div className="border border-stone-200 bg-white p-4 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#000080] font-bold text-xs uppercase">
+                <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#fa624d] font-bold text-xs uppercase">
                   <BookOpen className="w-4 h-4 text-[#006600]" />
                   <span>{t.kanaDetail.vocabTitle}</span>
                 </div>
@@ -175,7 +175,7 @@ export default function KanaDetailClient({
                 {sampleWord ? (
                   <div className="mt-3 space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-[#000080]">
+                      <span className="text-xl font-bold text-[#fa624d]">
                         {sampleWord.jp}
                       </span>
                       <PronounceButton
@@ -204,9 +204,9 @@ export default function KanaDetailClient({
 
         {/* Standard Elementary Example Word Row if Origin was rendered */}
         {origin && sampleWord && (
-          <div className="border border-[#808080] bg-white p-4 shadow-xs">
+          <div className="border border-stone-200 bg-white p-4 shadow-xs">
             <div className="flex items-center justify-between border-b border-[#e0e0e0] pb-2">
-              <div className="flex items-center gap-2 text-[#000080] font-bold text-xs uppercase">
+              <div className="flex items-center gap-2 text-[#fa624d] font-bold text-xs uppercase">
                 <BookOpen className="w-4 h-4 text-[#006600]" />
                 <span>{t.kanaDetail.elementaryVocabTitle}</span>
               </div>
@@ -217,7 +217,7 @@ export default function KanaDetailClient({
             </div>
             <div className="mt-3 flex items-center justify-between">
               <div>
-                <div className="text-xl font-bold text-[#000080]">
+                <div className="text-xl font-bold text-[#fa624d]">
                   {sampleWord.jp}
                 </div>
                 <div className="text-xs text-[#555] font-mono mt-0.5">
@@ -233,9 +233,9 @@ export default function KanaDetailClient({
 
         {/* Easily Confused Characters Section */}
         {confusedKana.length > 0 && (
-          <div className="border border-[#808080] bg-[#fff] p-4 shadow-xs">
+          <div className="border border-stone-200 bg-[#fff] p-4 shadow-xs">
             <div className="flex items-center gap-2 border-b border-[#e0e0e0] pb-2 text-[#800000] font-bold text-xs uppercase">
-              <Layers className="w-4 h-4 text-[#cc0000]" />
+              <Layers className="w-4 h-4 text-[#fa624d]" />
               <span>{t.kanaDetail.confusedTitle}</span>
             </div>
             <p className="text-xs text-[#555] mt-2 mb-3">
@@ -251,14 +251,14 @@ export default function KanaDetailClient({
                     className="p-2.5 bg-[#f5f5f5] hover:bg-[#e8f0fe] border border-[#ccc] flex items-center justify-between transition-colors group"
                   >
                     <div>
-                      <div className="text-2xl font-black text-[#000080] group-hover:scale-110 transition-transform">
+                      <div className="text-2xl font-black text-[#fa624d] group-hover:scale-110 transition-transform">
                         {ck.character}
                       </div>
-                      <div className="text-[11px] font-mono font-bold text-[#cc0000]">
+                      <div className="text-[11px] font-mono font-bold text-[#fa624d]">
                         /{ck.romaji}/
                       </div>
                     </div>
-                    <span className="text-[10px] text-[#000080] font-mono font-bold underline">
+                    <span className="text-[10px] text-[#fa624d] font-mono font-bold underline">
                       {t.kanaDetail.compareBtn}
                     </span>
                   </Link>
@@ -270,7 +270,7 @@ export default function KanaDetailClient({
 
         {/* Interactive CTA to existing Study Engine */}
         <div className="border-2 border-[#000080] bg-[#e8f0fe] p-4 sm:p-6 text-center space-y-3 shadow-xs">
-          <h3 className="text-base sm:text-lg font-black text-[#000080] tracking-wide">
+          <h3 className="text-base sm:text-lg font-black text-[#fa624d] tracking-wide">
             {t.kanaDetail.ctaTitle(kana.character)}
           </h3>
           <p className="text-xs text-[#333] max-w-xl mx-auto">
@@ -279,14 +279,14 @@ export default function KanaDetailClient({
           <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
             <Link
               href={`${prefix}/dashboard`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#000080] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#fa624d] text-white text-xs font-bold border-t-2 border-l-2 border-[#4040ff] border-b-2 border-r-2 border-[#000040] shadow-sm hover:bg-[#0000a0] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>{t.kanaDetail.startDrillBtn}</span>
             </Link>
             <Link
               href={`${prefix}/kana`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#d4d0c8] text-black text-xs font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-stone-100 text-black text-xs font-bold border-t border-l border-white border-b border-r border-[#404040] hover:bg-[#e4e0d8] transition-colors"
             >
               <span>{t.kanaDetail.browseAllBtn}</span>
             </Link>

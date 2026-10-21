@@ -34,7 +34,7 @@ export default function AboutPage() {
   const interactiveFeatures = [
     {
       id: "voicevox",
-      icon: <Bot className="w-5 h-5 text-[#000080]" />,
+      icon: <Bot className="w-5 h-5 text-[#fa624d]" />,
       badge: "VOICEVOX ENGINE // ROBO TYPE T",
       title: t.about.features.voicevoxTitle,
       description: t.about.features.voicevoxDesc,
@@ -119,7 +119,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={t.about.windowTitle} />
 
@@ -127,7 +127,7 @@ export default function AboutPage() {
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Top Banner with Slogan */}
         <div className="border-2 border-[#000080] bg-[#eef3f8] p-4 text-center space-y-2 shadow-xs">
-            <div className="text-[10px] text-[#000080] font-bold tracking-widest uppercase flex items-center justify-center gap-1">
+            <div className="text-[10px] text-[#fa624d] font-bold tracking-widest uppercase flex items-center justify-center gap-1">
               <Star className="w-3 h-3 fill-[#000080]" />
               <span>{t.about.badge}</span>
               <Star className="w-3 h-3 fill-[#000080]" />
@@ -137,12 +137,12 @@ export default function AboutPage() {
             <div className="py-1">
               <div className="inline-block bg-[#fff8e7] border-2 border-[#000080] px-4 py-1.5 shadow-sm">
                 <span className="text-lg sm:text-xl font-black tracking-widest text-[#222]">
-                  “<span className="text-[#cc0000] underline decoration-2 underline-offset-4 font-black">さ</span>、
-                  <span className="text-[#000080] bg-[#ffff99] px-1 py-0.5 rounded-xs font-black">仮名</span>
+                  “<span className="text-[#fa624d] underline decoration-2 underline-offset-4 font-black">さ</span>、
+                  <span className="text-[#fa624d] bg-[#ffff99] px-1 py-0.5 rounded-xs font-black">仮名</span>
                   を始めよう。”
                 </span>
                 <div className="text-[10px] text-[#666] font-mono mt-0.5 tracking-tight">
-                  [ <span className="text-[#cc0000] font-bold">sa</span>, <span className="text-[#000080] font-bold">kana</span> wo hajimeyou • {t.about.sloganSub} ]
+                  [ <span className="text-[#fa624d] font-bold">sa</span>, <span className="text-[#fa624d] font-bold">kana</span> wo hajimeyou • {t.about.sloganSub} ]
                 </div>
               </div>
             </div>
@@ -153,8 +153,8 @@ export default function AboutPage() {
           </div>
 
           {/* FIRST SECTION: What is even SaKana? */}
-          <div className="border border-[#808080] bg-[#fafafa]">
-            <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+          <div className="border border-stone-200 bg-[#fafafa]">
+            <div className="bg-[#fa624d] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <FishIcon className="w-4 h-4 fill-white text-white" />
                 <span>{t.about.whatIsTitle}</span>
@@ -167,7 +167,7 @@ export default function AboutPage() {
               </p>
               <div className="space-y-2 pt-1 text-[11px] sm:text-xs">
                 <div className="flex items-start gap-2 bg-[#fffdf0] p-2 border border-[#e8dcb8]">
-                  <span className="text-[#cc0000] font-bold shrink-0">①</span>
+                  <span className="text-[#fa624d] font-bold shrink-0">①</span>
                   <span className="text-[#333] leading-relaxed">
                     {t.about.whatIsPoints.saKanaWordplay}
                   </span>
@@ -190,13 +190,13 @@ export default function AboutPage() {
 
           {/* LEARNING PHILOSOPHY: Recognition First */}
           <div className="border border-[#000080] bg-[#f4f7fb] p-3 shadow-xs">
-            <div className="flex items-center gap-1.5 text-[#000080] font-bold text-xs">
-              <Zap className="w-4 h-4 shrink-0 text-[#000080]" />
+            <div className="flex items-center gap-1.5 text-[#fa624d] font-bold text-xs">
+              <Zap className="w-4 h-4 shrink-0 text-[#fa624d]" />
               <span className="uppercase tracking-wide font-mono text-[11px]">
                 {t.about.writingDisclaimerBadge}
               </span>
             </div>
-            <div className="mt-1.5 p-2 bg-white border border-[#a0b0d0] text-center font-mono font-bold text-sm sm:text-base text-[#000080] tracking-wider select-all">
+            <div className="mt-1.5 p-2 bg-white border border-[#a0b0d0] text-center font-mono font-bold text-sm sm:text-base text-[#fa624d] tracking-wider select-all">
               &quot;{t.about.writingDisclaimerText}&quot;
             </div>
             <p className="text-[11px] text-[#444] mt-1.5 leading-relaxed">
@@ -205,8 +205,8 @@ export default function AboutPage() {
           </div>
 
           {/* SECTION: Current Features (Available Now) */}
-          <div className="border border-[#808080]">
-            <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+          <div className="border border-stone-200">
+            <div className="bg-[#fa624d] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#00ff00]" />
                 <span>{t.about.currentFeaturesTitle}</span>
@@ -222,11 +222,11 @@ export default function AboutPage() {
             <div className="divide-y divide-[#d0d0d0] bg-white">
               <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
                 <div className="p-1.5 bg-[#eef4ff] border border-[#7ba4e8] shrink-0 mt-0.5">
-                  <Layers className="w-5 h-5 text-[#000080]" />
+                  <Layers className="w-5 h-5 text-[#fa624d]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.srsTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e6f4ea] border border-[#57ab5a] text-[#137333] font-bold">
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.sprintTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
@@ -260,11 +260,11 @@ export default function AboutPage() {
 
               <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
                 <div className="p-1.5 bg-[#f0f4ff] border border-[#90b0e0] shrink-0 mt-0.5">
-                  <Shuffle className="w-5 h-5 text-[#000080]" />
+                  <Shuffle className="w-5 h-5 text-[#fa624d]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.bidirectionalTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e8f0fe] border border-[#4285f4] text-[#1967d2] font-bold">
@@ -283,7 +283,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.stagesTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e6f4ea] border border-[#57ab5a] text-[#137333] font-bold">
@@ -299,13 +299,13 @@ export default function AboutPage() {
               {/* NEW FEATURE 1: Kana Directory */}
               <div className="p-3 flex items-start gap-2.5 hover:bg-[#fafafc]">
                 <div className="p-1.5 bg-[#eef4ff] border border-[#7ba4e8] shrink-0 mt-0.5">
-                  <Search className="w-5 h-5 text-[#000080]" />
+                  <Search className="w-5 h-5 text-[#fa624d]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <Link
                       href={`${prefix}/kana`}
-                      className="text-xs sm:text-sm font-bold text-[#000080] hover:underline flex items-center gap-1"
+                      className="text-xs sm:text-sm font-bold text-[#fa624d] hover:underline flex items-center gap-1"
                     >
                       <span>{t.about.currentList.kanaDirectoryTitle}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -422,7 +422,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.minigameTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fef7e0] border border-[#f9ab00] text-[#b06000] font-bold">
@@ -441,10 +441,10 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                    <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                       {t.about.currentList.bilingualTitle}
                     </h2>
-                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#ece9d8] border border-[#808080] text-[#404040] font-bold">
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fdfbf7] border border-stone-200 text-[#404040] font-bold">
                       ACTIVE // EN • ID • JA
                     </span>
                   </div>
@@ -457,8 +457,8 @@ export default function AboutPage() {
           </div>
 
           {/* SECTION: Future Features (In Development) */}
-          <div className="border border-[#808080]">
-            <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+          <div className="border border-stone-200">
+            <div className="bg-[#fa624d] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#ffff00]" />
                 <span>{t.about.futureFeaturesTitle}</span>
@@ -469,7 +469,7 @@ export default function AboutPage() {
               </span>
             </div>
             <div className="p-3 bg-[#fbfbf8] border-b border-[#d0d0d0] text-xs space-y-1">
-              <h2 className="font-bold text-sm text-[#000080]">
+              <h2 className="font-bold text-sm text-[#fa624d]">
                 {t.about.heroTitle}
               </h2>
               <p className="text-xs text-[#555] leading-relaxed">
@@ -481,7 +481,7 @@ export default function AboutPage() {
             </div>
 
             {/* List of Interactive Media Features in Development */}
-            <div className="p-3 grid grid-cols-1 md:grid-cols-2 gap-3 bg-[#ece9d8]">
+            <div className="p-3 grid grid-cols-1 md:grid-cols-2 gap-3 bg-[#fdfbf7]">
               {interactiveFeatures.map((item) => (
                 <div key={item.id} className="p-3 bg-white border border-t-white border-l-white border-b-[#808080] border-r-[#808080] space-y-2 hover:bg-[#fafafc] flex flex-col justify-between">
                   <div className="flex items-start gap-2.5">
@@ -490,10 +490,10 @@ export default function AboutPage() {
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-1">
-                        <h2 className="text-xs sm:text-sm font-bold text-[#000080]">
+                        <h2 className="text-xs sm:text-sm font-bold text-[#fa624d]">
                           {item.title}
                         </h2>
-                        <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#ece9d8] border border-[#808080] text-[#404040] font-bold">
+                        <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fdfbf7] border border-stone-200 text-[#404040] font-bold">
                           {item.badge}
                         </span>
                       </div>
@@ -506,7 +506,7 @@ export default function AboutPage() {
                   {/* Feature Interactive Card Sample Preview */}
                   <div className="ml-0 sm:ml-9 border border-[#b0b0b0] bg-[#f7f9fa] p-2 text-xs space-y-1">
                     <div className="flex items-center justify-between text-[10px] text-[#666] border-b border-[#e0e0e0] pb-1">
-                      <span className="font-semibold text-[#000080]">
+                      <span className="font-semibold text-[#fa624d]">
                         {item.preview.speaker}
                       </span>
                       <span className="font-mono text-[9px] text-[#800000] font-bold">
@@ -529,8 +529,8 @@ export default function AboutPage() {
           </div>
 
           {/* Philosophy Box */}
-          <div className="border border-[#808080] bg-[#fbfbf8] p-3">
-            <h3 className="font-bold text-xs text-[#000080] uppercase flex items-center gap-1.5">
+          <div className="border border-stone-200 bg-[#fbfbf8] p-3">
+            <h3 className="font-bold text-xs text-[#fa624d] uppercase flex items-center gap-1.5">
               <span>◆ {t.about.roadmapTitle}</span>
             </h3>
             <p className="text-xs text-[#444] mt-1 leading-relaxed">
@@ -543,14 +543,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
               <Link
                 href={`${prefix}/dashboard`}
-                className="w-full sm:w-auto px-6 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow"
+                className="w-full sm:w-auto px-6 py-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-black flex items-center justify-center gap-1.5 shadow"
               >
                 <span>{t.about.backBtn}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#000080]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#fa624d]" />
               </Link>
               <Link
                 href={`${prefix}/study/hiragana-vowels`}
-                className="w-full sm:w-auto px-5 py-2 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-[#000080]"
+                className="w-full sm:w-auto px-5 py-2 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] text-xs font-bold text-[#fa624d]"
               >
                 {t.dashboard.studyBtn}: {t.dashboard.sec1Title}
               </Link>
@@ -559,14 +559,14 @@ export default function AboutPage() {
         </main>
 
       {/* Docked Retro Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-stone-200 bg-stone-100 px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>{t.about.footerStatus}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span className="hidden sm:inline">{t.about.footerSub}</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">{t.about.footerRight}</span>
+          <span className="border-l border-stone-200 pl-2 font-mono">{t.about.footerRight}</span>
         </div>
       </footer>
     </div>

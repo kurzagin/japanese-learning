@@ -19,7 +19,7 @@ export function SrsDocClient() {
           <span>//</span>
           <span>SPACED REPETITION SYSTEM</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] mt-1 tracking-tight">
           SM-2 Memory Intervals &amp; Retention Science
         </h1>
         <p className="text-sm text-[#444] mt-2 leading-relaxed">
@@ -33,7 +33,7 @@ export function SrsDocClient() {
 
       {/* Section 1: Why Cards Re-Queue on Again */}
       <section className="space-y-3 pt-2">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
           <Clock className="w-5 h-5 text-[#800000]" />
           <span>1. Why clicking &quot;Again&quot; adds the card back into your current hand</span>
         </h2>
@@ -42,7 +42,7 @@ export function SrsDocClient() {
           blacked out or misidentified the character. In standard Spaced Repetition (like SuperMemo and Anki),
           failed cards do <em>not</em> immediately disappear to tomorrow.
         </p>
-        <div className="p-3 bg-[#f5f5f0] border border-[#808080] space-y-2 text-xs">
+        <div className="p-3 bg-[#f5f5f0] border border-stone-200 space-y-2 text-xs">
           <div className="font-bold text-[#800000] uppercase font-mono">
             The Two-Tier Scheduling Model:
           </div>
@@ -63,65 +63,65 @@ export function SrsDocClient() {
 
       {/* Section 2: The 4 Ratings Breakdown */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
-          <Sparkles className="w-5 h-5 text-[#000080]" />
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
+          <Sparkles className="w-5 h-5 text-[#fa624d]" />
           <span>2. The 4-Rating Decision Matrix</span>
         </h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-xs border border-[#808080] bg-white">
-            <thead className="bg-[#e0ded8] text-[#000080] font-mono text-[11px] border-b border-[#808080]">
+          <table className="w-full text-xs border border-stone-200 bg-white">
+            <thead className="bg-[#e0ded8] text-[#fa624d] font-mono text-[11px] border-b border-stone-200">
               <tr>
-                <th className="p-2 text-left border-r border-[#808080]">Rating</th>
-                <th className="p-2 text-left border-r border-[#808080]">Interval Impact</th>
-                <th className="p-2 text-left border-r border-[#808080]">Ease Factor (EF)</th>
+                <th className="p-2 text-left border-r border-stone-200">Rating</th>
+                <th className="p-2 text-left border-r border-stone-200">Interval Impact</th>
+                <th className="p-2 text-left border-r border-stone-200">Ease Factor (EF)</th>
                 <th className="p-2 text-left">When to choose</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#d0d0d0]">
               <tr>
-                <td className="p-2 font-bold text-[#800000] border-r border-[#808080] whitespace-nowrap">
+                <td className="p-2 font-bold text-[#800000] border-r border-stone-200 whitespace-nowrap">
                   1. Again
                 </td>
-                <td className="p-2 font-mono text-[#800000] border-r border-[#808080]">
+                <td className="p-2 font-mono text-[#800000] border-r border-stone-200">
                   Reset to 0d (&lt;10m)
                 </td>
-                <td className="p-2 font-mono border-r border-[#808080]">- 0.20 (Lapse recorded)</td>
+                <td className="p-2 font-mono border-r border-stone-200">- 0.20 (Lapse recorded)</td>
                 <td className="p-2 text-[#444]">
                   Blackout, wrong character, or severe hesitation.
                 </td>
               </tr>
               <tr>
-                <td className="p-2 font-bold text-[#b85d00] border-r border-[#808080] whitespace-nowrap">
+                <td className="p-2 font-bold text-[#b85d00] border-r border-stone-200 whitespace-nowrap">
                   2. Hard
                 </td>
-                <td className="p-2 font-mono border-r border-[#808080]">
+                <td className="p-2 font-mono border-r border-stone-200">
                   Grows by ×1.2
                 </td>
-                <td className="p-2 font-mono border-r border-[#808080]">- 0.15</td>
+                <td className="p-2 font-mono border-r border-stone-200">- 0.15</td>
                 <td className="p-2 text-[#444]">
                   Recalled correctly, but took significant cognitive effort or mental mnemonic digging.
                 </td>
               </tr>
               <tr>
-                <td className="p-2 font-bold text-[#006600] border-r border-[#808080] whitespace-nowrap">
+                <td className="p-2 font-bold text-[#006600] border-r border-stone-200 whitespace-nowrap">
                   3. Good
                 </td>
-                <td className="p-2 font-mono text-[#006600] border-r border-[#808080]">
+                <td className="p-2 font-mono text-[#006600] border-r border-stone-200">
                   1d ➔ 3d ➔ (d × EF)
                 </td>
-                <td className="p-2 font-mono border-r border-[#808080]">Unchanged</td>
+                <td className="p-2 font-mono border-r border-stone-200">Unchanged</td>
                 <td className="p-2 text-[#444]">
                   Standard successful recall at a natural pace.
                 </td>
               </tr>
               <tr>
-                <td className="p-2 font-bold text-[#000080] border-r border-[#808080] whitespace-nowrap">
+                <td className="p-2 font-bold text-[#fa624d] border-r border-stone-200 whitespace-nowrap">
                   4. Easy
                 </td>
-                <td className="p-2 font-mono text-[#000080] border-r border-[#808080]">
+                <td className="p-2 font-mono text-[#fa624d] border-r border-stone-200">
                   4d ➔ 6d ➔ (d × EF × 1.3)
                 </td>
-                <td className="p-2 font-mono border-r border-[#808080]">+ 0.15 (Max 3.00)</td>
+                <td className="p-2 font-mono border-r border-stone-200">+ 0.15 (Max 3.00)</td>
                 <td className="p-2 text-[#444]">
                   Instantaneous effortless recall. Character felt obvious.
                 </td>
@@ -133,7 +133,7 @@ export function SrsDocClient() {
 
       {/* Section 3: Reaching 21-Day Mastery */}
       <section className="space-y-3 pt-4">
-        <h2 className="text-lg font-bold text-[#000080] flex items-center gap-2 border-b border-[#c0c0c0] pb-1">
+        <h2 className="text-lg font-bold text-[#fa624d] flex items-center gap-2 border-b border-stone-200 pb-1">
           <CheckCircle2 className="w-5 h-5 text-[#006600]" />
           <span>3. What does &quot;MASTERED IN SRS&quot; mean?</span>
         </h2>
@@ -158,16 +158,16 @@ export function SrsDocClient() {
       </section>
 
       {/* Navigation Footer */}
-      <div className="mt-8 pt-4 border-t-2 border-[#808080] flex justify-between items-center text-xs">
+      <div className="mt-8 pt-4 border-t-2 border-stone-200 flex justify-between items-center text-xs">
         <Link
           href={`${prefix}/docs`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           &lt;&lt; Manual Overview
         </Link>
         <Link
           href={`${prefix}/docs/progression`}
-          className="font-bold text-[#000080] hover:underline flex items-center gap-1"
+          className="font-bold text-[#fa624d] hover:underline flex items-center gap-1"
         >
           <span>Progression &amp; Speed Sprints</span>
           <ArrowRight className="w-3.5 h-3.5" />

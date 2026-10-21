@@ -87,7 +87,7 @@ export function DocsHubClient() {
           <span>//</span>
           <span>DOCUMENTATION &amp; LEARNER MANUAL</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#000080] mt-1 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-[#fa624d] mt-1 tracking-tight">
           System Documentation &amp; Learning Science
         </h1>
         <p className="text-sm text-[#444] mt-2 max-w-3xl leading-relaxed">
@@ -130,16 +130,16 @@ export function DocsHubClient() {
             <Link
               key={topic.id}
               href={`${prefix}/docs${topic.slug}`}
-              className="p-4 border-2 border-[#808080] bg-[#fdfdfb] hover:bg-[#fffff0] hover:border-[#000080] transition-colors flex flex-col justify-between group shadow-xs"
+              className="p-4 border-2 border-stone-200 bg-[#fdfdfb] hover:bg-[#fffff0] hover:border-[#000080] transition-colors flex flex-col justify-between group shadow-xs"
             >
               <div>
                 <div className="flex items-center justify-between text-[11px] font-mono text-[#666] mb-1.5">
-                  <span className="uppercase text-[#000080] font-bold">
+                  <span className="uppercase text-[#fa624d] font-bold">
                     {topic.category.toUpperCase()} // {topic.readTime}
                   </span>
                   <span className="text-[#888]">READ MANUAL &gt;&gt;</span>
                 </div>
-                <h2 className="text-base font-bold text-[#000080] group-hover:underline">
+                <h2 className="text-base font-bold text-[#fa624d] group-hover:underline">
                   {detail.title}
                 </h2>
                 <p className="text-xs text-[#555] mt-1.5 leading-relaxed">
@@ -156,7 +156,7 @@ export function DocsHubClient() {
                 </div>
               </div>
 
-              <div className="mt-4 pt-2 flex items-center justify-between text-xs font-bold text-[#000080]">
+              <div className="mt-4 pt-2 flex items-center justify-between text-xs font-bold text-[#fa624d]">
                 <span>Explore Chapter</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>

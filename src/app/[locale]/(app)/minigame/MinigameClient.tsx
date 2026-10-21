@@ -253,14 +253,14 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
+    <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-black">
       {/* Full-width Sticky Retro Navbar */}
       <RetroNavbar currentSubtitle={t.minigame.windowTitle} />
 
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 flex flex-col justify-center">
         {/* Top Retro Banner */}
-        <div className="bg-[#000080] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold border border-[#808080] shadow-xs">
+        <div className="bg-[#fa624d] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold border border-stone-200 shadow-xs">
           <span className="flex items-center gap-1.5">
             <Sparkles className="w-4 h-4 text-[#ffff00] animate-pulse" />
             <span>{t.minigame.badge}</span>
@@ -271,7 +271,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
         </div>
 
         {/* Main Content Area */}
-        <div className="p-4 sm:p-6 bg-white flex flex-col min-h-[460px] border border-[#808080] shadow-xs">
+        <div className="p-4 sm:p-6 bg-white flex flex-col min-h-[460px] border border-stone-200 shadow-xs">
           {isLoading ? (
             <div className="flex-1 flex items-center justify-center font-mono text-xs text-[#555]">
               {t.common.initializingPool}
@@ -284,7 +284,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                 {/* Heads-Up Display (Lives, Combo, Score) */}
                 <div className="grid grid-cols-3 gap-2 bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono mb-3">
                   {/* Lives / Shields */}
-                  <div className="flex items-center justify-center gap-1.5 text-[#cc0000] font-bold">
+                  <div className="flex items-center justify-center gap-1.5 text-[#fa624d] font-bold">
                     <Shield className="w-3.5 h-3.5 fill-[#cc0000]" />
                     <div className="flex items-center gap-1">
                       {Array.from({ length: 3 }).map((_, i) => (
@@ -292,7 +292,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                           key={i}
                           className={`w-3.5 h-3.5 ${
                             i < lives
-                              ? "fill-[#cc0000] text-[#cc0000]"
+                              ? "fill-[#cc0000] text-[#fa624d]"
                               : "fill-[#808080] text-[#808080] opacity-40"
                           }`}
                         />
@@ -303,7 +303,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                 {/* Combo Counter */}
                 <div className="text-center">
                   <span className="text-[10px] text-[#777] block">{t.minigame.combo}</span>
-                  <span className={`text-base font-black ${combo > 3 ? "text-[#e67300] animate-pulse" : "text-[#000080]"}`}>
+                  <span className={`text-base font-black ${combo > 3 ? "text-[#e67300] animate-pulse" : "text-[#fa624d]"}`}>
                     {combo}x
                   </span>
                 </div>
@@ -324,7 +324,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
               )}
 
               {/* Center Stage: Target Kana Letter */}
-              <div className="flex-1 flex flex-col items-center justify-center py-4 bg-gradient-to-b from-[#fafafa] to-[#f0f0f0] border-2 border-[#808080] shadow-inner mb-4 relative overflow-hidden">
+              <div className="flex-1 flex flex-col items-center justify-center py-4 bg-gradient-to-b from-[#fafafa] to-[#f0f0f0] border-2 border-stone-200 shadow-inner mb-4 relative overflow-hidden">
                 {/* Indicator badge if this is a troubled kana */}
                 {currentCard.lapseCount > 0 && (
                   <span className="absolute top-2 right-2 bg-[#cc0000] text-white text-[9px] px-1.5 py-0.5 font-mono uppercase font-bold tracking-wider">
@@ -347,7 +347,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                   const isThisSelected = selectedOption === idx;
                   const isThisCorrect = idx === correctIndex;
 
-                  let btnBg = "bg-[#d4d0c8] hover:bg-[#c0bca8] text-black";
+                  let btnBg = "bg-stone-100 hover:bg-[#c0bca8] text-black";
                   if (isAnswered) {
                     if (isThisCorrect) {
                       btnBg = "bg-[#008000] text-white border-green-800 animate-pulse";
@@ -377,9 +377,9 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
               </div>
 
               {/* Progress Bar (0 to 30) */}
-              <div className="mt-3 bg-[#e0ded6] border border-[#808080] h-2 w-full overflow-hidden">
+              <div className="mt-3 bg-[#e0ded6] border border-stone-200 h-2 w-full overflow-hidden">
                 <div
-                  className="bg-[#000080] h-full transition-all duration-200"
+                  className="bg-[#fa624d] h-full transition-all duration-200"
                   style={{
                     width: `${Math.min(100, ((currentIndex + 1) / queue.length) * 100)}%`,
                   }}
@@ -389,9 +389,9 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
               </div>
 
               {/* Desktop Arcade Cabinet Sidebar */}
-              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-[#808080] bg-[#ece9d8] p-3.5 text-xs space-y-3">
+              <div className="lg:col-span-4 hidden lg:flex flex-col justify-between border border-stone-200 bg-[#fdfbf7] p-3.5 text-xs space-y-3">
                 <div className="space-y-3">
-                  <div className="text-xs font-bold text-[#000080] border-b border-[#808080] pb-1.5 flex items-center justify-between">
+                  <div className="text-xs font-bold text-[#fa624d] border-b border-stone-200 pb-1.5 flex items-center justify-between">
                     <span>{t.common.arcadeControls}</span>
                     <span className="text-[10px] bg-[#ffff00] text-[#800000] border border-[#800000] px-1 font-bold">
                       {t.common.coinOp}
@@ -399,27 +399,27 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                   </div>
 
                   {/* Hotkeys */}
-                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-[#808080]">
+                  <div className="space-y-1.5 font-mono text-[11px] bg-white p-2.5 border border-stone-200">
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">1:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">1</kbd>
+                      <span className="text-[#fa624d]">1:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">1</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">2:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">2</kbd>
+                      <span className="text-[#fa624d]">2:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">2</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5 border-b border-[#eee]">
-                      <span className="text-[#000080]">3:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">3</kbd>
+                      <span className="text-[#fa624d]">3:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">3</kbd>
                     </div>
                     <div className="flex justify-between items-center py-0.5">
-                      <span className="text-[#000080]">4:</span>
-                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-[#808080] text-[10px] font-bold">4</kbd>
+                      <span className="text-[#fa624d]">4:</span>
+                      <kbd className="bg-[#e0e0e0] px-1.5 py-0.2 border border-stone-200 text-[10px] font-bold">4</kbd>
                     </div>
                   </div>
 
                   {/* Rules & Telemetry */}
-                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-[#808080]">
+                  <div className="space-y-1 text-[11px] font-mono bg-[#fdfdfb] p-2.5 border border-stone-200">
                     <div className="font-bold text-[#b35900] text-[10px] uppercase mb-1">
                       {t.common.arcadeRules}
                     </div>
@@ -433,14 +433,14 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#666]">{t.common.requeuedCards}</span>
-                      <span className="font-bold text-[#cc0000]">{Math.max(0, totalAnswered - correctAnswered)}</span>
+                      <span className="font-bold text-[#fa624d]">{Math.max(0, totalAnswered - correctAnswered)}</span>
                     </div>
                   </div>
                 </div>
 
                 <Link
                   href={`${prefix}/dashboard`}
-                  className="w-full py-1.5 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#000080] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+                  className="w-full py-1.5 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>{t.common.exitArcade}</span>
@@ -467,7 +467,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
               <div className="grid grid-cols-3 gap-2 w-full max-w-sm bg-[#f4f4f4] border border-[#b0b0b0] p-2.5 text-xs font-mono">
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.minigame.score}</div>
-                  <div className="text-base font-bold text-[#000080]">{score}</div>
+                  <div className="text-base font-bold text-[#fa624d]">{score}</div>
                 </div>
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.minigame.bestCombo}</div>
@@ -502,7 +502,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                   <button
                     type="button"
                     onClick={restartGame}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#000080] flex items-center justify-center gap-1 shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1 shadow"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
                     <span>{t.minigame.playAgainBtn}</span>
@@ -510,7 +510,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
 
                   <Link
                     href={`${prefix}/dashboard`}
-                    className="py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
+                    className="py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black flex items-center justify-center shadow"
                   >
                     <span>{t.nav.dashboard}</span>
                   </Link>
@@ -520,12 +520,12 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
           ) : (
             /* Defeat Screen (0 lives) */
             <div className="flex-1 flex flex-col items-center justify-center text-center p-4 space-y-4">
-              <div className="w-16 h-16 border-2 border-[#cc0000] bg-[#ffeeee] flex items-center justify-center text-[#cc0000] shadow-md">
+              <div className="w-16 h-16 border-2 border-[#cc0000] bg-[#ffeeee] flex items-center justify-center text-[#fa624d] shadow-md">
                 <AlertTriangle className="w-10 h-10 stroke-[2.5]" />
               </div>
 
               <div>
-                <h2 className="text-xl font-black text-[#cc0000]">
+                <h2 className="text-xl font-black text-[#fa624d]">
                   {t.minigame.defeatTitle}
                 </h2>
                 <p className="text-xs text-[#555] mt-1 max-w-sm">
@@ -537,7 +537,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
               <div className="grid grid-cols-2 gap-2 w-full max-w-xs bg-[#f4f4f4] border border-[#b0b0b0] p-2 text-xs font-mono">
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.minigame.score}</div>
-                  <div className="text-base font-bold text-[#cc0000]">{score}</div>
+                  <div className="text-base font-bold text-[#fa624d]">{score}</div>
                 </div>
                 <div className="p-1 text-center">
                   <div className="text-[10px] text-[#777]">{t.minigame.accuracy}</div>
@@ -550,7 +550,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                 <button
                   type="button"
                   onClick={restartGame}
-                  className="w-full py-2 px-4 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#cc0000] flex items-center justify-center gap-2 shadow"
+                  className="w-full py-2 px-4 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-2 shadow"
                 >
                   <RotateCw className="w-3.5 h-3.5" />
                   <span>{t.minigame.playAgainBtn}</span>
@@ -559,7 +559,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
                 {nextStageId && (
                   <Link
                     href={`${prefix}/study/${nextStageId}`}
-                    className="w-full py-2 px-4 bg-[#f0f0f0] border border-[#808080] hover:bg-[#e0ded6] font-bold text-xs text-[#000080] flex items-center justify-center gap-1 shadow"
+                    className="w-full py-2 px-4 bg-[#f0f0f0] border border-stone-200 hover:bg-[#e0ded6] font-bold text-xs text-[#fa624d] flex items-center justify-center gap-1 shadow"
                   >
                     <span>{t.minigame.nextStageBtn}</span>
                   </Link>
@@ -567,7 +567,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
 
                 <Link
                   href={`${prefix}/dashboard`}
-                  className="block py-1.5 px-3 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black shadow text-center"
+                  className="block py-1.5 px-3 bg-stone-100 border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#c0bca8] font-bold text-xs text-black shadow text-center"
                 >
                   <span>{t.nav.dashboard}</span>
                 </Link>
@@ -578,14 +578,14 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
       </main>
 
       {/* Docked Retro Footer */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-stone-200 bg-stone-100 px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#cc0000]"></span>
           <span>{t.common.arcadeSurvivalMode}</span>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span>{t.common.adaptivePool}</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">{t.common.livesRemaining}: {lives} / 3</span>
+          <span className="border-l border-stone-200 pl-2 font-mono">{t.common.livesRemaining}: {lives} / 3</span>
         </div>
       </footer>
     </div>

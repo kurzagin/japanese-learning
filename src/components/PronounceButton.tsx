@@ -65,12 +65,12 @@ export function PronounceButton({
       type="button"
       onClick={handlePlay}
       aria-label={`${t.common.listenPronunciation}: ${text}`}
-      className={`inline-flex items-center justify-center font-mono cursor-pointer transition-transform active:translate-y-0.5 border-t border-l border-white border-b-[#404040] border-r-[#404040] bg-[#d4d0c8] hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] shadow-xs ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center font-mono cursor-pointer transition-transform active:translate-y-0.5 border-t border-l border-white border-b-[#404040] border-r-[#404040] bg-stone-100 hover:bg-[#e4e0d8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#fa624d] shadow-xs ${sizeClasses[size]} ${className}`}
     >
       {isPlaying ? (
-        <VolumeX className="w-3.5 h-3.5 animate-pulse text-[#cc0000]" />
+        <VolumeX className="w-3.5 h-3.5 animate-pulse text-[#fa624d]" />
       ) : (
-        <Volume2 className="w-3.5 h-3.5 text-[#000080]" />
+        <Volume2 className="w-3.5 h-3.5 text-[#fa624d]" />
       )}
       {label && <span>{label}</span>}
     </button>

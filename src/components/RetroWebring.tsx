@@ -61,9 +61,9 @@ export function RetroWebring() {
   };
 
   return (
-    <div className="border border-[#808080] bg-[#ece9d8] p-3 shadow-xs font-mono">
+    <div className="border border-stone-200 bg-[#fdfbf7] p-3 shadow-xs font-mono">
       {/* Titlebar */}
-      <div className="bg-[#000080] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
+      <div className="bg-[#fa624d] text-white px-2.5 py-1 text-xs font-bold flex items-center justify-between">
         <span className="flex items-center gap-1.5">
           <span className="text-[#ffff00]">❖</span>
           <span>{t.webring.title}</span>
@@ -103,7 +103,7 @@ export function RetroWebring() {
         </div>
 
         {/* Ticker / Hover Status */}
-        <div className="bg-[#000040] text-[#00ff66] border border-[#808080] px-2.5 py-1.5 text-[11px] min-h-[36px] flex flex-col justify-center shadow-inner">
+        <div className="bg-[#000040] text-[#00ff66] border border-stone-200 px-2.5 py-1.5 text-[11px] min-h-[36px] flex flex-col justify-center shadow-inner">
           {activeNode ? (
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
               <span className="font-bold text-[#ffff00] truncate">
@@ -130,14 +130,14 @@ export function RetroWebring() {
               href={realSites[0].url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-stone-100 border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#fa624d] font-bold text-[10px]"
             >
               {t.webring.prev}
             </a>
             <button
               type="button"
               onClick={handleRandom}
-              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-black font-bold text-[10px] cursor-pointer"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-stone-100 border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-black font-bold text-[10px] cursor-pointer"
             >
               {t.webring.random}
             </button>
@@ -145,7 +145,7 @@ export function RetroWebring() {
               href={realSites[1].url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              className="flex-1 sm:flex-none text-center px-2 py-1 bg-stone-100 border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#fa624d] font-bold text-[10px]"
             >
               {t.webring.next}
             </a>
