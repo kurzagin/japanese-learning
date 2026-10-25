@@ -147,6 +147,52 @@ export const KANA_STROKE_COUNTS: Record<string, number> = {
   "k-wa": 2,
   "k-wo": 3,
   "k-n": 2,
+
+  // Hiragana Dakuon & Handakuon (+2 for dakuten, +1 for handakuten)
+  "h-ga": 5, "h-gi": 6, "h-gu": 3, "h-ge": 5, "h-go": 4,
+  "h-za": 5, "h-ji": 3, "h-zu": 4, "h-ze": 5, "h-zo": 3,
+  "h-da": 6, "h-dji": 4, "h-dzu": 3, "h-de": 3, "h-do": 4,
+  "h-ba": 5, "h-bi": 3, "h-bu": 6, "h-be": 3, "h-bo": 6,
+  "h-pa": 4, "h-pi": 2, "h-pu": 5, "h-pe": 2, "h-po": 5,
+
+  // Katakana Dakuon & Handakuon
+  "k-ga": 4, "k-gi": 5, "k-gu": 4, "k-ge": 5, "k-go": 4,
+  "k-za": 5, "k-ji": 5, "k-zu": 4, "k-ze": 4, "k-zo": 4,
+  "k-da": 5, "k-dji": 5, "k-dzu": 5, "k-de": 5, "k-do": 4,
+  "k-ba": 4, "k-bi": 4, "k-bu": 3, "k-be": 3, "k-bo": 6,
+  "k-pa": 3, "k-pi": 3, "k-pu": 2, "k-pe": 2, "k-po": 5,
+
+  // Hiragana Yōon (base + ゃ:3 / ゅ:2 / ょ:2)
+  "h-kya": 7, "h-kyu": 6, "h-kyo": 6,
+  "h-sha": 4, "h-shu": 3, "h-sho": 3,
+  "h-cha": 5, "h-chu": 4, "h-cho": 4,
+  "h-nya": 6, "h-nyu": 5, "h-nyo": 5,
+  "h-hya": 4, "h-hyu": 3, "h-hyo": 3,
+  "h-mya": 5, "h-myu": 4, "h-myo": 4,
+  "h-rya": 5, "h-ryu": 4, "h-ryo": 4,
+  "h-gya": 9, "h-gyu": 8, "h-gyo": 8,
+  "h-ja": 6, "h-ju": 5, "h-jo": 5,
+  "h-bya": 6, "h-byu": 5, "h-byo": 5,
+  "h-pya": 5, "h-pyu": 4, "h-pyo": 4,
+
+  // Katakana Yōon (base + ャ:2 / ュ:2 / ョ:3)
+  "k-kya": 5, "k-kyu": 5, "k-kyo": 6,
+  "k-sha": 5, "k-shu": 5, "k-sho": 6,
+  "k-cha": 5, "k-chu": 5, "k-cho": 6,
+  "k-nya": 4, "k-nyu": 4, "k-nyo": 5,
+  "k-hya": 4, "k-hyu": 4, "k-hyo": 5,
+  "k-mya": 5, "k-myu": 5, "k-myo": 6,
+  "k-rya": 4, "k-ryu": 4, "k-ryo": 5,
+  "k-gya": 7, "k-gyu": 7, "k-gyo": 8,
+  "k-ja": 7, "k-ju": 7, "k-jo": 8,
+  "k-bya": 6, "k-byu": 6, "k-byo": 7,
+  "k-pya": 5, "k-pyu": 5, "k-pyo": 6,
+
+  // Extended Katakana (ァ:2, ィ:2, ゥ:3, ェ:3, ォ:3)
+  "k-fa": 3, "k-fi": 3, "k-fe": 4, "k-fo": 4,
+  "k-ti": 5, "k-di": 7,
+  "k-wi": 5, "k-we": 6,
+  "k-va": 7, "k-vo": 8,
 };
 
 /**
@@ -686,7 +732,7 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "須",
     reading: "su",
     notes: {
-      en: "Derived from the top-right strokes of 須.",
+      en: "Derived from the bottom-right strokes of 須.",
       id: "Berasal dari goresan akhir kanan-bawah Kanji 須.",
       ja: "漢字「須」の右下部分から生まれました。",
     },
@@ -695,7 +741,7 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "世",
     reading: "se",
     notes: {
-      en: "Derived from the bottom stroke and body of 世.",
+      en: "Derived from the inner strokes of 世.",
       id: "Berasal dari kerangka bagian dalam Kanji 世.",
       ja: "漢字「世」の一部を省略して生まれました。",
     },
@@ -839,7 +885,7 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "保",
     reading: "ho",
     notes: {
-      en: "Derived from the right part 呆 of 保.",
+      en: "Derived from the bottom-right 木 part of 保.",
       id: "Berasal dari bagian kanan-bawah 木 pada Kanji 保.",
       ja: "漢字「保」の右下部分（「木」）から生まれました。",
     },
@@ -902,8 +948,8 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "由",
     reading: "yu",
     notes: {
-      en: "Derived from the lower strokes of 由.",
-      id: "Berasal dari bagian kerangka Kanji 由.",
+      en: "Derived from the upper strokes of 由.",
+      id: "Berasal dari bagian atas Kanji 由.",
       ja: "漢字「由」の上部から生まれました。",
     },
   },
@@ -965,7 +1011,7 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "和",
     reading: "wa",
     notes: {
-      en: "Derived from the right radical 口 of 和.",
+      en: "Derived from the upper-right strokes of 和.",
       id: "Berasal dari bagian sudut atas Kanji 和.",
       ja: "漢字「和」の旁などから生まれました。",
     },
@@ -994,9 +1040,11 @@ export const CONFUSED_PAIRS: Record<string, string[]> = {
   // Hiragana lookalikes
   "h-a": ["h-o", "h-me"],
   "h-o": ["h-a", "h-mu"],
+  "h-mu": ["h-o"],
   "h-sa": ["h-ki", "h-chi"],
   "h-ki": ["h-sa"],
   "h-chi": ["h-sa", "h-ra"],
+  "h-ra": ["h-chi"],
   "h-nu": ["h-me", "h-ne"],
   "h-me": ["h-nu", "h-a"],
   "h-ne": ["h-wa", "h-re", "h-nu"],
@@ -1004,6 +1052,12 @@ export const CONFUSED_PAIRS: Record<string, string[]> = {
   "h-re": ["h-wa", "h-ne"],
   "h-ru": ["h-ro"],
   "h-ro": ["h-ru"],
+  "h-ha": ["h-ho"],
+  "h-ho": ["h-ha"],
+  "h-ko": ["h-ni"],
+  "h-ni": ["h-ko"],
+  "h-fu": ["h-u"],
+  "h-u": ["h-fu"],
 
   // Katakana lookalikes
   "k-shi": ["k-tsu", "k-so", "k-n"],
@@ -1012,8 +1066,11 @@ export const CONFUSED_PAIRS: Record<string, string[]> = {
   "k-n": ["k-so", "k-shi", "k-tsu"],
   "k-ko": ["k-yu", "k-e"],
   "k-yu": ["k-ko"],
+  "k-e": ["k-ko"],
   "k-ku": ["k-ta", "k-ke"],
+  "k-ke": ["k-ku"],
   "k-ta": ["k-ku", "k-nu"],
+  "k-nu": ["k-ta"],
 };
 
 export interface ComparisonPair {

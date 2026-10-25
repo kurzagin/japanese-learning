@@ -18,16 +18,42 @@ export function getConstituentKana(
   word: VocabWord,
   allKana: KanaCharacter[] = []
 ): KanaCharacter[] {
-  const chars = Array.from(word.character);
+  const text = word.character;
   const matched: KanaCharacter[] = [];
 
-  for (const char of chars) {
+  for (let i = 0; i < text.length; ) {
+    if (i + 1 < text.length) {
+      const two = text.slice(i, i + 2);
+      const matchTwo = allKana.find(
+        (k) => k.character === two && k.script === word.script
+      );
+      if (matchTwo) {
+        if (!matched.some((m) => m.id === matchTwo.id)) {
+          matched.push(matchTwo);
+        }
+        const baseOne = allKana.find(
+          (k) => k.character === text[i] && k.script === word.script
+        );
+        if (
+          baseOne &&
+          word.primaryKanaId === baseOne.id &&
+          !matched.some((m) => m.id === baseOne.id)
+        ) {
+          matched.push(baseOne);
+        }
+        i += 2;
+        continue;
+      }
+    }
+
+    const char = text[i];
     const kana = allKana.find(
       (k) => k.character === char && k.script === word.script
     );
     if (kana && !matched.some((m) => m.id === kana.id)) {
       matched.push(kana);
     }
+    i += 1;
   }
 
   return matched;
@@ -56,9 +82,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "JLPT N5 必須基礎単語一覧",
     },
     tagline: {
-      en: "Essential 104 words for Japanese Language Proficiency Test Level 5",
-      id: "104 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N5",
-      ja: "日本語能力試験 N5レベルの重要基礎104単語",
+      en: "Essential 105 words for Japanese Language Proficiency Test Level 5",
+      id: "105 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N5",
+      ja: "日本語能力試験 N5レベルの重要基礎105単語",
     },
     description: {
       en: "Master the foundational JLPT N5 vocabulary words with native TTS pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",

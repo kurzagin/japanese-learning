@@ -129,6 +129,17 @@ export async function getConstituentKana(
         if (!matched.some((m) => m.id === matchTwo.id)) {
           matched.push(matchTwo);
         }
+        // Also include the base kana if it is the word's primaryKanaId
+        const baseOne = all.find(
+          (k) => k.character === text[i] && k.script === word.script
+        );
+        if (
+          baseOne &&
+          word.primaryKanaId === baseOne.id &&
+          !matched.some((m) => m.id === baseOne.id)
+        ) {
+          matched.push(baseOne);
+        }
         i += 2;
         continue;
       }
@@ -215,7 +226,7 @@ export async function getRelatedCategoryCharacters(
 }
 
 /**
- * Get all 32 stages dynamically built from static Kana & Vocabulary
+ * Get all 58 stages dynamically built from static Kana & Vocabulary
  */
 export async function getStages(): Promise<Stage[]> {
   if (cachedStages) return cachedStages;

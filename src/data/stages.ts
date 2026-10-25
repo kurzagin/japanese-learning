@@ -193,7 +193,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
 
   // Katakana W & N
   "k-wa": { jp: "ワイン (wain)", en: "Wine", id: "Anggur / Wine", ja: "ワイン" },
-  "k-wo": { jp: "ヲ (wo)", en: "Rare Katakana wo", id: "Katakana langka wo", ja: "ヲ" },
+  "k-wo": { jp: "ヲタク (wotaku)", en: "Otaku / Geek (slang)", id: "Otaku / Penggemar berat", ja: "ヲタク" },
   "k-n": { jp: "パン (pan)", en: "Bread (ending n)", id: "Roti (akhiran n)", ja: "パン" },
 
   // Katakana G-row
@@ -213,7 +213,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   // Katakana D-row
   "k-da": { jp: "ダンス (dansu)", en: "Dance", id: "Tari / Dance", ja: "ダンス" },
   "k-dji": { jp: "ハナヂ (hanaji)", en: "Nosebleed (ji / ヂ)", id: "Mimisan", ja: "ハナヂ" },
-  "k-dzu": { jp: "グッズ (guzzu)", en: "Goods / Merch (zu / ヅ)", id: "Barang merchandise", ja: "グッズ" },
+  "k-dzu": { jp: "ツヅキ (tsuzuki)", en: "Continuation / Next episode (zu / ヅ)", id: "Kelanjutan / Episode berikutnya", ja: "ツヅキ" },
   "k-de": { jp: "デザート (dezaato)", en: "Dessert", id: "Hidangan penutup", ja: "デザート" },
   "k-do": { jp: "ドア (doa)", en: "Door", id: "Pintu", ja: "ドア" },
 
@@ -241,7 +241,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-we": { jp: "ウェディング (wedingu)", en: "Wedding", id: "Pernikahan", ja: "ウェディング" },
   "k-wi": { jp: "ウィーク (wiiku)", en: "Week", id: "Minggu / Pekan", ja: "ウィーク" },
   "k-va": { jp: "ヴァイオリン (vaiorin)", en: "Violin", id: "Biola", ja: "ヴァイオリン" },
-  "k-vo": { jp: "ヴォリューム (voryūmu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
+  "k-vo": { jp: "ヴォリューム (voryuumu)", en: "Volume", id: "Volume suara", ja: "ヴォリューム" },
 
   // Hiragana Yōon Combinations (33)
   "h-kya": { jp: "きゃく (kyaku)", en: "Guest / Customer", id: "Tamu / Pelanggan", ja: "客" },
@@ -252,15 +252,15 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "h-sho": { jp: "しょくどう (shokudou)", en: "Dining hall / Cafeteria", id: "Kantin", ja: "食堂" },
   "h-cha": { jp: "おちゃ (ocha)", en: "Green tea", id: "Teh hijau", ja: "お茶" },
   "h-chu": { jp: "ちゅうしゃ (chuusha)", en: "Parking / Injection", id: "Parkir / Suntikan", ja: "駐車" },
-  "h-cho": { jp: "ちょっと (chotto)", en: "A little bit", id: "Sebentar / Sedikit", ja: "一寸" },
-  "h-nya": { jp: "にゃんこ (nyanko)", en: "Kitty cat", id: "Kucing kecil", ja: "ニャンコ" },
+  "h-cho": { jp: "ちょっと (chotto)", en: "A little bit", id: "Sebentar / Sedikit", ja: "ちょっと" },
+  "h-nya": { jp: "にゃんこ (nyanko)", en: "Kitty cat", id: "Kucing kecil", ja: "にゃんこ" },
   "h-nyu": { jp: "ぎゅうにゅう (gyuunyuu)", en: "Cow milk", id: "Susu sapi", ja: "牛乳" },
   "h-nyo": { jp: "にょうぼう (nyoubou)", en: "Wife / Court lady", id: "Istri", ja: "女房" },
   "h-hya": { jp: "ひゃく (hyaku)", en: "Hundred (100)", id: "Seratus (100)", ja: "百" },
   "h-hyu": { jp: "ひゅうひゅう (hyuuhyuu)", en: "Whistling wind sound", id: "Desir angin kencang", ja: "ひゅうひゅう" },
   "h-hyo": { jp: "ひょう (hyou)", en: "Leopard / Hail", id: "Macan tutul / Hujan es", ja: "豹" },
   "h-mya": { jp: "みゃく (myaku)", en: "Pulse / Vein", id: "Denyut nadi", ja: "脈" },
-  "h-myu": { jp: "みゅーじかる (myuujikaru)", en: "Musical theatre", id: "Drama musikal", ja: "ミュージカル" },
+  "h-myu": { jp: "みゅうじっく (myuujikku)", en: "Music", id: "Musik", ja: "音楽" },
   "h-myo": { jp: "みょうじ (myouji)", en: "Family surname", id: "Nama keluarga", ja: "名字" },
   "h-rya": { jp: "りゃく (ryaku)", en: "Abbreviation / Shortening", id: "Singkatan", ja: "略" },
   "h-ryu": { jp: "りゅう (ryuu)", en: "Dragon", id: "Naga", ja: "竜" },
@@ -281,7 +281,7 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   // Katakana Yōon Combinations (33)
   "k-kya": { jp: "キャベツ (kyabetsu)", en: "Cabbage", id: "Kubis / Kol", ja: "キャベツ" },
   "k-kyu": { jp: "キューブ (kyuubu)", en: "Cube", id: "Kubus", ja: "キューブ" },
-  "k-kyo": { jp: "キャンプ (kyanpu)", en: "Camping / Camp", id: "Berkemah", ja: "キャンプ" },
+  "k-kyo": { jp: "キョウト (kyouto)", en: "Kyoto city", id: "Kota Kyoto", ja: "キョウト" },
   "k-sha": { jp: "シャツ (shatsu)", en: "Shirt", id: "Kemeja / Kaos", ja: "シャツ" },
   "k-shu": { jp: "シュークリーム (shuukuriimu)", en: "Cream puff", id: "Kue sus", ja: "シュークリーム" },
   "k-sho": { jp: "ショップ (shoppu)", en: "Shop / Store", id: "Toko", ja: "ショップ" },
@@ -293,25 +293,25 @@ export const SAMPLE_WORDS: Record<string, { jp: string; en: string; id: string; 
   "k-nyo": { jp: "ニョッキ (nyokki)", en: "Gnocchi pasta", id: "Pasta gnocchi", ja: "ニョッキ" },
   "k-hya": { jp: "ヒャッホウ (hyahhou)", en: "Yippee shout", id: "Sorakan riang", ja: "ヒャッホウ" },
   "k-hyu": { jp: "ヒューズ (hyuuzu)", en: "Electrical fuse", id: "Sekring listrik", ja: "ヒューズ" },
-  "k-hyo": { jp: "ヒョウ柄 (hyougara)", en: "Leopard print", id: "Motif macan tutul", ja: "ヒョウ柄" },
+  "k-hyo": { jp: "ヒョウ (hyou)", en: "Leopard / Panther", id: "Macan tutul", ja: "ヒョウ" },
   "k-mya": { jp: "ミャンマー (myanmaa)", en: "Myanmar country", id: "Negara Myanmar", ja: "ミャンマー" },
   "k-myu": { jp: "ミュージカル (myuujikaru)", en: "Musical theatre", id: "Drama musikal", ja: "ミュージカル" },
   "k-myo": { jp: "ミョウガ (myouga)", en: "Japanese myoga ginger", id: "Jahe myoga Jepang", ja: "ミョウガ" },
-  "k-rya": { jp: "略称 (ryakushou)", en: "Abbreviation", id: "Singkatan nama", ja: "略称" },
+  "k-rya": { jp: "リャマ (ryama)", en: "Llama", id: "Hewan llama", ja: "リャマ" },
   "k-ryu": { jp: "リュック (ryukku)", en: "Backpack / Rucksack", id: "Ransel", ja: "リュック" },
-  "k-ryo": { jp: "リョーカン (ryookan)", en: "Japanese inn", id: "Penginapan ryokan", ja: "旅館" },
+  "k-ryo": { jp: "リョカン (ryokan)", en: "Japanese inn", id: "Penginapan ryokan", ja: "リョカン" },
   "k-gya": { jp: "ギャング (gyangu)", en: "Gang / Gangster", id: "Geng", ja: "ギャング" },
   "k-gyu": { jp: "ギュッと (gyutto)", en: "Tight squeeze / Hug", id: "Pelukan erat", ja: "ギュッと" },
   "k-gyo": { jp: "ギョーザ (gyooza)", en: "Gyoza dumpling", id: "Pangsit gyoza", ja: "ギョーザ" },
   "k-ja": { jp: "ジャム (jamu)", en: "Fruit jam", id: "Selai buah", ja: "ジャム" },
   "k-ju": { jp: "ジュース (juusu)", en: "Fruit juice", id: "Jus buah", ja: "ジュース" },
   "k-jo": { jp: "ジョギング (jogingu)", en: "Jogging", id: "Lari joging", ja: "ジョギング" },
-  "k-bya": { jp: "白夜 (byakuya)", en: "Midnight sun", id: "Malam putih kutub", ja: "白夜" },
+  "k-bya": { jp: "ビャクヤ (byakuya)", en: "Midnight sun", id: "Malam putih kutub", ja: "ビャクヤ" },
   "k-byu": { jp: "ビュッフェ (byuffe)", en: "Buffet dining", id: "Prasmanan", ja: "ビュッフェ" },
-  "k-byo": { jp: "ビョウ (byou)", en: "Tack / Rivet pin", id: "Paku payung / Pin", ja: "鋲" },
+  "k-byo": { jp: "ビョウ (byou)", en: "Tack / Rivet pin", id: "Paku payung / Pin", ja: "ビョウ" },
   "k-pya": { jp: "ピャッと (pyatto)", en: "Swift flash", id: "Kilatan cepat", ja: "ピャッと" },
   "k-pyu": { jp: "ピューマ (pyuuma)", en: "Puma cougar", id: "Puma / Singa gunung", ja: "ピューマ" },
-  "k-pyo": { jp: "ピョンチャン (pyonchan)", en: "Pyeongchang", id: "Pyeongchang", ja: "平昌" },
+  "k-pyo": { jp: "ピョンチャン (pyonchan)", en: "Pyeongchang", id: "Pyeongchang", ja: "ピョンチャン" },
 };
 
 function createCard(k: KanaCharacter): StudyCard {
@@ -366,7 +366,7 @@ const HIRAGANA_ROW_DEFS: RowDef[] = [
   { key: "b-row", nameEn: "B-Row (Voiced)", nameId: "Baris B (Ba-Bi-Bu-Be-Bo)", nameJa: "ば行・濁音 (ば・び・ぶ・べ・ぼ)", filter: (k) => k.row === "b" },
   { key: "p-row", nameEn: "P-Row (Semi-Voiced)", nameId: "Baris P (Pa-Pi-Pu-Pe-Po)", nameJa: "ぱ行・半濁音 (ぱ・ぴ・ぷ・ぺ・ぽ)", filter: (k) => k.row === "p" },
 
-  // Advanced: Yoon Combinations (3 groups of 11 characters for smooth study)
+  // Advanced: Yoon Combinations (3 groups totaling 33 characters: 12 + 9 + 12)
   {
     key: "yoon-1",
     nameEn: "Contracted: Kya-Sha-Cha-Nya",
@@ -449,19 +449,19 @@ export const WORD_STAGES: Stage[] = [
     id: "words-daily-hiragana",
     name: {
       en: "Everyday Hiragana Words",
-      id: "Everyday Hiragana Words",
+      id: "Kosakata Harian Hiragana",
       ja: "実戦平仮名単語 (日常・アニメ)",
     },
     category: "words",
     depthName: {
       en: "The Reef",
-      id: "The Reef",
+      id: "Terumbu Karang (The Reef)",
       ja: "第三海域：暗礁 (THE REEF)",
     },
     description: {
-      en: "ねこ (cat), いぬ (dog), かわいい (cute), すき (like)",
-      id: "ねこ (cat), いぬ (dog), かわいい (cute), すき (like)",
-      ja: "ねこ (猫), いぬ (犬), かわいい (可愛い), すき (好き)",
+      en: "ねこ (cat), いぬ (dog), かわいい (cute), すき (like), ありがとう (thanks), すごい (awesome)",
+      id: "ねこ (kucing), いぬ (anjing), かわいい (imut), すき (suka), ありがとう (terima kasih), すごい (hebat)",
+      ja: "ねこ (猫), いぬ (犬), かわいい (可愛い), すき (好き), ありがとう (有難う), すごい (凄い)",
     },
     targetDurationSeconds: 25,
     itemCount: 6,
@@ -574,18 +574,18 @@ export const WORD_STAGES: Stage[] = [
     id: "words-anime-katakana",
     name: {
       en: "Anime Loanwords (Katakana)",
-      id: "Anime Loanwords (Katakana)",
+      id: "Kata Serapan Anime (Katakana)",
       ja: "片仮名実戦外来語 (アニメ・ゲーム)",
     },
     category: "words",
     depthName: {
       en: "The Reef",
-      id: "The Reef",
+      id: "Terumbu Karang (The Reef)",
       ja: "第三海域：暗礁 (THE REEF)",
     },
     description: {
-      en: "アニメ (anime), ゲーム (game), ヒーロー (hero)",
-      id: "アニメ (anime), ゲーム (game), ヒーロー (hero)",
+      en: "アニメ (anime), ゲーム (game), ヒーロー (hero), コーヒー (coffee), ラーメン (ramen), テレビ (TV)",
+      id: "アニメ (anime), ゲーム (game), ヒーロー (pahlawan), コーヒー (kopi), ラーメン (ramen), テレビ (TV)",
       ja: "アニメ, ゲーム, ヒーロー, コーヒー, ラーメン, テレビ",
     },
     targetDurationSeconds: 25,
@@ -704,8 +704,8 @@ function buildStagesInternal(allKana: KanaCharacter[] = []): Stage[] {
   function addAlphabetStages(category: "hiragana" | "katakana", defs: RowDef[], primitives: KanaCharacter[]) {
     const isHiragana = category === "hiragana";
     const depthBasic = isHiragana
-      ? { en: "The Shallows", id: "The Shallows", ja: "第一海域：浅瀬" }
-      : { en: "The River", id: "The River", ja: "第二海域：激流" };
+      ? { en: "The Shallows", id: "Perairan Dangkal (The Shallows)", ja: "第一海域：浅瀬" }
+      : { en: "The River", id: "Arus Sungai (The River)", ja: "第二海域：激流" };
     const depthAdv = isHiragana
       ? { en: "The Trench (Advanced)", id: "The Trench (Lanjutan)", ja: "深海：海溝 (発展)" }
       : { en: "The Abyss (Advanced)", id: "The Abyss (Lanjutan)", ja: "深海：深淵 (発展)" };

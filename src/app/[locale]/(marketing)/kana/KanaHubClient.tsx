@@ -40,6 +40,9 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
     { id: "dakuon", label: t.kanaHub.dakuon },
     { id: "handakuon", label: t.kanaHub.handakuon },
     { id: "yoon", label: t.kanaHub.yoon },
+    ...(activeScript === "katakana"
+      ? [{ id: "extended", label: t.kanaHub.katakanaExtendedBadge.replace(/\s*\(\d+\)$/, "") }]
+      : []),
   ];
 
   return (
@@ -126,7 +129,10 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
           {/* Script Switcher */}
           <div className="flex items-center gap-1 w-full md:w-auto font-mono text-xs">
             <button
-              onClick={() => setActiveScript("hiragana")}
+              onClick={() => {
+                setActiveScript("hiragana");
+                if (activeType === "extended") setActiveType("all");
+              }}
               className={`flex-1 md:flex-none px-3.5 py-1 text-xs font-bold border transition-colors ${
                 activeScript === "hiragana"
                   ? "bg-[#000080] text-white border-[#000040]"

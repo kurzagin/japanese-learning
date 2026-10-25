@@ -65,6 +65,10 @@ const YOON_ROWS = [
   { label: "pya / pyu / pyo", romajis: ["pya", "pyu", "pyo"] },
 ];
 
+const EXTENDED_KATAKANA = [
+  "fa", "fi", "fe", "fo", "ti", "di", "wi", "we", "va", "vo",
+];
+
 export function PrintableKanaChartClient({
   script,
   title,
@@ -95,10 +99,15 @@ export function PrintableKanaChartClient({
   const kanaMap = React.useMemo(() => {
     const map = new Map<string, KanaCharacter>();
     for (const item of primitives) {
+      if (item.id === "h-dji" || item.id === "k-dji") {
+        map.set("ji(di)", item);
+        continue;
+      }
+      if (item.id === "h-dzu" || item.id === "k-dzu") {
+        map.set("zu(du)", item);
+        continue;
+      }
       map.set(item.romaji.toLowerCase(), item);
-      // also normalize duplicates like dakuon 'ji' / 'zu'
-      if (item.id === "h-dji" || item.id === "k-dji") map.set("ji(di)", item);
-      if (item.id === "h-dzu" || item.id === "k-dzu") map.set("zu(du)", item);
     }
     return map;
   }, [primitives]);
@@ -415,6 +424,33 @@ export function PrintableKanaChartClient({
                     })}
                   </tbody>
                 </table>
+                {script === "katakana" && (
+                  <div className="border-t border-[#006064]">
+                    <div className="bg-[#e0f7fa] text-[#006064] text-[9.5px] font-bold px-2 py-0.5 border-b border-[#006064]">
+                      EXTENDED KATAKANA (特殊音・外来語 - 10)
+                    </div>
+                    <div className="grid grid-cols-5 text-center text-xs">
+                      {EXTENDED_KATAKANA.map((romaji, idx) => {
+                        const charObj = kanaMap.get(romaji);
+                        return (
+                          <div
+                            key={romaji}
+                            className={`py-0.5 px-1 ${idx % 5 < 4 ? "border-r border-[#e0e0e0]" : ""} ${
+                              idx < 5 ? "border-b border-[#e0e0e0]" : ""
+                            }`}
+                          >
+                            <div className="text-xs font-bold text-black leading-tight">
+                              {charObj?.character || ""}
+                            </div>
+                            <div className="text-[8px] font-mono font-semibold text-[#006064] leading-none">
+                              {romaji}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

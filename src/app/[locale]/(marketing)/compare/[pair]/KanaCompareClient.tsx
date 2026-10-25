@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { KanaCharacter } from "@/types/kana";
-import { ComparisonPair } from "@/lib/kana-seo";
+import { ComparisonPair, getKanaSlug } from "@/lib/kana-seo";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { PronounceButton } from "@/components/PronounceButton";
 import { useLanguage } from "@/context/LanguageContext";
@@ -102,7 +102,7 @@ export default function KanaCompareClient({
                 &ldquo;{kana1.hint[locale] || kana1.hint.en}&rdquo;
               </div>
               <Link
-                href={`${prefix}/kana/${kana1.script}/${kana1.romaji}`}
+                href={`${prefix}/kana/${kana1.script}/${getKanaSlug(kana1)}`}
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#000080] hover:underline pt-1"
               >
                 <span>{t.compareDetail.fullProfileLink(kana1.character)}</span>
@@ -138,7 +138,7 @@ export default function KanaCompareClient({
                 &ldquo;{kana2.hint[locale] || kana2.hint.en}&rdquo;
               </div>
               <Link
-                href={`${prefix}/kana/${kana2.script}/${kana2.romaji}`}
+                href={`${prefix}/kana/${kana2.script}/${getKanaSlug(kana2)}`}
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#800000] hover:underline pt-1"
               >
                 <span>{t.compareDetail.fullProfileLink(kana2.character)}</span>

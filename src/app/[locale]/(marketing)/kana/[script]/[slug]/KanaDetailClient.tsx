@@ -3,11 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import { KanaCharacter } from "@/types/kana";
-import { getKanaSlug } from "@/lib/kana-seo";
+import { CURATED_COMPARISONS, getKanaSlug, KanaOrigin } from "@/lib/kana-seo";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { PronounceButton } from "@/components/PronounceButton";
 import { useLanguage } from "@/context/LanguageContext";
-import { KanaOrigin } from "@/lib/kana-seo";
 import {
   ArrowLeft,
   Volume2,
@@ -244,10 +243,18 @@ export default function KanaDetailClient({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {confusedKana.map((ck) => {
                 const ckSlug = getKanaSlug(ck);
+                const pairMatch = CURATED_COMPARISONS.find(
+                  (c) =>
+                    (c.kana1Id === kana.id && c.kana2Id === ck.id) ||
+                    (c.kana1Id === ck.id && c.kana2Id === kana.id)
+                );
+                const targetHref = pairMatch
+                  ? `${prefix}/compare/${pairMatch.slug}`
+                  : `${prefix}/kana/${ck.script}/${ckSlug}`;
                 return (
                   <Link
                     key={ck.id}
-                    href={`${prefix}/kana/${ck.script}/${ckSlug}`}
+                    href={targetHref}
                     className="p-2.5 bg-[#f5f5f5] hover:bg-[#e8f0fe] border border-[#ccc] flex items-center justify-between transition-colors group"
                   >
                     <div>

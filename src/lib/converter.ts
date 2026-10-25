@@ -10,6 +10,9 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["cha", "ちゃ", "チャ"],
   ["chu", "ちゅ", "チュ"],
   ["cho", "ちょ", "チョ"],
+  ["ja", "じゃ", "ジャ"],
+  ["ju", "じゅ", "ジュ"],
+  ["jo", "じょ", "ジョ"],
   ["nya", "にゃ", "ニャ"],
   ["nyu", "にゅ", "ニュ"],
   ["nyo", "にょ", "ニョ"],
@@ -25,6 +28,21 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["gya", "ぎゃ", "ギャ"],
   ["gyu", "ぎゅ", "ギュ"],
   ["gyo", "ぎょ", "ギョ"],
+  ["jya", "じゃ", "ジャ"],
+  ["jyu", "じゅ", "ジュ"],
+  ["jyo", "じょ", "ジョ"],
+  ["sya", "しゃ", "シャ"],
+  ["syu", "しゅ", "シュ"],
+  ["syo", "しょ", "ショ"],
+  ["tya", "ちゃ", "チャ"],
+  ["tyu", "ちゅ", "チュ"],
+  ["tyo", "ちょ", "チョ"],
+  ["cya", "ちゃ", "チャ"],
+  ["cyu", "ちゅ", "チュ"],
+  ["cyo", "ちょ", "チョ"],
+  ["dya", "ぢゃ", "ヂャ"],
+  ["dyu", "ぢゅ", "ヂュ"],
+  ["dyo", "ぢょ", "ヂョ"],
   ["bya", "びゃ", "ビャ"],
   ["byu", "びゅ", "ビュ"],
   ["byo", "びょ", "ビョ"],
@@ -34,18 +52,33 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["tsu", "つ", "ツ"],
   ["shi", "し", "シ"],
   ["chi", "ち", "チ"],
+  ["dji", "ぢ", "ヂ"],
+  ["dzu", "づ", "ヅ"],
 
   // 2-character pairs
+  ["fa", "ふぁ", "ファ"],
+  ["fi", "ふぃ", "フィ"],
+  ["fe", "ふぇ", "フェ"],
+  ["fo", "ふぉ", "フォ"],
+  ["wi", "うぃ", "ウィ"],
+  ["we", "うぇ", "ウェ"],
+  ["va", "ゔぁ", "ヴァ"],
+  ["vi", "ゔぃ", "ヴィ"],
+  ["vu", "ゔ", "ヴ"],
+  ["ve", "ゔぇ", "ヴェ"],
+  ["vo", "ゔぉ", "ヴォ"],
   ["ka", "か", "カ"],
   ["ki", "き", "キ"],
   ["ku", "く", "ク"],
   ["ke", "け", "ケ"],
   ["ko", "こ", "コ"],
   ["sa", "さ", "サ"],
+  ["si", "し", "シ"],
   ["su", "す", "ス"],
   ["se", "せ", "セ"],
   ["so", "そ", "ソ"],
   ["ta", "た", "タ"],
+  ["tu", "つ", "ツ"],
   ["te", "て", "テ"],
   ["to", "と", "ト"],
   ["na", "な", "ナ"],
@@ -56,6 +89,7 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["ha", "は", "ハ"],
   ["hi", "ひ", "ヒ"],
   ["fu", "ふ", "フ"],
+  ["hu", "ふ", "フ"],
   ["he", "へ", "ヘ"],
   ["ho", "ほ", "ホ"],
   ["ma", "ま", "マ"],
@@ -80,10 +114,12 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["go", "ご", "ゴ"],
   ["za", "ざ", "ザ"],
   ["ji", "じ", "ジ"],
+  ["zi", "じ", "ジ"],
   ["zu", "ず", "ズ"],
   ["ze", "ぜ", "ゼ"],
   ["zo", "ぞ", "ゾ"],
   ["da", "だ", "ダ"],
+  ["du", "づ", "ヅ"],
   ["de", "で", "デ"],
   ["do", "ど", "ド"],
   ["ba", "ば", "バ"],
@@ -96,6 +132,10 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["pu", "ぷ", "プ"],
   ["pe", "ぺ", "ペ"],
   ["po", "ぽ", "ポ"],
+  ["nn", "ん", "ン"],
+  ["n'", "ん", "ン"],
+  ["ti", "ち", "ティ"],
+  ["di", "ぢ", "ディ"],
 
   // 1-character vowels & singulars
   ["a", "あ", "ア"],
@@ -226,15 +266,18 @@ export function kanaToRomaji(kanaText: string): string {
   // Japanese punctuation back to Latin
   result = result.replace(/、/g, ", ").replace(/。/g, ". ");
 
-  // Sokuon replacements
-  result = result.replace(/っ([かきくけこ])/g, "k$1");
-  result = result.replace(/っ([さしすせそ])/g, "s$1");
-  result = result.replace(/っ([たちつてと])/g, "t$1");
-  result = result.replace(/っ([ぱぴぷぺぽ])/g, "p$1");
-  result = result.replace(/ッ([カキクケコ])/g, "k$1");
-  result = result.replace(/ッ([サシスセソ])/g, "s$1");
-  result = result.replace(/ッ([タチツテト])/g, "t$1");
-  result = result.replace(/ッ([パピプペポ])/g, "p$1");
+  // Sokuon replacements (voiceless + voiced consonants)
+  result = result.replace(/[っッ]([かきくけこカキクケコ])/g, "k$1");
+  result = result.replace(/[っッ]([さしすせそサシスセソ])/g, "s$1");
+  result = result.replace(/[っッ]([たちつてとタチツテト])/g, "t$1");
+  result = result.replace(/[っッ]([ぱぴぷぺぽパピプペポ])/g, "p$1");
+  result = result.replace(/[っッ]([がぎぐげごガギグゲゴ])/g, "g$1");
+  result = result.replace(/[っッ]([ざずぜぞザズゼゾづヅ])/g, "z$1");
+  result = result.replace(/[っッ]([じジぢヂ])/g, "j$1");
+  result = result.replace(/[っッ]([だでどダデド])/g, "d$1");
+  result = result.replace(/[っッ]([ばびぶべぼバビブベボ])/g, "b$1");
+  result = result.replace(/[っッ]([ふフ])/g, "f$1");
+  result = result.replace(/[っッ]([はひへほハヒヘホ])/g, "h$1");
 
   // Multi-char to single-char replacement order
   for (const [romaji, hira, kata] of ROMAJI_TABLE) {
@@ -250,6 +293,9 @@ export function kanaToRomaji(kanaText: string): string {
     result = result.split(hira).join(romaji);
     result = result.split(kata).join(romaji);
   }
+
+  // Handle prolonged sound mark (ー) by doubling the preceding vowel
+  result = result.replace(/([aiueo])ー/gi, "$1$1");
 
   return result;
 }

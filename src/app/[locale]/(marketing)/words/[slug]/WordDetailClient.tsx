@@ -44,7 +44,7 @@ export default function WordDetailClient({
         {/* Breadcrumbs */}
         <div className="flex items-center gap-2 text-xs font-mono">
           <Link
-            href={`${prefix}/kana`}
+            href={`${prefix}/words`}
             className="text-[#000080] hover:underline flex items-center gap-1 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -330,7 +330,7 @@ export default function WordDetailClient({
         {/* Back Link */}
         <div className="pt-2 text-center">
           <Link
-            href={`${prefix}/kana`}
+            href={`${prefix}/words`}
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#d4d0c8] text-black font-bold border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] text-xs font-mono"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
