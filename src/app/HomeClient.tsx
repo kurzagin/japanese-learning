@@ -50,7 +50,7 @@ export default function HomePage() {
       <RetroNavbar />
 
       {/* Edge-to-Edge Responsive Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 pb-20 sm:pb-6">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
         {/* Header Banner */}
         <div className="border-2 border-[#800000] bg-[#fff8e7] p-4 text-center relative overflow-hidden shadow-xs">
           <div className="text-[10px] text-[#800000] font-bold tracking-widest flex items-center justify-center gap-1.5">
@@ -327,7 +327,7 @@ export default function HomePage() {
       </main>
 
       {/* Docked Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0 mb-14 sm:mb-0">
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>{t.home.footerStatus}</span>

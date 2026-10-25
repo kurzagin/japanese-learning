@@ -131,7 +131,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-[#ece9d8] text-[#111111] font-mono selection:bg-[#000080] selection:text-white">
         <LanguageProvider>
-          <div className="min-h-screen flex flex-col w-full">{children}</div>
+          <div className="min-h-screen flex flex-col w-full pb-14 sm:pb-0">{children}</div>
           <RetroBottomNav />
         </LanguageProvider>
       </body>
