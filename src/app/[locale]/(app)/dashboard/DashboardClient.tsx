@@ -7,7 +7,7 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
-import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings } from "lucide-react";
+import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings, LogOut } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
 export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
@@ -152,28 +152,33 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 pb-20 sm:pb-6">
         {/* User Info Bar */}
-        <div className="border border-[#808080] bg-[#d4d0c8] px-3 py-1.5 text-xs flex flex-wrap items-center justify-between gap-2 text-black shadow-xs">
-          <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+        <div className="border border-[#808080] bg-[#d4d0c8] px-3 py-1.5 text-xs flex items-center justify-between gap-2 text-black shadow-xs">
+          <div className="flex items-center gap-1.5 min-w-0 flex-1">
             <span className="font-bold text-[#000080] shrink-0">{t.dashboard.operator}:</span>
-            <span className="bg-white px-2 py-0.5 border border-[#808080] text-[11px] sm:text-xs font-mono font-bold truncate max-w-[160px] sm:max-w-[260px] md:max-w-none">
+            <span className="bg-white px-2 py-0.5 border border-[#808080] text-[11px] sm:text-xs font-mono font-bold truncate">
               {userEmail}
             </span>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <button
               onClick={() => setPreferencesOpen(true)}
-              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline flex items-center gap-1 cursor-pointer whitespace-nowrap"
+              title={t.nav.preferences}
+              aria-label={t.nav.preferences}
+              className="p-1 sm:px-2 sm:py-0.5 border bg-[#d4d0c8] text-[#000080] hover:text-[#cc0000] border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 cursor-pointer shrink-0 font-bold"
             >
               <Settings className="w-3.5 h-3.5" />
-              <span>[{t.nav.preferences}]</span>
+              <span className="hidden sm:inline">[{t.nav.preferences}]</span>
             </button>
             {userEmail !== "guest@sakanajp.site" && (
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="text-xs text-[#cc0000] hover:text-[#990000] font-bold underline cursor-pointer disabled:opacity-50 whitespace-nowrap"
+                title={t.nav.logout}
+                aria-label={t.nav.logout}
+                className="p-1 sm:px-2 sm:py-0.5 border bg-[#d4d0c8] text-[#cc0000] hover:text-[#990000] border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white flex items-center gap-1 cursor-pointer disabled:opacity-50 shrink-0 font-bold"
               >
-                [{t.nav.logout}]
+                <LogOut className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">[{t.nav.logout}]</span>
               </button>
             )}
           </div>

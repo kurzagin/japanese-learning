@@ -103,15 +103,6 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
 
           {/* Mobile-only quick Language & Menu toggles */}
           <div className="flex sm:hidden items-center gap-1">
-            <button
-              type="button"
-              onClick={() => setPreferencesOpen(true)}
-              aria-label={t.nav.preferences}
-              title={t.nav.preferences}
-              className="flex items-center justify-center w-7 h-7 border bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white shrink-0"
-            >
-              <Settings className="w-3.5 h-3.5 text-[#000080]" />
-            </button>
             <div className="shrink-0 max-w-[80px]">
               <LanguageSelector />
             </div>
