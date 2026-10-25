@@ -99,7 +99,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
               return (
                 <div
                   key={k.id}
-                  className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-3 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
+                  className="bg-white border-2 border-[#808080] p-3 flex flex-col justify-between hover:border-[#000080] transition-colors group shadow-xs"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-[#800000] uppercase">
@@ -120,7 +120,7 @@ export default function KanaCategoryClient({ catInfo, characters }: Props) {
                     </div>
                   </Link>
 
-                  <div className="pt-2 border-t border-[#808080]/30 text-[10px] flex items-center justify-between">
+                  <div className="pt-2 border-t border-[#eee] text-[10px] flex items-center justify-between">
                     <span className="line-clamp-1 text-[#555] italic pr-1">
                       {hintText}
                     </span>

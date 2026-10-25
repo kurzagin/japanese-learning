@@ -110,17 +110,17 @@ export default function JlptCategoryClient({ category, words }: Props) {
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="border border-[#808080] bg-[#f0f0f0] p-3 flex flex-col sm:flex-row gap-3 items-center justify-between shadow-inner text-xs">
+        <div className="border border-[#808080] bg-white p-3 flex flex-col sm:flex-row gap-3 items-center justify-between shadow-xs text-xs font-mono">
           <div className="flex items-center gap-1.5 w-full sm:w-auto">
-            <span className="font-bold text-[#000080]">{t.jlptCategory.scriptFilterLabel}</span>
+            <span className="font-bold text-[#000080] mr-1">{t.jlptCategory.scriptFilterLabel}</span>
             {(["all", "hiragana", "katakana"] as const).map((sc) => (
               <button
                 key={sc}
                 onClick={() => setActiveScript(sc)}
-                className={`px-2.5 py-1 text-xs font-bold uppercase cursor-pointer border ${
+                className={`px-3 py-1 text-xs font-bold border transition-colors ${
                   activeScript === sc
-                    ? "bg-[#000080] text-white border-[#000080]"
-                    : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-white"
+                    ? "bg-[#000080] text-white border-[#000040]"
+                    : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
                 }`}
               >
                 {sc === "all" ? t.jlptCategory.allFilter : sc === "hiragana" ? t.wordsHub.hiraganaTab : t.wordsHub.katakanaTab}
@@ -129,13 +129,13 @@ export default function JlptCategoryClient({ category, words }: Props) {
           </div>
 
           <div className="relative w-full sm:w-64">
-            <Search className="w-3.5 h-3.5 text-[#555] absolute left-2.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#666] absolute left-2.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t.jlptCategory.searchPlaceholder}
-              className="w-full pl-8 pr-3 py-1 bg-white border border-[#808080] text-xs font-mono outline-none shadow-inner"
+              className="w-full pl-8 pr-3 py-1 bg-[#fdfdfd] border-t border-l border-[#808080] border-b border-r border-[#d4d0c8] text-xs font-mono outline-none focus:bg-white"
             />
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
             return (
               <div
                 key={w.slug}
-                className="group border-2 border-t-white border-l-white border-b-[#404040] border-r-[#404040] bg-[#d4d0c8] hover:bg-[#fff9e6] p-3 flex flex-col justify-between transition-colors shadow-xs"
+                className="bg-white border-2 border-[#808080] hover:border-[#000080] p-3 flex flex-col justify-between transition-colors shadow-xs group"
               >
                 <div className="flex items-start justify-between">
                   <span

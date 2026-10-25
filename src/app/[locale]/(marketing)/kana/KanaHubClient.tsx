@@ -122,25 +122,25 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
         </div>
 
         {/* Controls Bar */}
-        <div className="border border-[#808080] bg-[#f0f0f0] p-3 shadow-inner flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="border border-[#808080] bg-white p-3 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3">
           {/* Script Switcher */}
-          <div className="flex items-center gap-1 w-full md:w-auto">
+          <div className="flex items-center gap-1 w-full md:w-auto font-mono text-xs">
             <button
               onClick={() => setActiveScript("hiragana")}
-              className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-bold border transition-colors ${
+              className={`flex-1 md:flex-none px-3.5 py-1 text-xs font-bold border transition-colors ${
                 activeScript === "hiragana"
-                  ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                  : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                  ? "bg-[#000080] text-white border-[#000040]"
+                  : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
               {t.kanaHub.hiraganaTab}
             </button>
             <button
               onClick={() => setActiveScript("katakana")}
-              className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-bold border transition-colors ${
+              className={`flex-1 md:flex-none px-3.5 py-1 text-xs font-bold border transition-colors ${
                 activeScript === "katakana"
-                  ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
-                  : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                  ? "bg-[#000080] text-white border-[#000040]"
+                  : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
               }`}
             >
               {t.kanaHub.katakanaTab}
@@ -148,15 +148,15 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
           </div>
 
           {/* Type Filter Buttons */}
-          <div className="flex items-center gap-1 overflow-x-auto w-full md:w-auto scrollbar-none">
+          <div className="flex items-center gap-1 overflow-x-auto w-full md:w-auto scrollbar-none font-mono">
             {types.map((typeItem) => (
               <button
                 key={typeItem.id}
                 onClick={() => setActiveType(typeItem.id)}
-                className={`px-2.5 py-1 text-[11px] font-mono border whitespace-nowrap ${
+                className={`px-2.5 py-1 text-xs border whitespace-nowrap font-bold ${
                   activeType === typeItem.id
-                    ? "bg-[#202020] text-white border-t-black border-l-black border-b-white border-r-white font-bold"
-                    : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#e4e0d8]"
+                    ? "bg-[#000080] text-white border-[#000040]"
+                    : "bg-[#d4d0c8] text-black border-[#808080] hover:bg-[#e0dcd0]"
                 }`}
               >
                 {typeItem.label}
@@ -166,14 +166,14 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
 
           {/* Search Box */}
           <div className="relative w-full md:w-64">
+            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#666]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t.kanaHub.searchPlaceholder}
-              className="w-full bg-white text-xs px-2.5 py-1.5 pl-8 border-t-2 border-l-2 border-[#404040] border-b border-r border-white font-mono outline-none"
+              className="w-full pl-8 pr-3 py-1 text-xs bg-[#fdfdfd] border-t border-l border-[#808080] border-b border-r border-[#d4d0c8] font-mono outline-none focus:bg-white"
             />
-            <Search className="w-3.5 h-3.5 text-[#808080] absolute left-2.5 top-2.5" />
           </div>
         </div>
 
@@ -193,7 +193,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
             return (
               <div
                 key={k.id}
-                className="bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] p-2 flex flex-col justify-between hover:bg-[#e2dfd7] transition-all group shadow-xs"
+                className="bg-white border-2 border-[#808080] p-2 flex flex-col justify-between hover:border-[#000080] transition-colors group shadow-xs"
               >
                 {/* Character header */}
                 <div className="flex items-center justify-between">
@@ -217,7 +217,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
                 </Link>
 
                 {/* Quick Hint & Detail Link */}
-                <div className="pt-1.5 border-t border-[#808080]/30 text-[10px] flex items-center justify-between">
+                <div className="pt-1.5 border-t border-[#eee] text-[10px] flex items-center justify-between">
                   <span className="line-clamp-1 text-[#555] italic pr-1">
                     {hintText}
                   </span>
