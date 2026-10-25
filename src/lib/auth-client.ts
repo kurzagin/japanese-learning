@@ -1,6 +1,4 @@
-const AUTH_BASE_URL =
-  process.env.NEXT_PUBLIC_NEON_AUTH_URL ||
-  "https://ep-soft-union-b3p097ai.neonauth.c-4.ap-southeast-1.aws.neon.tech/neondb/auth";
+import { createClient } from "./supabase/client";
 
 export interface AuthUser {
   id: string;
@@ -15,45 +13,83 @@ export interface AuthResponse<T = any> {
 }
 
 export const authClient = {
-  async signUp(email: string, password: string, name?: string): Promise<AuthResponse<{ user: AuthUser }>> {
+  async signUp(
+    email: string,
+    password: string,
+    name?: string
+  ): Promise<AuthResponse<{ user: AuthUser; session: any }>> {
     try {
-      const res = await fetch(`${AUTH_BASE_URL}/sign-up/email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Origin: typeof window !== "undefined" ? window.location.origin : "http://localhost:3000",
+      const supabase = createClient();
+      const origin =
+        typeof window !== "undefined"
+          ? window.location.origin
+          : process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
+
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${origin}/auth/callback`,
+          data: {
+            display_name: name || email.split("@")[0],
+          },
         },
-        credentials: "include",
-        body: JSON.stringify({ email, password, name: name || email.split("@")[0] }),
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        return { data: null, error: { message: data.message || "Failed to sign up", code: data.code } };
+      if (error) {
+        return { data: null, error: { message: error.message, code: error.code } };
       }
-      return { data, error: null };
+
+      if (!data.user) {
+        return { data: null, error: { message: "Failed to create account" } };
+      }
+
+      const authUser: AuthUser = {
+        id: data.user.id,
+        email: data.user.email || email,
+        name: data.user.user_metadata?.display_name || email.split("@")[0],
+      };
+
+      // Only store credentials if a live session was granted (i.e. email confirmation disabled)
+      if (data.session && typeof window !== "undefined") {
+        localStorage.setItem("sakana_user_email", authUser.email);
+        localStorage.setItem("sakana_user_id", authUser.id);
+      }
+
+      return { data: { user: authUser, session: data.session }, error: null };
     } catch (err: any) {
       return { data: null, error: { message: err?.message || "Network error" } };
     }
   },
 
-  async signIn(email: string, password: string): Promise<AuthResponse<{ user: AuthUser }>> {
+  async signIn(email: string, password: string): Promise<AuthResponse<{ user: AuthUser; session: any }>> {
     try {
-      const res = await fetch(`${AUTH_BASE_URL}/sign-in/email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Origin: typeof window !== "undefined" ? window.location.origin : "http://localhost:3000",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        return { data: null, error: { message: data.message || "Invalid credentials", code: data.code } };
+      if (error) {
+        return { data: null, error: { message: error.message, code: error.code } };
       }
-      return { data, error: null };
+
+      if (!data.user) {
+        return { data: null, error: { message: "Invalid credentials" } };
+      }
+
+      const authUser: AuthUser = {
+        id: data.user.id,
+        email: data.user.email || email,
+        name: data.user.user_metadata?.display_name || email.split("@")[0],
+      };
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem("sakana_user_email", authUser.email);
+        localStorage.setItem("sakana_user_id", authUser.id);
+      }
+
+      return { data: { user: authUser, session: data.session }, error: null };
     } catch (err: any) {
       return { data: null, error: { message: err?.message || "Network error" } };
     }
@@ -61,19 +97,62 @@ export const authClient = {
 
   async getSession(): Promise<AuthResponse<{ user: AuthUser; session: any }>> {
     try {
-      const res = await fetch(`${AUTH_BASE_URL}/get-session`, {
-        method: "GET",
-        headers: {
-          Origin: typeof window !== "undefined" ? window.location.origin : "http://localhost:3000",
-        },
-        credentials: "include",
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.getSession();
+
+      if (error || !data.session) {
+        return { data: null, error: { message: error?.message || "No active session" } };
+      }
+
+      const authUser: AuthUser = {
+        id: data.session.user.id,
+        email: data.session.user.email || "",
+        name:
+          data.session.user.user_metadata?.display_name ||
+          data.session.user.email?.split("@")[0],
+      };
+
+      return { data: { user: authUser, session: data.session }, error: null };
+    } catch (err: any) {
+      return { data: null, error: { message: err?.message || "Network error" } };
+    }
+  },
+
+  async updatePassword(newPassword: string): Promise<AuthResponse<null>> {
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword,
       });
 
-      if (!res.ok) {
-        return { data: null, error: { message: "No active session" } };
+      if (error) {
+        return { data: null, error: { message: error.message, code: error.code } };
       }
-      const data = await res.json();
-      return { data, error: null };
+
+      return { data: null, error: null };
+    } catch (err: any) {
+      return { data: null, error: { message: err?.message || "Network error" } };
+    }
+  },
+
+  async updateEmail(newEmail: string): Promise<AuthResponse<null>> {
+    try {
+      const supabase = createClient();
+      const origin =
+        typeof window !== "undefined"
+          ? window.location.origin
+          : process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
+
+      const { error } = await supabase.auth.updateUser(
+        { email: newEmail },
+        { emailRedirectTo: `${origin}/auth/callback` }
+      );
+
+      if (error) {
+        return { data: null, error: { message: error.message, code: error.code } };
+      }
+
+      return { data: null, error: null };
     } catch (err: any) {
       return { data: null, error: { message: err?.message || "Network error" } };
     }
@@ -81,13 +160,8 @@ export const authClient = {
 
   async signOut(): Promise<void> {
     try {
-      await fetch(`${AUTH_BASE_URL}/sign-out`, {
-        method: "POST",
-        headers: {
-          Origin: typeof window !== "undefined" ? window.location.origin : "http://localhost:3000",
-        },
-        credentials: "include",
-      });
+      const supabase = createClient();
+      await supabase.auth.signOut();
     } catch {
       // ignore
     }

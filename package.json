@@ -8,18 +8,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "set-role": "node --env-file=.env.local scripts/set-role.mjs",
     "create-account": "node --env-file=.env.local scripts/create-account.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1152.0",
     "@aws-sdk/s3-request-presigner": "^3.1152.0",
-    "@neondatabase/serverless": "^1.2.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.4",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
-    "lucide-react": "^1.55.0",
+    "lucide-react": "^1.61.0",
     "next": "16.4.0",
+    "postgres": "^3.4.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "tailwind-merge": "^3.7.0"

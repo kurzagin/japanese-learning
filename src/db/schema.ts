@@ -1,11 +1,16 @@
-import { pgTable, text, timestamp, integer, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, integer, boolean, jsonb } from "drizzle-orm/pg-core";
 
-// Users table (compatible with Neon Auth)
+// Users table (profiles mapped to Supabase Auth UID)
 export const users = pgTable("users", {
-  id: text("id").primaryKey(), // Auth user ID from Neon Auth / OAuth
+  id: text("id").primaryKey(), // Auth user ID from Supabase Auth (auth.users.id) or guest identifier
   email: text("email").notNull().unique(),
   displayName: text("display_name"),
   avatarUrl: text("avatar_url"),
+  role: text("role").default("user").notNull(), // 'user' | 'admin'
+  preferences: jsonb("preferences").$type<{
+    audioQuestions?: boolean;
+    [key: string]: any;
+  }>().default({}),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });

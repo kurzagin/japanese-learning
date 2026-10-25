@@ -83,7 +83,7 @@ export async function POST(request: Request) {
         },
       });
 
-    return NextResponse.json({ success: true, message: "Progress saved to Neon" });
+    return NextResponse.json({ success: true, message: "Progress saved" });
   } catch (error: any) {
     console.error("Error saving stage progress:", error);
     return NextResponse.json(

@@ -90,11 +90,20 @@ export interface TranslationSchema {
     windowTitle: string;
     appTitle: string;
     instruction: string;
+    signInTab: string;
+    signUpTab: string;
     emailLabel: string;
+    displayNameLabel: string;
     passwordLabel: string;
     submit: string;
+    signUpSubmit: string;
     submitting: string;
     authSuccessMsg: string;
+    signUpCheckEmailTitle: string;
+    signUpCheckEmailDesc: string;
+    checkSpamNotice: string;
+    emailConfirmedMsg: string;
+    goToSignInBtn: string;
     guestTitle: string;
     guestBtn: string;
     returnLink: string;
@@ -826,12 +835,21 @@ export const translations: Record<Locale, TranslationSchema> = {
     login: {
       windowTitle: "Authentication",
       appTitle: "SaKana Authentication",
-      instruction: "Enter your email address to save your study records and stage progress.",
+      instruction: "Sign in or create an account to sync your study records and stage progress across devices.",
+      signInTab: "SIGN IN",
+      signUpTab: "CREATE ACCOUNT",
       emailLabel: "E-MAIL ADDRESS:",
+      displayNameLabel: "DISPLAY NAME (OPTIONAL):",
       passwordLabel: "PASSWORD:",
-      submit: "AUTHENTICATE",
+      submit: "SIGN IN",
+      signUpSubmit: "REGISTER ACCOUNT",
       submitting: "TRANSMITTING...",
       authSuccessMsg: "Authentication successful! Redirecting...",
+      signUpCheckEmailTitle: "VERIFICATION LINK SENT!",
+      signUpCheckEmailDesc: "We sent a confirmation link to your email address. Please click the link to activate your account.",
+      checkSpamNotice: "Important: If you do not see the email within 1-2 minutes, please check your Spam / Junk folder.",
+      emailConfirmedMsg: "Email verified successfully! You can now sign in.",
+      goToSignInBtn: "→ PROCEED TO SIGN IN",
       guestTitle: "FAST ACCESS WITHOUT ACCOUNT",
       guestBtn: "CONTINUE AS GUEST",
       returnLink: "<< Back to Home",
@@ -1481,12 +1499,21 @@ export const translations: Record<Locale, TranslationSchema> = {
     login: {
       windowTitle: "Autentikasi",
       appTitle: "SaKana Autentikasi",
-      instruction: "Masukkan email kamu untuk menyimpan rekor waktu dan progress stage.",
+      instruction: "Masuk atau buat akun untuk menyimpan dan menyinkronkan progres belajar di berbagai perangkat.",
+      signInTab: "MASUK",
+      signUpTab: "BUAT AKUN",
       emailLabel: "ALAMAT EMAIL:",
+      displayNameLabel: "NAMA TAMPILAN (OPSIONAL):",
       passwordLabel: "KATA SANDI:",
       submit: "MASUK DENGAN EMAIL",
+      signUpSubmit: "DAFTAR AKUN",
       submitting: "MEMPROSES...",
       authSuccessMsg: "Autentikasi berhasil! Mengalihkan...",
+      signUpCheckEmailTitle: "LINK VERIFIKASI TERKIRIM!",
+      signUpCheckEmailDesc: "Kami telah mengirim tautan konfirmasi ke email kamu. Silakan klik tautan tersebut untuk mengaktifkan akun.",
+      checkSpamNotice: "Penting: Jika email belum muncul dalam 1-2 menit, periksa folder Spam / Junk kamu.",
+      emailConfirmedMsg: "Email berhasil diverifikasi! Sekarang kamu bisa masuk.",
+      goToSignInBtn: "→ LANJUT KE HALAMAN MASUK",
       guestTitle: "COBA CEPAT TANPA AKUN",
       guestBtn: "MASUK SEBAGAI TAMU",
       returnLink: "<< Kembali ke Beranda",
@@ -2136,12 +2163,21 @@ export const translations: Record<Locale, TranslationSchema> = {
     login: {
       windowTitle: "ユーザー認証",
       appTitle: "SaKana 認証",
-      instruction: "メールアドレスを入力してログインしてください。記録が保存されます。",
+      instruction: "ログインまたはアカウントを作成して、学習記録と進捗をクラウド同期しましょう。",
+      signInTab: "ログイン",
+      signUpTab: "新規登録",
       emailLabel: "メールアドレス:",
+      displayNameLabel: "表示名 (任意):",
       passwordLabel: "パスワード:",
-      submit: "認証する",
+      submit: "ログインする",
+      signUpSubmit: "アカウント作成",
       submitting: "通信中...",
       authSuccessMsg: "認証に成功しました！リダイレクトしています...",
+      signUpCheckEmailTitle: "確認メールを送信しました！",
+      signUpCheckEmailDesc: "ご入力いただいたメールアドレスに認証リンクを送信しました。リンクをクリックして登録を完了してください。",
+      checkSpamNotice: "※ 1〜2分経っても届かない場合は、迷惑メール（Spam）フォルダーもご確認ください。",
+      emailConfirmedMsg: "メール認証が完了しました！ログインしてください。",
+      goToSignInBtn: "→ ログイン画面へ進む",
       guestTitle: "アカウントなしで即時体験",
       guestBtn: "ゲストとして入室",
       returnLink: "<< トップページに戻る",

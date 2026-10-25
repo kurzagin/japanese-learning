@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Volume2, VolumeX, Settings, X, Check, User, ShieldCheck } from "lucide-react";
+import { Volume2, VolumeX, Settings, Check, User, ShieldCheck, KeyRound, Mail, AlertCircle } from "lucide-react";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 interface PreferencesModalProps {
   isOpen: boolean;
@@ -17,6 +18,16 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
   const [userEmail, setUserEmail] = useState<string>("guest@sakanajp.site");
   const [audioQuestions, setAudioQuestions] = useState<boolean>(false);
 
+  // Account modification states
+  const [newEmail, setNewEmail] = useState("");
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [emailMsg, setEmailMsg] = useState<{ text: string; isError: boolean } | null>(null);
+
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [pwLoading, setPwLoading] = useState(false);
+  const [pwMsg, setPwMsg] = useState<{ text: string; isError: boolean } | null>(null);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedEmail = localStorage.getItem("sakana_user_email") || "guest@sakanajp.site";
@@ -29,6 +40,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
         setAudioQuestions(false);
       }
     }
+    setEmailMsg(null);
+    setPwMsg(null);
   }, [isOpen]);
 
   const toggleAudioQuestions = () => {
@@ -40,13 +53,58 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
     }
   };
 
+  const handleUpdateEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newEmail || newEmail === userEmail) return;
+    setEmailLoading(true);
+    setEmailMsg(null);
+
+    const res = await authClient.updateEmail(newEmail);
+    if (res.error) {
+      setEmailMsg({ text: res.error.message || "Failed to update email", isError: true });
+    } else {
+      setEmailMsg({
+        text: "Confirmation links sent to both your current and new email addresses. Please verify both.",
+        isError: false,
+      });
+      setNewEmail("");
+    }
+    setEmailLoading(false);
+  };
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newPassword) return;
+    if (newPassword.length < 6) {
+      setPwMsg({ text: "Password must be at least 6 characters.", isError: true });
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setPwMsg({ text: "Passwords do not match.", isError: true });
+      return;
+    }
+
+    setPwLoading(true);
+    setPwMsg(null);
+
+    const res = await authClient.updatePassword(newPassword);
+    if (res.error) {
+      setPwMsg({ text: res.error.message || "Failed to change password", isError: true });
+    } else {
+      setPwMsg({ text: "Password updated successfully!", isError: false });
+      setNewPassword("");
+      setConfirmPassword("");
+    }
+    setPwLoading(false);
+  };
+
   if (!isOpen) return null;
 
   const isGuest = userEmail === "guest@sakanajp.site";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-in fade-in duration-150">
-      <div className="bg-[#ece9d8] border-2 border-t-white border-l-white border-b-black border-r-black shadow-2xl max-w-md w-full text-black">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-in fade-in duration-150 overflow-y-auto">
+      <div className="bg-[#ece9d8] border-2 border-t-white border-l-white border-b-black border-r-black shadow-2xl max-w-md w-full text-black my-8">
         {/* Retro Window Header */}
         <div className="bg-[#000080] text-white px-2 py-1.5 flex items-center justify-between select-none">
           <div className="flex items-center gap-1.5 font-bold text-xs tracking-wider">
@@ -97,6 +155,86 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
               )}
             </div>
           </fieldset>
+
+          {/* Account Security (Change Email & Password for Registered Users) */}
+          {!isGuest && (
+            <fieldset className="border border-[#808080] p-3 bg-[#f5f5f0] space-y-3">
+              <legend className="px-1 font-bold text-[#000080] uppercase flex items-center gap-1">
+                <KeyRound className="w-3 h-3" />
+                <span>ACCOUNT SECURITY</span>
+              </legend>
+
+              {/* Change Email Form */}
+              <form onSubmit={handleUpdateEmail} className="space-y-1.5 border-b border-[#d0d0d0] pb-2.5">
+                <label className="font-bold flex items-center gap-1 text-[11px] text-[#333]">
+                  <Mail className="w-3 h-3 text-[#000080]" />
+                  <span>CHANGE EMAIL ADDRESS:</span>
+                </label>
+                <div className="flex gap-1.5">
+                  <input
+                    type="email"
+                    placeholder="new-email@domain.com"
+                    value={newEmail}
+                    onChange={(e) => setNewEmail(e.target.value)}
+                    required
+                    className="flex-1 px-2 py-1 bg-white border border-[#404040] border-t-[#808080] border-l-[#808080] text-[11px] font-mono outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={emailLoading || !newEmail}
+                    className="px-2.5 py-1 bg-[#d4d0c8] border-t border-l border-white border-b border-r border-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px]"
+                  >
+                    {emailLoading ? "SAVING..." : "UPDATE"}
+                  </button>
+                </div>
+                {emailMsg && (
+                  <p className={`text-[10px] leading-tight mt-1 ${emailMsg.isError ? "text-[#cc0000]" : "text-[#006600]"}`}>
+                    {emailMsg.text}
+                  </p>
+                )}
+              </form>
+
+              {/* Change Password Form */}
+              <form onSubmit={handleUpdatePassword} className="space-y-1.5">
+                <label className="font-bold flex items-center gap-1 text-[11px] text-[#333]">
+                  <KeyRound className="w-3 h-3 text-[#000080]" />
+                  <span>CHANGE PASSWORD:</span>
+                </label>
+                <div className="space-y-1">
+                  <input
+                    type="password"
+                    placeholder="New password (min. 6 chars)"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    required
+                    className="w-full px-2 py-1 bg-white border border-[#404040] border-t-[#808080] border-l-[#808080] text-[11px] font-mono outline-none"
+                  />
+                  <div className="flex gap-1.5">
+                    <input
+                      type="password"
+                      placeholder="Confirm new password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                      className="flex-1 px-2 py-1 bg-white border border-[#404040] border-t-[#808080] border-l-[#808080] text-[11px] font-mono outline-none"
+                    />
+                    <button
+                      type="submit"
+                      disabled={pwLoading || !newPassword}
+                      className="px-2.5 py-1 bg-[#d4d0c8] border-t border-l border-white border-b border-r border-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white font-bold text-[11px]"
+                    >
+                      {pwLoading ? "SAVING..." : "CHANGE"}
+                    </button>
+                  </div>
+                </div>
+                {pwMsg && (
+                  <p className={`text-[10px] leading-tight mt-1 ${pwMsg.isError ? "text-[#cc0000]" : "text-[#006600]"}`}>
+                    {pwMsg.text}
+                  </p>
+                )}
+              </form>
+            </fieldset>
+          )}
 
           {/* Test & Audio Preferences */}
           <fieldset className="border border-[#808080] p-3 bg-[#f5f5f0]">
