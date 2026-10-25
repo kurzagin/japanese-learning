@@ -54,12 +54,21 @@ export const metadata: Metadata = {
     description:
       "Master Hiragana, Katakana, and Japanese pop-culture vocabulary with fast-paced flashcards and native Japanese TTS audio.",
     siteName: "SaKana",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SaKana (魚) — Japanese Kana Speed Drill",
     description:
       "Master Japanese Hiragana, Katakana & Vocab with arcade drills and spaced repetition.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
