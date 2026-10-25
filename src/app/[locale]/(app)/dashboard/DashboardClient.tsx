@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroBottomNav } from "@/components/RetroBottomNav";
-import { RetroAdSlot } from "@/components/RetroAdSlot";
 import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
@@ -475,9 +474,6 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
             ))}
           </div>
         </div>
-
-        {/* Retro Community Ad Slot */}
-        <RetroAdSlot label="SPONSORED / 広告" className="my-3" />
       </main>
 
       {/* Docked Retro Footer & Status Bar */}
