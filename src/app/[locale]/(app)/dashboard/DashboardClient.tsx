@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { RetroBottomNav } from "@/components/RetroBottomNav";
 import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
@@ -487,7 +486,6 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
           <span className="border-l border-[#808080] pl-2 font-mono">{t.dashboard.footerReady}</span>
         </div>
       </footer>
-      <RetroBottomNav />
       <PreferencesModal
         isOpen={preferencesOpen}
         onClose={() => setPreferencesOpen(false)}

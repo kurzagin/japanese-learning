@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { RetroBottomNav } from "@/components/RetroBottomNav";
 import { RetroWebring } from "@/components/RetroWebring";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
@@ -309,9 +308,6 @@ export default function HomePage() {
           <span className="border-l border-[#808080] pl-2 font-mono">{t.home.footerEncoding}</span>
         </div>
       </footer>
-
-      {/* Mobile Retro Bottom Navigation Dock */}
-      <RetroBottomNav />
     </div>
   );
 }

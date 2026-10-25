@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { RetroBottomNav } from "@/components/RetroBottomNav";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sakanajp.site";
@@ -122,6 +123,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-[#ece9d8] text-[#111111] font-mono selection:bg-[#000080] selection:text-white">
         <LanguageProvider>
           <div className="min-h-screen flex flex-col w-full">{children}</div>
+          <RetroBottomNav />
         </LanguageProvider>
       </body>
     </html>
