@@ -10,25 +10,38 @@ import { Play, Sparkles, Star } from "lucide-react";
 export default function HomePage() {
   const { t, locale } = useLanguage();
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [studentCount, setStudentCount] = useState<number | null>(null);
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   useEffect(() => {
-    // Atomically increment and get updated count from DB on page load / refresh
+    // Atomically increment visitor count and get live student/visitor counts from DB
     fetch("/api/visitors", { method: "POST" })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success && typeof data.count === "number") {
-          setVisitorCount(data.count);
+        if (data.success) {
+          if (typeof data.visitorCount === "number") {
+            setVisitorCount(data.visitorCount);
+          } else if (typeof data.count === "number") {
+            setVisitorCount(data.count);
+          }
+          if (typeof data.studentCount === "number") {
+            setStudentCount(data.studentCount);
+          }
         }
       })
       .catch((err) => {
-        console.error("Failed to update visitor counter:", err);
+        console.error("Failed to update visitor/student counter:", err);
       });
   }, []);
 
-  const formattedCount =
+  const formattedVisitorCount =
     visitorCount !== null
       ? String(visitorCount).padStart(6, "0")
+      : "------";
+
+  const formattedStudentCount =
+    studentCount !== null
+      ? String(studentCount).padStart(6, "0")
       : "------";
 
   return (
@@ -56,21 +69,37 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Real Visitor Counter Stored in DB with Retro Flash */}
-        <div className="border border-[#808080] bg-[#f0f0f0] px-3 sm:px-4 py-2 flex items-center justify-between text-xs shadow-inner">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <span className="font-bold text-[#000080] flex items-center gap-1.5">
-              <span className="text-[#ff0055] animate-retro-blink font-black">●</span>
-              {t.home.counterLabel}
-            </span>
-            <span className="bg-black text-[#00ff66] font-mono px-2 py-0.5 border border-[#808080] text-xs sm:text-sm font-bold tracking-widest shadow-inner">
-              {formattedCount}
-            </span>
-            <span className="animate-retro-blink-fast text-[9px] font-bold px-1.5 bg-[#ffff00] text-[#800000] border border-[#800000] hidden sm:inline-block">
+        {/* Real Student & Visitor Counters Stored in DB with Retro Flash */}
+        <div className="border border-[#808080] bg-[#f0f0f0] px-3 sm:px-4 py-2 flex flex-wrap items-center justify-between gap-2.5 text-xs shadow-inner">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+            {/* Real Student Count */}
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-[#000080] flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-[#0000ff] animate-retro-blink font-black">●</span>
+                {t.home.counterLabel}
+              </span>
+              <span className="bg-black text-[#ffff00] font-mono px-2 py-0.5 border border-[#808080] text-xs sm:text-sm font-bold tracking-widest shadow-inner">
+                {formattedStudentCount}
+              </span>
+            </div>
+
+            {/* Real Visitor Count */}
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-[#800000] flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-[#ff0055] animate-retro-blink font-black">●</span>
+                {t.home.visitorLabel}
+              </span>
+              <span className="bg-black text-[#00ff66] font-mono px-2 py-0.5 border border-[#808080] text-xs sm:text-sm font-bold tracking-widest shadow-inner">
+                {formattedVisitorCount}
+              </span>
+            </div>
+
+            <span className="animate-retro-blink-fast text-[9px] font-bold px-1.5 bg-[#ffff00] text-[#800000] border border-[#800000] hidden md:inline-block">
               {t.home.liveTag}
             </span>
           </div>
-          <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5">
+
+          <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5 ml-auto">
             <span className="text-[#008800] font-bold">{t.nav.online}</span> // SAKANA
           </div>
         </div>

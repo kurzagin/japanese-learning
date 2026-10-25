@@ -39,6 +39,7 @@ export interface TranslationSchema {
     tagline: string;
     subTagline: string;
     counterLabel: string;
+    visitorLabel: string;
     liveTag: string;
     newsBadge: string;
     startSessionBanner: string;
@@ -704,6 +705,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "Master Kana the Fun Way — Built for Anime Fans",
       subTagline: "Skip the boring textbook drills and handwriting homework. Master Hiragana and Katakana through fast-paced flashcards, native TTS audio, and iconic Japanese pop-culture words.",
       counterLabel: "STUDENT COUNT:",
+      visitorLabel: "VISITOR COUNT:",
       liveTag: "[LIVE!]",
       newsBadge: "NEWS",
       startSessionBanner: "START YOUR KANA DRILL SESSION",
@@ -1368,6 +1370,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "Kuasai Kana Lebih Seru — Khusus Penggemar Anime",
       subTagline: "Tinggalkan hafalan buku teks yang kaku dan tugas menulis rumit. Kuasai Hiragana dan Katakana lewat flashcard cepat, audio TTS penutur asli, dan kata-kata kultur pop Jepang favoritmu.",
       counterLabel: "JUMLAH PELAJAR:",
+      visitorLabel: "JUMLAH PENGUNJUNG:",
       liveTag: "[AKTIF!]",
       newsBadge: "INFO",
       startSessionBanner: "MULAI SESI LATIHAN KANA",
@@ -2032,6 +2035,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       tagline: "楽しく覚える、アニメファンのための「かな」学習",
       subTagline: "退屈なテキスト練習や手書きの宿題はもういりません。テンポの良いカード学習、クリアなネイティブ音声合成（TTS）、大好きなポップカルチャーの言葉でひらがな・カタカナを楽しく身につけます。",
       counterLabel: "学習者数:",
+      visitorLabel: "訪問者数:",
       liveTag: "【稼働中！】",
       newsBadge: "お知らせ",
       startSessionBanner: "かな文字ドリルセッションを開始",
