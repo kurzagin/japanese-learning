@@ -152,17 +152,17 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
       {/* Edge-to-Edge Responsive Content Area */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 pb-20 sm:pb-6">
         {/* User Info Bar */}
-        <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-[#000080]">{t.dashboard.operator}:</span>
-            <span className="bg-white px-2 py-0.5 border border-[#808080] text-xs font-mono font-bold">
+        <div className="border border-[#808080] bg-[#d4d0c8] px-3 py-1.5 text-xs flex flex-wrap items-center justify-between gap-2 text-black shadow-xs">
+          <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+            <span className="font-bold text-[#000080] shrink-0">{t.dashboard.operator}:</span>
+            <span className="bg-white px-2 py-0.5 border border-[#808080] text-[11px] sm:text-xs font-mono font-bold truncate max-w-[160px] sm:max-w-[260px] md:max-w-none">
               {userEmail}
             </span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
             <button
               onClick={() => setPreferencesOpen(true)}
-              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline flex items-center gap-1 cursor-pointer"
+              className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline flex items-center gap-1 cursor-pointer whitespace-nowrap"
             >
               <Settings className="w-3.5 h-3.5" />
               <span>[{t.nav.preferences}]</span>
@@ -171,7 +171,7 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="text-xs text-[#000080] hover:text-[#cc0000] font-bold underline cursor-pointer disabled:opacity-50"
+                className="text-xs text-[#cc0000] hover:text-[#990000] font-bold underline cursor-pointer disabled:opacity-50 whitespace-nowrap"
               >
                 [{t.nav.logout}]
               </button>

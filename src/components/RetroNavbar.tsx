@@ -102,22 +102,25 @@ export function RetroNavbar({ currentSubtitle }: RetroNavbarProps) {
           </div>
 
           {/* Mobile-only quick Language & Menu toggles */}
-          <div className="flex sm:hidden items-center gap-1.5">
+          <div className="flex sm:hidden items-center gap-1">
             <button
               type="button"
               onClick={() => setPreferencesOpen(true)}
               aria-label={t.nav.preferences}
-              className="flex items-center gap-1 px-2 py-1 text-[11px] font-bold border bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
+              title={t.nav.preferences}
+              className="flex items-center justify-center w-7 h-7 border bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white shrink-0"
             >
               <Settings className="w-3.5 h-3.5 text-[#000080]" />
             </button>
-            <LanguageSelector />
+            <div className="shrink-0 max-w-[80px]">
+              <LanguageSelector />
+            </div>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? t.nav.close : t.nav.menu}
               aria-expanded={mobileMenuOpen}
-              className={`flex items-center gap-1 px-2 py-1 text-[11px] font-bold border transition-colors ${
+              className={`flex items-center gap-1 px-2 py-1 text-[11px] font-bold border transition-colors shrink-0 ${
                 mobileMenuOpen
                   ? "bg-[#000080] text-white border-t-[#000040] border-l-[#000040] border-b-white border-r-white"
                   : "bg-[#d4d0c8] text-black border-t-white border-l-white border-b-[#404040] border-r-[#404040] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white"
