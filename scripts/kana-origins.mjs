@@ -26,7 +26,7 @@ const origins = {
   // Hiragana T-row
   "h-ta": { kanji: "太", reading: "ta", notes: "Derived from 太 (thick/great)." },
   "h-chi": { kanji: "知", reading: "chi", notes: "Derived from 知 (to know)." },
-  "h-tsu": { kanji: "川", reading: "tsu", notes: "Derived from 川 (river)." },
+  "h-tsu": { kanji: "州", reading: "tsu", notes: "Derived from the cursive form of 州 (sandbar/province)." },
   "h-te": { kanji: "天", reading: "te", notes: "Derived from 天 (heaven/sky)." },
   "h-to": { kanji: "止", reading: "to", notes: "Derived from 止 (to stop)." },
 
@@ -85,14 +85,14 @@ const origins = {
   // Katakana S-row
   "k-sa": { kanji: "散", reading: "sa", notes: "Derived from the top-left of 散." },
   "k-shi": { kanji: "之", reading: "shi", notes: "Derived from the cursive form of 之." },
-  "k-su": { kanji: "須", reading: "su", notes: "Derived from the top-right strokes of 須." },
-  "k-se": { kanji: "世", reading: "se", notes: "Derived from the bottom stroke and body of 世." },
+  "k-su": { kanji: "須", reading: "su", notes: "Derived from the bottom-right strokes of 須." },
+  "k-se": { kanji: "世", reading: "se", notes: "Derived from the inner strokes of 世." },
   "k-so": { kanji: "曽", reading: "so", notes: "Derived from the top two strokes of 曽." },
 
   // Katakana T-row
   "k-ta": { kanji: "多", reading: "ta", notes: "Derived from the top part of 多." },
   "k-chi": { kanji: "千", reading: "chi", notes: "Derived from 千 (thousand)." },
-  "k-tsu": { kanji: "川", reading: "tsu", notes: "Derived from 川 (river)." },
+  "k-tsu": { kanji: "州", reading: "tsu", notes: "Derived from the three strokes of 州 (sandbar/province)." },
   "k-te": { kanji: "天", reading: "te", notes: "Derived from the top strokes of 天." },
   "k-to": { kanji: "止", reading: "to", notes: "Derived from the right and top stroke of 止." },
 
@@ -108,18 +108,18 @@ const origins = {
   "k-hi": { kanji: "比", reading: "hi", notes: "Derived from the right half of 比." },
   "k-fu": { kanji: "不", reading: "fu", notes: "Derived from the first stroke of 不." },
   "k-he": { kanji: "部", reading: "he", notes: "Derived from the right part 阝 of 部." },
-  "k-ho": { kanji: "保", reading: "ho", notes: "Derived from the right part 呆 of 保." },
+  "k-ho": { kanji: "保", reading: "ho", notes: "Derived from the bottom-right 木 part of 保." },
 
   // Katakana M-row
   "k-ma": { kanji: "末", reading: "ma", notes: "Derived from the top strokes of 末." },
   "k-mi": { kanji: "三", reading: "mi", notes: "Derived from 三 (three)." },
   "k-mu": { kanji: "牟", reading: "mu", notes: "Derived from the top strokes of 牟." },
   "k-me": { kanji: "女", reading: "me", notes: "Derived from the cross strokes of 女." },
-  "k-mo": { kanji: "毛", reading: "mo", notes: "Derived from the bottom strokes of 毛." },
+  "k-mo": { kanji: "毛", reading: "mo", notes: "Derived from the abbreviated strokes of 毛." },
 
   // Katakana Y-row
   "k-ya": { kanji: "也", reading: "ya", notes: "Derived from the first strokes of 也." },
-  "k-yu": { kanji: "由", reading: "yu", notes: "Derived from the lower strokes of 由." },
+  "k-yu": { kanji: "由", reading: "yu", notes: "Derived from the abbreviated strokes of 由." },
   "k-yo": { kanji: "与", reading: "yo", notes: "Derived from the right and bottom angles of 与." },
 
   // Katakana R-row
@@ -130,9 +130,9 @@ const origins = {
   "k-ro": { kanji: "呂", reading: "ro", notes: "Derived from the top square 口 of 呂." },
 
   // Katakana W & N
-  "k-wa": { kanji: "和", reading: "wa", notes: "Derived from the right radical 口 of 和." },
+  "k-wa": { kanji: "和", reading: "wa", notes: "Derived from the right part (旁) of 和." },
   "k-wo": { kanji: "乎", reading: "wo", notes: "Derived from the top and body strokes of 乎." },
-  "k-n": { kanji: "尓", reading: "n", notes: "Derived from the cursive form of 尓." },
+  "k-n": { kanji: "尓", reading: "n", notes: "Derived from the top two strokes of 尓." },
 };
 
 export default origins;

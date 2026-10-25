@@ -360,12 +360,12 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     },
   },
   "h-tsu": {
-    kanji: "川",
+    kanji: "州",
     reading: "tsu",
     notes: {
-      en: "Derived from 川 (river).",
-      id: "Berasal dari bentuk kursif Kanji 川 (sungai).",
-      ja: "漢字「川」の草書体から生まれました。",
+      en: "Derived from the cursive form of 州 (sandbar/province).",
+      id: "Berasal dari bentuk kursif Kanji 州 (gosong pasir/provinsi).",
+      ja: "漢字「州」の草書体から生まれました。",
     },
   },
   "h-te": {
@@ -774,12 +774,12 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     },
   },
   "k-tsu": {
-    kanji: "川",
+    kanji: "州",
     reading: "tsu",
     notes: {
-      en: "Derived from 川 (river).",
-      id: "Berasal dari tiga aliran goresan Kanji 川 (sungai).",
-      ja: "漢字「川」の3画から生まれました。",
+      en: "Derived from the three strokes of 州 (sandbar/province).",
+      id: "Berasal dari tiga goresan Kanji 州 (gosong pasir/provinsi).",
+      ja: "漢字「州」の3画から生まれました。",
     },
   },
   "k-te": {
@@ -930,8 +930,8 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "毛",
     reading: "mo",
     notes: {
-      en: "Derived from the bottom strokes of 毛.",
-      id: "Berasal dari goresan Kanji 毛.",
+      en: "Derived from the abbreviated strokes of 毛.",
+      id: "Berasal dari goresan yang disederhanakan pada Kanji 毛.",
       ja: "漢字「毛」の画を省略して生まれました。",
     },
   },
@@ -948,9 +948,9 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "由",
     reading: "yu",
     notes: {
-      en: "Derived from the upper strokes of 由.",
-      id: "Berasal dari bagian atas Kanji 由.",
-      ja: "漢字「由」の上部から生まれました。",
+      en: "Derived from the abbreviated strokes of 由.",
+      id: "Berasal dari bagian goresan Kanji 由.",
+      ja: "漢字「由」の一部から生まれました。",
     },
   },
   "k-yo": {
@@ -1011,8 +1011,8 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "和",
     reading: "wa",
     notes: {
-      en: "Derived from the upper-right strokes of 和.",
-      id: "Berasal dari bagian sudut atas Kanji 和.",
+      en: "Derived from the right part (旁) of 和.",
+      id: "Berasal dari bagian kanan Kanji 和.",
       ja: "漢字「和」の旁などから生まれました。",
     },
   },
@@ -1029,8 +1029,8 @@ export const KANA_ORIGINS: Record<string, KanaOrigin> = {
     kanji: "尓",
     reading: "n",
     notes: {
-      en: "Derived from the cursive form of 尓.",
-      id: "Berasal dari goresan atas Kanji 尓.",
+      en: "Derived from the top two strokes of 尓.",
+      id: "Berasal dari dua goresan atas Kanji 尓.",
       ja: "漢字「尓」の上部2画から生まれました。",
     },
   },
@@ -1077,6 +1077,7 @@ export interface ComparisonPair {
   slug: string; // e.g. "shi-vs-tsu"
   kana1Id: string;
   kana2Id: string;
+  kana3Id?: string;
   script: KanaScript;
   keyDifferences: Record<Locale, string[]>;
   visualTip: Record<Locale, string>;
@@ -1174,7 +1175,8 @@ export const CURATED_COMPARISONS: ComparisonPair[] = [
   {
     slug: "wa-vs-re-vs-ne",
     kana1Id: "h-wa",
-    kana2Id: "h-ne",
+    kana2Id: "h-re",
+    kana3Id: "h-ne",
     script: "hiragana",
     keyDifferences: {
       en: [
@@ -1477,7 +1479,7 @@ export const CURATED_COMPARISONS: ComparisonPair[] = [
     visualTip: {
       en: "Remember: 'KE is a K with extra branches; KU is a simple beak bird.'",
       id: "Tips: 'KE punya ranting tambahan di kanan, KU seperti paruh burung sederhana.'",
-      ja: "覚え方：「ケは毛の崩しで払いがある、クはシンプルな口の形」。",
+      ja: "覚え方：「ケは『介』由来で3画のT字クロス、クは『久』由来で2画の角形」。",
     },
   },
   {

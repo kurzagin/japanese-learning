@@ -121,6 +121,7 @@ export default async function CompareIndexPage({ params }: Props) {
           {CURATED_COMPARISONS.map((comp) => {
             const k1 = allKana.find((k) => k.id === comp.kana1Id);
             const k2 = allKana.find((k) => k.id === comp.kana2Id);
+            const k3 = comp.kana3Id ? allKana.find((k) => k.id === comp.kana3Id) : undefined;
 
             if (!k1 || !k2) return null;
 
@@ -139,7 +140,7 @@ export default async function CompareIndexPage({ params }: Props) {
                   </div>
 
                   {/* Visual vs */}
-                  <div className="flex items-center justify-center gap-4 my-3">
+                  <div className="flex items-center justify-center gap-3 my-3">
                     <div className="text-center">
                       <div className="text-4xl font-black text-[#000080] group-hover:scale-110 transition-transform">
                         {k1.character}
@@ -157,6 +158,19 @@ export default async function CompareIndexPage({ params }: Props) {
                         /{k2.romaji}/
                       </div>
                     </div>
+                    {k3 && (
+                      <>
+                        <span className="text-sm font-black text-[#888] font-mono">VS</span>
+                        <div className="text-center">
+                          <div className="text-4xl font-black text-[#006600] group-hover:scale-110 transition-transform">
+                            {k3.character}
+                          </div>
+                          <div className="text-xs font-mono font-bold text-[#cc0000]">
+                            /{k3.romaji}/
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 

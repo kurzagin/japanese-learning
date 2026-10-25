@@ -212,7 +212,7 @@
     "row": "t",
     "hint_en": "A massive tsunami wave curling.",
     "hint_id": "Ombak besar tsunami menggulung tinggi.",
-    "hint_ja": "「川」の草書体。波のような大きな曲線。",
+    "hint_ja": "「州」の草書体。波のような大きな曲線。",
     "created_at": "2026-10-11T01:21:18.457Z"
   },
   {
@@ -305,7 +305,7 @@
     "character": "は",
     "romaji": "ha",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "Standing person laughing 'ha-ha'.",
     "hint_id": "Orang berdiri tertawa terbahak 'ha-ha'.",
     "hint_ja": "「波」の草書体から作られた文字。",
@@ -317,7 +317,7 @@
     "character": "ひ",
     "romaji": "hi",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "A happy smiling face with chin up.",
     "hint_id": "Wajah tersenyum lebar dengan dagu terangkat.",
     "hint_ja": "「比」の草書体。U字型の柔らかな形。",
@@ -329,7 +329,7 @@
     "character": "ふ",
     "romaji": "fu",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "Mount Fuji with clouds on each side.",
     "hint_id": "Gunung Fuji dengan awan di sisi kiri kanan.",
     "hint_ja": "「不」の草書体。富士山の姿を思わせる形。",
@@ -341,7 +341,7 @@
     "character": "へ",
     "romaji": "he",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "Mountaintop or hill shape.",
     "hint_id": "Puncak bukit yang landai (hill).",
     "hint_ja": "「部」の草書体。山なりの一筆線。",
@@ -353,7 +353,7 @@
     "character": "ほ",
     "romaji": "ho",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "A horse wearing a cap.",
     "hint_id": "Kuda bertopi dengan garis pembatas di atas.",
     "hint_ja": "「保」の草書体から作られた文字。",
@@ -1328,7 +1328,7 @@
     "row": "k",
     "hint_en": "An antique key or keyhole shape.",
     "hint_id": "Kunci kuno bergaris ganda sejajar.",
-    "hint_ja": "「幾」の初画から取られた文字。",
+    "hint_ja": "「幾」の草書体の一部から取られた文字。",
     "created_at": "2026-10-11T01:21:23.584Z"
   },
   {
@@ -1352,7 +1352,7 @@
     "row": "k",
     "hint_en": "The letter 'K' with one leg missing.",
     "hint_id": "Huruf 'K' dengan garis patah di sebelah kanan.",
-    "hint_ja": "「介」の初画から取られた文字。",
+    "hint_ja": "「介」の一部から取られた文字。",
     "created_at": "2026-10-11T01:21:23.693Z"
   },
   {
@@ -1400,7 +1400,7 @@
     "row": "s",
     "hint_en": "A superhero sliding down a ramp.",
     "hint_id": "Pahlawan super meluncur di lintasan.",
-    "hint_ja": "「須」の旁から取られた文字。",
+    "hint_ja": "「須」の右下部分から取られた文字。",
     "created_at": "2026-10-11T01:21:23.899Z"
   },
   {
@@ -1412,7 +1412,7 @@
     "row": "s",
     "hint_en": "The edge of a sleek section sofa.",
     "hint_id": "Sudut sofa sudut yang minimalis.",
-    "hint_ja": "「世」の初画から取られた文字。",
+    "hint_ja": "「世」の一部を省略して取られた文字。",
     "created_at": "2026-10-11T01:21:23.945Z"
   },
   {
@@ -1436,7 +1436,7 @@
     "row": "t",
     "hint_en": "A tasty tidal wave or taco.",
     "hint_id": "Taco renyah berbentuk setengah lingkaran.",
-    "hint_ja": "「多」の初画から取られた文字。",
+    "hint_ja": "「多」の上半分の「夕」から取られた文字。",
     "created_at": "2026-10-11T01:21:24.048Z"
   },
   {
@@ -1460,7 +1460,7 @@
     "row": "t",
     "hint_en": "Two drops falling down into a tsunami.",
     "hint_id": "Dua tetes air jatuh ke ombak (tarikan dari atas).",
-    "hint_ja": "「川」から取られた文字。上から下へ払う。",
+    "hint_ja": "「州」の3画から取られた文字。上から下へ払う。",
     "created_at": "2026-10-11T01:21:24.146Z"
   },
   {
@@ -1553,7 +1553,7 @@
     "character": "ハ",
     "romaji": "ha",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "Two legs of a haystack or running feet.",
     "hint_id": "Dua kaki berlari berpencar keluar.",
     "hint_ja": "「八」の字そのものから取られた文字。",
@@ -1565,7 +1565,7 @@
     "character": "ヒ",
     "romaji": "hi",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "Heel of a boot pointing right.",
     "hint_id": "Tumit sepatu bot (heel) menghadap kanan.",
     "hint_ja": "「比」の旁から取られた文字。",
@@ -1577,7 +1577,7 @@
     "character": "フ",
     "romaji": "fu",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "A bird flying fast or a flag edge.",
     "hint_id": "Sudut bendera berkibar di tiang.",
     "hint_ja": "「不」の初画から取られた文字。",
@@ -1589,7 +1589,7 @@
     "character": "ヘ",
     "romaji": "he",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "A pointed hill (identical to hiragana へ).",
     "hint_id": "Puncak bukit (sama persis dengan hiragana へ).",
     "hint_ja": "「部」の旁から取られた文字。",
@@ -1601,7 +1601,7 @@
     "character": "ホ",
     "romaji": "ho",
     "type": "gojuon",
-    "row": "ha",
+    "row": "h",
     "hint_en": "A sacred holy cross on a hill.",
     "hint_id": "Salib suci di atas bukit dengan dua penyangga.",
     "hint_ja": "「保」の右下部分（「木」）から取られた文字。",
@@ -1664,7 +1664,7 @@
     "row": "m",
     "hint_en": "A modern monitor stand with horizontal shelves.",
     "hint_id": "Rak monitor modern bertingkat dua.",
-    "hint_ja": "「毛」の初画から取られた文字。",
+    "hint_ja": "「毛」の画を省略して取られた文字。",
     "created_at": "2026-10-11T01:21:25.033Z"
   },
   {
@@ -1688,7 +1688,7 @@
     "row": "y",
     "hint_en": "Number 1 looking hook or unique hook.",
     "hint_id": "Pengait sudut siku tajam.",
-    "hint_ja": "「由」の初画から取られた文字。",
+    "hint_ja": "「由」の一部から取られた文字。",
     "created_at": "2026-10-11T01:21:25.146Z"
   },
   {
@@ -1700,7 +1700,7 @@
     "row": "y",
     "hint_en": "A toy robot's hand with three fingers.",
     "hint_id": "Tangan robot mainan dengan tiga jari horizontal.",
-    "hint_ja": "「与」の初画から取られた文字。",
+    "hint_ja": "「与」の一部から取られた文字。",
     "created_at": "2026-10-11T01:21:25.204Z"
   },
   {
@@ -1772,7 +1772,7 @@
     "row": "w",
     "hint_en": "A wine glass cup rim.",
     "hint_id": "Bibir gelas anggur terbalik.",
-    "hint_ja": "「和」の初画から取られた文字。",
+    "hint_ja": "「和」の旁などから取られた文字。",
     "created_at": "2026-10-11T01:21:25.597Z"
   },
   {
@@ -1796,7 +1796,7 @@
     "row": "singular",
     "hint_en": "One stroke looking up toward the sky (strokes upward).",
     "hint_id": "Satu sapuan menatap ke atas langit (tarikan dari bawah ke atas).",
-    "hint_ja": "「尓」の初画から取られた文字。下から上へ払う。",
+    "hint_ja": "「尓」の上部2画から取られた文字。下から上へ払う。",
     "created_at": "2026-10-11T01:21:25.800Z"
   },
   {

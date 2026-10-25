@@ -21,16 +21,20 @@ interface KanaCompareClientProps {
   comparison: ComparisonPair;
   kana1: KanaCharacter;
   kana2: KanaCharacter;
+  kana3?: KanaCharacter;
   k1Strokes: number | null;
   k2Strokes: number | null;
+  k3Strokes?: number | null;
 }
 
 export default function KanaCompareClient({
   comparison,
   kana1,
   kana2,
+  kana3,
   k1Strokes,
   k2Strokes,
+  k3Strokes,
 }: KanaCompareClientProps) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -38,10 +42,20 @@ export default function KanaCompareClient({
 
   const differences = comparison.keyDifferences[locale] || comparison.keyDifferences.en;
   const tip = comparison.visualTip[locale] || comparison.visualTip.en;
+  const secondDisplay = kana3
+    ? locale === "ja"
+      ? `${kana2.character}」と「${kana3.character}`
+      : `${kana2.character} vs ${kana3.character}`
+    : kana2.character;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      <RetroNavbar currentSubtitle={t.compareDetail.subtitle(kana1.character, kana2.character)} />
+      <RetroNavbar
+        currentSubtitle={t.compareDetail.subtitle(
+          kana1.character,
+          kana3 ? `${kana2.character} vs ${kana3.character}` : kana2.character
+        )}
+      />
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4">
         {/* Navigation Breadcrumb */}
@@ -66,7 +80,7 @@ export default function KanaCompareClient({
             <Sparkles className="w-3.5 h-3.5 text-[#ff9900]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#000080] tracking-wide">
-            {t.compareDetail.title(kana1.character, kana2.character)}
+            {t.compareDetail.title(kana1.character, secondDisplay)}
           </h1>
           <p className="text-xs sm:text-sm text-[#404040] font-medium mt-1 max-w-xl mx-auto">
             {t.compareDetail.description(scriptName)}
@@ -74,7 +88,7 @@ export default function KanaCompareClient({
         </div>
 
         {/* Side-by-Side Comparison Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={`grid grid-cols-1 ${kana3 ? "sm:grid-cols-3" : "sm:grid-cols-2"} gap-4`}>
           {/* Card 1 */}
           <div className="border-2 border-[#000080] bg-white p-5 text-center flex flex-col items-center justify-between shadow-xs">
             <div className="w-full">
@@ -146,6 +160,44 @@ export default function KanaCompareClient({
               </Link>
             </div>
           </div>
+
+          {/* Optional Card 3 (for 3-way comparison wa-vs-re-vs-ne) */}
+          {kana3 && (
+            <div className="border-2 border-[#006600] bg-white p-5 text-center flex flex-col items-center justify-between shadow-xs">
+              <div className="w-full">
+                <span className="text-[10px] font-mono font-bold text-[#006600] uppercase tracking-wider block">
+                  {t.compareDetail.char2Label.replace("2", "3")}
+                </span>
+                <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#f5f5f5] border border-[#006600] mx-auto mt-2 flex items-center justify-center">
+                  <span className="text-5xl sm:text-6xl font-black text-[#006600]">
+                    {kana3.character}
+                  </span>
+                </div>
+                <div className="text-2xl font-mono font-black text-[#cc0000] mt-2">
+                  /{kana3.romaji}/
+                </div>
+                <div className="mt-2">
+                  <PronounceButton text={kana3.character} label={t.kanaDetail.listen} size="sm" />
+                </div>
+              </div>
+
+              <div className="w-full mt-4 pt-3 border-t border-[#eee] text-xs space-y-1">
+                <div className="font-mono text-[#555]">
+                  {t.compareDetail.strokesLabel} <strong>{k3Strokes ?? t.compareDetail.standardStrokes}</strong>
+                </div>
+                <div className="italic text-[#444] text-[11px] line-clamp-2">
+                  &ldquo;{kana3.hint[locale] || kana3.hint.en}&rdquo;
+                </div>
+                <Link
+                  href={`${prefix}/kana/${kana3.script}/${getKanaSlug(kana3)}`}
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-[#006600] hover:underline pt-1"
+                >
+                  <span>{t.compareDetail.fullProfileLink(kana3.character)}</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Detailed Breakdown Points */}

@@ -243,11 +243,10 @@ export default function KanaDetailClient({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {confusedKana.map((ck) => {
                 const ckSlug = getKanaSlug(ck);
-                const pairMatch = CURATED_COMPARISONS.find(
-                  (c) =>
-                    (c.kana1Id === kana.id && c.kana2Id === ck.id) ||
-                    (c.kana1Id === ck.id && c.kana2Id === kana.id)
-                );
+                const pairMatch = CURATED_COMPARISONS.find((c) => {
+                  const ids = [c.kana1Id, c.kana2Id, c.kana3Id].filter(Boolean);
+                  return ids.includes(kana.id) && ids.includes(ck.id);
+                });
                 const targetHref = pairMatch
                   ? `${prefix}/compare/${pairMatch.slug}`
                   : `${prefix}/kana/${ck.script}/${ckSlug}`;

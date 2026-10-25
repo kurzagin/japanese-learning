@@ -134,8 +134,8 @@ const ROMAJI_TABLE: [string, string, string][] = [
   ["po", "ぽ", "ポ"],
   ["nn", "ん", "ン"],
   ["n'", "ん", "ン"],
-  ["ti", "ち", "ティ"],
-  ["di", "ぢ", "ディ"],
+  ["ti", "てぃ", "ティ"],
+  ["di", "でぃ", "ディ"],
 
   // 1-character vowels & singulars
   ["a", "あ", "ア"],
@@ -171,7 +171,13 @@ function preprocessParticles(text: string): string {
  * Convert Romaji text to Hiragana with smart particle awareness
  */
 export function romajiToHiragana(text: string, smartParticles: boolean = true): string {
-  let lower = (smartParticles ? preprocessParticles(text) : text).toLowerCase();
+  let lower = (smartParticles ? preprocessParticles(text) : text)
+    .toLowerCase()
+    .replace(/ā/g, "aa")
+    .replace(/ī/g, "ii")
+    .replace(/ū/g, "uu")
+    .replace(/ē/g, "ee")
+    .replace(/ō/g, "ou");
 
   // Handle Japanese punctuation replacements
   lower = lower.replace(/,/g, "、").replace(/\./g, "。");
@@ -217,7 +223,13 @@ export function romajiToHiragana(text: string, smartParticles: boolean = true): 
  * Convert Romaji text to Katakana
  */
 export function romajiToKatakana(text: string, smartParticles: boolean = true): string {
-  let lower = (smartParticles ? preprocessParticles(text) : text).toLowerCase();
+  let lower = (smartParticles ? preprocessParticles(text) : text)
+    .toLowerCase()
+    .replace(/ā/g, "aー")
+    .replace(/ī/g, "iー")
+    .replace(/ū/g, "uー")
+    .replace(/ē/g, "eー")
+    .replace(/ō/g, "oー");
 
   lower = lower.replace(/,/g, "、").replace(/\./g, "。");
 

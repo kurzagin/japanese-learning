@@ -34,11 +34,7 @@ export function getConstituentKana(
         const baseOne = allKana.find(
           (k) => k.character === text[i] && k.script === word.script
         );
-        if (
-          baseOne &&
-          word.primaryKanaId === baseOne.id &&
-          !matched.some((m) => m.id === baseOne.id)
-        ) {
+        if (baseOne && !matched.some((m) => m.id === baseOne.id)) {
           matched.push(baseOne);
         }
         i += 2;

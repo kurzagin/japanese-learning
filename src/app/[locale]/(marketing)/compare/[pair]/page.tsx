@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const allKana = await getAllKana();
   const k1 = allKana.find((k) => k.id === comparison.kana1Id);
   const k2 = allKana.find((k) => k.id === comparison.kana2Id);
+  const k3 = comparison.kana3Id ? allKana.find((k) => k.id === comparison.kana3Id) : undefined;
 
   if (!k1 || !k2) {
     return {
@@ -46,16 +47,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const charsEn = k3 ? `${k1.character} vs ${k2.character} vs ${k3.character}` : `${k1.character} vs ${k2.character}`;
+  const romajisEn = k3 ? `${k1.romaji} vs ${k2.romaji} vs ${k3.romaji}` : `${k1.romaji} vs ${k2.romaji}`;
+  const charsJa = k3 ? `「${k1.character}」と「${k2.character}」と「${k3.character}」` : `「${k1.character}」と「${k2.character}」`;
+
   const scriptLabel = comparison.script === "hiragana" ? "Hiragana" : "Katakana";
-  let title = `${k1.character} vs ${k2.character} (${k1.romaji} vs ${k2.romaji}) — Difference Between Japanese ${scriptLabel} Lookalikes`;
-  let description = `Learn the exact difference between Japanese ${scriptLabel} ${k1.character} (${k1.romaji}) and ${k2.character} (${k2.romaji}). Visual stroke directions, mnemonics, audio pronunciation, and comparison guide.`;
+  let title = `${charsEn} (${romajisEn}) — Difference Between Japanese ${scriptLabel} Lookalikes`;
+  let description = `Learn the exact difference between Japanese ${scriptLabel} ${charsEn} (${romajisEn}). Visual stroke directions, mnemonics, audio pronunciation, and comparison guide.`;
 
   if (locale === "id") {
-    title = `${k1.character} vs ${k2.character} (${k1.romaji} vs ${k2.romaji}) — Perbedaan Karakter Huruf ${scriptLabel} Mirip`;
-    description = `Pelajari cara membedakan karakter Jepang ${scriptLabel} ${k1.character} dan ${k2.character}. Arah guratan, trik visual, dan audio pengucapan.`;
+    title = `${charsEn} (${romajisEn}) — Perbedaan Karakter Huruf ${scriptLabel} Mirip`;
+    description = `Pelajari cara membedakan karakter Jepang ${scriptLabel} ${charsEn}. Arah guratan, trik visual, dan audio pengucapan.`;
   } else if (locale === "ja") {
-    title = `「${k1.character}」と「${k2.character}」の違い（${k1.romaji} vs ${k2.romaji}）— ${scriptLabel === "Hiragana" ? "ひらがな" : "カタカナ"}見分け方ガイド`;
-    description = `間違えやすい日本語の文字「${k1.character}」と「${k2.character}」の決定的な違い。筆順の方向と字形の特徴を視覚的に解説。`;
+    title = `${charsJa}の違い（${romajisEn}）— ${scriptLabel === "Hiragana" ? "ひらがな" : "カタカナ"}見分け方ガイド`;
+    description = `間違えやすい日本語の文字${charsJa}の決定的な違い。筆順の方向と字形の特徴を視覚的に解説。`;
   }
 
   const path = `/compare/${pair}`;
@@ -99,20 +104,22 @@ export default async function KanaComparePage({ params }: Props) {
   const allKana = await getAllKana();
   const k1 = allKana.find((k) => k.id === comparison.kana1Id);
   const k2 = allKana.find((k) => k.id === comparison.kana2Id);
+  const k3 = comparison.kana3Id ? allKana.find((k) => k.id === comparison.kana3Id) : undefined;
 
   if (!k1 || !k2) {
     notFound();
   }
 
   const prefix = locale === "en" ? "" : `/${locale}`;
+  const pairTitle = k3 ? `${k1.character} vs ${k2.character} vs ${k3.character}` : `${k1.character} vs ${k2.character}`;
 
   const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        headline: `Difference Between ${k1.character} and ${k2.character} (${k1.romaji} vs ${k2.romaji})`,
-        description: `A visual guide to distinguishing Japanese ${comparison.script} characters ${k1.character} and ${k2.character}.`,
+        headline: `Difference Between ${pairTitle}`,
+        description: `A visual guide to distinguishing Japanese ${comparison.script} characters ${pairTitle}.`,
         mainEntityOfPage: `https://sakanajp.site${prefix}/compare/${pair}`,
       },
       {
@@ -133,7 +140,7 @@ export default async function KanaComparePage({ params }: Props) {
           {
             "@type": "ListItem",
             position: 3,
-            name: `${k1.character} vs ${k2.character}`,
+            name: pairTitle,
             item: `https://sakanajp.site${prefix}/compare/${pair}`,
           },
         ],
@@ -151,8 +158,10 @@ export default async function KanaComparePage({ params }: Props) {
         comparison={comparison}
         kana1={k1}
         kana2={k2}
+        kana3={k3}
         k1Strokes={KANA_STROKE_COUNTS[k1.id] || null}
         k2Strokes={KANA_STROKE_COUNTS[k2.id] || null}
+        k3Strokes={k3 ? KANA_STROKE_COUNTS[k3.id] || null : null}
       />
     </>
   );

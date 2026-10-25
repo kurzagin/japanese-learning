@@ -68,12 +68,29 @@ export default function WordDetailClient({
           <div className="space-y-2">
             {word.kanji ? (
               <div className="space-y-1">
-                <ruby className="text-4xl sm:text-6xl font-black text-[#000080] font-sans tracking-wide">
-                  {word.kanji}
-                  <rt className="text-base sm:text-xl font-normal text-[#800000] font-mono tracking-normal">
-                    {word.character}
-                  </rt>
-                </ruby>
+                {word.furigana && word.furigana.length > 0 ? (
+                  <div className="text-4xl sm:text-6xl font-black text-[#000080] font-sans tracking-wide">
+                    {word.furigana.map((seg, idx) =>
+                      seg.rt ? (
+                        <ruby key={idx}>
+                          {seg.ruby}
+                          <rt className="text-base sm:text-xl font-normal text-[#800000] font-mono tracking-normal">
+                            {seg.rt}
+                          </rt>
+                        </ruby>
+                      ) : (
+                        <span key={idx}>{seg.ruby}</span>
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <ruby className="text-4xl sm:text-6xl font-black text-[#000080] font-sans tracking-wide">
+                    {word.kanji}
+                    <rt className="text-base sm:text-xl font-normal text-[#800000] font-mono tracking-normal">
+                      {word.character}
+                    </rt>
+                  </ruby>
+                )}
                 <div className="text-xs text-[#666] font-mono">
                   [ {t.wordDetail.kanaLabel} <span className="font-bold text-[#000080]">{word.character}</span> ]
                 </div>

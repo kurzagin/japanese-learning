@@ -22,7 +22,7 @@ export async function getAllKana(): Promise<KanaCharacter[]> {
     character: r.character,
     romaji: r.romaji,
     type: r.type as KanaType,
-    row: r.row as KanaRow,
+    row: (r.row === "ha" ? "h" : r.row) as KanaRow,
     hint: {
       en: r.hint_en || "",
       id: r.hint_id || "",
@@ -129,15 +129,11 @@ export async function getConstituentKana(
         if (!matched.some((m) => m.id === matchTwo.id)) {
           matched.push(matchTwo);
         }
-        // Also include the base kana if it is the word's primaryKanaId
+        // Also include the base kana of the digraph
         const baseOne = all.find(
           (k) => k.character === text[i] && k.script === word.script
         );
-        if (
-          baseOne &&
-          word.primaryKanaId === baseOne.id &&
-          !matched.some((m) => m.id === baseOne.id)
-        ) {
+        if (baseOne && !matched.some((m) => m.id === baseOne.id)) {
           matched.push(baseOne);
         }
         i += 2;
@@ -182,12 +178,14 @@ export async function getSimilarKana(
 ): Promise<KanaCharacter[]> {
   const all = providedKana || (await getAllKana());
   const matchedComparisons = CURATED_COMPARISONS.filter(
-    (c) => c.kana1Id === kanaChar.id || c.kana2Id === kanaChar.id
+    (c) => c.kana1Id === kanaChar.id || c.kana2Id === kanaChar.id || c.kana3Id === kanaChar.id
   );
 
   const similarIds = new Set<string>();
   matchedComparisons.forEach((c) => {
-    similarIds.add(c.kana1Id === kanaChar.id ? c.kana2Id : c.kana1Id);
+    [c.kana1Id, c.kana2Id, c.kana3Id].forEach((id) => {
+      if (id && id !== kanaChar.id) similarIds.add(id);
+    });
   });
 
   const similarCharacters = all.filter((k) => similarIds.has(k.id));
