@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RetroNavbar } from "@/components/RetroNavbar";
+import { RetroBottomNav } from "@/components/RetroBottomNav";
+import { RetroAdSlot } from "@/components/RetroAdSlot";
 import { PreferencesModal } from "@/components/PreferencesModal";
 import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
@@ -150,7 +152,7 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
       <RetroNavbar currentSubtitle={t.dashboard.windowTitle} />
 
       {/* Edge-to-Edge Responsive Content Area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4 pb-20 sm:pb-6">
         {/* User Info Bar */}
         <div className="border border-[#808080] bg-[#d4d0c8] px-3.5 py-2 text-xs flex items-center justify-between text-black shadow-xs">
           <div className="flex items-center gap-2">
@@ -473,10 +475,13 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
             ))}
           </div>
         </div>
+
+        {/* Retro Community Ad Slot */}
+        <RetroAdSlot label="SPONSORED / 広告" className="my-3" />
       </main>
 
       {/* Docked Retro Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
+      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0 mb-14 sm:mb-0">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
           <span>SAKANA DOJO // {t.common.systemOnline}</span>
@@ -486,6 +491,7 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
           <span className="border-l border-[#808080] pl-2 font-mono">{t.dashboard.footerReady}</span>
         </div>
       </footer>
+      <RetroBottomNav />
       <PreferencesModal
         isOpen={preferencesOpen}
         onClose={() => setPreferencesOpen(false)}

@@ -1,24 +1,22 @@
-import { db } from "@/db";
-import { kana, vocabulary } from "@/db/schema";
-import { asc } from "drizzle-orm";
 import { KanaCharacter, KanaScript, KanaType, KanaRow } from "@/types/kana";
 import { VocabWord, FuriganaSegment, VocabSentence, KanjiOption } from "@/types/vocab";
 import { Stage, buildStages } from "@/data/stages";
 import { getKanaSlug, CURATED_COMPARISONS } from "@/lib/kana-seo";
+import rawKana from "@/data/kana.json";
+import rawVocab from "@/data/vocab.json";
 
-// In-process memory caches to ensure zero redundant network roundtrips during SSG or requests
+// In-process memory caches to ensure zero redundant iterations
 let cachedKana: KanaCharacter[] | null = null;
 let cachedVocab: VocabWord[] | null = null;
 let cachedStages: Stage[] | null = null;
 
 /**
- * Fetch all Kana characters from Neon Postgres ordered by created_at
+ * Fetch all Kana characters from static JSON (instant 0ms lookup)
  */
 export async function getAllKana(): Promise<KanaCharacter[]> {
   if (cachedKana) return cachedKana;
 
-  const rows = await db.select().from(kana).orderBy(asc(kana.createdAt));
-  cachedKana = rows.map((r) => ({
+  cachedKana = (rawKana as any[]).map((r) => ({
     id: r.id,
     script: r.script as KanaScript,
     character: r.character,
@@ -26,9 +24,9 @@ export async function getAllKana(): Promise<KanaCharacter[]> {
     type: r.type as KanaType,
     row: r.row as KanaRow,
     hint: {
-      en: r.hintEn || "",
-      id: r.hintId || "",
-      ja: r.hintJa || "",
+      en: r.hint_en || "",
+      id: r.hint_id || "",
+      ja: r.hint_ja || "",
     },
   }));
 
@@ -69,25 +67,24 @@ export async function getKanaById(id: string): Promise<KanaCharacter | undefined
 }
 
 /**
- * Fetch all Vocabulary from Neon Postgres ordered by created_at
+ * Fetch all Vocabulary from static JSON (instant 0ms lookup)
  */
 export async function getAllVocabulary(): Promise<VocabWord[]> {
   if (cachedVocab) return cachedVocab;
 
-  const rows = await db.select().from(vocabulary).orderBy(asc(vocabulary.createdAt));
-  cachedVocab = rows.map((r) => ({
+  cachedVocab = (rawVocab as any[]).map((r) => ({
     slug: r.slug,
     character: r.character,
     romaji: r.romaji,
     script: r.script as "hiragana" | "katakana",
     kanji: r.kanji || null,
     jlpt: (r.jlpt as VocabWord["jlpt"]) || undefined,
-    primaryKanaId: r.primaryKanaId || undefined,
-    meaning: JSON.parse(r.meaning),
-    trivia: r.trivia ? JSON.parse(r.trivia) : undefined,
-    furigana: r.furigana ? (JSON.parse(r.furigana) as FuriganaSegment[]) : undefined,
-    sentence: r.sentence ? (JSON.parse(r.sentence) as VocabSentence) : undefined,
-    kanjiOptions: r.kanjiOptions ? (JSON.parse(r.kanjiOptions) as KanjiOption[]) : undefined,
+    primaryKanaId: r.primary_kana_id || undefined,
+    meaning: typeof r.meaning === "string" ? JSON.parse(r.meaning) : r.meaning,
+    trivia: r.trivia ? (typeof r.trivia === "string" ? JSON.parse(r.trivia) : r.trivia) : undefined,
+    furigana: r.furigana ? (typeof r.furigana === "string" ? JSON.parse(r.furigana) : r.furigana) as FuriganaSegment[] : undefined,
+    sentence: r.sentence ? (typeof r.sentence === "string" ? JSON.parse(r.sentence) : r.sentence) as VocabSentence : undefined,
+    kanjiOptions: r.kanjiOptions || r.kanji_options ? (typeof (r.kanjiOptions || r.kanji_options) === "string" ? JSON.parse(r.kanjiOptions || r.kanji_options) : (r.kanjiOptions || r.kanji_options)) as KanjiOption[] : undefined,
   }));
 
   return cachedVocab;
@@ -218,7 +215,7 @@ export async function getRelatedCategoryCharacters(
 }
 
 /**
- * Get all 32 stages dynamically built from Neon Kana & Vocabulary
+ * Get all 32 stages dynamically built from static Kana & Vocabulary
  */
 export async function getStages(): Promise<Stage[]> {
   if (cachedStages) return cachedStages;
