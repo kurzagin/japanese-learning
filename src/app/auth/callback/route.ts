@@ -14,6 +14,5 @@ export async function GET(request: Request) {
     }
   }
 
-  // Return the user to an error page or back to login with a friendly status
   return NextResponse.redirect(`${origin}/login?confirmed=true`);
 }
