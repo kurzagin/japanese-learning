@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroBottomNav } from "@/components/RetroBottomNav";
-import { RetroAdSlot } from "@/components/RetroAdSlot";
 import { RetroWebring } from "@/components/RetroWebring";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
@@ -156,9 +155,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Federated Webring Panel */}
-            <RetroWebring />
-
             {/* Programmatic SEO Link Hub & Learning Pathways */}
             <div className="border border-[#808080] bg-white p-4 shadow-xs space-y-4">
               <div className="bg-[#000080] text-white px-3 py-1.5 text-xs font-bold flex items-center justify-between">
@@ -295,11 +291,11 @@ export default function HomePage() {
                 </details>
               </div>
             </div>
+
+            {/* Federated Webring Panel */}
+            <RetroWebring />
           </div>
         </div>
-
-        {/* Retro Native Ad Banner Slot */}
-        <RetroAdSlot label="SPONSORED LINKS / スポンサー" className="my-3" />
       </main>
 
       {/* Docked Footer & Status Bar */}
