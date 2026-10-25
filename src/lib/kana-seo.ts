@@ -1575,7 +1575,7 @@ export const KANA_CATEGORIES: KanaCategoryInfo[] = [
     },
     description: {
       en: "Guide to the 5 Hiragana Handakuon characters featuring the small maru circle. Full audio and practice cards.",
-      id: "Panduan lengkap 5 karakter Hiragana Handakuon dengan tanda maru (lingkaran kecil). Audio asli dan latihan.",
+      id: "Panduan lengkap 5 karakter Hiragana Handakuon dengan tanda maru (lingkaran kecil). Dilengkapi audio TTS dan latihan.",
       ja: "半濁点（゜）を付けた「ぱ・ぴ・ぷ・ぺ・ぽ」の5文字。発音と書き順ガイド。",
     },
     explanation: {

@@ -4,14 +4,14 @@
 
 Sakana Japanese is a focused learning tool designed to help anime and manga fans master **Hiragana** and **Katakana** without tedious textbook drills or handwriting homework.
 
-Rather than burning out on drawing stroke orders on paper, the app trains instant visual and auditory recognition for pure **Kana primitives**—pairing characters with native Japanese audio, smart spaced repetition (SM-2), and high-frequency anime vocabulary and loanwords.
+Rather than burning out on drawing stroke orders on paper, the app trains instant visual and auditory recognition for pure **Kana primitives**—pairing characters with native Japanese TTS audio, smart spaced repetition (SM-2), and high-frequency anime vocabulary and loanwords.
 
 ---
 
 ### Key Highlights
 
 * **Visual Recognition First**: Learn to identify Kana characters in fractions of a second without getting bogged down by handwriting drills.
-* **Native Audio With Every Card**: Powered by crisp native Japanese speech to ensure correct pitch and vowel pronunciation from day one.
+* **Native TTS Audio With Every Card**: Powered by calibrated native Japanese text-to-speech synthesis to ensure correct pitch and vowel pronunciation from day one.
 * **Anime & Pop-Culture Context**: Practice with real words you care about—from iconic anime reaction terms to Katakana loanwords.
 * **Primitive-First Curriculum**: 218 atomic Kana characters (Hiragana & Katakana) categorized by phonetic structure and rows.
 * **Spaced Repetition (SM-2)**: Smart interval review scheduling locks characters permanently into memory.

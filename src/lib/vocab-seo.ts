@@ -61,8 +61,8 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "日本語能力試験 N5レベルの重要基礎104単語",
     },
     description: {
-      en: "Master the foundational JLPT N5 vocabulary words with native pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
-      id: "Kuasai kosakata dasar JLPT N5 lengkap dengan audio pelafalan penutur asli, rincian Kanji & furigana, panduan bacaan romaji, dan kalimat contoh.",
+      en: "Master the foundational JLPT N5 vocabulary words with native TTS pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
+      id: "Kuasai kosakata dasar JLPT N5 lengkap dengan audio pelafalan TTS penutur asli, rincian Kanji & furigana, panduan bacaan romaji, dan kalimat contoh.",
       ja: "JLPT N5の基礎単語をネイティブ発音音声、漢字・ふりがな分解、ローマ字読み、実践的な例文とともにマスターしましょう。",
     },
   },
@@ -82,7 +82,7 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
     description: {
       en: "Expand your Japanese vocabulary with elementary JLPT N4 words featuring audio pronunciation, romaji guides, and realistic contextual sentences.",
       id: "Perluas kosakata bahasa Jepangmu dengan kata-kata tingkat dasar JLPT N4 lengkap dengan audio pelafalan, panduan romaji, dan kalimat kontekstual.",
-      ja: "ネイティブ音声、ローマ字ガイド、自然な文脈の例文を備えたJLPT N4単語で日本語の語彙力を広げましょう。",
+      ja: "ネイティブ音声合成（TTS）、ローマ字ガイド、自然な文脈の例文を備えたJLPT N4単語で日本語の語彙力を広げましょう。",
     },
   },
   {
@@ -99,9 +99,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "アニメやマンガで頻出する定番表現・リアクション・外来語",
     },
     description: {
-      en: "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native audio, character origins, and English & Indonesian meanings.",
-      id: "Pelajari ekspresi reaksi anime Jepang paling ikonik, kata serapan, dan istilah percakapan lengkap dengan audio asli, rincian karakter, serta artinya.",
-      ja: "アニメの象徴的なリアクション、外来語、日常会話フレーズをネイティブ音声と文字の成り立ち解説とともに楽しく学びましょう。",
+      en: "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native TTS audio, character origins, and English & Indonesian meanings.",
+      id: "Pelajari ekspresi reaksi anime Jepang paling ikonik, kata serapan, dan istilah percakapan lengkap dengan audio TTS asli, rincian karakter, serta artinya.",
+      ja: "アニメの象徴的なリアクション、外来語、日常会話フレーズをネイティブ音声合成（TTS）と文字の成り立ち解説とともに楽しく学びましょう。",
     },
   },
 ];

@@ -73,7 +73,7 @@ export function AudioDocClient() {
           <span>Interactive Phonetic Audio Samples</span>
         </h2>
         <p className="text-xs text-[#555]">
-          Click any button below to audition tricky characters directly through the native audio player:
+          Click any button below to audition tricky characters directly through the audio player:
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">

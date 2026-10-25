@@ -45,11 +45,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meaning = word.meaning[locale as "en" | "id" | "ja"] || word.meaning.en;
 
   let title = `${word.character} (${word.romaji}) — Meaning, Pronunciation & ${scriptTitle} Breakdown`;
-  let description = `Learn what "${word.character}" (${word.romaji}) means in Japanese. Meaning: ${meaning}. Includes native audio pronunciation, character breakdown, and example usage.`;
+  let description = `Learn what "${word.character}" (${word.romaji}) means in Japanese. Meaning: ${meaning}. Includes native TTS audio pronunciation, character breakdown, and example usage.`;
 
   if (locale === "id") {
     title = `${word.character} (${word.romaji}) — Arti, Pengucapan & Bedah Huruf ${scriptTitle}`;
-    description = `Arti "${word.character}" (${word.romaji}) dalam bahasa Jepang: ${meaning}. Dilengkapi audio Jepang native, pemecahan huruf, dan contoh kalimat.`;
+    description = `Arti "${word.character}" (${word.romaji}) dalam bahasa Jepang: ${meaning}. Dilengkapi audio TTS Jepang native, pemecahan huruf, dan contoh kalimat.`;
   } else if (locale === "ja") {
     title = `「${word.character}」（${word.romaji}）— 意味・発音・文字構成分解`;
     description = `日本語の単語「${word.character}」（${word.romaji}）の意味（${meaning}）と正しい発音、構成する${scriptTitle === "Hiragana" ? "ひらがな" : "カタカナ"}の分解解説。`;

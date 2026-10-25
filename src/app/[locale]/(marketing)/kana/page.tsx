@@ -25,7 +25,7 @@ const META_BY_LOCALE = {
       "Jelajahi direktori referensi Kana Jepang terlengkap. Matriks komprehensif Hiragana dan Katakana (Gojūon, Dakuon, Handakuon, Yōon) dengan romaji, audio, dan jembatan keledai.",
     ogTitle: "Tabel Lengkap Kana Jepang — Hiragana & Katakana | SaKana",
     ogDescription:
-      "Bagan interaktif 400+ karakter Hiragana dan Katakana dengan audio pengucapan native dan drill pengenalan cepat.",
+      "Bagan interaktif 400+ karakter Hiragana dan Katakana dengan audio pengucapan TTS native dan drill pengenalan cepat.",
   },
   ja: {
     title: "日本語五十音図・かな一覧表 — ひらがな・カタカナ完全リファレンス",
@@ -33,7 +33,7 @@ const META_BY_LOCALE = {
       "200字以上のひらがな・カタカナを網羅した五十音図リファレンス。清音（46音）、濁音・半濁音、拗音を網羅し、クリアな発音音声と書き順情報、単語例を掲載。",
     ogTitle: "日本語五十音図（かな文字リファレンス） | SaKana",
     ogDescription:
-      "ネイティブ音声付きの五十音図マトリックス。瞬時認識ドリルと連動した対話型かな一覧表。",
+      "ネイティブ音声合成（TTS）付きの五十音図マトリックス。瞬時認識ドリルと連動した対話型かな一覧表。",
   },
 };
 

@@ -93,7 +93,7 @@ export default async function Image() {
               Anime Words & Loanwords
             </span>
             <span style={{ backgroundColor: "#006600", color: "#fff", padding: "6px 16px" }}>
-              Native Audio
+              Native TTS Audio
             </span>
           </div>
         </div>

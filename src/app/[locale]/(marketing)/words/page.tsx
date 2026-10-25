@@ -14,23 +14,23 @@ const META_BY_LOCALE = {
   en: {
     title: "Core & Anime Japanese Vocabulary Directory — 161 Words with Audio",
     description:
-      "Explore essential Japanese Hiragana and Katakana vocabulary words including popular anime terms with native Japanese audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
+      "Explore essential Japanese Hiragana and Katakana vocabulary words including popular anime terms with native Japanese TTS audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
     ogTitle: "Core & Anime Japanese Vocabulary Directory | SaKana",
     ogDescription:
-      "Master essential Hiragana & Katakana words and anime loanwords with native audio pronunciation and character breakdowns.",
+      "Master essential Hiragana & Katakana words and anime loanwords with native TTS audio pronunciation and character breakdowns.",
   },
   id: {
     title: "Direktori Kosakata Dasar & Anime Jepang — 161 Kata dengan Audio",
     description:
-      "Jelajahi kosakata dasar Hiragana dan Katakana termasuk istilah anime populer dengan audio pengucapan Jepang native, pemecahan karakter, dan arti bahasa Indonesia.",
+      "Jelajahi kosakata dasar Hiragana dan Katakana termasuk istilah anime populer dengan audio pengucapan TTS Jepang native, pemecahan karakter, dan arti bahasa Indonesia.",
     ogTitle: "Direktori Kosakata Jepang Dasar & Anime | SaKana",
     ogDescription:
-      "Kuasai kosakata Jepang esensial dan kata serapan anime dengan pengucapan audio native serta kartu latihan SRS.",
+      "Kuasai kosakata Jepang esensial dan kata serapan anime dengan pengucapan audio TTS native serta kartu latihan SRS.",
   },
   ja: {
-    title: "基本＆アニメ頻出 日本語単語集 — 161語（ネイティブ音声・解説付き）",
+    title: "基本＆アニメ頻出 日本語単語集 — 161語（音声・解説付き）",
     description:
-      "ひらがな・カタカナで構成される基本語彙およびアニメ・日常会話頻出の161単語を収録。クリアで自然なネイティブ発音音声、文字構成分解、英語・インドネシア語訳を掲載。",
+      "ひらがな・カタカナで構成される基本語彙およびアニメ・日常会話頻出の161単語を収録。クリアで自然なネイティブ音声合成（TTS）、文字構成分解、英語・インドネシア語訳を掲載。",
     ogTitle: "基本＆アニメ日本語単語ディレクトリ | SaKana",
     ogDescription:
       "かな文字から覚える実践日本語単語。クリアな音声とフラッシュカードで反射的な語彙力を養成。",

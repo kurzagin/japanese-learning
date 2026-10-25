@@ -92,7 +92,7 @@ export function DocsHubClient() {
         </h1>
         <p className="text-sm text-[#444] mt-2 max-w-3xl leading-relaxed">
           Welcome to the comprehensive SaKana guide. Learn how our spaced repetition memory model (SM-2),
-          arcade reflex drills, native Japanese audio, and progression gates work together to build
+          arcade reflex drills, native Japanese TTS audio, and progression gates work together to build
           effortless Japanese recognition.
         </p>
       </div>

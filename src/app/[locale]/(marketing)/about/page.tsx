@@ -21,7 +21,7 @@ const META_BY_LOCALE = {
   id: {
     title: "Tentang Metode & Kurikulum — Belajar Huruf Jepang untuk Penggemar Anime",
     description:
-      "Pelajari filosofi belajar SaKana: pengenalan instan Kana, SM-2 spaced repetition, audio Voicevox native, dan kosakata untuk penikmat anime & manga.",
+      "Pelajari filosofi belajar SaKana: pengenalan instan Kana, SM-2 spaced repetition, audio TTS Voicevox, dan kosakata untuk penikmat anime & manga.",
     ogTitle: "Tentang SaKana — Drill Kecepatan Kana untuk Penggemar Anime",
     ogDescription:
       "Pendekatan recognition-first: baca judul anime, nama karakter, dan efek suara manga tanpa terbebani hafalan guratan rumit.",
@@ -29,7 +29,7 @@ const META_BY_LOCALE = {
   ja: {
     title: "学習理念とカリキュラムについて — アニメファンのための「かな」学習",
     description:
-      "SaKanaの学習アプローチ：瞬間視覚認識、SM-2間隔反復、VOICEVOXネイティブ音声、そしてアニメやポップカルチャーに根ざした生きた語彙。",
+      "SaKanaの学習アプローチ：瞬間視覚認識、SM-2間隔反復、VOICEVOX音声合成（TTS）、そしてアニメやポップカルチャーに根ざした生きた語彙。",
     ogTitle: "SaKanaについて — アニメファンのための「かな」瞬時認識ドリル",
     ogDescription:
       "手書きよりもまず「見て聴いて読める」楽しさを。アニメタイトルやセリフが自然に読めるようになるための学習法。",

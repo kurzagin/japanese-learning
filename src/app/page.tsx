@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SaKana (魚) — The Fastest Way to Master Kana for Anime Fans",
     description:
-      "Master Japanese Hiragana and Katakana through speed recognition flashcards, native Japanese audio, and real anime words.",
+      "Master Japanese Hiragana and Katakana through speed recognition flashcards, native Japanese TTS audio, and real anime words.",
     url: alternates.canonical,
   },
 };

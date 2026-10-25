@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       title: `${stageTitle} — Japanese Study Deck | SaKana`,
-      description: `Practice ${stageTitle} (${sampleChars}) with native Japanese audio and SRS flashcards.`,
+      description: `Practice ${stageTitle} (${sampleChars}) with native Japanese TTS audio and SRS flashcards.`,
       url: alternates.languages[locale] || alternates.canonical,
     },
   };

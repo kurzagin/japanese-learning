@@ -21,7 +21,7 @@ const META_BY_LOCALE = {
   id: {
     title: "Konverter Romaji ke Kana — Alat Online Hiragana & Katakana Gratis",
     description:
-      "Ubah teks Romaji / alfabet Latin ke huruf Jepang Hiragana dan Katakana secara real-time. Akurat menangani konsonan ganda (sokuon), gabungan (yōon), dan audio native.",
+      "Ubah teks Romaji / alfabet Latin ke huruf Jepang Hiragana dan Katakana secara real-time. Akurat menangani konsonan ganda (sokuon), gabungan (yōon), dan audio TTS native.",
     ogTitle: "Konverter Romaji ke Hiragana & Katakana Gratis | SaKana",
     ogDescription:
       "Ubah ketikan alfabet latin menjadi huruf Hiragana dan Katakana Jepang secara instan dan akurat.",
