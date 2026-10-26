@@ -8,6 +8,7 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
 import { UserCheck, AlertTriangle, CheckCircle2, UserPlus, LogIn } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { syncGuestDataToAccount } from "@/lib/guest-sync";
 
 function LoginForm() {
   const router = useRouter();
@@ -48,6 +49,9 @@ function LoginForm() {
         return;
       }
 
+      // Safely migrate any guest progress & SRS records to the signed in account
+      await syncGuestDataToAccount(email);
+
       setAuthMsg({ text: t.login.authSuccessMsg, isError: false });
       setTimeout(() => {
         router.push(`${prefix}/dashboard`);
@@ -66,6 +70,7 @@ function LoginForm() {
         setRegisteredSuccess(true);
       } else {
         // If email confirmation is off in Supabase, sign in right away
+        await syncGuestDataToAccount(email);
         setAuthMsg({ text: t.login.authSuccessMsg, isError: false });
         setTimeout(() => {
           router.push(`${prefix}/dashboard`);

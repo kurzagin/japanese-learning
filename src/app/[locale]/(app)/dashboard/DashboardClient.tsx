@@ -9,6 +9,7 @@ import { Stage, isArcadeUnlocked } from "@/data/stages";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, BookOpen, RotateCw, Gamepad2, Sparkles, Lock, Zap, Star, Check, Settings, LogOut } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { syncGuestDataToAccount } from "@/lib/guest-sync";
 
 export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
   const router = useRouter();
@@ -58,31 +59,38 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
 
     // 2. Fetch live progress & SRS from Neon Postgres ONLY for logged-in accounts
     if (savedEmail && savedEmail !== "guest@sakanajp.site") {
-      fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
-        .then((res) => res.json())
-        .then((json) => {
-          if (json.success && Array.isArray(json.data)) {
-            const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
-            json.data.forEach((row: any) => {
-              remoteProgress[row.stageId] = {
-                completed: row.completed,
-                stars: row.stars,
-                bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
-              };
-            });
-            setProgress((prev) => ({ ...prev, ...remoteProgress }));
-          }
-        })
-        .catch((err) => console.error("Error fetching Neon progress:", err));
+      const initAccountData = async () => {
+        // Run safe guest-to-account migration if there is unsynced guest data in localStorage
+        await syncGuestDataToAccount(savedEmail);
 
-      fetch(`/api/srs?userId=${encodeURIComponent(savedEmail)}`)
-        .then((res) => res.json())
-        .then((json) => {
-          if (json.success && json.summary) {
-            setSrsSummary(json.summary);
-          }
-        })
-        .catch((err) => console.error("Error fetching SRS summary:", err));
+        fetch(`/api/progress?userId=${encodeURIComponent(savedEmail)}`)
+          .then((res) => res.json())
+          .then((json) => {
+            if (json.success && Array.isArray(json.data)) {
+              const remoteProgress: Record<string, { completed: boolean; bestSec?: number; stars: number }> = {};
+              json.data.forEach((row: any) => {
+                remoteProgress[row.stageId] = {
+                  completed: row.completed,
+                  stars: row.stars,
+                  bestSec: row.bestDurationMs ? Math.round((row.bestDurationMs / 1000) * 10) / 10 : undefined,
+                };
+              });
+              setProgress((prev) => ({ ...prev, ...remoteProgress }));
+            }
+          })
+          .catch((err) => console.error("Error fetching Neon progress:", err));
+
+        fetch(`/api/srs?userId=${encodeURIComponent(savedEmail)}`)
+          .then((res) => res.json())
+          .then((json) => {
+            if (json.success && json.summary) {
+              setSrsSummary(json.summary);
+            }
+          })
+          .catch((err) => console.error("Error fetching SRS summary:", err));
+      };
+
+      initAccountData();
     } else {
       // For guests: calculate SRS due summary purely from local browser storage
       try {
