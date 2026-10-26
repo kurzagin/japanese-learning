@@ -168,6 +168,18 @@ export const authClient = {
     if (typeof window !== "undefined") {
       localStorage.removeItem("sakana_user_email");
       localStorage.removeItem("sakana_user_id");
+      localStorage.removeItem("sakana_progress");
+      localStorage.removeItem("sakana_srs_records");
+
+      // Clean up migration tracking flags
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith("sakana_migrated_for_")) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach((k) => localStorage.removeItem(k));
     }
   },
 };

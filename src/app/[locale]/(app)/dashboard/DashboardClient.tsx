@@ -29,6 +29,9 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
     setIsLoggingOut(true);
     try {
       await authClient.signOut();
+      setProgress({});
+      setSrsSummary({ dueCount: 0, masteredCount: 0, totalStudied: 0 });
+      setUserEmail("guest@sakanajp.site");
     } catch (e) {
       console.error("Sign out error:", e);
     } finally {
@@ -76,6 +79,9 @@ export default function DashboardClient({ stages = [] }: { stages?: Stage[] }) {
                 };
               });
               setProgress((prev) => ({ ...prev, ...remoteProgress }));
+              try {
+                localStorage.setItem("sakana_progress", JSON.stringify(remoteProgress));
+              } catch {}
             }
           })
           .catch((err) => console.error("Error fetching Neon progress:", err));
