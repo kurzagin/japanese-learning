@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroWebring } from "@/components/RetroWebring";
+import { HomeFooter } from "@/components/HomeFooter";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
 import type { SiteStats } from "@/lib/site-stats";
@@ -327,17 +328,8 @@ export default function HomePage({ stats }: { stats: SiteStats }) {
         </div>
       </main>
 
-      {/* Docked Footer & Status Bar */}
-      <footer className="border-t border-[#808080] bg-[#d4d0c8] px-3 sm:px-6 py-2 text-[11px] text-[#404040] flex items-center justify-between font-mono shrink-0">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#00aa00]"></span>
-          <span>{t.home.footerStatus}</span>
-        </div>
-        <div className="flex items-center gap-4 text-[10px]">
-          <span className="hidden sm:inline">{t.home.footerTagline}</span>
-          <span className="border-l border-[#808080] pl-2 font-mono">{t.home.footerEncoding}</span>
-        </div>
-      </footer>
+      {/* Comprehensive SEO & Navigation Footer */}
+      <HomeFooter />
     </div>
   );
 }

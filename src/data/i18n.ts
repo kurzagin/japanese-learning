@@ -86,6 +86,34 @@ export interface TranslationSchema {
     footerStatus: string;
     footerTagline: string;
     footerEncoding: string;
+    footerBrand: string;
+    footerBadge: string;
+    footerDescription: string;
+    footerNavToolsTitle: string;
+    footerNavDocsTitle: string;
+    footerNavCurriculumTitle: string;
+    footerNavAboutTitle: string;
+    footerLinkCompare: string;
+    footerLinkConverter: string;
+    footerLinkHiraganaPdf: string;
+    footerLinkKatakanaPdf: string;
+    footerLinkDocs: string;
+    footerLinkSrs: string;
+    footerLinkAudio: string;
+    footerLinkArcade: string;
+    footerLinkApi: string;
+    footerLinkHiraganaBasic: string;
+    footerLinkKatakanaBasic: string;
+    footerLinkJlptN5: string;
+    footerLinkAnimeVocab: string;
+    footerLinkAbout: string;
+    footerLinkLogin: string;
+    footerLinkPrivacy: string;
+    footerLinkTos: string;
+    footerLinkGithub: string;
+    footerStarCtaTitle: string;
+    footerStarCtaDesc: string;
+    footerStarCtaBtn: string;
   };
   login: {
     windowTitle: string;
@@ -751,6 +779,36 @@ export const translations: Record<Locale, TranslationSchema> = {
       footerStatus: "SAKANA READY",
       footerTagline: "SAKANA PROJECT // KANA SPEED DRILL FOR ANIME FANS",
       footerEncoding: "UTF-8 // MULTILINGUAL",
+      footerBrand: "SaKana (魚) — Japanese Learning Platform",
+      footerBadge: "OPEN EDUCATIONAL RESOURCE",
+      footerDescription:
+        "SaKana is a free, recognition-first Japanese language learning platform built for anime fans, manga readers, and beginner Japanese learners. Master Hiragana, Katakana, and JLPT N5 vocabulary through spaced repetition (SRS), native Japanese TTS audio, lookalike character comparison guides, and printable study worksheets.",
+      footerNavToolsTitle: "LEARNING TOOLS",
+      footerNavDocsTitle: "GUIDES & DOCS",
+      footerNavCurriculumTitle: "CURRICULUM & SETS",
+      footerNavAboutTitle: "PROJECT & ACCESS",
+      footerLinkCompare: "Kana Lookalikes (Compare)",
+      footerLinkConverter: "Romaji ⇄ Kana Converter",
+      footerLinkHiraganaPdf: "Hiragana PDF Chart",
+      footerLinkKatakanaPdf: "Katakana PDF Chart",
+      footerLinkDocs: "Documentation Hub",
+      footerLinkSrs: "Spaced Repetition (SRS)",
+      footerLinkAudio: "Native Audio Phonetics",
+      footerLinkArcade: "Arcade Drill Mechanics",
+      footerLinkApi: "Developer REST API",
+      footerLinkHiraganaBasic: "Hiragana 46 Basic (Gojuon)",
+      footerLinkKatakanaBasic: "Katakana 46 Basic (Gojuon)",
+      footerLinkJlptN5: "JLPT N5 Core Vocabulary",
+      footerLinkAnimeVocab: "Anime & Manga Vocabulary",
+      footerLinkAbout: "About SaKana & Mission",
+      footerLinkLogin: "Student Sign In / Portal",
+      footerLinkPrivacy: "Privacy Policy",
+      footerLinkTos: "Terms of Service",
+      footerLinkGithub: "GitHub Repository",
+      footerStarCtaTitle: "★ SUPPORT SAKANA — STAR ON GITHUB",
+      footerStarCtaDesc:
+        "SaKana is 100% free and open-source under the Apache 2.0 license. If our speed drills and flashcards help you read Japanese, please support us by starring our repository on GitHub!",
+      footerStarCtaBtn: "★ Star on GitHub",
     },
     about: {
       windowTitle: "About SaKana",
@@ -1426,6 +1484,36 @@ export const translations: Record<Locale, TranslationSchema> = {
       footerStatus: "SAKANA SIAP",
       footerTagline: "PROYEK SAKANA // LATIHAN CEPAT KANA UNTUK PENGGEMAR ANIME",
       footerEncoding: "UTF-8 // MULTIBAHASA",
+      footerBrand: "SaKana (魚) — Platform Belajar Bahasa Jepang",
+      footerBadge: "SUMBER BELAJAR TERBUKA",
+      footerDescription:
+        "SaKana adalah platform belajar bahasa Jepang gratis berbasis pengenalan visual cepat yang dirancang untuk penggemar anime, pembaca manga, dan pemula. Kuasai Hiragana, Katakana, dan kosakata penting JLPT N5 melalui spaced repetition (SRS), audio pelafalan TTS native Jepang, panduan perbandingan karakter mirip, serta lembar latihan cetak PDF.",
+      footerNavToolsTitle: "ALAT BELAJAR",
+      footerNavDocsTitle: "PANDUAN & DOKUMEN",
+      footerNavCurriculumTitle: "KURIKULUM & MATERI",
+      footerNavAboutTitle: "PROYEK & AKSES",
+      footerLinkCompare: "Perbandingan Huruf Mirip",
+      footerLinkConverter: "Konverter Romaji ⇄ Kana",
+      footerLinkHiraganaPdf: "Bagan PDF Hiragana",
+      footerLinkKatakanaPdf: "Bagan PDF Katakana",
+      footerLinkDocs: "Pusat Dokumentasi",
+      footerLinkSrs: "Metodologi Spaced Repetition (SRS)",
+      footerLinkAudio: "Fonetik & Audio Native",
+      footerLinkArcade: "Mekanik Latihan Arcade",
+      footerLinkApi: "REST API Pengembang",
+      footerLinkHiraganaBasic: "Hiragana 46 Dasar (Gojuon)",
+      footerLinkKatakanaBasic: "Katakana 46 Dasar (Gojuon)",
+      footerLinkJlptN5: "Kosakata Inti JLPT N5",
+      footerLinkAnimeVocab: "Kosakata Anime & Manga",
+      footerLinkAbout: "Tentang SaKana & Misi",
+      footerLinkLogin: "Masuk / Portal Siswa",
+      footerLinkPrivacy: "Kebijakan Privasi",
+      footerLinkTos: "Syarat & Ketentuan",
+      footerLinkGithub: "Repositori GitHub",
+      footerStarCtaTitle: "★ DUKUNG SAKANA — BERIKAN BINTANG DI GITHUB",
+      footerStarCtaDesc:
+        "SaKana 100% gratis dan open-source dengan lisensi Apache 2.0. Jika latihan kecepatan dan flashcard SaKana membantumu belajar bahasa Jepang, dukung kami dengan memberi bintang di GitHub!",
+      footerStarCtaBtn: "★ Beri Bintang di GitHub",
     },
     about: {
       windowTitle: "Tentang SaKana",
@@ -2101,6 +2189,36 @@ export const translations: Record<Locale, TranslationSchema> = {
       footerStatus: "SAKANA 稼働中",
       footerTagline: "SAKANA PROJECT // アニメファンのためのかな文字高速ドリル",
       footerEncoding: "UTF-8 // 多言語対応",
+      footerBrand: "SaKana (魚) — 日本語・かな文字学習プラットフォーム",
+      footerBadge: "オープン学習リソース",
+      footerDescription:
+        "SaKana（魚）は、アニメファンや初学者のために設計された無料の日本語文字認識学習プラットフォームです。間隔反復記憶（SRS）、高音質ネイティブTTS音声、紛らわしいかな文字の視覚比較ドリル、印刷可能な練習シートを通じて、ひらがな・カタカナ・JLPT N5必須単語を最も効率的にマスターできます。",
+      footerNavToolsTitle: "学習ツール",
+      footerNavDocsTitle: "ガイド・解説書",
+      footerNavCurriculumTitle: "カリキュラム・学習項目",
+      footerNavAboutTitle: "SaKanaについて",
+      footerLinkCompare: "紛らわしい文字の比較ガイド",
+      footerLinkConverter: "ローマ字 ⇄ かな変換ツール",
+      footerLinkHiraganaPdf: "ひらがな練習表 PDF",
+      footerLinkKatakanaPdf: "カタカナ練習表 PDF",
+      footerLinkDocs: "ドキュメントTOP",
+      footerLinkSrs: "間隔反復 (SRS) 記憶術",
+      footerLinkAudio: "ネイティブ音声・発音解説",
+      footerLinkArcade: "アーケードエンジン仕様",
+      footerLinkApi: "開発者向け REST API",
+      footerLinkHiraganaBasic: "ひらがな五十音 (基本46字)",
+      footerLinkKatakanaBasic: "カタカナ五十音 (基本46字)",
+      footerLinkJlptN5: "JLPT N5 必須語彙集",
+      footerLinkAnimeVocab: "アニメ・マンガ頻出語彙",
+      footerLinkAbout: "SaKanaの理念・開発経緯",
+      footerLinkLogin: "生徒ログイン / ポータル",
+      footerLinkPrivacy: "プライバシーポリシー",
+      footerLinkTos: "利用規約",
+      footerLinkGithub: "GitHub リポジトリ",
+      footerStarCtaTitle: "★ SAKANA を応援 — GITHUB でスターを贈る",
+      footerStarCtaDesc:
+        "SaKanaはApache 2.0ライセンスの完全無料・オープンソースプロジェクトです。かな文字や語彙の習得に役立ちましたら、ぜひGitHubリポジトリにスターをお願いします！",
+      footerStarCtaBtn: "★ GitHub でスターする",
     },
     about: {
       windowTitle: "SaKanaについて",
