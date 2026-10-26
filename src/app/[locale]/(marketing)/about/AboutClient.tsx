@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FishIcon } from "@/components/FishIcon";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { useLanguage } from "@/context/LanguageContext";
+import type { SiteStats } from "@/lib/site-stats";
 import { 
   Bot, 
   Film, 
@@ -13,7 +14,6 @@ import {
   BookOpenCheck, 
   Sparkles,
   ArrowRight,
-  ShieldAlert,
   Star,
   CheckCircle2,
   Zap,
@@ -27,7 +27,7 @@ import {
   Binary
 } from "lucide-react";
 
-export default function AboutPage() {
+export default function AboutPage({ stats }: { stats: SiteStats }) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
 
@@ -287,11 +287,11 @@ export default function AboutPage() {
                       {t.about.currentList.stagesTitle}
                     </h2>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e6f4ea] border border-[#57ab5a] text-[#137333] font-bold">
-                      ACTIVE // 24+ STAGES
+                      ACTIVE // {stats.stagesTotal} STAGES
                     </span>
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
-                    {t.about.currentList.stagesDesc}
+                    {t.about.currentList.stagesDesc(stats.stagesTotal)}
                   </p>
                 </div>
               </div>
@@ -307,11 +307,11 @@ export default function AboutPage() {
                       href={`${prefix}/kana`}
                       className="text-xs sm:text-sm font-bold text-[#000080] hover:underline flex items-center gap-1"
                     >
-                      <span>{t.about.currentList.kanaDirectoryTitle}</span>
+                      <span>{t.about.currentList.kanaDirectoryTitle(stats.kanaTotal)}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#e8f0fe] border border-[#4285f4] text-[#1967d2] font-bold">
-                      ACTIVE // 436+ PROFILES
+                      ACTIVE // {stats.kanaTotal} PROFILES
                     </span>
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">
@@ -355,11 +355,11 @@ export default function AboutPage() {
                       href={`${prefix}/words/neko`}
                       className="text-xs sm:text-sm font-bold text-[#991b1b] hover:underline flex items-center gap-1"
                     >
-                      <span>{t.about.currentList.vocabularyDirectoryTitle}</span>
+                      <span>{t.about.currentList.vocabularyDirectoryTitle(stats.vocabTotal)}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#fee2e2] border border-[#ef4444] text-[#991b1b] font-bold">
-                      ACTIVE // 160+ WORD PAGES
+                      ACTIVE // {stats.vocabTotal} WORD PAGES
                     </span>
                   </div>
                   <p className="text-[11px] text-[#444] mt-1 leading-normal">

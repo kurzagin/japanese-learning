@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { getAllKana, getKanaBySlug } from "@/lib/db-data";
-import { getKanaSlug, KANA_ORIGINS, KANA_STROKE_COUNTS } from "@/lib/kana-seo";
+import { getKanaBySlug } from "@/lib/db-data";
+import { KANA_ORIGINS, KANA_STROKE_COUNTS } from "@/lib/kana-seo";
 
 export const size = {
   width: 1200,
@@ -10,21 +10,15 @@ export const contentType = "image/png";
 
 interface Props {
   params: Promise<{
+    locale?: string;
     script: string;
     slug: string;
   }>;
 }
 
-export async function generateImageMetadata() {
-  const allKana = await getAllKana();
-  return allKana.map((k) => ({
-    id: `${k.script}-${getKanaSlug(k)}`,
-    alt: `${k.character} (${k.romaji}) — SaKana Japanese Character Guide`,
-  }));
-}
-
 export default async function Image({ params }: Props) {
-  const { script, slug } = await params;
+  const { locale, script, slug } = await params;
+  const prefix = locale === "id" || locale === "ja" ? `/${locale}` : "";
   const kana = await getKanaBySlug(script, slug);
 
   const character = kana ? kana.character : "あ";
@@ -194,7 +188,7 @@ export default async function Image({ params }: Props) {
             paddingTop: "10px",
           }}
         >
-          <span>https://sakanajp.site/kana/{script}/{slug}</span>
+          <span>https://sakanajp.site{prefix}/kana/{script}/{slug}</span>
           <span>FREE AUDIO &amp; STROKE BREAKDOWN</span>
         </div>
       </div>

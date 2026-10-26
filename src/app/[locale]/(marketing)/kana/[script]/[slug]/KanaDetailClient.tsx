@@ -9,13 +9,11 @@ import { PronounceButton } from "@/components/PronounceButton";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowLeft,
-  Volume2,
   Sparkles,
   BookOpen,
   Layers,
   HelpCircle,
   Play,
-  Share2,
   CheckCircle,
   Scroll,
 } from "lucide-react";
@@ -24,14 +22,13 @@ interface KanaDetailClientProps {
   kana: KanaCharacter;
   slug: string;
   strokeCount: number | null;
-  sampleWord: { jp: string; en: string; id: string; ja: string } | null;
+  sampleWord: { jp: string; en: string; id: string; ja: string; slug?: string } | null;
   confusedKana: KanaCharacter[];
   origin?: KanaOrigin | null;
 }
 
 export default function KanaDetailClient({
   kana,
-  slug,
   strokeCount,
   sampleWord,
   confusedKana,
@@ -174,9 +171,18 @@ export default function KanaDetailClient({
                 {sampleWord ? (
                   <div className="mt-3 space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-[#000080]">
-                        {sampleWord.jp}
-                      </span>
+                      {sampleWord.slug ? (
+                        <Link
+                          href={`${prefix}/words/${sampleWord.slug}`}
+                          className="text-xl font-bold text-[#000080] hover:underline"
+                        >
+                          {sampleWord.jp}
+                        </Link>
+                      ) : (
+                        <span className="text-xl font-bold text-[#000080]">
+                          {sampleWord.jp}
+                        </span>
+                      )}
                       <PronounceButton
                         text={sampleWord.jp.split(" ")[0]}
                         size="sm"
@@ -216,9 +222,18 @@ export default function KanaDetailClient({
             </div>
             <div className="mt-3 flex items-center justify-between">
               <div>
-                <div className="text-xl font-bold text-[#000080]">
-                  {sampleWord.jp}
-                </div>
+                {sampleWord.slug ? (
+                  <Link
+                    href={`${prefix}/words/${sampleWord.slug}`}
+                    className="block text-xl font-bold text-[#000080] hover:underline"
+                  >
+                    {sampleWord.jp}
+                  </Link>
+                ) : (
+                  <div className="text-xl font-bold text-[#000080]">
+                    {sampleWord.jp}
+                  </div>
+                )}
                 <div className="text-xs text-[#555] font-mono mt-0.5">
                   {t.kanaDetail.vocabMeaning} <strong>{sampleMeaning}</strong>
                 </div>

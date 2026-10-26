@@ -10,13 +10,41 @@ let cachedKana: KanaCharacter[] | null = null;
 let cachedVocab: VocabWord[] | null = null;
 let cachedStages: Stage[] | null = null;
 
+interface RawKanaItem {
+  id: string;
+  script: string;
+  character: string;
+  romaji: string;
+  type: string;
+  row: string;
+  hint_en?: string;
+  hint_id?: string;
+  hint_ja?: string;
+}
+
+interface RawVocabItem {
+  slug: string;
+  character: string;
+  romaji: string;
+  script: string;
+  kanji?: string | null;
+  jlpt?: string;
+  primary_kana_id?: string | null;
+  meaning: unknown;
+  trivia?: unknown;
+  furigana?: unknown;
+  sentence?: unknown;
+  kanjiOptions?: unknown;
+  kanji_options?: unknown;
+}
+
 /**
  * Fetch all Kana characters from static JSON (instant 0ms lookup)
  */
 export async function getAllKana(): Promise<KanaCharacter[]> {
   if (cachedKana) return cachedKana;
 
-  cachedKana = (rawKana as any[]).map((r) => ({
+  cachedKana = (rawKana as unknown as RawKanaItem[]).map((r) => ({
     id: r.id,
     script: r.script as KanaScript,
     character: r.character,
@@ -45,9 +73,10 @@ export async function getKanaByScript(script: KanaScript): Promise<KanaCharacter
  * Find single Kana by script and URL slug (e.g. "hiragana", "a")
  */
 export async function getKanaBySlug(
-  script: string,
-  slug: string
+  script?: string,
+  slug?: string
 ): Promise<KanaCharacter | undefined> {
+  if (!script || !slug) return undefined;
   const all = await getAllKana();
   const normScript = script.toLowerCase();
   const normSlug = slug.toLowerCase();
@@ -66,13 +95,17 @@ export async function getKanaById(id: string): Promise<KanaCharacter | undefined
   return all.find((k) => k.id === id);
 }
 
+function parseJsonField<T>(val: unknown): T {
+  return (typeof val === "string" ? JSON.parse(val) : val) as T;
+}
+
 /**
  * Fetch all Vocabulary from static JSON (instant 0ms lookup)
  */
 export async function getAllVocabulary(): Promise<VocabWord[]> {
   if (cachedVocab) return cachedVocab;
 
-  cachedVocab = (rawVocab as any[]).map((r) => ({
+  cachedVocab = (rawVocab as unknown as RawVocabItem[]).map((r) => ({
     slug: r.slug,
     character: r.character,
     romaji: r.romaji,
@@ -80,11 +113,11 @@ export async function getAllVocabulary(): Promise<VocabWord[]> {
     kanji: r.kanji || null,
     jlpt: (r.jlpt as VocabWord["jlpt"]) || undefined,
     primaryKanaId: r.primary_kana_id || undefined,
-    meaning: typeof r.meaning === "string" ? JSON.parse(r.meaning) : r.meaning,
-    trivia: r.trivia ? (typeof r.trivia === "string" ? JSON.parse(r.trivia) : r.trivia) : undefined,
-    furigana: r.furigana ? (typeof r.furigana === "string" ? JSON.parse(r.furigana) : r.furigana) as FuriganaSegment[] : undefined,
-    sentence: r.sentence ? (typeof r.sentence === "string" ? JSON.parse(r.sentence) : r.sentence) as VocabSentence : undefined,
-    kanjiOptions: r.kanjiOptions || r.kanji_options ? (typeof (r.kanjiOptions || r.kanji_options) === "string" ? JSON.parse(r.kanjiOptions || r.kanji_options) : (r.kanjiOptions || r.kanji_options)) as KanjiOption[] : undefined,
+    meaning: parseJsonField<VocabWord["meaning"]>(r.meaning),
+    trivia: r.trivia ? parseJsonField<VocabWord["trivia"]>(r.trivia) : undefined,
+    furigana: r.furigana ? parseJsonField<FuriganaSegment[]>(r.furigana) : undefined,
+    sentence: r.sentence ? parseJsonField<VocabSentence>(r.sentence) : undefined,
+    kanjiOptions: r.kanjiOptions || r.kanji_options ? parseJsonField<KanjiOption[]>(r.kanjiOptions || r.kanji_options) : undefined,
   }));
 
   return cachedVocab;
@@ -93,7 +126,8 @@ export async function getAllVocabulary(): Promise<VocabWord[]> {
 /**
  * Find single vocabulary item by slug
  */
-export async function getWordBySlug(slug: string): Promise<VocabWord | undefined> {
+export async function getWordBySlug(slug?: string): Promise<VocabWord | undefined> {
+  if (!slug) return undefined;
   const all = await getAllVocabulary();
   const normSlug = slug.toLowerCase();
   return all.find((w) => w.slug === normSlug);
@@ -128,13 +162,6 @@ export async function getConstituentKana(
       if (matchTwo) {
         if (!matched.some((m) => m.id === matchTwo.id)) {
           matched.push(matchTwo);
-        }
-        // Also include the base kana of the digraph
-        const baseOne = all.find(
-          (k) => k.character === text[i] && k.script === word.script
-        );
-        if (baseOne && !matched.some((m) => m.id === baseOne.id)) {
-          matched.push(baseOne);
         }
         i += 2;
         continue;

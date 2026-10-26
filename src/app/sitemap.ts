@@ -83,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  // Dynamic programmatic Kana character pages (219 characters)
+  // Dynamic programmatic Kana character pages (all characters from kana.json)
   const kanaRoutes: MetadataRoute.Sitemap = allKana.flatMap((kana) => {
     const path = `/kana/${kana.script}/${getKanaSlug(kana)}`;
     return createLocalizedEntries(path, {
@@ -123,7 +123,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // Dynamic vocabulary detail pages (161 words)
+  // Dynamic vocabulary detail pages (all words from vocab.json)
   const vocabRoutes: MetadataRoute.Sitemap = allVocab.flatMap((word) => {
     const path = `/words/${word.slug}`;
     return createLocalizedEntries(path, {

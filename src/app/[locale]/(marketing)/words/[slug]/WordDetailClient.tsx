@@ -10,12 +10,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
 import {
   ArrowLeft,
-  Volume2,
   Sparkles,
   BookOpen,
   ArrowRight,
-  ExternalLink,
-  Tag,
   Compass,
 } from "lucide-react";
 
@@ -233,7 +230,7 @@ export default function WordDetailClient({
                         <div className="flex flex-col items-end gap-1">
                           {isSelected && (
                             <span className="text-[9px] font-mono font-bold uppercase bg-[#800000] text-white px-1.5 py-0.5">
-                              Current Page
+                              {t.wordDetail.currentPageBadge}
                             </span>
                           )}
                           {opt.pitchAccent && (

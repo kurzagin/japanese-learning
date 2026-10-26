@@ -17,7 +17,7 @@ const META_BY_LOCALE = {
       "Explore the complete Japanese Kana reference directory. Comprehensive Hiragana and Katakana matrix (Gojūon, Dakuon, Handakuon, Yōon) with romaji, stroke counts, audio pronunciation, and mnemonics.",
     ogTitle: "Complete Japanese Kana Chart — Hiragana & Katakana | SaKana",
     ogDescription:
-      "Interactive 400+ character Japanese Hiragana and Katakana chart with romaji, audio pronunciation, stroke order, and speed-reading drills.",
+      "Interactive {count}-character Japanese Hiragana and Katakana chart with romaji, audio pronunciation, stroke order, and speed-reading drills.",
   },
   id: {
     title: "Tabel Kana Jepang — Direktori Lengkap Hiragana & Katakana",
@@ -25,12 +25,12 @@ const META_BY_LOCALE = {
       "Jelajahi direktori referensi Kana Jepang terlengkap. Matriks komprehensif Hiragana dan Katakana (Gojūon, Dakuon, Handakuon, Yōon) dengan romaji, audio, dan jembatan keledai.",
     ogTitle: "Tabel Lengkap Kana Jepang — Hiragana & Katakana | SaKana",
     ogDescription:
-      "Bagan interaktif 400+ karakter Hiragana dan Katakana dengan audio pengucapan TTS native dan drill pengenalan cepat.",
+      "Bagan interaktif {count} karakter Hiragana dan Katakana dengan audio pengucapan TTS native dan drill pengenalan cepat.",
   },
   ja: {
     title: "日本語五十音図・かな一覧表 — ひらがな・カタカナ完全リファレンス",
     description:
-      "200字以上のひらがな・カタカナを網羅した五十音図リファレンス。清音（46音）、濁音・半濁音、拗音を網羅し、クリアな発音音声と書き順情報、単語例を掲載。",
+      "全{count}字のひらがな・カタカナを網羅した五十音図リファレンス。清音（46音）、濁音・半濁音、拗音を網羅し、クリアな発音音声と書き順情報、単語例を掲載。",
     ogTitle: "日本語五十音図（かな文字リファレンス） | SaKana",
     ogDescription:
       "ネイティブ音声合成（TTS）付きの五十音図マトリックス。瞬時認識ドリルと連動した対話型かな一覧表。",
@@ -41,19 +41,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
 
+  const count = String((await getAllKana()).length);
   const meta = META_BY_LOCALE[locale];
   const alternates = getHreflangAlternates("/kana");
 
   return {
     title: meta.title,
-    description: meta.description,
+    description: meta.description.replace("{count}", count),
     alternates: {
       canonical: alternates.languages[locale] || alternates.canonical,
       languages: alternates.languages,
     },
     openGraph: {
       title: meta.ogTitle,
-      description: meta.ogDescription,
+      description: meta.ogDescription.replace("{count}", count),
       url: alternates.languages[locale] || alternates.canonical,
     },
   };

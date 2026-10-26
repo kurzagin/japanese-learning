@@ -62,10 +62,10 @@ export interface TranslationSchema {
     hiraganaBasicLink: string;
     katakanaBasicLink: string;
     vocabTitle: string;
-    vocabDesc: string;
-    vocabFullLink: string;
-    jlptN5Link: string;
-    animeVocabLink: string;
+    vocabDesc: (total: number) => string;
+    vocabFullLink: (total: number) => string;
+    jlptN5Link: (count: number) => string;
+    animeVocabLink: (count: number) => string;
     sakanaWordLink: string;
     lookalikeTitle: string;
     lookalikeDesc: string;
@@ -311,12 +311,12 @@ export interface TranslationSchema {
       bidirectionalTitle: string;
       bidirectionalDesc: string;
       stagesTitle: string;
-      stagesDesc: string;
-      kanaDirectoryTitle: string;
+      stagesDesc: (count: number) => string;
+      kanaDirectoryTitle: (count: number) => string;
       kanaDirectoryDesc: string;
       categoryHubsTitle: string;
       categoryHubsDesc: string;
-      vocabularyDirectoryTitle: string;
+      vocabularyDirectoryTitle: (count: number) => string;
       vocabularyDirectoryDesc: string;
       kanaCompareTitle: string;
       kanaCompareDesc: string;
@@ -385,11 +385,8 @@ export interface TranslationSchema {
     hiraganaPdfBtn: string;
     katakanaPdfBtn: string;
     browseCategoriesLabel: string;
-    hiraganaGojuonBadge: string;
-    hiraganaDakuonBadge: string;
-    hiraganaYoonBadge: string;
-    katakanaGojuonBadge: string;
-    katakanaExtendedBadge: string;
+    categoryBadge: (script: string, type: string, count: number) => string;
+    extended: string;
     hiraganaTab: string;
     katakanaTab: string;
     allTypes: string;
@@ -516,9 +513,9 @@ export interface TranslationSchema {
     badge: string;
     title: (count: number) => string;
     description: string;
-    jlptN5Btn: (count?: number) => string;
-    jlptN4Btn: (count?: number) => string;
-    animePopBtn: (count?: number) => string;
+    jlptN5Btn: (count: number) => string;
+    jlptN4Btn: (count: number) => string;
+    animePopBtn: (count: number) => string;
     kanaMatrixBtn: string;
     lookalikesBtn: string;
     allTab: (count: number) => string;
@@ -546,6 +543,7 @@ export interface TranslationSchema {
     strokeOrderLink: string;
     relatedWordsHeader: (script: string) => string;
     returnBtn: string;
+    currentPageBadge: string;
     homophonesHeader: string;
     homophonesSub: string;
     pitchAccentLabel: string;
@@ -729,10 +727,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaBasicLink: "Hiragana Basic (46)",
       katakanaBasicLink: "Katakana Basic (46)",
       vocabTitle: "ANIME & CORE VOCABULARY",
-      vocabDesc: "161 words: iconic anime reactions, loanwords, and essential daily Japanese with audio.",
-      vocabFullLink: "161-Word Directory",
-      jlptN5Link: "JLPT N5 Vocabulary (105)",
-      animeVocabLink: "Anime & Pop Culture (9)",
+      vocabDesc: (total: number) => `${total} words: iconic anime reactions, loanwords, and essential daily Japanese with audio.`,
+      vocabFullLink: (total: number) => `${total}-Word Directory`,
+      jlptN5Link: (count: number) => `JLPT N5 Vocabulary (${count})`,
+      animeVocabLink: (count: number) => `Anime & Pop Culture (${count})`,
       sakanaWordLink: "さかな (Fish / SaKana)",
       lookalikeTitle: "LOOKALIKE GUIDES",
       lookalikeDesc: "Side-by-side visual difference guides for the most confusing Japanese characters.",
@@ -812,12 +810,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalTitle: "Multimodal Test (Kana ⇄ Romaji & Audio Drills)",
         bidirectionalDesc: "Randomized test questions challenging visual recognition (Kana ➔ Romaji), active recall (Romaji ➔ Kana), and optional auditory recognition (Audio ➔ Kana & Audio ➔ Romaji).",
         stagesTitle: "Progressive Sectors & The Shallows to The Reef",
-        stagesDesc: "Curated learning paths through 24+ stages across Hiragana, Katakana, and essential pop-culture anime loanwords.",
-        kanaDirectoryTitle: "Interactive Kana Matrix & 436+ Detail Profiles",
+        stagesDesc: (count: number) => `Curated learning paths through ${count} stages across Hiragana, Katakana, and essential pop-culture anime loanwords.`,
+        kanaDirectoryTitle: (count: number) => `Interactive Kana Matrix & ${count} Character Detail Profiles`,
         kanaDirectoryDesc: "Complete phonetic directory covering Gojūon, Dakuon, Handakuon, and Yōon with stroke counts, mnemonics, audio pronunciation, and vocabulary examples.",
         categoryHubsTitle: "Dedicated Kana Category Hubs (Gojūon, Dakuon, Yōon, Extended)",
         categoryHubsDesc: "Focused phonetic hub portals with complete character rosters, linguistic explanations, and dedicated audio sets for each Japanese sound group.",
-        vocabularyDirectoryTitle: "Core & Anime Vocabulary Dictionary (160+ Words)",
+        vocabularyDirectoryTitle: (count: number) => `Core & Anime Vocabulary Dictionary (${count} Words)`,
         vocabularyDirectoryDesc: "Individual standalone word pages featuring native TTS audio pronunciation, constituent Kana character breakdowns, definitions, and pop-culture trivia.",
         kanaCompareTitle: "18 Lookalike Comparison Guides (シ vs ツ, さ vs き, ソ vs ン)",
         kanaCompareDesc: "Anatomical breakdowns, stroke trajectory indicators, and memory tricks to resolve commonly confused character pairs.",
@@ -1052,11 +1050,12 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaPdfBtn: "HIRAGANA PDF CHART (HORIZONTAL)",
       katakanaPdfBtn: "KATAKANA PDF CHART (HORIZONTAL)",
       browseCategoriesLabel: "Browse Categories:",
-      hiraganaGojuonBadge: "Hiragana Gojūon (46)",
-      hiraganaDakuonBadge: "Hiragana Dakuon (20)",
-      hiraganaYoonBadge: "Hiragana Yōon (33)",
-      katakanaGojuonBadge: "Katakana Gojūon (46)",
-      katakanaExtendedBadge: "Extended Katakana (10)",
+      categoryBadge: (script: string, type: string, count: number) => {
+        const scripts: Record<string, string> = { hiragana: "Hiragana", katakana: "Katakana" };
+        const types: Record<string, string> = { gojuon: "Gojūon", dakuon: "Dakuon", handakuon: "Handakuon", yoon: "Yōon", extended: "Extended" };
+        return `${scripts[script] ?? script} ${types[type] ?? type} (${count})`;
+      },
+      extended: "Extended Katakana",
       hiraganaTab: "HIRAGANA (ひらがな)",
       katakanaTab: "KATAKANA (カタカナ)",
       allTypes: "All Types",
@@ -1183,9 +1182,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "Japanese Core Vocabulary Dictionary",
       title: (count: number) => `JAPANESE CORE VOCABULARY DIRECTORY (${count} WORDS)`,
       description: "Browse elementary Hiragana and Katakana vocabulary words with full pronunciation audio, spelling breakdowns, multilingual definitions, and practice flashcards.",
-      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
-      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
-      animePopBtn: (count: number = 9) => `Anime & Pop Culture (${count})`,
+      jlptN5Btn: (count: number) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number) => `Anime & Pop Culture (${count})`,
       kanaMatrixBtn: "KANA MATRIX",
       lookalikesBtn: "LOOKALIKES",
       allTab: (count: number) => `ALL (${count})`,
@@ -1202,7 +1201,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       edu3Desc: "Our curated dictionary features essential conversational Japanese, loanwords (Gairaigo), and iconic pop-culture vocabulary seen in anime dialogue.",
     },
     wordDetail: {
-      breadcrumbHub: "KANA HUB",
+      breadcrumbHub: "WORDS HUB",
       badge: (script: string) => `Japanese Vocabulary Word • ${script}`,
       kanaLabel: "Kana:",
       popCultureBadge: "POP CULTURE / ANIME",
@@ -1212,7 +1211,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       breakdownDesc: "Click any character below to learn its stroke order, audio, and mnemonics:",
       strokeOrderLink: "Stroke Order",
       relatedWordsHeader: (script: string) => `Related ${script} Words`,
-      returnBtn: "RETURN TO KANA HUB",
+      returnBtn: "RETURN TO WORDS HUB",
+      currentPageBadge: "Current Page",
       homophonesHeader: "Kanji Variations & Homophone Disambiguation (同音異義語)",
       homophonesSub: "In Japanese, identical kana readings can represent completely different Kanji with distinct meanings and pitch accents:",
       pitchAccentLabel: "Pitch Accent",
@@ -1402,10 +1402,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaBasicLink: "Hiragana Dasar (46)",
       katakanaBasicLink: "Katakana Dasar (46)",
       vocabTitle: "KOSAKATA ANIME & INTI",
-      vocabDesc: "161 kata: ekspresi ikonik anime, kata serapan, dan kosakata harian penting dengan audio.",
-      vocabFullLink: "Direktori 161 Kata",
-      jlptN5Link: "Kosakata JLPT N5 (105)",
-      animeVocabLink: "Anime & Kultur Pop (9)",
+      vocabDesc: (total: number) => `${total} kata: ekspresi ikonik anime, kata serapan, dan kosakata harian penting dengan audio.`,
+      vocabFullLink: (total: number) => `Direktori ${total} Kata`,
+      jlptN5Link: (count: number) => `Kosakata JLPT N5 (${count})`,
+      animeVocabLink: (count: number) => `Anime & Kultur Pop (${count})`,
       sakanaWordLink: "さかな (Ikan / SaKana)",
       lookalikeTitle: "PANDUAN HURUF MIRIP",
       lookalikeDesc: "Panduan perbandingan visual berdampingan untuk karakter Jepang yang paling sering tertukar.",
@@ -1485,12 +1485,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalTitle: "Ujian Multimodal (Kana ⇄ Romaji & Soal Audio)",
         bidirectionalDesc: "Pertanyaan tes acak menguji pengenalan visual (Kana ➔ Romaji), ingatan aktif (Romaji ➔ Kana), serta soal pendengaran opsional (Audio ➔ Kana & Audio ➔ Romaji).",
         stagesTitle: "Sektor Belajar Bertahap (The Shallows hingga The Reef)",
-        stagesDesc: "Kurikulum terstruktur melalui 24+ stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.",
-        kanaDirectoryTitle: "Matriks Lengkap Kana & 436+ Profil Karakter",
+        stagesDesc: (count: number) => `Kurikulum terstruktur melalui ${count} stage mulai dari Hiragana dasar, Katakana, hingga kata serapan anime & budaya pop.`,
+        kanaDirectoryTitle: (count: number) => `Matriks Lengkap Kana & ${count} Profil Karakter`,
         kanaDirectoryDesc: "Direktori fonetik menyeluruh (Gojūon, Dakuon, Handakuon, Yōon) dilengkapi jumlah goresan, mnemonik visual, pelafalan audio, dan contoh kosakata dasar.",
         categoryHubsTitle: "Portal Kategori Khusus (Gojūon, Dakuon, Yōon, Extended)",
         categoryHubsDesc: "Halaman khusus per kelompok bunyi dengan roster karakter lengkap, penjelasan fonetik, audio, dan sistem klasifikasi alfabet.",
-        vocabularyDirectoryTitle: "Kamus Kosakata Inti & Populer Anime (160+ Kata)",
+        vocabularyDirectoryTitle: (count: number) => `Kamus Kosakata Inti & Populer Anime (${count} Kata)`,
         vocabularyDirectoryDesc: "Halaman profil tiap kata Jepang dengan pelafalan audio TTS native, dekonstruksi karakter pembentuknya, arti kata, dan trivia budaya pop.",
         kanaCompareTitle: "18 Panduan Perbandingan Huruf Mirip (シ vs ツ, さ vs き, ソ vs ン)",
         kanaCompareDesc: "Analisis arah goresan, sudut kelengkungan, dan trik memori visual untuk membedakan huruf Jepang yang sering tertukar.",
@@ -1725,11 +1725,12 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaPdfBtn: "BAGAN PDF HIRAGANA (HORIZONTAL)",
       katakanaPdfBtn: "BAGAN PDF KATAKANA (HORIZONTAL)",
       browseCategoriesLabel: "Telusuri Kategori:",
-      hiraganaGojuonBadge: "Hiragana Gojūon (46)",
-      hiraganaDakuonBadge: "Hiragana Dakuon (20)",
-      hiraganaYoonBadge: "Hiragana Yōon (33)",
-      katakanaGojuonBadge: "Katakana Gojūon (46)",
-      katakanaExtendedBadge: "Katakana Tambahan (10)",
+      categoryBadge: (script: string, type: string, count: number) => {
+        const scripts: Record<string, string> = { hiragana: "Hiragana", katakana: "Katakana" };
+        const types: Record<string, string> = { gojuon: "Gojūon", dakuon: "Dakuon", handakuon: "Handakuon", yoon: "Yōon", extended: "Tambahan" };
+        return `${scripts[script] ?? script} ${types[type] ?? type} (${count})`;
+      },
+      extended: "Katakana Tambahan",
       hiraganaTab: "HIRAGANA (ひらがな)",
       katakanaTab: "KATAKANA (カタカナ)",
       allTypes: "Semua Jenis",
@@ -1856,9 +1857,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "Kamus Kosakata Inti Bahasa Jepang",
       title: (count: number) => `DIREKTORI KOSAKATA INTI JEPANG (${count} KATA)`,
       description: "Jelajahi kosakata dasar Hiragana dan Katakana lengkap dengan audio pelafalan, rincian ejaan per karakter, arti multibahasa, dan flashcard latihan.",
-      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
-      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
-      animePopBtn: (count: number = 9) => `Anime & Kultur Pop (${count})`,
+      jlptN5Btn: (count: number) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number) => `Anime & Kultur Pop (${count})`,
       kanaMatrixBtn: "MATRIKS KANA",
       lookalikesBtn: "HURUF MIRIP",
       allTab: (count: number) => `SEMUA (${count})`,
@@ -1875,7 +1876,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       edu3Desc: "Kamus terkurasi kami mencakup bahasa Jepang percakapan penting, kata serapan (Gairaigo), dan kosakata kultur pop ikonik yang sering muncul dalam dialog anime.",
     },
     wordDetail: {
-      breadcrumbHub: "PUSAT KANA",
+      breadcrumbHub: "PUSAT KOSAKATA",
       badge: (script: string) => `Kosakata Bahasa Jepang • ${script}`,
       kanaLabel: "Kana:",
       popCultureBadge: "KULTUR POP / ANIME",
@@ -1885,7 +1886,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       breakdownDesc: "Klik karakter mana saja di bawah untuk mempelajari urutan goresan, audio, dan mnemoniknya:",
       strokeOrderLink: "Urutan Goresan",
       relatedWordsHeader: (script: string) => `Kosakata ${script} Terkait`,
-      returnBtn: "KEMBALI KE PUSAT KANA",
+      returnBtn: "KEMBALI KE PUSAT KOSAKATA",
+      currentPageBadge: "Halaman Ini",
       homophonesHeader: "Variasi Kanji & Pembedaan Homofon (同音異義語)",
       homophonesSub: "Dalam bahasa Jepang, bunyi kana yang sama persis dapat ditulis dengan Kanji berbeda yang memiliki arti dan tinggi-rendah nada (pitch accent) berbeda:",
       pitchAccentLabel: "Pitch Accent (Aksen Nada)",
@@ -2075,10 +2077,10 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaBasicLink: "ひらがな基本46文字",
       katakanaBasicLink: "カタカナ基本46文字",
       vocabTitle: "アニメ＆基礎重要単語",
-      vocabDesc: "全161語：アニメの定番表現、外来語、日常の重要基礎単語を音声付きで収録。",
-      vocabFullLink: "全161語 単語ディレクトリ",
-      jlptN5Link: "JLPT N5 必須単語 (105)",
-      animeVocabLink: "アニメ＆ポップカルチャー語彙 (9)",
+      vocabDesc: (total: number) => `全${total}語：アニメの定番表現、外来語、日常の重要基礎単語を音声付きで収録。`,
+      vocabFullLink: (total: number) => `全${total}語 単語ディレクトリ`,
+      jlptN5Link: (count: number) => `JLPT N5 必須単語 (${count})`,
+      animeVocabLink: (count: number) => `アニメ＆ポップカルチャー語彙 (${count})`,
       sakanaWordLink: "さかな (魚 / SaKana)",
       lookalikeTitle: "紛らわしい文字の比較ガイド",
       lookalikeDesc: "間違いやすい日本語のかな文字ペアを並べて見分ける視覚徹底ガイド。",
@@ -2158,12 +2160,12 @@ export const translations: Record<Locale, TranslationSchema> = {
         bidirectionalTitle: "マルチモーダル試練（仮名 ⇄ ローマ字・音声問題）",
         bidirectionalDesc: "「仮名 ➔ ローマ字」の読解認識と「ローマ字 ➔ 仮名」の能動想起、さらに音声聞き取り問題（音声 ➔ 仮名・音声 ➔ ローマ字）がランダムに混ざり合います。",
         stagesTitle: "段階的な海域ステージ構成（平仮名〜片仮名〜実戦単語）",
-        stagesDesc: "平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全24以上のステージを網羅。",
-        kanaDirectoryTitle: "五十音図インタラクティブ図鑑（436文字完全収録）",
+        stagesDesc: (count: number) => `平仮名基礎から片仮名、そしてアニメ・ポップカルチャーの外来語まで全${count}ステージを網羅。`,
+        kanaDirectoryTitle: (count: number) => `五十音図インタラクティブ図鑑（全${count}文字完全収録）`,
         kanaDirectoryDesc: "清音・濁音・半濁音・拗音を網羅。筆順画数、視覚的記憶ヒント、ネイティブTTS音声、基礎単語の完全リファレンス。",
         categoryHubsTitle: "体系別カテゴリ特設ポータル（清音・濁音・拗音・外来音）",
         categoryHubsDesc: "五十音各行、濁音、半濁音、拗音、現代外来音の音韻体系ごとに独立した解説と文字一覧ハブページ。",
-        vocabularyDirectoryTitle: "重要実戦単語・アニメ語彙辞書（160単語超）",
+        vocabularyDirectoryTitle: (count: number) => `重要実戦単語・アニメ語彙辞書（全${count}単語）`,
         vocabularyDirectoryDesc: "単語ごとのネイティブTTS音声、構成かな文字への逆引きリンク、意味、ポップカルチャー豆知識を備えた単語個別ページ群。",
         kanaCompareTitle: "18組の紛らわしい文字比較徹底解説（シ vs ツ、さ vs き、ソ vs ン 等）",
         kanaCompareDesc: "書き出し方向、角度の違い、混乱しやすい文字を一瞬で見分ける記憶の秘訣を視覚的に解説。",
@@ -2398,11 +2400,12 @@ export const translations: Record<Locale, TranslationSchema> = {
       hiraganaPdfBtn: "ひらがなPDF一覧表 (A4横)",
       katakanaPdfBtn: "カタカナPDF一覧表 (A4横)",
       browseCategoriesLabel: "カテゴリ別一覧:",
-      hiraganaGojuonBadge: "ひらがな 五十音 (46)",
-      hiraganaDakuonBadge: "ひらがな 濁音 (20)",
-      hiraganaYoonBadge: "ひらがな 拗音 (33)",
-      katakanaGojuonBadge: "カタカナ 五十音 (46)",
-      katakanaExtendedBadge: "拡張カタカナ (10)",
+      categoryBadge: (script: string, type: string, count: number) => {
+        const scripts: Record<string, string> = { hiragana: "ひらがな", katakana: "カタカナ" };
+        const types: Record<string, string> = { gojuon: "五十音", dakuon: "濁音", handakuon: "半濁音", yoon: "拗音", extended: "拡張" };
+        return `${scripts[script] ?? script} ${types[type] ?? type} (${count})`;
+      },
+      extended: "拡張カタカナ",
       hiraganaTab: "平仮名 (ひらがな)",
       katakanaTab: "片仮名 (カタカナ)",
       allTypes: "全種類",
@@ -2529,9 +2532,9 @@ export const translations: Record<Locale, TranslationSchema> = {
       badge: "日本語基礎＆アニメ重要語彙辞典",
       title: (count: number) => `日本語コア単語ディレクトリ (全${count}語)`,
       description: "基礎的なひらがな・カタカナ単語をネイティブ発音音声、構成文字の分解解説、多言語の意味、反復練習カードとともに収録しています。",
-      jlptN5Btn: (count: number = 105) => `JLPT N5 (${count})`,
-      jlptN4Btn: (count: number = 47) => `JLPT N4 (${count})`,
-      animePopBtn: (count: number = 9) => `アニメ＆ポップカルチャー (${count})`,
+      jlptN5Btn: (count: number) => `JLPT N5 (${count})`,
+      jlptN4Btn: (count: number) => `JLPT N4 (${count})`,
+      animePopBtn: (count: number) => `アニメ＆ポップカルチャー (${count})`,
       kanaMatrixBtn: "五十音図",
       lookalikesBtn: "類似文字比較",
       allTab: (count: number) => `すべて (${count})`,
@@ -2548,7 +2551,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       edu3Desc: "日常会話の必須単語から外来語、そしてアニメの台詞で頻繁に登場する象徴的なポップカルチャー語彙まで厳選して収録しています。",
     },
     wordDetail: {
-      breadcrumbHub: "五十音図ハブ",
+      breadcrumbHub: "単語ハブ",
       badge: (script: string) => `日本語単語カルテ • ${script}`,
       kanaLabel: "かな表記:",
       popCultureBadge: "ポップカルチャー / アニメ",
@@ -2558,7 +2561,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       breakdownDesc: "下の各文字をクリックすると、画数・発音音声・記憶ヒントを確認できます：",
       strokeOrderLink: "画数・詳細",
       relatedWordsHeader: (script: string) => `関連する${script}の単語`,
-      returnBtn: "五十音図ハブへ戻る",
+      returnBtn: "単語ハブへ戻る",
+      currentPageBadge: "現在のページ",
       homophonesHeader: "漢字の書き分け・同音異義語の判別",
       homophonesSub: "日本語では同じ「かな読み」でも、文脈やアクセントによって異なる漢字と意味に対応します：",
       pitchAccentLabel: "アクセント型",

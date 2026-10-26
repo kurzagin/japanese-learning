@@ -93,11 +93,10 @@ export function PrintableKanaChartClient({
         ? "Hiragana"
         : "Katakana";
 
-  const primitives: KanaCharacter[] = kanaList || [];
-
   // Lookup map: romaji -> KanaCharacter
   const kanaMap = React.useMemo(() => {
     const map = new Map<string, KanaCharacter>();
+    const primitives: KanaCharacter[] = kanaList || [];
     for (const item of primitives) {
       if (item.id === "h-dji" || item.id === "k-dji") {
         map.set("ji(di)", item);
@@ -110,7 +109,7 @@ export function PrintableKanaChartClient({
       map.set(item.romaji.toLowerCase(), item);
     }
     return map;
-  }, [primitives]);
+  }, [kanaList]);
 
   const handlePrint = () => {
     window.print();
@@ -259,7 +258,7 @@ export function PrintableKanaChartClient({
                 </h2>
               </div>
               <div className="text-right text-[10px] font-mono text-[#555555]">
-                <div className="font-bold text-[#800000]">sakanajp.site/tools/{script}-chart-pdf</div>
+                <div className="font-bold text-[#800000]">sakanajp.site{prefix}/tools/{script}-chart-pdf</div>
                 <div>{t.pdfChart.sheetSub(script)}</div>
               </div>
             </div>
@@ -278,19 +277,19 @@ export function PrintableKanaChartClient({
                       <tr className="bg-[#f0f4f8] text-[#000080] font-bold border-b border-[#000080]">
                         <th className="py-1 px-1 border-r border-[#000080] w-16 text-[10px]">{t.pdfChart.rowCol}</th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
-                          a ({script === "hiragana" ? "あ" : "ア"})
+                          a ({kanaMap.get("a")?.character ?? (script === "hiragana" ? "あ" : "ア")})
                         </th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
-                          i ({script === "hiragana" ? "い" : "イ"})
+                          i ({kanaMap.get("i")?.character ?? (script === "hiragana" ? "い" : "イ")})
                         </th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
-                          u ({script === "hiragana" ? "う" : "ウ"})
+                          u ({kanaMap.get("u")?.character ?? (script === "hiragana" ? "う" : "ウ")})
                         </th>
                         <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
-                          e ({script === "hiragana" ? "え" : "エ"})
+                          e ({kanaMap.get("e")?.character ?? (script === "hiragana" ? "え" : "エ")})
                         </th>
                         <th className="py-1 px-1 w-[18%] text-[11px]">
-                          o ({script === "hiragana" ? "お" : "オ"})
+                          o ({kanaMap.get("o")?.character ?? (script === "hiragana" ? "お" : "オ")})
                         </th>
                       </tr>
                     </thead>

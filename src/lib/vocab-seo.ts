@@ -1,5 +1,5 @@
 import { KanaCharacter } from "@/types/kana";
-import { Locale } from "@/data/i18n";
+import rawVocab from "@/data/vocab.json";
 
 export type {
   FuriganaSegment,
@@ -10,6 +10,10 @@ export type {
 } from "@/types/vocab";
 
 import type { VocabWord, JlptCategoryMeta } from "@/types/vocab";
+
+const N5_COUNT = (rawVocab as Array<{ jlpt?: string }>).filter((w) => w.jlpt === "N5").length;
+const N4_COUNT = (rawVocab as Array<{ jlpt?: string }>).filter((w) => w.jlpt === "N4").length;
+const ANIME_COUNT = (rawVocab as Array<{ jlpt?: string }>).filter((w) => w.jlpt === "Anime").length;
 
 /**
  * Breakdown word characters into matching Kana primitives for cross-linking
@@ -30,12 +34,6 @@ export function getConstituentKana(
       if (matchTwo) {
         if (!matched.some((m) => m.id === matchTwo.id)) {
           matched.push(matchTwo);
-        }
-        const baseOne = allKana.find(
-          (k) => k.character === text[i] && k.script === word.script
-        );
-        if (baseOne && !matched.some((m) => m.id === baseOne.id)) {
-          matched.push(baseOne);
         }
         i += 2;
         continue;
@@ -78,9 +76,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "JLPT N5 必須基礎単語一覧",
     },
     tagline: {
-      en: "Essential 105 words for Japanese Language Proficiency Test Level 5",
-      id: "105 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N5",
-      ja: "日本語能力試験 N5レベルの重要基礎105単語",
+      en: `Essential ${N5_COUNT} words for Japanese Language Proficiency Test Level 5`,
+      id: `${N5_COUNT} kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N5`,
+      ja: `日本語能力試験 N5レベルの重要基礎${N5_COUNT}単語`,
     },
     description: {
       en: "Master the foundational JLPT N5 vocabulary words with native TTS pronunciation audio, Kanji & furigana breakdowns, romaji reading, and example sentences.",
@@ -97,9 +95,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "JLPT N4 初級重要単語一覧",
     },
     tagline: {
-      en: "Essential 47 words for Japanese Language Proficiency Test Level 4",
-      id: "47 kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N4",
-      ja: "日本語能力試験 N4レベルの初級重要47単語",
+      en: `Essential ${N4_COUNT} words for Japanese Language Proficiency Test Level 4`,
+      id: `${N4_COUNT} kata penting untuk Ujian Kemampuan Bahasa Jepang (JLPT) Level N4`,
+      ja: `日本語能力試験 N4レベルの初級重要${N4_COUNT}単語`,
     },
     description: {
       en: "Expand your Japanese vocabulary with elementary JLPT N4 words featuring audio pronunciation, romaji guides, and realistic contextual sentences.",
@@ -116,9 +114,9 @@ export const JLPT_CATEGORIES: JlptCategoryMeta[] = [
       ja: "アニメ＆ポップカルチャー日本語語彙集",
     },
     tagline: {
-      en: "Iconic words, reactions, and loanwords from anime and manga",
-      id: "Kata ikonik, ekspresi reaksi, dan kata serapan dari dunia anime dan manga",
-      ja: "アニメやマンガで頻出する定番表現・リアクション・外来語",
+      en: `${ANIME_COUNT} iconic words, reactions, and loanwords from anime and manga`,
+      id: `${ANIME_COUNT} kata ikonik, ekspresi reaksi, dan kata serapan dari dunia anime dan manga`,
+      ja: `アニメやマンガで頻出する定番表現・リアクション・外来語（全${ANIME_COUNT}語）`,
     },
     description: {
       en: "Learn the most iconic Japanese anime reactions, loanwords, and conversational terms with native TTS audio, character origins, and English & Indonesian meanings.",

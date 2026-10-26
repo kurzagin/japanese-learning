@@ -12,7 +12,7 @@ interface Props {
 
 const META_BY_LOCALE = {
   en: {
-    title: "Core & Anime Japanese Vocabulary Directory — 161 Words with Audio",
+    title: "Core & Anime Japanese Vocabulary Directory — {count} Words with Audio",
     description:
       "Explore essential Japanese Hiragana and Katakana vocabulary words including popular anime terms with native Japanese TTS audio pronunciation, spelling breakdowns, English & Indonesian translations, and SRS practice cards.",
     ogTitle: "Core & Anime Japanese Vocabulary Directory | SaKana",
@@ -20,7 +20,7 @@ const META_BY_LOCALE = {
       "Master essential Hiragana & Katakana words and anime loanwords with native TTS audio pronunciation and character breakdowns.",
   },
   id: {
-    title: "Direktori Kosakata Dasar & Anime Jepang — 161 Kata dengan Audio",
+    title: "Direktori Kosakata Dasar & Anime Jepang — {count} Kata dengan Audio",
     description:
       "Jelajahi kosakata dasar Hiragana dan Katakana termasuk istilah anime populer dengan audio pengucapan TTS Jepang native, pemecahan karakter, dan arti bahasa Indonesia.",
     ogTitle: "Direktori Kosakata Jepang Dasar & Anime | SaKana",
@@ -28,9 +28,9 @@ const META_BY_LOCALE = {
       "Kuasai kosakata Jepang esensial dan kata serapan anime dengan pengucapan audio TTS native serta kartu latihan SRS.",
   },
   ja: {
-    title: "基本＆アニメ頻出 日本語単語集 — 161語（音声・解説付き）",
+    title: "基本＆アニメ頻出 日本語単語集 — {count}語（音声・解説付き）",
     description:
-      "ひらがな・カタカナで構成される基本語彙およびアニメ・日常会話頻出の161単語を収録。クリアで自然なネイティブ音声合成（TTS）、文字構成分解、英語・インドネシア語訳を掲載。",
+      "ひらがな・カタカナで構成される基本語彙およびアニメ・日常会話頻出の{count}単語を収録。クリアで自然なネイティブ音声合成（TTS）、文字構成分解、英語・インドネシア語訳を掲載。",
     ogTitle: "基本＆アニメ日本語単語ディレクトリ | SaKana",
     ogDescription:
       "かな文字から覚える実践日本語単語。クリアな音声とフラッシュカードで反射的な語彙力を養成。",
@@ -41,12 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
 
+  const words = await getAllVocabulary();
+  const count = String(words.length);
   const meta = META_BY_LOCALE[locale];
   const alternates = getHreflangAlternates("/words");
 
   return {
-    title: meta.title,
-    description: meta.description,
+    title: meta.title.replace("{count}", count),
+    description: meta.description.replace("{count}", count),
     alternates: {
       canonical: alternates.languages[locale] || alternates.canonical,
       languages: alternates.languages,

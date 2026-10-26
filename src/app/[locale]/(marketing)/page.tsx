@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SITE_STATS } from "@/lib/site-stats";
 import HomePage from "@/app/HomeClient";
 import { getHreflangAlternates, isValidLocale } from "@/lib/seo/locale";
 
@@ -95,7 +96,7 @@ export default async function LocalizedHomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <HomePage />
+      <HomePage stats={SITE_STATS} />
     </>
   );
 }

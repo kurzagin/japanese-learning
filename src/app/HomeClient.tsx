@@ -6,8 +6,9 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { RetroWebring } from "@/components/RetroWebring";
 import { useLanguage } from "@/context/LanguageContext";
 import { Play, Sparkles, Star } from "lucide-react";
+import type { SiteStats } from "@/lib/site-stats";
 
-export default function HomePage() {
+export default function HomePage({ stats }: { stats: SiteStats }) {
   const { t, locale } = useLanguage();
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const [studentCount, setStudentCount] = useState<number | null>(null);
@@ -100,7 +101,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-[11px] text-[#555] font-mono flex items-center gap-1.5 ml-auto">
-            <span className="text-[#008800] font-bold">{t.nav.online}</span> // SAKANA
+            <span className="text-[#008800] font-bold">{t.nav.online}</span>{" // SAKANA"}
           </div>
         </div>
 
@@ -223,18 +224,18 @@ export default function HomePage() {
                       <span>{t.home.vocabTitle}</span>
                     </div>
                     <p className="text-[11px] text-[#555] leading-snug">
-                      {t.home.vocabDesc}
+                      {t.home.vocabDesc(stats.vocabTotal)}
                     </p>
                   </div>
                   <div className="mt-3 pt-2 border-t border-[#e0ded0] flex flex-col gap-1 text-[11px]">
                     <Link href={`${prefix}/words`} className="text-[#000080] hover:underline font-bold">
-                      &rarr; {t.home.vocabFullLink}
+                      &rarr; {t.home.vocabFullLink(stats.vocabTotal)}
                     </Link>
                     <Link href={`${prefix}/words/category/n5`} className="text-[#000080] hover:underline">
-                      &bull; {t.home.jlptN5Link}
+                      &bull; {t.home.jlptN5Link(stats.n5)}
                     </Link>
                     <Link href={`${prefix}/words/category/anime`} className="text-[#800000] hover:underline">
-                      &bull; {t.home.animeVocabLink}
+                      &bull; {t.home.animeVocabLink(stats.anime)}
                     </Link>
                     <Link href={`${prefix}/words/sakana`} className="text-[#555] hover:underline">
                       &bull; {t.home.sakanaWordLink}

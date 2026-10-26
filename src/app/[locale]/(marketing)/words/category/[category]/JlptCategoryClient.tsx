@@ -11,9 +11,10 @@ import { Search, Sparkles, ArrowRight, ArrowLeft } from "lucide-react";
 interface Props {
   category: JlptCategoryMeta;
   words: VocabWord[];
+  counts: { total: number; n5: number; n4: number; anime: number };
 }
 
-export default function JlptCategoryClient({ category, words }: Props) {
+export default function JlptCategoryClient({ category, words, counts }: Props) {
   const { t, locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
   const [searchQuery, setSearchQuery] = useState("");
@@ -82,7 +83,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n5" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.jlptN5Btn()}
+              {t.wordsHub.jlptN5Btn(counts.n5)}
             </Link>
             <Link
               href={`${prefix}/words/category/n4`}
@@ -90,7 +91,7 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "n4" ? "bg-[#000080] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.jlptN4Btn()}
+              {t.wordsHub.jlptN4Btn(counts.n4)}
             </Link>
             <Link
               href={`${prefix}/words/category/anime`}
@@ -98,13 +99,13 @@ export default function JlptCategoryClient({ category, words }: Props) {
                 category.key === "anime" ? "bg-[#800000] text-white" : "bg-[#d4d0c8] text-black hover:bg-white"
               }`}
             >
-              {t.wordsHub.animePopBtn()}
+              {t.wordsHub.animePopBtn(counts.anime)}
             </Link>
             <Link
               href={`${prefix}/words`}
               className="px-3 py-1 border border-[#808080] bg-[#d4d0c8] text-black hover:bg-white"
             >
-              {t.jlptCategory.allWordsBtn(161)}
+              {t.jlptCategory.allWordsBtn(counts.total)}
             </Link>
           </div>
         </div>

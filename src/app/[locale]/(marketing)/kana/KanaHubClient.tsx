@@ -3,11 +3,11 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
-import { KanaCharacter, KanaType } from "@/types/kana";
-import { getKanaSlug } from "@/lib/kana-seo";
+import { KanaCharacter } from "@/types/kana";
+import { getKanaSlug, KANA_CATEGORIES } from "@/lib/kana-seo";
 import { useLanguage } from "@/context/LanguageContext";
 import { PronounceButton } from "@/components/PronounceButton";
-import { Search, Sparkles, BookOpen, Volume2, ArrowRight } from "lucide-react";
+import { Search, Sparkles, BookOpen, ArrowRight } from "lucide-react";
 
 export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacter[] }) {
   const { t, locale } = useLanguage();
@@ -34,6 +34,15 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
     });
   }, [kanaList, activeType, searchQuery, locale]);
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const k of allKana) {
+      const key = `${k.script}-${k.type}`;
+      counts[key] = (counts[key] ?? 0) + 1;
+    }
+    return counts;
+  }, [allKana]);
+
   const types: { id: string; label: string }[] = [
     { id: "all", label: t.kanaHub.allTypes },
     { id: "gojuon", label: t.kanaHub.gojuon },
@@ -41,7 +50,7 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
     { id: "handakuon", label: t.kanaHub.handakuon },
     { id: "yoon", label: t.kanaHub.yoon },
     ...(activeScript === "katakana"
-      ? [{ id: "extended", label: t.kanaHub.katakanaExtendedBadge.replace(/\s*\(\d+\)$/, "") }]
+      ? [{ id: "extended", label: t.kanaHub.extended }]
       : []),
   ];
 
@@ -91,36 +100,15 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
           {/* Quick Category Hub Badges */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2 pt-2 border-t border-[#800000]/10 text-[10px] font-mono">
             <span className="font-bold text-[#800000] uppercase mr-1">{t.kanaHub.browseCategoriesLabel}</span>
-            <Link
-              href={`${prefix}/kana/hiragana/category/gojuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
-            >
-              {t.kanaHub.hiraganaGojuonBadge}
-            </Link>
-            <Link
-              href={`${prefix}/kana/hiragana/category/dakuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
-            >
-              {t.kanaHub.hiraganaDakuonBadge}
-            </Link>
-            <Link
-              href={`${prefix}/kana/hiragana/category/yoon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
-            >
-              {t.kanaHub.hiraganaYoonBadge}
-            </Link>
-            <Link
-              href={`${prefix}/kana/katakana/category/gojuon`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
-            >
-              {t.kanaHub.katakanaGojuonBadge}
-            </Link>
-            <Link
-              href={`${prefix}/kana/katakana/category/extended`}
-              className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
-            >
-              {t.kanaHub.katakanaExtendedBadge}
-            </Link>
+            {KANA_CATEGORIES.map((c) => (
+              <Link
+                key={`${c.script}-${c.category}`}
+                href={`${prefix}/kana/${c.script}/category/${c.category}`}
+                className="px-2 py-0.5 bg-white border border-[#808080] text-[#000080] hover:underline font-bold"
+              >
+                {t.kanaHub.categoryBadge(c.script, c.category, categoryCounts[`${c.script}-${c.category}`] ?? 0)}
+              </Link>
+            ))}
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getAllVocabulary, getWordBySlug } from "@/lib/db-data";
+import { getWordBySlug } from "@/lib/db-data";
 
 export const size = {
   width: 1200,
@@ -9,25 +9,20 @@ export const contentType = "image/png";
 
 interface Props {
   params: Promise<{
+    locale?: string;
     slug: string;
   }>;
 }
 
-export async function generateImageMetadata() {
-  const words = await getAllVocabulary();
-  return words.map((w) => ({
-    id: `vocab-${w.slug}`,
-    alt: `${w.character} (${w.romaji}) — SaKana Japanese Vocabulary`,
-  }));
-}
-
 export default async function Image({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const word = await getWordBySlug(slug);
+  const lang = locale === "id" || locale === "ja" ? locale : "en";
+  const prefix = lang === "en" ? "" : `/${lang}`;
 
   const character = word ? word.character : "さかな";
   const romaji = word ? word.romaji : "sakana";
-  const meaning = word ? word.meaning.en : "Fish";
+  const meaning = word ? word.meaning[lang] || word.meaning.en : "Fish";
   const kanji = word?.kanji && word.kanji !== word.character ? word.kanji : null;
   const scriptLabel = word?.script === "hiragana" ? "HIRAGANA" : "KATAKANA";
   const jlpt = word?.jlpt || "Core";
@@ -211,7 +206,7 @@ export default async function Image({ params }: Props) {
             paddingTop: "10px",
           }}
         >
-          <span>https://sakanajp.site/words/{slug}</span>
+          <span>https://sakanajp.site{prefix}/words/{slug}</span>
           <span>SPACED REPETITION FLASHCARDS</span>
         </div>
       </div>

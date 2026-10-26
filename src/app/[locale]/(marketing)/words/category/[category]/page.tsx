@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JLPT_CATEGORIES } from "@/lib/vocab-seo";
-import { getWordsByJlpt } from "@/lib/db-data";
+import { getAllVocabulary, getWordsByJlpt } from "@/lib/db-data";
 import JlptCategoryClient from "./JlptCategoryClient";
 import { getHreflangAlternates, isValidLocale, LOCALES } from "@/lib/seo/locale";
 
@@ -80,6 +80,13 @@ export default async function JlptCategoryPage({ params }: Props) {
   }
 
   const words = await getWordsByJlpt(cat.jlpt);
+  const allWords = await getAllVocabulary();
+  const counts = {
+    total: allWords.length,
+    n5: allWords.filter((w) => w.jlpt === "N5").length,
+    n4: allWords.filter((w) => w.jlpt === "N4").length,
+    anime: allWords.filter((w) => w.jlpt === "Anime").length,
+  };
   const prefix = locale === "en" ? "" : `/${locale}`;
 
   const schemaData = {
@@ -123,7 +130,7 @@ export default async function JlptCategoryPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <JlptCategoryClient category={cat} words={words} />
+      <JlptCategoryClient category={cat} words={words} counts={counts} />
     </>
   );
 }

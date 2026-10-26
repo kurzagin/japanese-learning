@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_STATS } from "@/lib/site-stats";
 import HomePage from "./HomeClient";
 import { getHreflangAlternates } from "@/lib/seo/locale";
 
@@ -46,7 +47,7 @@ export default function Page() {
         name: "Is SaKana completely free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, SaKana is 100% free with open access to all Hiragana and Katakana matrix charts, character stroke guides, 161 core vocabulary words, lookalike comparisons, and audio pronunciation.",
+          text: `Yes, SaKana is 100% free with open access to all Hiragana and Katakana matrix charts, character stroke guides, ${SITE_STATS.vocabTotal} core vocabulary words, lookalike comparisons, and audio pronunciation.`,
         },
       },
     ],
@@ -58,7 +59,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <HomePage />
+      <HomePage stats={SITE_STATS} />
     </>
   );
 }
