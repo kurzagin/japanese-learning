@@ -7,6 +7,12 @@ import { RetroNavbar } from "@/components/RetroNavbar";
 import { StageLockedView } from "@/components/StageLockedView";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowLeft, RotateCw, Check, Play, BookOpen, AlertCircle, Zap, Award, Swords, Sparkles, Volume2, VolumeX } from "lucide-react";
+import {
+  SrsRating,
+  SrsCardRecord,
+  createDefaultSrsCard,
+  calculateSrsReview,
+} from "@/lib/srs";
 
 export type QuestionType =
   | "kana_to_romaji"
@@ -285,11 +291,15 @@ export default function TestClient({
     }
   }, [pauseTimer, resumeTimer]);
 
+  // Track per-card test outcomes for SRS scheduling
+  const questionResultsRef = useRef<Array<{ cardId: string; stageId: string; correct: boolean }>>([]);
+
   // Start countdown on mount or reset
   const resetTest = useCallback(() => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
+    questionResultsRef.current = [];
     setTestSession((prev) => prev + 1);
     setCurrentIndex(0);
     setSelectedOption(null);
@@ -356,6 +366,20 @@ export default function TestClient({
           window.speechSynthesis.cancel();
         }
         clearInterval(timerRef.current!);
+
+        // Treat remaining unattempted questions as incorrect for SRS
+        const answeredCount = questionResultsRef.current.length;
+        for (let i = answeredCount; i < questions.length; i++) {
+          const q = questions[i];
+          if (q) {
+            questionResultsRef.current.push({
+              cardId: q.card.id,
+              stageId: stage?.id || stageId,
+              correct: false,
+            });
+          }
+        }
+        finalizeResult(false, timeLimit * 1000, correctCount);
       }
     }, 100);
 
@@ -371,7 +395,7 @@ export default function TestClient({
       const isSpeedGoalMet = finalElapsedMs / 1000 <= timeLimit;
       const stars = passed && isSpeedGoalMet && accuracy === 100 ? 3 : passed ? 2 : 1;
 
-      // Local storage persistence
+      // Local storage persistence for stage progress
       try {
         const stored = JSON.parse(localStorage.getItem("sakana_progress") || "{}");
         const prevBest = stored[stageId]?.bestDurationMs;
@@ -385,11 +409,72 @@ export default function TestClient({
         localStorage.setItem("sakana_progress", JSON.stringify(stored));
       } catch {}
 
-      // Neon Database Sync (only for logged-in accounts)
+      // Identify user email
       const userEmail = typeof window !== "undefined"
         ? localStorage.getItem("sakana_user_email") || "guest@sakanajp.site"
         : "guest@sakanajp.site";
 
+      // 1. Process SRS updates for each tested card
+      const resultsToProcess = [...questionResultsRef.current];
+      if (resultsToProcess.length > 0) {
+        let localSrsMap: Record<string, SrsCardRecord> = {};
+        try {
+          const raw = localStorage.getItem("sakana_srs_records");
+          if (raw) localSrsMap = JSON.parse(raw);
+        } catch {}
+
+        const srsReviewsPayload: Array<{
+          userId?: string;
+          cardId: string;
+          stageId: string;
+          rating: SrsRating;
+        }> = [];
+
+        resultsToProcess.forEach((res) => {
+          const rating: SrsRating = res.correct ? 3 : 1;
+          const currentRecord: SrsCardRecord =
+            localSrsMap[res.cardId] ||
+            createDefaultSrsCard(res.cardId, res.stageId, userEmail);
+
+          const updated = calculateSrsReview(currentRecord, rating);
+          localSrsMap[res.cardId] = {
+            ...currentRecord,
+            repetitionCount: updated.repetitionCount,
+            intervalDays: updated.intervalDays,
+            easeFactor: updated.easeFactor,
+            lapses: updated.lapses,
+            state: updated.state,
+            lastReviewedAt: new Date().toISOString(),
+            nextReviewAt: updated.nextReviewAt.toISOString(),
+          };
+
+          srsReviewsPayload.push({
+            userId: userEmail,
+            cardId: res.cardId,
+            stageId: res.stageId,
+            rating,
+          });
+        });
+
+        // Save local SRS records immediately
+        try {
+          localStorage.setItem("sakana_srs_records", JSON.stringify(localSrsMap));
+        } catch {}
+
+        // 2. Persist batch SRS to DB if logged in
+        if (userEmail && userEmail !== "guest@sakanajp.site") {
+          fetch("/api/srs", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              userId: userEmail,
+              reviews: srsReviewsPayload,
+            }),
+          }).catch((err) => console.error("SRS batch sync error:", err));
+        }
+      }
+
+      // Neon Database Sync for stage progress (only for logged-in accounts)
       if (userEmail && userEmail !== "guest@sakanajp.site") {
         fetch("/api/progress", {
           method: "POST",
@@ -419,6 +504,13 @@ export default function TestClient({
       setSelectedOption(index);
       setIsAnswered(true);
       setIsCorrect(correct);
+
+      // Record card result for SRS update
+      questionResultsRef.current.push({
+        cardId: currentQ.card.id,
+        stageId: stage?.id || stageId,
+        correct,
+      });
 
       const newCorrectCount = correct ? correctCount + 1 : correctCount;
       if (correct) {

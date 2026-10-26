@@ -77,21 +77,25 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { userId, cardId, stageId, rating } = body as {
+
+    // Support both single item and batch updates
+    const items: Array<{
       userId?: string;
       cardId: string;
       stageId: string;
       rating: SrsRating;
-    };
+    }> = Array.isArray(body.reviews)
+      ? body.reviews
+      : [body];
 
-    if (!cardId || !stageId || !rating) {
+    if (items.length === 0 || !items[0].cardId || !items[0].stageId || !items[0].rating) {
       return NextResponse.json(
         { success: false, error: "Missing cardId, stageId, or rating" },
         { status: 400 }
       );
     }
 
-    const effectiveUserId = userId || "guest@sakanajp.site";
+    const effectiveUserId = body.userId || items[0].userId || "guest@sakanajp.site";
 
     // Ensure user row exists for foreign key constraint
     await db
@@ -103,54 +107,46 @@ export async function POST(request: Request) {
       })
       .onConflictDoNothing();
 
-    const reviewId = `${effectiveUserId}_${cardId}`;
+    const results: Array<{ cardId: string; result: any }> = [];
 
-    // Load existing record or default
-    const existingRows = await db
-      .select()
-      .from(userCardReviews)
-      .where(eq(userCardReviews.id, reviewId))
-      .limit(1);
+    for (const item of items) {
+      const { cardId, stageId, rating } = item;
+      const reviewId = `${effectiveUserId}_${cardId}`;
 
-    const currentCard: SrsCardRecord = existingRows[0]
-      ? {
-          id: existingRows[0].id,
-          userId: existingRows[0].userId,
-          cardId: existingRows[0].cardId,
-          stageId: existingRows[0].stageId,
-          repetitionCount: existingRows[0].repetitionCount,
-          intervalDays: existingRows[0].intervalDays,
-          easeFactor: (existingRows[0].easeFactorX100 ?? 250) / 100,
-          lapses: existingRows[0].lapses,
-          state: existingRows[0].state as "learning" | "review" | "mastered",
-          lastReviewedAt: existingRows[0].lastReviewedAt ? existingRows[0].lastReviewedAt.toISOString() : null,
-          nextReviewAt: existingRows[0].nextReviewAt.toISOString(),
-        }
-      : createDefaultSrsCard(cardId, stageId, effectiveUserId);
+      // Load existing record or default
+      const existingRows = await db
+        .select()
+        .from(userCardReviews)
+        .where(eq(userCardReviews.id, reviewId))
+        .limit(1);
 
-    // Calculate new SM-2 schedule
-    const result = calculateSrsReview(currentCard, rating);
-    const easeFactorX100 = Math.round(result.easeFactor * 100);
+      const currentCard: SrsCardRecord = existingRows[0]
+        ? {
+            id: existingRows[0].id,
+            userId: existingRows[0].userId,
+            cardId: existingRows[0].cardId,
+            stageId: existingRows[0].stageId,
+            repetitionCount: existingRows[0].repetitionCount,
+            intervalDays: existingRows[0].intervalDays,
+            easeFactor: (existingRows[0].easeFactorX100 ?? 250) / 100,
+            lapses: existingRows[0].lapses,
+            state: existingRows[0].state as "learning" | "review" | "mastered",
+            lastReviewedAt: existingRows[0].lastReviewedAt ? existingRows[0].lastReviewedAt.toISOString() : null,
+            nextReviewAt: existingRows[0].nextReviewAt.toISOString(),
+          }
+        : createDefaultSrsCard(cardId, stageId, effectiveUserId);
 
-    await db
-      .insert(userCardReviews)
-      .values({
-        id: reviewId,
-        userId: effectiveUserId,
-        cardId,
-        stageId,
-        repetitionCount: result.repetitionCount,
-        intervalDays: result.intervalDays,
-        easeFactorX100,
-        lapses: result.lapses,
-        state: result.state,
-        lastReviewedAt: new Date(),
-        nextReviewAt: result.nextReviewAt,
-        updatedAt: new Date(),
-      })
-      .onConflictDoUpdate({
-        target: userCardReviews.id,
-        set: {
+      // Calculate new SM-2 schedule
+      const result = calculateSrsReview(currentCard, rating);
+      const easeFactorX100 = Math.round(result.easeFactor * 100);
+
+      await db
+        .insert(userCardReviews)
+        .values({
+          id: reviewId,
+          userId: effectiveUserId,
+          cardId,
+          stageId,
           repetitionCount: result.repetitionCount,
           intervalDays: result.intervalDays,
           easeFactorX100,
@@ -159,16 +155,42 @@ export async function POST(request: Request) {
           lastReviewedAt: new Date(),
           nextReviewAt: result.nextReviewAt,
           updatedAt: new Date(),
+        })
+        .onConflictDoUpdate({
+          target: userCardReviews.id,
+          set: {
+            repetitionCount: result.repetitionCount,
+            intervalDays: result.intervalDays,
+            easeFactorX100,
+            lapses: result.lapses,
+            state: result.state,
+            lastReviewedAt: new Date(),
+            nextReviewAt: result.nextReviewAt,
+            updatedAt: new Date(),
+          },
+        });
+
+      results.push({
+        cardId,
+        result: {
+          ...result,
+          nextReviewAt: result.nextReviewAt.toISOString(),
         },
       });
+    }
+
+    if (Array.isArray(body.reviews)) {
+      return NextResponse.json({
+        success: true,
+        count: results.length,
+        results,
+      });
+    }
 
     return NextResponse.json({
       success: true,
-      cardId,
-      result: {
-        ...result,
-        nextReviewAt: result.nextReviewAt.toISOString(),
-      },
+      cardId: results[0].cardId,
+      result: results[0].result,
     });
   } catch (error: any) {
     console.error("Error submitting SRS review:", error);
