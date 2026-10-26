@@ -17,7 +17,7 @@ const META_BY_LOCALE = {
       "Download or print the complete Japanese Hiragana chart in horizontal landscape PDF format. Includes all 46 basic Gojūon, 25 Dakuon/Handakuon, and 33 Yōon combinations with Romaji. 100% free for students and teachers.",
     ogTitle: "Printable Hiragana Chart PDF (Horizontal Layout) | SaKana",
     ogDescription:
-      "Free high-resolution horizontal Hiragana PDF study sheet. All 104+ Hiragana characters with Romaji guide.",
+      "Free high-resolution horizontal Hiragana PDF study sheet. All 104 Hiragana characters with Romaji guide.",
   },
   id: {
     title: "Bagan Hiragana PDF Siap Cetak Gratis (Landscape Horizontal) — Tabel Lengkap A-O",

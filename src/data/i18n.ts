@@ -568,11 +568,11 @@ export interface TranslationSchema {
     downloadPdfBtn: string;
     printChartBtn: string;
     tipOrientation: string;
-    tipVariants: string;
+    tipVariants: (script: "hiragana" | "katakana") => string;
     tipFree: string;
     sheetBrand: string;
     sheetTitle: (script: string, jp: string) => string;
-    sheetSub: string;
+    sheetSub: (script: "hiragana" | "katakana") => string;
     sec1Title: string;
     sec1Sub: string;
     rowCol: string;
@@ -580,11 +580,12 @@ export interface TranslationSchema {
     sec2Sub: string;
     sec3Title: string;
     sec3Sub: string;
+    sec4Title: string;
     rootCol: string;
     sheetFooterLeft: string;
     sheetFooterRight: string;
     howToUseTitle: (script: string) => string;
-    howToUseDesc: (script: string) => string;
+    howToUseDesc: (script: string, scriptKey: "hiragana" | "katakana") => string;
     box1Title: string;
     box1Desc: string;
     box2Title: string;
@@ -1234,11 +1235,17 @@ export const translations: Record<Locale, TranslationSchema> = {
       downloadPdfBtn: "Download PDF (A4 Landscape)",
       printChartBtn: "Print Chart",
       tipOrientation: "Orientation: Landscape Horizontal",
-      tipVariants: "All Variants Included: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon",
+      tipVariants: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "All 114 Variants Included: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon + 10 Extended"
+          : "All 104 Variants Included: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon",
       tipFree: "100% Free Printable & Study Sheet",
       sheetBrand: "SaKana Japanese",
       sheetTitle: (script: string, jp: string) => `Complete ${script} Chart (全${jp}一覧表)`,
-      sheetSub: "A4 Horizontal Layout • All Variants (Gojūon, Dakuon & Yōon)",
+      sheetSub: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "A4 Horizontal Layout • All 114 Variants (Gojūon, Dakuon, Yōon & Extended)"
+          : "A4 Horizontal Layout • All 104 Variants (Gojūon, Dakuon & Yōon)",
       sec1Title: "1. BASIC GOJŪON (五十音 - 46 CHARACTERS)",
       sec1Sub: "Horizontal Table (A - I - U - E - O)",
       rowCol: "Row",
@@ -1246,11 +1253,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec2Sub: "Tenten (ﾞ) & Maru (ﾟ)",
       sec3Title: "3. YŌON (拗音 - 33 COMBINATIONS)",
       sec3Sub: "Small ya/yu/yo",
+      sec4Title: "4. EXTENDED KATAKANA (特殊音・外来語 - 10)",
       rootCol: "Root",
       sheetFooterLeft: "© SaKana (魚) Japanese Drill • Free for Personal, Educational & Classroom Use",
       sheetFooterRight: "Practice online at:",
       howToUseTitle: (script: string) => `How to Use This Printable ${script} Chart`,
-      howToUseDesc: (script: string) => `Mastering ${script} is step one for Japanese learners. This printable horizontal reference sheet contains all 104+ phonetic variations organized in the standard A-I-U-E-O matrix for convenient desk reference, writing practice, and classroom use.`,
+      howToUseDesc: (script: string, scriptKey: "hiragana" | "katakana") =>
+        `Mastering ${script} is step one for Japanese learners. This printable horizontal reference sheet contains all ${scriptKey === "katakana" ? "114" : "104"} phonetic variations organized in the standard A-I-U-E-O matrix for convenient desk reference, writing practice, and classroom use.`,
       box1Title: "Basic Gojūon (46 Sounds)",
       box1Desc: "The core foundation of spoken Japanese. Starts with the 5 vowels (A, I, U, E, O) followed by consonant combinations (K, S, T, N, H, M, Y, R, W) plus the singular consonant N (ん/ン).",
       box2Title: "Dakuon & Handakuon (25 Sounds)",
@@ -1899,11 +1908,17 @@ export const translations: Record<Locale, TranslationSchema> = {
       downloadPdfBtn: "Unduh PDF (A4 Mendatar)",
       printChartBtn: "Cetak Bagan",
       tipOrientation: "Orientasi: Mendatar (Landscape)",
-      tipVariants: "Semua Variasi Lengkap: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon",
+      tipVariants: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "Semua 114 Variasi Lengkap: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon + 10 Tambahan"
+          : "Semua 104 Variasi Lengkap: 46 Gojūon + 20 Dakuon + 5 Handakuon + 33 Yōon",
       tipFree: "100% Lembar Belajar & Cetak Gratis",
       sheetBrand: "SaKana Japanese",
       sheetTitle: (script: string, jp: string) => `Bagan Lengkap ${script} (全${jp}一覧表)`,
-      sheetSub: "Tata Letak A4 Horizontal • Semua Variasi (Gojūon, Dakuon & Yōon)",
+      sheetSub: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "Tata Letak A4 Horizontal • Semua 114 Variasi (Gojūon, Dakuon, Yōon & Tambahan)"
+          : "Tata Letak A4 Horizontal • Semua 104 Variasi (Gojūon, Dakuon & Yōon)",
       sec1Title: "1. GOJŪON DASAR (五十音 - 46 KARAKTER)",
       sec1Sub: "Tabel Horizontal (A - I - U - E - O)",
       rowCol: "Baris",
@@ -1911,11 +1926,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec2Sub: "Tenten (ﾞ) & Maru (ﾟ)",
       sec3Title: "3. YŌON (拗音 - 33 KOMBINASI)",
       sec3Sub: "ya/yu/yo kecil",
+      sec4Title: "4. KATAKANA TAMBAHAN (特殊音・外来語 - 10)",
       rootCol: "Dasar",
       sheetFooterLeft: "© SaKana (魚) Japanese Drill • Gratis untuk Penggunaan Pribadi, Edukasi & Kelas",
       sheetFooterRight: "Latihan online di:",
       howToUseTitle: (script: string) => `Cara Menggunakan Bagan Cetak ${script} Ini`,
-      howToUseDesc: (script: string) => `Menguasai ${script} adalah langkah pertama bagi pelajar bahasa Jepang. Lembar referensi horizontal siap cetak ini memuat seluruh 104+ variasi fonetik yang disusun dalam matriks standar A-I-U-E-O untuk referensi meja belajar, latihan menulis, dan penggunaan di kelas.`,
+      howToUseDesc: (script: string, scriptKey: "hiragana" | "katakana") =>
+        `Menguasai ${script} adalah langkah pertama bagi pelajar bahasa Jepang. Lembar referensi horizontal siap cetak ini memuat seluruh ${scriptKey === "katakana" ? "114" : "104"} variasi fonetik yang disusun dalam matriks standar A-I-U-E-O untuk referensi meja belajar, latihan menulis, dan penggunaan di kelas.`,
       box1Title: "Gojūon Dasar (46 Bunyi)",
       box1Desc: "Fondasi utama bahasa Jepang lisan. Dimulai dengan 5 vokal (A, I, U, E, O) diikuti kombinasi konsonan (K, S, T, N, H, M, Y, R, W) serta konsonan tunggal N (ん/ン).",
       box2Title: "Dakuon & Handakuon (25 Bunyi)",
@@ -2564,11 +2581,17 @@ export const translations: Record<Locale, TranslationSchema> = {
       downloadPdfBtn: "PDFをダウンロード (A4横)",
       printChartBtn: "一覧表を印刷",
       tipOrientation: "用紙の向き: A4横 (ランドスケープ)",
-      tipVariants: "全バリエーション収録: 五十音46字 + 濁音20字 + 半濁音5字 + 拗音33字",
+      tipVariants: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "全114音収録: 五十音46字 + 濁音20字 + 半濁音5字 + 拗音33音 + 外来音10音"
+          : "全104音収録: 五十音46字 + 濁音20字 + 半濁音5字 + 拗音33音",
       tipFree: "100%無料 印刷＆学習用リファレンスシート",
       sheetBrand: "SaKana Japanese",
       sheetTitle: (script: string, jp: string) => `完全版 ${script}一覧表 (全${jp}一覧表)`,
-      sheetSub: "A4横レイアウト • 全音収録 (五十音・濁音・半濁音・拗音)",
+      sheetSub: (script: "hiragana" | "katakana") =>
+        script === "katakana"
+          ? "A4横レイアウト • 全114音収録 (五十音・濁音・半濁音・拗音・外来音)"
+          : "A4横レイアウト • 全104音収録 (五十音・濁音・半濁音・拗音)",
       sec1Title: "1. 基本五十音 (清音 - 46文字)",
       sec1Sub: "横並び一覧表 (あ - い - う - え - お)",
       rowCol: "行",
@@ -2576,11 +2599,13 @@ export const translations: Record<Locale, TranslationSchema> = {
       sec2Sub: "濁点 (ﾞ) & 半濁点 (ﾟ)",
       sec3Title: "3. 拗音 (33音)",
       sec3Sub: "小さい「ゃ・ゅ・ょ」の組み合わせ",
-      rootCol: "基本行",
+      sec4Title: "4. 特殊音・外来語表記 (10音)",
+      rootCol: "基本字",
       sheetFooterLeft: "© SaKana (魚) Japanese Drill • 個人学習・教育・教室での配布および印刷は完全無料です",
       sheetFooterRight: "オンライン練習はこちら:",
       howToUseTitle: (script: string) => `印刷用${script}一覧表の活用方法`,
-      howToUseDesc: (script: string) => `${script}の習得は日本語学習の第一歩です。このA4横レイアウトの一覧表には、104種類以上の全音韻バリエーションが標準的な「あいうえお」順で見やすく整理されており、デスクでの参照や書き取り練習、教室での配布教材として最適です。`,
+      howToUseDesc: (script: string, scriptKey: "hiragana" | "katakana") =>
+        `${script}の習得は日本語学習の第一歩です。このA4横レイアウトの一覧表には、全${scriptKey === "katakana" ? "114" : "104"}種類の音韻バリエーションが標準的な「あいうえお」順で見やすく整理されており、デスクでの参照や書き取り練習、教室での配布教材として最適です。`,
       box1Title: "基本の五十音 (46音)",
       box1Desc: "日本語の発音の基礎となる文字群です。5つの母音（あ・い・う・え・お）から始まり、子音との組み合わせ（か・さ・た・な・は・ま・や・ら・わ行）と撥音「ん／ン」で構成されます。",
       box2Title: "濁音・半濁音 (25音)",

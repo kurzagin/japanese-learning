@@ -27,42 +27,42 @@ interface PrintableKanaChartProps {
   kanaList?: KanaCharacter[];
 }
 
-// Columns for standard Japanese kana charts (Right to Left historically or Left to Right modern table):
+// Columns for standard Japanese kana charts (Left to Right modern table):
 // Standard vowel positions: a, i, u, e, o
 const GOJUON_ROWS = [
-  { key: "vowel", label: "Vowels (あ/ア)", romajis: ["a", "i", "u", "e", "o"] },
-  { key: "k", label: "K-row (か/カ)", romajis: ["ka", "ki", "ku", "ke", "ko"] },
-  { key: "s", label: "S-row (さ/サ)", romajis: ["sa", "shi", "su", "se", "so"] },
-  { key: "t", label: "T-row (た/タ)", romajis: ["ta", "chi", "tsu", "te", "to"] },
-  { key: "n", label: "N-row (な/ナ)", romajis: ["na", "ni", "nu", "ne", "no"] },
-  { key: "h", label: "H-row (は/ハ)", romajis: ["ha", "hi", "fu", "he", "ho"] },
-  { key: "m", label: "M-row (ま/マ)", romajis: ["ma", "mi", "mu", "me", "mo"] },
-  { key: "y", label: "Y-row (や/ヤ)", romajis: ["ya", "", "yu", "", "yo"] },
-  { key: "r", label: "R-row (ら/ラ)", romajis: ["ra", "ri", "ru", "re", "ro"] },
-  { key: "w", label: "W-row (わ/ワ)", romajis: ["wa", "", "", "", "wo"] },
-  { key: "singular", label: "N (ん/ン)", romajis: ["n", "", "", "", ""] },
+  { key: "vowel", code: "A", hKana: "あ", kKana: "ア", romajis: ["a", "i", "u", "e", "o"] },
+  { key: "k", code: "K", hKana: "か", kKana: "カ", romajis: ["ka", "ki", "ku", "ke", "ko"] },
+  { key: "s", code: "S", hKana: "さ", kKana: "サ", romajis: ["sa", "shi", "su", "se", "so"] },
+  { key: "t", code: "T", hKana: "た", kKana: "タ", romajis: ["ta", "chi", "tsu", "te", "to"] },
+  { key: "n", code: "N", hKana: "な", kKana: "ナ", romajis: ["na", "ni", "nu", "ne", "no"] },
+  { key: "h", code: "H", hKana: "は", kKana: "ハ", romajis: ["ha", "hi", "fu", "he", "ho"] },
+  { key: "m", code: "M", hKana: "ま", kKana: "マ", romajis: ["ma", "mi", "mu", "me", "mo"] },
+  { key: "y", code: "Y", hKana: "や", kKana: "ヤ", romajis: ["ya", "", "yu", "", "yo"] },
+  { key: "r", code: "R", hKana: "ら", kKana: "ラ", romajis: ["ra", "ri", "ru", "re", "ro"] },
+  { key: "w", code: "W", hKana: "わ", kKana: "ワ", romajis: ["wa", "", "", "", "wo"] },
+  { key: "singular", code: "N", hKana: "ん", kKana: "ン", romajis: ["n", "", "", "", ""] },
 ];
 
 const DAKUON_ROWS = [
-  { key: "g", label: "G-row (が行)", romajis: ["ga", "gi", "gu", "ge", "go"] },
-  { key: "z", label: "Z-row (ざ行)", romajis: ["za", "ji", "zu", "ze", "zo"] },
-  { key: "d", label: "D-row (だ行)", romajis: ["da", "ji(di)", "zu(du)", "de", "do"] },
-  { key: "b", label: "B-row (ば行)", romajis: ["ba", "bi", "bu", "be", "bo"] },
-  { key: "p", label: "P-row (ぱ行)", romajis: ["pa", "pi", "pu", "pe", "po"] },
+  { key: "g", code: "G", hKana: "が", kKana: "ガ", romajis: ["ga", "gi", "gu", "ge", "go"] },
+  { key: "z", code: "Z", hKana: "ざ", kKana: "ザ", romajis: ["za", "ji", "zu", "ze", "zo"] },
+  { key: "d", code: "D", hKana: "だ", kKana: "ダ", romajis: ["da", "ji(di)", "zu(du)", "de", "do"] },
+  { key: "b", code: "B", hKana: "ば", kKana: "バ", romajis: ["ba", "bi", "bu", "be", "bo"] },
+  { key: "p", code: "P", hKana: "ぱ", kKana: "パ", romajis: ["pa", "pi", "pu", "pe", "po"] },
 ];
 
 const YOON_ROWS = [
-  { label: "kya / kyu / kyo", romajis: ["kya", "kyu", "kyo"] },
-  { label: "sha / shu / sho", romajis: ["sha", "shu", "sho"] },
-  { label: "cha / chu / cho", romajis: ["cha", "chu", "cho"] },
-  { label: "nya / nyu / nyo", romajis: ["nya", "nyu", "nyo"] },
-  { label: "hya / hyu / hyo", romajis: ["hya", "hyu", "hyo"] },
-  { label: "mya / myu / myo", romajis: ["mya", "myu", "myo"] },
-  { label: "rya / ryu / ryo", romajis: ["rya", "ryu", "ryo"] },
-  { label: "gya / gyu / gyo", romajis: ["gya", "gyu", "gyo"] },
-  { label: "ja / ju / jo", romajis: ["ja", "ju", "jo"] },
-  { label: "bya / byu / byo", romajis: ["bya", "byu", "byo"] },
-  { label: "pya / pyu / pyo", romajis: ["pya", "pyu", "pyo"] },
+  { root: "KI", hKana: "き", kKana: "キ", romajis: ["kya", "kyu", "kyo"] },
+  { root: "SHI", hKana: "し", kKana: "シ", romajis: ["sha", "shu", "sho"] },
+  { root: "CHI", hKana: "ち", kKana: "チ", romajis: ["cha", "chu", "cho"] },
+  { root: "NI", hKana: "に", kKana: "ニ", romajis: ["nya", "nyu", "nyo"] },
+  { root: "HI", hKana: "ひ", kKana: "ヒ", romajis: ["hya", "hyu", "hyo"] },
+  { root: "MI", hKana: "み", kKana: "ミ", romajis: ["mya", "myu", "myo"] },
+  { root: "RI", hKana: "り", kKana: "リ", romajis: ["rya", "ryu", "ryo"] },
+  { root: "GI", hKana: "ぎ", kKana: "ギ", romajis: ["gya", "gyu", "gyo"] },
+  { root: "JI", hKana: "じ", kKana: "ジ", romajis: ["ja", "ju", "jo"] },
+  { root: "BI", hKana: "び", kKana: "ビ", romajis: ["bya", "byu", "byo"] },
+  { root: "PI", hKana: "ぴ", kKana: "ピ", romajis: ["pya", "pyu", "pyo"] },
 ];
 
 const EXTENDED_KATAKANA = [
@@ -233,7 +233,7 @@ export function PrintableKanaChartClient({
             </span>
             <span className="flex items-center gap-1 font-bold text-[#000080]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
-              {t.pdfChart.tipVariants}
+              {t.pdfChart.tipVariants(script)}
             </span>
             <span className="flex items-center gap-1 font-bold text-[#000080]">
               <CheckCircle className="w-3.5 h-3.5 text-[#008000]" />
@@ -260,11 +260,11 @@ export function PrintableKanaChartClient({
               </div>
               <div className="text-right text-[10px] font-mono text-[#555555]">
                 <div className="font-bold text-[#800000]">sakanajp.site/tools/{script}-chart-pdf</div>
-                <div>{t.pdfChart.sheetSub}</div>
+                <div>{t.pdfChart.sheetSub(script)}</div>
               </div>
             </div>
 
-            {/* Layout Grid: Left 2/3 (Basic Gojuon 46 + Dakuon 25) | Right 1/3 (Yoon Combinations 33) */}
+            {/* Layout Grid: Left 2/3 (Basic Gojuon 46 + Dakuon 25) | Right 1/3 (Yoon Combinations 33 + Extended 10) */}
             <div className="grid grid-cols-12 gap-3">
               {/* SECTION 1: GOJUON (Basic 46) */}
               <div className="col-span-8 space-y-3">
@@ -277,52 +277,71 @@ export function PrintableKanaChartClient({
                     <thead>
                       <tr className="bg-[#f0f4f8] text-[#000080] font-bold border-b border-[#000080]">
                         <th className="py-1 px-1 border-r border-[#000080] w-16 text-[10px]">{t.pdfChart.rowCol}</th>
-                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">a (あ/ア)</th>
-                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">i (い/イ)</th>
-                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">u (う/ウ)</th>
-                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">e (え/エ)</th>
-                        <th className="py-1 px-1 w-[18%] text-[11px]">o (お/オ)</th>
+                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
+                          a ({script === "hiragana" ? "あ" : "ア"})
+                        </th>
+                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
+                          i ({script === "hiragana" ? "い" : "イ"})
+                        </th>
+                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
+                          u ({script === "hiragana" ? "う" : "ウ"})
+                        </th>
+                        <th className="py-1 px-1 border-r border-[#000080] w-[18%] text-[11px]">
+                          e ({script === "hiragana" ? "え" : "エ"})
+                        </th>
+                        <th className="py-1 px-1 w-[18%] text-[11px]">
+                          o ({script === "hiragana" ? "お" : "オ"})
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {GOJUON_ROWS.map((row, idx) => (
-                        <tr
-                          key={row.key}
-                          className={`border-b border-[#dddddd] ${idx % 2 === 0 ? "bg-white" : "bg-[#fafafa]"}`}
-                        >
-                          <td className="py-0.5 px-1 font-bold text-[10px] text-[#555555] border-r border-[#000080] bg-[#f9f9f9]">
-                            {row.label.split(" ")[0]}
-                          </td>
-                          {row.romajis.map((romaji, rIdx) => {
-                            if (!romaji) {
+                      {GOJUON_ROWS.map((row, idx) => {
+                        const rowKana = script === "hiragana" ? row.hKana : row.kKana;
+                        const rowLabel =
+                          locale === "ja"
+                            ? row.key === "singular"
+                              ? rowKana
+                              : `${rowKana}行`
+                            : `${row.code} (${rowKana})`;
+                        return (
+                          <tr
+                            key={row.key}
+                            className={`border-b border-[#dddddd] ${idx % 2 === 0 ? "bg-white" : "bg-[#fafafa]"}`}
+                          >
+                            <td className="py-0.5 px-1 font-bold text-[10px] text-[#555555] border-r border-[#000080] bg-[#f9f9f9]">
+                              {rowLabel}
+                            </td>
+                            {row.romajis.map((romaji, rIdx) => {
+                              if (!romaji) {
+                                return (
+                                  <td
+                                    key={rIdx}
+                                    className={`py-0.5 px-1 bg-[#f0f0f0] text-gray-300 ${
+                                      rIdx < 4 ? "border-r border-[#dddddd]" : ""
+                                    }`}
+                                  >
+                                    -
+                                  </td>
+                                );
+                              }
+                              const charObj = kanaMap.get(romaji);
                               return (
                                 <td
                                   key={rIdx}
-                                  className={`py-0.5 px-1 bg-[#f0f0f0] text-gray-300 ${
-                                    rIdx < 4 ? "border-r border-[#dddddd]" : ""
-                                  }`}
+                                  className={`py-0.5 px-1 ${rIdx < 4 ? "border-r border-[#dddddd]" : ""}`}
                                 >
-                                  -
+                                  <div className="text-base font-bold text-black leading-tight">
+                                    {charObj?.character || ""}
+                                  </div>
+                                  <div className="text-[9px] font-mono font-semibold text-[#800000] leading-none">
+                                    {romaji}
+                                  </div>
                                 </td>
                               );
-                            }
-                            const charObj = kanaMap.get(romaji);
-                            return (
-                              <td
-                                key={rIdx}
-                                className={`py-0.5 px-1 ${rIdx < 4 ? "border-r border-[#dddddd]" : ""}`}
-                              >
-                                <div className="text-base font-bold text-black leading-tight">
-                                  {charObj?.character || ""}
-                                </div>
-                                <div className="text-[9px] font-mono font-semibold text-[#800000] leading-none">
-                                  {romaji}
-                                </div>
-                              </td>
-                            );
-                          })}
-                        </tr>
-                      ))}
+                            })}
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -345,33 +364,37 @@ export function PrintableKanaChartClient({
                       </tr>
                     </thead>
                     <tbody>
-                      {DAKUON_ROWS.map((row, idx) => (
-                        <tr
-                          key={row.key}
-                          className={`border-b border-[#dddddd] ${idx % 2 === 0 ? "bg-white" : "bg-[#fffdfd]"}`}
-                        >
-                          <td className="py-0.5 px-1 font-bold text-[10px] text-[#800000] border-r border-[#800000] bg-[#fff9f9]">
-                            {row.label.split(" ")[0]}
-                          </td>
-                          {row.romajis.map((romaji, rIdx) => {
-                            const charObj = kanaMap.get(romaji);
-                            const displayRomaji = romaji.includes("(") ? romaji.split("(")[0] : romaji;
-                            return (
-                              <td
-                                key={rIdx}
-                                className={`py-0.5 px-1 ${rIdx < 4 ? "border-r border-[#dddddd]" : ""}`}
-                              >
-                                <div className="text-base font-bold text-black leading-tight">
-                                  {charObj?.character || ""}
-                                </div>
-                                <div className="text-[9px] font-mono font-semibold text-[#800000] leading-none">
-                                  {displayRomaji}
-                                </div>
-                              </td>
-                            );
-                          })}
-                        </tr>
-                      ))}
+                      {DAKUON_ROWS.map((row, idx) => {
+                        const rowKana = script === "hiragana" ? row.hKana : row.kKana;
+                        const rowLabel = locale === "ja" ? `${rowKana}行` : `${row.code} (${rowKana})`;
+                        return (
+                          <tr
+                            key={row.key}
+                            className={`border-b border-[#dddddd] ${idx % 2 === 0 ? "bg-white" : "bg-[#fffdfd]"}`}
+                          >
+                            <td className="py-0.5 px-1 font-bold text-[10px] text-[#800000] border-r border-[#800000] bg-[#fff9f9]">
+                              {rowLabel}
+                            </td>
+                            {row.romajis.map((romaji, rIdx) => {
+                              const charObj = kanaMap.get(romaji);
+                              const displayRomaji = romaji.includes("(") ? romaji.replace("(", " (") : romaji;
+                              return (
+                                <td
+                                  key={rIdx}
+                                  className={`py-0.5 px-1 ${rIdx < 4 ? "border-r border-[#dddddd]" : ""}`}
+                                >
+                                  <div className="text-base font-bold text-black leading-tight">
+                                    {charObj?.character || ""}
+                                  </div>
+                                  <div className="text-[9px] font-mono font-semibold text-[#800000] leading-none">
+                                    {displayRomaji}
+                                  </div>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -386,7 +409,7 @@ export function PrintableKanaChartClient({
                 <table className="w-full text-center border-collapse text-xs flex-1">
                   <thead>
                     <tr className="bg-[#e0f7fa] text-[#006064] font-bold border-b border-[#006064]">
-                      <th className="py-1 px-1 border-r border-[#006064] w-12 text-[10px]">{t.pdfChart.rootCol}</th>
+                      <th className="py-1 px-1 border-r border-[#006064] w-14 text-[10px]">{t.pdfChart.rootCol}</th>
                       <th className="py-1 px-1 border-r border-[#006064] text-[11px]">-ya</th>
                       <th className="py-1 px-1 border-r border-[#006064] text-[11px]">-yu</th>
                       <th className="py-1 px-1 text-[11px]">-yo</th>
@@ -394,14 +417,14 @@ export function PrintableKanaChartClient({
                   </thead>
                   <tbody>
                     {YOON_ROWS.map((row, idx) => {
-                      const root = row.romajis[0].slice(0, -2) || row.romajis[0][0];
+                      const baseKana = script === "hiragana" ? row.hKana : row.kKana;
                       return (
                         <tr
                           key={idx}
                           className={`border-b border-[#e0e0e0] ${idx % 2 === 0 ? "bg-white" : "bg-[#f9fbfb]"}`}
                         >
                           <td className="py-0.5 px-1 font-bold text-[9px] text-[#006064] border-r border-[#006064] bg-[#f0fbfb]">
-                            {root.toUpperCase()}
+                            {locale === "ja" ? baseKana : `${row.root} (${baseKana})`}
                           </td>
                           {row.romajis.map((romaji, rIdx) => {
                             const charObj = kanaMap.get(romaji);
@@ -427,7 +450,7 @@ export function PrintableKanaChartClient({
                 {script === "katakana" && (
                   <div className="border-t border-[#006064]">
                     <div className="bg-[#e0f7fa] text-[#006064] text-[9.5px] font-bold px-2 py-0.5 border-b border-[#006064]">
-                      EXTENDED KATAKANA (特殊音・外来語 - 10)
+                      {t.pdfChart.sec4Title}
                     </div>
                     <div className="grid grid-cols-5 text-center text-xs">
                       {EXTENDED_KATAKANA.map((romaji, idx) => {
@@ -474,7 +497,7 @@ export function PrintableKanaChartClient({
               <span>{t.pdfChart.howToUseTitle(scriptDisplay)}</span>
             </h2>
             <p className="text-xs text-[#555555] mt-1 leading-relaxed">
-              {t.pdfChart.howToUseDesc(scriptDisplay)}
+              {t.pdfChart.howToUseDesc(scriptDisplay, script)}
             </p>
           </div>
 

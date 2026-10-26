@@ -14,26 +14,26 @@ const META_BY_LOCALE = {
   en: {
     title: "Free Printable Katakana Chart PDF (Horizontal Landscape) — Complete A-O Table",
     description:
-      "Download or print the complete Japanese Katakana chart in horizontal landscape PDF format. Includes all 46 basic Gojūon, 25 Dakuon/Handakuon, and 33 Yōon combinations with Romaji. 100% free for students and teachers.",
+      "Download or print the complete Japanese Katakana chart in horizontal landscape PDF format. Includes all 114 characters: 46 basic Gojūon, 25 Dakuon/Handakuon, 33 Yōon combinations, and 10 Extended Katakana with Romaji. 100% free for students and teachers.",
     ogTitle: "Printable Katakana Chart PDF (Horizontal Layout) | SaKana",
     ogDescription:
-      "Free high-resolution horizontal Katakana PDF study sheet. All 104+ Katakana characters with Romaji guide.",
+      "Free high-resolution horizontal Katakana PDF study sheet. All 114 Katakana characters (including extended loanword sounds) with Romaji guide.",
   },
   id: {
     title: "Bagan Katakana PDF Siap Cetak Gratis (Landscape Horizontal) — Tabel Lengkap A-O",
     description:
-      "Unduh atau cetak tabel lengkap Katakana Jepang format PDF landscape horizontal. Mencakup 46 Gojūon dasar, 25 Dakuon/Handakuon, dan 33 Yōon dengan Romaji.",
+      "Unduh atau cetak tabel lengkap Katakana Jepang format PDF landscape horizontal. Mencakup seluruh 114 karakter: 46 Gojūon dasar, 25 Dakuon/Handakuon, 33 Yōon, dan 10 Katakana tambahan dengan Romaji.",
     ogTitle: "Bagan Katakana PDF Siap Cetak (Layout Horizontal) | SaKana",
     ogDescription:
-      "Lembar belajar Katakana resolusi tinggi format PDF gratis untuk murid dan guru.",
+      "Lembar belajar 114 karakter Katakana resolusi tinggi format PDF gratis untuk murid dan guru.",
   },
   ja: {
     title: "無料印刷用カタカナ五十音図PDF（A4横型ランドスケープ） — 完全版一覧表",
     description:
-      "A4横向きレイアウトの完全版カタカナ一覧表PDFを無料ダウンロード・印刷。清音46文字、濁音・半濁音25文字、拗音33文字をローマ字表記付きで網羅。",
+      "A4横向きレイアウトの完全版カタカナ一覧表PDFを無料ダウンロード・印刷。全114音（清音46文字、濁音・半濁音25文字、拗音33音、特殊音・外来語表記10音）をローマ字表記付きで網羅。",
     ogTitle: "印刷用カタカナ五十音図PDF（横型レイアウト） | SaKana",
     ogDescription:
-      "高解像度A4横型カタカナ学習シート。個人学習・学校授業で無料配布可能。",
+      "高解像度A4横型カタカナ学習シート（全114音収録）。個人学習・学校授業で無料配布可能。",
   },
 };
 
