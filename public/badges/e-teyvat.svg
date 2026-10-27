@@ -1,28 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
   <defs>
     <style>
-      .mono-title { font-family: monospace, "Courier New", sans-serif; font-size: 8px; font-weight: bold; letter-spacing: 0.5px; }
-      .mono-sub { font-family: monospace, "Courier New", sans-serif; font-size: 6px; letter-spacing: 1px; }
+      .teyvat-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif; font-size: 8px; font-weight: 800; letter-spacing: 0.8px; }
+      .teyvat-sub { font-family: monospace, "Courier New", sans-serif; font-size: 5.5px; letter-spacing: 1.2px; font-weight: 700; }
     </style>
+    <linearGradient id="anemoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#66d9a7" />
+      <stop offset="100%" stop-color="#28765a" />
+    </linearGradient>
   </defs>
 
-  <!-- Border & Background -->
-  <rect x="0" y="0" width="88" height="31" fill="#0d131f" stroke="#253549" stroke-width="1" />
-  <rect x="1" y="1" width="86" height="1" fill="#38bdf8" opacity="0.4" />
+  <!-- Border & E-Teyvat Deep Green-Black Canvas -->
+  <rect x="0" y="0" width="88" height="31" fill="#0a110f" stroke="#1b2e25" stroke-width="1" />
+  <rect x="1" y="1" width="86" height="1" fill="#62d5a3" opacity="0.35" />
   
-  <!-- Left elemental glyph bar -->
-  <rect x="2" y="2" width="22" height="27" fill="#141e2e" />
-  <!-- Anemo / Genshin style star/diamond icon -->
-  <polygon points="13,5 16,15 23,15 17,20 19,27 13,22 7,27 9,20 3,15 10,15" fill="#60a5fa" opacity="0.25" />
-  <polygon points="13,7 15,14 20,14 16,18 17,23 13,20 9,23 10,18 6,14 11,14" fill="#38bdf8" />
-  <circle cx="13" cy="15" r="2" fill="#ffffff" />
+  <!-- Left Hex/Diamond Box -->
+  <rect x="2" y="2" width="23" height="27" fill="#111c18" />
+
+  <!-- E-Teyvat Official Diamond Logo & Cross Shape -->
+  <g transform="translate(13.5, 15.5) scale(0.6)">
+    <rect x="-11" y="-11" width="22" height="22" rx="4" fill="url(#anemoGlow)" transform="rotate(45)" />
+    <rect x="-8" y="-8" width="16" height="16" rx="3" fill="none" stroke="#061c14" stroke-width="0.8" transform="rotate(45)" />
+    <rect x="-1" y="-5" width="2" height="10" fill="#d9f8e9" />
+    <rect x="-5" y="-1" width="10" height="2" fill="#d9f8e9" />
+  </g>
 
   <!-- Divider -->
-  <line x1="24" y1="2" x2="24" y2="29" stroke="#253549" />
+  <line x1="25" y1="2" x2="25" y2="29" stroke="#1b2e25" />
 
   <!-- Right Side Content -->
-  <text x="28" y="12" fill="#ffffff" class="mono-title">E-TEYVAT</text>
-  <rect x="28" y="16" width="52" height="10" fill="#1e293b" />
-  <text x="31" y="23.5" fill="#38bdf8" class="mono-sub">ARCHIVE</text>
-  <circle cx="74" cy="21" r="2" fill="#34d399" />
+  <text x="29" y="12" fill="#eff7f3" class="teyvat-title">E-TEYVAT</text>
+  <rect x="29" y="16" width="53" height="10" fill="#16231e" stroke="#253e32" stroke-width="1" rx="1" />
+  <text x="32" y="23.5" fill="#62d5a3" class="teyvat-sub">ARCHIVE</text>
+  <circle cx="76" cy="21" r="1.8" fill="#e2b96a" />
 </svg>

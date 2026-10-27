@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface WebringNode {
@@ -14,35 +13,63 @@ interface WebringNode {
   external?: boolean;
 }
 
+const WEBRING_MEMBERS: { id: string; name: string; url: string; badge: string; descKey: string }[] = [
+  {
+    id: "kurzagin",
+    name: "Kur Zagin",
+    url: "https://kurzagin.com",
+    badge: "/badges/kurzagin.svg",
+    descKey: "kurzaginDesc",
+  },
+  {
+    id: "sakana",
+    name: "Sakana Japanese",
+    url: "https://sakanajp.site",
+    badge: "/badges/sakana.svg",
+    descKey: "sakanaDesc",
+  },
+  {
+    id: "e-teyvat",
+    name: "E-Teyvat",
+    url: "https://e-teyvat.vxnus.xyz",
+    badge: "/badges/e-teyvat.svg",
+    descKey: "eteyvatDesc",
+  },
+  {
+    id: "vxnus",
+    name: "VXNUS Studio",
+    url: "https://vxnus.xyz",
+    badge: "/badges/vxnus.svg",
+    descKey: "vxnusDesc",
+  },
+];
+
 export function RetroWebring() {
   const { t } = useLanguage();
+  const currentSiteId = "sakana";
   const [activeNode, setActiveNode] = useState<WebringNode | null>(null);
 
-  const webringNodes: WebringNode[] = [
-    {
-      id: "kurzagin",
-      name: "Kur Zagin",
-      url: "https://kurzagin.com",
-      badge: "/badges/kurzagin.svg",
-      desc: t.webring.nodes.kurzaginDesc,
-      external: true,
-    },
-    {
-      id: "e-teyvat",
-      name: "E-Teyvat",
-      url: "https://e-teyvat.vxnus.xyz",
-      badge: "/badges/e-teyvat.svg",
-      desc: t.webring.nodes.eteyvatDesc,
-      external: true,
-    },
-    {
-      id: "vxnus",
-      name: "VXNUS Studio",
-      url: "https://vxnus.xyz",
-      badge: "/badges/vxnus.svg",
-      desc: t.webring.nodes.vxnusDesc,
-      external: true,
-    },
+  // Exclude current site from badge display, but keep all for traversal
+  const otherSites: WebringNode[] = WEBRING_MEMBERS.filter((m) => m.id !== currentSiteId).map((m) => ({
+    id: m.id,
+    name: m.name,
+    url: m.url,
+    badge: m.badge,
+    desc: (t.webring.nodes as Record<string, string>)[m.descKey] || m.name,
+    external: true,
+  }));
+
+  const currentIndex = WEBRING_MEMBERS.findIndex((m) => m.id === currentSiteId);
+  const prevMember = WEBRING_MEMBERS[(currentIndex - 1 + WEBRING_MEMBERS.length) % WEBRING_MEMBERS.length];
+  const nextMember = WEBRING_MEMBERS[(currentIndex + 1) % WEBRING_MEMBERS.length];
+
+  const handleRandom = () => {
+    const random = otherSites[Math.floor(Math.random() * otherSites.length)];
+    window.open(random.url, "_blank", "noopener,noreferrer");
+  };
+
+  const displayNodes: WebringNode[] = [
+    ...otherSites,
     {
       id: "join",
       name: t.webring.nodes.joinName,
@@ -52,13 +79,6 @@ export function RetroWebring() {
       external: true,
     },
   ];
-
-  const realSites = webringNodes.filter((n) => n.id !== "join");
-
-  const handleRandom = () => {
-    const random = realSites[Math.floor(Math.random() * realSites.length)];
-    window.open(random.url, "_blank", "noopener,noreferrer");
-  };
 
   return (
     <div className="border border-[#808080] bg-[#ece9d8] p-3 shadow-xs font-mono">
@@ -74,7 +94,7 @@ export function RetroWebring() {
       <div className="mt-2.5 p-2 bg-[#f4f2e8] border border-[#a09e90] space-y-2.5">
         {/* Buttons Grid - Optimized for mobile wrapping and touch friendly */}
         <div className="grid grid-cols-2 xs:grid-cols-4 sm:flex sm:flex-wrap items-center justify-center gap-2">
-          {webringNodes.map((node) => {
+          {displayNodes.map((node) => {
             return (
               <a
                 key={node.id}
@@ -127,10 +147,11 @@ export function RetroWebring() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] pt-1.5 border-t border-[#d0cebf]">
           <div className="flex items-center justify-center gap-1.5 w-full sm:w-auto">
             <a
-              href={realSites[0].url}
+              href={prevMember.url}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              title={`Previous site: ${prevMember.name}`}
             >
               {t.webring.prev}
             </a>
@@ -142,10 +163,11 @@ export function RetroWebring() {
               {t.webring.random}
             </button>
             <a
-              href={realSites[1].url}
+              href={nextMember.url}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none text-center px-2 py-1 bg-[#d4d0c8] border border-t-white border-l-white border-b-[#404040] border-r-[#404040] hover:bg-[#c0bca8] active:border-t-[#404040] active:border-l-[#404040] active:border-b-white active:border-r-white text-[#000080] font-bold text-[10px]"
+              title={`Next site: ${nextMember.name}`}
             >
               {t.webring.next}
             </a>
