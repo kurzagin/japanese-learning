@@ -4,6 +4,7 @@ import Link from "next/link";
 import { RetroNavbar } from "@/components/RetroNavbar";
 import { HomeFooter } from "@/components/HomeFooter";
 import { useLanguage } from "@/context/LanguageContext";
+import { privacyTranslations } from "@/data/legal/privacy";
 import {
   Shield,
   UserCheck,
@@ -16,17 +17,17 @@ import {
   Volume2,
   FileText,
   RefreshCw,
-  ExternalLink,
   Lock,
 } from "lucide-react";
 
 export default function PrivacyClient() {
   const { locale } = useLanguage();
   const prefix = locale === "en" ? "" : `/${locale}`;
+  const t = privacyTranslations[locale] || privacyTranslations.en;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">
-      <RetroNavbar currentSubtitle="Privacy Policy" />
+      <RetroNavbar currentSubtitle={t.windowSubtitle} />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-6">
         {/* Window Header Box */}
@@ -35,11 +36,11 @@ export default function PrivacyClient() {
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-[#ffff00]" />
               <span className="font-bold text-xs sm:text-sm tracking-wide">
-                PRIVACY_POLICY.TXT — NOTEPAD
+                {t.notepadTitle}
               </span>
             </div>
             <span className="text-[10px] text-[#e0e0ff] font-mono">
-              CONFIDENTIAL // TRANSPARENT
+              {t.notepadTag}
             </span>
           </div>
 
@@ -48,14 +49,16 @@ export default function PrivacyClient() {
             <div className="border-b border-[#808080] pb-4 space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h1 className="text-xl sm:text-2xl font-black text-[#000080]">
-                  SaKana Privacy Policy & Data Transparency
+                  {t.bannerTitle}
                 </h1>
                 <span className="bg-[#ffff00] border border-[#808080] text-[#800000] font-mono text-[10px] font-bold px-2 py-0.5">
-                  EFFECTIVE: OCTOBER 2026
+                  {t.bannerEffective}
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-[#555] leading-relaxed">
-                At <strong>SaKana (魚)</strong>, we believe educational tools should respect your freedom and privacy. This document outlines exactly what information is collected, how it is stored, and how our real guest and authenticated systems operate.
+                {t.bannerLead.beforeBrand}
+                <strong>{t.bannerLead.brandName}</strong>
+                {t.bannerLead.afterBrand}
               </p>
             </div>
 
@@ -63,7 +66,7 @@ export default function PrivacyClient() {
             <div className="space-y-4">
               <div className="bg-[#000080] text-white px-3 py-1 text-xs font-bold flex items-center gap-2">
                 <Database className="w-3.5 h-3.5 text-[#ffff00]" />
-                <span>1. REAL DATA IMPLEMENTATION: GUEST VS. LOGGED-IN ACCOUNTS</span>
+                <span>{t.section1Title}</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -72,44 +75,51 @@ export default function PrivacyClient() {
                   <div>
                     <div className="flex items-center gap-2 text-[#800000] font-bold text-sm border-b border-[#d0cebf] pb-2 mb-2">
                       <UserX className="w-4 h-4" />
-                      <span>GUEST MODE (NO REGISTRATION)</span>
+                      <span>{t.guestTitle}</span>
                     </div>
 
                     <div className="space-y-2.5 text-xs text-[#333]">
                       <p>
-                        <strong>Zero Personal Data Collected:</strong> You do not need to submit your email, name, phone number, or password. You are assigned a local placeholder (<code>guest@sakanajp.site</code>).
+                        <strong>{t.guestZeroDataTitle}</strong>
+                        {t.guestZeroDataDesc}
                       </p>
 
                       <div>
-                        <strong>Client-Side Storage (Browser localStorage):</strong>
+                        <strong>{t.guestStorageTitle}</strong>
                         <ul className="list-disc list-inside mt-1 space-y-1 text-[11px] font-mono text-[#444] bg-white p-2 border border-[#d0cebf]">
                           <li>
-                            <code>sakana_progress</code>: Stage completions, star ratings (1–3), accuracy percentage, and best speed duration in milliseconds.
+                            <code>sakana_progress</code>
+                            {t.guestStorageKeys.progress}
                           </li>
                           <li>
-                            <code>sakana_srs_records</code>: SM-2 spaced repetition flashcards (review intervals, ease factor, repetition count, lapses, next review timestamp).
+                            <code>sakana_srs_records</code>
+                            {t.guestStorageKeys.srs}
                           </li>
                           <li>
-                            <code>sakana_locale</code>: Interface language preference (English, Indonesian, or Japanese).
+                            <code>sakana_locale</code>
+                            {t.guestStorageKeys.locale}
                           </li>
                           <li>
-                            <code>sakana_audio_questions</code>: Toggle for sound-based listening quizzes.
+                            <code>sakana_audio_questions</code>
+                            {t.guestStorageKeys.audio}
                           </li>
                         </ul>
                       </div>
 
                       <p>
-                        <strong>Server Storage:</strong> Zero study sessions or flashcard records are sent to our cloud database. Only an anonymous visitor counter (<code>/api/visitors</code>) is incremented on page load without storing IP addresses or browser fingerprints.
+                        <strong>{t.guestServerStorageTitle}</strong>
+                        {t.guestServerStorageDesc}
                       </p>
 
                       <p className="text-[11px] text-[#800000] bg-[#fff0f0] p-2 border border-[#e0c0c0]">
-                        <strong>⚠️ Notice:</strong> Because guest data is stored exclusively in your browser&apos;s localStorage, clearing your browser cache or switching devices will reset your study history.
+                        <strong>{t.guestNoticeTitle}</strong>
+                        {t.guestNoticeDesc}
                       </p>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-[#d0cebf] text-[11px] text-[#000080] font-bold">
-                    ✓ 100% Private to your device
+                    {t.guestBadge}
                   </div>
                 </div>
 
@@ -118,47 +128,52 @@ export default function PrivacyClient() {
                   <div>
                     <div className="flex items-center gap-2 text-[#000080] font-bold text-sm border-b border-[#c0d0e8] pb-2 mb-2">
                       <UserCheck className="w-4 h-4" />
-                      <span>AUTHENTICATED ACCOUNT</span>
+                      <span>{t.authTitle}</span>
                     </div>
 
                     <div className="space-y-2.5 text-xs text-[#333]">
-                      <p>
-                        <strong>Account Credentials:</strong>
+                      <div>
+                        <strong>{t.authCredsTitle}</strong>
                         <br />
-                        • Email address (used for login and verification).
+                        • {t.authCredsItems.email}
                         <br />
-                        • Password (cryptographically salted and hashed by Supabase Auth using bcrypt/argon2; SaKana never sees or stores plaintext passwords).
+                        • {t.authCredsItems.password}
                         <br />
-                        • Optional Display Name and Preferences.
-                      </p>
+                        • {t.authCredsItems.optional}
+                      </div>
 
                       <div>
-                        <strong>Cloud Database Storage (PostgreSQL hosted via Supabase):</strong>
+                        <strong>{t.authCloudTitle}</strong>
                         <ul className="list-disc list-inside mt-1 space-y-1 text-[11px] font-mono text-[#444] bg-white p-2 border border-[#c0d0e8]">
                           <li>
-                            <code>users</code>: Auth UID, email, display name, avatar, and system role.
+                            <code>users</code>
+                            {t.authCloudKeys.users}
                           </li>
                           <li>
-                            <code>user_stage_progress</code>: Stage ID, completion boolean, best duration (ms), star ratings, accuracy percentage, and attempt counts.
+                            <code>user_stage_progress</code>
+                            {t.authCloudKeys.progress}
                           </li>
                           <li>
-                            <code>user_card_reviews</code>: SM-2 spaced repetition state, repetition intervals (days), ease factor, lapses, and next scheduled review dates.
+                            <code>user_card_reviews</code>
+                            {t.authCloudKeys.reviews}
                           </li>
                         </ul>
                       </div>
 
                       <p>
-                        <strong>Session Cookies:</strong> Secure JSON Web Tokens (JWT) stored in HTTP cookies managed by <code>@supabase/ssr</code> to keep you signed in across tabs and devices.
+                        <strong>{t.authCookiesTitle}</strong>
+                        {t.authCookiesDesc}
                       </p>
 
                       <p className="text-[11px] text-[#006600] bg-[#f0fff0] p-2 border border-[#b0e0b0]">
-                        <strong>✓ Cross-Device Sync:</strong> Your progress and SRS flashcards are safely backed up in the cloud, allowing seamless practice between phone and desktop.
+                        <strong>{t.authSyncTitle}</strong>
+                        {t.authSyncDesc}
                       </p>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-[#c0d0e8] text-[11px] text-[#000080] font-bold">
-                    ✓ Encrypted Cloud Synchronization
+                    {t.authBadge}
                   </div>
                 </div>
               </div>
@@ -168,10 +183,10 @@ export default function PrivacyClient() {
             <div className="border border-[#808080] bg-[#fffbe6] p-4 space-y-2">
               <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-[#800000]">
                 <RefreshCw className="w-4 h-4" />
-                <span>2. AUTOMATIC GUEST-TO-ACCOUNT PROGRESS MIGRATION</span>
+                <span>{t.section2Title}</span>
               </div>
               <p className="text-xs text-[#444] leading-relaxed">
-                When you study as a guest and subsequently sign up or log in, SaKana runs an automatic client-side migration utility (<code>syncGuestDataToAccount</code> via <code>/api/sync/migrate-guest</code>). This process extracts your local stages and SRS memory cards from <code>localStorage</code> and merges them into your newly authenticated PostgreSQL account. Higher stars, higher accuracy, and lower speed run times are preserved, ensuring zero progress is lost when upgrading from guest to user.
+                {t.section2Desc}
               </p>
             </div>
 
@@ -179,7 +194,7 @@ export default function PrivacyClient() {
             <div className="space-y-3">
               <div className="bg-[#000080] text-white px-3 py-1 text-xs font-bold flex items-center gap-2">
                 <Server className="w-3.5 h-3.5 text-[#ffff00]" />
-                <span>3. THIRD-PARTY SERVICES USED BY SAKANA</span>
+                <span>{t.section3Title}</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -188,12 +203,14 @@ export default function PrivacyClient() {
                   <div className="flex items-center justify-between font-bold text-[#000080]">
                     <span className="flex items-center gap-1.5">
                       <Lock className="w-3.5 h-3.5 text-[#00aa00]" />
-                      <span>Supabase (PostgreSQL & Auth)</span>
+                      <span>{t.services.supabaseTitle}</span>
                     </span>
-                    <span className="text-[10px] text-[#666] font-mono">SOC 2 / GDPR</span>
+                    <span className="text-[10px] text-[#666] font-mono">
+                      {t.services.supabaseBadge}
+                    </span>
                   </div>
                   <p className="text-[#444] text-[11px] leading-relaxed">
-                    Provides managed PostgreSQL database hosting and authentication infrastructure. Manages password hashing, email confirmations, session JWTs, and row-level security.
+                    {t.services.supabaseDesc}
                   </p>
                 </div>
 
@@ -202,12 +219,14 @@ export default function PrivacyClient() {
                   <div className="flex items-center justify-between font-bold text-[#000080]">
                     <span className="flex items-center gap-1.5">
                       <Cloud className="w-3.5 h-3.5 text-[#ff6600]" />
-                      <span>Cloudflare R2 & Edge CDN</span>
+                      <span>{t.services.cloudflareTitle}</span>
                     </span>
-                    <span className="text-[10px] text-[#666] font-mono">EDGE NETWORK</span>
+                    <span className="text-[10px] text-[#666] font-mono">
+                      {t.services.cloudflareBadge}
+                    </span>
                   </div>
                   <p className="text-[#444] text-[11px] leading-relaxed">
-                    Used to host and distribute audio recordings and media assets via <code>cdn.sakanajp.site</code>. Cloudflare caches content globally and monitors DDoS network traffic.
+                    {t.services.cloudflareDesc}
                   </p>
                 </div>
 
@@ -216,12 +235,14 @@ export default function PrivacyClient() {
                   <div className="flex items-center justify-between font-bold text-[#000080]">
                     <span className="flex items-center gap-1.5">
                       <Cookie className="w-3.5 h-3.5 text-[#0066cc]" />
-                      <span>Google AdSense (ca-pub-6604416528217447)</span>
+                      <span>{t.services.adsenseTitle}</span>
                     </span>
-                    <span className="text-[10px] text-[#666] font-mono">ADVERTISING</span>
+                    <span className="text-[10px] text-[#666] font-mono">
+                      {t.services.adsenseBadge}
+                    </span>
                   </div>
                   <p className="text-[#444] text-[11px] leading-relaxed">
-                    Serves unobtrusive ads in retro frames to fund server, database, and domain expenses, keeping SaKana 100% free. Google may use advertising cookies in accordance with Google&apos;s privacy policies.
+                    {t.services.adsenseDesc}
                   </p>
                 </div>
 
@@ -230,12 +251,14 @@ export default function PrivacyClient() {
                   <div className="flex items-center justify-between font-bold text-[#000080]">
                     <span className="flex items-center gap-1.5">
                       <Volume2 className="w-3.5 h-3.5 text-[#cc0000]" />
-                      <span>Web Speech API (SpeechSynthesis)</span>
+                      <span>{t.services.webSpeechTitle}</span>
                     </span>
-                    <span className="text-[10px] text-[#008800] font-mono">100% CLIENT-SIDE</span>
+                    <span className="text-[10px] text-[#008800] font-mono">
+                      {t.services.webSpeechBadge}
+                    </span>
                   </div>
                   <p className="text-[#444] text-[11px] leading-relaxed">
-                    Interactive pronunciation audio for Japanese characters is synthesized directly by your web browser&apos;s native engine (<code>ja-JP</code>). No audio requests or microphone recordings are sent across the network.
+                    {t.services.webSpeechDesc}
                   </p>
                 </div>
               </div>
@@ -245,43 +268,43 @@ export default function PrivacyClient() {
             <div className="space-y-3">
               <div className="bg-[#000080] text-white px-3 py-1 text-xs font-bold flex items-center gap-2">
                 <Cookie className="w-3.5 h-3.5 text-[#ffff00]" />
-                <span>4. COOKIES & LOCAL BROWSER STORAGE SUMMARY</span>
+                <span>{t.section4Title}</span>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse border border-[#808080] text-xs">
                   <thead>
                     <tr className="bg-[#d4d0c8] text-[#000080] font-bold">
-                      <th className="border border-[#808080] p-2">Item Name</th>
-                      <th className="border border-[#808080] p-2">Type</th>
-                      <th className="border border-[#808080] p-2">Purpose</th>
-                      <th className="border border-[#808080] p-2">Who Uses It</th>
+                      <th className="border border-[#808080] p-2">{t.tableHeaders.name}</th>
+                      <th className="border border-[#808080] p-2">{t.tableHeaders.type}</th>
+                      <th className="border border-[#808080] p-2">{t.tableHeaders.purpose}</th>
+                      <th className="border border-[#808080] p-2">{t.tableHeaders.who}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#d0cebf]">
                     <tr>
                       <td className="border border-[#808080] p-2 font-mono">sb-*-auth-token</td>
-                      <td className="border border-[#808080] p-2">HTTP Cookie</td>
-                      <td className="border border-[#808080] p-2">Maintains authenticated user session</td>
-                      <td className="border border-[#808080] p-2">Logged-in Users</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.cookieSession.type}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.cookieSession.purpose}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.cookieSession.who}</td>
                     </tr>
                     <tr>
                       <td className="border border-[#808080] p-2 font-mono">sakana_progress</td>
-                      <td className="border border-[#808080] p-2">localStorage</td>
-                      <td className="border border-[#808080] p-2">Stage scores, speed records, star ratings</td>
-                      <td className="border border-[#808080] p-2">Guests & Logged-in (Cache)</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localProgress.type}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localProgress.purpose}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localProgress.who}</td>
                     </tr>
                     <tr>
                       <td className="border border-[#808080] p-2 font-mono">sakana_srs_records</td>
-                      <td className="border border-[#808080] p-2">localStorage</td>
-                      <td className="border border-[#808080] p-2">SM-2 Spaced repetition interval states</td>
-                      <td className="border border-[#808080] p-2">Guests & Logged-in (Cache)</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localSrs.type}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localSrs.purpose}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localSrs.who}</td>
                     </tr>
                     <tr>
                       <td className="border border-[#808080] p-2 font-mono">sakana_locale</td>
-                      <td className="border border-[#808080] p-2">localStorage</td>
-                      <td className="border border-[#808080] p-2">Language preference (en, id, ja)</td>
-                      <td className="border border-[#808080] p-2">All Users</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localLocale.type}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localLocale.purpose}</td>
+                      <td className="border border-[#808080] p-2">{t.tableRows.localLocale.who}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -292,10 +315,10 @@ export default function PrivacyClient() {
             <div className="space-y-3">
               <div className="bg-[#000080] text-white px-3 py-1 text-xs font-bold flex items-center gap-2">
                 <FileText className="w-3.5 h-3.5 text-[#ffff00]" />
-                <span>5. YOUR RIGHTS & ACCOUNT DELETION</span>
+                <span>{t.section5Title}</span>
               </div>
               <p className="text-xs text-[#444] leading-relaxed">
-                You retain complete control over your educational data. You may request permanent deletion of your account, email address, stage completion metrics, and SRS review cards from our PostgreSQL database at any time by contacting our team or raising an issue on our GitHub repository. Guests may delete their data at any time simply by clearing their browser&apos;s site data for <code>sakanajp.site</code>.
+                {t.section5Desc}
               </p>
             </div>
 
@@ -305,13 +328,13 @@ export default function PrivacyClient() {
                 href={`${prefix}/tos`}
                 className="text-[#000080] font-bold hover:underline flex items-center gap-1"
               >
-                &rarr; View Terms of Service (TOS)
+                {t.footerTosLink}
               </Link>
               <Link
                 href={`${prefix}/`}
                 className="px-3 py-1 bg-[#d4d0c8] border-t-2 border-l-2 border-white border-b-2 border-r-2 border-[#404040] hover:bg-[#e4e0d8] font-bold text-black"
               >
-                Return to Homepage
+                {t.footerHomeBtn}
               </Link>
             </div>
           </div>
