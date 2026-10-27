@@ -381,7 +381,7 @@ export default function StudyClient({
           if (s) requiredStages.push(s);
         });
       }
-      return <StageLockedView requiredStages={requiredStages} />;
+      return <StageLockedView requiredStages={requiredStages} progress={progress} />;
     }
   }
 

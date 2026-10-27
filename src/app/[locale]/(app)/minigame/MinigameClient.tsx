@@ -249,7 +249,7 @@ export default function MinigameClient({ stages = [] }: { stages?: Stage[] }) {
     const requiredStages = reqIds
       .map((id) => stages.find((s) => s.id === id) || STAGES_BY_ID.get(id))
       .filter(Boolean) as Stage[];
-    return <StageLockedView isArcade={true} requiredStages={requiredStages} />;
+    return <StageLockedView isArcade={true} requiredStages={requiredStages} progress={progress} />;
   }
 
   return (
