@@ -31,4 +31,5 @@ export interface KanaCharacter {
   type: KanaType;
   row: KanaRow;
   hint: Record<Locale, string>;
+  aliases?: string[];
 }

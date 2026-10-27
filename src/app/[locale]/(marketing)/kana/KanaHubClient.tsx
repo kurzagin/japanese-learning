@@ -21,18 +21,38 @@ export default function KanaHubClient({ allKana = [] }: { allKana?: KanaCharacte
   }, [activeScript, allKana]);
 
   const filteredKana = useMemo(() => {
+    const normalize = (str: string) =>
+      str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
     return kanaList.filter((k) => {
       if (activeType !== "all" && k.type !== activeType) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
-        const matchesRomaji = k.romaji.toLowerCase().includes(query);
+        const normQuery = normalize(query);
+        const matchesRomaji =
+          k.romaji.toLowerCase().includes(query) ||
+          normalize(k.romaji).includes(normQuery);
         const matchesChar = k.character.includes(query);
-        const matchesHint = (k.hint[locale] || k.hint.en || "").toLowerCase().includes(query);
-        return matchesRomaji || matchesChar || matchesHint;
+        const matchesAliases = k.aliases?.some((a) => {
+          const aNorm = normalize(a);
+          if (normQuery.length <= 2) {
+            return aNorm === normQuery || aNorm.startsWith(normQuery);
+          }
+          return aNorm.includes(normQuery);
+        });
+        const matchesHint =
+          normQuery.length >= 3 &&
+          Object.values(k.hint).some((h) =>
+            normalize(h).includes(normQuery)
+          );
+        return matchesRomaji || matchesChar || matchesAliases || matchesHint;
       }
       return true;
     });
-  }, [kanaList, activeType, searchQuery, locale]);
+  }, [kanaList, activeType, searchQuery]);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};

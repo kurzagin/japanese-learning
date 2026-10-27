@@ -31,19 +31,54 @@ export default function WordsHubClient({ initialWords = [] }: { initialWords?: V
         .replace(/oo/g, "o")
         .replace(/ou/g, "o");
 
+    const phoneticNorm = (str: string) =>
+      normalizeRomaji(str).replace(/c(?=[aou])/g, "k");
+
     return initialWords.filter((w) => {
       if (activeScript !== "all" && w.script !== activeScript) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
         const normQuery = normalizeRomaji(query);
+        const phonQuery = phoneticNorm(query);
         const normRomaji = normalizeRomaji(w.romaji);
-        const matchRomaji = w.romaji.toLowerCase().includes(query) || normRomaji.includes(normQuery);
+        const phonRomaji = phoneticNorm(w.romaji);
+
+        const matchRomaji =
+          w.romaji.toLowerCase().includes(query) ||
+          normRomaji.includes(normQuery) ||
+          phonRomaji.includes(phonQuery);
         const matchChar = w.character.includes(query);
         const matchKanji = w.kanji?.includes(query);
         const matchKanjiOptions = w.kanjiOptions?.some((o) => o.kanji.includes(query));
-        const meaning = w.meaning[locale] || w.meaning.en;
-        const matchMeaning = meaning.toLowerCase().includes(query);
-        return matchRomaji || matchChar || matchKanji || matchKanjiOptions || matchMeaning;
+        const matchAliases = w.aliases?.some((a) => {
+          const aNorm = normalizeRomaji(a);
+          const aPhon = phoneticNorm(a);
+          if (normQuery.length <= 2) {
+            return (
+              a.toLowerCase() === query ||
+              aNorm === normQuery ||
+              aPhon === phonQuery ||
+              aNorm.startsWith(normQuery)
+            );
+          }
+          return (
+            a.toLowerCase().includes(query) ||
+            aNorm.includes(normQuery) ||
+            aPhon.includes(phonQuery)
+          );
+        });
+        const matchMeaning = Object.values(w.meaning).some((m) => {
+          const mNorm = normalizeRomaji(m);
+          if (normQuery.length <= 2) {
+            return (
+              m.toLowerCase() === query ||
+              mNorm === normQuery ||
+              mNorm.startsWith(normQuery)
+            );
+          }
+          return m.toLowerCase().includes(query) || mNorm.includes(normQuery);
+        });
+        return matchRomaji || matchChar || matchKanji || matchKanjiOptions || matchAliases || matchMeaning;
       }
       return true;
     });

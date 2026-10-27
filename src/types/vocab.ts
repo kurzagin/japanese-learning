@@ -34,6 +34,7 @@ export interface VocabWord {
   trivia?: Record<Locale, string>;
   primaryKanaId?: string;
   kanjiOptions?: KanjiOption[];
+  aliases?: string[];
 }
 
 export interface JlptCategoryMeta {

@@ -25,19 +25,69 @@ export default function JlptCategoryClient({ category, words, counts }: Props) {
   const catDesc = category.description[locale] || category.description.en;
 
   const filteredWords = useMemo(() => {
+    const normalizeRomaji = (str: string) =>
+      str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/aa/g, "a")
+        .replace(/ii/g, "i")
+        .replace(/uu/g, "u")
+        .replace(/ee/g, "e")
+        .replace(/oo/g, "o")
+        .replace(/ou/g, "o");
+
+    const phoneticNorm = (str: string) =>
+      normalizeRomaji(str).replace(/c(?=[aou])/g, "k");
+
     return words.filter((w) => {
       if (activeScript !== "all" && w.script !== activeScript) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
-        const matchRomaji = w.romaji.toLowerCase().includes(query);
+        const normQuery = normalizeRomaji(query);
+        const phonQuery = phoneticNorm(query);
+        const normRomaji = normalizeRomaji(w.romaji);
+        const phonRomaji = phoneticNorm(w.romaji);
+
+        const matchRomaji =
+          w.romaji.toLowerCase().includes(query) ||
+          normRomaji.includes(normQuery) ||
+          phonRomaji.includes(phonQuery);
         const matchChar = w.character.includes(query);
-        const meaning = w.meaning[locale] || w.meaning.en;
-        const matchMeaning = meaning.toLowerCase().includes(query);
-        return matchRomaji || matchChar || matchMeaning;
+        const matchKanji = w.kanji?.includes(query);
+        const matchAliases = w.aliases?.some((a) => {
+          const aNorm = normalizeRomaji(a);
+          const aPhon = phoneticNorm(a);
+          if (normQuery.length <= 2) {
+            return (
+              a.toLowerCase() === query ||
+              aNorm === normQuery ||
+              aPhon === phonQuery ||
+              aNorm.startsWith(normQuery)
+            );
+          }
+          return (
+            a.toLowerCase().includes(query) ||
+            aNorm.includes(normQuery) ||
+            aPhon.includes(phonQuery)
+          );
+        });
+        const matchMeaning = Object.values(w.meaning).some((m) => {
+          const mNorm = normalizeRomaji(m);
+          if (normQuery.length <= 2) {
+            return (
+              m.toLowerCase() === query ||
+              mNorm === normQuery ||
+              mNorm.startsWith(normQuery)
+            );
+          }
+          return m.toLowerCase().includes(query) || mNorm.includes(normQuery);
+        });
+        return matchRomaji || matchChar || matchKanji || matchAliases || matchMeaning;
       }
       return true;
     });
-  }, [words, activeScript, searchQuery, locale]);
+  }, [words, activeScript, searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ece9d8] text-black">

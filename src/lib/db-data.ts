@@ -20,6 +20,7 @@ interface RawKanaItem {
   hint_en?: string;
   hint_id?: string;
   hint_ja?: string;
+  aliases?: string[];
 }
 
 interface RawVocabItem {
@@ -36,6 +37,7 @@ interface RawVocabItem {
   sentence?: unknown;
   kanjiOptions?: unknown;
   kanji_options?: unknown;
+  aliases?: string[];
 }
 
 /**
@@ -56,6 +58,7 @@ export async function getAllKana(): Promise<KanaCharacter[]> {
       id: r.hint_id || "",
       ja: r.hint_ja || "",
     },
+    aliases: r.aliases,
   }));
 
   return cachedKana;
@@ -118,19 +121,24 @@ export async function getAllVocabulary(): Promise<VocabWord[]> {
     furigana: r.furigana ? parseJsonField<FuriganaSegment[]>(r.furigana) : undefined,
     sentence: r.sentence ? parseJsonField<VocabSentence>(r.sentence) : undefined,
     kanjiOptions: r.kanjiOptions || r.kanji_options ? parseJsonField<KanjiOption[]>(r.kanjiOptions || r.kanji_options) : undefined,
+    aliases: r.aliases,
   }));
 
   return cachedVocab;
 }
 
 /**
- * Find single vocabulary item by slug
+ * Find single vocabulary item by slug or alias
  */
 export async function getWordBySlug(slug?: string): Promise<VocabWord | undefined> {
   if (!slug) return undefined;
   const all = await getAllVocabulary();
   const normSlug = slug.toLowerCase();
-  return all.find((w) => w.slug === normSlug);
+  return all.find(
+    (w) =>
+      w.slug === normSlug ||
+      w.aliases?.some((a) => a.toLowerCase() === normSlug)
+  );
 }
 
 /**

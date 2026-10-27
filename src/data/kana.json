@@ -141,7 +141,10 @@
     "hint_en": "A fishing hook underwater.",
     "hint_id": "Kail pancing melengkung di air.",
     "hint_ja": "「之」の草書体。釣り針のような形。",
-    "created_at": "2026-10-11T01:21:18.125Z"
+    "created_at": "2026-10-11T01:21:18.125Z",
+    "aliases": [
+      "si"
+    ]
   },
   {
     "id": "h-su",
@@ -201,7 +204,10 @@
     "hint_en": "A cheerleader doing a flip (number 5 shape).",
     "hint_id": "Pemandu sorak melompat (mirip angka 5 terbalik).",
     "hint_ja": "「知」の草書体から作られた文字。",
-    "created_at": "2026-10-11T01:21:18.398Z"
+    "created_at": "2026-10-11T01:21:18.398Z",
+    "aliases": [
+      "ti"
+    ]
   },
   {
     "id": "h-tsu",
@@ -213,7 +219,10 @@
     "hint_en": "A massive tsunami wave curling.",
     "hint_id": "Ombak besar tsunami menggulung tinggi.",
     "hint_ja": "「州」の草書体。波のような大きな曲線。",
-    "created_at": "2026-10-11T01:21:18.457Z"
+    "created_at": "2026-10-11T01:21:18.457Z",
+    "aliases": [
+      "tu"
+    ]
   },
   {
     "id": "h-te",
@@ -333,7 +342,10 @@
     "hint_en": "Mount Fuji with clouds on each side.",
     "hint_id": "Gunung Fuji dengan awan di sisi kiri kanan.",
     "hint_ja": "「不」の草書体。富士山の姿を思わせる形。",
-    "created_at": "2026-10-11T01:21:19.046Z"
+    "created_at": "2026-10-11T01:21:19.046Z",
+    "aliases": [
+      "hu"
+    ]
   },
   {
     "id": "h-he",
@@ -1317,7 +1329,12 @@
     "hint_en": "Sharp angle of a card.",
     "hint_id": "Sudut kartu tajam tanpa garis tetes samping.",
     "hint_ja": "「加」の偏（力）から取られた文字。",
-    "created_at": "2026-10-11T01:21:23.537Z"
+    "created_at": "2026-10-11T01:21:23.537Z",
+    "aliases": [
+      "cafe",
+      "kafe",
+      "card"
+    ]
   },
   {
     "id": "k-ki",
@@ -1389,7 +1406,10 @@
     "hint_en": "A smiling face looking upward (strokes upward).",
     "hint_id": "Wajah tersenyum menatap ke atas (tarikan ke atas).",
     "hint_ja": "「之」の草書体・点画から取られた文字。下から上へ払う。",
-    "created_at": "2026-10-11T01:21:23.852Z"
+    "created_at": "2026-10-11T01:21:23.852Z",
+    "aliases": [
+      "si"
+    ]
   },
   {
     "id": "k-su",
@@ -1449,7 +1469,10 @@
     "hint_en": "A cheerleader jumping with pom-poms.",
     "hint_id": "Pemandu sorak melompat riang.",
     "hint_ja": "「千」の字から取られた文字。",
-    "created_at": "2026-10-11T01:21:24.095Z"
+    "created_at": "2026-10-11T01:21:24.095Z",
+    "aliases": [
+      "ti"
+    ]
   },
   {
     "id": "k-tsu",
@@ -1461,7 +1484,10 @@
     "hint_en": "Two drops falling down into a tsunami.",
     "hint_id": "Dua tetes air jatuh ke ombak (tarikan dari atas).",
     "hint_ja": "「州」の3画から取られた文字。上から下へ払う。",
-    "created_at": "2026-10-11T01:21:24.146Z"
+    "created_at": "2026-10-11T01:21:24.146Z",
+    "aliases": [
+      "tu"
+    ]
   },
   {
     "id": "k-te",
@@ -1581,7 +1607,10 @@
     "hint_en": "A bird flying fast or a flag edge.",
     "hint_id": "Sudut bendera berkibar di tiang.",
     "hint_ja": "「不」の初画から取られた文字。",
-    "created_at": "2026-10-11T01:21:24.660Z"
+    "created_at": "2026-10-11T01:21:24.660Z",
+    "aliases": [
+      "hu"
+    ]
   },
   {
     "id": "k-he",
@@ -2505,7 +2534,13 @@
     "hint_en": "Katakana fu (フ) + small a (ァ).",
     "hint_id": "Katakana fu (フ) + a kecil (ァ).",
     "hint_ja": "外来語の表記：フ＋ァ。",
-    "created_at": "2026-10-11T01:21:29.016Z"
+    "created_at": "2026-10-11T01:21:29.016Z",
+    "aliases": [
+      "fast",
+      "fashion",
+      "fasshon",
+      "fan"
+    ]
   },
   {
     "id": "k-fi",
@@ -2517,7 +2552,12 @@
     "hint_en": "Katakana fu (フ) + small i (ィ).",
     "hint_id": "Katakana fu (フ) + i kecil (ィ).",
     "hint_ja": "外来語の表記：フ＋ィ。",
-    "created_at": "2026-10-11T01:21:29.066Z"
+    "created_at": "2026-10-11T01:21:29.066Z",
+    "aliases": [
+      "film",
+      "filmu",
+      "finger"
+    ]
   },
   {
     "id": "k-fe",
@@ -2526,10 +2566,17 @@
     "romaji": "fe",
     "type": "extended",
     "row": "extended",
-    "hint_en": "Katakana fu (フ) + small e (ェ).",
-    "hint_id": "Katakana fu (フ) + e kecil (ェ).",
-    "hint_ja": "外来語の表記：フ＋ェ。",
-    "created_at": "2026-10-11T01:21:29.112Z"
+    "hint_en": "Katakana fu (フ) + small e (ェ). Used in café (カフェ) and festival (フェス).",
+    "hint_id": "Katakana fu (フ) + e kecil (ェ). Dipakai pada kata kafe (カフェ) dan festival (フェス).",
+    "hint_ja": "外来語の表記：フ＋ェ。「カフェ」「フェス」などで頻出。",
+    "created_at": "2026-10-11T01:21:29.112Z",
+    "aliases": [
+      "cafe",
+      "café",
+      "kafe",
+      "festival",
+      "fesu"
+    ]
   },
   {
     "id": "k-fo",
@@ -2538,10 +2585,15 @@
     "romaji": "fo",
     "type": "extended",
     "row": "extended",
-    "hint_en": "Katakana fu (フ) + small o (ォ).",
-    "hint_id": "Katakana fu (フ) + o kecil (ォ).",
-    "hint_ja": "外来語の表記：フ＋ォ。",
-    "created_at": "2026-10-11T01:21:29.175Z"
+    "hint_en": "Katakana fu (フ) + small o (ォ). Used in fork (フォーク).",
+    "hint_id": "Katakana fu (フ) + o kecil (ォ). Dipakai pada kata garpu / fork (フォーク).",
+    "hint_ja": "外来語の表記：フ＋ォ。「フォーク」などで頻出。",
+    "created_at": "2026-10-11T01:21:29.175Z",
+    "aliases": [
+      "fork",
+      "fooku",
+      "font"
+    ]
   },
   {
     "id": "k-ti",

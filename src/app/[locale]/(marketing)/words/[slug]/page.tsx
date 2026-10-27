@@ -25,6 +25,16 @@ export async function generateStaticParams() {
         locale,
         slug: w.slug,
       });
+      w.aliases?.forEach((alias) => {
+        const cleanAlias = alias.toLowerCase().replace(/[^a-z0-9-]/g, "");
+        if (
+          cleanAlias &&
+          cleanAlias !== w.slug &&
+          !params.some((p) => p.locale === locale && p.slug === cleanAlias)
+        ) {
+          params.push({ locale, slug: cleanAlias });
+        }
+      });
     });
   });
   return params;
@@ -76,6 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${word.romaji} in japanese`,
       `what does ${word.romaji} mean`,
       `japanese word ${word.character}`,
+      ...(word.aliases || []),
       `learn japanese vocabulary`,
       "sakanajp",
     ],
@@ -106,7 +117,11 @@ export default async function WordDetailPage({ params }: Props) {
       {
         "@type": "DefinedTerm",
         name: `${word.character} (${word.romaji})`,
-        alternateName: word.kanji ? [word.kanji, word.romaji] : [word.romaji],
+        alternateName: [
+          ...(word.kanji ? [word.kanji] : []),
+          word.romaji,
+          ...(word.aliases || []),
+        ],
         termCode: word.character,
         description: word.meaning[locale as "en" | "id" | "ja"] || word.meaning.en,
         inLanguage: "ja",

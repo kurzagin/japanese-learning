@@ -61,7 +61,12 @@
     "sentence": "{\"ja\":\"夏の海はとても青いです。\",\"furigana\":[{\"ruby\":\"夏\",\"rt\":\"なつ\"},{\"ruby\":\"の\"},{\"ruby\":\"海\",\"rt\":\"うみ\"},{\"ruby\":\"はとても\"},{\"ruby\":\"青\",\"rt\":\"あお\"},{\"ruby\":\"いです。\"}],\"romaji\":\"Natsu no umi wa totemo aoi desu.\",\"en\":\"The summer ocean is very blue.\",\"id\":\"Laut di musim panas sangat biru.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:30.465Z",
-    "updated_at": "2026-10-16T06:43:30.465Z"
+    "updated_at": "2026-10-16T06:43:30.465Z",
+    "aliases": [
+      "sea",
+      "ocean",
+      "laut"
+    ]
   },
   {
     "slug": "eki",
@@ -157,7 +162,11 @@
     "sentence": "{\"ja\":\"山から白い煙が上がっています。\",\"furigana\":[{\"ruby\":\"山\",\"rt\":\"やま\"},{\"ruby\":\"から\"},{\"ruby\":\"白\",\"rt\":\"しろ\"},{\"ruby\":\"い\"},{\"ruby\":\"煙\",\"rt\":\"けむり\"},{\"ruby\":\"が\"},{\"ruby\":\"上\",\"rt\":\"あ\"},{\"ruby\":\"がっています。\"}],\"romaji\":\"Yama kara shiroi kemuri ga agatte imasu.\",\"en\":\"White smoke is rising from the mountain.\",\"id\":\"Asap putih membubung dari gunung.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:30.836Z",
-    "updated_at": "2026-10-16T06:43:30.836Z"
+    "updated_at": "2026-10-16T06:43:30.836Z",
+    "aliases": [
+      "smoke",
+      "asap"
+    ]
   },
   {
     "slug": "kokoro",
@@ -381,7 +390,12 @@
     "sentence": "{\"ja\":\"可愛いポケモンのぬいぐるみを集めています。\",\"furigana\":[{\"ruby\":\"可愛\",\"rt\":\"かわい\"},{\"ruby\":\"い\"},{\"ruby\":\"ポケモン\"},{\"ruby\":\"の\"},{\"ruby\":\"ぬいぐるみ\"},{\"ruby\":\"を\"},{\"ruby\":\"集\",\"rt\":\"あつ\"},{\"ruby\":\"めています。\"}],\"romaji\":\"Kawaii pokemon no nuigurumi wo atsumete imasu.\",\"en\":\"I collect cute Pokemon plushies.\",\"id\":\"Saya mengoleksi boneka Pokemon yang lucu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:31.618Z",
-    "updated_at": "2026-10-16T06:43:31.618Z"
+    "updated_at": "2026-10-16T06:43:31.618Z",
+    "aliases": [
+      "plushie",
+      "stuffed toy",
+      "boneka"
+    ]
   },
   {
     "slug": "neko",
@@ -509,7 +523,11 @@
     "sentence": "{\"ja\":\"夏祭りで浴衣を着ました。\",\"furigana\":[{\"ruby\":\"夏祭\",\"rt\":\"なつまつ\"},{\"ruby\":\"りで\"},{\"ruby\":\"浴衣\",\"rt\":\"ゆかた\"},{\"ruby\":\"を\"},{\"ruby\":\"着\",\"rt\":\"き\"},{\"ruby\":\"ました。\"}],\"romaji\":\"Natsumatsuri de yukata wo kimashita.\",\"en\":\"I wore a yukata at the summer festival.\",\"id\":\"Saya mengenakan yukata di festival musim panas.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:32.064Z",
-    "updated_at": "2026-10-16T06:43:32.064Z"
+    "updated_at": "2026-10-16T06:43:32.064Z",
+    "aliases": [
+      "festival",
+      "perayaan"
+    ]
   },
   {
     "slug": "mizu",
@@ -541,7 +559,12 @@
     "sentence": "{\"ja\":\"夏になるとセミなどの虫が鳴きます。\",\"furigana\":[{\"ruby\":\"夏\",\"rt\":\"なつ\"},{\"ruby\":\"になるとセミなどの\"},{\"ruby\":\"虫\",\"rt\":\"むし\"},{\"ruby\":\"が\"},{\"ruby\":\"鳴\",\"rt\":\"な\"},{\"ruby\":\"きます。\"}],\"romaji\":\"Natsu ni naru to semi nado no mushi ga nakimasu.\",\"en\":\"When summer comes, insects like cicadas sing.\",\"id\":\"Saat musim panas tiba, serangga seperti tonggeret bersuara.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:32.175Z",
-    "updated_at": "2026-10-16T06:43:32.175Z"
+    "updated_at": "2026-10-16T06:43:32.175Z",
+    "aliases": [
+      "bug",
+      "insect",
+      "serangga"
+    ]
   },
   {
     "slug": "megane",
@@ -557,7 +580,12 @@
     "sentence": "{\"ja\":\"本を読むときに眼鏡をかけます。\",\"furigana\":[{\"ruby\":\"本\",\"rt\":\"ほん\"},{\"ruby\":\"を\"},{\"ruby\":\"読\",\"rt\":\"よ\"},{\"ruby\":\"むときに\"},{\"ruby\":\"眼鏡\",\"rt\":\"めがね\"},{\"ruby\":\"をかけます。\"}],\"romaji\":\"Hon wo yomu toki ni megane wo kakemasu.\",\"en\":\"I wear glasses when reading books.\",\"id\":\"Saya memakai kacamata saat membaca buku.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:32.232Z",
-    "updated_at": "2026-10-16T06:43:32.232Z"
+    "updated_at": "2026-10-16T06:43:32.232Z",
+    "aliases": [
+      "glasses",
+      "eyeglasses",
+      "kacamata"
+    ]
   },
   {
     "slug": "mori",
@@ -653,7 +681,11 @@
     "sentence": "{\"ja\":\"朝に甘いりんごを食べます。\",\"furigana\":[{\"ruby\":\"朝\",\"rt\":\"あさ\"},{\"ruby\":\"に\"},{\"ruby\":\"甘\",\"rt\":\"あま\"},{\"ruby\":\"いりんごを\"},{\"ruby\":\"食\",\"rt\":\"た\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Asa ni amai ringo wo tabemasu.\",\"en\":\"I eat a sweet apple in the morning.\",\"id\":\"Saya makan apel manis di pagi hari.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:32.629Z",
-    "updated_at": "2026-10-16T06:43:32.629Z"
+    "updated_at": "2026-10-16T06:43:32.629Z",
+    "aliases": [
+      "apple",
+      "apel"
+    ]
   },
   {
     "slug": "rusu",
@@ -925,7 +957,13 @@
     "sentence": "{\"ja\":\"来年大学に進学します。\",\"furigana\":[{\"ruby\":\"来年\",\"rt\":\"らいねん\"},{\"ruby\":\"大学\",\"rt\":\"だいがく\"},{\"ruby\":\"に\"},{\"ruby\":\"進学\",\"rt\":\"しんがく\"},{\"ruby\":\"します。\"}],\"romaji\":\"Rainen daigaku ni shingaku shimasu.\",\"en\":\"I will enter university next year.\",\"id\":\"Tahun depan saya akan melanjutkan studi ke universitas.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:33.651Z",
-    "updated_at": "2026-10-16T06:43:33.651Z"
+    "updated_at": "2026-10-16T06:43:33.651Z",
+    "aliases": [
+      "university",
+      "college",
+      "universitas",
+      "kampus"
+    ]
   },
   {
     "slug": "hanaji",
@@ -1005,7 +1043,12 @@
     "sentence": "{\"ja\":\"待ち合わせの場所を決めましょう。\",\"furigana\":[{\"ruby\":\"待\",\"rt\":\"ま\"},{\"ruby\":\"ち\"},{\"ruby\":\"合\",\"rt\":\"あ\"},{\"ruby\":\"わせの\"},{\"ruby\":\"場所\",\"rt\":\"ばしょ\"},{\"ruby\":\"を\"},{\"ruby\":\"決\",\"rt\":\"き\"},{\"ruby\":\"めましょう。\"}],\"romaji\":\"Machiawase no basho wo kimemashou.\",\"en\":\"Let's decide on the meeting place.\",\"id\":\"Mari tentukan tempat pertemuannya.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:33.936Z",
-    "updated_at": "2026-10-16T06:43:33.936Z"
+    "updated_at": "2026-10-16T06:43:33.936Z",
+    "aliases": [
+      "place",
+      "lokasi",
+      "tempat"
+    ]
   },
   {
     "slug": "byouin",
@@ -1181,7 +1224,12 @@
     "sentence": "{\"ja\":\"ウェブサイトで最新の情報を調べます。\",\"furigana\":[{\"ruby\":\"ウェブサイトで\"},{\"ruby\":\"最新\",\"rt\":\"さいしん\"},{\"ruby\":\"の\"},{\"ruby\":\"情報\",\"rt\":\"じょうほう\"},{\"ruby\":\"を\"},{\"ruby\":\"調\",\"rt\":\"しら\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Webusaito de saishin no jouhou wo shirabemasu.\",\"en\":\"I look up the latest info on the website.\",\"id\":\"Saya mencari informasi terbaru di situs web.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:34.608Z",
-    "updated_at": "2026-10-16T06:43:34.608Z"
+    "updated_at": "2026-10-16T06:43:34.608Z",
+    "aliases": [
+      "web",
+      "website",
+      "situs"
+    ]
   },
   {
     "slug": "ekoo",
@@ -1213,7 +1261,11 @@
     "sentence": "{\"ja\":\"朝に新鮮なオレンジジュースを飲みます。\",\"furigana\":[{\"ruby\":\"朝\",\"rt\":\"あさ\"},{\"ruby\":\"に\"},{\"ruby\":\"新鮮\",\"rt\":\"しんせん\"},{\"ruby\":\"なオレンジジュースを\"},{\"ruby\":\"飲\",\"rt\":\"の\"},{\"ruby\":\"みます。\"}],\"romaji\":\"Asa ni shinsen na orenji juusu wo nomimasu.\",\"en\":\"I drink fresh orange juice in the morning.\",\"id\":\"Saya minum jus jeruk segar di pagi hari.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:34.724Z",
-    "updated_at": "2026-10-16T06:43:34.724Z"
+    "updated_at": "2026-10-16T06:43:34.724Z",
+    "aliases": [
+      "orange",
+      "jeruk"
+    ]
   },
   {
     "slug": "kafe",
@@ -1229,7 +1281,13 @@
     "sentence": "{\"ja\":\"静かなカフェで本を読みます。\",\"furigana\":[{\"ruby\":\"静\",\"rt\":\"しず\"},{\"ruby\":\"かなカフェで\"},{\"ruby\":\"本\",\"rt\":\"ほん\"},{\"ruby\":\"を\"},{\"ruby\":\"読\",\"rt\":\"よ\"},{\"ruby\":\"みます。\"}],\"romaji\":\"Shizukana kafe de hon wo yomimasu.\",\"en\":\"I read books at a quiet cafe.\",\"id\":\"Saya membaca buku di kafe yang tenang.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:34.782Z",
-    "updated_at": "2026-10-16T06:43:34.782Z"
+    "updated_at": "2026-10-16T06:43:34.782Z",
+    "aliases": [
+      "cafe",
+      "café",
+      "coffee shop",
+      "kedai kopi"
+    ]
   },
   {
     "slug": "kii",
@@ -1261,7 +1319,12 @@
     "sentence": "{\"ja\":\"日本語のクラスに新しい生徒が来ました。\",\"furigana\":[{\"ruby\":\"日本語\",\"rt\":\"にほんご\"},{\"ruby\":\"のクラスに\"},{\"ruby\":\"新\",\"rt\":\"あたら\"},{\"ruby\":\"しい\"},{\"ruby\":\"生徒\",\"rt\":\"せいと\"},{\"ruby\":\"が\"},{\"ruby\":\"来\",\"rt\":\"き\"},{\"ruby\":\"ました。\"}],\"romaji\":\"Nihongo no kurasu ni atarashii seito ga kimashita.\",\"en\":\"A new student came to the Japanese class.\",\"id\":\"Murid baru datang ke kelas bahasa Jepang.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:34.932Z",
-    "updated_at": "2026-10-16T06:43:34.932Z"
+    "updated_at": "2026-10-16T06:43:34.932Z",
+    "aliases": [
+      "class",
+      "kelas",
+      "classroom"
+    ]
   },
   {
     "slug": "keeki",
@@ -1293,7 +1356,11 @@
     "sentence": "{\"ja\":\"自動販売機にコインを入れます。\",\"furigana\":[{\"ruby\":\"自動販売機\",\"rt\":\"じどうはんばいき\"},{\"ruby\":\"にコインを\"},{\"ruby\":\"入\",\"rt\":\"い\"},{\"ruby\":\"れます。\"}],\"romaji\":\"Jidouhanbaiki ni koin wo iremasu.\",\"en\":\"I insert a coin into the vending machine.\",\"id\":\"Saya memasukkan koin ke mesin penjual otomatis.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:35.040Z",
-    "updated_at": "2026-10-16T06:43:35.040Z"
+    "updated_at": "2026-10-16T06:43:35.040Z",
+    "aliases": [
+      "coin",
+      "keping"
+    ]
   },
   {
     "slug": "sain",
@@ -1341,7 +1408,12 @@
     "sentence": "{\"ja\":\"週末に友達とスポーツを楽しみます。\",\"furigana\":[{\"ruby\":\"週末\",\"rt\":\"しゅうまつ\"},{\"ruby\":\"に\"},{\"ruby\":\"友達\",\"rt\":\"ともだち\"},{\"ruby\":\"とスポーツを\"},{\"ruby\":\"楽\",\"rt\":\"たの\"},{\"ruby\":\"しみます。\"}],\"romaji\":\"Shuumatsu ni tomodachi to supootsu wo tanoshimimasu.\",\"en\":\"I enjoy sports with friends on the weekend.\",\"id\":\"Saya menikmati olahraga bersama teman di akhir pekan.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:35.195Z",
-    "updated_at": "2026-10-16T06:43:35.195Z"
+    "updated_at": "2026-10-16T06:43:35.195Z",
+    "aliases": [
+      "sport",
+      "sports",
+      "olahraga"
+    ]
   },
   {
     "slug": "seetaa",
@@ -1357,7 +1429,10 @@
     "sentence": "{\"ja\":\"冬は温かいセーターを着ます。\",\"furigana\":[{\"ruby\":\"冬\",\"rt\":\"ふゆ\"},{\"ruby\":\"は\"},{\"ruby\":\"温\",\"rt\":\"あたた\"},{\"ruby\":\"かいセーターを\"},{\"ruby\":\"着\",\"rt\":\"き\"},{\"ruby\":\"ます。\"}],\"romaji\":\"Fuyu wa atatakai seetaa wo kimasu.\",\"en\":\"I wear a warm sweater in winter.\",\"id\":\"Saya memakai sweter hangat di musim dingin.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:35.261Z",
-    "updated_at": "2026-10-16T06:43:35.261Z"
+    "updated_at": "2026-10-16T06:43:35.261Z",
+    "aliases": [
+      "sweater"
+    ]
   },
   {
     "slug": "soosu",
@@ -1389,7 +1464,12 @@
     "sentence": "{\"ja\":\"駅からホテルまでタクシーで行きます。\",\"furigana\":[{\"ruby\":\"駅\",\"rt\":\"えき\"},{\"ruby\":\"からホテルまでタクシーで\"},{\"ruby\":\"行\",\"rt\":\"い\"},{\"ruby\":\"きます。\"}],\"romaji\":\"Eki kara hoteru made takushii de ikimasu.\",\"en\":\"I take a taxi from the station to the hotel.\",\"id\":\"Saya naik taksi dari stasiun ke hotel.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:35.370Z",
-    "updated_at": "2026-10-16T06:43:35.370Z"
+    "updated_at": "2026-10-16T06:43:35.370Z",
+    "aliases": [
+      "taxi",
+      "taksi",
+      "cab"
+    ]
   },
   {
     "slug": "chiizu",
@@ -1469,7 +1549,11 @@
     "sentence": "{\"ja\":\"ナイフとフォークを使って食べます。\",\"furigana\":[{\"ruby\":\"ナイフとフォークを\"},{\"ruby\":\"使\",\"rt\":\"つか\"},{\"ruby\":\"って\"},{\"ruby\":\"食\",\"rt\":\"た\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Naifu to fooku wo tsukatte tabemasu.\",\"en\":\"I eat using a knife and fork.\",\"id\":\"Saya makan menggunakan pisau dan garpu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:35.658Z",
-    "updated_at": "2026-10-16T06:43:35.658Z"
+    "updated_at": "2026-10-16T06:43:35.658Z",
+    "aliases": [
+      "knife",
+      "pisau"
+    ]
   },
   {
     "slug": "nyuusu",
@@ -1613,7 +1697,10 @@
     "sentence": "{\"ja\":\"旅行先のホテルを予約しました。\",\"furigana\":[{\"ruby\":\"旅行先\",\"rt\":\"りょこうさき\"},{\"ruby\":\"のホテルを\"},{\"ruby\":\"予約\",\"rt\":\"よやく\"},{\"ruby\":\"しました。\"}],\"romaji\":\"Ryokousaki no hoteru wo yoyaku shimashita.\",\"en\":\"I reserved a hotel at my travel destination.\",\"id\":\"Saya sudah memesan hotel di tempat tujuan wisata.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:36.231Z",
-    "updated_at": "2026-10-16T06:43:36.231Z"
+    "updated_at": "2026-10-16T06:43:36.231Z",
+    "aliases": [
+      "hotel"
+    ]
   },
   {
     "slug": "masuku",
@@ -1629,7 +1716,11 @@
     "sentence": "{\"ja\":\"風邪を予防するためにマスクを着けます。\",\"furigana\":[{\"ruby\":\"風邪\",\"rt\":\"かぜ\"},{\"ruby\":\"を\"},{\"ruby\":\"予防\",\"rt\":\"よぼう\"},{\"ruby\":\"するためにマスクを\"},{\"ruby\":\"着\",\"rt\":\"つ\"},{\"ruby\":\"けます。\"}],\"romaji\":\"Kaze wo yobou suru tame ni masuku wo tsukemasu.\",\"en\":\"I wear a mask to prevent catching a cold.\",\"id\":\"Saya memakai masker untuk mencegah flu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:36.291Z",
-    "updated_at": "2026-10-16T06:43:36.291Z"
+    "updated_at": "2026-10-16T06:43:36.291Z",
+    "aliases": [
+      "mask",
+      "masker"
+    ]
   },
   {
     "slug": "miruku",
@@ -1805,7 +1896,11 @@
     "sentence": "{\"ja\":\"美味しいイタリアンレストランを予約しました。\",\"furigana\":[{\"ruby\":\"美味\",\"rt\":\"おい\"},{\"ruby\":\"しいイタリアンレストランを\"},{\"ruby\":\"予約\",\"rt\":\"よやく\"},{\"ruby\":\"しました。\"}],\"romaji\":\"Oishii itarian resutoran wo yoyaku shimashita.\",\"en\":\"I booked a delicious Italian restaurant.\",\"id\":\"Saya memesan restoran Italia yang lezat.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:36.890Z",
-    "updated_at": "2026-10-16T06:43:36.890Z"
+    "updated_at": "2026-10-16T06:43:36.890Z",
+    "aliases": [
+      "restaurant",
+      "restoran"
+    ]
   },
   {
     "slug": "robotto",
@@ -1853,7 +1948,11 @@
     "sentence": "{\"ja\":\"朝ごはんに焼きたてのパンを食べます。\",\"furigana\":[{\"ruby\":\"朝\",\"rt\":\"あさ\"},{\"ruby\":\"ごはんに\"},{\"ruby\":\"焼\",\"rt\":\"や\"},{\"ruby\":\"きたてのパンを\"},{\"ruby\":\"食\",\"rt\":\"た\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Asagohan ni yakitate no pan wo tabemasu.\",\"en\":\"I eat freshly baked bread for breakfast.\",\"id\":\"Saya makan roti yang baru matang untuk sarapan.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:37.118Z",
-    "updated_at": "2026-10-16T06:43:37.118Z"
+    "updated_at": "2026-10-16T06:43:37.118Z",
+    "aliases": [
+      "bread",
+      "roti"
+    ]
   },
   {
     "slug": "gasu",
@@ -1933,7 +2032,10 @@
     "sentence": "{\"ja\":\"日曜日にゴルフ場でプレーします。\",\"furigana\":[{\"ruby\":\"日曜日\",\"rt\":\"にちようび\"},{\"ruby\":\"にゴルフ\"},{\"ruby\":\"場\",\"rt\":\"じょう\"},{\"ruby\":\"でプレーします。\"}],\"romaji\":\"Nichiyoubi ni gorufujou de puree shimasu.\",\"en\":\"I play at the golf course on Sunday.\",\"id\":\"Saya bermain di lapangan golf pada hari Minggu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:37.389Z",
-    "updated_at": "2026-10-16T06:43:37.389Z"
+    "updated_at": "2026-10-16T06:43:37.389Z",
+    "aliases": [
+      "golf"
+    ]
   },
   {
     "slug": "dezain",
@@ -1965,7 +2067,11 @@
     "sentence": "{\"ja\":\"冷たいリンゴジュースを飲みます。\",\"furigana\":[{\"ruby\":\"冷\",\"rt\":\"つめ\"},{\"ruby\":\"たいリンゴジュースを\"},{\"ruby\":\"飲\",\"rt\":\"の\"},{\"ruby\":\"みます。\"}],\"romaji\":\"Tsumetai ringo juusu wo nomimasu.\",\"en\":\"I drink cold apple juice.\",\"id\":\"Saya minum jus apel dingin.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:37.526Z",
-    "updated_at": "2026-10-16T06:43:37.526Z"
+    "updated_at": "2026-10-16T06:43:37.526Z",
+    "aliases": [
+      "juice",
+      "jus"
+    ]
   },
   {
     "slug": "zubon",
@@ -1981,7 +2087,12 @@
     "sentence": "{\"ja\":\"青いジーンズのズボンを履きます。\",\"furigana\":[{\"ruby\":\"青\",\"rt\":\"あお\"},{\"ruby\":\"いジーンズのズボンを\"},{\"ruby\":\"履\",\"rt\":\"は\"},{\"ruby\":\"きます。\"}],\"romaji\":\"Aoi jiinzu no zubon wo hakimasu.\",\"en\":\"I put on blue jeans trousers.\",\"id\":\"Saya memakai celana jin biru.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:37.586Z",
-    "updated_at": "2026-10-16T06:43:37.586Z"
+    "updated_at": "2026-10-16T06:43:37.586Z",
+    "aliases": [
+      "pants",
+      "trousers",
+      "celana"
+    ]
   },
   {
     "slug": "zero",
@@ -2061,7 +2172,10 @@
     "sentence": "{\"ja\":\"食後に甘いデザートを食べます。\",\"furigana\":[{\"ruby\":\"食後\",\"rt\":\"しょくご\"},{\"ruby\":\"に\"},{\"ruby\":\"甘\",\"rt\":\"あま\"},{\"ruby\":\"いデザートを\"},{\"ruby\":\"食\",\"rt\":\"た\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Shokugo ni amai dezaato wo tabemasu.\",\"en\":\"I eat sweet dessert after the meal.\",\"id\":\"Saya makan hidangan penutup yang manis setelah makan.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:37.949Z",
-    "updated_at": "2026-10-16T06:43:37.949Z"
+    "updated_at": "2026-10-16T06:43:37.949Z",
+    "aliases": [
+      "dessert"
+    ]
   },
   {
     "slug": "doa",
@@ -2109,7 +2223,11 @@
     "sentence": "{\"ja\":\"仕事の後に冷たいビールで乾杯します。\",\"furigana\":[{\"ruby\":\"仕事\",\"rt\":\"しごと\"},{\"ruby\":\"の\"},{\"ruby\":\"後\",\"rt\":\"あと\"},{\"ruby\":\"に\"},{\"ruby\":\"冷\",\"rt\":\"つめ\"},{\"ruby\":\"たいビールで\"},{\"ruby\":\"乾杯\",\"rt\":\"かんぱい\"},{\"ruby\":\"します。\"}],\"romaji\":\"Shigoto no ato ni tsumetai biiru de kanpai shimasu.\",\"en\":\"We toast with cold beer after work.\",\"id\":\"Kami bersulang dengan bir dingin setelah bekerja.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.123Z",
-    "updated_at": "2026-10-16T06:43:38.123Z"
+    "updated_at": "2026-10-16T06:43:38.123Z",
+    "aliases": [
+      "beer",
+      "bir"
+    ]
   },
   {
     "slug": "buutsu",
@@ -2157,7 +2275,11 @@
     "sentence": "{\"ja\":\"グラウンドでサッカーボールを蹴ります。\",\"furigana\":[{\"ruby\":\"グラウンドでサッカーボールを\"},{\"ruby\":\"蹴\",\"rt\":\"け\"},{\"ruby\":\"ります。\"}],\"romaji\":\"Guraundo de sakkaa booru wo kerimasu.\",\"en\":\"I kick the soccer ball on the field.\",\"id\":\"Saya menendang bola sepak di lapangan.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.280Z",
-    "updated_at": "2026-10-16T06:43:38.280Z"
+    "updated_at": "2026-10-16T06:43:38.280Z",
+    "aliases": [
+      "ball",
+      "bola"
+    ]
   },
   {
     "slug": "pasupooto",
@@ -2173,7 +2295,11 @@
     "sentence": "{\"ja\":\"空港でパスポートを見せます。\",\"furigana\":[{\"ruby\":\"空港\",\"rt\":\"くうこう\"},{\"ruby\":\"でパスポートを\"},{\"ruby\":\"見\",\"rt\":\"み\"},{\"ruby\":\"せます。\"}],\"romaji\":\"Kuukou de pasupooto wo misemasu.\",\"en\":\"I present my passport at the airport.\",\"id\":\"Saya memperlihatkan paspor di bandara.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.331Z",
-    "updated_at": "2026-10-16T06:43:38.331Z"
+    "updated_at": "2026-10-16T06:43:38.331Z",
+    "aliases": [
+      "passport",
+      "paspor"
+    ]
   },
   {
     "slug": "piano",
@@ -2221,7 +2347,11 @@
     "sentence": "{\"ja\":\"黒いペンで手紙を書きます。\",\"furigana\":[{\"ruby\":\"黒\",\"rt\":\"くろ\"},{\"ruby\":\"いペンで\"},{\"ruby\":\"手紙\",\"rt\":\"てがみ\"},{\"ruby\":\"を\"},{\"ruby\":\"書\",\"rt\":\"か\"},{\"ruby\":\"きます。\"}],\"romaji\":\"Kuroi pen de tegami wo kakimasu.\",\"en\":\"I write a letter with a black pen.\",\"id\":\"Saya menulis surat dengan pulpen hitam.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.518Z",
-    "updated_at": "2026-10-16T06:43:38.518Z"
+    "updated_at": "2026-10-16T06:43:38.518Z",
+    "aliases": [
+      "pulpen",
+      "pen"
+    ]
   },
   {
     "slug": "posuto",
@@ -2285,7 +2415,11 @@
     "sentence": "{\"ja\":\"夏のアニメソングフェスで大盛り上がりしました！\",\"furigana\":[{\"ruby\":\"夏\",\"rt\":\"なつ\"},{\"ruby\":\"のアニメソングフェスで\"},{\"ruby\":\"大盛\",\"rt\":\"おおも\"},{\"ruby\":\"り\"},{\"ruby\":\"上\",\"rt\":\"あ\"},{\"ruby\":\"がりしました！\"}],\"romaji\":\"Natsu no anime songu fesu de oomoriagari shimashita!\",\"en\":\"We had a blast at the summer anime song festival!\",\"id\":\"Kami sangat bersemangat di festival lagu anime musim panas!\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.742Z",
-    "updated_at": "2026-10-16T06:43:38.742Z"
+    "updated_at": "2026-10-16T06:43:38.742Z",
+    "aliases": [
+      "festival",
+      "fest"
+    ]
   },
   {
     "slug": "fooku",
@@ -2301,7 +2435,11 @@
     "sentence": "{\"ja\":\"フォークでパスタを巻いて食べます。\",\"furigana\":[{\"ruby\":\"フォークでパスタを\"},{\"ruby\":\"巻\",\"rt\":\"ま\"},{\"ruby\":\"いて\"},{\"ruby\":\"食\",\"rt\":\"た\"},{\"ruby\":\"べます。\"}],\"romaji\":\"Fooku de pasuta wo maite tabemasu.\",\"en\":\"I twirl pasta with a fork and eat it.\",\"id\":\"Saya menggulung pasta dengan garpu lalu memakannya.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:38.801Z",
-    "updated_at": "2026-10-16T06:43:38.801Z"
+    "updated_at": "2026-10-16T06:43:38.801Z",
+    "aliases": [
+      "fork",
+      "garpu"
+    ]
   },
   {
     "slug": "paatii",
@@ -2477,7 +2615,12 @@
     "sentence": "{\"ja\":\"日本のアニメを字幕なしで楽しみたいです！\",\"furigana\":[{\"ruby\":\"日本\",\"rt\":\"にほん\"},{\"ruby\":\"のアニメを\"},{\"ruby\":\"字幕\",\"rt\":\"じまく\"},{\"ruby\":\"なしで\"},{\"ruby\":\"楽\",\"rt\":\"たの\"},{\"ruby\":\"しみたいです！\"}],\"romaji\":\"Nihon no anime wo jimaku nashi de tanoshimitai desu!\",\"en\":\"I want to enjoy Japanese anime without subtitles!\",\"id\":\"Saya ingin menikmati anime Jepang tanpa terjemahan teks!\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:39.555Z",
-    "updated_at": "2026-10-16T06:43:39.555Z"
+    "updated_at": "2026-10-16T06:43:39.555Z",
+    "aliases": [
+      "animation",
+      "kartun",
+      "cartoon"
+    ]
   },
   {
     "slug": "koohii",
@@ -2493,7 +2636,11 @@
     "sentence": "{\"ja\":\"朝の目覚ましに温かいコーヒーを飲みます。\",\"furigana\":[{\"ruby\":\"朝\",\"rt\":\"あさ\"},{\"ruby\":\"の\"},{\"ruby\":\"目覚\",\"rt\":\"めざ\"},{\"ruby\":\"ましに\"},{\"ruby\":\"温\",\"rt\":\"あたた\"},{\"ruby\":\"かいコーヒーを\"},{\"ruby\":\"飲\",\"rt\":\"の\"},{\"ruby\":\"みます。\"}],\"romaji\":\"Asa no mezamashi ni atatakai koohii wo nomimasu.\",\"en\":\"I drink warm coffee to wake up in the morning.\",\"id\":\"Saya minum kopi hangat untuk menyegarkan diri di pagi hari.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:39.613Z",
-    "updated_at": "2026-10-16T06:43:39.613Z"
+    "updated_at": "2026-10-16T06:43:39.613Z",
+    "aliases": [
+      "coffee",
+      "kopi"
+    ]
   },
   {
     "slug": "raamen",
@@ -2509,7 +2656,10 @@
     "sentence": "{\"ja\":\"豚骨スープの熱いラーメンを注文します。\",\"furigana\":[{\"ruby\":\"豚骨\",\"rt\":\"とんこつ\"},{\"ruby\":\"スープの\"},{\"ruby\":\"熱\",\"rt\":\"あつ\"},{\"ruby\":\"いラーメンを\"},{\"ruby\":\"注文\",\"rt\":\"ちゅうもん\"},{\"ruby\":\"します。\"}],\"romaji\":\"Tonkotsu suupu no atsui raamen wo chuumon shimasu.\",\"en\":\"I order hot tonkotsu broth ramen.\",\"id\":\"Saya memesan semangkuk ramen panas kuah tonkotsu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:39.664Z",
-    "updated_at": "2026-10-16T06:43:39.664Z"
+    "updated_at": "2026-10-16T06:43:39.664Z",
+    "aliases": [
+      "ramen"
+    ]
   },
   {
     "slug": "terebi",
@@ -2525,7 +2675,12 @@
     "sentence": "{\"ja\":\"リビングのテレビでアニメの最新話を観ます。\",\"furigana\":[{\"ruby\":\"リビングのテレビでアニメの\"},{\"ruby\":\"最新話\",\"rt\":\"さいしんわ\"},{\"ruby\":\"を\"},{\"ruby\":\"観\",\"rt\":\"み\"},{\"ruby\":\"ます。\"}],\"romaji\":\"Ribingu no terebi de anime no saishinwa wo mimasu.\",\"en\":\"I watch the latest anime episode on the living room TV.\",\"id\":\"Saya menonton episode terbaru anime di TV ruang tamu.\"}",
     "kanji_options": null,
     "created_at": "2026-10-16T06:43:39.721Z",
-    "updated_at": "2026-10-16T06:43:39.721Z"
+    "updated_at": "2026-10-16T06:43:39.721Z",
+    "aliases": [
+      "tv",
+      "television",
+      "televisi"
+    ]
   },
   {
     "slug": "hashi",
@@ -3357,7 +3512,12 @@
     "sentence": "{\"ja\":\"バレンタインに甘いチョコレートをもらいました。\",\"furigana\":[{\"ruby\":\"バレンタインに\"},{\"ruby\":\"甘\",\"rt\":\"あま\"},{\"ruby\":\"いチョコレートをもらいました。\"}],\"romaji\":\"Barentain ni amai chokorēto wo moraimashita.\",\"en\":\"I received sweet chocolate on Valentine's Day.\",\"id\":\"Saya menerima cokelat manis saat hari Valentine.\"}",
     "kanji_options": null,
     "created_at": "2026-10-26T00:55:00.000Z",
-    "updated_at": "2026-10-26T00:55:00.000Z"
+    "updated_at": "2026-10-26T00:55:00.000Z",
+    "aliases": [
+      "chocolate",
+      "cokelat",
+      "choco"
+    ]
   },
   {
     "slug": "nyaa",
